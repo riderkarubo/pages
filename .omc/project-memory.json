@@ -1,0 +1,108 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775637814512,
+  "projectRoot": "/Users/issy/コーディング/Claude Code/仕事/03_クライアント/MCCM年次報告",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "01_年次報告会": {
+      "path": "01_年次報告会",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1775637814466,
+      "keyFiles": [
+        "MCCM_2025_年度統括報告会_ドラフト_修正_Opus_v2.pptx",
+        "MCCM_2025年度統括報告会.pdf",
+        "協賛配信のあゆみ.txt",
+        "年次報告_資産価値サマリー_20260326.md",
+        "年次報告会_提案骨子_20260408_v2.md"
+      ]
+    },
+    "02_データ": {
+      "path": "02_データ",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775637814481,
+      "keyFiles": [
+        "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
+        "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
+        "【マツココライブ】配信数値まとめ - 数値まとめ.csv"
+      ]
+    },
+    "03_テンプレート": {
+      "path": "03_テンプレート",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1775637814482,
+      "keyFiles": [
+        "MCCM_HTML設計書_v1.md",
+        "MCCM_新構成案_v1.md",
+        "スライドテンプレート用サンプルスライド.pptx",
+        "テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml"
+      ]
+    },
+    "メーカー実績レポート資料": {
+      "path": "メーカー実績レポート資料",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775637814483,
+      "keyFiles": []
+    },
+    "要確認": {
+      "path": "要確認",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775637814483,
+      "keyFiles": [
+        "MCCM_2025_年度統括報告会_ドラフト.pptx",
+        "年次報告会_提案骨子_20260408.md"
+      ]
+    },
+    "過去の振り返り資料": {
+      "path": "過去の振り返り資料",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775637814485,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "01_年次報告会/年次報告会_提案骨子_20260408_v3.md",
+      "accessCount": 2,
+      "lastAccessed": 1775639629332,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/年次報告会_提案骨子_20260408_v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1775638316458,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
