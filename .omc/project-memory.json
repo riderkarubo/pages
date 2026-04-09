@@ -93,8 +93,14 @@
   "hotPaths": [
     {
       "path": "01_年次報告会/年次報告会_提案骨子_20260408_v3.md",
+      "accessCount": 3,
+      "lastAccessed": 1775702667929,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/年次報告会_提案骨子_20260408_v3.md",
       "accessCount": 2,
-      "lastAccessed": 1775639629332,
+      "lastAccessed": 1775703201492,
       "type": "file"
     },
     {
@@ -102,6 +108,12 @@
       "accessCount": 1,
       "lastAccessed": 1775638316458,
       "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1775702655234,
+      "type": "directory"
     }
   ],
   "userDirectives": []
