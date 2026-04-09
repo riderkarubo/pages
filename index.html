@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code コマンド活用指南書</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 1120px; margin: 0 auto; }
+
+    /* ===== Hero ===== */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #161b22 0%, #1a2233 100%);
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(88,166,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero h1 { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 700; color: #f0f6fc; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .hero .subtitle { color: #8b949e; font-size: 1rem; max-width: 640px; margin: 0 auto 1.5rem; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #21262d; border: 1px solid #30363d; border-radius: 9999px;
+      padding: 0.3rem 0.85rem; font-size: 0.78rem; color: #58a6ff;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #3fb950; }
+    .stats { display: flex; justify-content: center; gap: 2.5rem; margin-top: 1.75rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.75rem; font-weight: 700; color: #58a6ff; display: block; line-height: 1; }
+    .stat-label { font-size: 0.78rem; color: #8b949e; margin-top: 0.25rem; }
+
+    /* ===== Section ===== */
+    section { margin-bottom: 3rem; }
+    .section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .section-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .icon-blue   { background: rgba(88,166,255,0.12); }
+    .icon-green  { background: rgba(63,185,80,0.12); }
+    .icon-purple { background: rgba(163,113,247,0.12); }
+    .icon-orange { background: rgba(210,153,34,0.12); }
+    .icon-red    { background: rgba(248,81,73,0.12); }
+    .icon-teal   { background: rgba(58,181,174,0.12); }
+    .icon-gray   { background: rgba(139,148,158,0.12); }
+    .section-header h2 { font-size: 1.2rem; font-weight: 600; color: #f0f6fc; }
+    .section-count {
+      margin-left: auto; font-size: 0.75rem; color: #8b949e;
+      background: #21262d; border: 1px solid #30363d;
+      border-radius: 9999px; padding: 0.2rem 0.6rem;
+    }
+
+    /* ===== Workflow Cards ===== */
+    .workflow { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .phase-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+      padding: 1.25rem; transition: border-color 0.2s;
+    }
+    .phase-card:hover { border-color: #58a6ff; }
+    .phase-tag {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 9999px; margin-bottom: 0.85rem;
+    }
+    .tag-plan   { background: rgba(88,166,255,0.15); color: #58a6ff; }
+    .tag-impl   { background: rgba(63,185,80,0.15); color: #3fb950; }
+    .tag-review { background: rgba(163,113,247,0.15); color: #a371f7; }
+    .phase-card h3 { font-size: 0.95rem; font-weight: 600; color: #f0f6fc; margin-bottom: 0.4rem; }
+    .phase-scenario { font-size: 0.8rem; color: #58a6ff; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.2); border-radius: 6px; padding: 0.4rem 0.6rem; margin-bottom: 0.75rem; }
+    .phase-card p { font-size: 0.82rem; color: #8b949e; margin-bottom: 0.85rem; }
+    .cmd-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .cmd-chip {
+      font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.75rem;
+      background: #21262d; border: 1px solid #30363d; border-radius: 6px;
+      padding: 0.2rem 0.55rem; color: #79c0ff; white-space: nowrap;
+    }
+
+    /* ===== Command Cards ===== */
+    .cmd-grid { display: grid; gap: 0.6rem; }
+    .cmd-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: grid; grid-template-columns: 140px 1fr auto;
+      gap: 0.5rem 1rem; align-items: start;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cmd-card:hover { border-color: #388bfd; background: #1c2128; }
+    .cmd-name {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.85rem; font-weight: 600; color: #79c0ff; white-space: nowrap;
+      padding-top: 0.1rem;
+    }
+    .cmd-body { min-width: 0; }
+    .cmd-when { font-size: 0.8rem; color: #f0f6fc; margin-bottom: 0.25rem; font-weight: 500; }
+    .cmd-desc { font-size: 0.78rem; color: #8b949e; }
+    .cmd-usage {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.72rem; color: #6e7681;
+      margin-top: 0.3rem; background: #21262d; border-radius: 4px;
+      padding: 0.2rem 0.5rem; display: inline-block;
+    }
+    .cmd-badge {
+      font-size: 0.68rem; border-radius: 9999px;
+      padding: 0.15rem 0.5rem; white-space: nowrap;
+      border: 1px solid; align-self: start; margin-top: 0.15rem;
+    }
+    .badge-agent  { color: #a371f7; border-color: rgba(163,113,247,0.4); background: rgba(163,113,247,0.08); }
+    .badge-script { color: #3fb950; border-color: rgba(63,185,80,0.4);   background: rgba(63,185,80,0.08); }
+    .badge-builtin { color: #58a6ff; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.08); }
+    .badge-plugin { color: #f78166; border-color: rgba(247,129,102,0.4); background: rgba(247,129,102,0.08); }
+    .badge-skill  { color: #d2a8ff; border-color: rgba(210,168,255,0.4); background: rgba(210,168,255,0.08); }
+
+    /* ===== Category Label ===== */
+    .cat-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #8b949e;
+      padding: 0.5rem 0 0.3rem;
+      border-bottom: 1px solid #21262d; margin-bottom: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .cat-label:first-child { margin-top: 0; }
+
+    /* ===== Use Case Cards ===== */
+    .usecase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; }
+    .usecase-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 1.25rem; }
+    .usecase-trigger {
+      font-size: 0.78rem; color: #d29922; background: rgba(210,153,34,0.1);
+      border: 1px solid rgba(210,153,34,0.25); border-radius: 6px;
+      padding: 0.35rem 0.6rem; margin-bottom: 0.85rem;
+    }
+    .usecase-card h3 { font-size: 0.92rem; font-weight: 600; color: #f0f6fc; margin-bottom: 0.85rem; }
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .step-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.82rem; color: #8b949e; }
+    .step-num {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #21262d; border: 1px solid #30363d;
+      font-size: 0.65rem; display: flex; align-items: center; justify-content: center;
+      color: #58a6ff; flex-shrink: 0; margin-top: 2px; font-weight: 600;
+    }
+    .step-cmd { color: #79c0ff; font-family: "SFMono-Regular", Consolas, monospace; }
+    .step-note { color: #6e7681; font-size: 0.75rem; }
+
+    /* ===== Skills Grid ===== */
+    .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.6rem; }
+    .skill-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+      padding: 0.75rem 1rem; transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: #388bfd; }
+    .skill-name { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.8rem; color: #d2a8ff; font-weight: 600; margin-bottom: 0.25rem; }
+    .skill-when { font-size: 0.76rem; color: #c9d1d9; margin-bottom: 0.2rem; }
+    .skill-desc { font-size: 0.74rem; color: #6e7681; }
+
+    /* ===== Tips ===== */
+    .tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; }
+    .tip-card {
+      background: #161b22; border: 1px solid #30363d;
+      border-left: 3px solid #58a6ff; border-radius: 0 10px 10px 0;
+      padding: 0.9rem 1.1rem;
+    }
+    .tip-card h4 { font-size: 0.88rem; color: #f0f6fc; font-weight: 600; margin-bottom: 0.3rem; }
+    .tip-card p { font-size: 0.81rem; color: #8b949e; }
+    .tip-card code { font-family: "SFMono-Regular", Consolas, monospace; color: #79c0ff; font-size: 0.85em; }
+
+    /* ===== Cheatsheet ===== */
+    .cheatsheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0.75rem; }
+    .cs-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 1rem; }
+    .cs-phase { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid #21262d; }
+    .cs-cmds { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .cs-cmd { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.7rem; background: #21262d; border: 1px solid #30363d; border-radius: 4px; padding: 0.15rem 0.4rem; color: #8b949e; }
+
+    /* ===== Notice ===== */
+    .notice {
+      font-size: 0.8rem; color: #8b949e; background: #161b22;
+      border: 1px solid #30363d; border-radius: 8px;
+      padding: 0.75rem 1rem; margin-bottom: 1rem;
+    }
+    .notice code { font-family: "SFMono-Regular", Consolas, monospace; color: #79c0ff; }
+
+    /* ===== OMC Section ===== */
+    .omc-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border: 1px solid rgba(163,113,247,0.3); border-radius: 12px;
+      padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;
+      position: relative; overflow: hidden;
+    }
+    .omc-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(163,113,247,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .omc-hero h3 { font-size: 1rem; font-weight: 600; color: #d2a8ff; margin-bottom: 0.4rem; }
+    .omc-hero p { font-size: 0.82rem; color: #8b949e; }
+    .omc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .omc-card {
+      background: #161b22; border: 1px solid rgba(163,113,247,0.2); border-radius: 10px;
+      padding: 1rem 1.2rem; transition: border-color 0.2s;
+    }
+    .omc-card:hover { border-color: #a371f7; }
+    .omc-card-title { font-size: 0.85rem; font-weight: 600; color: #d2a8ff; margin-bottom: 0.3rem; }
+    .omc-card-desc { font-size: 0.78rem; color: #8b949e; margin-bottom: 0.6rem; }
+    .omc-trigger-label { font-size: 0.7rem; color: #6e7681; margin-bottom: 0.3rem; }
+    .keyword-chip {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      background: rgba(163,113,247,0.12); border: 1px solid rgba(163,113,247,0.3);
+      color: #d2a8ff; border-radius: 9999px; padding: 0.15rem 0.55rem;
+      margin: 0.15rem 0.15rem 0 0;
+    }
+    .omc-agent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.6rem; margin-bottom: 1rem; }
+    .omc-agent-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+      padding: 0.75rem 1rem; transition: border-color 0.2s;
+    }
+    .omc-agent-card:hover { border-color: #a371f7; }
+    .omc-agent-name { font-size: 0.8rem; font-weight: 600; color: #a371f7; margin-bottom: 0.2rem; }
+    .omc-agent-when { font-size: 0.76rem; color: #c9d1d9; margin-bottom: 0.15rem; }
+    .omc-agent-desc { font-size: 0.73rem; color: #6e7681; }
+    .omc-cmd-grid { display: grid; gap: 0.6rem; }
+
+    /* ===== Footer ===== */
+    .footer { margin-top: 3rem; text-align: center; padding: 1.5rem; background: #161b22; border: 1px solid #30363d; border-radius: 12px; font-size: 0.82rem; color: #8b949e; }
+    .footer strong { color: #c9d1d9; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Claude Code コマンド活用指南書</h1>
+    <p class="subtitle">いつ・どのコマンドを使うべきか——シーン別に引ける開発者のためのリファレンス</p>
+    <div class="hero-badge"><span class="badge-dot"></span> 2026年3月時点 実在コマンドのみ掲載</div>
+    <div class="stats">
+      <div class="stat"><span class="stat-num">17</span><span class="stat-label">ユーザー定義</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">ビルトイン</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">プラグイン</span></div>
+      <div class="stat"><span class="stat-num">11</span><span class="stat-label">スキル呼び出し</span></div>
+      <div class="stat"><span class="stat-num" style="color:#d2a8ff;">OMC</span><span class="stat-label">マルチエージェント</span></div>
+    </div>
+  </div>
+
+  <!-- Section 1: Workflow -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-blue">🔄</div>
+      <h2>1. 開発の黄金ワークフロー</h2>
+    </div>
+    <div class="workflow">
+      <div class="phase-card">
+        <div class="phase-tag tag-plan">① 計画</div>
+        <h3>まず「何を作るか」を合意する</h3>
+        <div class="phase-scenario">「新しい機能を追加したい」「バグを直したいが影響範囲が不明」</div>
+        <p>いきなりコードを書かせず、要件・リスク・依存関係を洗い出してから始める。後戻りが激減する。</p>
+        <div class="cmd-chips">
+          <span class="cmd-chip">/dev-routine</span>
+          <span class="cmd-chip">/plan</span>
+          <span class="cmd-chip">/orchestrate</span>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-tag tag-impl">② 実装</div>
+        <h3>テストから書いて品質を最初から担保</h3>
+        <div class="phase-scenario">「バグが後から見つかる」「型エラーが大量に出た」「UIを新しく作る」</div>
+        <p>テストを先に書くことで仕様の曖昧さを排除し、ビルドエラーはAIに自動修正させる。</p>
+        <div class="cmd-chips">
+          <span class="cmd-chip">/tdd</span>
+          <span class="cmd-chip">/ui-skills</span>
+          <span class="cmd-chip">/build-fix</span>
+          <span class="cmd-chip">/feature-dev</span>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-tag tag-review">③ 検証・コミット</div>
+        <h3>コミット前に穴を全部塞ぐ</h3>
+        <div class="phase-scenario">「プッシュする前に確認したい」「セキュリティが心配」「テストが足りているか不安」</div>
+        <p>セキュリティ・カバレッジ・ビルドを一括チェックして、安心してコミット・PRを出す。</p>
+        <div class="cmd-chips">
+          <span class="cmd-chip">/code-review</span>
+          <span class="cmd-chip">/test-coverage</span>
+          <span class="cmd-chip">/verify</span>
+          <span class="cmd-chip">/commit</span>
+          <span class="cmd-chip">/commit-push-pr</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Use Cases -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-green">⚡</div>
+      <h2>2. よくある困りごと別：使うべきコマンド</h2>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-trigger">「コードが肥大化してきた、整理したい」</div>
+        <h3>技術的負債の解消</h3>
+        <ul class="step-list">
+          <li><span class="step-num">1</span><div><span class="step-cmd">/refactor-clean</span> — 使っていない関数・変数・import を knip で検出して安全に削除</div></li>
+          <li><span class="step-num">2</span><div><span class="step-cmd">/update-codemaps</span> — 整理後にアーキテクチャ図を再生成して全体像を把握</div></li>
+        </ul>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-trigger">「READMEが古い、新メンバーが迷っている」</div>
+        <h3>ドキュメントの同期</h3>
+        <ul class="step-list">
+          <li><span class="step-num">1</span><div><span class="step-cmd">/update-docs</span> — package.json の scripts と .env.example からREADME・RUNBOOKを自動更新</div></li>
+          <li><span class="step-num">2</span><div><span class="step-cmd">/update-codemaps</span> — ディレクトリ構造・依存関係の地図を最新化</div></li>
+        </ul>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-trigger">「同じミスをAIが繰り返す、学習させたい」</div>
+        <h3>AIを自分好みに育てる</h3>
+        <ul class="step-list">
+          <li><span class="step-num">1</span><div><span class="step-cmd">/checkpoint</span> — 大きな変更の前に git ベースのセーブポイント作成</div></li>
+          <li><span class="step-num">2</span><div><span class="step-cmd">/learn</span> — 「今回発見したパターン」をスキルファイルとして保存</div></li>
+          <li><span class="step-num">3</span><div><span class="step-cmd">/revise-claude-md</span> — セッションの気づきを CLAUDE.md に書き戻す（次回から自動参照）</div></li>
+        </ul>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-trigger">「ユーザーフローが壊れていないか確認したい」</div>
+        <h3>E2Eテストで品質保証</h3>
+        <ul class="step-list">
+          <li><span class="step-num">1</span><div><span class="step-cmd">/e2e ログイン〜購入フローのテスト</span> — Playwright でシナリオを自動生成・実行</div></li>
+          <li><span class="step-num">2</span><div><span class="step-cmd">/verify pre-pr</span> — E2E含む全テストをまとめて最終確認</div></li>
+        </ul>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-trigger">「会話が長くなってきて応答が遅い・ズレる」</div>
+        <h3>コンテキスト管理</h3>
+        <ul class="step-list">
+          <li><span class="step-num">1</span><div><span class="step-cmd">/cost</span> — 現在のトークン使用量を確認してどのくらい使ったか把握</div></li>
+          <li><span class="step-num">2</span><div><span class="step-cmd">/compact</span> — コンテキストを圧縮して速度・精度を回復</div></li>
+          <li><span class="step-num">3</span><div><span class="step-cmd">/context</span> — 現在の会話コンテキスト状態を確認</div></li>
+        </ul>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-trigger">「PRを誰かにレビューしてもらう前に確認したい」</div>
+        <h3>PR提出前チェック</h3>
+        <ul class="step-list">
+          <li><span class="step-num">1</span><div><span class="step-cmd">/code-review</span> — 未コミット変更を CRITICAL/HIGH/MEDIUM で重要度分類</div></li>
+          <li><span class="step-num">2</span><div><span class="step-cmd">/verify pre-pr</span> — ビルド・型・テスト・Lint・secrets を全部確認</div></li>
+          <li><span class="step-num">3</span><div><span class="step-cmd">/review-pr</span> — PRナンバーを指定して包括的なPRレビューを実施</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: All Commands -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-purple">📋</div>
+      <h2>3. 全コマンドリファレンス</h2>
+    </div>
+
+    <!-- 3-A: User Commands -->
+    <div class="cat-label" style="color:#79c0ff; border-color: rgba(88,166,255,0.2);">ユーザー定義コマンド — ~/.claude/commands/ （17個）</div>
+
+    <div class="cmd-grid" style="margin-bottom:0.5rem">
+
+      <div class="cmd-card">
+        <span class="cmd-name">/plan</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「新しい機能を作る前」「実装方針を決めたい」</div>
+          <div class="cmd-desc">要件を再整理・リスク洗い出し・フェーズ分割まで計画し、承認を待ってからコードを書く。大きなタスクほど効果が出る。</div>
+          <div class="cmd-usage">/plan ユーザー認証機能を追加したい</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/orchestrate</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「機能追加・バグ修正・リファクタなど一連の作業を自動で進めたい」</div>
+          <div class="cmd-desc">planner → tdd-guide → code-reviewer → security-reviewer の順で複数エージェントを連鎖実行。feature/bugfix/refactor/security から選択。</div>
+          <div class="cmd-usage">/orchestrate feature 検索機能をElasticsearchで実装</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/tdd</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「バグが後から出るのを防ぎたい」「テストを先に書いて仕様を固めたい」</div>
+          <div class="cmd-desc">インターフェース設計→テスト作成（RED）→最小実装（GREEN）→リファクタ→カバレッジ80%+確認。認証・金融ロジックは100%必須。</div>
+          <div class="cmd-usage">/tdd カートに商品を追加する関数</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/e2e</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「ユーザーが実際に操作するフローが壊れていないか確認したい」</div>
+          <div class="cmd-desc">Playwright でシナリオを自動生成・Chrome/Firefox/Safari で実行。失敗時にスクリーンショット・動画・トレースを取得する。</div>
+          <div class="cmd-usage">/e2e ゲストがカートに追加して購入完了するまでのフロー</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/build-fix</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「npm run build が通らない」「TypeScript の型エラーが大量に出た」</div>
+          <div class="cmd-desc">ビルドを実行してエラーをファイル別・重要度別に分類、1つずつ修正して再実行を繰り返す。3回失敗したら STOP して報告する。</div>
+          <div class="cmd-usage">/build-fix</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/code-review</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「コミットする前にセキュリティや品質を確認したい」</div>
+          <div class="cmd-desc">git diff HEAD の変更を CRITICAL（APIキー露出・SQLインジェクション等）/ HIGH（関数が長すぎ・エラーハンドリング欠落）/ MEDIUM（テスト不足等）で報告。</div>
+          <div class="cmd-usage">/code-review</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/verify</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「プッシュ前・PR提出前に全てのチェックをまとめて通したい」</div>
+          <div class="cmd-desc">ビルド→型チェック→Lint→テスト→console.log監査→git status を順番に実行。1つでも失敗したら STOP。pre-pr モードは security scan も追加。</div>
+          <div class="cmd-usage">/verify pre-pr</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/test-coverage</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「テストは書いたが80%に届いているか不安」「どこが足りないか知りたい」</div>
+          <div class="cmd-desc">カバレッジレポートを分析して80%未満のファイルを特定し、happy path / エラーケース / 境界値のテストを自動生成して実行する。</div>
+          <div class="cmd-usage">/test-coverage</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/eval</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIの出力品質を継続的に計測・管理したい」「機能の正しさを評価基準で検証したい」</div>
+          <div class="cmd-desc">eval駆動開発（EDD）ワークフロー。define でテスト定義、check で実行、report でpass@1/pass@3を集計。.claude/evals/ に記録される。</div>
+          <div class="cmd-usage">/eval define 要約機能 → /eval check 要約機能</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/checkpoint</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIに大規模な書き換えをさせる前」「失敗しても戻れる状態を作りたい」</div>
+          <div class="cmd-desc">git ベースでスナップショットを保存。create で作成、verify で比較、list で一覧、clear で古いものを削除（最新5つ保持）。</div>
+          <div class="cmd-usage">/checkpoint create before-refactor</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/dev-routine</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「開発を始める前に今日の作業環境を整えたい」「UI実装の制約を確認したい」</div>
+          <div class="cmd-desc">UI Skills制約（Tailwind・アクセシビリティ・アニメーションルール）の確認、現在ブランチ・未コミット変更・依存関係のチェックリストを表示。</div>
+          <div class="cmd-usage">/dev-routine</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/ui-skills</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「Reactコンポーネントを作る前」「アクセシビリティやアニメーションのルールを適用したい」</div>
+          <div class="cmd-desc">Tailwind/motion/react/cn スタックの制約を適用。icon-only ボタンに aria-label 必須・アニメーションは200ms以下・blur/backdrop-filter 非アニメート等。</div>
+          <div class="cmd-usage">/ui-skills または /ui-skills src/components/Button.tsx</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/refactor-clean</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「コードが肥大化してきた」「使っていない関数・変数・importを一掃したい」</div>
+          <div class="cmd-desc">knip/depcheck/ts-prune で未使用コードを検出し SAFE/CAUTION/DANGER で分類。各削除前にテスト実行→適用→再実行→失敗時自動ロールバック。</div>
+          <div class="cmd-usage">/refactor-clean</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/update-docs</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「package.json を更新したのに README の手順が古いまま」「環境変数が増えたのに .env.example が反映されていない」</div>
+          <div class="cmd-desc">package.json scripts → scripts一覧表、.env.example → 環境変数ドキュメント、docs/CONTRIB.md・RUNBOOK.md を自動生成・同期する。</div>
+          <div class="cmd-usage">/update-docs</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/update-codemaps</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「大きなリファクタ後に全体像が変わった」「新メンバーに構造を説明したい」</div>
+          <div class="cmd-desc">ソース全体を解析して codemaps/architecture.md・backend.md・frontend.md・data.md を更新。変更30%超なら承認を求める。</div>
+          <div class="cmd-usage">/update-codemaps</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/learn</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「今日のセッションで特殊なハマり方をした」「このプロジェクト固有のパターンをAIに覚えさせたい」</div>
+          <div class="cmd-desc">セッションを振り返り、エラー解決パターン・ワークアラウンド・プロジェクト固有の書き方を ~/.claude/skills/learned/ にスキルファイルとして保存。</div>
+          <div class="cmd-usage">/learn</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+      <div class="cmd-card">
+        <span class="cmd-name">/revise-claude-md</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIに何度も同じことを説明している」「このセッションの発見を次回から自動で使いたい」</div>
+          <div class="cmd-desc">セッションを振り返り、欠けていたコンテキスト・繰り返し説明した内容・発見した注意点を CLAUDE.md に追記する案を作成→承認で反映。</div>
+          <div class="cmd-usage">/revise-claude-md</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+
+    </div>
+
+    <!-- 3-B: Built-in -->
+    <div class="cat-label" style="color:#58a6ff; border-color: rgba(88,166,255,0.2); margin-top:1.5rem">Claude Code ビルトインコマンド（5個）</div>
+    <div class="cmd-grid" style="margin-bottom:0.5rem">
+      <div class="cmd-card">
+        <span class="cmd-name">/cost</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「このセッションでどのくらいトークンを使ったか確認したい」</div>
+          <div class="cmd-desc">現在のセッションのトークン使用量とコストを表示する。長い作業の途中で消費量を把握するのに使う。</div>
+        </div>
+        <span class="cmd-badge badge-builtin">ビルトイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/compact</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「会話が長くなって応答が遅い・ズレてきた」「コンテキストを節約して続けたい」</div>
+          <div class="cmd-desc">会話履歴を要約・圧縮してコンテキストウィンドウを解放する。応答速度と精度が改善する。</div>
+        </div>
+        <span class="cmd-badge badge-builtin">ビルトイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/context</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「今どんな情報がAIに渡っているか確認したい」「CLAUDE.md が読み込まれているか確認したい」</div>
+          <div class="cmd-desc">現在のコンテキスト（読み込まれているファイル・設定・会話履歴の状態）を表示する。</div>
+        </div>
+        <span class="cmd-badge badge-builtin">ビルトイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/debug</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIの動作がおかしい」「ツール呼び出しが失敗している原因を調べたい」</div>
+          <div class="cmd-desc">Claude Code の内部デバッグ情報を表示する。設定・ツール状態・エラーログを確認できる。</div>
+        </div>
+        <span class="cmd-badge badge-builtin">ビルトイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/batch</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「複数のタスクをまとめて一気に処理させたい」「繰り返し作業を自動化したい」</div>
+          <div class="cmd-desc">複数のプロンプト・タスクをバッチとして並列実行する。大量のファイル処理や反復作業に有効。</div>
+        </div>
+        <span class="cmd-badge badge-builtin">ビルトイン</span>
+      </div>
+    </div>
+
+    <!-- 3-C: Plugin Commands -->
+    <div class="cat-label" style="color:#f78166; border-color: rgba(247,129,102,0.2); margin-top:1.5rem">プラグインコマンド — claude-plugins-official（主要8個）</div>
+    <div class="cmd-grid" style="margin-bottom:0.5rem">
+      <div class="cmd-card">
+        <span class="cmd-name">/commit</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「ステージングした変更をコンベンショナルコミット形式でコミットしたい」</div>
+          <div class="cmd-desc">git diff を解析して適切なコミットメッセージ（feat:/fix:/refactor: 等）を自動生成してコミットする。</div>
+          <div class="cmd-usage">/commit</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/commit-push-pr</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「コミット→プッシュ→PR作成を一発でやりたい」</div>
+          <div class="cmd-desc">コミット・リモートへのプッシュ・GitHub PR の作成を一連で実行する。PRタイトル・本文も自動生成。</div>
+          <div class="cmd-usage">/commit-push-pr</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/review-pr</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「他人のPRを包括的にレビューしたい」「マージ前に品質・セキュリティを確認したい」</div>
+          <div class="cmd-desc">PR番号を指定して変更全体を分析。コード品質・セキュリティリスク・テスト不足・レビューコメントを生成する。</div>
+          <div class="cmd-usage">/review-pr 123</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/clean_gone</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「マージ済みのローカルブランチが大量に残っている」</div>
+          <div class="cmd-desc">リモートに存在しないローカルブランチ（gone）を一括削除する。定期的に実行してリポジトリを整理する。</div>
+          <div class="cmd-usage">/clean_gone</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/feature-dev</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「機能開発の手順をガイドに沿ってステップバイステップで進めたい」</div>
+          <div class="cmd-desc">要件定義→設計→TDD実装→レビューの順でガイドされながら機能を開発する対話型ワークフロー。</div>
+          <div class="cmd-usage">/feature-dev</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/hookify</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIが特定の操作をする前後に自動で何かを実行させたい」「フックを設定・管理したい」</div>
+          <div class="cmd-desc">PreToolUse/PostToolUse/Stop フックを対話的に作成・設定・一覧表示する。/hookify:configure で設定、/hookify:list で一覧。</div>
+          <div class="cmd-usage">/hookify または /hookify:list</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/create-plugin</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「自分用のスラッシュコマンドやスキルをプラグインとして作りたい」</div>
+          <div class="cmd-desc">プラグインの構造・コマンド・スキル・フック・エージェントのファイルを対話的に生成するワークフロー。</div>
+          <div class="cmd-usage">/create-plugin</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/new-sdk-app</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「Claude Agent SDK を使ったアプリケーションを一から作りたい」</div>
+          <div class="cmd-desc">Claude Agent SDK のスケルトンアプリを生成する。ツール定義・エージェントループ・エラー処理の雛形が揃った状態でスタートできる。</div>
+          <div class="cmd-usage">/new-sdk-app</div>
+        </div>
+        <span class="cmd-badge badge-plugin">プラグイン</span>
+      </div>
+    </div>
+
+    <!-- 3-D: Skill Commands -->
+    <div class="cat-label" style="color:#d2a8ff; border-color: rgba(210,168,255,0.2); margin-top:1.5rem">スキル呼び出し（/スキル名 でコマンドとして使用可、11個）</div>
+    <div class="notice">スキルは関連する作業中に自動参照されますが、<code>/coding-standards</code> のようにスラッシュコマンドとして明示的に呼び出すことで、より深い分析を引き出せます。</div>
+    <div class="cmd-grid">
+      <div class="cmd-card">
+        <span class="cmd-name">/coding-standards</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「このコードが TypeScript / React の規約に沿っているか確認したい」</div>
+          <div class="cmd-desc">不変性・エラーハンドリング・ファイルサイズ・ネスト深度・命名規則などの基準でコードをレビューする。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/frontend-patterns</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「React / Next.js のコンポーネント設計や状態管理のベストプラクティスを聞きたい」</div>
+          <div class="cmd-desc">カスタムフック・パフォーマンス最適化・状態管理パターン・レンダリング戦略を適用する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/backend-patterns</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「Node.js / Express / Next.js API の設計やDB最適化を相談したい」</div>
+          <div class="cmd-desc">Repository パターン・API レスポンス形式・ミドルウェア設計・DB クエリ最適化のパターンを適用する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/security-review</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「認証・ユーザー入力・APIキー・支払い機能を実装した後」</div>
+          <div class="cmd-desc">OWASP Top 10・シークレット漏洩・SSRF・インジェクション・安全でない暗号化を検出してレポートする。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/implement</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「計画を最小限に抑えてすぐにコードを書いてほしい」</div>
+          <div class="cmd-desc">読むファイルは最大3つ、計画は5箇条以内。すぐにコードを書き始め、変更ごとにテストを実行してパスしたらコミットする。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/tdd-workflow</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「言語に関係なく TDD の正しい手順をガイドしてほしい」</div>
+          <div class="cmd-desc">RED→GREEN→REFACTOR サイクルを言語非依存で解説・実施する。80%+カバレッジ義務付け。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/continuous-learning</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「セッション終了時にパターンを自動で抽出して保存したい」</div>
+          <div class="cmd-desc">セッションから再利用可能なコーディングパターン・問題解決パターンを抽出してスキルとして保存する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/strategic-compact</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「文脈が長くなってきたが、どこで圧縮すべきか判断したい」</div>
+          <div class="cmd-desc">コンテキストウィンドウの使用状況を評価し、論理的な区切りで手動圧縮を提案する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/eval-harness</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIの出力品質を定量的に評価する仕組みを作りたい」</div>
+          <div class="cmd-desc">Capability Evals（機能検証）と Regression Evals（既存動作確認）の評価フレームワークを構築する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/claude-api</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「Anthropic SDK や Agent SDK を使ったアプリを作りたい」「claude モデルを API から呼び出したい」</div>
+          <div class="cmd-desc">Anthropic SDK・Claude Agent SDK の使い方・ツール定義・ストリーミング・コスト最適化を解説・実装する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/clickhouse-io</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「ClickHouse を使った分析クエリやデータパイプラインを最適化したい」</div>
+          <div class="cmd-desc">ClickHouse 特有のクエリパターン・インデックス設計・集計最適化・データエンジニアリングのベストプラクティスを適用する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name">/verification-loop</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「AIの作業が本当に完了しているか、ループで検証させたい」</div>
+          <div class="cmd-desc">実装→テスト→検証→修正のループを継続して、指定した基準を満たすまで繰り返し実行する。</div>
+        </div>
+        <span class="cmd-badge badge-skill">スキル</span>
+      </div>
+    </div>
+
+    <!-- Note: everything-claude-code -->
+    <div class="notice" style="margin-top:1rem">
+      <strong style="color:#c9d1d9;">/everything-claude-code:* プレフィックスについて</strong><br>
+      ユーザー定義コマンドと同じ内容がプラグイン版として <code>/everything-claude-code:build-fix</code> のように呼び出せます。動作は同一なので通常はプレフィックスなしで使用してください。
+    </div>
+
+  </section>
+
+  <!-- Section 4: Tips -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-orange">💡</div>
+      <h2>4. 使いこなしのコツ</h2>
+    </div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <h4>「とりあえずコードを書かせる」をやめる</h4>
+        <p>まず <code>/plan</code> で要件と影響範囲を合意してから実装を始めると、後戻りが激減する。3ステップ以上の作業なら必ず計画から。</p>
+      </div>
+      <div class="tip-card">
+        <h4>大きな変更の前に必ず /checkpoint</h4>
+        <p>AIにリファクタや大量のファイル書き換えをさせる前に <code>/checkpoint create 名前</code> を実行。git コミットとは別の「AIとの対話のセーブポイント」として機能する。</p>
+      </div>
+      <div class="tip-card">
+        <h4>コマンドをチェーンする</h4>
+        <p><code>/plan</code> の計画を承認したら「この計画で <code>/tdd</code> を実行して」と続けるだけ。コマンド間のハンドオフはAIが処理する。完了後に <code>/verify pre-pr</code>。</p>
+      </div>
+      <div class="tip-card">
+        <h4>/revise-claude-md でフィードバックを蓄積</h4>
+        <p>「AIに3回同じことを説明した」と気づいたら <code>/revise-claude-md</code> でセッションの発見を CLAUDE.md に書き戻す。次回から自動でその知識が使われる。</p>
+      </div>
+      <div class="tip-card">
+        <h4>会話が長引いたら /cost → /compact</h4>
+        <p><code>/cost</code> でトークン消費を確認して上限が近づいたら <code>/compact</code> で圧縮。応答速度と精度が改善する。重要な節目（機能完成後など）が圧縮タイミングの目安。</p>
+      </div>
+      <div class="tip-card">
+        <h4>コミットを自動化する</h4>
+        <p>手動で git add + コミットメッセージを書く代わりに <code>/commit</code> で変更を解析して適切なメッセージを自動生成。さらに <code>/commit-push-pr</code> でPR作成まで一発。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: OMC -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-purple">🧩</div>
+      <h2>5. OMC（oh-my-claudecode）— マルチエージェント拡張</h2>
+    </div>
+
+    <div class="omc-hero">
+      <h3>OMCとは？</h3>
+      <p>oh-my-claudecode（OMC）は Claude Code に乗せる多エージェントオーケストレーション層です。<br>
+      専門エージェントへの委譲・スキルの自動発動・Tier-0ワークフローにより、複雑なタスクを正確かつ効率よく完了します。<br>
+      <code style="color:#d2a8ff;font-family:monospace;">~/.claude/CLAUDE.md</code> に設定済み。特別なインストール不要で有効です。</p>
+    </div>
+
+    <!-- Tier-0 Workflows -->
+    <div class="cat-label" style="color:#d2a8ff; border-color: rgba(210,168,255,0.2);">Tier-0 ワークフロー — キーワードで自動発動</div>
+    <div class="notice">以下のキーワードをチャットに入力するだけでワークフローが起動します。スラッシュコマンド不要。</div>
+    <div class="omc-grid">
+      <div class="omc-card">
+        <div class="omc-card-title">autopilot</div>
+        <div class="omc-card-desc">計画→実装→検証を完全自律で完走。途中で詰まっても自己修正して前進する。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">autopilot</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">ultrawork（ulw）</div>
+        <div class="omc-card-desc">最高品質モード。深い思考・並列エージェント・多角的レビューで難しい問題を解く。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">ulw</span>
+        <span class="keyword-chip">ultrawork</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">ralph</div>
+        <div class="omc-card-desc">継続ループモード。「The boulder never stops」精神でタスクが完了するまで走り続ける。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">ralph</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">ralplan</div>
+        <div class="omc-card-desc">計画特化ループ。アーキテクト視点で複数回の計画→批評→洗練を繰り返す。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">ralplan</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">deep interview</div>
+        <div class="omc-card-desc">要件深掘りモード。ユーザーへの質問を重ねて仕様を完全に明確化してから着手する。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">deep interview</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">deslop / anti-slop</div>
+        <div class="omc-card-desc">AIスロップ除去モード。冗長・型通り・無個性なAI文体を検出して改善する。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">deslop</span>
+        <span class="keyword-chip">anti-slop</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">ultrathink</div>
+        <div class="omc-card-desc">深い推論モード。難解なアーキテクチャ・設計・アルゴリズム問題に対して拡張思考を有効化。</div>
+        <div class="omc-trigger-label">トリガーキーワード</div>
+        <span class="keyword-chip">ultrathink</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">cancelomc</div>
+        <div class="omc-card-desc">実行中のOMCワークフローを安全に停止する。ループが止まらない時に使う。</div>
+        <div class="omc-trigger-label">トリガーキーワード / コマンド</div>
+        <span class="keyword-chip">cancelomc</span>
+        <span class="keyword-chip">/oh-my-claudecode:cancel</span>
+      </div>
+    </div>
+
+    <!-- OMC Slash Commands -->
+    <div class="cat-label" style="color:#d2a8ff; border-color: rgba(210,168,255,0.2); margin-top:1.5rem">OMCスラッシュコマンド — /oh-my-claudecode:&lt;name&gt;</div>
+    <div class="omc-cmd-grid">
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:autopilot</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「全部任せて完走させたい」</div>
+          <div class="cmd-desc">自律完走ワークフロー。計画・実装・テスト・検証まで一気通貫で実行する。</div>
+          <div class="cmd-usage">/oh-my-claudecode:autopilot</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:plan</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「インタビュー形式で要件を固めてから計画したい」</div>
+          <div class="cmd-desc">Opusモデルで戦略的計画。ユーザーへの質問→合意→フェーズ分割まで丁寧に進める。</div>
+          <div class="cmd-usage">/oh-my-claudecode:plan</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:ultrawork</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「品質を妥協せず最高の成果物を出したい」</div>
+          <div class="cmd-desc">深い推論＋並列エージェント＋多角的レビューの組み合わせで難問を攻略する。</div>
+          <div class="cmd-usage">/oh-my-claudecode:ultrawork</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:verify</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「作業完了を証拠ベースで厳格に確認したい」</div>
+          <div class="cmd-desc">テスト実行・ビルド・Lint・型チェックを証拠として収集し、完了を客観的に判定する。</div>
+          <div class="cmd-usage">/oh-my-claudecode:verify</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:debug</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「バグの根本原因を科学的に特定したい」</div>
+          <div class="cmd-desc">競合仮説・証拠収集・因果トレースで根本原因を特定し、修正→再現確認まで実施する。</div>
+          <div class="cmd-usage">/oh-my-claudecode:debug</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:setup</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「OMCの初期セットアップをしたい」「omc-setupと言う」</div>
+          <div class="cmd-desc">OMCの設定・プラグイン・エージェントを対話的にセットアップする。初回のみ実行。</div>
+          <div class="cmd-usage">/oh-my-claudecode:omc-setup</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:remember</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「この発見を永続記憶として残したい」</div>
+          <div class="cmd-desc">重要な知見・ルール・好みを永続メモリ（priority）に書き込む。次セッションからも有効。</div>
+          <div class="cmd-usage">/oh-my-claudecode:remember</div>
+        </div>
+        <span class="cmd-badge badge-script">スクリプト</span>
+      </div>
+      <div class="cmd-card">
+        <span class="cmd-name" style="color:#d2a8ff;">/omc:team</span>
+        <div class="cmd-body">
+          <div class="cmd-when">「複数エージェントをチームとして並列実行したい」</div>
+          <div class="cmd-desc">エージェントチームを構成して並列・直列に実行するオーケストレーションパイプラインを起動する。</div>
+          <div class="cmd-usage">/oh-my-claudecode:team</div>
+        </div>
+        <span class="cmd-badge badge-agent">エージェント</span>
+      </div>
+    </div>
+
+    <!-- OMC Specialized Agents -->
+    <div class="cat-label" style="color:#d2a8ff; border-color: rgba(210,168,255,0.2); margin-top:1.5rem">OMC専門エージェント — 自動委譲の対象</div>
+    <div class="notice">OMCは作業内容を判断して適切なエージェントに自動委譲します。明示的に呼ぶことも可能です。</div>
+    <div class="omc-agent-grid">
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">explore</div>
+        <div class="omc-agent-when">コードベース探索・パターン検索・ファイル調査</div>
+        <div class="omc-agent-desc">Glob/Grep/Read専門。広範な調査を高速にこなす軽量エージェント。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">planner</div>
+        <div class="omc-agent-when">実装計画・スプリント契約の策定</div>
+        <div class="omc-agent-desc">複雑な機能・リファクタリング時に自動起動。完了の定義を明文化する。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">architect</div>
+        <div class="omc-agent-when">システム設計・技術選定・アーキテクチャ決定</div>
+        <div class="omc-agent-desc">Opusモデルで読み取り専用分析。設計トレードオフを深く考察する。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">executor</div>
+        <div class="omc-agent-when">実装作業・コード変更の実行</div>
+        <div class="omc-agent-desc">複雑な実装はOpusモデルで委譲。計画に忠実に実装を進める。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">code-reviewer</div>
+        <div class="omc-agent-when">コード変更後の品質・セキュリティレビュー</div>
+        <div class="omc-agent-desc">3ファイル以上の変更後に自動起動。CRITICAL/HIGH/MEDIUMで問題を分類。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">evaluator</div>
+        <div class="omc-agent-when">成果物の厳格評価・ハーネス設計</div>
+        <div class="omc-agent-desc">「不合格前提」で評価し合格まで差し戻す。UI作成・大規模実装後に自動発動。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">designer</div>
+        <div class="omc-agent-when">UI/UXコンポーネント・インターフェース設計</div>
+        <div class="omc-agent-desc">デザイン品質4基準（独自性・操作性・アクセシビリティ・レスポンシブ）で評価。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">writer</div>
+        <div class="omc-agent-when">ドキュメント・README・APIドキュメント生成</div>
+        <div class="omc-agent-desc">Haikuモデルで軽量実行。技術文書を正確かつ読みやすく生成する。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">scientist</div>
+        <div class="omc-agent-when">データ分析・調査・研究タスク</div>
+        <div class="omc-agent-desc">実験的アプローチで仮説検証。データドリブンな意思決定を支援する。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">qa-tester</div>
+        <div class="omc-agent-when">インタラクティブCLIテスト・tmux操作</div>
+        <div class="omc-agent-desc">実際のCLIを操作してUIフロー・入出力を検証する。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">security-reviewer</div>
+        <div class="omc-agent-when">認証・APIキー・ユーザー入力・機密データ処理後</div>
+        <div class="omc-agent-desc">OWASP Top 10・シークレット漏洩・SSRF・インジェクションを検出。</div>
+      </div>
+      <div class="omc-agent-card">
+        <div class="omc-agent-name">tracer</div>
+        <div class="omc-agent-when">バグの因果関係・実行パス追跡</div>
+        <div class="omc-agent-desc">競合仮説を立てて証拠を収集。次の調査ポイントを提示して根本原因に迫る。</div>
+      </div>
+    </div>
+
+    <!-- Model Routing -->
+    <div class="cat-label" style="color:#d2a8ff; border-color: rgba(210,168,255,0.2); margin-top:1.5rem">モデルルーティング — タスク規模で自動選択</div>
+    <div class="omc-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="omc-card">
+        <div class="omc-card-title">Haiku 4.5 — 軽量</div>
+        <div class="omc-card-desc">頻繁に呼び出す軽量エージェント・ペアプログラミング・マルチエージェントのワーカー役。コスト最小。</div>
+        <span class="keyword-chip">writer</span>
+        <span class="keyword-chip">簡単な調査</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">Sonnet 4.6 — 標準</div>
+        <div class="omc-card-desc">メインの開発作業・マルチエージェントのオーケストレーター・複雑なコーディングタスク。</div>
+        <span class="keyword-chip">executor</span>
+        <span class="keyword-chip">code-reviewer</span>
+      </div>
+      <div class="omc-card">
+        <div class="omc-card-title">Opus 4.6 — 深い推論</div>
+        <div class="omc-card-desc">複雑なアーキテクチャ設計・最大限の推論が必要な問題・研究・分析タスク。</div>
+        <span class="keyword-chip">architect</span>
+        <span class="keyword-chip">planner</span>
+        <span class="keyword-chip">ultrawork</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Section 6: Headless Mode -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-purple">🤖</div>
+      <h2>6. ヘッドレスモード（自律実行）</h2>
+    </div>
+    <p style="margin-bottom:1.2rem;">対話なしでClaudeを自律実行させるモードです。「計画ループ」で詰まることなく、完了まで走り切ります。</p>
+
+    <h3 style="margin-bottom:.8rem;font-size:1rem;">基本構文</h3>
+    <pre style="background:#1e1e2e;color:#cdd6f4;padding:1rem 1.2rem;border-radius:8px;overflow-x:auto;margin-bottom:1.5rem;font-size:.85rem;line-height:1.6;">claude -p "指示" --allowedTools "Edit,Read,Bash,Write,Grep"</pre>
+
+    <h3 style="margin-bottom:.8rem;font-size:1rem;">活用レシピ</h3>
+    <pre style="background:#1e1e2e;color:#cdd6f4;padding:1rem 1.2rem;border-radius:8px;overflow-x:auto;margin-bottom:1.5rem;font-size:.85rem;line-height:1.6;"># テスト全修正（放置して完了を待つ）
+claude -p "Fix all failing tests in tests/ directory and ensure pytest passes" \
+  --allowedTools "Edit,Read,Bash,Write,Grep"
+
+# 特定機能の実装（計画なし・即実装）
+claude -p "実装内容を説明。計画せずすぐにコードを書いて、テストを通してコミットして" \
+  --allowedTools "Edit,Read,Bash,Write,Grep"
+
+# コードレビューをサイレント実行
+claude -p "Review src/ for security issues and output a report" \
+  --allowedTools "Read,Grep,Glob" --output-format json</pre>
+
+    <h3 style="margin-bottom:.8rem;font-size:1rem;">通常モードとの使い分け</h3>
+    <table>
+      <thead><tr><th>状況</th><th>推奨モード</th></tr></thead>
+      <tbody>
+        <tr><td>仕様が曖昧・相談しながら進めたい</td><td>通常の対話モード</td></tr>
+        <tr><td>タスクが明確・放置して完了を待ちたい</td><td>ヘッドレスモード (<code>-p</code>)</td></tr>
+        <tr><td>CIや定期バッチで自動実行したい</td><td>ヘッドレスモード (<code>-p</code>)</td></tr>
+        <tr><td>複数プロジェクトを並列処理したい</td><td>ヘッドレスモード × 複数ターミナル</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section 7: Cheatsheet -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-red">⚡</div>
+      <h2>7. クイック・チートシート</h2>
+    </div>
+    <div class="cheatsheet">
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#58a6ff;">朝・開始時</div>
+        <div class="cs-cmds"><span class="cs-cmd">/dev-routine</span><span class="cs-cmd">/context</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#3fb950;">計画</div>
+        <div class="cs-cmds"><span class="cs-cmd">/plan</span><span class="cs-cmd">/orchestrate</span><span class="cs-cmd">/feature-dev</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#a371f7;">実装</div>
+        <div class="cs-cmds"><span class="cs-cmd">/tdd</span><span class="cs-cmd">/ui-skills</span><span class="cs-cmd">/build-fix</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#f78166;">レビュー</div>
+        <div class="cs-cmds"><span class="cs-cmd">/code-review</span><span class="cs-cmd">/security-review</span><span class="cs-cmd">/test-coverage</span><span class="cs-cmd">/e2e</span><span class="cs-cmd">/verify</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#3fb950;">コミット</div>
+        <div class="cs-cmds"><span class="cs-cmd">/commit</span><span class="cs-cmd">/commit-push-pr</span><span class="cs-cmd">/review-pr</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#d2a834;">保守</div>
+        <div class="cs-cmds"><span class="cs-cmd">/refactor-clean</span><span class="cs-cmd">/clean_gone</span><span class="cs-cmd">/checkpoint</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#3fb950;">文書</div>
+        <div class="cs-cmds"><span class="cs-cmd">/update-docs</span><span class="cs-cmd">/update-codemaps</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#d2a8ff;">学習</div>
+        <div class="cs-cmds"><span class="cs-cmd">/learn</span><span class="cs-cmd">/revise-claude-md</span><span class="cs-cmd">/continuous-learning</span></div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-phase" style="color:#8b949e;">コンテキスト管理</div>
+        <div class="cs-cmds"><span class="cs-cmd">/cost</span><span class="cs-cmd">/compact</span><span class="cs-cmd">/context</span><span class="cs-cmd">/debug</span></div>
+      </div>
+      <div class="cs-card" style="border-color: rgba(163,113,247,0.3);">
+        <div class="cs-phase" style="color:#d2a8ff;">OMC 自律ループ</div>
+        <div class="cs-cmds"><span class="cs-cmd" style="color:#d2a8ff;">autopilot</span><span class="cs-cmd" style="color:#d2a8ff;">ulw</span><span class="cs-cmd" style="color:#d2a8ff;">ralph</span><span class="cs-cmd" style="color:#d2a8ff;">ralplan</span></div>
+      </div>
+      <div class="cs-card" style="border-color: rgba(163,113,247,0.3);">
+        <div class="cs-phase" style="color:#d2a8ff;">OMC 深い思考</div>
+        <div class="cs-cmds"><span class="cs-cmd" style="color:#d2a8ff;">ultrathink</span><span class="cs-cmd" style="color:#d2a8ff;">deep interview</span><span class="cs-cmd" style="color:#d2a8ff;">deslop</span></div>
+      </div>
+      <div class="cs-card" style="border-color: rgba(163,113,247,0.3);">
+        <div class="cs-phase" style="color:#d2a8ff;">OMC コマンド</div>
+        <div class="cs-cmds"><span class="cs-cmd" style="color:#d2a8ff;">/omc:plan</span><span class="cs-cmd" style="color:#d2a8ff;">/omc:debug</span><span class="cs-cmd" style="color:#d2a8ff;">/omc:verify</span><span class="cs-cmd" style="color:#d2a8ff;">/omc:team</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>コマンドは「AIへの命令」ではなく<strong>「AIとの対話の型」</strong>です。</p>
+    <p style="margin-top:0.5rem;"><strong>/plan</strong> で計画→ <strong>/tdd</strong> で実装→ <strong>/verify pre-pr</strong> で確認→ <strong>/commit-push-pr</strong> で提出。この4ステップを習慣に。</p>
+  </div>
+
+</div>
+</body>
+</html>
