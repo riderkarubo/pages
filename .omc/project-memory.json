@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775637814512,
-  "projectRoot": "/Users/issy/コーディング/Claude Code/仕事/03_クライアント/MCCM年次報告",
+  "lastScanned": 1775724255765,
+  "projectRoot": "/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM",
   "techStack": {
     "languages": [],
     "frameworks": [],
@@ -32,65 +32,62 @@
     "01_年次報告会": {
       "path": "01_年次報告会",
       "purpose": null,
-      "fileCount": 6,
-      "lastAccessed": 1775637814466,
+      "fileCount": 3,
+      "lastAccessed": 1775724255732,
       "keyFiles": [
-        "MCCM_2025_年度統括報告会_ドラフト_修正_Opus_v2.pptx",
-        "MCCM_2025年度統括報告会.pdf",
-        "協賛配信のあゆみ.txt",
-        "年次報告_資産価値サマリー_20260326.md",
-        "年次報告会_提案骨子_20260408_v2.md"
+        "KPI設計_提案書.html",
+        "年次報告会_提案スライド_20260409.html"
       ]
     },
     "02_データ": {
       "path": "02_データ",
       "purpose": null,
-      "fileCount": 3,
-      "lastAccessed": 1775637814481,
+      "fileCount": 5,
+      "lastAccessed": 1775724255736,
       "keyFiles": [
-        "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
-        "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
-        "【マツココライブ】配信数値まとめ - 数値まとめ.csv"
+        "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
+        "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
+        "【マツココライブ】配信数値まとめ - 数値まとめ.csv",
+        "アットコスメ制作体制ヒアリングまとめ.md",
+        "協賛配信のあゆみ.txt"
       ]
     },
     "03_テンプレート": {
       "path": "03_テンプレート",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1775637814482,
+      "lastAccessed": 1775724255738,
       "keyFiles": [
         "MCCM_HTML設計書_v1.md",
         "MCCM_新構成案_v1.md",
-        "スライドテンプレート用サンプルスライド.pptx",
-        "テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml"
+        "スライドテンプレート用サンプルスライド.pptx",
+        "テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml"
       ]
     },
-    "メーカー実績レポート資料": {
-      "path": "メーカー実績レポート資料",
+    "04_過去資料": {
+      "path": "04_過去資料",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775637814483,
+      "lastAccessed": 1775724255738,
       "keyFiles": []
     },
-    "要確認": {
-      "path": "要確認",
+    "05_メーカー実績レポート資料": {
+      "path": "05_メーカー実績レポート資料",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1775637814483,
+      "lastAccessed": 1775724255740,
       "keyFiles": [
-        "MCCM_2025_年度統括報告会_ドラフト.pptx",
-        "年次報告会_提案骨子_20260408.md"
+        "マツココライブLIVEメニュー協賛実績260330.xlsx"
       ]
-    },
-    "過去の振り返り資料": {
-      "path": "過去の振り返り資料",
-      "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1775637814485,
-      "keyFiles": []
     }
   },
   "hotPaths": [
+    {
+      "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
+      "accessCount": 50,
+      "lastAccessed": 1775726885090,
+      "type": "file"
+    },
     {
       "path": "01_年次報告会/年次報告会_提案スライド_20260409.html",
       "accessCount": 49,
@@ -110,12 +107,6 @@
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 27,
-      "lastAccessed": 1775719208574,
-      "type": "file"
-    },
-    {
       "path": "01_年次報告会/提案骨子/年次報告会_提案骨子_20260408_v3.md",
       "accessCount": 21,
       "lastAccessed": 1775713149069,
@@ -123,8 +114,8 @@
     },
     {
       "path": "02_データ/【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
-      "accessCount": 15,
-      "lastAccessed": 1775707048106,
+      "accessCount": 17,
+      "lastAccessed": 1775723077187,
       "type": "file"
     },
     {
@@ -134,27 +125,33 @@
       "type": "file"
     },
     {
+      "path": "",
+      "accessCount": 10,
+      "lastAccessed": 1775723023426,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/年次報告会_マスターデータ_20260409.md",
+      "accessCount": 10,
+      "lastAccessed": 1775723094594,
+      "type": "file"
+    },
+    {
       "path": "01_年次報告会/提案骨子/競合調査・KPI設計_提案書.md",
       "accessCount": 9,
       "lastAccessed": 1775711755126,
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/年次報告会_マスターデータ_20260409.md",
-      "accessCount": 9,
-      "lastAccessed": 1775713152811,
+      "path": "01_年次報告会/提案骨子/TODO_提案会準備_やるべきこと.md",
+      "accessCount": 7,
+      "lastAccessed": 1775724808934,
       "type": "file"
     },
     {
-      "path": "",
+      "path": "01_年次報告会/提案骨子/キャンペーン有無_洗い出し_20260409.md",
       "accessCount": 6,
-      "lastAccessed": 1775712101326,
-      "type": "directory"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/TODO_提案会準備_やるべきこと.md",
-      "accessCount": 5,
-      "lastAccessed": 1775711902553,
+      "lastAccessed": 1775724745738,
       "type": "file"
     },
     {
@@ -171,8 +168,8 @@
     },
     {
       "path": "02_データ/協賛配信のあゆみ.txt",
-      "accessCount": 2,
-      "lastAccessed": 1775704269444,
+      "accessCount": 3,
+      "lastAccessed": 1775723045234,
       "type": "file"
     },
     {
@@ -186,6 +183,18 @@
       "accessCount": 2,
       "lastAccessed": 1775707060682,
       "type": "file"
+    },
+    {
+      "path": "01_年次報告会/フィードバック/260409スライドフィードバック.md",
+      "accessCount": 2,
+      "lastAccessed": 1775719603866,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/【マツココライブ】配信数値まとめ - 数値まとめ.csv",
+      "accessCount": 2,
+      "lastAccessed": 1775723061591,
+      "type": "directory"
     },
     {
       "path": "01_年次報告会/年次報告会_提案骨子_20260408_v2.md",
@@ -203,12 +212,6 @@
       "path": "01_年次報告会/SNS数値_年度別サマリー_20260409.md",
       "accessCount": 1,
       "lastAccessed": 1775707490812,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/フィードバック/260409スライドフィードバック.md",
-      "accessCount": 1,
-      "lastAccessed": 1775716187878,
       "type": "file"
     }
   ],
