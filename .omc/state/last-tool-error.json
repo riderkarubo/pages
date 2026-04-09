@@ -1,7 +1,7 @@
 {
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"python3 -c \\\"\\nwith open('/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/02_データ/【マツここライブ】配信数値まとめ - 数値まとめ.csv', encoding='utf-8') as f:\\n    lines = f.readlines()\\nfor i, line in en...",
-  "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 2, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/02_データ/【マツここライブ】配信数値まとめ - 数値まとめ.csv'\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/02_データ/【マツここライブ】配信数値まとめ - 数値まとめ.csv'",
-  "timestamp": "2026-04-09T06:42:52.248Z",
-  "retry_count": 2
+  "tool_name": "Read",
+  "tool_input_preview": "{\"file_path\":\"/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html\"}",
+  "error": "File content (20555 tokens) exceeds maximum allowed tokens (10000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
+  "timestamp": "2026-04-09T07:06:06.782Z",
+  "retry_count": 1
 }
