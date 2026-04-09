@@ -84,8 +84,8 @@
   "hotPaths": [
     {
       "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 50,
-      "lastAccessed": 1775726885090,
+      "accessCount": 55,
+      "lastAccessed": 1775728674510,
       "type": "file"
     },
     {
@@ -146,6 +146,12 @@
       "path": "01_年次報告会/提案骨子/TODO_提案会準備_やるべきこと.md",
       "accessCount": 7,
       "lastAccessed": 1775724808934,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A6_お悩み訴求チェック_20260409.md",
+      "accessCount": 7,
+      "lastAccessed": 1775729463108,
       "type": "file"
     },
     {
@@ -212,6 +218,12 @@
       "path": "01_年次報告会/SNS数値_年度別サマリー_20260409.md",
       "accessCount": 1,
       "lastAccessed": 1775707490812,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A5_コメント内容テキスト分析_20260409.md",
+      "accessCount": 1,
+      "lastAccessed": 1775729484837,
       "type": "file"
     }
   ],
