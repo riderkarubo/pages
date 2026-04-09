@@ -1,0 +1,10 @@
+{
+  "active": true,
+  "started_at": "2026-04-09T03:06:55.318Z",
+  "original_prompt": "'/Users/issy/コーディング/02_Claude_Code/02_仕事/04_ツール開発/slide-starter'\nスライド作成は、このフォルダにはいっている仕組みをつかっておりHｔｍｌデータでまずはスライドデザインつくっていました。\n\n'/Users/issy/コーディング/02_Claude_Code/02_仕事/04_ツール開発/slide-starter/decks/02_mccm-2025/MCCM_2025_年度統括報告会_ドラフト統合版.html'これが最新のhtmlです。\n\n\nうまくこのフォルダと統合して、スライド作成したいんだけど、どうすればいい？　ulw",
+  "session_id": "6fab93df-14ce-4bfa-a98d-230d70c16d4b",
+  "project_path": "/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM",
+  "reinforcement_count": 0,
+  "awaiting_confirmation": true,
+  "last_checked_at": "2026-04-09T03:06:55.322Z"
+}

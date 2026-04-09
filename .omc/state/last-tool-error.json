@@ -1,0 +1,7 @@
+{
+  "tool_name": "Read",
+  "tool_input_preview": "{\"file_path\":\"/Users/issy/コーディング/02_Claude_Code/02_仕事/04_ツール開発/slide-starter/decks/02_mccm-2025/MCCM_2025_年度統括報告会_ドラフト統合版.html\"}",
+  "error": "File content (14603 tokens) exceeds maximum allowed tokens (10000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
+  "timestamp": "2026-04-09T03:07:07.728Z",
+  "retry_count": 1
+}

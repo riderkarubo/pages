@@ -92,15 +92,27 @@
   },
   "hotPaths": [
     {
+      "path": "01_年次報告会/提案骨子/年次報告会_提案骨子_20260408_v3.md",
+      "accessCount": 5,
+      "lastAccessed": 1775704821020,
+      "type": "file"
+    },
+    {
       "path": "01_年次報告会/年次報告会_提案骨子_20260408_v3.md",
       "accessCount": 3,
       "lastAccessed": 1775702667929,
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/年次報告会_提案骨子_20260408_v3.md",
+      "path": "01_年次報告会/年次報告会_マスターデータ_20260409.md",
+      "accessCount": 3,
+      "lastAccessed": 1775704906090,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/協賛配信のあゆみ.txt",
       "accessCount": 2,
-      "lastAccessed": 1775703201492,
+      "lastAccessed": 1775704269444,
       "type": "file"
     },
     {
@@ -114,6 +126,12 @@
       "accessCount": 1,
       "lastAccessed": 1775702655234,
       "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/年次報告_資産価値サマリー_20260326.md",
+      "accessCount": 1,
+      "lastAccessed": 1775704658683,
+      "type": "file"
     }
   ],
   "userDirectives": []
