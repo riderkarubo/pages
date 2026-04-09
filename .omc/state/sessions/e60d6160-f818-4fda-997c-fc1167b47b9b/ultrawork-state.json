@@ -1,0 +1,10 @@
+{
+  "active": true,
+  "started_at": "2026-04-09T05:38:34.030Z",
+  "original_prompt": "１\nマツココライブが正式\n2\nスライド番号は最後に直そう\n3\nディスカッションはわたしの作成パートじゃないのでブランクにしておいて\n\nスライド作成は新しいスライド追加の検討と、内容修正・改善両方です。あなたが採点してアップデートしていこう\n\nulw",
+  "session_id": "e60d6160-f818-4fda-997c-fc1167b47b9b",
+  "project_path": "/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM",
+  "reinforcement_count": 0,
+  "awaiting_confirmation": true,
+  "last_checked_at": "2026-04-09T05:38:34.031Z"
+}

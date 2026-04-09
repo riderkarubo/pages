@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツここライブ 年次報告会 提案資料統合版 2026.04.09</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
+
+  .page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* ===== COVER ===== */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 60px; border-radius: 16px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 250px; height: 250px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #e94560; font-weight: 600; margin-bottom: 20px; }
+  .cover h1 { font-size: 32px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+  .cover-sub { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 40px; }
+  .cover-meta-item { border-left: 2px solid #e94560; padding-left: 16px; }
+  .cover-meta-item .label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 14px; color: white; font-weight: 600; }
+
+  /* ===== SECTION ===== */
+  .section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+  .section-badge { background: #1a1a2e; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .section-badge.red { background: #e94560; }
+  .section-badge.blue { background: #0f3460; }
+  .section-badge.green { background: #1b998b; }
+  .section-badge.orange { background: #e07a5f; }
+  .section-badge.gray { background: #6c757d; }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-subtitle { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* ===== KPI CARDS ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card { background: #f8f9fa; border-radius: 10px; padding: 20px; text-align: center; border-top: 3px solid #1a1a2e; }
+  .kpi-card.accent { border-top-color: #e94560; background: #fff5f7; }
+  .kpi-card.blue { border-top-color: #0f3460; background: #f0f4ff; }
+  .kpi-card.green { border-top-color: #1b998b; background: #f0faf8; }
+  .kpi-label { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .kpi-value { font-size: 22px; font-weight: 800; color: #1a1a2e; line-height: 1.2; }
+  .kpi-value span { font-size: 12px; font-weight: 400; color: #666; }
+  .kpi-note { font-size: 10px; color: #888; margin-top: 6px; }
+  .kpi-badge { display: inline-block; background: #e94560; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+  .kpi-badge.up { background: #1b998b; }
+
+  /* ===== TABLES ===== */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; letter-spacing: 0.5px; }
+  thead th.center { text-align: center; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9fa; }
+  tbody td { padding: 10px 14px; }
+  tbody td.center { text-align: center; }
+  tbody td.right { text-align: right; }
+  tbody tr.highlight { background: #fff8e1; font-weight: 600; }
+  tbody tr.total { background: #1a1a2e; color: white; font-weight: 700; }
+  tbody tr.total td { padding: 12px 14px; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.red { background: #ffe0e6; color: #c0392b; }
+  .tag.green { background: #d4f5ef; color: #1b998b; }
+  .tag.blue { background: #dce8ff; color: #0f3460; }
+  .tag.gray { background: #f0f0f0; color: #666; }
+  .tag.orange { background: #fde8e0; color: #c0522b; }
+
+  /* ===== FLOW ===== */
+  .flow { display: flex; align-items: center; gap: 0; margin: 20px 0; }
+  .flow-step { flex: 1; background: #f8f9fa; border-radius: 10px; padding: 16px; text-align: center; }
+  .flow-step.active { background: #1a1a2e; color: white; }
+  .flow-step .step-label { font-size: 10px; color: #888; letter-spacing: 1px; }
+  .flow-step.active .step-label { color: rgba(255,255,255,0.6); }
+  .flow-step .step-value { font-size: 16px; font-weight: 700; margin: 4px 0; }
+  .flow-step .step-sub { font-size: 11px; color: #888; }
+  .flow-step.active .step-sub { color: rgba(255,255,255,0.6); }
+  .flow-arrow { font-size: 20px; color: #ccc; padding: 0 8px; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #f0f0f0; }
+  .timeline-item { position: relative; margin-bottom: 20px; }
+  .timeline-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 10px; height: 10px; background: #ddd; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px #ddd; }
+  .timeline-item.milestone::before { background: #e94560; box-shadow: 0 0 0 2px #e94560; }
+  .timeline-date { font-size: 11px; color: #888; font-weight: 600; margin-bottom: 2px; }
+  .timeline-content { font-size: 13px; color: #333; }
+  .timeline-content strong { color: #1a1a2e; }
+
+  /* ===== ASSETS GRID ===== */
+  .assets-grid { display: grid; grid-template-columns: repeat(3, 1fr) repeat(2, 1fr); gap: 12px; }
+  .asset-card { background: #f8f9fa; border-radius: 10px; padding: 16px; border-left: 4px solid #1a1a2e; }
+  .asset-card:nth-child(1) { border-color: #e94560; }
+  .asset-card:nth-child(2) { border-color: #0f3460; }
+  .asset-card:nth-child(3) { border-color: #1b998b; }
+  .asset-card:nth-child(4) { border-color: #e07a5f; }
+  .asset-card:nth-child(5) { border-color: #f2c14e; }
+  .asset-card:nth-child(6) { border-color: #8b5cf6; }
+  .asset-card:nth-child(7) { border-color: #06b6d4; }
+  .asset-no { font-size: 10px; color: #888; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .asset-name { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .asset-value { font-size: 12px; color: #444; }
+
+  /* ===== KPI TARGETS ===== */
+  .kpi-target-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .kpi-target-card { background: #f8f9fa; border-radius: 10px; padding: 20px; position: relative; overflow: hidden; }
+  .kpi-target-card::after { content: ''; position: absolute; right: -20px; top: -20px; width: 100px; height: 100px; background: rgba(0,0,0,0.03); border-radius: 50%; }
+  .kpi-target-card .now { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .kpi-target-card .now-val { font-size: 24px; font-weight: 800; color: #aaa; }
+  .kpi-target-card .arrow { font-size: 20px; color: #e94560; margin: 4px 0; }
+  .kpi-target-card .step1 { font-size: 12px; color: #e07a5f; font-weight: 700; margin-bottom: 2px; }
+  .kpi-target-card .step2 { font-size: 18px; font-weight: 800; color: #1b998b; }
+  .kpi-target-card .north-star { font-size: 11px; color: #888; margin-top: 8px; }
+  .kpi-target-card .kpi-name { font-size: 12px; font-weight: 700; color: #1a1a2e; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; margin-bottom: 12px; }
+
+  /* ===== BENCHMARK ===== */
+  .bench-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .bench-label { width: 160px; font-size: 12px; color: #444; flex-shrink: 0; }
+  .bench-bar-wrap { flex: 1; background: #f0f0f0; border-radius: 4px; height: 20px; position: relative; }
+  .bench-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 700; color: white; transition: width 0.3s; }
+  .bench-val { width: 80px; font-size: 12px; font-weight: 700; text-align: right; flex-shrink: 0; }
+
+  /* ===== TODO ===== */
+  .todo-section { margin-bottom: 24px; }
+  .todo-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .todo-badge { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+  .todo-badge.blocker { background: #ffe0e6; color: #c0392b; }
+  .todo-badge.self { background: #fff3cd; color: #856404; }
+  .todo-badge.ready { background: #d4f5ef; color: #1b998b; }
+  .todo-title { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+  .todo-desc { font-size: 12px; color: #888; }
+  .todo-table table thead tr { background: #f0f0f0; }
+  .todo-table table thead th { color: #333; }
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .checklist li:last-child { border-bottom: none; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #ddd; border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+  .checklist li .item-desc { color: #666; font-size: 11px; margin-top: 2px; }
+
+  /* ===== STRATEGY ===== */
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .strategy-card { border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; }
+  .strategy-card .priority { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+  .strategy-card .priority.high { background: #ffe0e6; color: #c0392b; }
+  .strategy-card .priority.mid { background: #fff3cd; color: #856404; }
+  .strategy-card .title { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .strategy-card .desc { font-size: 12px; color: #555; line-height: 1.6; }
+  .strategy-card .evidence { font-size: 11px; color: #1b998b; margin-top: 8px; padding: 6px 10px; background: #f0faf8; border-radius: 6px; }
+
+  /* ===== MISC ===== */
+  .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .note.warning { border-left-color: #e94560; background: #fff5f7; color: #c0392b; }
+  .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
+  .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
+  h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 20px 0 12px; }
+  h4 { font-size: 13px; font-weight: 700; color: #444; margin: 16px 0 8px; }
+  p { margin: 8px 0; color: #444; }
+  .highlight-box { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 10px; padding: 24px; margin: 16px 0; }
+  .highlight-box .main { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .highlight-box .sub { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .col-box { background: #f8f9fa; border-radius: 10px; padding: 16px; }
+  .col-box .col-title { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .col-box ul { list-style: none; }
+  .col-box ul li { font-size: 12px; color: #555; padding: 3px 0; padding-left: 14px; position: relative; }
+  .col-box ul li::before { content: '•'; position: absolute; left: 0; color: #e94560; }
+  .discussion-list { list-style: none; counter-reset: disc-counter; }
+  .discussion-list li { counter-increment: disc-counter; display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+  .discussion-list li:last-child { border-bottom: none; }
+  .discussion-list li::before { content: counter(disc-counter); min-width: 28px; height: 28px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .discussion-list .disc-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .discussion-list .disc-desc { font-size: 12px; color: #666; }
+  .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 13px; }
+  .toc-num { width: 24px; height: 24px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .toc-time { margin-left: auto; font-size: 11px; color: #888; white-space: nowrap; }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 0; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; }
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-label">Annual Report · Proposal</div>
+  <h1>マツここライブ<br>年次報告会 提案資料</h1>
+  <div class="cover-sub">2年間の資産価値報告 × 2026年度 戦略提案</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Date</div>
+      <div class="value">2026年4月9日</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Prepared by</div>
+      <div class="value">riderkarubo</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Status</div>
+      <div class="value">Draft v1.0</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge gray">INDEX</div>
+    <div>
+      <div class="section-title">目次 · アジェンダ</div>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-item"><div class="toc-num">1</div><span>エグゼクティブサマリ</span><div class="toc-time">冒頭 1スライド</div></div>
+    <div class="toc-item"><div class="toc-num">2</div><span>柱① 2025年度総括 ― 資産価値の報告</span><div class="toc-time">5分</div></div>
+    <div class="toc-item"><div class="toc-num">3</div><span>柱② 2026年度 KPI目標設定</span><div class="toc-time">15分（前半）</div></div>
+    <div class="toc-item"><div class="toc-num">4</div><span>柱③ 戦略施策 ― KPI達成のためのアクション</span><div class="toc-time">15分（後半）</div></div>
+    <div class="toc-item"><div class="toc-num">5</div><span>競合ベンチマーク（資生堂・KANEBO・アットコスメ・ロート）</span><div class="toc-time">参考資料</div></div>
+    <div class="toc-item"><div class="toc-num">6</div><span>ディスカッション議題</span><div class="toc-time">25分</div></div>
+    <div class="toc-item"><div class="toc-num">7</div><span>TODO ― 先方確認事項 × 自社作業リスト</span><div class="toc-time">—</div></div>
+  </div>
+</div>
+
+<!-- ===== EXEC SUMMARY ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge">EXEC SUMMARY</div>
+    <div>
+      <div class="section-title">エグゼクティブサマリ</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="main">「マツここライブは、配信する媒体から資産を積み上げるプラットフォームへと進化した。」</div>
+    <div class="sub">2年間で91回の配信・累計約144万視聴を達成。1回の配信が1ヶ月後に2〜3倍のリーチを生み続けるストック型資産へ。</div>
+  </div>
+
+  <div class="flow" style="margin: 24px 0;">
+    <div class="flow-step active">
+      <div class="step-label">SNS告知（認知）</div>
+      <div class="step-value">73,120</div>
+      <div class="step-sub">imp/回平均（2024年度）</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">
+      <div class="step-label">ライブ配信（体験）</div>
+      <div class="step-value">5,860人</div>
+      <div class="step-sub">平均視聴者数/回（2025年度）</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">
+      <div class="step-label">アーカイブ（蓄積）</div>
+      <div class="step-value">＋22%</div>
+      <div class="step-sub">2日後→1ヶ月後の伸長</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step" style="border: 2px dashed #e94560;">
+      <div class="step-label">次の施策（未実装）</div>
+      <div class="step-value" style="color:#e94560;">切り抜き動画</div>
+      <div class="step-sub">SNS再配信で循環を太く</div>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card accent">
+      <div class="kpi-label">2年間累計視聴</div>
+      <div class="kpi-value">約144万<span>人</span></div>
+      <div class="kpi-note">ライブ+アーカイブ合算</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">合算タッチポイント/回</div>
+      <div class="kpi-value">12,500<span>回</span></div>
+      <div class="kpi-note">ライブ＋1ヶ月後アーカイブ</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">アーカイブ倍率</div>
+      <div class="kpi-value">約3.3<span>倍</span></div>
+      <div class="kpi-note">ライブ視聴に対するアーカイブ比</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">協賛売上累計（2年）</div>
+      <div class="kpi-value">2,919<span>万円</span></div>
+      <div class="kpi-note">44回の協賛配信</div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="background: #f8f9fa; color: #1a1a2e; border-left: 4px solid #e94560;">
+    <div class="main" style="color: #e94560; font-size: 15px;">2026年度の問い</div>
+    <div class="sub" style="color: #333; font-size: 14px; font-weight: 600;">この循環の「回転速度」をどう上げるか。</div>
+  </div>
+</div>
+
+<!-- ===== PILLAR 1 ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge red">柱① 5分</div>
+    <div>
+      <div class="section-title">2025年度総括 ― 1年間で積み上げた「資産価値」</div>
+      <div class="section-subtitle">出典：マスターデータ・協賛実績xlsx・SNS数値CSV</div>
+    </div>
+  </div>
+
+  <h3>主要実績数値</h3>
+  <div class="kpi-grid">
+    <div class="kpi-card blue">
+      <div class="kpi-label">2025年度ライブ視聴</div>
+      <div class="kpi-value">275,403<span>人</span></div>
+      <div class="kpi-badge up">前年比 +52%</div>
+    </div>
+    <div class="kpi-card accent">
+      <div class="kpi-label">2年間累計（ライブ＋アーカイブ）</div>
+      <div class="kpi-value">約144万<span>人</span></div>
+      <div class="kpi-note">1,441,474人</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">協賛売上（2年累計）</div>
+      <div class="kpi-value">2,919<span>万円</span></div>
+      <div class="kpi-note">44回・19社（のべ）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">動画ライブラリ</div>
+      <div class="kpi-value">91<span>本</span></div>
+      <div class="kpi-note">×平均12,500回＝約114万回総再生</div>
+    </div>
+  </div>
+
+  <h3>年度別 視聴者数推移</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>期間</th>
+        <th class="center">ライブ累計</th>
+        <th class="center">アーカイブ累計</th>
+        <th class="center">合計</th>
+        <th class="center">1回平均（ライブ）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2024年度（2024.4〜2025.3）</td>
+        <td class="center">169,725人</td>
+        <td class="center">408,842人</td>
+        <td class="center">578,567人</td>
+        <td class="center">3,857人</td>
+      </tr>
+      <tr class="highlight">
+        <td>2025年度（2025.4〜2026.3）</td>
+        <td class="center">275,403人</td>
+        <td class="center">587,504人</td>
+        <td class="center">862,907人</td>
+        <td class="center"><strong>5,860人</strong> <span class="tag green">+52%</span></td>
+      </tr>
+      <tr class="total">
+        <td>2年間累計</td>
+        <td class="center">445,128人</td>
+        <td class="center">996,346人</td>
+        <td class="center">約144万人</td>
+        <td class="center">—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>年度別 協賛実績</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>期間</th>
+        <th class="center">協賛実施回数</th>
+        <th class="right">売上合計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2024年度（2024.4〜2025.3）</td>
+        <td class="center">18回</td>
+        <td class="right">14,320,290円</td>
+      </tr>
+      <tr class="highlight">
+        <td>2025年度（2025.4〜2026.3）</td>
+        <td class="center">26回</td>
+        <td class="right">14,868,840円</td>
+      </tr>
+      <tr class="total">
+        <td>2年間累計</td>
+        <td class="center">44回</td>
+        <td class="right">約2,919万円</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>アーカイブ視聴効果（コンテンツが働き続ける）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th class="center">2024年度</th>
+        <th class="center">2025年度</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>アーカイブ平均再生（2日後）/回</td>
+        <td class="center"><strong>8,865回</strong></td>
+        <td class="center">データなし</td>
+        <td>2025年度は計測停止</td>
+      </tr>
+      <tr>
+        <td>アーカイブ平均再生（1ヶ月後）/回</td>
+        <td class="center"><strong>9,571回</strong></td>
+        <td class="center">8,606回</td>
+        <td></td>
+      </tr>
+      <tr class="highlight">
+        <td>2日後→1ヶ月後の伸長倍率</td>
+        <td class="center"><strong>約1.22倍</strong></td>
+        <td class="center">—</td>
+        <td>配信後も継続的に再生が増加</td>
+      </tr>
+      <tr class="highlight">
+        <td>ライブ視聴に対するアーカイブ倍率</td>
+        <td class="center"><strong>約3.3倍</strong></td>
+        <td class="center">約3.3倍</td>
+        <td>合算の約77%がアーカイブ</td>
+      </tr>
+      <tr>
+        <td>合算視聴平均/回（ライブ＋1ヶ月後）</td>
+        <td class="center">約12,509回</td>
+        <td class="center">約11,357回</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note info">特記：melt（花王・協賛）2024/6/5 → 2日後8,920回 → 1週間後12,885回 → 1ヶ月後19,673回（<strong>2.21倍</strong>）。協賛配信はアーカイブ効果が特に高い。</div>
+
+  <h3>7つの経営資産</h3>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr) repeat(2, 1fr); gap: 12px;">
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 01</div>
+      <div class="asset-name">視聴者資産</div>
+      <div class="asset-value">累計約144万人<br>アーカイブが3.3倍に拡張</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 02</div>
+      <div class="asset-name">コンテンツ資産</div>
+      <div class="asset-value">91本<br>配信後も伸長（melt：2.2倍）</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 03</div>
+      <div class="asset-name">メーカー関係資産</div>
+      <div class="asset-value">約19社（のべ）<br>累計44回</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 04</div>
+      <div class="asset-name">データ資産</div>
+      <div class="asset-value">CDP上に蓄積中<br>視聴者ID×会員ID突合</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 05</div>
+      <div class="asset-name">ノウハウ資産</div>
+      <div class="asset-value">内製化レクチャー進行中<br>（全5回）</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 06</div>
+      <div class="asset-name">出演者資産</div>
+      <div class="asset-value">育成された出演者<br>2期計で複数名</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 07</div>
+      <div class="asset-name">パートナー資産</div>
+      <div class="asset-value">LIPS・Fireworkとの<br>連携基盤（メニュー化済み）</div>
+    </div>
+  </div>
+
+  <h3>マイルストーン</h3>
+  <div class="timeline">
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年4月</div>
+      <div class="timeline-content"><strong>本格稼働スタート</strong></div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年6月5日</div>
+      <div class="timeline-content"><strong>1社協賛初回（melt）</strong></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024年8月</div>
+      <div class="timeline-content">全ページフローティング表示導入 → 視聴者数急増</div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年8月19日</div>
+      <div class="timeline-content"><strong>ブランド横断型初回</strong>（売れ筋ナプキン徹底比較 / ユニ・チャーム協賛）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024年11月</div>
+      <div class="timeline-content">毎月メーカー協賛を安定獲得する体制を確立</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2025年2月</div>
+      <div class="timeline-content">第2期出演者オーディション → 新メンバー3名追加</div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2025年10月28日</div>
+      <div class="timeline-content"><strong>LIPSコラボ初回（KATE）</strong></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2025年後半</div>
+      <div class="timeline-content">会員IDとFirework視聴データのCDP突合完了</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026年1月</div>
+      <div class="timeline-content">店内放送で配信告知開始 / 内製化レクチャー開始（全5回）</div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2026年10月（目標）</div>
+      <div class="timeline-content"><strong>完全内製化 達成目標</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PILLAR 2 ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge blue">柱② 15分前半</div>
+    <div>
+      <div class="section-title">2026年度 KPI目標設定</div>
+      <div class="section-subtitle">競合ベンチマーク（2026.1-3実績）をもとに策定</div>
+    </div>
+  </div>
+
+  <h3>現状と目標（競合比較ベース）</h3>
+  <div class="kpi-target-grid">
+    <div class="kpi-target-card" style="border-left: 4px solid #0f3460;">
+      <div class="kpi-name">① ライブ視聴者数（リーチ指標）</div>
+      <div class="now">現状（2026.1-3）</div>
+      <div class="now-val">5,084人</div>
+      <div class="arrow">→</div>
+      <div class="step2" style="color: #0f3460;">5,000人以上を維持</div>
+      <div class="north-star">競合を圧倒する強み。ディフェンス目標として維持。</div>
+    </div>
+    <div class="kpi-target-card" style="border-left: 4px solid #e94560;">
+      <div class="kpi-name">② 平均視聴分数（リテンション指標）</div>
+      <div class="now">現状（2026.1-3）</div>
+      <div class="now-val">3.1分</div>
+      <div class="arrow">↑</div>
+      <div class="step1">STEP1（上期）: 6.0分</div>
+      <div class="step2">STEP2（下期）: 10.0分</div>
+      <div class="north-star">North Star目標：KANEBO水準 28.0分</div>
+    </div>
+    <div class="kpi-target-card" style="border-left: 4px solid #e07a5f;">
+      <div class="kpi-name">③ 商品クリック率 / CTR（アクション指標）</div>
+      <div class="now">現状（2026.1-3）</div>
+      <div class="now-val">1.0%</div>
+      <div class="arrow">↑</div>
+      <div class="step1">STEP1（上期）: 3.0%</div>
+      <div class="step2">STEP2（下期）: 5.5%</div>
+      <div class="north-star">ロート製薬水準（5.3%）の突破を目標</div>
+    </div>
+    <div class="kpi-target-card" style="border-left: 4px solid #1b998b;">
+      <div class="kpi-name">④ コメント参加率（エンゲージメント指標）</div>
+      <div class="now">現状（2026.1-3）</div>
+      <div class="now-val">0.8%</div>
+      <div class="arrow">↑</div>
+      <div class="step2">3.0〜4.5%</div>
+      <div class="north-star">KANEBO水準（9.1%）を中長期目標に</div>
+    </div>
+  </div>
+
+  <div class="note info">※ 協賛配信回数・受注金額・メーカー社数・内製化完了率などの事業KPIは先方確認後に追記（§TODO参照）</div>
+
+  <h3>競合ベンチマーク（60分換算・2026.1-3実績）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ブランド / 配信タイプ</th>
+        <th class="center">実績配信数</th>
+        <th class="center">平均配信時間</th>
+        <th class="center">視聴者数<br>（60分換算）</th>
+        <th class="center">平均視聴分数<br>（60分換算）</th>
+        <th class="center">商品CTR<br>（60分換算）</th>
+        <th class="center">コメント率<br>（60分換算）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>マツここライブ</strong></td>
+        <td class="center">10回</td>
+        <td class="center">64.2分</td>
+        <td class="center"><strong>5,084人</strong> <span class="tag green">最強</span></td>
+        <td class="center">3.1分 <span class="tag red">最弱</span></td>
+        <td class="center">1.0% <span class="tag red">最弱</span></td>
+        <td class="center">0.8% <span class="tag red">最弱</span></td>
+      </tr>
+      <tr>
+        <td>ロート製薬（一般メーカー）</td>
+        <td class="center">3回</td>
+        <td class="center">51.5分</td>
+        <td class="center">871人</td>
+        <td class="center">9.9分</td>
+        <td class="center">5.3%</td>
+        <td class="center">4.4%</td>
+      </tr>
+      <tr>
+        <td>KANEBO（花王）</td>
+        <td class="center">4回</td>
+        <td class="center">63.0分</td>
+        <td class="center">1,458人</td>
+        <td class="center">28.2分</td>
+        <td class="center">11.7%</td>
+        <td class="center">9.1%</td>
+      </tr>
+      <tr>
+        <td>資生堂（自社特化型）</td>
+        <td class="center">23回</td>
+        <td class="center">81.1分</td>
+        <td class="center">6,958人</td>
+        <td class="center">11.8分</td>
+        <td class="center">8.2%</td>
+        <td class="center">5.1%</td>
+      </tr>
+      <tr>
+        <td>アットコスメ（オープン企画型）</td>
+        <td class="center">13回</td>
+        <td class="center">74.8分</td>
+        <td class="center">2,494人</td>
+        <td class="center">24.3分</td>
+        <td class="center">29.4%</td>
+        <td class="center">33.4%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note">※ 全数値は配信時間60分あたりに換算（正規化）。アットコスメはオープン企画型のみ集計（クローズド体験会は除外）。</div>
+
+  <h3>競合最新動向：資生堂</h3>
+  <div class="note info" style="font-size: 12px; line-height: 1.8;">
+    <strong>【最新情報】資生堂 美容部員個人ライブ PoC（2026年4月〜7月末）</strong><br>
+    通常の Find Beauty Live とは別に、美容部員が台本を自作・自主配信する新形態ライブを開始。
+    <ul style="list-style: none; margin: 8px 0 0 0; padding: 0;">
+      <li style="padding: 3px 0;">・ 配信場所：オウンドメディア（オンラインショップ）／遷移先もオンラインショップ</li>
+      <li style="padding: 3px 0;">・ 目的：BA エンゲージメント向上 ＋ 売上</li>
+      <li style="padding: 3px 0;">・ 薬機法：ライブ配信チームの目視のみ（社内法務不通過）→ アーカイブ非保存（ギリギリの表現があるため）</li>
+      <li style="padding: 3px 0;">・ PoC期間：3ヶ月限定（〜2026年7月末）</li>
+    </ul>
+    <div style="margin-top: 8px; color: #666;">
+      ※ 通常の Find Beauty Live の薬機法フロー：オムニチャネルチームが台本作成 → 社内法務確認（担当者が薬事に精通しているためスムーズ・課題感なし）
+    </div>
+  </div>
+
+  <div class="strategy-grid" style="margin-top: 16px;">
+    <div class="strategy-card">
+      <div class="priority high">競合示唆（マツここライブへの影響）</div>
+      <div class="title">BA個人配信モデルの先行事例として注目</div>
+      <div class="desc">資生堂は法務を通さないことでアーカイブを断念するトレードオフを許容しつつも、BA個人の自主性・エンゲージメントを優先する実験を行っている。マツここライブが同様の施策を検討する際の「薬機法リスクと運用設計」の先行モデルとなる。</div>
+      <div class="evidence">参考：アーカイブ資産（約3.3倍のリーチ）を生む強みはマツここライブの差別化ポイント。法務を通す体制の整備は維持すべき。</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority mid">競合観察ポイント（〜2026年7月末）</div>
+      <div class="title">PoCの結果を追跡する</div>
+      <div class="desc">3ヶ月限定のPoCであるため、7月末以降に継続・本格展開されるかどうかを確認する。継続となった場合、BA個人配信が資生堂の主力チャネルの一つになる可能性がある。メーカー協賛の観点でも動向を注視する。</div>
+      <div class="evidence">PoCのため現時点では数値データなし。本格展開の際は競合比較テーブルへの追加を検討。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PILLAR 3 ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge green">柱③ 15分後半</div>
+    <div>
+      <div class="section-title">戦略施策 ― 2026年度KPI達成のためのアクション</div>
+      <div class="section-subtitle">大テーマ：リテール収益を向上させるためには？</div>
+    </div>
+  </div>
+
+  <h3>施策一覧</h3>
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <div class="priority high">優先度：高</div>
+      <div class="title">「魔の最初の3分」対策</div>
+      <div class="desc">配信開始から3分以内に目玉商品・最後まで見ると得られる特典を最高熱量で伝え、即座の離脱を防ぐ。</div>
+      <div class="evidence">根拠：現状の平均視聴分数3.1分 = 商品紹介すら届いていない可能性</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority high">優先度：高</div>
+      <div class="title">CTR誘導の「型」化</div>
+      <div class="desc">「今表示されている〇〇のボタンから詳細が見れます。一旦カートに入れておいてください」と実演付きでアナウンスを義務化。</div>
+      <div class="evidence">根拠：現状CTR 1.0%（競合ロート製薬5.3%、KANEBO 11.7%）</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority high">優先度：高</div>
+      <div class="title">冒頭・中盤の「簡易アンケート」</div>
+      <div class="desc">「普段〇〇で悩んでる方、1を押して！」「どっちの色が好き？」など、タップだけで答えられる投げかけを序盤に挿入。</div>
+      <div class="evidence">根拠：現状コメント率0.8%。アットコスメの「自分ごと化」設計（エンゲ率19%超）が参考</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority high">優先度：高</div>
+      <div class="title">切り抜き動画オプション（再提案）</div>
+      <div class="desc">アーカイブをSNS転用・店頭サイネージ活用できる切り抜き動画メニューを正式化。</div>
+      <div class="evidence">根拠：melt回 1ヶ月後19,673回（2日後の2.2倍）。アットコスメは既に実施済み。</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority high">優先度：高</div>
+      <div class="title">Firework台本制作支援の活用</div>
+      <div class="desc">配信品質向上・工数削減のためにFireworkの台本制作支援を最大活用する。</div>
+      <div class="evidence">現状：1配信あたりFirework側工数約13時間。支援活用で準備期間を1.5〜2ヶ月→短縮へ</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority high">優先度：高</div>
+      <div class="title">AI活用：薬機法チェッカー</div>
+      <div class="desc">法務確認工数削減により、月5回以上受注体制の実現を目指す。外注化の検討も並行。</div>
+      <div class="evidence">根拠：薬機法チェックが工数の主要因。準備期間が1.5〜2ヶ月かかる原因。</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority mid">優先度：中</div>
+      <div class="title">目的別の配信尺設計</div>
+      <div class="desc">「購買転換重視」→〜60分 / 「アーカイブ課金・リーチ最大化」→75分以上 / 「バランス型」→65〜73分</div>
+      <div class="evidence">根拠：41回実績分析。長尺はCTR・エンゲに不利だが課金期待値は4.2倍（¥29,922 vs ¥7,110）</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority mid">優先度：中</div>
+      <div class="title">LIPSコラボ定期メニュー化</div>
+      <div class="desc">座談会・ベスコス連動協賛を定型メニューとして展開。</div>
+      <div class="evidence">実績：KATE・クナイプ・プラストゥモロー・キャンメイク・スキンアクアで実施済み</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority mid">優先度：中</div>
+      <div class="title">プッシュ通知の精度向上</div>
+      <div class="desc">コア商材に絞ったセグメント配信でCTR向上。</div>
+      <div class="evidence">現状のCTR 1.0%を競合水準へ引き上げる補助施策</div>
+    </div>
+    <div class="strategy-card">
+      <div class="priority mid">優先度：中</div>
+      <div class="title">現場工数洗い出し → コンサル受注</div>
+      <div class="desc">業務効率化を切り口にコンサルティング受注を狙う。</div>
+      <div class="evidence">中尾氏より「現行の制作品質に対して工数は適正か」という問いが提起済み</div>
+    </div>
+  </div>
+
+  <h3>配信尺と各指標の相関（参考データ）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th class="center">尺との相関</th>
+        <th class="center">長尺で有利か</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>視聴者数</td>
+        <td class="center">r = +0.820</td>
+        <td class="center"><span class="tag green">有利（1.35倍）</span></td>
+      </tr>
+      <tr>
+        <td>従量課金額</td>
+        <td class="center">r = +0.535</td>
+        <td class="center"><span class="tag green">有利（期待値4.2倍）</span></td>
+      </tr>
+      <tr>
+        <td>合計視聴時間</td>
+        <td class="center">r = +0.398</td>
+        <td class="center"><span class="tag green">有利</span></td>
+      </tr>
+      <tr>
+        <td>商品CTR</td>
+        <td class="center">r = −0.400</td>
+        <td class="center"><span class="tag red">不利（短尺の0.42倍）</span></td>
+      </tr>
+      <tr>
+        <td>エンゲージ率</td>
+        <td class="center">r = −0.351</td>
+        <td class="center"><span class="tag red">不利（短尺の0.60倍）</span></td>
+      </tr>
+      <tr>
+        <td>コメント率</td>
+        <td class="center">r = −0.399</td>
+        <td class="center"><span class="tag red">不利（短尺の0.48倍）</span></td>
+      </tr>
+      <tr class="highlight">
+        <td>平均視聴分数</td>
+        <td class="center">r = −0.534</td>
+        <td class="center"><span class="tag red">不利（短尺の0.79倍）</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>配信尺</th>
+        <th class="center">課金発生率</th>
+        <th class="center">平均課金額</th>
+        <th class="center">期待値</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>〜60分</td>
+        <td class="center">45%</td>
+        <td class="center">¥15,642</td>
+        <td class="center">¥7,110</td>
+      </tr>
+      <tr>
+        <td>60〜75分</td>
+        <td class="center">41%</td>
+        <td class="center">¥31,094</td>
+        <td class="center">¥12,720</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>75分〜</strong></td>
+        <td class="center"><strong>62%</strong></td>
+        <td class="center"><strong>¥47,875</strong></td>
+        <td class="center"><strong>¥29,922（短尺の4.2倍）</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note warning">⚠️ 「尺を伸ばす価値があるか」はFirework台本支援による工数削減効果とセットで判断すべき論点。先方とのディスカッション議題に含める。</div>
+</div>
+
+<!-- ===== DISCUSSION ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge orange">ディスカッション 25分</div>
+    <div>
+      <div class="section-title">先方パート ― 議題</div>
+    </div>
+  </div>
+  <ul class="discussion-list">
+    <li>
+      <div>
+        <div class="disc-title">&ST様との施策に対する明確なプラスの提示</div>
+        <div class="disc-desc">Firework独自プラットフォーム・グローバル知見の活用で何がプラスオンされるか。</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="disc-title">収益化の具体スキーム</div>
+        <div class="disc-desc">動画素材のメーカー販売等、米国成功事例を踏まえた体制・収益モデル。</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="disc-title">システム導入の親和性と必要性</div>
+        <div class="disc-desc">階層化承認システム等と既存ツールの機能重複・現場適合性の検討。</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="disc-title">アーカイブ資産の活用・収益化</div>
+        <div class="disc-desc">「1配信の投資が1ヶ月後に4倍超のリーチを生む」という事実を協賛メーカーへどう訴求するか。切り抜き動画メニュー化の収益シミュレーション。</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="disc-title">SNS告知計測体制の再整備</div>
+        <div class="disc-desc">2025年度のX告知インプレッション・エンゲージメント率が全欠損している現状を踏まえ、2026年度は計測体制を復旧し、告知→ライブ転換率をKPI化する。</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="disc-title">配信尺の設計方針</div>
+        <div class="disc-desc">目的別の尺使い分け（CTR重視 vs 課金重視）と工数増加コストの整合性。Firework台本支援との組み合わせで月5回以上体制を実現できるか。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== TODO ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge gray">TODO</div>
+    <div>
+      <div class="section-title">やるべきこと・追記が必要な情報</div>
+    </div>
+  </div>
+
+  <!-- BLOCKER -->
+  <div class="todo-section">
+    <div class="todo-header">
+      <div class="todo-badge blocker">🔴 先方から入手待ち（ブロッカー）</div>
+      <div class="todo-desc">これがないと資料を完成させられない。まとめて一度に確認メールを送ること。</div>
+    </div>
+    <div class="todo-table">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>必要な情報</th>
+            <th>詳細</th>
+            <th class="center">どこに使うか</th>
+            <th class="center">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2026年度 協賛配信KPI（受注件数）</td>
+            <td>2026年度の協賛配信 目標受注件数</td>
+            <td class="center">柱② KPI「TBD」を埋める</td>
+            <td class="center"><span class="tag red">未入手</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2026年度 協賛配信KPI（受注金額）</td>
+            <td>2026年度の協賛配信 目標受注金額</td>
+            <td class="center">柱② KPI「TBD」を埋める</td>
+            <td class="center"><span class="tag red">未入手</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>2026年度 ライブコマース定量目標</td>
+            <td>視聴者数・売上等の数値目標</td>
+            <td class="center">柱② KPI「TBD」を埋める</td>
+            <td class="center"><span class="tag red">未入手</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>2026年度 ライブコマース定性目標</td>
+            <td>方針・ブランド目標など</td>
+            <td class="center">柱②の方向性に反映</td>
+            <td class="center"><span class="tag red">未入手</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>X告知インプレッション（2025年度分）</td>
+            <td>2025年4月以降の告知投稿インプレッション・エンゲージメント率</td>
+            <td class="center">柱①SNS実績の空白を埋める</td>
+            <td class="center"><span class="tag red">未入手</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Xフォロリポキャンペーン実施回数</td>
+            <td>2025年度の実施回数</td>
+            <td class="center">柱①補足データ</td>
+            <td class="center"><span class="tag red">未入手</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SELF -->
+  <div class="todo-section">
+    <div class="todo-header">
+      <div class="todo-badge ready">✅ 完了：自分で判断・記入したもの</div>
+      <div class="todo-desc">先方待ちなし。競合調査データをもとに判断して提案骨子に書き込む。</div>
+    </div>
+
+    <h4>KPI暫定値の記入（柱②）</h4>
+    <div class="todo-table">
+      <table>
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th class="center">現状</th>
+            <th>競合調査ベース暫定案</th>
+            <th class="center">アクション</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ライブ平均視聴者数</td>
+            <td class="center"><strong>5,000人/回以上</strong></td>
+            <td>現状維持・ディフェンス目標</td>
+            <td class="center"><span class="tag green">記入済み</span></td>
+          </tr>
+          <tr>
+            <td>平均視聴分数</td>
+            <td class="center"><strong>上期6.0分 → 下期10.0分</strong></td>
+            <td>現状3.1分。North Star: KANEBO 28分</td>
+            <td class="center"><span class="tag green">記入済み</span></td>
+          </tr>
+          <tr>
+            <td>商品クリック率（CTR）</td>
+            <td class="center"><strong>上期3.0% → 下期5.5%</strong></td>
+            <td>現状1.0%。ロート製薬水準（5.3%）突破が目標</td>
+            <td class="center"><span class="tag green">記入済み</span></td>
+          </tr>
+          <tr>
+            <td>コメント参加率</td>
+            <td class="center"><strong>3.0〜4.5%</strong></td>
+            <td>現状0.8%。KANEBO 9.1%を中長期目標</td>
+            <td class="center"><span class="tag green">記入済み</span></td>
+          </tr>
+          <tr>
+            <td>協賛メーカー社数・単価</td>
+            <td class="center">TBD</td>
+            <td>—</td>
+            <td class="center"><span class="tag red">先方待ち</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>施策の採否判断（柱③）✅ 完了</h4>
+    <ul class="checklist">
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ 「魔の最初の3分」対策 → 柱③に追記済み</div><div class="item-desc">根拠：現状平均視聴分数3.1分 → 商品紹介すら届いていない可能性がある</div></div></li>
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ CTR誘導の「型」化 → 柱③に追記済み</div><div class="item-desc">「今表示されている〇〇のボタンから…」の実演アナウンス義務化</div></div></li>
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ 冒頭・中盤「簡易アンケート」 → 柱③に追記済み</div><div class="item-desc">「1を押して！」「どっちの色が好き？」でコメント率向上</div></div></li>
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ 目的別の配信尺使い分け → 柱③に追記済み</div><div class="item-desc">〜60分=CTR重視 / 75分〜=課金重視（期待値4.2倍） / 65〜73分=バランス型</div></div></li>
+      <li><div class="checkbox"></div><div><div>⬜ 競合比較テーブルをスライドに入れるか判断する</div><div class="item-desc">入れる場合：どの数値を前面に出すか選ぶ（視聴者数の強み vs 視聴分数・CTRの課題）</div></div></li>
+    </ul>
+  </div>
+
+  <!-- READY -->
+  <div class="todo-section">
+    <div class="todo-header">
+      <div class="todo-badge ready">✅ 完了：🟢 作業</div>
+      <div class="todo-desc">完了済み。</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ マスターデータへの競合調査内容の統合</div><div class="item-desc">§10「競合ベンチマーク」セクション新規追加・§4 KPI暫定値更新済み</div></div></li>
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ 提案骨子 柱②のTBDを暫定値で更新</div><div class="item-desc">KPI暫定値7項目・柱③に具体アクション4施策追記済み</div></div></li>
+      <li><div class="checkbox" style="background:#1b998b;border-color:#1b998b;"></div><div><div>✅ 統合HTML更新</div><div class="item-desc">TODOの進捗・KPI暫定値・施策追記をHTMLに反映済み</div></div></li>
+    </ul>
+  </div>
+
+  <div class="highlight-box" style="margin-top: 24px;">
+    <div class="main">残タスク</div>
+    <div class="sub" style="margin-top: 8px; line-height: 2;">
+      🔴 先方から回答を待つ（受注KPI・定量定性目標・X告知数値・キャンペーン実施回数）<br>
+      ⬜ 回答が来たら → マスターデータを更新してスライドに反映<br>
+      ⬜ 競合比較テーブルをスライドに入れるか判断
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
