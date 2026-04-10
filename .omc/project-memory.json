@@ -84,8 +84,8 @@
   "hotPaths": [
     {
       "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 55,
-      "lastAccessed": 1775728674510,
+      "accessCount": 76,
+      "lastAccessed": 1775804458867,
       "type": "file"
     },
     {
@@ -108,8 +108,8 @@
     },
     {
       "path": "01_年次報告会/提案骨子/年次報告会_提案骨子_20260408_v3.md",
-      "accessCount": 21,
-      "lastAccessed": 1775713149069,
+      "accessCount": 22,
+      "lastAccessed": 1775804179378,
       "type": "file"
     },
     {
@@ -126,8 +126,8 @@
     },
     {
       "path": "",
-      "accessCount": 10,
-      "lastAccessed": 1775723023426,
+      "accessCount": 11,
+      "lastAccessed": 1775804184606,
       "type": "directory"
     },
     {
@@ -144,8 +144,8 @@
     },
     {
       "path": "01_年次報告会/提案骨子/TODO_提案会準備_やるべきこと.md",
-      "accessCount": 7,
-      "lastAccessed": 1775724808934,
+      "accessCount": 8,
+      "lastAccessed": 1775804196660,
       "type": "file"
     },
     {
@@ -179,6 +179,12 @@
       "type": "file"
     },
     {
+      "path": "CLAUDE.md",
+      "accessCount": 3,
+      "lastAccessed": 1775804078912,
+      "type": "file"
+    },
+    {
       "path": "01_年次報告会/年次報告_資産価値サマリー_20260326.md",
       "accessCount": 2,
       "lastAccessed": 1775707009458,
@@ -203,6 +209,12 @@
       "type": "directory"
     },
     {
+      "path": "01_年次報告会/提案骨子/分析_A5_コメント内容テキスト分析_20260409.md",
+      "accessCount": 2,
+      "lastAccessed": 1775804197119,
+      "type": "file"
+    },
+    {
       "path": "01_年次報告会/年次報告会_提案骨子_20260408_v2.md",
       "accessCount": 1,
       "lastAccessed": 1775638316458,
@@ -218,12 +230,6 @@
       "path": "01_年次報告会/SNS数値_年度別サマリー_20260409.md",
       "accessCount": 1,
       "lastAccessed": 1775707490812,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/分析_A5_コメント内容テキスト分析_20260409.md",
-      "accessCount": 1,
-      "lastAccessed": 1775729484837,
       "type": "file"
     }
   ],
