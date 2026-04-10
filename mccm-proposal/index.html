@@ -901,7 +901,7 @@
             <td>A1</td>
             <td>KPI再設計の壁打ち</td>
             <td>リピーター数・アクティブ率・エンゲージ率を追うための指標設計。既存KPI（視聴者数・CTR等）との整合性も確認。</td>
-            <td class="center"><span class="tag red">未着手</span></td>
+            <td class="center"><span class="tag orange">要精査</span></td>
           </tr>
           <tr>
             <td>A2</td>
@@ -948,7 +948,8 @@
     <div class="main">残タスク</div>
     <div class="sub" style="margin-top: 8px; line-height: 2;">
       🔴 先方から回答を待つ（受注KPI・定量定性目標・X告知数値・キャンペーン実施回数）<br>
-      🟡 分析タスク A1・A4・A5（上記参照）<br>
+      🟡 分析タスク A4・A5（上記参照）<br>
+      🟠 A1 KPI再設計の壁打ち → 要精査（詳細は下記参照）<br>
       🟠 A2 競合比較「なぜ低いか」の言語化 → 要精査（詳細は下記参照）<br>
       🟠 A3 協賛回 vs レギュラー回 エンゲージメント比較 → 要精査（詳細は下記参照）<br>
       ✅ A6 台本「お悩み訴求」チェック → 完了（詳細は下記参照）<br>
@@ -967,6 +968,92 @@
       <div class="section-title">TODOに関する詳細分析結果</div>
       <div class="section-subtitle">分析タスク（A1〜A7）の実施結果・インサイト・提案への活用方針</div>
     </div>
+  </div>
+
+  <!-- A1 -->
+  <h3 style="margin-top: 32px; border-left: 4px solid #e07a5f; padding-left: 12px;">A1｜KPI再設計の壁打ち <span class="tag orange" style="font-size:12px; margin-left:8px;">要精査</span></h3>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>分析概要：</strong>現行KPI（視聴者数・CTR・コメント率）に「リピーター数・アクティブ率・合計視聴時間」を加えた再設計案。競合GAP分析に基づきSTEP1（上期）・STEP2（下期）・North Starの3段階ターゲットを設定。先方との確認事項あり。
+  </div>
+
+  <h4 style="margin: 20px 0 10px;">KPI再設計案（3段階ターゲット）</h4>
+  <table>
+    <thead><tr><th>KPI</th><th class="center">現状</th><th class="center">STEP1（上期）</th><th class="center">STEP2（下期）</th><th class="center">North Star</th><th>設計ロジック</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>視聴者数（リーチ）</td>
+        <td class="center">5,084人</td>
+        <td class="center">5,000人維持</td>
+        <td class="center">5,000人維持</td>
+        <td class="center">6,000人+</td>
+        <td>業界2位水準。維持がゴール。新規獲得より引き留めに注力</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>平均視聴分数</strong>（最重要）</td>
+        <td class="center" style="color:#e94560;"><strong>3.1分</strong></td>
+        <td class="center"><strong>6.0分</strong>（2倍）</td>
+        <td class="center"><strong>10.0分</strong></td>
+        <td class="center">28.0分（KANEBO）</td>
+        <td>視聴分数↑→CTR↑の因果。30分視聴者のCTRは40.32%</td>
+      </tr>
+      <tr>
+        <td>商品CTR（アクション）</td>
+        <td class="center" style="color:#e94560;">1.0%</td>
+        <td class="center">3.0%</td>
+        <td class="center">5.5%（ロート水準）</td>
+        <td class="center">11.7%（KANEBO）</td>
+        <td>視聴分数向上が前提。クーポン・限定性・CTAアナウンス義務化</td>
+      </tr>
+      <tr>
+        <td>コメント参加率（エンゲージ）</td>
+        <td class="center" style="color:#e94560;">0.8%</td>
+        <td class="center">3.0%</td>
+        <td class="center">4.5%（ロート水準）</td>
+        <td class="center">9.1%（KANEBO）</td>
+        <td>視聴分数の先行指標。簡易アンケート・メーカー担当者参加で底上げ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">新設KPI候補（追加指標）</h4>
+  <table>
+    <thead><tr><th>指標</th><th>定義</th><th class="center">取得可否</th><th class="center">優先度</th></tr></thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>合計視聴時間</strong></td>
+        <td>視聴者数 × 平均視聴分数（例：現状15,760分 → STEP2で50,000分）</td>
+        <td class="center"><span class="tag green">即算出可</span></td>
+        <td class="center">高</td>
+      </tr>
+      <tr>
+        <td>リピーター視聴率</td>
+        <td>過去1ヶ月以内に視聴歴がある視聴者の割合</td>
+        <td class="center"><span class="tag orange">Firework確認要</span></td>
+        <td class="center">高</td>
+      </tr>
+      <tr>
+        <td>アクティブ率</td>
+        <td>月2回以上視聴している視聴者の割合</td>
+        <td class="center"><span class="tag orange">Firework確認要</span></td>
+        <td class="center">中</td>
+      </tr>
+      <tr>
+        <td>クーポン利用率</td>
+        <td>配信中発行クーポンのCT率</td>
+        <td class="center"><span class="tag gray">クーポン運用時</span></td>
+        <td class="center">中</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note" style="margin-top: 16px; background:#fff8e1; border-left: 4px solid #e07a5f; padding: 16px; border-radius: 8px;">
+    <strong>先方との確認事項（壁打ち論点）：</strong><br>
+    ① KPI優先順位の合意（視聴分数・CTR・コメント率のうち2026年度最重点は？）<br>
+    ② 受注KPI（売上・ROAS等）との接続方法<br>
+    ③ Fireworkでリピーター率・アクティブ率のトラッキングが可能か<br>
+    ④ 配信尺の方針（CTR重視なら短尺〜60分 / 課金重視なら長尺75分〜。優先KPIと連動して決定）<br>
+    ⑤ STEP1目標（視聴分数6分・2倍）達成のための施策実行体制・スケジュール
   </div>
 
   <!-- A2 -->
