@@ -84,8 +84,8 @@
   "hotPaths": [
     {
       "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 20,
-      "lastAccessed": 1775816849816,
+      "accessCount": 36,
+      "lastAccessed": 1775820509655,
       "type": "file"
     },
     {
@@ -96,15 +96,33 @@
     },
     {
       "path": "01_年次報告会/提案骨子/分析_A1_KPI再設計の壁打ち_20260410.md",
-      "accessCount": 2,
-      "lastAccessed": 1775816792924,
+      "accessCount": 3,
+      "lastAccessed": 1775818359435,
       "type": "file"
     },
     {
       "path": "",
-      "accessCount": 1,
-      "lastAccessed": 1775812823887,
+      "accessCount": 3,
+      "lastAccessed": 1775818399775,
       "type": "directory"
+    },
+    {
+      "path": "02_データ/【マツココライブ】配信数値まとめ - 数値まとめ.csv",
+      "accessCount": 2,
+      "lastAccessed": 1775818418449,
+      "type": "file"
+    },
+    {
+      "path": ".claude/checkpoints.log",
+      "accessCount": 1,
+      "lastAccessed": 1775818354549,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A5_フォロリポ分析_20260410.md",
+      "accessCount": 1,
+      "lastAccessed": 1775819799705,
+      "type": "file"
     }
   ],
   "userDirectives": []
