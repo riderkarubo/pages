@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775724255765,
+  "lastScanned": 1775811978725,
   "projectRoot": "/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM",
   "techStack": {
     "languages": [],
@@ -32,8 +32,8 @@
     "01_年次報告会": {
       "path": "01_年次報告会",
       "purpose": null,
-      "fileCount": 3,
-      "lastAccessed": 1775724255732,
+      "fileCount": 2,
+      "lastAccessed": 1775811978692,
       "keyFiles": [
         "KPI設計_提案書.html",
         "年次報告会_提案スライド_20260409.html"
@@ -42,12 +42,12 @@
     "02_データ": {
       "path": "02_データ",
       "purpose": null,
-      "fileCount": 5,
-      "lastAccessed": 1775724255736,
+      "fileCount": 6,
+      "lastAccessed": 1775811978693,
       "keyFiles": [
-        "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
-        "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
-        "【マツココライブ】配信数値まとめ - 数値まとめ.csv",
+        "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
+        "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
+        "【マツココライブ】配信数値まとめ - 数値まとめ.csv",
         "アットコスメ制作体制ヒアリングまとめ.md",
         "協賛配信のあゆみ.txt"
       ]
@@ -56,181 +56,55 @@
       "path": "03_テンプレート",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1775724255738,
+      "lastAccessed": 1775811978694,
       "keyFiles": [
         "MCCM_HTML設計書_v1.md",
         "MCCM_新構成案_v1.md",
-        "スライドテンプレート用サンプルスライド.pptx",
-        "テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml"
+        "スライドテンプレート用サンプルスライド.pptx",
+        "テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml"
       ]
     },
     "04_過去資料": {
       "path": "04_過去資料",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775724255738,
+      "lastAccessed": 1775811978695,
       "keyFiles": []
     },
     "05_メーカー実績レポート資料": {
       "path": "05_メーカー実績レポート資料",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1775724255740,
+      "lastAccessed": 1775811978696,
       "keyFiles": [
-        "マツココライブLIVEメニュー協賛実績260330.xlsx"
+        "マツココライブLIVEメニュー協賛実績260330.xlsx"
       ]
     }
   },
   "hotPaths": [
     {
       "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 76,
-      "lastAccessed": 1775804458867,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/年次報告会_提案スライド_20260409.html",
-      "accessCount": 49,
-      "lastAccessed": 1775713959079,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/KPI設計_提案書.md",
-      "accessCount": 42,
-      "lastAccessed": 1775709363126,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/提案資料_統合版_20260409.html",
-      "accessCount": 38,
-      "lastAccessed": 1775717088109,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/年次報告会_提案骨子_20260408_v3.md",
-      "accessCount": 22,
-      "lastAccessed": 1775804179378,
-      "type": "file"
-    },
-    {
-      "path": "02_データ/【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
-      "accessCount": 17,
-      "lastAccessed": 1775723077187,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/年次報告会_マスターデータ_20260409.md",
-      "accessCount": 12,
-      "lastAccessed": 1775707541712,
-      "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 11,
-      "lastAccessed": 1775804184606,
-      "type": "directory"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/年次報告会_マスターデータ_20260409.md",
-      "accessCount": 10,
-      "lastAccessed": 1775723094594,
+      "accessCount": 20,
+      "lastAccessed": 1775816849816,
       "type": "file"
     },
     {
       "path": "01_年次報告会/提案骨子/競合調査・KPI設計_提案書.md",
-      "accessCount": 9,
-      "lastAccessed": 1775711755126,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/TODO_提案会準備_やるべきこと.md",
-      "accessCount": 8,
-      "lastAccessed": 1775804196660,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/分析_A6_お悩み訴求チェック_20260409.md",
-      "accessCount": 7,
-      "lastAccessed": 1775729463108,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/キャンペーン有無_洗い出し_20260409.md",
-      "accessCount": 6,
-      "lastAccessed": 1775724745738,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/年次報告会_提案骨子_20260408_v3.md",
       "accessCount": 3,
-      "lastAccessed": 1775702667929,
+      "lastAccessed": 1775816064810,
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/SNS数値_年度別サマリー_20260409.md",
-      "accessCount": 3,
-      "lastAccessed": 1775713153337,
-      "type": "file"
-    },
-    {
-      "path": "02_データ/協賛配信のあゆみ.txt",
-      "accessCount": 3,
-      "lastAccessed": 1775723045234,
-      "type": "file"
-    },
-    {
-      "path": "CLAUDE.md",
-      "accessCount": 3,
-      "lastAccessed": 1775804078912,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/年次報告_資産価値サマリー_20260326.md",
+      "path": "01_年次報告会/提案骨子/分析_A1_KPI再設計の壁打ち_20260410.md",
       "accessCount": 2,
-      "lastAccessed": 1775707009458,
+      "lastAccessed": 1775816792924,
       "type": "file"
     },
     {
-      "path": "02_データ/アットコスメ制作体制ヒアリングまとめ.md",
-      "accessCount": 2,
-      "lastAccessed": 1775707060682,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/フィードバック/260409スライドフィードバック.md",
-      "accessCount": 2,
-      "lastAccessed": 1775719603866,
-      "type": "file"
-    },
-    {
-      "path": "02_データ/【マツココライブ】配信数値まとめ - 数値まとめ.csv",
-      "accessCount": 2,
-      "lastAccessed": 1775723061591,
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1775812823887,
       "type": "directory"
-    },
-    {
-      "path": "01_年次報告会/提案骨子/分析_A5_コメント内容テキスト分析_20260409.md",
-      "accessCount": 2,
-      "lastAccessed": 1775804197119,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/年次報告会_提案骨子_20260408_v2.md",
-      "accessCount": 1,
-      "lastAccessed": 1775638316458,
-      "type": "file"
-    },
-    {
-      "path": "02_データ/【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
-      "accessCount": 1,
-      "lastAccessed": 1775707059748,
-      "type": "file"
-    },
-    {
-      "path": "01_年次報告会/SNS数値_年度別サマリー_20260409.md",
-      "accessCount": 1,
-      "lastAccessed": 1775707490812,
-      "type": "file"
     }
   ],
   "userDirectives": []
