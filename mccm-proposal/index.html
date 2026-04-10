@@ -183,8 +183,11 @@
   .discussion-list .disc-desc { font-size: 12px; color: #666; }
   .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
   .toc-item { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 13px; }
+  .toc-item a { display: flex; align-items: center; gap: 12px; width: 100%; text-decoration: none; color: inherit; border-radius: 6px; padding: 2px 4px; transition: background 0.15s; }
+  .toc-item a:hover { background: #e8eaf0; }
   .toc-num { width: 24px; height: 24px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
   .toc-time { margin-left: auto; font-size: 11px; color: #888; white-space: nowrap; }
+  tr.done { opacity: 0.4; }
 
   @media print {
     body { background: white; }
@@ -227,18 +230,18 @@
     </div>
   </div>
   <div class="toc">
-    <div class="toc-item"><div class="toc-num">1</div><span>エグゼクティブサマリ</span><div class="toc-time">冒頭 1スライド</div></div>
-    <div class="toc-item"><div class="toc-num">2</div><span>柱① 2025年度総括 ― 資産価値の報告</span><div class="toc-time">5分</div></div>
-    <div class="toc-item"><div class="toc-num">3</div><span>柱② 2026年度 KPI目標設定</span><div class="toc-time">15分（前半）</div></div>
-    <div class="toc-item"><div class="toc-num">4</div><span>柱③ 戦略施策 ― KPI達成のためのアクション</span><div class="toc-time">15分（後半）</div></div>
-    <div class="toc-item"><div class="toc-num">5</div><span>競合ベンチマーク（資生堂・KANEBO・アットコスメ・ロート）</span><div class="toc-time">参考資料</div></div>
-    <div class="toc-item"><div class="toc-num">6</div><span>ディスカッション議題</span><div class="toc-time">25分</div></div>
-    <div class="toc-item"><div class="toc-num">7</div><span>TODO ― 先方確認事項 × 自社作業リスト</span><div class="toc-time">—</div></div>
+    <div class="toc-item"><a href="#sec-exec"><div class="toc-num">1</div><span>エグゼクティブサマリ</span><div class="toc-time">冒頭 1スライド</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar1"><div class="toc-num">2</div><span>柱① 2025年度総括 ― 資産価値の報告</span><div class="toc-time">5分</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar2"><div class="toc-num">3</div><span>柱② 2026年度 KPI目標設定</span><div class="toc-time">15分（前半）</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar3"><div class="toc-num">4</div><span>柱③ 戦略施策 ― KPI達成のためのアクション</span><div class="toc-time">15分（後半）</div></a></div>
+    <div class="toc-item"><a href="#sec-benchmark"><div class="toc-num">5</div><span>競合ベンチマーク（資生堂・KANEBO・アットコスメ・ロート）</span><div class="toc-time">参考資料</div></a></div>
+    <div class="toc-item"><a href="#sec-discussion"><div class="toc-num">6</div><span>ディスカッション議題</span><div class="toc-time">25分</div></a></div>
+    <div class="toc-item"><a href="#sec-todo"><div class="toc-num">7</div><span>TODO ― 先方確認事項 × 自社作業リスト</span><div class="toc-time">—</div></a></div>
   </div>
 </div>
 
 <!-- ===== EXEC SUMMARY ===== -->
-<div class="section">
+<div class="section" id="sec-exec">
   <div class="section-header">
     <div class="section-badge">EXEC SUMMARY</div>
     <div>
@@ -301,7 +304,7 @@
 </div>
 
 <!-- ===== PILLAR 1 ===== -->
-<div class="section">
+<div class="section" id="sec-pillar1">
   <div class="section-header">
     <div class="section-badge red">柱① 5分</div>
     <div>
@@ -487,7 +490,7 @@
 </div>
 
 <!-- ===== PILLAR 2 ===== -->
-<div class="section">
+<div class="section" id="sec-pillar2">
   <div class="section-header">
     <div class="section-badge blue">柱② 15分前半</div>
     <div>
@@ -602,7 +605,7 @@
 </div>
 
 <!-- ===== PILLAR 3 ===== -->
-<div class="section">
+<div class="section" id="sec-pillar3">
   <div class="section-header">
     <div class="section-badge green">柱③ 15分後半</div>
     <div>
@@ -740,7 +743,7 @@
 </div>
 
 <!-- ===== DISCUSSION ===== -->
-<div class="section">
+<div class="section" id="sec-discussion">
   <div class="section-header">
     <div class="section-badge orange">ディスカッション 25分</div>
     <div>
@@ -797,7 +800,7 @@
 </div>
 
 <!-- ===== TODO ===== -->
-<div class="section">
+<div class="section" id="sec-todo">
   <div class="section-header">
     <div class="section-badge gray">TODO</div>
     <div>
@@ -924,13 +927,13 @@
             <td>「魔の最初の3分」対策の前提として、視聴者が配信に入ってくるピークタイミングを過去データから特定。</td>
             <td class="center"><span class="tag red">未着手</span></td>
           </tr>
-          <tr>
+          <tr class="done">
             <td>A6</td>
             <td>台本「お悩み訴求（自分ごと化）」チェック</td>
             <td>過去全台本を対象に、冒頭でお悩み訴求・自分ごと化の構成になっているか再チェック。なっていない回の洗い出し。</td>
             <td class="center"><span class="tag green">完了</span></td>
           </tr>
-          <tr>
+          <tr class="done">
             <td>A7</td>
             <td>キャンペーン有無とエンゲージメントの差分析</td>
             <td>過去全台本を対象に、キャンペーン情報がある回とない回を分類し、各回の内容を精査した上でエンゲージメント（CTR・コメント率・視聴分数）の差を比較・検証する。</td>
@@ -945,7 +948,8 @@
     <div class="main">残タスク</div>
     <div class="sub" style="margin-top: 8px; line-height: 2;">
       🔴 先方から回答を待つ（受注KPI・定量定性目標・X告知数値・キャンペーン実施回数）<br>
-      🟡 分析タスク A1〜A6（上記参照）<br>
+      🟡 分析タスク A1〜A5（上記参照）<br>
+      ✅ A6 台本「お悩み訴求」チェック → 完了（詳細は下記参照）<br>
       ✅ A7 キャンペーン有無とエンゲージメントの差分析 → 完了（詳細は下記参照）<br>
       ⬜ 回答が来たら → マスターデータを更新してスライドに反映<br>
       ⬜ 競合比較テーブルをスライドに入れるか判断
