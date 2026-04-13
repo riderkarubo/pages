@@ -1,0 +1,1733 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Annual Report · Proposal
+    - heading "マツキヨココカラライブ 年次報告会 提案資料" [level=1] [ref=e5]:
+      - text: マツキヨココカラライブ
+      - text: 年次報告会 提案資料
+    - generic [ref=e6]: 2025年度 資産価値報告 × 2026年度 戦略提案
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Date
+        - generic [ref=e10]: 2026年4月9日
+      - generic [ref=e11]:
+        - generic [ref=e12]: Prepared by
+        - generic [ref=e13]: riderkarubo
+      - generic [ref=e14]:
+        - generic [ref=e15]: Status
+        - generic [ref=e16]: Draft v1.0
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: INDEX
+      - generic [ref=e21]: 目次 · アジェンダ
+    - generic [ref=e22]:
+      - link "1 エグゼクティブサマリ 冒頭 1スライド" [ref=e24] [cursor=pointer]:
+        - /url: "#sec-exec"
+        - generic [ref=e25]: "1"
+        - generic [ref=e26]: エグゼクティブサマリ
+        - generic [ref=e27]: 冒頭 1スライド
+      - link "2 柱① 2025年度総括 ― 資産価値の報告 5分" [ref=e29] [cursor=pointer]:
+        - /url: "#sec-pillar1"
+        - generic [ref=e30]: "2"
+        - generic [ref=e31]: 柱① 2025年度総括 ― 資産価値の報告
+        - generic [ref=e32]: 5分
+      - link "3 柱② 2026年度 KPI目標設定 15分（前半）" [ref=e34] [cursor=pointer]:
+        - /url: "#sec-pillar2"
+        - generic [ref=e35]: "3"
+        - generic [ref=e36]: 柱② 2026年度 KPI目標設定
+        - generic [ref=e37]: 15分（前半）
+      - link "4 柱③ 戦略施策 ― KPI達成のためのアクション 15分（後半）" [ref=e39] [cursor=pointer]:
+        - /url: "#sec-pillar3"
+        - generic [ref=e40]: "4"
+        - generic [ref=e41]: 柱③ 戦略施策 ― KPI達成のためのアクション
+        - generic [ref=e42]: 15分（後半）
+      - link "5 競合ベンチマーク（資生堂・KANEBO・アットコスメ・ロート） 参考資料" [ref=e44] [cursor=pointer]:
+        - /url: "#sec-benchmark"
+        - generic [ref=e45]: "5"
+        - generic [ref=e46]: 競合ベンチマーク（資生堂・KANEBO・アットコスメ・ロート）
+        - generic [ref=e47]: 参考資料
+      - link "6 ディスカッション議題 25分" [ref=e49] [cursor=pointer]:
+        - /url: "#sec-discussion"
+        - generic [ref=e50]: "6"
+        - generic [ref=e51]: ディスカッション議題
+        - generic [ref=e52]: 25分
+      - link "7 TODO ― 先方確認事項 × 自社作業リスト —" [ref=e54] [cursor=pointer]:
+        - /url: "#sec-todo"
+        - generic [ref=e55]: "7"
+        - generic [ref=e56]: TODO ― 先方確認事項 × 自社作業リスト
+        - generic [ref=e57]: —
+  - generic [ref=e58]:
+    - generic [ref=e59]:
+      - generic [ref=e60]: EXEC SUMMARY
+      - generic [ref=e62]: エグゼクティブサマリ
+    - generic [ref=e63]:
+      - generic [ref=e64]: 「マツキヨココカラライブは、配信する媒体から資産を積み上げるプラットフォームへと進化した。」
+      - generic [ref=e65]: 2024年度からの累計で総視聴200万人超・91回の配信を達成。1回の配信が1ヶ月後に2〜3倍のリーチを生み続けるストック型資産へ。
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]: SNS告知（認知）
+        - generic [ref=e69]: 73,120
+        - generic [ref=e70]: imp/回平均（2024年度）
+      - generic [ref=e71]: →
+      - generic [ref=e72]:
+        - generic [ref=e73]: ライブ配信（体験）
+        - generic [ref=e74]: 5,860人
+        - generic [ref=e75]: 平均視聴者数/回（2025年度）
+      - generic [ref=e76]: →
+      - generic [ref=e77]:
+        - generic [ref=e78]: アーカイブ（蓄積）
+        - generic [ref=e79]: ＋22%
+        - generic [ref=e80]: 2日後→1ヶ月後の伸長
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]: 2024年度〜現在 累計視聴（ライブ＋アーカイブ）
+        - generic [ref=e84]: 200万人超
+        - generic [ref=e85]: 2024年度 578,567人 ＋ 2025年度 1,440,000人
+      - generic [ref=e86]:
+        - generic [ref=e87]: 2025年度 ライブ視聴（実数）
+        - generic [ref=e88]: 86万人
+        - generic [ref=e89]: 860,000人（ライブのみ・アーカイブ除く）
+      - generic [ref=e90]:
+        - generic [ref=e91]: 累計 協賛売上（2024〜2025年度）
+        - generic [ref=e92]: 2,935万円
+        - generic [ref=e93]: 2024年度 1,432万円 ＋ 2025年度 1,487万円
+      - generic [ref=e94]:
+        - generic [ref=e95]: 動画ライブラリ（2025年度）
+        - generic [ref=e96]: 91本
+        - generic [ref=e97]: 2025年度配信分
+    - generic [ref=e98]:
+      - generic [ref=e99]: 2026年度の問い
+      - generic [ref=e100]: この循環の「回転速度」をどう上げるか。
+  - generic [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]: 柱① 5分
+      - generic [ref=e104]:
+        - generic [ref=e105]: 2025年度総括 ― 1年間で積み上げた「資産価値」
+        - generic [ref=e106]: 出典：マスターデータ・協賛実績xlsx・SNS数値CSV
+    - heading "主要実績数値（2025年度）" [level=3] [ref=e107]
+    - generic [ref=e108]:
+      - generic [ref=e109]:
+        - generic [ref=e110]: 2025年度 ライブ視聴（実数）
+        - generic [ref=e111]: 86万人
+        - generic [ref=e112]: 860,000人（ライブのみ）
+        - generic [ref=e113]: 前年比 +407%
+      - generic [ref=e114]:
+        - generic [ref=e115]: 2025年度（ライブ＋アーカイブ合計）
+        - generic [ref=e116]: 144万人
+        - generic [ref=e117]: 1,440,000人
+      - generic [ref=e118]:
+        - generic [ref=e119]: 協賛売上（2025年度）
+        - generic [ref=e120]: 1,487万円
+        - generic [ref=e121]: 26回・2025年度単独
+      - generic [ref=e122]:
+        - generic [ref=e123]: 動画ライブラリ（2025年度）
+        - generic [ref=e124]: 91本
+        - generic [ref=e125]: 2025年度配信分
+    - heading "年度別 視聴者数推移" [level=3] [ref=e126]
+    - table [ref=e127]:
+      - rowgroup [ref=e128]:
+        - row "期間 ライブ累計 前年比 アーカイブ累計 前年比 合計 前年比 1回平均（ライブ） 前年比" [ref=e129]:
+          - columnheader "期間" [ref=e130]
+          - columnheader "ライブ累計" [ref=e131]
+          - columnheader "前年比" [ref=e132]
+          - columnheader "アーカイブ累計" [ref=e133]
+          - columnheader "前年比" [ref=e134]
+          - columnheader "合計" [ref=e135]
+          - columnheader "前年比" [ref=e136]
+          - columnheader "1回平均（ライブ）" [ref=e137]
+          - columnheader "前年比" [ref=e138]
+      - rowgroup [ref=e139]:
+        - row "2024年度（2024.4〜2025.3） 169,725人 — 408,842人 — 578,567人 — 3,857人 —" [ref=e140]:
+          - cell "2024年度（2024.4〜2025.3）" [ref=e141]
+          - cell "169,725人" [ref=e142]
+          - cell "—" [ref=e143]
+          - cell "408,842人" [ref=e144]
+          - cell "—" [ref=e145]
+          - cell "578,567人" [ref=e146]
+          - cell "—" [ref=e147]
+          - cell "3,857人" [ref=e148]
+          - cell "—" [ref=e149]
+        - row "2025年度（2025.4〜2026.3） 860,000人 +407% 580,000人 +42% 1,440,000人 +149% 5,860人 +52%" [ref=e150]:
+          - cell "2025年度（2025.4〜2026.3）" [ref=e151]
+          - cell "860,000人" [ref=e152]
+          - cell "+407%" [ref=e153]:
+            - generic [ref=e154]: +407%
+          - cell "580,000人" [ref=e155]
+          - cell "+42%" [ref=e156]:
+            - generic [ref=e157]: +42%
+          - cell "1,440,000人" [ref=e158]
+          - cell "+149%" [ref=e159]:
+            - generic [ref=e160]: +149%
+          - cell "5,860人" [ref=e161]:
+            - strong [ref=e162]: 5,860人
+          - cell "+52%" [ref=e163]:
+            - generic [ref=e164]: +52%
+    - generic [ref=e165]: ※ 2025年度ライブ視聴860,000はライブのみの実数（アーカイブ除く）。前年比は2024年度実績との比較。
+    - heading "年度別 協賛実績" [level=3] [ref=e166]
+    - table [ref=e167]:
+      - rowgroup [ref=e168]:
+        - row "期間 協賛実施回数 前年比 売上合計 前年比" [ref=e169]:
+          - columnheader "期間" [ref=e170]
+          - columnheader "協賛実施回数" [ref=e171]
+          - columnheader "前年比" [ref=e172]
+          - columnheader "売上合計" [ref=e173]
+          - columnheader "前年比" [ref=e174]
+      - rowgroup [ref=e175]:
+        - row "2024年度（2024.4〜2025.3） 18回 — 14,320,290円 —" [ref=e176]:
+          - cell "2024年度（2024.4〜2025.3）" [ref=e177]
+          - cell "18回" [ref=e178]
+          - cell "—" [ref=e179]
+          - cell "14,320,290円" [ref=e180]
+          - cell "—" [ref=e181]
+        - row "2025年度（2025.4〜2026.3） 26回 +44% 14,868,840円 +4%" [ref=e182]:
+          - cell "2025年度（2025.4〜2026.3）" [ref=e183]
+          - cell "26回" [ref=e184]
+          - cell "+44%" [ref=e185]:
+            - generic [ref=e186]: +44%
+          - cell "14,868,840円" [ref=e187]
+          - cell "+4%" [ref=e188]:
+            - generic [ref=e189]: +4%
+    - heading "7つの経営資産" [level=3] [ref=e190]
+    - generic [ref=e191]:
+      - generic [ref=e192]:
+        - generic [ref=e193]: 資産 01
+        - generic [ref=e194]: 視聴者資産
+        - generic [ref=e195]:
+          - text: 累計約144万人
+          - text: アーカイブが3.3倍に拡張
+      - generic [ref=e196]:
+        - generic [ref=e197]: 資産 02
+        - generic [ref=e198]: コンテンツ資産
+        - generic [ref=e199]:
+          - text: 91本
+          - text: 配信後も伸長（melt：2.2倍）
+      - generic [ref=e200]:
+        - generic [ref=e201]: 資産 03
+        - generic [ref=e202]: メーカー関係資産
+        - generic [ref=e203]:
+          - text: 約19社（のべ）・累計44回
+          - text: 年間通して広告販売できる体制
+      - generic [ref=e204]:
+        - generic [ref=e205]: 資産 04
+        - generic [ref=e206]: データ資産
+        - generic [ref=e207]:
+          - text: CDP上に蓄積中
+          - text: 視聴者ID×会員ID突合
+      - generic [ref=e208]:
+        - generic [ref=e209]: 資産 05
+        - generic [ref=e210]: ノウハウ資産
+        - generic [ref=e211]:
+          - text: 内製化レクチャー全5回
+          - text: （2026年1月〜5月実施）
+      - generic [ref=e212]:
+        - generic [ref=e213]: 資産 06
+        - generic [ref=e214]: 出演者資産
+        - generic [ref=e215]:
+          - text: 育成された出演者 計9名
+          - text: （第2期オーディションで3名追加）
+      - generic [ref=e216]:
+        - generic [ref=e217]: 資産 07
+        - generic [ref=e218]: パートナー資産
+        - generic [ref=e219]:
+          - text: LIPSとの連携によるリテールメディア強化
+          - text: （メニュー化済み）
+    - heading "マイルストーン" [level=3] [ref=e220]
+    - generic [ref=e221]:
+      - generic [ref=e222]:
+        - generic [ref=e223]: 2024年4月
+        - strong [ref=e225]: 本格稼働スタート
+      - generic [ref=e226]:
+        - generic [ref=e227]: 2024年6月5日
+        - strong [ref=e229]: 1社協賛初回（melt）
+      - generic [ref=e230]:
+        - generic [ref=e231]: 2024年8月
+        - generic [ref=e232]:
+          - strong [ref=e233]: オンラインサイトのフローティング表示導入により視聴者数が急増
+          - text: （5月平均約300人→8月以降5,000人超）
+      - generic [ref=e234]:
+        - generic [ref=e235]: 2024年8月19日
+        - generic [ref=e236]:
+          - strong [ref=e237]: ブランド横断型初回
+          - text: （売れ筋ナプキン徹底比較 / ユニ・チャーム協賛）
+      - generic [ref=e238]:
+        - generic [ref=e239]: 2024年11月
+        - generic [ref=e240]: 毎月メーカー協賛を安定獲得する体制を確立
+      - generic [ref=e241]:
+        - generic [ref=e242]: 2025年10月
+        - strong [ref=e244]: 第2期出演者オーディションにより新メンバー3名加入（1期生含め計9名）
+      - generic [ref=e245]:
+        - generic [ref=e246]: 2025年10月28日
+        - strong [ref=e248]: LIPSコラボ初回（KATE）
+      - generic [ref=e249]:
+        - generic [ref=e250]: 2026年1月〜5月
+        - generic [ref=e251]: 内製化レクチャー開始（全5回）
+      - generic [ref=e252]:
+        - generic [ref=e253]: 2026年度 目標
+        - strong [ref=e255]: アプリ内ライブLP導線の改修により視聴者数増加予定
+  - generic [ref=e256]:
+    - generic [ref=e257]:
+      - generic [ref=e258]: 柱② 15分前半
+      - generic [ref=e259]:
+        - generic [ref=e260]: 2026年度 KPI目標設定
+        - generic [ref=e261]: 競合ベンチマーク（2026.1-3実績）をもとに策定
+    - heading "現状と目標（競合比較ベース）" [level=3] [ref=e262]
+    - generic [ref=e263]:
+      - generic [ref=e264]:
+        - generic [ref=e265]: ① ライブ視聴者数（リーチ指標）
+        - generic [ref=e266]: 現状（2026.1-3）
+        - generic [ref=e267]: 5,084人
+        - generic [ref=e268]: →
+        - generic [ref=e269]: 5,000人以上を維持
+        - generic [ref=e270]: 競合を圧倒する強み。ディフェンス目標として維持。
+      - generic [ref=e271]:
+        - generic [ref=e272]: ② 平均視聴分数（リテンション指標）
+        - generic [ref=e273]: 現状（2026.1-3）
+        - generic [ref=e274]: 3.1分
+        - generic [ref=e275]: ↑
+        - generic [ref=e276]: "STEP1（上期）: 6.0分"
+        - generic [ref=e277]: "STEP2（下期）: 10.0分"
+        - generic [ref=e278]: North Star目標：KANEBO水準 28.0分
+      - generic [ref=e279]:
+        - generic [ref=e280]: ③ 商品クリック率 / CTR（アクション指標）
+        - generic [ref=e281]: 現状（2026.1-3）
+        - generic [ref=e282]: 1.0%
+        - generic [ref=e283]: ↑
+        - generic [ref=e284]: "STEP1（上期）: 3.0%"
+        - generic [ref=e285]: "STEP2（下期）: 5.5%"
+        - generic [ref=e286]: ロート製薬水準（5.3%）の突破を目標
+      - generic [ref=e287]:
+        - generic [ref=e288]: ④ コメント参加率（エンゲージメント指標）
+        - generic [ref=e289]: 現状（2026.1-3）
+        - generic [ref=e290]: 0.8%
+        - generic [ref=e291]: ↑
+        - generic [ref=e292]: 3.0〜4.5%
+        - generic [ref=e293]: KANEBO水準（9.1%）を中長期目標に
+    - generic [ref=e294]: ※ 協賛配信回数・受注金額・メーカー社数・内製化完了率などの事業KPIは先方確認後に追記（§TODO参照）
+    - heading "競合ベンチマーク（60分換算・2026.1-3実績）" [level=3] [ref=e295]
+    - table [ref=e296]:
+      - rowgroup [ref=e297]:
+        - row "ブランド / 配信タイプ 実績配信数 平均配信時間 視聴者数 （60分換算） 平均視聴分数 （60分換算） 商品CTR （60分換算） コメント率 （60分換算）" [ref=e298]:
+          - columnheader "ブランド / 配信タイプ" [ref=e299]
+          - columnheader "実績配信数" [ref=e300]
+          - columnheader "平均配信時間" [ref=e301]
+          - columnheader "視聴者数 （60分換算）" [ref=e302]:
+            - text: 視聴者数
+            - text: （60分換算）
+          - columnheader "平均視聴分数 （60分換算）" [ref=e303]:
+            - text: 平均視聴分数
+            - text: （60分換算）
+          - columnheader "商品CTR （60分換算）" [ref=e304]:
+            - text: 商品CTR
+            - text: （60分換算）
+          - columnheader "コメント率 （60分換算）" [ref=e305]:
+            - text: コメント率
+            - text: （60分換算）
+      - rowgroup [ref=e306]:
+        - row "マツキヨココカラライブ 10回 64.2分 5,084人 最強 3.1分 最弱 1.0% 最弱 0.8% 最弱" [ref=e307]:
+          - cell "マツキヨココカラライブ" [ref=e308]:
+            - strong [ref=e309]: マツキヨココカラライブ
+          - cell "10回" [ref=e310]
+          - cell "64.2分" [ref=e311]
+          - cell "5,084人 最強" [ref=e312]:
+            - strong [ref=e313]: 5,084人
+            - generic [ref=e314]: 最強
+          - cell "3.1分 最弱" [ref=e315]:
+            - text: 3.1分
+            - generic [ref=e316]: 最弱
+          - cell "1.0% 最弱" [ref=e317]:
+            - text: 1.0%
+            - generic [ref=e318]: 最弱
+          - cell "0.8% 最弱" [ref=e319]:
+            - text: 0.8%
+            - generic [ref=e320]: 最弱
+        - row "ロート製薬（一般メーカー） 3回 51.5分 871人 9.9分 5.3% 4.4%" [ref=e321]:
+          - cell "ロート製薬（一般メーカー）" [ref=e322]
+          - cell "3回" [ref=e323]
+          - cell "51.5分" [ref=e324]
+          - cell "871人" [ref=e325]
+          - cell "9.9分" [ref=e326]
+          - cell "5.3%" [ref=e327]
+          - cell "4.4%" [ref=e328]
+        - row "KANEBO（花王） 4回 63.0分 1,458人 28.2分 11.7% 9.1%" [ref=e329]:
+          - cell "KANEBO（花王）" [ref=e330]
+          - cell "4回" [ref=e331]
+          - cell "63.0分" [ref=e332]
+          - cell "1,458人" [ref=e333]
+          - cell "28.2分" [ref=e334]
+          - cell "11.7%" [ref=e335]
+          - cell "9.1%" [ref=e336]
+        - row "資生堂（自社特化型） 23回 81.1分 6,958人 11.8分 8.2% 5.1%" [ref=e337]:
+          - cell "資生堂（自社特化型）" [ref=e338]
+          - cell "23回" [ref=e339]
+          - cell "81.1分" [ref=e340]
+          - cell "6,958人" [ref=e341]
+          - cell "11.8分" [ref=e342]
+          - cell "8.2%" [ref=e343]
+          - cell "5.1%" [ref=e344]
+        - row "アットコスメ（オープン企画型） 13回 74.8分 2,494人 24.3分 29.4% 33.4%" [ref=e345]:
+          - cell "アットコスメ（オープン企画型）" [ref=e346]
+          - cell "13回" [ref=e347]
+          - cell "74.8分" [ref=e348]
+          - cell "2,494人" [ref=e349]
+          - cell "24.3分" [ref=e350]
+          - cell "29.4%" [ref=e351]
+          - cell "33.4%" [ref=e352]
+    - generic [ref=e353]: ※ 全数値は配信時間60分あたりに換算（正規化）。アットコスメはオープン企画型のみ集計（クローズド体験会は除外）。
+  - generic [ref=e354]:
+    - generic [ref=e355]:
+      - generic [ref=e356]: 柱③ 15分後半
+      - generic [ref=e357]:
+        - generic [ref=e358]: 戦略施策 ― 2026年度KPI達成のためのアクション
+        - generic [ref=e359]: 大テーマ：リテール収益を向上させるためには？
+    - heading "施策一覧" [level=3] [ref=e360]
+    - generic [ref=e361]:
+      - generic [ref=e362]:
+        - generic [ref=e363]: 優先度：高
+        - generic [ref=e364]: 「魔の最初の3分」対策
+        - generic [ref=e365]: 配信開始から3分以内に目玉商品・最後まで見ると得られる特典を最高熱量で伝え、即座の離脱を防ぐ。
+        - generic [ref=e366]: 根拠：現状の平均視聴分数3.1分 = 商品紹介すら届いていない可能性
+      - generic [ref=e367]:
+        - generic [ref=e368]: 優先度：高 ⚠️ 要修正
+        - generic [ref=e369]: CTR誘導の「型」化
+        - generic [ref=e370]: 「今表示されている〇〇のボタンから詳細が見れます。一旦カートに入れておいてください」と実演付きでアナウンスを義務化。
+        - generic [ref=e371]: 根拠：現状CTR 1.0%（競合ロート製薬5.3%、KANEBO 11.7%）
+        - generic [ref=e372]: ⚠️ 要修正：「アナウンス義務化でCTRが上がる」という直接的エビデンスなし。競合比較から導いた仮説提案のため、根拠となる情報（過去台本との比較・実測データ等）を追記するか、表現を「仮説施策」として修正が必要。
+      - generic [ref=e373]:
+        - generic [ref=e374]: 優先度：高
+        - generic [ref=e375]: 冒頭・中盤の「簡易アンケート」
+        - generic [ref=e376]: 「普段〇〇で悩んでる方、1を押して！」「どっちの色が好き？」など、タップだけで答えられる投げかけを序盤に挿入。
+        - generic [ref=e377]: 根拠：現状コメント率0.8%。アットコスメの「自分ごと化」設計（エンゲ率19%超）が参考
+      - generic [ref=e378]:
+        - generic [ref=e379]: 優先度：高
+        - generic [ref=e380]: 社員インフルエンサープロジェクト
+        - generic [ref=e381]: 社員自身がインフルエンサーとなり、マツキヨココカラライブの認知拡大とエンゲージメント向上を担う。切り抜き動画をSNS転用・店頭サイネージ活用できるメニューとして正式化。千代田様・山田電機様でのTikTok広告でもパフォーマンスを確認済み。
+        - generic [ref=e382]: 根拠：melt回 1ヶ月後19,673回（2日後の2.2倍）。アットコスメは既に実施済み。
+      - generic [ref=e383]:
+        - generic [ref=e384]: 優先度：高
+        - generic [ref=e385]: 薬機法における確認工数をいかに減らせるか
+        - generic [ref=e386]: 法務確認工数削減により、月5回以上受注体制の実現を目指す。AI活用・外注化の検討も並行。
+        - generic [ref=e387]: 根拠：薬機法チェックが工数の主要因。準備期間が1.5〜2ヶ月かかる原因。
+      - generic [ref=e388]:
+        - generic [ref=e389]: 優先度：中
+        - generic [ref=e390]: 目的別の配信尺設計
+        - generic [ref=e391]: 「購買転換重視」→〜60分 / 「アーカイブ課金・リーチ最大化」→75分以上 / 「バランス型」→65〜73分
+        - generic [ref=e392]: 根拠：41回実績分析。長尺はCTR・エンゲに不利だが課金期待値は4.2倍（¥29,922 vs ¥7,110）
+      - generic [ref=e393]:
+        - generic [ref=e394]: 優先度：中
+        - generic [ref=e395]: LIPSコラボ定期メニュー化
+        - generic [ref=e396]: LIPS側の販売数・受注増のためのセールス資料を強化し、LIPSがより販売しやすくなるための情報を積極提供する。座談会・ベスコス連動協賛を定型メニューとして展開。
+        - generic [ref=e397]: 実績：KATE・クナイプ・プラストゥモロー・キャンメイク・スキンアクアで実施済み
+      - generic [ref=e398]:
+        - generic [ref=e399]: 優先度：中
+        - generic [ref=e400]: プッシュ通知の精度向上
+        - generic [ref=e401]: コア商材に絞ったセグメント配信でCTR向上。
+        - generic [ref=e402]: 現状のCTR 1.0%を競合水準へ引き上げる補助施策
+      - generic [ref=e403]:
+        - generic [ref=e404]: 優先度：中
+        - generic [ref=e405]: 現場工数洗い出し → コンサル受注
+        - generic [ref=e406]: 業務効率化を切り口にコンサルティング受注を狙う。
+        - generic [ref=e407]: 中尾氏より「現行の制作品質に対して工数は適正か」という問いが提起済み
+    - heading "配信尺と各指標の関係" [level=3] [ref=e408]
+    - generic [ref=e409]: 長い配信ほど「稼ぎやすい」が、「買ってもらいやすい」のは短い配信。目的に合わせた尺設計が重要。
+    - generic [ref=e410]:
+      - generic [ref=e411]:
+        - generic [ref=e412]: 長尺（75分〜）
+        - list [ref=e413]:
+          - listitem [ref=e414]:
+            - text: • ✅ 視聴者数が
+            - strong [ref=e415]: 1.35倍
+            - text: 多い
+          - listitem [ref=e416]:
+            - text: • ✅ 課金収益の期待値が
+            - strong [ref=e417]: 4.2倍
+            - text: 高い
+          - listitem [ref=e418]: • ✅ 合計視聴時間が増える
+          - listitem [ref=e419]: • ❌ 商品クリック率が低下しやすい
+          - listitem [ref=e420]: • ❌ コメント率が低下しやすい
+          - listitem [ref=e421]: • ❌ 台本・制作工数が増加する
+      - generic [ref=e422]:
+        - generic [ref=e423]: 短尺（〜60分）
+        - list [ref=e424]:
+          - listitem [ref=e425]:
+            - text: • ✅ 商品クリック率が
+            - strong [ref=e426]: 2.4倍
+            - text: 高い
+          - listitem [ref=e427]:
+            - text: • ✅ コメント率が
+            - strong [ref=e428]: 2倍
+            - text: 高い
+          - listitem [ref=e429]: • ✅ 平均視聴分数が長い（離脱が少ない）
+          - listitem [ref=e430]: • ❌ 課金収益の期待値が低い（¥7,110）
+          - listitem [ref=e431]: • ❌ 視聴者数がやや少ない
+          - listitem [ref=e432]: • ❌ 紹介できる商品数が限られる
+      - generic [ref=e433]:
+        - generic [ref=e434]: バランス型（65〜73分）
+        - list [ref=e435]:
+          - listitem [ref=e436]: • ✅ 視聴者数と購買行動を両立
+          - listitem [ref=e437]: • ✅ 現状の平均配信時間帯（実績あり）
+          - listitem [ref=e438]: • ✅ 迷ったらここから始めやすい
+          - listitem [ref=e439]: • ❌ 長尺・短尺どちらの強みも中途半端になりやすい
+          - listitem [ref=e440]: • ❌ 目的が曖昧になると効果測定しにくい
+    - table [ref=e441]:
+      - rowgroup [ref=e442]:
+        - row "配信尺 課金発生率 平均課金額 期待値" [ref=e443]:
+          - columnheader "配信尺" [ref=e444]
+          - columnheader "課金発生率" [ref=e445]
+          - columnheader "平均課金額" [ref=e446]
+          - columnheader "期待値" [ref=e447]
+      - rowgroup [ref=e448]:
+        - row "〜60分 45% ¥15,642 ¥7,110" [ref=e449]:
+          - cell "〜60分" [ref=e450]
+          - cell "45%" [ref=e451]
+          - cell "¥15,642" [ref=e452]
+          - cell "¥7,110" [ref=e453]
+        - row "60〜75分 41% ¥31,094 ¥12,720" [ref=e454]:
+          - cell "60〜75分" [ref=e455]
+          - cell "41%" [ref=e456]
+          - cell "¥31,094" [ref=e457]
+          - cell "¥12,720" [ref=e458]
+        - row "75分〜 62% ¥47,875 ¥29,922（短尺の4.2倍）" [ref=e459]:
+          - cell "75分〜" [ref=e460]:
+            - strong [ref=e461]: 75分〜
+          - cell "62%" [ref=e462]:
+            - strong [ref=e463]: 62%
+          - cell "¥47,875" [ref=e464]:
+            - strong [ref=e465]: ¥47,875
+          - cell "¥29,922（短尺の4.2倍）" [ref=e466]:
+            - strong [ref=e467]: ¥29,922（短尺の4.2倍）
+    - generic [ref=e468]: ⚠️ 「尺を伸ばす価値があるか」はFirework台本支援による工数削減効果とセットで判断すべき論点。先方とのディスカッション議題に含める。
+  - generic [ref=e469]:
+    - generic [ref=e470]:
+      - generic [ref=e471]: ディスカッション 25分
+      - generic [ref=e473]: 先方パート ― 議題
+    - list [ref=e474]:
+      - listitem [ref=e475]:
+        - generic [ref=e476]:
+          - generic [ref=e477]: "&ST様との施策に対する明確なプラスの提示"
+          - generic [ref=e478]: Firework独自プラットフォーム・グローバル知見の活用で何がプラスオンされるか。
+      - listitem [ref=e479]:
+        - generic [ref=e480]:
+          - generic [ref=e481]: 収益化の具体スキーム
+          - generic [ref=e482]: 動画素材のメーカー販売等、米国成功事例を踏まえた体制・収益モデル。
+      - listitem [ref=e483]:
+        - generic [ref=e484]:
+          - generic [ref=e485]: システム導入の親和性と必要性
+          - generic [ref=e486]: 階層化承認システム等と既存ツールの機能重複・現場適合性の検討。
+      - listitem [ref=e487]:
+        - generic [ref=e488]:
+          - generic [ref=e489]: アーカイブ資産の活用・収益化
+          - generic [ref=e490]: 「1配信の投資が1ヶ月後に4倍超のリーチを生む」という事実を協賛メーカーへどう訴求するか。切り抜き動画メニュー化の収益シミュレーション。
+      - listitem [ref=e491]:
+        - generic [ref=e492]:
+          - generic [ref=e493]: 社員インフルエンサープロジェクトの具体設計
+          - generic [ref=e494]: マツキヨココカラライブ版の社員インフルエンサー施策の体制・薬機法対応・KPIをどう設計するか。
+          - generic [ref=e495]:
+            - strong [ref=e496]: 【参考：競合最新動向】資生堂 美容部員個人ライブ PoC（2026年4月〜7月末）
+            - text: 通常の Find Beauty Live とは別に、美容部員が台本を自作・自主配信する新形態ライブを開始。
+            - text: ・配信場所：オウンドメディア（オンラインショップ）／遷移先もオンラインショップ
+            - text: ・目的：BA エンゲージメント向上 ＋ 売上
+            - text: ・薬機法：ライブ配信チームの目視のみ（社内法務不通過）→ アーカイブ非保存（ギリギリの表現があるため）
+            - text: ・PoC期間：3ヶ月限定（〜2026年7月末）
+            - text: 示唆：アーカイブ資産（約3.3倍リーチ）を強みとするマツキヨココカラライブは法務を通す体制を維持すべき。PoCの続報を7月末以降に確認。
+      - listitem [ref=e497]:
+        - generic [ref=e498]:
+          - generic [ref=e499]: 配信尺の設計方針
+          - generic [ref=e500]: 目的別の尺使い分け（CTR重視 vs 課金重視）と工数増加コストの整合性。Firework台本支援との組み合わせで月5回以上体制を実現できるか。
+  - generic [ref=e501]:
+    - generic [ref=e502]:
+      - generic [ref=e503]: TODO
+      - generic [ref=e505]: やるべきこと・追記が必要な情報
+    - generic [ref=e506]:
+      - generic [ref=e507]:
+        - generic [ref=e508]: 🔴 先方から入手待ち（ブロッカー）
+        - generic [ref=e509]: これがないと資料を完成させられない。まとめて一度に確認メールを送ること。
+      - table [ref=e511]:
+        - rowgroup [ref=e512]:
+          - row "# 必要な情報 詳細 どこに使うか ステータス" [ref=e513]:
+            - columnheader "#" [ref=e514]
+            - columnheader "必要な情報" [ref=e515]
+            - columnheader "詳細" [ref=e516]
+            - columnheader "どこに使うか" [ref=e517]
+            - columnheader "ステータス" [ref=e518]
+        - rowgroup [ref=e519]:
+          - row "1 2026年度 協賛配信KPI（受注件数） 2026年度の協賛配信 目標受注件数 柱② KPI「TBD」を埋める 未入手" [ref=e520]:
+            - cell "1" [ref=e521]
+            - cell "2026年度 協賛配信KPI（受注件数）" [ref=e522]
+            - cell "2026年度の協賛配信 目標受注件数" [ref=e523]
+            - cell "柱② KPI「TBD」を埋める" [ref=e524]
+            - cell "未入手" [ref=e525]:
+              - generic [ref=e526]: 未入手
+          - row "2 2026年度 協賛配信KPI（受注金額） 2026年度の協賛配信 目標受注金額 柱② KPI「TBD」を埋める 未入手" [ref=e527]:
+            - cell "2" [ref=e528]
+            - cell "2026年度 協賛配信KPI（受注金額）" [ref=e529]
+            - cell "2026年度の協賛配信 目標受注金額" [ref=e530]
+            - cell "柱② KPI「TBD」を埋める" [ref=e531]
+            - cell "未入手" [ref=e532]:
+              - generic [ref=e533]: 未入手
+          - row "3 2026年度 ライブコマース定量目標 視聴者数・売上等の数値目標 柱② KPI「TBD」を埋める 未入手" [ref=e534]:
+            - cell "3" [ref=e535]
+            - cell "2026年度 ライブコマース定量目標" [ref=e536]
+            - cell "視聴者数・売上等の数値目標" [ref=e537]
+            - cell "柱② KPI「TBD」を埋める" [ref=e538]
+            - cell "未入手" [ref=e539]:
+              - generic [ref=e540]: 未入手
+          - row "4 2026年度 ライブコマース定性目標 方針・ブランド目標など 柱②の方向性に反映 未入手" [ref=e541]:
+            - cell "4" [ref=e542]
+            - cell "2026年度 ライブコマース定性目標" [ref=e543]
+            - cell "方針・ブランド目標など" [ref=e544]
+            - cell "柱②の方向性に反映" [ref=e545]
+            - cell "未入手" [ref=e546]:
+              - generic [ref=e547]: 未入手
+          - row "5 X告知インプレッション（2025年度分） 2025年4月以降の告知投稿インプレッション・エンゲージメント率（今回は触れない） 柱①SNS実績の空白を埋める 保留" [ref=e548]:
+            - cell "5" [ref=e549]
+            - cell "X告知インプレッション（2025年度分）" [ref=e550]
+            - cell "2025年4月以降の告知投稿インプレッション・エンゲージメント率（今回は触れない）" [ref=e551]
+            - cell "柱①SNS実績の空白を埋める" [ref=e552]
+            - cell "保留" [ref=e553]:
+              - generic [ref=e554]: 保留
+          - row "6 Xフォロリポキャンペーン実施回数 2025年度の実施回数（10/7・10/21・10/28・2/17・3/3 の計5回）。分析完了 → Aタスク参照 柱①補足データ 入手済" [ref=e555]:
+            - cell "6" [ref=e556]
+            - cell "Xフォロリポキャンペーン実施回数" [ref=e557]
+            - cell "2025年度の実施回数（10/7・10/21・10/28・2/17・3/3 の計5回）。分析完了 → Aタスク参照" [ref=e558]
+            - cell "柱①補足データ" [ref=e559]
+            - cell "入手済" [ref=e560]:
+              - generic [ref=e561]: 入手済
+          - row "7 チヨダ・ヤマダデンキ 切り抜き動画実績データ チヨダ様の切り抜き実績数値、ヤマダデンキ様でのTikTok切り抜き広告のパフォーマンス数値（再生数・CTR等） ディスカッション「アーカイブ資産の活用・収益化」に追記 未入手" [ref=e562]:
+            - cell "7" [ref=e563]
+            - cell "チヨダ・ヤマダデンキ 切り抜き動画実績データ" [ref=e564]
+            - cell "チヨダ様の切り抜き実績数値、ヤマダデンキ様でのTikTok切り抜き広告のパフォーマンス数値（再生数・CTR等）" [ref=e565]
+            - cell "ディスカッション「アーカイブ資産の活用・収益化」に追記" [ref=e566]
+            - cell "未入手" [ref=e567]:
+              - generic [ref=e568]: 未入手
+    - generic [ref=e569]:
+      - generic [ref=e570]:
+        - generic [ref=e571]: 🟡 分析・深掘りタスク（自社作業）
+        - generic [ref=e572]: フィードバック（260409）から抽出。AIとの壁打ち・データ分析が必要な項目。
+      - table [ref=e574]:
+        - rowgroup [ref=e575]:
+          - row "# タスク 詳細・目的 ステータス" [ref=e576]:
+            - columnheader "#" [ref=e577]
+            - columnheader "タスク" [ref=e578]
+            - columnheader "詳細・目的" [ref=e579]
+            - columnheader "ステータス" [ref=e580]
+        - rowgroup [ref=e581]:
+          - row "A1 KPI再設計の壁打ち リピーター数・アクティブ率・エンゲージ率を追うための指標設計。既存KPI（視聴者数・CTR等）との整合性も確認。 要精査" [ref=e582]:
+            - cell "A1" [ref=e583]
+            - cell "KPI再設計の壁打ち" [ref=e584]
+            - cell "リピーター数・アクティブ率・エンゲージ率を追うための指標設計。既存KPI（視聴者数・CTR等）との整合性も確認。" [ref=e585]
+            - cell "要精査" [ref=e586]:
+              - generic [ref=e587]: 要精査
+          - row "A2 競合比較「なぜ低いか」の言語化 マツキヨココカラライブの視聴分数・CTR・コメント率が競合比で最弱な理由を言語化。仮説：協賛配信が多いため（自社PBとエンゲージ差がある可能性）。 要精査" [ref=e588]:
+            - cell "A2" [ref=e589]
+            - cell "競合比較「なぜ低いか」の言語化" [ref=e590]
+            - cell "マツキヨココカラライブの視聴分数・CTR・コメント率が競合比で最弱な理由を言語化。仮説：協賛配信が多いため（自社PBとエンゲージ差がある可能性）。" [ref=e591]
+            - cell "要精査" [ref=e592]:
+              - generic [ref=e593]: 要精査
+          - row "A3 自社PB配信のエンゲージメント分析 マツここPBブランド紹介回と協賛回のCTR・コメント率・視聴分数を比較。競合との差の原因仮説を検証。 要精査" [ref=e594]:
+            - cell "A3" [ref=e595]
+            - cell "自社PB配信のエンゲージメント分析" [ref=e596]
+            - cell "マツここPBブランド紹介回と協賛回のCTR・コメント率・視聴分数を比較。競合との差の原因仮説を検証。" [ref=e597]
+            - cell "要精査" [ref=e598]:
+              - generic [ref=e599]: 要精査
+          - row "A4 データ資産（CDP突合）の活用整理 視聴者ID×会員ID突合によって「何ができるようになったか」を具体化。スライドに載せるメッセージとして言語化。 社内協議" [ref=e600]:
+            - cell "A4" [ref=e601]
+            - cell "データ資産（CDP突合）の活用整理" [ref=e602]
+            - cell "視聴者ID×会員ID突合によって「何ができるようになったか」を具体化。スライドに載せるメッセージとして言語化。" [ref=e603]
+            - cell "社内協議" [ref=e604]:
+              - generic [ref=e605]: 社内協議
+          - row "A8 Xフォロリポ施策の提案への落とし込み A5分析結果（リピーター▲81%・チャット▲67%・X拡散2倍）をもとに、フォロリポを「X拡散・ファン巻き込み施策」として提案資料に組み込む。KPIはX再生数・リポスト数で設計。 要精査" [ref=e606]:
+            - cell "A8" [ref=e607]
+            - cell "Xフォロリポ施策の提案への落とし込み" [ref=e608]
+            - cell "A5分析結果（リピーター▲81%・チャット▲67%・X拡散2倍）をもとに、フォロリポを「X拡散・ファン巻き込み施策」として提案資料に組み込む。KPIはX再生数・リポスト数で設計。" [ref=e609]
+            - cell "要精査" [ref=e610]:
+              - generic [ref=e611]: 要精査
+          - row "A5 Xフォロリポキャンペーン分析 フォロリポ実施5回（ディアボーテ・プロスタイル・ケイト×2・いち髪）と非実施回を全指標で比較。リピーター数▲81%・チャット数▲67%が顕著。購買系指標への効果は限定的。X上の拡散（KATE回：1万再生 vs 通常5千）に効果が出やすい。 完了" [ref=e612]:
+            - cell "A5" [ref=e613]
+            - cell "Xフォロリポキャンペーン分析" [ref=e614]
+            - cell "フォロリポ実施5回（ディアボーテ・プロスタイル・ケイト×2・いち髪）と非実施回を全指標で比較。リピーター数▲81%・チャット数▲67%が顕著。購買系指標への効果は限定的。X上の拡散（KATE回：1万再生 vs 通常5千）に効果が出やすい。" [ref=e615]
+            - cell "完了" [ref=e616]:
+              - generic [ref=e617]: 完了
+          - row "A6 台本「お悩み訴求（自分ごと化）」チェック 過去全台本を対象に、冒頭でお悩み訴求・自分ごと化の構成になっているか再チェック。なっていない回の洗い出し。 完了" [ref=e618]:
+            - cell "A6" [ref=e619]
+            - cell "台本「お悩み訴求（自分ごと化）」チェック" [ref=e620]
+            - cell "過去全台本を対象に、冒頭でお悩み訴求・自分ごと化の構成になっているか再チェック。なっていない回の洗い出し。" [ref=e621]
+            - cell "完了" [ref=e622]:
+              - generic [ref=e623]: 完了
+          - row "A7 キャンペーン有無とエンゲージメントの差分析 過去全台本を対象に、キャンペーン情報がある回とない回を分類し、各回の内容を精査した上でエンゲージメント（CTR・コメント率・視聴分数）の差を比較・検証する。 完了" [ref=e624]:
+            - cell "A7" [ref=e625]
+            - cell "キャンペーン有無とエンゲージメントの差分析" [ref=e626]
+            - cell "過去全台本を対象に、キャンペーン情報がある回とない回を分類し、各回の内容を精査した上でエンゲージメント（CTR・コメント率・視聴分数）の差を比較・検証する。" [ref=e627]
+            - cell "完了" [ref=e628]:
+              - generic [ref=e629]: 完了
+    - generic [ref=e630]:
+      - generic [ref=e631]: 残タスク
+      - generic [ref=e632]:
+        - text: 🔴 先方から回答を待つ（受注KPI・定量定性目標・X告知数値・キャンペーン実施回数）
+        - text: ✅ A5 Xフォロリポキャンペーン分析 → 完了（詳細は下記参照）
+        - text: 🟠 A8 Xフォロリポ施策の提案への落とし込み → 要精査
+        - text: 🔵 A4 データ資産（CDP突合）の活用整理 → 社内協議中
+        - text: 🟠 A1 KPI再設計の壁打ち → 要精査（詳細は下記参照）
+        - text: 🟠 A2 競合比較「なぜ低いか」の言語化 → 要精査（詳細は下記参照）
+        - text: 🟠 A3 協賛回 vs レギュラー回 エンゲージメント比較 → 要精査（詳細は下記参照）
+        - text: ✅ A6 台本「お悩み訴求」チェック → 完了（詳細は下記参照）
+        - text: ✅ A7 キャンペーン有無とエンゲージメントの差分析 → 完了（詳細は下記参照）
+        - text: ⬜ 回答が来たら → マスターデータを更新してスライドに反映
+        - text: ⬜ 競合比較テーブルをスライドに入れるか判断
+  - generic [ref=e633]:
+    - generic [ref=e634]:
+      - generic [ref=e635]: 分析詳細
+      - generic [ref=e636]:
+        - generic [ref=e637]: TODOに関する詳細分析結果
+        - generic [ref=e638]: 分析タスク（A1〜A7）の実施結果・インサイト・提案への活用方針
+    - heading "A1｜KPI再設計の壁打ち 要精査" [level=3] [ref=e639]:
+      - text: A1｜KPI再設計の壁打ち
+      - generic [ref=e640]: 要精査
+    - generic [ref=e641]:
+      - strong [ref=e642]: 分析概要：
+      - text: KPIを「リーチ（視聴者数）」から「深度（リピーター・エンゲージメント）」に重心移動。社員インフルエンサー育成元年として、active_repeat（リピーター）セグメントを主KPIに設計。競合ベンチマークは資生堂（同じ社員インフルエンサー型）を基準とする。
+    - heading "発見：リピーター8%が全体エンゲージを支配している" [level=4] [ref=e643]
+    - table [ref=e644]:
+      - rowgroup [ref=e645]:
+        - row "指標 全視聴者（active） リピーター（active_repeat） 倍率" [ref=e646]:
+          - columnheader "指標" [ref=e647]
+          - columnheader "全視聴者（active）" [ref=e648]
+          - columnheader "リピーター（active_repeat）" [ref=e649]
+          - columnheader "倍率" [ref=e650]
+      - rowgroup [ref=e651]:
+        - row "視聴者数 5,832人 255人（4.4%） —" [ref=e652]:
+          - cell "視聴者数" [ref=e653]
+          - cell "5,832人" [ref=e654]
+          - cell "255人（4.4%）" [ref=e655]
+          - cell "—" [ref=e656]
+        - row "平均視聴分数 4.09分 10.07分 2.5倍" [ref=e657]:
+          - cell "平均視聴分数" [ref=e658]
+          - cell "4.09分" [ref=e659]
+          - cell "10.07分" [ref=e660]:
+            - strong [ref=e661]: 10.07分
+          - cell "2.5倍" [ref=e662]:
+            - strong [ref=e663]: 2.5倍
+        - row "商品CTR 1.09% 4.16% 3.8倍" [ref=e664]:
+          - cell "商品CTR" [ref=e665]
+          - cell "1.09%" [ref=e666]
+          - cell "4.16%" [ref=e667]:
+            - strong [ref=e668]: 4.16%
+          - cell "3.8倍" [ref=e669]:
+            - strong [ref=e670]: 3.8倍
+        - row "コメント参加率 0.52% 3.86% 7.4倍" [ref=e671]:
+          - cell "コメント参加率" [ref=e672]
+          - cell "0.52%" [ref=e673]
+          - cell "3.86%" [ref=e674]:
+            - strong [ref=e675]: 3.86%
+          - cell "7.4倍" [ref=e676]:
+            - strong [ref=e677]: 7.4倍
+        - row "エンゲージ率 — 19.55% —" [ref=e678]:
+          - cell "エンゲージ率" [ref=e679]
+          - cell "—" [ref=e680]
+          - cell "19.55%" [ref=e681]:
+            - strong [ref=e682]: 19.55%
+          - cell "—" [ref=e683]
+    - generic [ref=e684]:
+      - strong [ref=e685]: 提案の核心：
+      - text: リピーターは全体の8%しかいないが、CTRは3.8倍・コメント率は7.4倍。
+      - strong [ref=e686]: リピーターを増やすことがすべての指標改善への最短経路。社員インフルエンサー育成でリピーター比率を上げる施策とKPI設計を直結させる。
+    - heading "2026年度 KPI確定値（リピーター中心設計）" [level=4] [ref=e687]
+    - table [ref=e688]:
+      - rowgroup [ref=e689]:
+        - row "指標 2025年度実績 2026年度目標 North Star 根拠" [ref=e690]:
+          - columnheader "指標" [ref=e691]
+          - columnheader "2025年度実績" [ref=e692]
+          - columnheader "2026年度目標" [ref=e693]
+          - columnheader "North Star" [ref=e694]
+          - columnheader "根拠" [ref=e695]
+      - rowgroup [ref=e696]:
+        - row "リピーター数 255人/回 600人/回（2.4倍） — 自然増（350人）＋インフルエンサー施策上乗せ（+250人）。年度末達成・上期目標なし" [ref=e697]:
+          - cell "リピーター数" [ref=e698]:
+            - strong [ref=e699]: リピーター数
+          - cell "255人/回" [ref=e700]
+          - cell "600人/回（2.4倍）" [ref=e701]:
+            - strong [ref=e702]: 600人/回（2.4倍）
+          - cell "—" [ref=e703]
+          - cell "自然増（350人）＋インフルエンサー施策上乗せ（+250人）。年度末達成・上期目標なし" [ref=e704]
+        - row "リピーター率 4.4% 6% — 育成初年度の現実的な目標。トレンド上昇（4→5%台）の延長" [ref=e705]:
+          - cell "リピーター率" [ref=e706]:
+            - strong [ref=e707]: リピーター率
+          - cell "4.4%" [ref=e708]
+          - cell "6%" [ref=e709]:
+            - strong [ref=e710]: 6%
+          - cell "—" [ref=e711]
+          - cell "育成初年度の現実的な目標。トレンド上昇（4→5%台）の延長" [ref=e712]
+        - row "repeat_視聴分数 10.1分 12分 28.2分（KANEBO） 資生堂水準11.8分をやや上回る設定。現状リピーターで既に10分超え" [ref=e713]:
+          - cell "repeat_視聴分数" [ref=e714]:
+            - strong [ref=e715]: repeat_視聴分数
+          - cell "10.1分" [ref=e716]
+          - cell "12分" [ref=e717]:
+            - strong [ref=e718]: 12分
+          - cell "28.2分（KANEBO）" [ref=e719]
+          - cell "資生堂水準11.8分をやや上回る設定。現状リピーターで既に10分超え" [ref=e720]
+        - row "repeat_CTR 4.16% 6% 11.7%（KANEBO） 資生堂育成初期水準を参照。ロート水準（5.3%）は既に超えている" [ref=e721]:
+          - cell "repeat_CTR" [ref=e722]:
+            - strong [ref=e723]: repeat_CTR
+          - cell "4.16%" [ref=e724]
+          - cell "6%" [ref=e725]:
+            - strong [ref=e726]: 6%
+          - cell "11.7%（KANEBO）" [ref=e727]
+          - cell "資生堂育成初期水準を参照。ロート水準（5.3%）は既に超えている" [ref=e728]
+        - row "repeat_コメント参加率 3.86% 6% 9.1%（KANEBO） 同上。資生堂水準5.1%を超えて6%を目標に" [ref=e729]:
+          - cell "repeat_コメント参加率" [ref=e730]:
+            - strong [ref=e731]: repeat_コメント参加率
+          - cell "3.86%" [ref=e732]
+          - cell "6%" [ref=e733]:
+            - strong [ref=e734]: 6%
+          - cell "9.1%（KANEBO）" [ref=e735]
+          - cell "同上。資生堂水準5.1%を超えて6%を目標に" [ref=e736]
+    - heading "競合ベンチマーク：なぜ資生堂を基準にするか" [level=4] [ref=e737]
+    - table [ref=e738]:
+      - rowgroup [ref=e739]:
+        - row "競合 モデル 視聴分数 CTR コメント率 マツここへの示唆" [ref=e740]:
+          - columnheader "競合" [ref=e741]
+          - columnheader "モデル" [ref=e742]
+          - columnheader "視聴分数" [ref=e743]
+          - columnheader "CTR" [ref=e744]
+          - columnheader "コメント率" [ref=e745]
+          - columnheader "マツここへの示唆" [ref=e746]
+      - rowgroup [ref=e747]:
+        - row "資生堂 社員インフルエンサー型 11.8分 8.2% 5.1% 目指すモデルに最も近い。2026年度の目標基準" [ref=e748]:
+          - cell "資生堂" [ref=e749]:
+            - strong [ref=e750]: 資生堂
+          - cell "社員インフルエンサー型" [ref=e751]
+          - cell "11.8分" [ref=e752]
+          - cell "8.2%" [ref=e753]
+          - cell "5.1%" [ref=e754]
+          - cell "目指すモデルに最も近い。2026年度の目標基準" [ref=e755]:
+            - strong [ref=e756]: 目指すモデルに最も近い。2026年度の目標基準
+        - row "KANEBO ブランドファン型 28.2分 11.7% 9.1% North Star。アプローチは異なる（個人ではなくブランドへのファン）" [ref=e757]:
+          - cell "KANEBO" [ref=e758]
+          - cell "ブランドファン型" [ref=e759]
+          - cell "28.2分" [ref=e760]
+          - cell "11.7%" [ref=e761]
+          - cell "9.1%" [ref=e762]
+          - cell "North Star。アプローチは異なる（個人ではなくブランドへのファン）" [ref=e763]
+        - row "ロート製薬 一般メーカー 9.9分 5.3% 4.4% 現状リピーターは既にこの水準を超えている" [ref=e764]:
+          - cell "ロート製薬" [ref=e765]
+          - cell "一般メーカー" [ref=e766]
+          - cell "9.9分" [ref=e767]
+          - cell "5.3%" [ref=e768]
+          - cell "4.4%" [ref=e769]
+          - cell "現状リピーターは既にこの水準を超えている" [ref=e770]
+    - generic [ref=e771]:
+      - strong [ref=e772]: 次に確認すること：
+      - text: ① 社員インフルエンサー育成の具体スケジュール（何人・いつ頃個人アカウント開設予定か）
+      - text: ② active_repeatの各エンゲージ指標（CTR・コメント率）を月次分科会の報告フォーマットに組み込む
+    - heading "A2｜競合比較「なぜ低いか」の言語化 要精査" [level=3] [ref=e773]:
+      - text: A2｜競合比較「なぜ低いか」の言語化
+      - generic [ref=e774]: 要精査
+    - generic [ref=e775]:
+      - strong [ref=e776]: 分析概要：
+      - text: 2026年1〜3月実績（60分換算）の競合5社比較。マツキヨコカラライブの視聴分数・CTR・コメント参加率が競合最弱な理由を4つの原因に言語化。出典：競合調査・KPI設計_提案書.md
+    - heading "競合比較テーブル（2026.1-3実績・60分換算）" [level=4] [ref=e777]
+    - table [ref=e778]:
+      - rowgroup [ref=e779]:
+        - row "ブランド 視聴者数 平均視聴分数 商品CTR コメント参加率" [ref=e780]:
+          - columnheader "ブランド" [ref=e781]
+          - columnheader "視聴者数" [ref=e782]
+          - columnheader "平均視聴分数" [ref=e783]
+          - columnheader "商品CTR" [ref=e784]
+          - columnheader "コメント参加率" [ref=e785]
+      - rowgroup [ref=e786]:
+        - row "マツキヨコカラライブ 5,084人 3.1分 1.0% 0.8%" [ref=e787]:
+          - cell "マツキヨコカラライブ" [ref=e788]:
+            - strong [ref=e789]: マツキヨコカラライブ
+          - cell "5,084人" [ref=e790]:
+            - strong [ref=e791]: 5,084人
+          - cell "3.1分" [ref=e792]:
+            - strong [ref=e793]: 3.1分
+          - cell "1.0%" [ref=e794]:
+            - strong [ref=e795]: 1.0%
+          - cell "0.8%" [ref=e796]:
+            - strong [ref=e797]: 0.8%
+        - row "ロート製薬 871人 9.9分 5.3% 4.4%" [ref=e798]:
+          - cell "ロート製薬" [ref=e799]
+          - cell "871人" [ref=e800]
+          - cell "9.9分" [ref=e801]
+          - cell "5.3%" [ref=e802]
+          - cell "4.4%" [ref=e803]
+        - row "KANEBO（花王） 1,458人 28.2分 11.7% 9.1%" [ref=e804]:
+          - cell "KANEBO（花王）" [ref=e805]
+          - cell "1,458人" [ref=e806]
+          - cell "28.2分" [ref=e807]
+          - cell "11.7%" [ref=e808]
+          - cell "9.1%" [ref=e809]
+        - row "資生堂 6,958人 11.8分 8.2% 5.1%" [ref=e810]:
+          - cell "資生堂" [ref=e811]
+          - cell "6,958人" [ref=e812]
+          - cell "11.8分" [ref=e813]
+          - cell "8.2%" [ref=e814]
+          - cell "5.1%" [ref=e815]
+        - row "アットコスメ 2,494人 24.3分 29.4% 33.4%" [ref=e816]:
+          - cell "アットコスメ" [ref=e817]
+          - cell "2,494人" [ref=e818]
+          - cell "24.3分" [ref=e819]
+          - cell "29.4%" [ref=e820]
+          - cell "33.4%" [ref=e821]
+    - generic [ref=e822]:
+      - generic [ref=e823]:
+        - generic [ref=e824]: 視聴者数
+        - generic [ref=e825]: 5,084人
+        - generic [ref=e826]: 業界トップクラス（資生堂に次ぐ）
+        - generic [ref=e827]: 強み
+      - generic [ref=e828]:
+        - generic [ref=e829]: 平均視聴分数
+        - generic [ref=e830]: 3.1分
+        - generic [ref=e831]: ロート製薬の1/3、KANEBOの1/9
+        - generic [ref=e832]: 競合最弱
+      - generic [ref=e833]:
+        - generic [ref=e834]: 商品CTR
+        - generic [ref=e835]: 1.0%
+        - generic [ref=e836]: ロート製薬の1/5
+        - generic [ref=e837]: 競合最弱
+      - generic [ref=e838]:
+        - generic [ref=e839]: コメント参加率
+        - generic [ref=e840]: 0.8%
+        - generic [ref=e841]: アットコスメの1/42
+        - generic [ref=e842]: 競合最弱
+    - heading "なぜ低いか：4つの原因" [level=4] [ref=e843]
+    - table [ref=e844]:
+      - rowgroup [ref=e845]:
+        - row "# 原因 言語化・根拠 対応施策" [ref=e846]:
+          - columnheader "#" [ref=e847]
+          - columnheader "原因" [ref=e848]
+          - columnheader "言語化・根拠" [ref=e849]
+          - columnheader "対応施策" [ref=e850]
+      - rowgroup [ref=e851]:
+        - row "① 配信構成が「商品紹介」に偏り、引き留める仕掛けがない KANEBO（28.2分）・アットコスメ（24.3分）は参加型コンテンツ・セルフチェック・メーカー担当者のコメント参加など多層的な引き留め設計。 「5,000人を集める力はあるが、入口に来た視聴者を3分以内に逃がしている」 台本設計の型化・本番前トーク導入" [ref=e852]:
+          - cell "①" [ref=e853]
+          - cell "配信構成が「商品紹介」に偏り、引き留める仕掛けがない" [ref=e854]
+          - cell "KANEBO（28.2分）・アットコスメ（24.3分）は参加型コンテンツ・セルフチェック・メーカー担当者のコメント参加など多層的な引き留め設計。 「5,000人を集める力はあるが、入口に来た視聴者を3分以内に逃がしている」" [ref=e855]:
+            - text: KANEBO（28.2分）・アットコスメ（24.3分）は参加型コンテンツ・セルフチェック・メーカー担当者のコメント参加など多層的な引き留め設計。
+            - emphasis [ref=e856]: 「5,000人を集める力はあるが、入口に来た視聴者を3分以内に逃がしている」
+          - cell "台本設計の型化・本番前トーク導入" [ref=e857]
+        - row "② 協賛回が多く「商品説明モード」が優位になる 2025年度41回中23回（56%）が協賛回。アットコスメは協賛回でもメーカー担当者を巻き込み双方向感を演出。 「視聴者が受け身になりコメント・クリックが起きにくい構造」 協賛回への参加型コンテンツ組み込み・メーカー担当者コメント参加" [ref=e858]:
+          - cell "②" [ref=e859]
+          - cell "協賛回が多く「商品説明モード」が優位になる" [ref=e860]
+          - cell "2025年度41回中23回（56%）が協賛回。アットコスメは協賛回でもメーカー担当者を巻き込み双方向感を演出。 「視聴者が受け身になりコメント・クリックが起きにくい構造」" [ref=e861]:
+            - text: 2025年度41回中23回（56%）が協賛回。アットコスメは協賛回でもメーカー担当者を巻き込み双方向感を演出。
+            - emphasis [ref=e862]: 「視聴者が受け身になりコメント・クリックが起きにくい構造」
+          - cell "協賛回への参加型コンテンツ組み込み・メーカー担当者コメント参加" [ref=e863]
+        - row "③ CTR誘導の仕組みが弱い（クーポン・限定性不足） 資生堂はクーポン・新商品・限定性訴求でCTR8.2%。分科会データ：視聴30分→CTR40.32%（視聴分数向上がCTRの前提）。 「今すぐ買う理由が配信内で提示されていない」 クーポン連動・限定性訴求の標準化" [ref=e864]:
+          - cell "③" [ref=e865]
+          - cell "CTR誘導の仕組みが弱い（クーポン・限定性不足）" [ref=e866]
+          - cell "資生堂はクーポン・新商品・限定性訴求でCTR8.2%。分科会データ：視聴30分→CTR40.32%（視聴分数向上がCTRの前提）。 「今すぐ買う理由が配信内で提示されていない」" [ref=e867]:
+            - text: 資生堂はクーポン・新商品・限定性訴求でCTR8.2%。分科会データ：視聴30分→CTR40.32%（視聴分数向上がCTRの前提）。
+            - emphasis [ref=e868]: 「今すぐ買う理由が配信内で提示されていない」
+          - cell "クーポン連動・限定性訴求の標準化" [ref=e869]
+        - row "④ 出演者のSNSフォロワー規模が競合より小さい 資生堂：上位5名でIG合計約67万フォロワー。LIPS連動回（+3,800人）などインフルエンサー起用時に視聴者が跳ねる傾向あり。 「熱量の高いファン層の比率が少ない」 LIPS連動拡大・出演者SNS育成" [ref=e870]:
+          - cell "④" [ref=e871]
+          - cell "出演者のSNSフォロワー規模が競合より小さい" [ref=e872]
+          - cell "資生堂：上位5名でIG合計約67万フォロワー。LIPS連動回（+3,800人）などインフルエンサー起用時に視聴者が跳ねる傾向あり。 「熱量の高いファン層の比率が少ない」" [ref=e873]:
+            - text: 資生堂：上位5名でIG合計約67万フォロワー。LIPS連動回（+3,800人）などインフルエンサー起用時に視聴者が跳ねる傾向あり。
+            - emphasis [ref=e874]: 「熱量の高いファン層の比率が少ない」
+          - cell "LIPS連動拡大・出演者SNS育成" [ref=e875]
+    - generic [ref=e876]:
+      - strong [ref=e877]: 提案への活用方針：
+      - text: 「リーチは強み、エンゲージメントは課題」という二項対立を軸に。「集める力はある、今度は引き留める力を作る年」というメッセージとして提示。競合最弱の数値は課題の深刻さを示す根拠として使いつつ、視聴者5,000人という強みと対比させて「伸びしろが大きい」ポジティブな文脈に変換する。
+    - heading "A3｜協賛回 vs レギュラー回 エンゲージメント比較 完了" [level=3] [ref=e878]:
+      - text: A3｜協賛回 vs レギュラー回 エンゲージメント比較
+      - generic [ref=e879]: 完了
+    - generic [ref=e880]:
+      - strong [ref=e881]: 分析概要：
+      - text: 2025年度（2025/4〜2026/3）全41回を対象に、協賛実績xlsxと配信数値CSVを照合。協賛回23回・レギュラー回18回に分類し、平均視聴分数・商品CTR・コメント参加率を比較。再放送4回・タレント特殊回1回（岩橋玄樹×ビュースター）は除外。
+    - heading "種別ごとの平均値（2025年度）" [level=4] [ref=e882]
+    - table [ref=e883]:
+      - rowgroup [ref=e884]:
+        - row "種別 n 平均視聴分数 商品CTR コメント参加率" [ref=e885]:
+          - columnheader "種別" [ref=e886]
+          - columnheader "n" [ref=e887]
+          - columnheader "平均視聴分数" [ref=e888]
+          - columnheader "商品CTR" [ref=e889]
+          - columnheader "コメント参加率" [ref=e890]
+      - rowgroup [ref=e891]:
+        - row "協賛回 23 4.48分 1.26% 0.56%" [ref=e892]:
+          - cell "協賛回" [ref=e893]
+          - cell "23" [ref=e894]
+          - cell "4.48分" [ref=e895]
+          - cell "1.26%" [ref=e896]
+          - cell "0.56%" [ref=e897]
+        - row "レギュラー回 18 4.29分 1.03% 0.46%" [ref=e898]:
+          - cell "レギュラー回" [ref=e899]
+          - cell "18" [ref=e900]
+          - cell "4.29分" [ref=e901]
+          - cell "1.03%" [ref=e902]
+          - cell "0.46%" [ref=e903]
+        - row "差（協賛−レギュラー） — +0.19分 +0.23pp（1.22x） +0.10pp（1.22x）" [ref=e904]:
+          - cell "差（協賛−レギュラー）" [ref=e905]:
+            - strong [ref=e906]: 差（協賛−レギュラー）
+          - cell "—" [ref=e907]
+          - cell "+0.19分" [ref=e908]
+          - cell "+0.23pp（1.22x）" [ref=e909]:
+            - strong [ref=e910]: +0.23pp（1.22x）
+          - cell "+0.10pp（1.22x）" [ref=e911]
+    - generic [ref=e912]:
+      - generic [ref=e913]:
+        - generic [ref=e914]: CTR 倍率
+        - generic [ref=e915]: 1.22x
+        - generic [ref=e916]: 協賛回 / レギュラー回
+        - generic [ref=e917]: 協賛優位
+      - generic [ref=e918]:
+        - generic [ref=e919]: 視聴分数 SD（協賛）
+        - generic [ref=e920]: ±0.60分
+        - generic [ref=e921]: 安定傾向
+      - generic [ref=e922]:
+        - generic [ref=e923]: 視聴分数 SD（レギュラー）
+        - generic [ref=e924]: ±1.00分
+        - generic [ref=e925]: ばらつき大・当たり外れあり
+      - generic [ref=e926]:
+        - generic [ref=e927]: 分析対象
+        - generic [ref=e928]: 41回
+        - generic [ref=e929]: 2025年度・再放送除外
+    - heading "差の原因仮説" [level=4] [ref=e930]
+    - table [ref=e931]:
+      - rowgroup [ref=e932]:
+        - row "# 仮説 根拠" [ref=e933]:
+          - columnheader "#" [ref=e934]
+          - columnheader "仮説" [ref=e935]
+          - columnheader "根拠" [ref=e936]
+      - rowgroup [ref=e937]:
+        - row "1 協賛回は「商品の買い時感」演出でCTR↑ メーカーキャンペーン・特典連動" [ref=e938]:
+          - cell "1" [ref=e939]
+          - cell "協賛回は「商品の買い時感」演出でCTR↑" [ref=e940]
+          - cell "メーカーキャンペーン・特典連動" [ref=e941]
+        - row "2 単体協賛は「1商品フォーカス」で購買判断しやすい 横断型のCTRが低い傾向（サンケア0.62%）" [ref=e942]:
+          - cell "2" [ref=e943]
+          - cell "単体協賛は「1商品フォーカス」で購買判断しやすい" [ref=e944]
+          - cell "横断型のCTRが低い傾向（サンケア0.62%）" [ref=e945]
+        - row "3 レギュラー回はコンテンツ次第で大きく振れる SD=1.00分・コンクレッド6.47分 vs 低調回" [ref=e946]:
+          - cell "3" [ref=e947]
+          - cell "レギュラー回はコンテンツ次第で大きく振れる" [ref=e948]
+          - cell "SD=1.00分・コンクレッド6.47分 vs 低調回" [ref=e949]
+        - row "4 コメントは協賛有無より演者の自由度に依存 コメント参加率の差が小さい（0.56% vs 0.46%）" [ref=e950]:
+          - cell "4" [ref=e951]
+          - cell "コメントは協賛有無より演者の自由度に依存" [ref=e952]
+          - cell "コメント参加率の差が小さい（0.56% vs 0.46%）" [ref=e953]
+    - heading "過去分科会との照合" [level=4] [ref=e954]
+    - table [ref=e955]:
+      - rowgroup [ref=e956]:
+        - row "論点 判定 詳細" [ref=e957]:
+          - columnheader "論点" [ref=e958]
+          - columnheader "判定" [ref=e959]
+          - columnheader "詳細" [ref=e960]
+      - rowgroup [ref=e961]:
+        - row "視聴者数は協賛有無より演者・コンテンツ次第 一致 分科会20260219「通常回・協賛回の視聴者数に突出した差なし」と整合" [ref=e962]:
+          - cell "視聴者数は協賛有無より演者・コンテンツ次第" [ref=e963]
+          - cell "一致" [ref=e964]:
+            - generic [ref=e965]: 一致
+          - cell "分科会20260219「通常回・協賛回の視聴者数に突出した差なし」と整合" [ref=e966]
+        - row "エンゲージメント↑がCTR↑につながる 一致 分科会「いいね・コメントした人は約3倍視聴維持率が高い」で補強" [ref=e967]:
+          - cell "エンゲージメント↑がCTR↑につながる" [ref=e968]
+          - cell "一致" [ref=e969]:
+            - generic [ref=e970]: 一致
+          - cell "分科会「いいね・コメントした人は約3倍視聴維持率が高い」で補強" [ref=e971]
+        - row "メイク系商材のCTRが高い 一致 分科会「商品カードクリックランキングTOP30でメイク系が多数」" [ref=e972]:
+          - cell "メイク系商材のCTRが高い" [ref=e973]
+          - cell "一致" [ref=e974]:
+            - generic [ref=e975]: 一致
+          - cell "分科会「商品カードクリックランキングTOP30でメイク系が多数」" [ref=e976]
+        - row "視聴者数の差の解釈 指標違い 分科会＝Instagram流入数、今回＝滞在時間。矛盾ではなく測定対象が異なる。資料では区別して記載が必要" [ref=e977]:
+          - cell "視聴者数の差の解釈" [ref=e978]
+          - cell "指標違い" [ref=e979]:
+            - generic [ref=e980]: 指標違い
+          - cell "分科会＝Instagram流入数、今回＝滞在時間。矛盾ではなく測定対象が異なる。資料では区別して記載が必要" [ref=e981]
+        - row "横断型協賛の評価 部分的対立 今回分析ではCTR低い傾向。分科会では収益・エンゲージ面でポジティブ評価。「横断型＝CTRより認知・エンゲージ重視メニュー」として整理が必要" [ref=e982]:
+          - cell "横断型協賛の評価" [ref=e983]
+          - cell "部分的対立" [ref=e984]:
+            - generic [ref=e985]: 部分的対立
+          - cell "今回分析ではCTR低い傾向。分科会では収益・エンゲージ面でポジティブ評価。「横断型＝CTRより認知・エンゲージ重視メニュー」として整理が必要" [ref=e986]
+    - heading "提案への活用方針" [level=4] [ref=e987]
+    - list [ref=e988]:
+      - listitem [ref=e989]:
+        - strong [ref=e990]: 協賛CTR 1.22倍
+        - text: をメーカー向け営業資料の根拠として使用。「協賛配信は自社配信より購買行動につながりやすい」
+      - listitem [ref=e991]:
+        - text: レギュラー回のSD大（±1.00分）→
+        - strong [ref=e992]: 台本設計の型化・標準化施策
+        - text: の必要性を訴求
+      - listitem [ref=e993]:
+        - text: 横断型は「CTR重視」ではなく「
+        - strong [ref=e994]: 認知・エンゲージ重視メニュー
+        - text: 」として料金・KPIを単体協賛と分けて設計
+      - listitem [ref=e995]: クーポン連動（分科会実証済み）を協賛回に組み合わせることでCTRのさらなる向上が見込める
+    - heading "A5｜Xフォロリポキャンペーン分析 完了" [level=3] [ref=e996]:
+      - text: A5｜Xフォロリポキャンペーン分析
+      - generic [ref=e997]: 完了
+    - generic [ref=e998]:
+      - strong [ref=e999]: 分析概要：
+      - text: フォロリポ実施5回（2025-10-07 ディアボーテ／10-21 プロスタイル／10-28 ケイト／2026-02-17 いち髪／03-03 ケイト）と非実施回（82回）を全指標で比較。リピーター数・チャット数に顕著な差、購買系指標への効果は限定的。X上のアーカイブ再生数でKATE回は通常の約2倍。
+    - heading "active（全視聴者）比較" [level=4] [ref=e1000]
+    - table [ref=e1001]:
+      - rowgroup [ref=e1002]:
+        - row "指標 フォロリポ回平均 非フォロリポ平均 差 読み" [ref=e1003]:
+          - columnheader "指標" [ref=e1004]
+          - columnheader "フォロリポ回平均" [ref=e1005]
+          - columnheader "非フォロリポ平均" [ref=e1006]
+          - columnheader "差" [ref=e1007]
+          - columnheader "読み" [ref=e1008]
+      - rowgroup [ref=e1009]:
+        - row "最大同時接続者数 438人 434人 ▲0.8% ほぼ同じ" [ref=e1010]:
+          - cell "最大同時接続者数" [ref=e1011]
+          - cell "438人" [ref=e1012]
+          - cell "434人" [ref=e1013]
+          - cell "▲0.8%" [ref=e1014]
+          - cell "ほぼ同じ" [ref=e1015]
+        - row "平均視聴分数 4.0分 7.1分 ▼43.5% 浅い視聴が増える" [ref=e1016]:
+          - cell "平均視聴分数" [ref=e1017]
+          - cell "4.0分" [ref=e1018]
+          - cell "7.1分" [ref=e1019]
+          - cell "▼43.5%" [ref=e1020]:
+            - strong [ref=e1021]: ▼43.5%
+          - cell "浅い視聴が増える" [ref=e1022]
+        - row "チャット参加ユーザー数 46.4人 28.9人 ▲60.8% 場が盛り上がる" [ref=e1023]:
+          - cell "チャット参加ユーザー数" [ref=e1024]
+          - cell "46.4人" [ref=e1025]:
+            - strong [ref=e1026]: 46.4人
+          - cell "28.9人" [ref=e1027]
+          - cell "▲60.8%" [ref=e1028]:
+            - strong [ref=e1029]: ▲60.8%
+          - cell "場が盛り上がる" [ref=e1030]
+        - row "チャット数 247.8件 148.3件 ▲67.1% 場が盛り上がる" [ref=e1031]:
+          - cell "チャット数" [ref=e1032]
+          - cell "247.8件" [ref=e1033]:
+            - strong [ref=e1034]: 247.8件
+          - cell "148.3件" [ref=e1035]
+          - cell "▲67.1%" [ref=e1036]:
+            - strong [ref=e1037]: ▲67.1%
+          - cell "場が盛り上がる" [ref=e1038]
+        - row "商品カードクリック数 105.8件 125.7件 ▼15.8% 購買転換は弱い" [ref=e1039]:
+          - cell "商品カードクリック数" [ref=e1040]
+          - cell "105.8件" [ref=e1041]
+          - cell "125.7件" [ref=e1042]
+          - cell "▼15.8%" [ref=e1043]
+          - cell "購買転換は弱い" [ref=e1044]
+        - row "エンゲージ視聴者数 451人 365人 ▲23.6% 反応する人は多め" [ref=e1045]:
+          - cell "エンゲージ視聴者数" [ref=e1046]
+          - cell "451人" [ref=e1047]
+          - cell "365人" [ref=e1048]
+          - cell "▲23.6%" [ref=e1049]
+          - cell "反応する人は多め" [ref=e1050]
+    - heading "active_repeat（リピーター）比較" [level=4] [ref=e1051]
+    - table [ref=e1052]:
+      - rowgroup [ref=e1053]:
+        - row "指標 フォロリポ回平均 非フォロリポ平均 差 読み" [ref=e1054]:
+          - columnheader "指標" [ref=e1055]
+          - columnheader "フォロリポ回平均" [ref=e1056]
+          - columnheader "非フォロリポ平均" [ref=e1057]
+          - columnheader "差" [ref=e1058]
+          - columnheader "読み" [ref=e1059]
+      - rowgroup [ref=e1060]:
+        - row "リピーター数 302人 167人 ▲81.5% 最大の効果。既存ファンを引き込む" [ref=e1061]:
+          - cell "リピーター数" [ref=e1062]:
+            - strong [ref=e1063]: リピーター数
+          - cell "302人" [ref=e1064]:
+            - strong [ref=e1065]: 302人
+          - cell "167人" [ref=e1066]
+          - cell "▲81.5%" [ref=e1067]:
+            - strong [ref=e1068]: ▲81.5%
+          - cell "最大の効果。既存ファンを引き込む" [ref=e1069]
+        - row "リピーター視聴分数 9.9分 13.8分 ▼27.9% 長居はしない" [ref=e1070]:
+          - cell "リピーター視聴分数" [ref=e1071]
+          - cell "9.9分" [ref=e1072]
+          - cell "13.8分" [ref=e1073]
+          - cell "▼27.9%" [ref=e1074]
+          - cell "長居はしない" [ref=e1075]
+        - row "Total Watched Minutes 3,017 1,762 ▲71.2% 総視聴時間は大幅増" [ref=e1076]:
+          - cell "Total Watched Minutes" [ref=e1077]
+          - cell "3,017" [ref=e1078]
+          - cell "1,762" [ref=e1079]
+          - cell "▲71.2%" [ref=e1080]
+          - cell "総視聴時間は大幅増" [ref=e1081]
+        - row "チャット数（repeat） 70.8件 49.2件 ▲43.9% リピーターもチャット活発" [ref=e1082]:
+          - cell "チャット数（repeat）" [ref=e1083]
+          - cell "70.8件" [ref=e1084]
+          - cell "49.2件" [ref=e1085]
+          - cell "▲43.9%" [ref=e1086]
+          - cell "リピーターもチャット活発" [ref=e1087]
+        - row "商品カードクリック数 15.4件 22.1件 ▼30.5% 購買転換は弱い" [ref=e1088]:
+          - cell "商品カードクリック数" [ref=e1089]
+          - cell "15.4件" [ref=e1090]
+          - cell "22.1件" [ref=e1091]
+          - cell "▼30.5%" [ref=e1092]
+          - cell "購買転換は弱い" [ref=e1093]
+    - heading "X投稿アーカイブ再生数（先方提供）" [level=4] [ref=e1094]
+    - generic [ref=e1095]:
+      - strong [ref=e1096]: KATE回（フォロリポあり）：約10,000回再生
+      - text: vs 通常回：約5,000回再生 →
+      - strong [ref=e1097]: 約2倍
+      - text: ライブ中の同時接続者数への影響は軽微だが、
+      - strong [ref=e1098]: X上の拡散・アーカイブ視聴に大きな効果
+      - text: が出ている。
+    - generic [ref=e1099]:
+      - strong [ref=e1100]: 提案への活用方針：
+      - text: フォロリポは「ライブ中の購買転換施策」ではなく「
+      - strong [ref=e1101]: X拡散・ファン巻き込み施策
+      - text: 」として位置づける。コンテンツの面白さ（KATE回）と組み合わせることで拡散効果が最大化する。KPIはX再生数・リポスト数を設定すべき。
+    - heading "A6｜台本「お悩み訴求（自分ごと化）」チェック 完了" [level=3] [ref=e1102]:
+      - text: A6｜台本「お悩み訴求（自分ごと化）」チェック
+      - generic [ref=e1103]: 完了
+    - generic [ref=e1104]:
+      - strong [ref=e1105]: 分析概要：
+      - text: "#48〜#92の全44台本（ローカル台本フォルダ）を対象に、タイトル・3つの見どころ・オープニング冒頭（約1,500文字）に「お悩み訴求・自分ごと化ワード」が含まれるかを自動チェック。判定基準：ワード3件以上＝✅あり、1〜2件＝⚠️弱い、0件＝❌なし。"
+    - heading "【集計結果】" [level=4] [ref=e1106]
+    - table [ref=e1107]:
+      - rowgroup [ref=e1108]:
+        - row "判定 件数 割合 意味" [ref=e1109]:
+          - columnheader "判定" [ref=e1110]
+          - columnheader "件数" [ref=e1111]
+          - columnheader "割合" [ref=e1112]
+          - columnheader "意味" [ref=e1113]
+      - rowgroup [ref=e1114]:
+        - row "✅ お悩み訴求あり（明確） 16件 38% 冒頭・見どころに共感訴求が明確に組み込まれている" [ref=e1115]:
+          - cell "✅ お悩み訴求あり（明確）" [ref=e1116]
+          - cell "16件" [ref=e1117]:
+            - strong [ref=e1118]: 16件
+          - cell "38%" [ref=e1119]
+          - cell "冒頭・見どころに共感訴求が明確に組み込まれている" [ref=e1120]
+        - row "⚠️ お悩み訴求 弱い 26件 62% ワードは散見されるが冒頭の主軸が商品訴求・新作紹介になっている" [ref=e1121]:
+          - cell "⚠️ お悩み訴求 弱い" [ref=e1122]
+          - cell "26件" [ref=e1123]:
+            - strong [ref=e1124]: 26件
+          - cell "62%" [ref=e1125]
+          - cell "ワードは散見されるが冒頭の主軸が商品訴求・新作紹介になっている" [ref=e1126]
+        - row "❌ お悩み訴求なし 2件 5% 冒頭がブランド紹介・ランキング形式で自分ごと化構成が不在" [ref=e1127]:
+          - cell "❌ お悩み訴求なし" [ref=e1128]
+          - cell "2件" [ref=e1129]:
+            - strong [ref=e1130]: 2件
+          - cell "5%" [ref=e1131]
+          - cell "冒頭がブランド紹介・ランキング形式で自分ごと化構成が不在" [ref=e1132]
+    - generic [ref=e1133]:
+      - strong [ref=e1134]: ⚠️ 重要な発見：
+      - text: 全体の62%が「弱い」判定。商品の新作・リニューアル・ランキング訴求が冒頭を占め、視聴者の悩みから入る構成になっていない回が大多数。
+    - heading "【✅ あり 代表例（お悩み訴求が明確な回）】" [level=4] [ref=e1135]
+    - table [ref=e1136]:
+      - rowgroup [ref=e1137]:
+        - row "# テーマ お悩みワード例 見どころでの訴求" [ref=e1138]:
+          - columnheader "#" [ref=e1139]
+          - columnheader "テーマ" [ref=e1140]
+          - columnheader "お悩みワード例" [ref=e1141]
+          - columnheader "見どころでの訴求" [ref=e1142]
+      - rowgroup [ref=e1143]:
+        - row "#55 アルジェラン 冷感ボディケア 気になる・デリケート・汗 夏の肌トラブル・汗・においから入る" [ref=e1144]:
+          - cell "#55" [ref=e1145]
+          - cell "アルジェラン 冷感ボディケア" [ref=e1146]
+          - cell "気になる・デリケート・汗" [ref=e1147]
+          - cell "夏の肌トラブル・汗・においから入る" [ref=e1148]
+        - row "#61 サンケア＆制汗剤 悩み・気になる・乾燥・紫外線・日焼け 「この夏手放せない」→課題起点" [ref=e1149]:
+          - cell "#61" [ref=e1150]
+          - cell "サンケア＆制汗剤" [ref=e1151]
+          - cell "悩み・気になる・乾燥・紫外線・日焼け" [ref=e1152]
+          - cell "「この夏手放せない」→課題起点" [ref=e1153]
+        - row "#71 プロスタイル×本望あやか 悩み・お悩み 「前髪に悩む人必見👀」→ターゲット明確" [ref=e1154]:
+          - cell "#71" [ref=e1155]
+          - cell "プロスタイル×本望あやか" [ref=e1156]
+          - cell "悩み・お悩み" [ref=e1157]
+          - cell "「前髪に悩む人必見👀」→ターゲット明確" [ref=e1158]
+        - row "#74 バンドエイド顔用パッチ 悩み・ニキビ・敏感 「ニキビ跡などの顔肌悩みを保護＆ケア」→悩み直球" [ref=e1159]:
+          - cell "#74" [ref=e1160]
+          - cell "バンドエイド顔用パッチ" [ref=e1161]
+          - cell "悩み・ニキビ・敏感" [ref=e1162]
+          - cell "「ニキビ跡などの顔肌悩みを保護＆ケア」→悩み直球" [ref=e1163]
+        - row "#78 年末大掃除アイテム 悩み・お悩み・気になって 「溜まった汚れをゴッソリ」→課題→解決の流れ" [ref=e1164]:
+          - cell "#78" [ref=e1165]
+          - cell "年末大掃除アイテム" [ref=e1166]
+          - cell "悩み・お悩み・気になって" [ref=e1167]
+          - cell "「溜まった汚れをゴッソリ」→課題→解決の流れ" [ref=e1168]
+        - row "#88 KATEメイクキープミスト 悩み・お悩み・崩れ 「メイク崩れ」悩みから新技術の解決提示" [ref=e1169]:
+          - cell "#88" [ref=e1170]
+          - cell "KATEメイクキープミスト" [ref=e1171]
+          - cell "悩み・お悩み・崩れ" [ref=e1172]
+          - cell "「メイク崩れ」悩みから新技術の解決提示" [ref=e1173]
+    - heading "【❌ なし・⚠️弱い 代表例（改善が必要な回）】" [level=4] [ref=e1174]
+    - table [ref=e1175]:
+      - rowgroup [ref=e1176]:
+        - row "# テーマ 冒頭の入り方 問題点" [ref=e1177]:
+          - columnheader "#" [ref=e1178]
+          - columnheader "テーマ" [ref=e1179]
+          - columnheader "冒頭の入り方" [ref=e1180]
+          - columnheader "問題点" [ref=e1181]
+      - rowgroup [ref=e1182]:
+        - row "#81 新春LIVE セルフケア特集 「新年のスタートダッシュを切るセルフケア特集」 ❌ お悩みワードゼロ。新年挨拶→商品紹介の流れ" [ref=e1183]:
+          - cell "#81" [ref=e1184]
+          - cell "新春LIVE セルフケア特集" [ref=e1185]
+          - cell "「新年のスタートダッシュを切るセルフケア特集」" [ref=e1186]
+          - cell "❌ お悩みワードゼロ。新年挨拶→商品紹介の流れ" [ref=e1187]
+        - row "#63 ロレッタ グリースゼリー 「新作登場！？グリースの概念を覆す新感覚テクスチャー」 ❌ 新作訴求のみ。髪のお悩みへの言及なし" [ref=e1188]:
+          - cell "#63" [ref=e1189]
+          - cell "ロレッタ グリースゼリー" [ref=e1190]
+          - cell "「新作登場！？グリースの概念を覆す新感覚テクスチャー」" [ref=e1191]
+          - cell "❌ 新作訴求のみ。髪のお悩みへの言及なし" [ref=e1192]
+        - row "#48 アネッサ 新商品 「夏の定番アネッサから新商品登場！美容部員が徹底レビュー」 ⚠️ 紫外線ワードのみ。「肌が焼けて困っている」共感が不在" [ref=e1193]:
+          - cell "#48" [ref=e1194]
+          - cell "アネッサ 新商品" [ref=e1195]
+          - cell "「夏の定番アネッサから新商品登場！美容部員が徹底レビュー」" [ref=e1196]
+          - cell "⚠️ 紫外線ワードのみ。「肌が焼けて困っている」共感が不在" [ref=e1197]
+        - row "#82 ガチ推しコスメランキング 「ライブ配信で反響が大きかった『ガチ推し』コスメランキング」 ⚠️ ランキング形式で悩み訴求なし。「何に悩む人向けか」不明" [ref=e1198]:
+          - cell "#82" [ref=e1199]
+          - cell "ガチ推しコスメランキング" [ref=e1200]
+          - cell "「ライブ配信で反響が大きかった『ガチ推し』コスメランキング」" [ref=e1201]
+          - cell "⚠️ ランキング形式で悩み訴求なし。「何に悩む人向けか」不明" [ref=e1202]
+        - row "#65 エイトザタラソ リニューアル 「エイトザタラソが待望のリニューアル」 ⚠️ リニューアル訴求が主。「髪のどんな悩みを解決するか」が後回し" [ref=e1203]:
+          - cell "#65" [ref=e1204]
+          - cell "エイトザタラソ リニューアル" [ref=e1205]
+          - cell "「エイトザタラソが待望のリニューアル」" [ref=e1206]
+          - cell "⚠️ リニューアル訴求が主。「髪のどんな悩みを解決するか」が後回し" [ref=e1207]
+        - row "#86 いち髪 徹底紹介 「最新＆定番のラインナップを徹底紹介！泡立ち・香り・仕上がりを本音レビュー」 ⚠️ 商品スペック訴求。「なぜこの人に必要か」の起点が弱い" [ref=e1208]:
+          - cell "#86" [ref=e1209]
+          - cell "いち髪 徹底紹介" [ref=e1210]
+          - cell "「最新＆定番のラインナップを徹底紹介！泡立ち・香り・仕上がりを本音レビュー」" [ref=e1211]
+          - cell "⚠️ 商品スペック訴求。「なぜこの人に必要か」の起点が弱い" [ref=e1212]
+    - heading "【パターン分類】" [level=4] [ref=e1213]
+    - table [ref=e1214]:
+      - rowgroup [ref=e1215]:
+        - row "パターン 具体例 件数 改善方針" [ref=e1216]:
+          - columnheader "パターン" [ref=e1217]
+          - columnheader "具体例" [ref=e1218]
+          - columnheader "件数" [ref=e1219]
+          - columnheader "改善方針" [ref=e1220]
+      - rowgroup [ref=e1221]:
+        - row "A：悩み起点型（理想） 「前髪に悩む人必見」「メイク崩れに困っている方へ」 16件 このパターンを標準化する" [ref=e1222]:
+          - cell "A：悩み起点型（理想）" [ref=e1223]
+          - cell "「前髪に悩む人必見」「メイク崩れに困っている方へ」" [ref=e1224]
+          - cell "16件" [ref=e1225]
+          - cell "このパターンを標準化する" [ref=e1226]
+        - row "B：新商品・リニューアル起点型 「〇〇が新発売！」「待望のリニューアル」 12件 冒頭に「だから何が解決するか」を追加" [ref=e1227]:
+          - cell "B：新商品・リニューアル起点型" [ref=e1228]
+          - cell "「〇〇が新発売！」「待望のリニューアル」" [ref=e1229]
+          - cell "12件" [ref=e1230]
+          - cell "冒頭に「だから何が解決するか」を追加" [ref=e1231]
+        - row "C：ランキング・特集型 「ガチ推しランキング」「夏の絶対買いコスメ」 8件 「どんな悩みを持つ人向けのランキングか」を明示" [ref=e1232]:
+          - cell "C：ランキング・特集型" [ref=e1233]
+          - cell "「ガチ推しランキング」「夏の絶対買いコスメ」" [ref=e1234]
+          - cell "8件" [ref=e1235]
+          - cell "「どんな悩みを持つ人向けのランキングか」を明示" [ref=e1236]
+        - row "D：スペック・レビュー型 「泡立ち・香り・仕上がりを本音レビュー」 6件 スペック説明の前に「なぜあなたに必要か」を入れる" [ref=e1237]:
+          - cell "D：スペック・レビュー型" [ref=e1238]
+          - cell "「泡立ち・香り・仕上がりを本音レビュー」" [ref=e1239]
+          - cell "6件" [ref=e1240]
+          - cell "スペック説明の前に「なぜあなたに必要か」を入れる" [ref=e1241]
+    - heading "📌 結論・提案への活用方針" [level=4] [ref=e1243]
+    - generic [ref=e1244]:
+      - strong [ref=e1245]: 言えること：
+      - text: ・全体の62%（26件）が「お悩み訴求が弱い」状態。冒頭が新商品・リニューアル・ランキング訴求になっており、視聴者の自分ごと化が促されていない
+      - text: ・お悩み訴求が明確な回は全体の38%にとどまる
+      - text: ・協賛配信でもゲスト（メーカー担当者）が商品スペックから入るため、悩み訴求が後回しになりやすい構造的問題がある
+    - generic [ref=e1246]:
+      - generic [ref=e1247]: 提案での推奨表現・施策
+      - generic [ref=e1248]:
+        - text: 「冒頭3分以内に視聴者の悩みを言語化する"お悩み起点テンプレート"を導入する。
+        - text: 具体的には：①テーマ発表後すぐに『こんな悩みありませんか？』と問いかける ②見どころの見出しを商品名でなく"悩み解決ベネフィット"で記述する（例：『新作リップ紹介』→『落ちにくいリップを探している方へ』）③協賛ゲスト向けの台本フォーマットにも冒頭お悩み訴求欄を必須項目として追加する。」
+    - heading "📊 A6補足｜お悩み訴求レベル × 数値指標 相関分析" [level=4] [ref=e1249]
+    - generic [ref=e1250]:
+      - strong [ref=e1251]: ⚠️ 重要：逆説的な結果と交絡因子の解明
+      - text: 全体集計では✅あり(n=16)がすべての指標で⚠️弱い(n=22)を下回る「逆説的な結果」が出た。しかし時期補正により交絡因子が判明。
+    - heading "全体集計（配信トラブル2026-02-10除外）" [level=5] [ref=e1252]
+    - table [ref=e1253]:
+      - rowgroup [ref=e1254]:
+        - row "指標 ✅あり (n=16) ⚠️弱い (n=22) ❌なし (n=2) ✅vs⚠️差" [ref=e1255]:
+          - columnheader "指標" [ref=e1256]
+          - columnheader "✅あり (n=16)" [ref=e1257]
+          - columnheader "⚠️弱い (n=22)" [ref=e1258]
+          - columnheader "❌なし (n=2)" [ref=e1259]
+          - columnheader "✅vs⚠️差" [ref=e1260]
+      - rowgroup [ref=e1261]:
+        - row "平均視聴分数 4.11分 4.53分 5.30分 -0.42分" [ref=e1262]:
+          - cell "平均視聴分数" [ref=e1263]
+          - cell "4.11分" [ref=e1264]
+          - cell "4.53分" [ref=e1265]
+          - cell "5.30分" [ref=e1266]
+          - cell "-0.42分" [ref=e1267]
+        - row "エンゲージ率 7.54% 7.78% 9.16% -0.24%" [ref=e1268]:
+          - cell "エンゲージ率" [ref=e1269]
+          - cell "7.54%" [ref=e1270]
+          - cell "7.78%" [ref=e1271]
+          - cell "9.16%" [ref=e1272]
+          - cell "-0.24%" [ref=e1273]
+        - row "商品CTR 1.13% 1.19% 1.25% -0.06%" [ref=e1274]:
+          - cell "商品CTR" [ref=e1275]
+          - cell "1.13%" [ref=e1276]
+          - cell "1.19%" [ref=e1277]
+          - cell "1.25%" [ref=e1278]
+          - cell "-0.06%" [ref=e1279]
+        - row "コメント参加率 0.46% 0.56% 0.54% -0.10%" [ref=e1280]:
+          - cell "コメント参加率" [ref=e1281]
+          - cell "0.46%" [ref=e1282]
+          - cell "0.56%" [ref=e1283]
+          - cell "0.54%" [ref=e1284]
+          - cell "-0.10%" [ref=e1285]
+    - heading "交絡因子：配信時期による全体数値の変動" [level=5] [ref=e1286]
+    - generic [ref=e1287]:
+      - text: 上期（4〜9月）と下期（10〜3月）では全体の数値水準が異なる：
+      - text: 視聴分数
+      - strong [ref=e1288]: +0.65分
+      - text: ・エンゲージ率
+      - strong [ref=e1289]: +0.50%
+      - text: ・CTR
+      - strong [ref=e1290]: +0.21%
+      - text: の差で上期が高め。
+      - text: ⚠️グループには上期配信が相対的に多く含まれており、平均値が底上げされていた。
+    - heading "時期別補正後の結果" [level=5] [ref=e1291]
+    - table [ref=e1292]:
+      - rowgroup [ref=e1293]:
+        - row "指標 上期内 ✅vs⚠️ 下期内 ✅vs⚠️ 解釈" [ref=e1294]:
+          - columnheader "指標" [ref=e1295]
+          - columnheader "上期内 ✅vs⚠️" [ref=e1296]
+          - columnheader "下期内 ✅vs⚠️" [ref=e1297]
+          - columnheader "解釈" [ref=e1298]
+      - rowgroup [ref=e1299]:
+        - row "平均視聴分数 -0.49 -0.36 ✅が一貫して低め（答えを得たら離脱の可能性）" [ref=e1300]:
+          - cell "平均視聴分数" [ref=e1301]
+          - cell "-0.49" [ref=e1302]
+          - cell "-0.36" [ref=e1303]
+          - cell "✅が一貫して低め（答えを得たら離脱の可能性）" [ref=e1304]
+        - row "エンゲージ率 -0.33 -0.14（ほぼ同等） 下期は差がほぼ消える" [ref=e1305]:
+          - cell "エンゲージ率" [ref=e1306]
+          - cell "-0.33" [ref=e1307]
+          - cell "-0.14（ほぼ同等）" [ref=e1308]:
+            - strong [ref=e1309]: "-0.14（ほぼ同等）"
+          - cell "下期は差がほぼ消える" [ref=e1310]
+        - row "商品CTR -0.23 +0.11（✅が上回る） 購買意欲の誘導に効いている可能性" [ref=e1311]:
+          - cell "商品CTR" [ref=e1312]
+          - cell "-0.23" [ref=e1313]
+          - cell "+0.11（✅が上回る）" [ref=e1314]:
+            - strong [ref=e1315]: +0.11（✅が上回る）
+          - cell "購買意欲の誘導に効いている可能性" [ref=e1316]
+        - row "コメント参加率 -0.18 -0.01（ほぼ同等） 下期は差がほぼ消える" [ref=e1317]:
+          - cell "コメント参加率" [ref=e1318]
+          - cell "-0.18" [ref=e1319]
+          - cell "-0.01（ほぼ同等）" [ref=e1320]:
+            - strong [ref=e1321]: "-0.01（ほぼ同等）"
+          - cell "下期は差がほぼ消える" [ref=e1322]
+    - generic [ref=e1323]:
+      - generic [ref=e1324]: 相関分析の結論・提案への活用方針
+      - generic [ref=e1325]:
+        - strong [ref=e1326]: ❌ 言えないこと：
+        - text: 「お悩み訴求を強化すれば視聴分数・エンゲージ率が上がる」（データが支持しない・n数不足）
+        - strong [ref=e1327]: ✅ 言えること①：
+        - text: 時期補正後、下期CTRで✅が+0.11pt上回る →
+        - strong [ref=e1328]: お悩み訴求は「購買意欲の誘導」には効果がある可能性
+        - strong [ref=e1329]: ✅ 言えること②：
+        - text: 全体の62%が訴求力の弱い状態 →
+        - strong [ref=e1330]: 改善余地が大きく、コンテンツ品質の底上げ施策として有効
+        - strong [ref=e1331]: ✅ 言えること③：
+        - text: 強い事例の型（テンプレート）を横展開することで、コンテンツの一貫性・ブランド訴求力が向上する
+    - heading "🔍 下期限定再分析（2025/10〜2026/3）― 上期の交絡を除外" [level=5] [ref=e1332]
+    - generic [ref=e1333]:
+      - strong [ref=e1334]: 再分析の理由：
+      - text: 上期（4〜9月）は配信尺が短い傾向があり、視聴者が「最後まで見た」状態になりやすくエンゲージ率が高くなる構造的バイアスがある。上期を除いた下期（n=✅8 vs ⚠️11）で再分析。
+    - table [ref=e1335]:
+      - rowgroup [ref=e1336]:
+        - row "指標 ✅あり (n=8) ⚠️弱い (n=11) 差 解釈" [ref=e1337]:
+          - columnheader "指標" [ref=e1338]
+          - columnheader "✅あり (n=8)" [ref=e1339]
+          - columnheader "⚠️弱い (n=11)" [ref=e1340]
+          - columnheader "差" [ref=e1341]
+          - columnheader "解釈" [ref=e1342]
+      - rowgroup [ref=e1343]:
+        - row "配信尺 69.5分 65.9分 +3.7分 ✅の方がやや長い（交絡注意）" [ref=e1344]:
+          - cell "配信尺" [ref=e1345]
+          - cell "69.5分" [ref=e1346]
+          - cell "65.9分" [ref=e1347]
+          - cell "+3.7分" [ref=e1348]
+          - cell "✅の方がやや長い（交絡注意）" [ref=e1349]
+        - row "平均視聴分数 3.82分 4.18分 -0.36（-8.6%） 尺が長い分の影響あり" [ref=e1350]:
+          - cell "平均視聴分数" [ref=e1351]
+          - cell "3.82分" [ref=e1352]
+          - cell "4.18分" [ref=e1353]
+          - cell "-0.36（-8.6%）" [ref=e1354]
+          - cell "尺が長い分の影響あり" [ref=e1355]
+        - row "エンゲージ率 7.35% 7.49% -0.14（-1.9%） ほぼ同等（差は実質ゼロ）" [ref=e1356]:
+          - cell "エンゲージ率" [ref=e1357]
+          - cell "7.35%" [ref=e1358]
+          - cell "7.49%" [ref=e1359]
+          - cell "-0.14（-1.9%）" [ref=e1360]:
+            - strong [ref=e1361]: "-0.14（-1.9%）"
+          - cell "ほぼ同等（差は実質ゼロ）" [ref=e1362]:
+            - strong [ref=e1363]: ほぼ同等（差は実質ゼロ）
+        - row "商品CTR 1.13% 1.02% +0.11（+10.8%） ✅が上回る ← 最強シグナル" [ref=e1364]:
+          - cell "商品CTR" [ref=e1365]
+          - cell "1.13%" [ref=e1366]
+          - cell "1.02%" [ref=e1367]
+          - cell "+0.11（+10.8%）" [ref=e1368]
+          - cell "✅が上回る ← 最強シグナル" [ref=e1369]
+        - row "コメント参加率 0.54% 0.55% -0.01（-1.8%） ほぼ同等（差は実質ゼロ）" [ref=e1370]:
+          - cell "コメント参加率" [ref=e1371]
+          - cell "0.54%" [ref=e1372]
+          - cell "0.55%" [ref=e1373]
+          - cell "-0.01（-1.8%）" [ref=e1374]:
+            - strong [ref=e1375]: "-0.01（-1.8%）"
+          - cell "ほぼ同等（差は実質ゼロ）" [ref=e1376]:
+            - strong [ref=e1377]: ほぼ同等（差は実質ゼロ）
+    - generic [ref=e1378]:
+      - generic [ref=e1379]: 📣 提案で使える最強の一文
+      - generic [ref=e1380]:
+        - text: 「
+        - strong [ref=e1381]: お悩み訴求を強化した配信は、商品クリック率が約11%高い（2025年下期実績）。
+        - text: 視聴者が"自分ごと"として受け取ることで、商品への興味行動（クリック）につながっている。
+        - text: エンゲージ率・コメント率は同等を維持しながら、購買誘導力だけが高まる点が特徴。」
+    - heading "🗂️ A6補足②｜✅強い事例に共通する「型」：5パターン" [level=4] [ref=e1382]
+    - generic [ref=e1383]: ✅判定15件の台本（タイトル・見どころ・オープニング）を分析し、お悩み訴求が強い回に共通する構造を5パターンに分類。
+    - table [ref=e1384]:
+      - rowgroup [ref=e1385]:
+        - row "型 パターン名 代表例 テンプレート" [ref=e1386]:
+          - columnheader "型" [ref=e1387]
+          - columnheader "パターン名" [ref=e1388]
+          - columnheader "代表例" [ref=e1389]
+          - columnheader "テンプレート" [ref=e1390]
+      - rowgroup [ref=e1391]:
+        - 'row "型A タイトルにお悩みワードを直接入れる #71「前髪に悩む人必見」 #83「冬の乾燥に寄り添う」 #53「最近なんだか疲れてる？」 「〇〇に悩む人必見！△△で解決」 「最近〇〇していない？△△でケア」" [ref=e1392]':
+          - cell "型A" [ref=e1393]
+          - cell "タイトルにお悩みワードを直接入れる" [ref=e1394]
+          - 'cell "#71「前髪に悩む人必見」 #83「冬の乾燥に寄り添う」 #53「最近なんだか疲れてる？」" [ref=e1395]':
+            - text: "#71「前髪に悩む人必見」"
+            - text: "#83「冬の乾燥に寄り添う」"
+            - text: "#53「最近なんだか疲れてる？」"
+          - cell "「〇〇に悩む人必見！△△で解決」 「最近〇〇していない？△△でケア」" [ref=e1396]:
+            - text: 「〇〇に悩む人必見！△△で解決」
+            - text: 「最近〇〇していない？△△でケア」
+        - 'row "型B 見どころの見出しを\"症状→解決\"で書く #51「毛穴・皮脂テカリをオフ！」 #79「パックリ前髪やうねりもリセット！」 「〇〇（症状）をオフ！△△の使い方」 「〇〇もリセット！△△で叶える□□」" [ref=e1397]':
+          - cell "型B" [ref=e1398]
+          - cell "見どころの見出しを\"症状→解決\"で書く" [ref=e1399]
+          - 'cell "#51「毛穴・皮脂テカリをオフ！」 #79「パックリ前髪やうねりもリセット！」" [ref=e1400]':
+            - text: "#51「毛穴・皮脂テカリをオフ！」"
+            - text: "#79「パックリ前髪やうねりもリセット！」"
+          - cell "「〇〇（症状）をオフ！△△の使い方」 「〇〇もリセット！△△で叶える□□」" [ref=e1401]:
+            - text: 「〇〇（症状）をオフ！△△の使い方」
+            - text: 「〇〇もリセット！△△で叶える□□」
+        - 'row "型C シーン×悩み型 #62「夏の旅行に持っていきたい→荷物を減らして美しさを増やす」 #61「この夏手放せないサンケア」 「〇〇（シーン）の〇〇（悩み）対策に」 「〇〇（季節）に使える△△特集」" [ref=e1402]':
+          - cell "型C" [ref=e1403]
+          - cell "シーン×悩み型" [ref=e1404]
+          - 'cell "#62「夏の旅行に持っていきたい→荷物を減らして美しさを増やす」 #61「この夏手放せないサンケア」" [ref=e1405]':
+            - text: "#62「夏の旅行に持っていきたい→荷物を減らして美しさを増やす」"
+            - text: "#61「この夏手放せないサンケア」"
+          - cell "「〇〇（シーン）の〇〇（悩み）対策に」 「〇〇（季節）に使える△△特集」" [ref=e1406]:
+            - text: 「〇〇（シーン）の〇〇（悩み）対策に」
+            - text: 「〇〇（季節）に使える△△特集」
+        - 'row "型D ターゲット明示型 #52「アイメイクに不慣れなユーザー向け」 #71「お悩み別で選べる！」 「〇〇（状態）の方はこれ！」 「お悩み別に選べる△△特集」" [ref=e1407]':
+          - cell "型D" [ref=e1408]
+          - cell "ターゲット明示型" [ref=e1409]
+          - 'cell "#52「アイメイクに不慣れなユーザー向け」 #71「お悩み別で選べる！」" [ref=e1410]':
+            - text: "#52「アイメイクに不慣れなユーザー向け」"
+            - text: "#71「お悩み別で選べる！」"
+          - cell "「〇〇（状態）の方はこれ！」 「お悩み別に選べる△△特集」" [ref=e1411]:
+            - text: 「〇〇（状態）の方はこれ！」
+            - text: 「お悩み別に選べる△△特集」
+        - 'row "型E 問いかけ型 #53「最近なんだか疲れてる？」 #82（ランキング形式で「どれがいいか迷っている」悩みに答える） 「〇〇で困ったことない？△△を試して」 「あなたの肌悩みはどれ？お悩み別特集」" [ref=e1412]':
+          - cell "型E" [ref=e1413]
+          - cell "問いかけ型" [ref=e1414]
+          - 'cell "#53「最近なんだか疲れてる？」 #82（ランキング形式で「どれがいいか迷っている」悩みに答える）" [ref=e1415]':
+            - text: "#53「最近なんだか疲れてる？」"
+            - text: "#82（ランキング形式で「どれがいいか迷っている」悩みに答える）"
+          - cell "「〇〇で困ったことない？△△を試して」 「あなたの肌悩みはどれ？お悩み別特集」" [ref=e1416]:
+            - text: 「〇〇で困ったことない？△△を試して」
+            - text: 「あなたの肌悩みはどれ？お悩み別特集」
+    - heading "台本フォーマット改善案（Before/After）" [level=5] [ref=e1417]
+    - table [ref=e1418]:
+      - rowgroup [ref=e1419]:
+        - row "❌ Before（典型的な弱い構成） ✅ After（お悩み訴求テンプレート）" [ref=e1420]:
+          - columnheader "❌ Before（典型的な弱い構成）" [ref=e1421]
+          - columnheader "✅ After（お悩み訴求テンプレート）" [ref=e1422]
+      - rowgroup [ref=e1423]:
+        - row "タイトル：「〇〇ブランド 新商品紹介」 見どころ①：「〇〇の新商品！」 見どころ②：「△△シリーズを徹底解説」 OP：「本日はゲストをお迎えして商品紹介をします」 タイトル：「〇〇（悩みワード）に悩む人必見！△△で解決」 見どころ①：「〇〇（症状）をオフ！△△の使い方」 見どころ②：「〇〇（シーン）でも使える？△△を検証」 OP：「今日は『〇〇（悩み）』で困っている方に向けた配信です」" [ref=e1424]:
+          - cell "タイトル：「〇〇ブランド 新商品紹介」 見どころ①：「〇〇の新商品！」 見どころ②：「△△シリーズを徹底解説」 OP：「本日はゲストをお迎えして商品紹介をします」" [ref=e1425]:
+            - text: タイトル：「〇〇ブランド 新商品紹介」
+            - text: 見どころ①：「〇〇の新商品！」
+            - text: 見どころ②：「△△シリーズを徹底解説」
+            - text: OP：「本日はゲストをお迎えして商品紹介をします」
+          - cell "タイトル：「〇〇（悩みワード）に悩む人必見！△△で解決」 見どころ①：「〇〇（症状）をオフ！△△の使い方」 見どころ②：「〇〇（シーン）でも使える？△△を検証」 OP：「今日は『〇〇（悩み）』で困っている方に向けた配信です」" [ref=e1426]:
+            - text: タイトル：「
+            - strong [ref=e1427]: 〇〇（悩みワード）に悩む人必見！
+            - text: △△で解決」
+            - text: 見どころ①：「
+            - strong [ref=e1428]: 〇〇（症状）をオフ！
+            - text: △△の使い方」
+            - text: 見どころ②：「
+            - strong [ref=e1429]: 〇〇（シーン）でも使える？
+            - text: △△を検証」
+            - text: OP：「今日は『
+            - strong [ref=e1430]: 〇〇（悩み）
+            - text: 』で困っている方に向けた配信です」
+    - heading "A7｜キャンペーン有無とエンゲージメントの差分析 完了" [level=3] [ref=e1431]:
+      - text: A7｜キャンペーン有無とエンゲージメントの差分析
+      - generic [ref=e1432]: 完了
+    - generic [ref=e1433]:
+      - strong [ref=e1434]: 分析概要：
+      - text: 2025/4〜2026/3の40配信（繰り返し配信・トラブル回除外）を対象に、キャンペーンあり/なし別のエンゲージメント指標を比較。指標は配信数値まとめの行10（平均視聴分）・行11（エンゲージ率）・行13（商品CTR）・行15（コメント参加率）を使用。
+    - heading "【分析1】CP有無別 KPI比較（n=40）" [level=4] [ref=e1435]
+    - table [ref=e1436]:
+      - rowgroup [ref=e1437]:
+        - row "指標 ✅ CPあり (n=12) ⚠️ 一部あり (n=4) ❌ CPなし (n=24) 所見" [ref=e1438]:
+          - columnheader "指標" [ref=e1439]
+          - columnheader "✅ CPあり (n=12)" [ref=e1440]
+          - columnheader "⚠️ 一部あり (n=4)" [ref=e1441]
+          - columnheader "❌ CPなし (n=24)" [ref=e1442]
+          - columnheader "所見" [ref=e1443]
+      - rowgroup [ref=e1444]:
+        - row "平均視聴分数 4.55分 4.30分 4.33分 CPあり回が最長（+0.22分）" [ref=e1445]:
+          - cell "平均視聴分数" [ref=e1446]
+          - cell "4.55分" [ref=e1447]:
+            - strong [ref=e1448]: 4.55分
+          - cell "4.30分" [ref=e1449]
+          - cell "4.33分" [ref=e1450]
+          - cell "CPあり回が最長（+0.22分）" [ref=e1451]
+        - row "商品クリック率（CTR） 1.20% 1.10% 1.18% 差はほぼなし" [ref=e1452]:
+          - cell "商品クリック率（CTR）" [ref=e1453]
+          - cell "1.20%" [ref=e1454]:
+            - strong [ref=e1455]: 1.20%
+          - cell "1.10%" [ref=e1456]
+          - cell "1.18%" [ref=e1457]
+          - cell "差はほぼなし" [ref=e1458]
+        - row "コメント参加率 0.61% 0.43% 0.49% CPあり回が+0.12pt高い（Cohen's d=0.61）" [ref=e1459]:
+          - cell "コメント参加率" [ref=e1460]
+          - cell "0.61%" [ref=e1461]:
+            - strong [ref=e1462]: 0.61%
+          - cell "0.43%" [ref=e1463]
+          - cell "0.49%" [ref=e1464]
+          - cell "CPあり回が+0.12pt高い（Cohen's d=0.61）" [ref=e1465]
+        - row "エンゲージ率 8.47% 8.01% 7.42% CPあり回が全指標でわずかに優位" [ref=e1466]:
+          - cell "エンゲージ率" [ref=e1467]
+          - cell "8.47%" [ref=e1468]:
+            - strong [ref=e1469]: 8.47%
+          - cell "8.01%" [ref=e1470]
+          - cell "7.42%" [ref=e1471]
+          - cell "CPあり回が全指標でわずかに優位" [ref=e1472]
+    - heading "【分析2】⚠️ 最重要：交絡因子の存在" [level=4] [ref=e1473]
+    - generic [ref=e1474]:
+      - strong [ref=e1475]: CPあり12件は全て協賛配信（100%）。CPなし24件中、協賛はわずか5件（21%）。
+      - text: つまり「CPあり ≒ 協賛配信」「CPなし ≒ 通常配信」という構造になっており、
+      - strong [ref=e1476]: CPの効果なのか協賛配信の特性なのかが分離できない
+      - text: 。
+    - heading "【分析3】座組コントロール後（協賛配信のみで比較）" [level=4] [ref=e1477]
+    - table [ref=e1478]:
+      - rowgroup [ref=e1479]:
+        - row "指標 協賛×CPあり (n=12) 協賛×CPなし (n=5) 差・所見" [ref=e1480]:
+          - columnheader "指標" [ref=e1481]
+          - columnheader "協賛×CPあり (n=12)" [ref=e1482]
+          - columnheader "協賛×CPなし (n=5)" [ref=e1483]
+          - columnheader "差・所見" [ref=e1484]
+      - rowgroup [ref=e1485]:
+        - row "平均視聴分数 4.55分 4.40分 +0.15分（縮小）" [ref=e1486]:
+          - cell "平均視聴分数" [ref=e1487]
+          - cell "4.55分" [ref=e1488]
+          - cell "4.40分" [ref=e1489]
+          - cell "+0.15分（縮小）" [ref=e1490]
+        - row "商品CTR 1.20% 1.10% +0.10pt（ほぼ差なし）" [ref=e1491]:
+          - cell "商品CTR" [ref=e1492]
+          - cell "1.20%" [ref=e1493]
+          - cell "1.10%" [ref=e1494]
+          - cell "+0.10pt（ほぼ差なし）" [ref=e1495]
+        - row "コメント参加率 0.61% 0.50% +0.11pt（協賛内でもCP効果残存）" [ref=e1496]:
+          - cell "コメント参加率" [ref=e1497]
+          - cell "0.61%" [ref=e1498]:
+            - strong [ref=e1499]: 0.61%
+          - cell "0.50%" [ref=e1500]
+          - cell "+0.11pt（協賛内でもCP効果残存）" [ref=e1501]
+    - generic [ref=e1502]: 協賛配信内で揃えると差は縮小するが、コメント参加率のみCPありが引き続き優位。
+    - heading "【分析4】時系列トレンドの交絡" [level=4] [ref=e1503]
+    - table [ref=e1504]:
+      - rowgroup [ref=e1505]:
+        - row "期間 n CPあり件数 平均視聴分 商品CTR コメント率" [ref=e1506]:
+          - columnheader "期間" [ref=e1507]
+          - columnheader "n" [ref=e1508]
+          - columnheader "CPあり件数" [ref=e1509]
+          - columnheader "平均視聴分" [ref=e1510]
+          - columnheader "商品CTR" [ref=e1511]
+          - columnheader "コメント率" [ref=e1512]
+      - rowgroup [ref=e1513]:
+        - row "前半 2025/4〜9月 20 5件 4.74分 1.30% 0.51%" [ref=e1514]:
+          - cell "前半 2025/4〜9月" [ref=e1515]
+          - cell "20" [ref=e1516]
+          - cell "5件" [ref=e1517]
+          - cell "4.74分" [ref=e1518]:
+            - strong [ref=e1519]: 4.74分
+          - cell "1.30%" [ref=e1520]:
+            - strong [ref=e1521]: 1.30%
+          - cell "0.51%" [ref=e1522]
+        - row "後半 2025/10〜2026/3月 20 7件 4.04分 1.05% 0.53%" [ref=e1523]:
+          - cell "後半 2025/10〜2026/3月" [ref=e1524]
+          - cell "20" [ref=e1525]
+          - cell "7件" [ref=e1526]
+          - cell "4.04分" [ref=e1527]
+          - cell "1.05%" [ref=e1528]
+          - cell "0.53%" [ref=e1529]
+    - generic [ref=e1530]: 後半全体でKPIが下がる傾向があり、CPが多い後半で数値が低い。季節・時期の影響が大きな交絡因子となっている。
+    - heading "【分析5】CP種別ごとの効果比較" [level=4] [ref=e1531]
+    - table [ref=e1532]:
+      - rowgroup [ref=e1533]:
+        - row "CP種別 n 平均視聴分 商品CTR コメント率 特性" [ref=e1534]:
+          - columnheader "CP種別" [ref=e1535]
+          - columnheader "n" [ref=e1536]
+          - columnheader "平均視聴分" [ref=e1537]
+          - columnheader "商品CTR" [ref=e1538]
+          - columnheader "コメント率" [ref=e1539]
+          - columnheader "特性" [ref=e1540]
+      - rowgroup [ref=e1541]:
+        - row "ポイントCP 6 4.97分 1.07% 0.53% 視聴分数への寄与が最大" [ref=e1542]:
+          - cell "ポイントCP" [ref=e1543]
+          - cell "6" [ref=e1544]
+          - cell "4.97分" [ref=e1545]:
+            - strong [ref=e1546]: 4.97分
+          - cell "1.07%" [ref=e1547]
+          - cell "0.53%" [ref=e1548]
+          - cell "視聴分数への寄与が最大" [ref=e1549]
+        - row "POPUP/サイネージ 2 4.82分 1.24% 0.70% コメント参加率が最高" [ref=e1550]:
+          - cell "POPUP/サイネージ" [ref=e1551]
+          - cell "2" [ref=e1552]
+          - cell "4.82分" [ref=e1553]
+          - cell "1.24%" [ref=e1554]
+          - cell "0.70%" [ref=e1555]:
+            - strong [ref=e1556]: 0.70%
+          - cell "コメント参加率が最高" [ref=e1557]
+        - row "Xフォロー＆リポスト 5 3.84分 1.25% 0.63% 視聴分数への寄与が最小" [ref=e1558]:
+          - cell "Xフォロー＆リポスト" [ref=e1559]
+          - cell "5" [ref=e1560]
+          - cell "3.84分" [ref=e1561]
+          - cell "1.25%" [ref=e1562]
+          - cell "0.63%" [ref=e1563]
+          - cell "視聴分数への寄与が最小" [ref=e1564]
+    - heading "【分析6】効果量（Cohen's d）" [level=4] [ref=e1565]
+    - table [ref=e1566]:
+      - rowgroup [ref=e1567]:
+        - row "指標 Cohen's d 効果の大きさ 方向" [ref=e1568]:
+          - columnheader "指標" [ref=e1569]
+          - columnheader "Cohen's d" [ref=e1570]
+          - columnheader "効果の大きさ" [ref=e1571]
+          - columnheader "方向" [ref=e1572]
+      - rowgroup [ref=e1573]:
+        - row "コメント参加率 +0.61 中程度 CPあり優位" [ref=e1574]:
+          - cell "コメント参加率" [ref=e1575]
+          - cell "+0.61" [ref=e1576]:
+            - strong [ref=e1577]: "+0.61"
+          - cell "中程度" [ref=e1578]
+          - cell "CPあり優位" [ref=e1579]
+        - row "平均視聴分数 +0.26 小〜中 CPあり優位" [ref=e1580]:
+          - cell "平均視聴分数" [ref=e1581]
+          - cell "+0.26" [ref=e1582]
+          - cell "小〜中" [ref=e1583]
+          - cell "CPあり優位" [ref=e1584]
+        - row "商品CTR +0.05 ほぼ差なし —" [ref=e1585]:
+          - cell "商品CTR" [ref=e1586]
+          - cell "+0.05" [ref=e1587]
+          - cell "ほぼ差なし" [ref=e1588]
+          - cell "—" [ref=e1589]
+    - heading "📌 結論・提案への活用方針" [level=4] [ref=e1591]
+    - generic [ref=e1592]:
+      - strong [ref=e1593]: 言えること：
+      - text: ・CPあり回はコメント参加率が+0.12pt高い傾向（Cohen's d=0.61、中程度の効果）
+      - text: ・ポイントCPが最も平均視聴分数に寄与（4.97分 vs 全体平均4.41分）
+      - text: ・商品CTRへのCP直接効果はほぼなし（d=0.05）
+      - text: ・CPは「集客」より「滞在・参加の質」を高める施策として機能している可能性
+    - generic [ref=e1594]:
+      - strong [ref=e1595]: 注意事項（正直に添えるべき制約）：
+      - text: ・CPあり＝全て協賛配信のため、CPの効果と協賛配信の差が分離できない
+      - text: ・サンプル数が少なく（n=12/24）統計的有意性は示せない
+      - text: ・後半にKPI全体が下がるトレンドがあり、時期の影響を排除できていない
+      - text: ・今後は座組・CP種別を揃えたA/B比較で継続検証することが望ましい
+    - generic [ref=e1596]:
+      - generic [ref=e1597]: 提案での推奨表現
+      - generic [ref=e1598]: 「キャンペーン施策のある配信回では、コメント参加率が約25%高い傾向（0.61% vs 0.49%）。特にポイントCPは平均視聴分数を押し上げる効果が見られる（4.97分 vs 全体平均4.41分）。CPは集客よりも"滞在・参加の質"を高める施策として位置づけることが適切。協賛配信にポイントCPを組み合わせる形が最も質の高い視聴体験を生む可能性がある。」
+  - generic [ref=e1599]: マツキヨコカラライブ 年次報告会 提案資料統合版 — 2026.04 — Confidential

@@ -84,14 +84,20 @@
   "hotPaths": [
     {
       "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 44,
-      "lastAccessed": 1776045672366,
+      "accessCount": 62,
+      "lastAccessed": 1776072153402,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A9_粗利率改善_単価設定と根拠_20260413.md",
+      "accessCount": 8,
+      "lastAccessed": 1776072136201,
       "type": "file"
     },
     {
       "path": "01_年次報告会/提案骨子/競合調査・KPI設計_提案書.md",
-      "accessCount": 3,
-      "lastAccessed": 1775816064810,
+      "accessCount": 5,
+      "lastAccessed": 1776071275549,
       "type": "file"
     },
     {
@@ -125,6 +131,12 @@
       "type": "file"
     },
     {
+      "path": "01_年次報告会",
+      "accessCount": 2,
+      "lastAccessed": 1776071267022,
+      "type": "directory"
+    },
+    {
       "path": ".claude/checkpoints.log",
       "accessCount": 1,
       "lastAccessed": 1775818354549,
@@ -134,6 +146,54 @@
       "path": "04_過去資料/参考資料/【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
       "accessCount": 1,
       "lastAccessed": 1776045304270,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/TODO_提案会準備_やるべきこと.md",
+      "accessCount": 1,
+      "lastAccessed": 1776070847473,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/フィードバック/260409スライドフィードバック.md",
+      "accessCount": 1,
+      "lastAccessed": 1776070847872,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/フィードバック/260413笹木さんFB_アジェンダ確認.md",
+      "accessCount": 1,
+      "lastAccessed": 1776071019468,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/年次報告会_マスターデータ_20260409.md",
+      "accessCount": 1,
+      "lastAccessed": 1776071257540,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A2_競合比較_なぜ低いかの言語化_20260410.md",
+      "accessCount": 1,
+      "lastAccessed": 1776071258596,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A3_PB回vs協賛回_エンゲージメント比較_20260410.md",
+      "accessCount": 1,
+      "lastAccessed": 1776071276906,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A10_受注後運営体制_20260413.md",
+      "accessCount": 1,
+      "lastAccessed": 1776071394443,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/分析_A11_月次振り返り項目見直し_20260413.md",
+      "accessCount": 1,
+      "lastAccessed": 1776071429571,
       "type": "file"
     }
   ],
