@@ -84,8 +84,8 @@
   "hotPaths": [
     {
       "path": "01_年次報告会/提案骨子/提案に向けた情報まとめ_統合版_20260409.html",
-      "accessCount": 36,
-      "lastAccessed": 1775820509655,
+      "accessCount": 44,
+      "lastAccessed": 1776045672366,
       "type": "file"
     },
     {
@@ -113,15 +113,21 @@
       "type": "file"
     },
     {
+      "path": "01_年次報告会/提案骨子/分析_A5_フォロリポ分析_20260410.md",
+      "accessCount": 2,
+      "lastAccessed": 1776044914851,
+      "type": "file"
+    },
+    {
       "path": ".claude/checkpoints.log",
       "accessCount": 1,
       "lastAccessed": 1775818354549,
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/分析_A5_フォロリポ分析_20260410.md",
+      "path": "04_過去資料/参考資料/【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
       "accessCount": 1,
-      "lastAccessed": 1775819799705,
+      "lastAccessed": 1776045304270,
       "type": "file"
     }
   ],
