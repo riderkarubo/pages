@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775811978725,
+  "lastScanned": 1776043971140,
   "projectRoot": "/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM",
   "techStack": {
     "languages": [],
@@ -33,7 +33,7 @@
       "path": "01_年次報告会",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1775811978692,
+      "lastAccessed": 1776043971116,
       "keyFiles": [
         "KPI設計_提案書.html",
         "年次報告会_提案スライド_20260409.html"
@@ -43,7 +43,7 @@
       "path": "02_データ",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1775811978693,
+      "lastAccessed": 1776043971123,
       "keyFiles": [
         "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
         "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
@@ -56,7 +56,7 @@
       "path": "03_テンプレート",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1775811978694,
+      "lastAccessed": 1776043971129,
       "keyFiles": [
         "MCCM_HTML設計書_v1.md",
         "MCCM_新構成案_v1.md",
@@ -68,14 +68,14 @@
       "path": "04_過去資料",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775811978695,
+      "lastAccessed": 1776043971130,
       "keyFiles": []
     },
     "05_メーカー実績レポート資料": {
       "path": "05_メーカー実績レポート資料",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1775811978696,
+      "lastAccessed": 1776043971132,
       "keyFiles": [
         "マツココライブLIVEメニュー協賛実績260330.xlsx"
       ]
