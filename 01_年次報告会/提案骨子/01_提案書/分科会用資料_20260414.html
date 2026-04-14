@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツキヨココカラライブ 分科会用資料 2026.04.14</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<meta name="description" content="マツキヨココカラライブ 月次分科会用資料。A3/A5/A6/A7/A11の詳細分析とディスカッション掘り下げ用（2026年4月14日版）">
+<meta property="og:title" content="マツキヨココカラライブ 分科会用資料">
+<meta property="og:description" content="月次分科会用の詳細分析資料（A3/A5/A6/A7/A11 収録）">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riderkarubo.github.io/mccm-proposal/bunkakai.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="マツキヨココカラライブ 分科会用資料">
+<meta name="twitter:description" content="月次分科会用の詳細分析資料（A3/A5/A6/A7/A11 収録）">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
+
+  .page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* ===== COVER ===== */
+  .cover { background: linear-gradient(135deg, #1b998b 0%, #0f3460 50%, #1a1a2e 100%); color: white; padding: 80px 60px; border-radius: 16px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 250px; height: 250px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd166; font-weight: 600; margin-bottom: 20px; }
+  .cover h1 { font-size: 30px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+  .cover-sub { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 36px; flex-wrap: wrap; }
+  .cover-meta-item { border-left: 2px solid #ffd166; padding-left: 16px; }
+  .cover-meta-item .label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 14px; color: white; font-weight: 600; }
+
+  /* ===== SECTION ===== */
+  .section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+  .section-badge { background: #1b998b; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .section-badge.red { background: #e94560; }
+  .section-badge.blue { background: #0f3460; }
+  .section-badge.orange { background: #e07a5f; }
+  .section-badge.gray { background: #6c757d; }
+  .section-badge.purple { background: #6c63ff; }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-subtitle { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* ===== TOC ===== */
+  .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 13px; border-bottom: 1px dashed #e0e0e0; }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-item a { display: flex; align-items: center; gap: 12px; width: 100%; text-decoration: none; color: inherit; border-radius: 6px; padding: 2px 4px; transition: background 0.15s; }
+  .toc-item a:hover { background: #e8eaf0; }
+  .toc-num { width: 32px; height: 32px; background: #1b998b; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .toc-status { margin-left: auto; font-size: 10px; color: #888; white-space: nowrap; }
+
+  /* ===== KPI CARDS ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card { background: #f8f9fa; border-radius: 10px; padding: 20px; text-align: center; border-top: 3px solid #1a1a2e; }
+  .kpi-card.accent { border-top-color: #e94560; background: #fff5f7; }
+  .kpi-card.blue { border-top-color: #0f3460; background: #f0f4ff; }
+  .kpi-card.green { border-top-color: #1b998b; background: #f0faf8; }
+  .kpi-label { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .kpi-value { font-size: 22px; font-weight: 800; color: #1a1a2e; line-height: 1.2; }
+  .kpi-value span { font-size: 12px; font-weight: 400; color: #666; }
+  .kpi-note { font-size: 10px; color: #888; margin-top: 6px; }
+  .kpi-badge { display: inline-block; background: #e94560; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+  .kpi-badge.up { background: #1b998b; }
+
+  /* ===== TABLES ===== */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; letter-spacing: 0.5px; }
+  thead th.center { text-align: center; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9fa; }
+  tbody td { padding: 10px 14px; }
+  tbody td.center { text-align: center; }
+  tbody td.right { text-align: right; }
+  tbody tr.highlight { background: #fff8e1; font-weight: 600; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.red { background: #ffe0e6; color: #c0392b; }
+  .tag.green { background: #d4f5ef; color: #1b998b; }
+  .tag.blue { background: #dce8ff; color: #0f3460; }
+  .tag.gray { background: #f0f0f0; color: #666; }
+  .tag.orange { background: #fde8e0; color: #c0522b; }
+
+  /* ===== MISC ===== */
+  .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .note.warning { border-left-color: #e94560; background: #fff5f7; color: #c0392b; }
+  .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
+  .note.success { border-left-color: #1b998b; background: #f0faf8; color: #1b998b; }
+  .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
+  h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 20px 0 12px; }
+  h4 { font-size: 13px; font-weight: 700; color: #444; margin: 16px 0 8px; }
+  h5 { font-size: 12px; font-weight: 700; color: #666; margin: 14px 0 6px; }
+  p { margin: 8px 0; color: #444; }
+  .highlight-box { background: linear-gradient(135deg, #1b998b, #0f3460); color: white; border-radius: 10px; padding: 24px; margin: 16px 0; }
+  .highlight-box .main { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .highlight-box .sub { font-size: 13px; color: rgba(255,255,255,0.85); }
+
+  /* ===== TASK LIST ===== */
+  .task-section { background: #fff8e1; border: 2px dashed #f59e0b; border-radius: 10px; padding: 24px; margin: 24px 0; }
+  .task-section h4 { color: #856404; margin-top: 0; font-size: 14px; }
+  .task-section ul { list-style: none; padding: 0; }
+  .task-section ul li { padding: 10px 0 10px 28px; position: relative; font-size: 13px; line-height: 1.7; border-bottom: 1px dashed #e0c89f; }
+  .task-section ul li:last-child { border-bottom: none; }
+  .task-section ul li::before { content: '☐'; position: absolute; left: 0; top: 10px; color: #f59e0b; font-size: 16px; font-weight: 700; }
+  .task-section ul li strong { color: #856404; }
+
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    @page { size: A4; margin: 10mm; }
+    .page { padding: 0; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-label">Monthly Sub-Committee · Reference</div>
+  <h1>マツキヨココカラライブ<br>分科会用資料</h1>
+  <div class="cover-sub">年次報告会から外した詳細分析（A3・A5・A6・A7・A11）＋ 追加調査タスクリスト</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Date</div>
+      <div class="value">2026年4月14日</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Last Updated</div>
+      <div class="value">2026年4月14日 19:30</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Prepared by</div>
+      <div class="value">Firework</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Status</div>
+      <div class="value">Draft v1.0</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge gray">INDEX</div>
+    <div>
+      <div class="section-title">目次</div>
+      <div class="section-subtitle">年次報告会本体から分離した詳細分析を月次分科会で扱う</div>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-item"><a href="#sec-intro"><div class="toc-num">0</div><span>本資料の位置づけ</span><div class="toc-status">イントロ</div></a></div>
+    <div class="toc-item"><a href="#sec-a3"><div class="toc-num">A3</div><span>協賛回 vs レギュラー回 エンゲージメント比較</span><div class="toc-status">完了</div></a></div>
+    <div class="toc-item"><a href="#sec-a5"><div class="toc-num">A5</div><span>Xフォロリポキャンペーン分析</span><div class="toc-status">完了</div></a></div>
+    <div class="toc-item"><a href="#sec-a6"><div class="toc-num">A6</div><span>台本「お悩み訴求（自分ごと化）」チェック</span><div class="toc-status">完了</div></a></div>
+    <div class="toc-item"><a href="#sec-a7"><div class="toc-num">A7</div><span>キャンペーン有無とエンゲージメントの差分析</span><div class="toc-status">完了</div></a></div>
+    <div class="toc-item"><a href="#sec-a11"><div class="toc-num">A11</div><span>月次振り返り項目の見直し提案</span><div class="toc-status">分析済</div></a></div>
+    <div class="toc-item"><a href="#sec-tasks"><div class="toc-num">📋</div><span>追加タスクリスト（2026-04-14 FB反映）</span><div class="toc-status">要実施</div></a></div>
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<div class="section" id="sec-intro">
+  <div class="section-header">
+    <div class="section-badge purple">本資料について</div>
+    <div>
+      <div class="section-title">本資料の位置づけ</div>
+    </div>
+  </div>
+  <div class="note info">
+    本資料は、2026年度年次報告会の本体資料（「提案に向けた情報まとめ_統合版_20260414.html」）から分離した詳細分析をまとめた<strong>月次分科会用の参考資料</strong>です。<br>
+    年次報告会では全体戦略・KPI・3大方針に集中するため、以下の分析は分科会でのディスカッション・掘り下げ用として本資料に収録しています。
+  </div>
+
+  <h4>収録内容</h4>
+  <ul style="padding-left: 20px; line-height: 2;">
+    <li><strong>A3：協賛回 vs レギュラー回 エンゲージメント比較</strong> — 2025年度41回の分類分析</li>
+    <li><strong>A5：Xフォロリポキャンペーン分析</strong> — 実施5回 vs 非実施82回の比較</li>
+    <li><strong>A6：台本「お悩み訴求」チェック</strong> — 44台本の内容分析＋強い事例の型5パターン</li>
+    <li><strong>A7：キャンペーン有無とエンゲージメントの差分析</strong> — CP種別ごとの効果量比較</li>
+    <li><strong>A11：月次振り返り項目の見直し提案</strong> — リピーター指標・粗利率モニタリング追加</li>
+    <li><strong>📋 追加タスクリスト</strong> — 2026-04-14 FBで追加された要調査項目</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- A3 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a3">
+  <div class="section-header">
+    <div class="section-badge purple">A3</div>
+    <div>
+      <div class="section-title">A3｜協賛回 vs レギュラー回 エンゲージメント比較</div>
+      <div class="section-subtitle">2025年度全41回を対象にした分類分析 <span class="tag green">完了</span></div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>分析概要：</strong>2025年度（2025/4〜2026/3）全41回を対象に、協賛実績xlsxと配信数値CSVを照合。協賛回23回・レギュラー回18回に分類し、平均視聴分数・商品CTR・コメント参加率を比較。再放送4回・タレント特殊回1回（岩橋玄樹×ビュースター）は除外。
+  </div>
+
+  <h4>種別ごとの平均値（2025年度）</h4>
+  <table>
+    <thead><tr><th>種別</th><th class="center">n</th><th class="center">平均視聴分数</th><th class="center">商品CTR</th><th class="center">コメント参加率</th></tr></thead>
+    <tbody>
+      <tr><td>協賛回</td><td class="center">23</td><td class="center">4.48分</td><td class="center">1.26%</td><td class="center">0.56%</td></tr>
+      <tr><td>レギュラー回</td><td class="center">18</td><td class="center">4.29分</td><td class="center">1.03%</td><td class="center">0.46%</td></tr>
+      <tr class="highlight"><td><strong>差（協賛−レギュラー）</strong></td><td class="center">—</td><td class="center">+0.19分</td><td class="center"><strong>+0.23pp（1.22x）</strong></td><td class="center">+0.10pp（1.22x）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="kpi-grid" style="margin-top: 20px;">
+    <div class="kpi-card accent">
+      <div class="kpi-label">CTR 倍率</div>
+      <div class="kpi-value">1.22<span>x</span></div>
+      <div class="kpi-note">協賛回 / レギュラー回</div>
+      <div class="kpi-badge up">協賛優位</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">視聴分数 SD（協賛）</div>
+      <div class="kpi-value">±0.60<span>分</span></div>
+      <div class="kpi-note">安定傾向</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">視聴分数 SD（レギュラー）</div>
+      <div class="kpi-value">±1.00<span>分</span></div>
+      <div class="kpi-note">ばらつき大・当たり外れあり</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">分析対象</div>
+      <div class="kpi-value">41<span>回</span></div>
+      <div class="kpi-note">2025年度・再放送除外</div>
+    </div>
+  </div>
+
+  <h4 style="margin: 24px 0 10px;">過去分科会との照合</h4>
+  <table>
+    <thead><tr><th>論点</th><th class="center">判定</th><th>詳細</th></tr></thead>
+    <tbody>
+      <tr><td>視聴者数は協賛有無より演者・コンテンツ次第</td><td class="center"><span class="tag green">一致</span></td><td>分科会20260219「通常回・協賛回の視聴者数に突出した差なし」と整合</td></tr>
+      <tr><td>エンゲージメント↑がCTR↑につながる</td><td class="center"><span class="tag green">一致</span></td><td>分科会「いいね・コメントした人は約3倍視聴維持率が高い」で補強</td></tr>
+      <tr><td>メイク系商材のCTRが高い</td><td class="center"><span class="tag green">一致</span></td><td>分科会「商品カードクリックランキングTOP30でメイク系が多数」</td></tr>
+      <tr class="highlight"><td>視聴者数の差の解釈</td><td class="center"><span class="tag orange">指標違い</span></td><td>分科会＝Instagram流入数、今回＝滞在時間。矛盾ではなく測定対象が異なる。資料では区別して記載が必要</td></tr>
+      <tr class="highlight"><td>横断型協賛の評価</td><td class="center"><span class="tag orange"><strong>要確認</strong></span></td><td><strong>（2026-04-14 FB反映）</strong>今回分析ではCTR低い傾向。分科会では収益・エンゲージ面でポジティブ評価。「横断型＝CTRより認知・エンゲージ重視メニュー」として整理が必要。今後の分科会で継続検証。</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">提案への活用方針</h4>
+  <ul style="line-height: 2.2; padding-left: 20px; font-size: 13px;">
+    <li><strong>協賛CTR 1.22倍</strong>をメーカー向け営業資料の根拠として使用。「協賛配信は自社配信より購買行動につながりやすい」</li>
+    <li>レギュラー回のSD大（±1.00分）→ <strong>台本設計の型化・標準化施策</strong>の必要性を訴求</li>
+    <li>横断型は「CTR重視」ではなく「<strong>認知・エンゲージ重視メニュー</strong>」として料金・KPIを単体協賛と分けて設計</li>
+    <li>クーポン連動（分科会実証済み）を協賛回に組み合わせることでCTRのさらなる向上が見込める</li>
+  </ul>
+
+  <div class="note warning" style="margin-top: 16px;">
+    <strong>⚠️ 2026-04-14 FBによる修正：</strong>「差の原因仮説」のうち仮説2〜4は<strong>削除</strong>。横断型協賛の評価は「要確認」として継続検証対象に変更。
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A5 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a5">
+  <div class="section-header">
+    <div class="section-badge purple">A5</div>
+    <div>
+      <div class="section-title">A5｜Xフォロリポキャンペーン分析</div>
+      <div class="section-subtitle">実施5回 vs 非実施82回の全指標比較 <span class="tag green">完了</span></div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>分析概要：</strong>フォロリポ実施5回（2025-10-07 ディアボーテ／10-21 プロスタイル／10-28 ケイト／2026-02-17 いち髪／03-03 ケイト）と非実施回（82回）を全指標で比較。リピーター数・チャット数に顕著な差、購買系指標への効果は限定的。X上のアーカイブ再生数でKATE回は通常の約2倍。
+  </div>
+
+  <h4>active（全視聴者）比較</h4>
+  <table>
+    <thead><tr><th>指標</th><th class="center">フォロリポ回平均</th><th class="center">非フォロリポ平均</th><th class="center">差</th><th>読み</th></tr></thead>
+    <tbody>
+      <tr><td>最大同時接続者数</td><td class="center">438人</td><td class="center">434人</td><td class="center">▲0.8%</td><td>ほぼ同じ</td></tr>
+      <tr><td>平均視聴分数</td><td class="center">4.0分</td><td class="center">7.1分</td><td class="center" style="color:#e94560;"><strong>▼43.5%</strong></td><td>浅い視聴が増える</td></tr>
+      <tr class="highlight"><td>チャット参加ユーザー数</td><td class="center"><strong>46.4人</strong></td><td class="center">28.9人</td><td class="center" style="color:#1b998b;"><strong>▲60.8%</strong></td><td>場が盛り上がる</td></tr>
+      <tr class="highlight"><td>チャット数</td><td class="center"><strong>247.8件</strong></td><td class="center">148.3件</td><td class="center" style="color:#1b998b;"><strong>▲67.1%</strong></td><td>場が盛り上がる</td></tr>
+      <tr><td>商品カードクリック数</td><td class="center">105.8件</td><td class="center">125.7件</td><td class="center" style="color:#e94560;">▼15.8%</td><td>購買転換は弱い</td></tr>
+      <tr><td>エンゲージ視聴者数</td><td class="center">451人</td><td class="center">365人</td><td class="center" style="color:#1b998b;">▲23.6%</td><td>反応する人は多め</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">active_repeat（リピーター）比較</h4>
+  <table>
+    <thead><tr><th>指標</th><th class="center">フォロリポ回平均</th><th class="center">非フォロリポ平均</th><th class="center">差</th><th>読み</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>リピーター数</strong></td><td class="center" style="color:#1b998b;"><strong>302人</strong></td><td class="center">167人</td><td class="center" style="color:#1b998b;"><strong>▲81.5%</strong></td><td>最大の効果。既存ファンを引き込む</td></tr>
+      <tr><td>リピーター視聴分数</td><td class="center">9.9分</td><td class="center">13.8分</td><td class="center" style="color:#e94560;">▼27.9%</td><td>長居はしない</td></tr>
+      <tr><td>Total Watched Minutes</td><td class="center">3,017</td><td class="center">1,762</td><td class="center" style="color:#1b998b;">▲71.2%</td><td>総視聴時間は大幅増</td></tr>
+      <tr><td>チャット数（repeat）</td><td class="center">70.8件</td><td class="center">49.2件</td><td class="center" style="color:#1b998b;">▲43.9%</td><td>リピーターもチャット活発</td></tr>
+      <tr><td>商品カードクリック数</td><td class="center">15.4件</td><td class="center">22.1件</td><td class="center" style="color:#e94560;">▼30.5%</td><td>購買転換は弱い</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">X投稿アーカイブ再生数（先方提供）</h4>
+  <div class="note success" style="margin-bottom: 16px;">
+    <strong>KATE回（フォロリポあり）：約10,000回再生</strong> vs 通常回：約5,000回再生 → <strong style="color:#1b998b;">約2倍</strong><br>
+    ライブ中の同時接続者数への影響は軽微だが、<strong>X上の拡散・アーカイブ視聴に大きな効果</strong>が出ている。
+  </div>
+
+  <div class="note warning">
+    <strong>提案への活用方針：</strong>フォロリポは「ライブ中の購買転換施策」ではなく「<strong>X拡散・ファン巻き込み施策</strong>」として位置づける。コンテンツの面白さ（KATE回）と組み合わせることで拡散効果が最大化する。KPIはX再生数・リポスト数を設定すべき。
+  </div>
+
+  <div class="task-section">
+    <h4>🔍 追加検証タスク（2026-04-14 FB反映）</h4>
+    <ul>
+      <li><strong>リピーター数「最大の効果・既存ファン引き込み」の真偽検証</strong>：タイトルやプッシュ通知からフォロリポキャンペーンが判別できるのか確認。単に商材やタイトルの他の要因で視聴者数が増えただけではないかチェックする。</li>
+      <li><strong>他のフォロリポキャンペーン回のX投稿アーカイブ再生数差分</strong>：KATE回以外（ディアボーテ／プロスタイル／いち髪等）のX投稿アーカイブ再生数を調査し、フォロリポの効果が一貫しているかを検証。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A6 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a6">
+  <div class="section-header">
+    <div class="section-badge purple">A6</div>
+    <div>
+      <div class="section-title">A6｜台本「お悩み訴求（自分ごと化）」チェック</div>
+      <div class="section-subtitle">44台本の内容分析＋強い事例の型5パターン <span class="tag green">完了</span></div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>分析概要：</strong>#48〜#92の全44台本を対象に、タイトル・3つの見どころ・オープニング冒頭（約1,500文字）に「お悩み訴求・自分ごと化ワード」が含まれるかを自動チェック。判定基準：ワード3件以上＝✅あり、1〜2件＝⚠️弱い、0件＝❌なし。
+  </div>
+
+  <h4>【集計結果】</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>判定</th>
+        <th class="center">件数</th>
+        <th class="center">割合</th>
+        <th>意味</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td>✅ お悩み訴求あり（明確）</td>
+        <td class="center"><strong>16件</strong></td>
+        <td class="center">38%</td>
+        <td>冒頭・見どころに共感訴求が明確に組み込まれている</td>
+      </tr>
+      <tr>
+        <td>⚠️ お悩み訴求 弱い</td>
+        <td class="center"><strong>26件</strong></td>
+        <td class="center">62%</td>
+        <td>ワードは散見されるが冒頭の主軸が商品訴求・新作紹介になっている</td>
+      </tr>
+      <tr>
+        <td>❌ お悩み訴求なし</td>
+        <td class="center"><strong>2件</strong></td>
+        <td class="center">5%</td>
+        <td>冒頭がブランド紹介・ランキング形式で自分ごと化構成が不在</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note warning">
+    <strong>⚠️ 重要な発見：</strong>全体の62%が「弱い」判定。商品の新作・リニューアル・ランキング訴求が冒頭を占め、視聴者の悩みから入る構成になっていない回が大多数。
+  </div>
+
+  <h4 style="margin-top: 24px;">📊 時期補正後の相関分析（下期限定）</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th class="center">✅あり (n=8)</th>
+        <th class="center">⚠️弱い (n=11)</th>
+        <th class="center">差</th>
+        <th>解釈</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>平均視聴分数</td><td class="center">3.82分</td><td class="center">4.18分</td><td class="center" style="color:#e94560;">-0.36（-8.6%）</td><td>尺が長い分の影響あり</td></tr>
+      <tr><td>エンゲージ率</td><td class="center">7.35%</td><td class="center">7.49%</td><td class="center">-0.14（-1.9%）</td><td>ほぼ同等</td></tr>
+      <tr class="highlight"><td><strong>商品CTR</strong></td><td class="center"><strong>1.13%</strong></td><td class="center"><strong>1.02%</strong></td><td class="center" style="color:#1b998b;"><strong>+0.11（+10.8%）</strong></td><td style="color:#1b998b;">✅が上回る ← 最強シグナル</td></tr>
+      <tr><td>コメント参加率</td><td class="center">0.54%</td><td class="center">0.55%</td><td class="center">-0.01（-1.8%）</td><td>ほぼ同等</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <div class="main">提案で使える最強の一文</div>
+    <div class="sub" style="margin-top: 8px; font-size: 15px; line-height: 1.8;">
+      「<strong>お悩み訴求を強化した配信は、商品クリック率が約11%高い（2025年下期実績）。</strong><br>
+      視聴者が"自分ごと"として受け取ることで、商品への興味行動（クリック）につながっている。<br>
+      エンゲージ率・コメント率は同等を維持しながら、購買誘導力だけが高まる点が特徴。」
+    </div>
+  </div>
+
+  <h4 style="margin-top: 28px;">🗂️ 強い事例に共通する「型」：5パターン</h4>
+  <table>
+    <thead><tr><th>型</th><th>パターン名</th><th>代表例</th><th>テンプレート</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:bold; color:#6c63ff;">型A</td>
+        <td><strong>タイトルにお悩みワードを直接入れる</strong></td>
+        <td>#71「前髪に悩む人必見」<br>#83「冬の乾燥に寄り添う」</td>
+        <td>「〇〇に悩む人必見！△△で解決」</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="font-weight:bold; color:#6c63ff;">型B</td>
+        <td><strong>見どころの見出しを"症状→解決"で書く</strong></td>
+        <td>#51「毛穴・皮脂テカリをオフ！」<br>#79「パックリ前髪やうねりもリセット！」</td>
+        <td>「〇〇（症状）をオフ！△△の使い方」</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold; color:#6c63ff;">型C</td>
+        <td><strong>シーン×悩み型</strong></td>
+        <td>#62「夏の旅行に持っていきたい→荷物を減らして美しさを増やす」</td>
+        <td>「〇〇（シーン）の〇〇（悩み）対策に」</td>
+      </tr>
+      <tr style="background:#f9f9f9;">
+        <td style="font-weight:bold; color:#6c63ff;">型D</td>
+        <td><strong>ターゲット明示型</strong></td>
+        <td>#52「アイメイクに不慣れなユーザー向け」</td>
+        <td>「〇〇（状態）の方はこれ！」</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold; color:#6c63ff;">型E</td>
+        <td><strong>問いかけ型</strong></td>
+        <td>#53「最近なんだか疲れてる？」</td>
+        <td>「〇〇で困ったことない？△△を試して」</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="task-section">
+    <h4>🔍 追加検証タスク（2026-04-14 FB反映）</h4>
+    <ul>
+      <li><strong>過去回をすべて企画・内容でカテゴライズして、各エンゲージメントで差分がないか分析</strong>：台本のカテゴリ（例：新作紹介／お悩み起点／ランキング／シーン別等）で配信を分類し、エンゲージ指標の差を検証する。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A7 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a7">
+  <div class="section-header">
+    <div class="section-badge purple">A7</div>
+    <div>
+      <div class="section-title">A7｜キャンペーン有無とエンゲージメントの差分析</div>
+      <div class="section-subtitle">CP種別ごとの効果量比較 <span class="tag green">完了</span></div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>分析概要：</strong>2025/4〜2026/3の40配信（繰り返し配信・トラブル回除外）を対象に、キャンペーンあり/なし別のエンゲージメント指標を比較。
+  </div>
+
+  <h4>【分析1】CP有無別 KPI比較（n=40）</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>指標</th>
+        <th class="center">✅ CPあり (n=12)</th>
+        <th class="center">⚠️ 一部あり (n=4)</th>
+        <th class="center">❌ CPなし (n=24)</th>
+        <th>所見</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td>平均視聴分数</td>
+        <td class="center"><strong>4.55分</strong></td>
+        <td class="center">4.30分</td>
+        <td class="center">4.33分</td>
+        <td>CPあり回が最長（+0.22分）</td>
+      </tr>
+      <tr>
+        <td>商品クリック率（CTR）</td>
+        <td class="center"><strong>1.20%</strong></td>
+        <td class="center">1.10%</td>
+        <td class="center">1.18%</td>
+        <td>差はほぼなし</td>
+      </tr>
+      <tr class="highlight">
+        <td>コメント参加率</td>
+        <td class="center"><strong>0.61%</strong></td>
+        <td class="center">0.43%</td>
+        <td class="center">0.49%</td>
+        <td>CPあり回が+0.12pt高い（Cohen's d=0.61）</td>
+      </tr>
+      <tr>
+        <td>エンゲージ率</td>
+        <td class="center"><strong>8.47%</strong></td>
+        <td class="center">8.01%</td>
+        <td class="center">7.42%</td>
+        <td>CPあり回が全指標でわずかに優位</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin-top: 24px;">【分析2】⚠️ 最重要：交絡因子の存在</h4>
+  <div class="note warning">
+    <strong>CPあり12件は全て協賛配信（100%）。CPなし24件中、協賛はわずか5件（21%）。</strong><br>
+    つまり「CPあり ≒ 協賛配信」「CPなし ≒ 通常配信」という構造になっており、<strong>CPの効果なのか協賛配信の特性なのかが分離できない</strong>。
+  </div>
+
+  <h4 style="margin-top: 24px;">【分析3】CP種別ごとの効果比較</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>CP種別</th>
+        <th class="center">n</th>
+        <th class="center">平均視聴分</th>
+        <th class="center">商品CTR</th>
+        <th class="center">コメント率</th>
+        <th>特性</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td>ポイントCP</td>
+        <td class="center">6</td>
+        <td class="center"><strong>4.97分</strong></td>
+        <td class="center">1.07%</td>
+        <td class="center">0.53%</td>
+        <td>視聴分数への寄与が最大</td>
+      </tr>
+      <tr>
+        <td>POPUP/サイネージ</td>
+        <td class="center">2</td>
+        <td class="center">4.82分</td>
+        <td class="center">1.24%</td>
+        <td class="center"><strong>0.70%</strong></td>
+        <td>コメント参加率が最高</td>
+      </tr>
+      <tr>
+        <td>Xフォロー＆リポスト</td>
+        <td class="center">5</td>
+        <td class="center">3.84分</td>
+        <td class="center">1.25%</td>
+        <td class="center">0.63%</td>
+        <td>視聴分数への寄与が最小</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>📌 結論・提案への活用方針</h4>
+  <div class="note info" style="margin-bottom: 12px;">
+    <strong>言えること：</strong><br>
+    ・CPあり回はコメント参加率が+0.12pt高い傾向（Cohen's d=0.61、中程度の効果）<br>
+    ・ポイントCPが最も平均視聴分数に寄与（4.97分 vs 全体平均4.41分）<br>
+    ・商品CTRへのCP直接効果はほぼなし（d=0.05）<br>
+    ・CPは「集客」より「滞在・参加の質」を高める施策として機能している可能性
+  </div>
+  <div class="note warning" style="margin-bottom: 12px;">
+    <strong>注意事項（正直に添えるべき制約）：</strong><br>
+    ・CPあり＝全て協賛配信のため、CPの効果と協賛配信の差が分離できない<br>
+    ・サンプル数が少なく（n=12/24）統計的有意性は示せない<br>
+    ・後半にKPI全体が下がるトレンドがあり、時期の影響を排除できていない<br>
+    ・今後は座組・CP種別を揃えたA/B比較で継続検証することが望ましい
+  </div>
+
+  <div class="task-section">
+    <h4>🔍 追加検証タスク（2026-04-14 FB反映）</h4>
+    <ul>
+      <li><strong>A⑦分析5（ポイントCP）の数値検証</strong>：ポイントCPの数字が良いが、商材やタイトルの他の要因で高くなった可能性がないかチェックする。単に人気商材・訴求力のあるタイトルの影響で数値が上振れしている可能性を排除する。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A11 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a11">
+  <div class="section-header">
+    <div class="section-badge purple">A11</div>
+    <div>
+      <div class="section-title">A11｜月次振り返り項目の見直し提案</div>
+      <div class="section-subtitle">リピーター指標・粗利率モニタリング追加 <span class="tag green">分析済</span></div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>笹木さんFB（2026-04-13）：</strong>「月次振り返り項目と目標について特段変更の要望はないが、<strong>貴社視点で見直した方がいい部分があれば教えてほしい</strong>」<br>
+    → 現行は「配信実績の報告」中心。2026年度は「<strong>事業KPI進捗の管理ツール</strong>」としての機能を追加提案。
+  </div>
+
+  <h4 style="margin: 20px 0 10px;">1. 追加提案項目（3本柱）</h4>
+
+  <div class="highlight-box" style="margin-bottom: 16px;">
+    <div class="main" style="color:#ffd166;">提案①：リピーター指標の追加 <span class="tag" style="background:#e94560; color:#fff; font-size:11px; margin-left:8px;">🔴 優先度 高</span></div>
+    <div class="sub" style="margin-top: 6px;">根拠：A1分析より、リピーターは全体の8%だがCTR3.8倍・コメント率7.4倍。リピーター増加が全KPI改善の最短経路。</div>
+  </div>
+  <table>
+    <thead><tr><th>指標</th><th>内容</th><th class="center">現状</th><th class="center">目標</th></tr></thead>
+    <tbody>
+      <tr><td>リピーター数/回</td><td>active_repeatセグメントの視聴者数</td><td class="center">255人</td><td class="center"><strong>400人/回</strong></td></tr>
+      <tr><td>リピーター率</td><td>リピーター÷全視聴者</td><td class="center">4.4%</td><td class="center"><strong>8%</strong></td></tr>
+      <tr><td>リピーターのCTR</td><td>リピーターセグメントの商品クリック率</td><td class="center">4.16%</td><td class="center"><strong>6%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box" style="margin: 20px 0 16px;">
+    <div class="main" style="color:#ffd166;">提案②：粗利率の月次モニタリング <span class="tag" style="background:#e94560; color:#fff; font-size:11px; margin-left:8px;">🔴 優先度 高</span></div>
+    <div class="sub" style="margin-top: 6px;">根拠：笹木さん直接イシュー。現状69.3%を毎月確認し、値上げ・内製化の効果を可視化。</div>
+  </div>
+  <table>
+    <thead><tr><th>指標</th><th>内容</th><th class="center">現状</th><th class="center">フェーズ1目標</th><th class="center">フェーズ2目標</th></tr></thead>
+    <tbody>
+      <tr><td>ライブコマース粗利率</td><td>月次での粗利率</td><td class="center">69.3%</td><td class="center"><strong>75%</strong>（値上げ後）</td><td class="center"><strong>80%</strong>（内製化後）</td></tr>
+      <tr><td>1配信あたりコスト</td><td>制作・運営コスト/回</td><td class="center">約17.5万円</td><td class="center" colspan="2">モニタリング開始（基準値設定）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box" style="margin: 20px 0 16px;">
+    <div class="main" style="color:#ffd166;">提案③：年間目標進捗トラッカー <span class="tag" style="background:#f59e0b; color:#fff; font-size:11px; margin-left:8px;">🟡 優先度 中</span></div>
+    <div class="sub" style="margin-top: 6px;">根拠：年間目標に対する進捗を毎月確認することで、意思決定を支援。</div>
+  </div>
+  <table>
+    <thead><tr><th>指標</th><th class="center">2025年度実績</th><th class="center">2026年度目標</th></tr></thead>
+    <tbody>
+      <tr><td>協賛受注件数</td><td class="center">26回/年</td><td class="center"><strong>48回/年（月4件）</strong></td></tr>
+      <tr><td>ライブ平均視聴者数</td><td class="center">5,860人/回</td><td class="center">5,000人以上維持</td></tr>
+      <tr><td>平均視聴分数</td><td class="center">3.1分</td><td class="center">A1/A2 結果と連動</td></tr>
+      <tr><td>商品CTR</td><td class="center">1.0%</td><td class="center">A1/A2 結果と連動</td></tr>
+      <tr><td>コメント参加率</td><td class="center">0.8%</td><td class="center">A1/A2 結果と連動</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">2. 見直し後の月次振り返りフォーマット案</h4>
+  <div class="note info">
+    <strong>構成（2026年度版）：</strong><br>
+    Section 1：今月のサマリー（配信回数・協賛回数・売上、年間KPIに対する進捗率）<br>
+    Section 2：KPI進捗（視聴者数・視聴分数・CTR・コメント率、前月比・前年同月比・目標差）<br>
+    Section 3：<strong>リピーター動向（新規）</strong> — リピーター数・率の推移、高エンゲージリピーターの行動分析<br>
+    Section 4：協賛品質レポート（今月の協賛回 個別成績、高成績・低成績の要因分析）<br>
+    Section 5：<strong>粗利率モニタリング（新規）</strong> — 月次粗利率の確認、コスト異常値のアラート<br>
+    Section 6：翌月の予定と課題（受注予定・準備状況、解決すべきボトルネック）
+  </div>
+
+  <div class="highlight-box" style="margin-top: 20px;">
+    <div class="main">笹木さん向けアンサー骨子</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.8;">
+      「現行の月次振り返り項目に加え、2026年度の目標達成に向けて以下3点の追加をご提案します。<br><br>
+      ① <strong>リピーター指標の追加</strong>：A1分析より、リピーター増加が全KPI改善の最短経路であることが判明しています。<br>
+      ② <strong>粗利率の月次モニタリング</strong>：現状69.3%を毎月確認し、値上げ・内製化の効果を可視化します。<br>
+      ③ <strong>年間目標進捗トラッカー</strong>：月4件・視聴分数・CTR等の年間目標に対して毎月の進捗率を確認できるセクションを設けます。<br><br>
+      現行の配信実績報告はそのまま維持しつつ、「事業KPIの進捗管理ツール」としての機能を追加することで、毎回の会議がアクション起点になる構造にします。」
+    </div>
+  </div>
+  <div class="note" style="margin-top: 12px; font-size: 11px; color: #666;">
+    詳細分析：<code>01_年次報告会/提案骨子/03_分析_A9-A11/分析_A11_月次振り返り項目見直し_20260413.md</code>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 追加タスクリスト -->
+<!-- ============================================================ -->
+<div class="section" id="sec-tasks">
+  <div class="section-header">
+    <div class="section-badge red">TASK LIST</div>
+    <div>
+      <div class="section-title">追加タスクリスト（2026-04-14 FB反映）</div>
+      <div class="section-subtitle">260414フィードバックから抽出した要調査項目</div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 20px;">
+    以下は2026-04-14のフィードバックミーティングで追加された、月次分科会で継続的に扱うべき検証タスクです。分析リソースに応じて優先順に着手します。
+  </div>
+
+  <div class="task-section">
+    <h4>A5｜Xフォロリポ関連の追加検証</h4>
+    <ul>
+      <li><strong>リピーター数の読みの最大の効果「既存ファンを引き込む」の真偽検証</strong>：タイトルやプッシュ通知からフォロリポキャンペーンが判別できるのか確認。単に商材やタイトルの他の要因からたまたま視聴者数が増えただけじゃないかチェック。</li>
+      <li><strong>他のフォロリポキャンペーン回のX投稿アーカイブ再生数差分</strong>：KATE回以外（ディアボーテ／プロスタイル／いち髪）のX再生数を調査し、フォロリポ効果の一貫性を検証。</li>
+    </ul>
+  </div>
+
+  <div class="task-section">
+    <h4>A6｜台本分析関連の追加検証</h4>
+    <ul>
+      <li><strong>過去回をすべて企画や内容でカテゴライズして、各エンゲージメントで差分がないか分析</strong>：台本内容（新作紹介／お悩み起点／ランキング／シーン別等）でカテゴリ分類し、エンゲージ指標の差を網羅的に検証する。</li>
+    </ul>
+  </div>
+
+  <div class="task-section">
+    <h4>A7｜キャンペーン分析関連の追加検証</h4>
+    <ul>
+      <li><strong>A⑦分析5のポイントCPの数字検証</strong>：数字が良いが、商材やタイトルの他の要因で高くなった可能性がないかチェック。単に人気商材・訴求力のあるタイトルの影響で数値が上振れしている可能性を排除する。</li>
+    </ul>
+  </div>
+
+  <div class="note warning" style="margin-top: 24px;">
+    📝 <strong>備考：</strong>これらの追加検証タスクは、月次分科会でのディスカッションを深化させ、仮説ベースの提案からエビデンスベースの提案へと精度を上げるために必須の作業です。分析完了次第、本資料のA5/A6/A7セクションを更新します。
+  </div>
+</div>
+
+<div style="margin-top: 48px; padding: 24px 0; text-align: center; border-top: 1px solid #e0e0e0; color: #999; font-size: 12px; letter-spacing: 1px;">
+  マツキヨコカラライブ 分科会用資料 — 2026.04.14 — Confidential
+</div>
+
+</div><!-- /.page -->
+</body>
+</html>
