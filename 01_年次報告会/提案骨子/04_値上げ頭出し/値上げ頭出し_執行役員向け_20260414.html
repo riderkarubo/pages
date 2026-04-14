@@ -153,10 +153,16 @@
   .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
 
   @media print {
-    body { background: white; }
+    /* 全要素で背景色・画像を強制印刷（Chromeの「背景のグラフィック」OFF時でも色を保持） */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    @page { size: A4; margin: 10mm; }
     .page { padding: 0; }
-    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; }
-    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; page-break-inside: avoid; }
+    .slide, section { page-break-inside: avoid; break-inside: avoid; }
   }
 </style>
 </head>
