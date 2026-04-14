@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"pwd && ls -d \\\"01_年次報告会/提案骨子\\\" 2>/dev/null\",\"description\":\"現在位置とパス確認\"}",
+  "error": "Exit code 1\n/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/01_年次報告会/提案骨子",
+  "timestamp": "2026-04-14T02:33:10.370Z",
+  "retry_count": 2
+}
