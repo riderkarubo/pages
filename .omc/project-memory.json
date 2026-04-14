@@ -112,16 +112,28 @@
       "type": "file"
     },
     {
+      "path": "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260413.html",
+      "accessCount": 29,
+      "lastAccessed": 1776160588521,
+      "type": "directory"
+    },
+    {
       "path": "CLAUDE.md",
-      "accessCount": 13,
-      "lastAccessed": 1776134031952,
+      "accessCount": 17,
+      "lastAccessed": 1776135153743,
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260413.html",
-      "accessCount": 11,
-      "lastAccessed": 1776134978149,
+      "path": "01_年次報告会/提案骨子/04_値上げ頭出し/値上げ頭出し_執行役員向け_20260414.html",
+      "accessCount": 12,
+      "lastAccessed": 1776155999535,
       "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/03_分析_A9-A11/分析_A9_粗利率改善_単価設定と根拠_20260413.md",
+      "accessCount": 7,
+      "lastAccessed": 1776157564323,
+      "type": "file"
     },
     {
       "path": "01_年次報告会/提案骨子/競合調査・KPI設計_提案書.md",
@@ -136,10 +148,10 @@
       "type": "directory"
     },
     {
-      "path": "01_年次報告会/提案骨子/04_値上げ頭出し/値上げ頭出し_執行役員向け_20260414.html",
+      "path": "02_データ/【マツココライブ】配信数値まとめ - 数値まとめ.csv",
       "accessCount": 5,
-      "lastAccessed": 1776134303187,
-      "type": "directory"
+      "lastAccessed": 1776157538876,
+      "type": "file"
     },
     {
       "path": "02_データ/競合/250528_liveshopping_seminar.pdf",
@@ -166,15 +178,15 @@
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子/03_分析_A9-A11/分析_A9_粗利率改善_単価設定と根拠_20260413.md",
+      "path": "01_年次報告会/提案骨子",
       "accessCount": 3,
-      "lastAccessed": 1776134780626,
-      "type": "file"
+      "lastAccessed": 1776157574628,
+      "type": "directory"
     },
     {
-      "path": "02_データ/【マツココライブ】配信数値まとめ - 数値まとめ.csv",
-      "accessCount": 2,
-      "lastAccessed": 1775818418449,
+      "path": "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html",
+      "accessCount": 3,
+      "lastAccessed": 1776161572316,
       "type": "file"
     },
     {
@@ -202,12 +214,6 @@
       "type": "file"
     },
     {
-      "path": "01_年次報告会/提案骨子",
-      "accessCount": 2,
-      "lastAccessed": 1776134404753,
-      "type": "directory"
-    },
-    {
       "path": "01_年次報告会/フィードバック/260413笹木さんFB_アジェンダ確認.md",
       "accessCount": 2,
       "lastAccessed": 1776134413457,
@@ -223,6 +229,18 @@
       "path": "01_年次報告会/提案骨子/03_分析_A9-A11/分析_A11_月次振り返り項目見直し_20260413.md",
       "accessCount": 2,
       "lastAccessed": 1776134768126,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/00_マスター/年次報告会_マスターデータ_20260409.md",
+      "accessCount": 2,
+      "lastAccessed": 1776157580593,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/01_提案書/分科会用資料_20260414.html",
+      "accessCount": 2,
+      "lastAccessed": 1776161576998,
       "type": "file"
     },
     {
@@ -289,6 +307,24 @@
       "path": "01_年次報告会/提案骨子/README.md",
       "accessCount": 1,
       "lastAccessed": 1776134068041,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/協賛配信のあゆみ.txt",
+      "accessCount": 1,
+      "lastAccessed": 1776157520412,
+      "type": "file"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/04_値上げ頭出し/値上げ頭出し_前提条件_20260414.md",
+      "accessCount": 1,
+      "lastAccessed": 1776157549406,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/フィードバック/260414提案資料フィードバック.md",
+      "accessCount": 1,
+      "lastAccessed": 1776160383615,
       "type": "file"
     }
   ],
