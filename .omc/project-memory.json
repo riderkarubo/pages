@@ -107,8 +107,26 @@
   "hotPaths": [
     {
       "path": "mccm-proposal/index.html",
-      "accessCount": 85,
-      "lastAccessed": 1776236535889,
+      "accessCount": 103,
+      "lastAccessed": 1776242886609,
+      "type": "directory"
+    },
+    {
+      "path": "02_データ/競合/競合調査・KPI設計_提案書_20260415.html",
+      "accessCount": 38,
+      "lastAccessed": 1776243307718,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/競合/競合調査・KPI設計_提案書.md",
+      "accessCount": 19,
+      "lastAccessed": 1776243088315,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 6,
+      "lastAccessed": 1776236964329,
       "type": "directory"
     },
     {
@@ -118,10 +136,10 @@
       "type": "directory"
     },
     {
-      "path": "02_データ/競合/競合調査・KPI設計_提案書.md",
+      "path": "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html",
       "accessCount": 2,
-      "lastAccessed": 1776234080134,
-      "type": "file"
+      "lastAccessed": 1776236873502,
+      "type": "directory"
     },
     {
       "path": "01_年次報告会/提案骨子/01_提案書/分科会用資料_20260414.html",
@@ -130,9 +148,21 @@
       "type": "directory"
     },
     {
-      "path": "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html",
+      "path": "",
       "accessCount": 1,
-      "lastAccessed": 1776236537416,
+      "lastAccessed": 1776238692606,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/02_分析_A1-A6/分析_A5_フォロリポ分析_20260410.md",
+      "accessCount": 1,
+      "lastAccessed": 1776238698984,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/競合",
+      "accessCount": 1,
+      "lastAccessed": 1776240956821,
       "type": "directory"
     }
   ],

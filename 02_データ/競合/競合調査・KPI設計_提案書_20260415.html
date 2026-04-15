@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツキヨココカラLIVE 競合調査書（2026.1-3実績・60分換算版）</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<meta name="description" content="マツキヨココカラLIVE 競合調査書（2026.1-3実績・60分換算版・KANEBO加味）">
+<meta property="og:title" content="マツキヨココカラLIVE 競合調査書">
+<meta property="og:description" content="競合調査書（2026.1-3実績・60分換算版・KANEBO加味）">
+<meta property="og:type" content="website">
+<meta property="og:url" content="#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="マツキヨココカラLIVE 競合調査書">
+<meta name="twitter:description" content="競合調査書（2026.1-3実績・60分換算版）">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
+  .page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 64px 60px; border-radius: 16px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 250px; height: 250px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #e94560; font-weight: 600; margin-bottom: 20px; }
+  .cover h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+  .cover-sub { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 36px; }
+  .cover-meta { display: flex; gap: 36px; flex-wrap: wrap; }
+  .cover-meta-item { border-left: 2px solid #e94560; padding-left: 16px; }
+  .cover-meta-item .label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 14px; color: white; font-weight: 600; margin-top: 4px; }
+
+  /* INTERNAL MEMO */
+  .memo { background: #fff8e1; border: 1px solid #f2c14e; border-left: 6px solid #e07a5f; border-radius: 10px; padding: 24px 28px; margin-bottom: 24px; }
+  .memo-label { display: inline-block; background: #e07a5f; color: white; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 10px; letter-spacing: 1px; margin-bottom: 12px; }
+  .memo h2 { font-size: 16px; color: #1a1a2e; margin-bottom: 10px; }
+  .memo p { font-size: 12px; color: #555; margin: 8px 0; }
+  .memo table { font-size: 12px; }
+  .memo .related { font-size: 11px; color: #666; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #ddc68a; }
+  .memo .related ul { list-style: none; padding-left: 0; margin-top: 4px; }
+  .memo .related li { padding: 2px 0 2px 14px; position: relative; }
+  .memo .related li::before { content: '▸'; position: absolute; left: 0; color: #e07a5f; }
+
+  /* SECTION */
+  .section { background: white; border-radius: 12px; padding: 36px 40px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 2px solid #f0f0f0; }
+  .section-badge { background: #1a1a2e; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .section-badge.red { background: #e94560; }
+  .section-badge.blue { background: #0f3460; }
+  .section-badge.green { background: #1b998b; }
+  .section-badge.orange { background: #e07a5f; }
+  .section-badge.gray { background: #6c757d; }
+  .section-badge.purple { background: #8b5cf6; }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-subtitle { font-size: 12px; color: #888; margin-top: 4px; }
+
+  /* TOC */
+  .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 13px; }
+  .toc-item a { display: flex; align-items: center; gap: 12px; width: 100%; text-decoration: none; color: inherit; border-radius: 6px; padding: 4px 6px; transition: background 0.15s; }
+  .toc-item a:hover { background: #e8eaf0; }
+  .toc-num { width: 24px; height: 24px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 12px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 10px 12px; text-align: left; font-weight: 600; letter-spacing: 0.3px; }
+  thead th.center { text-align: center; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9fa; }
+  tbody td { padding: 10px 12px; vertical-align: top; }
+  tbody td.center { text-align: center; }
+  tbody td.right { text-align: right; }
+  tbody tr.highlight { background: #fff8e1; font-weight: 600; }
+  tbody tr.mccm { background: #fff5f7; }
+  tbody tr.mccm td { color: #c0392b; font-weight: 700; }
+
+  /* KPI CARDS */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0; }
+  .kpi-card { background: #f8f9fa; border-radius: 10px; padding: 18px; text-align: center; border-top: 3px solid #1a1a2e; }
+  .kpi-card.strong { border-top-color: #1b998b; background: #f0faf8; }
+  .kpi-card.weak { border-top-color: #e94560; background: #fff5f7; }
+  .kpi-label { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .kpi-value { font-size: 22px; font-weight: 800; color: #1a1a2e; line-height: 1.2; }
+  .kpi-value span { font-size: 11px; font-weight: 400; color: #666; }
+  .kpi-note { font-size: 10px; color: #888; margin-top: 6px; }
+  .kpi-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+  .kpi-badge.up { background: #d4f5ef; color: #1b998b; }
+  .kpi-badge.down { background: #ffe0e6; color: #c0392b; }
+
+  /* GAP BLOCK */
+  .gap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0; }
+  .gap-card { border-radius: 10px; padding: 18px; border-left: 5px solid #ccc; background: #f8f9fa; }
+  .gap-card.strong { border-left-color: #1b998b; background: #f0faf8; }
+  .gap-card.weak { border-left-color: #e94560; background: #fff5f7; }
+  .gap-card .gap-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .gap-card.strong .gap-label { color: #1b998b; }
+  .gap-card.weak .gap-label { color: #e94560; }
+  .gap-card .gap-title { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 4px 0 8px; }
+  .gap-card .gap-desc { font-size: 12px; color: #555; line-height: 1.7; }
+
+  /* COMPETITOR CARDS */
+  .brand-card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 24px; margin-bottom: 16px; background: #fff; }
+  .brand-card .brand-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid #f0f0f0; }
+  .brand-card .brand-name { font-size: 17px; font-weight: 800; color: #1a1a2e; }
+  .brand-card .brand-tag { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+  .brand-card.shiseido { border-left: 6px solid #0f3460; }
+  .brand-card.shiseido .brand-tag { background: #dce8ff; color: #0f3460; }
+  .brand-card.kanebo { border-left: 6px solid #1b998b; }
+  .brand-card.kanebo .brand-tag { background: #d4f5ef; color: #1b998b; }
+  .brand-card.rohto { border-left: 6px solid #e07a5f; }
+  .brand-card.rohto .brand-tag { background: #fde8e0; color: #c0522b; }
+  .brand-card.atcosme { border-left: 6px solid #8b5cf6; }
+  .brand-card.atcosme .brand-tag { background: #ede5ff; color: #6d28d9; }
+  .brand-card.mccm { border-left: 6px solid #e94560; }
+  .brand-card.mccm .brand-tag { background: #ffe0e6; color: #c0392b; }
+  .brand-card ul { list-style: none; padding-left: 0; margin: 10px 0; }
+  .brand-card ul li { font-size: 12px; color: #444; padding: 6px 0 6px 18px; position: relative; line-height: 1.7; }
+  .brand-card ul li::before { content: '▸'; position: absolute; left: 0; color: #e94560; font-weight: 700; }
+  .brand-card h4 { font-size: 12px; font-weight: 700; color: #1a1a2e; margin: 14px 0 6px; }
+  .brand-card .blank-note { background: #f5f5f5; color: #888; font-size: 11px; padding: 10px 12px; border-radius: 6px; font-style: italic; }
+
+  /* KPI TARGET CARDS */
+  .target-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .target-card { background: #f8f9fa; border-radius: 10px; padding: 20px; position: relative; overflow: hidden; }
+  .target-card::after { content: ''; position: absolute; right: -20px; top: -20px; width: 100px; height: 100px; background: rgba(0,0,0,0.03); border-radius: 50%; }
+  .target-card .tgt-label { font-size: 11px; font-weight: 700; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+  .target-card .tgt-name { font-size: 15px; font-weight: 800; color: #1a1a2e; margin: 4px 0 10px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
+  .target-card .tgt-current { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .target-card .tgt-current .t-label { font-size: 10px; color: #888; }
+  .target-card .tgt-current .t-val { font-size: 20px; font-weight: 800; color: #1a1a2e; }
+  .target-card .step { display: flex; justify-content: space-between; padding: 6px 0; font-size: 12px; }
+  .target-card .step .s-label { color: #666; }
+  .target-card .step .s-val { font-weight: 700; color: #e94560; }
+  .target-card .step.s2 .s-val { color: #0f3460; }
+  .target-card .north-star { font-size: 11px; color: #1b998b; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ddd; }
+  .target-card .logic { font-size: 11px; color: #555; margin-top: 10px; line-height: 1.6; }
+
+  /* ACTION LIST */
+  .action-list { list-style: none; counter-reset: action-counter; }
+  .action-list li { counter-increment: action-counter; display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+  .action-list li:last-child { border-bottom: none; }
+  .action-list li::before { content: counter(action-counter); min-width: 32px; height: 32px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .action-list .ac-title { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .action-list .ac-desc { font-size: 12px; color: #555; line-height: 1.7; }
+
+  /* NOTE */
+  .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .note.warning { border-left-color: #e94560; background: #fff5f7; color: #c0392b; }
+  .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
+  .note.success { border-left-color: #1b998b; background: #f0faf8; color: #1b998b; }
+
+  /* MISC */
+  h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 22px 0 10px; padding-left: 10px; border-left: 4px solid #e94560; }
+  h4 { font-size: 13px; font-weight: 700; color: #444; margin: 14px 0 8px; }
+  p { margin: 8px 0; color: #444; }
+  .highlight-box { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 10px; padding: 22px 26px; margin: 16px 0; }
+  .highlight-box .main { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; }
+  .highlight-box .sub { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.red { background: #ffe0e6; color: #c0392b; }
+  .tag.green { background: #d4f5ef; color: #1b998b; }
+  .tag.blue { background: #dce8ff; color: #0f3460; }
+  .page-num { text-align: right; font-size: 11px; color: #bbb; margin-top: 20px; padding-top: 12px; border-top: 1px solid #f0f0f0; letter-spacing: 1px; }
+
+  /* PRINT */
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    @page { size: A4; margin: 10mm; }
+    .section, .cover, .memo { page-break-inside: avoid; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-label">MCCM / Competitive Research</div>
+    <h1>マツキヨココカラLIVE<br>競合調査書</h1>
+    <div class="cover-sub">2026.1-3実績・KANEBO加味・60分換算版</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="label">Date</div>
+        <div class="value">2026年4月15日</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">Last Updated</div>
+        <div class="value">2026年4月15日 17:46</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">Source</div>
+        <div class="value">競合調査・KPI設計_提案書.md</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">Status</div>
+        <div class="value">社内レビュー版</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERNAL MEMO -->
+  <div class="memo">
+    <span class="memo-label">🔒 内部メモ（社外共有禁止）</span>
+    <h2>提案HTML内での匿名化対応表</h2>
+    <p>クライアント提示用HTML（<code>mccm-proposal/index.html</code>）では競合社名を伏せてA〜D社で記載している。対応関係は以下のとおり（この対応表は社内参照用・外部に出さない）。</p>
+    <table>
+      <thead>
+        <tr><th>提案書内の表記</th><th>実社名</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A社</strong></td><td>アットコスメ（株式会社アイスタイル）</td></tr>
+        <tr><td><strong>B社</strong></td><td>資生堂</td></tr>
+        <tr><td><strong>C社</strong></td><td>KANEBO（花王）</td></tr>
+        <tr><td><strong>D社</strong></td><td>ロート製薬</td></tr>
+      </tbody>
+    </table>
+    <p>匿名化の理由：競合各社の料金・配信体制・強み弱みを提案書内で比較しているため、笹木さん事前レビュー時点では社名を伏せる。料金等は各社ホームページからの問い合わせで入手可能な営業資料（公開情報）であるが、クライアント提示では念のため匿名化運用とする。</p>
+    <div class="related">
+      <strong>関連ファイル：</strong>
+      <ul>
+        <li><code>分析_A2_競合比較_なぜ低いかの言語化_20260410.md</code>（4原因の言語化）</li>
+        <li><code>アットコスメ制作体制ヒアリングまとめ.md</code>（A社の制作体制詳細）</li>
+        <li><code>アットコスメ/202604_202606_atcosmeBA_promotion.pdf</code>（A社公式料金メディアガイド）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-badge gray">INDEX</span>
+      <div>
+        <div class="section-title">目次</div>
+        <div class="section-subtitle">6つのセクションで構成</div>
+      </div>
+    </div>
+    <div class="toc">
+      <div class="toc-item"><a href="#s1"><span class="toc-num">1</span>配信分数を基準とした全体データテーブル（60分換算）</a></div>
+      <div class="toc-item"><a href="#s2"><span class="toc-num">2</span>競合各社の特徴（強み・定性要因）</a></div>
+      <div class="toc-item"><a href="#s3"><span class="toc-num">3</span>他社にあってマツココライブにないもの（GAP整理）</a></div>
+      <div class="toc-item"><a href="#s4"><span class="toc-num">4</span>リピーター徹底調査（全5社 active_repeat 実測比較）</a></div>
+      <div class="toc-item"><a href="#s5"><span class="toc-num">5</span>制作体制比較：マツキヨ vs アットコスメ</a></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-badge blue">01</span>
+      <div>
+        <div class="section-title">配信分数を基準とした全体データテーブル</div>
+        <div class="section-subtitle">すべて2026.1-3実績・60分換算</div>
+      </div>
+    </div>
+    <p>各配信プラットフォームやブランドによって実際の配信時間（尺）が異なるため、Apple-to-Appleで比較できるよう、<strong>すべての数値を「配信時間60分あたり」に換算（正規化）</strong>したデータテーブルを作成しました。</p>
+    <div class="note info">※マツココライブ、競合共に直近の「2026年1月〜3月」の実績のみを抽出・比較しています。<br>※アットコスメは極端なクローズド配信（オンライン体験会等）を除外した「オープン企画型」で集計しています。</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ブランド / 配信タイプ</th>
+          <th class="center">実績配信数</th>
+          <th class="center">平均配信時間</th>
+          <th class="center">視聴者数<br>（60分換算）</th>
+          <th class="center">平均視聴分数<br>（60分換算）</th>
+          <th class="center">商品CTR<br>（60分換算）</th>
+          <th class="center">コメント率<br>（60分換算）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="mccm">
+          <td>マツココライブ（2026.1-3）</td>
+          <td class="center">10 回</td>
+          <td class="center">64.2 分</td>
+          <td class="center">5,084 人</td>
+          <td class="center">3.1 分</td>
+          <td class="center">1.0 %</td>
+          <td class="center">0.8 %</td>
+        </tr>
+        <tr>
+          <td>ロート製薬（一般メーカー）</td>
+          <td class="center">3 回</td>
+          <td class="center">51.5 分</td>
+          <td class="center">871 人</td>
+          <td class="center">9.9 分</td>
+          <td class="center">5.3 %</td>
+          <td class="center">4.4 %</td>
+        </tr>
+        <tr>
+          <td>KANEBO（花王）</td>
+          <td class="center">4 回</td>
+          <td class="center">63.0 分</td>
+          <td class="center">1,458 人</td>
+          <td class="center">28.2 分</td>
+          <td class="center">11.7 %</td>
+          <td class="center">9.1 %</td>
+        </tr>
+        <tr>
+          <td>資生堂（自社特化型）</td>
+          <td class="center">23 回</td>
+          <td class="center">81.1 分</td>
+          <td class="center">6,958 人</td>
+          <td class="center">11.8 分</td>
+          <td class="center">8.2 %</td>
+          <td class="center">5.1 %</td>
+        </tr>
+        <tr>
+          <td>アットコスメ（オープン企画型）</td>
+          <td class="center">13 回</td>
+          <td class="center">74.8 分</td>
+          <td class="center">2,494 人</td>
+          <td class="center">24.3 分</td>
+          <td class="center">29.4 %</td>
+          <td class="center">33.4 %</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-num">SECTION 01</div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-badge red">02</span>
+      <div>
+        <div class="section-title">競合各社の特徴</div>
+        <div class="section-subtitle">強み・定性要因の比較（資生堂・KANEBO・ロート・アットコスメ）</div>
+      </div>
+    </div>
+    <p>同条件（2026.1-3期間・60分換算）でKANEBOを加味して比較した結果、マツココライブの立ち位置と競合との乖離（ギャップ）がより立体的になりました。</p>
+
+    <div class="gap-grid">
+      <div class="gap-card strong">
+        <div class="gap-label">✅ 強み</div>
+        <div class="gap-title">視聴者数（リーチ）</div>
+        <div class="gap-desc">ロート製薬（871人）やKANEBO（1,458人）、アットコスメの企画（2,494人）と比較しても、<strong>5,000人超え</strong>という業界平均を大きく上回る極めて高いリーチ力を持っています。事前の集客導線は非常にうまくいっています。</div>
+      </div>
+      <div class="gap-card weak">
+        <div class="gap-label">⚠️ 課題</div>
+        <div class="gap-title">平均視聴分数（リテンション）</div>
+        <div class="gap-desc">マツココライブは直近で<strong>わずか3.1分</strong>であり、競合で最も低い水準です。ロート製薬や資生堂（約10〜12分）と比較しても1/3未満であり、KANEBO（28.2分）のような「視聴者を釘付けにする構成」ができておらず、深刻な早期離脱が起きています。</div>
+      </div>
+      <div class="gap-card weak">
+        <div class="gap-label">⚠️ 課題</div>
+        <div class="gap-title">商品CTR（アクション）</div>
+        <div class="gap-desc">マツココライブは<strong>1.0%</strong>。一般メーカーであるロート製薬（5.3%）や、高いエンゲージメントを誇るKANEBO（11.7%）を大きく下回っており、商品への「クリック誘導」が機能していません。</div>
+      </div>
+      <div class="gap-card weak">
+        <div class="gap-label">⚠️ 課題</div>
+        <div class="gap-title">コメント率（エンゲージメント）</div>
+        <div class="gap-desc">マツココライブは<strong>0.8%</strong>と最低水準です。KANEBO（9.1%）などのように「参加感」を高める工夫が不足していることが、早期離脱を引き起こしている最大の要因と考えられます。</div>
+      </div>
+    </div>
+
+    <h3>参考：各ブランドの配信の強みと特徴（定性要因）</h3>
+
+    <div class="brand-card mccm">
+      <div class="brand-head">
+        <div class="brand-name">マツココライブ（内部全体）</div>
+        <span class="brand-tag">自社</span>
+      </div>
+      <div class="blank-note">【今後アップデート予定（ブランク）】</div>
+    </div>
+
+    <div class="brand-card shiseido">
+      <div class="brand-head">
+        <div class="brand-name">資生堂</div>
+        <span class="brand-tag">自社特化型</span>
+      </div>
+      <p style="font-size:12px;color:#555;">資生堂は競合比較において全体的に数値が突出して高い傾向にあります。</p>
+      <ul>
+        <li><strong>リーチの最大化：</strong>Instagramのサイマル配信を活用してFireworkプレーヤーへの流入を促進しており、Instagramから自社ホームページへと視聴習慣を定着させている点が大きな要因。</li>
+        <li><strong>属人的なエンゲージメント：</strong>Instagramのフォロワーが多い美容部員が出演することで、美容部員個人のファンがライブに流入し、コメント数や視聴時間を押し上げている。3月18日からは美容部員個人発信のライブも開始。</li>
+        <li><strong>販促連動（CTR）：</strong>クーポンの提供、新商品の打ち出し、「ここでしか買えない」限定性の訴求で視聴者の購買意欲を喚起。</li>
+        <li><strong>社員インフルエンサー育成（オムニPBP）：</strong>2021年7月に資生堂インタラクティブビューティーを設立し、店舗スタッフ約50名を「オムニPBP」として育成。わずか3年でフォロワー10万人超えのインフルエンサーを複数誕生。ライブコマース専任メンバーは9名（うち6名は2024年1月加入）、watashi+にて週2回配信。</li>
+        <li><strong>累積300回超の配信実績：</strong>2021年4月開始から累計300回以上実施、現在は月6回以上の頻度で配信。「給湯室感」を意識した手作り感のある雰囲気が視聴習慣の定着につながっている。</li>
+        <li><strong>Firework導入によるデータ基盤強化：</strong>2024年10月にFireworkへ移行。詳細なデータ測定・分析機能を活用し、配信パフォーマンスの最適化と戦略的な意思決定を実現。</li>
+      </ul>
+
+      <h4>Find Beauty Live 出演者のSNSフォロワー規模（2026年4月調査）</h4>
+      <p style="font-size:11px;color:#666;">人間PBP 20名 ＋ アバターPBP 2体（M!ra・Rai）出演。人間PBP出演者のInstagramフォロワーは数千〜16万人超と幅広く、複数名が10万人超えのインフルエンサーに成長。</p>
+      <table>
+        <thead>
+          <tr><th>出演者</th><th>Instagram</th><th class="center">IG フォロワー</th><th>TikTok</th><th class="center">TT フォロワー</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HINA</td><td>@hinauda_beautypartner_shiseido</td><td class="center">約167,000</td><td>@hinauda_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>あーちゃん</td><td>@akina_beautypartner_shiseido</td><td class="center">約143,000</td><td>@akina_pbp</td><td class="center">約40,200</td></tr>
+          <tr><td>エリー</td><td>@elly_beautypartner_shiseido</td><td class="center">約132,000</td><td>@elly_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>みこ</td><td>@mico_beautypartner_shiseido</td><td class="center">約122,000</td><td>@mico_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>CHIRO</td><td>@chiro_beautypartner_shiseido</td><td class="center">約109,000</td><td>@chiro_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>ゆりこ</td><td>@yuriko_beautypartner_shiseido</td><td class="center">約74,000</td><td>—</td><td class="center">—</td></tr>
+          <tr><td>まいやん</td><td>@maiyan_beautypartner_shiseido</td><td class="center">約62,000</td><td>@maiyan_pbp</td><td class="center">約35,300</td></tr>
+          <tr><td>Goken</td><td>@goken_beautypartner_shiseido</td><td class="center">約46,000</td><td>@goken_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>MIYA</td><td>@miya_beautypartner_shiseido</td><td class="center">約46,000</td><td>@miya_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>Minami</td><td>@minami_beautypartner_shiseido</td><td class="center">約24,000</td><td>@minami_pbp</td><td class="center">調査中</td></tr>
+          <tr><td>sara</td><td>@sara_beautypartner_shiseido</td><td class="center">約24,000</td><td>—</td><td class="center">—</td></tr>
+          <tr><td>ゆりぴー</td><td>@yuripy_beautypartner_shiseido</td><td class="center">約22,000</td><td>—</td><td class="center">—</td></tr>
+          <tr><td>みお</td><td>@mio_beautypartner_shiseido</td><td class="center">約16,000</td><td>—</td><td class="center">—</td></tr>
+          <tr><td>なってぃー</td><td>@natty_beautypartner_shiseido</td><td class="center">約5,000</td><td>—</td><td class="center">—</td></tr>
+        </tbody>
+      </table>
+      <div class="note">確認できた14名のIG合計フォロワー数は約<strong>99万人</strong>（上位5名だけで約67万人）。TikTokはBot対策により個別データ取得が困難なため一部のみ記載。</div>
+
+      <h4>美容部員個人ライブ PoC（2026年4月〜7月末）</h4>
+      <ul>
+        <li>美容部員が台本を自作・自主配信する新形態ライブを2026年3月18日より開始（PoC期間：〜2026年7月末の約3ヶ月限定）。</li>
+        <li>通常の Find Beauty Live とは別枠での実施。配信場所・遷移先ともオウンドメディア（オンラインショップ）。</li>
+        <li>目的：美容部員（BA）へのエンゲージメント向上 ＋ 売上の両立。</li>
+        <li>薬機法対応：ライブ配信チームによる目視確認のみ（社内法務は不通過）。ギリギリの表現が含まれる可能性を考慮してアーカイブは非保存。</li>
+      </ul>
+    </div>
+
+    <div class="brand-card kanebo">
+      <div class="brand-head">
+        <div class="brand-name">KANEBO（花王）</div>
+        <span class="brand-tag">ブランド主導型</span>
+      </div>
+      <ul>
+        <li><strong>高リテンション・高エンゲージメント：</strong>視聴時間とCTR・コメントといったエンゲージメント指標が特に高いのが特徴。</li>
+        <li><strong>マルチチャネルでの集客：</strong>LINE通知・IGサイマル配信・スプロケット（配信中にライブ映像を表示）という複数のチャネルを組み合わせて視聴者を集めている。</li>
+        <li><strong>ブランド主導のコミュニティ：</strong>美容部員個人のInstagramアカウントに依存しているわけではなく、KANEBOというブランド自体が熱狂的なブランド愛好家から支持されており、ライブを通じてそのファンが定着。</li>
+        <li><strong>純粋なコンテンツ力に基づくCTR：</strong>クーポンはほぼ使用しておらず、商品やコンテンツそのものの魅力で購買行動を引き出している点が資生堂との大きな違い。</li>
+      </ul>
+
+      <h4>配信形態（2026年4月調査）</h4>
+      <ul>
+        <li><strong>配信プラットフォーム：</strong>KANEBO公式サイト内オウンドメディア「CONSULTANT LIVE」（global.kanebo.com / onlineshop.kanebo.com）</li>
+        <li><strong>運営形態：</strong>ブランド直営（花王グループ「花王ビューティブランズカウンセリング（KBBC）」が社内スタジオから配信）</li>
+        <li><strong>出演者のタイプ：</strong>社内BA（美容部員）のみ。外部インフルエンサーはライブコマース出演には起用していない</li>
+      </ul>
+
+      <h4>出演者（2025年3月時点「CONSULTANT LIVE」より）：4名</h4>
+      <table>
+        <thead>
+          <tr><th>出演者</th><th>役割・経歴</th><th>Instagram</th><th class="center">IGフォロワー</th><th>TikTok</th><th class="center">TTフォロワー</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ARATA</td><td>接客歴16年</td><td>非公開</td><td class="center">—</td><td>非公開</td><td class="center">—</td><td>推し：クリーム イン デイII</td></tr>
+          <tr><td>KANDA</td><td>接客歴8年</td><td>非公開</td><td class="center">—</td><td>非公開</td><td class="center">—</td><td>推し：クリーム イン ナイトII</td></tr>
+          <tr><td>MATSUSHITA</td><td>接客歴14年</td><td>非公開</td><td class="center">—</td><td>非公開</td><td class="center">—</td><td>推し：アイカラーデュオ</td></tr>
+          <tr><td>NORIMURA</td><td>接客歴12年</td><td>非公開</td><td class="center">—</td><td>非公開</td><td class="center">—</td><td>推し：スタイリングアイブロウフィクサー</td></tr>
+        </tbody>
+      </table>
+      <div class="note warning">⚠️ <strong>重要な注記：</strong>出演者の個人SNSは公式ページ上で<strong>一切公開されていない</strong>。資生堂PBPのように個人インフルエンサーとして育成している形跡もなく、「コンサルタント（社名付き肩書）」として匿名に近い形で出演している。</div>
+
+      <h4>公式SNSアカウント</h4>
+      <table>
+        <thead>
+          <tr><th>アカウント</th><th>プラットフォーム</th><th class="center">フォロワー数</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>@kaneboofficial</td><td>Instagram</td><td class="center">約57,000</td><td>KANEBO JP公式（2023年データ・現在は増加の可能性）</td></tr>
+          <tr><td>@lunasolofficial</td><td>Instagram</td><td class="center">非公開</td><td>LUNASOL JP公式（存在確認済み）</td></tr>
+          <tr><td>@sensaibeauty_japan</td><td>Instagram</td><td class="center">非公開</td><td>SENSAI JP公式（存在確認済み）</td></tr>
+          <tr><td>I HOPE. Ch</td><td>YouTube</td><td class="center">非公開</td><td>KANEBO公式YouTubeチャンネル</td></tr>
+          <tr><td>@KANEBO</td><td>LINE</td><td class="center">非公開</td><td>LINE公式アカウント（ミニアプリと連動）</td></tr>
+        </tbody>
+      </table>
+      <div class="note">TikTok公式アカウントはKANEBOブランド本体には未確認（KATEには存在）。カネボウ化粧品公式ソーシャルメディアポリシー（2023年9月26日版）にもTikTokのKANEBO／LUNASOL／SENSAI専用公式アカウントの記載なし。</div>
+
+      <h4>KANEBOの配信型は「ブランドバリュー完結型（第三の型）」</h4>
+      <table>
+        <thead>
+          <tr><th>軸</th><th class="center">資生堂（PBP型）</th><th class="center">アットコスメ型</th><th class="center">KANEBO型</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>出演者の帰属</td><td class="center">個人インフルエンサー（社員兼任）</td><td class="center">@cosme BA（中立・ブランド横断）</td><td class="center"><strong>社内BA（専属・匿名運用）</strong></td></tr>
+          <tr><td>SNS個人アカウント</td><td class="center">公開・フォロワー重視</td><td class="center">ブランドアカウント集約</td><td class="center"><strong>非公開</strong></td></tr>
+          <tr><td>プラットフォーム</td><td class="center">自社サイト＋外部SNS</td><td class="center">@cosme SHOPPING＋TikTok</td><td class="center"><strong>自社ECのみ</strong></td></tr>
+          <tr><td>集客手段</td><td class="center">個人のフォロワー基盤</td><td class="center">@cosmeの媒体力</td><td class="center"><strong>公式SNS＋LINE＋Sprocket</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="note success"><strong>決定的な考察：</strong>KANEBOは<strong>個人の顔が見えない「属人性排除モデル」</strong>にもかかわらず、リピーター比率43.1%・リピーターエンゲ率92.7%（5社中1位）という圧倒的数値を叩き出している。これは<strong>「熱狂的なブランド愛好家コミュニティ」</strong>が既に形成されており、出演者が誰であっても商品・ブランドそのものにロイヤルティがある証拠。マツココライブは<strong>「誰が出演するか」より「何を配信するか／ブランドファンを育てるか」</strong>を考えるべき示唆を与える。</div>
+    </div>
+
+    <div class="brand-card rohto">
+      <div class="brand-head">
+        <div class="brand-name">ロート製薬</div>
+        <span class="brand-tag">一般メーカー</span>
+      </div>
+      <div class="blank-note">【今後アップデート予定（ブランク）】</div>
+    </div>
+
+    <div class="brand-card atcosme">
+      <div class="brand-head">
+        <div class="brand-name">アットコスメ</div>
+        <span class="brand-tag">オープン企画型</span>
+      </div>
+      <ul>
+        <li><strong>年間累計100万人超の視聴実績：</strong>「教えて！美容部員さん ライブショッピング」は2021年12月開始。毎週金曜20時に定期配信し、年間累計100万人以上が視聴。特別企画「@cosme BEAUTY DAY」では累計11万人超を記録。</li>
+      </ul>
+
+      <h4>エンゲージメント率・視聴時間の大幅改善</h4>
+      <p style="font-size:11px;color:#666;">出典：デジタルマーケターズサミット 2025 Winter／アイスタイルリテール 大西清貴氏発表</p>
+      <table>
+        <thead>
+          <tr><th>期間</th><th class="center">エンゲージメント率</th><th class="center">平均視聴時間</th><th class="center">コメント数/配信</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>プロダクトアウト期</td><td class="center">9.8%</td><td class="center">10:07</td><td class="center">1,130件</td></tr>
+          <tr><td>アクション最大化PoC期</td><td class="center">18.0%</td><td class="center">12:51</td><td class="center">4,268件</td></tr>
+          <tr class="highlight"><td>コミュニケーションアップデート期</td><td class="center">19.3%</td><td class="center">14:17</td><td class="center">4,996件</td></tr>
+        </tbody>
+      </table>
+      <div class="note warning">マツココライブ（コメント率0.8%）と比較すると最新期で約24倍の水準。※調査対象期間・サンプルサイズの詳細は非公開（事業報告ベース）のため、外部引用時は補足が必要。</div>
+
+      <ul>
+        <li><strong>「自分ごと化」を促す構成設計：</strong>単純な商品紹介にとどまらず、「セルフチェック機能」や「原因解説」を配信中に挿入し、視聴者が自分の悩みと商品を結びつけるプロセスを強化。</li>
+        <li><strong>メーカー向け階層型プラン設計：</strong>ライト（5分）・スタンダード（15分）・ブランドジャック（30分特別放送）の3段階協賛プラン。ショート動画化して店頭サイネージ・ブランドSNSに二次利用可能。</li>
+        <li><strong>マルチチャネル展開：</strong>@cosmeのユーザー基盤（96.4%女性・40代ボリュームゾーン）を最大限に活用。TVer×美容部員CM（カンテレ提携）など動画広告にも展開。</li>
+      </ul>
+
+      <h4>出演者・公式SNSのフォロワー規模（2026年4月調査）</h4>
+      <p style="font-size:11px;color:#666;">資生堂のような個人インフルエンサー型ではなく、<strong>「@cosme美容部員」という番組ブランド</strong>でTikTok・Instagramを運用。個人アカウントのフォロワーは少ないが、公式アカウントへの集約で規模を確保。</p>
+
+      <h4 style="margin-top:8px;">出演者（ライブショッピング「教えて！美容部員さん」）：5名</h4>
+      <table>
+        <thead>
+          <tr><th>出演者</th><th>経歴</th><th>Instagram</th><th class="center">IG フォロワー</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ウトン</td><td>美容部員歴11年</td><td>@uton_atcosmetokyo</td><td class="center">約2,900</td></tr>
+          <tr><td>田島</td><td>美容部員歴20年</td><td>@tajima_atcosmestore</td><td class="center">調査中</td></tr>
+          <tr><td>南雲</td><td>美容部員歴13年</td><td>—</td><td class="center">—</td></tr>
+          <tr><td>荻野</td><td>美容部員歴9年</td><td>@ogino_atcosme</td><td class="center">調査中</td></tr>
+          <tr><td>村井</td><td>美容部員歴11年</td><td>—</td><td class="center">—</td></tr>
+        </tbody>
+      </table>
+
+      <h4>公式SNSアカウント（番組ブランド運用）</h4>
+      <table>
+        <thead>
+          <tr><th>アカウント</th><th>プラットフォーム</th><th class="center">フォロワー数</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>@cosme_ba</td><td>TikTok</td><td class="center">約137,600</td><td>2022年11月開設。美容部員による商品紹介・毎週金曜ライブ配信</td></tr>
+          <tr><td>@oshiete_ba_cosme</td><td>Instagram</td><td class="center">約24,000</td><td>ライブショッピング公式アカウント</td></tr>
+        </tbody>
+      </table>
+      <div class="note info">資生堂との最大の差異は「個人インフルエンサー型（資生堂）」vs「番組ブランド集約型（アットコスメ）」。アットコスメはTikTok公式アカウントに13万人超を集め、そこからライブへ誘導する構造。</div>
+
+      <ul>
+        <li><strong>100%内製・プロ機材による制作体制：</strong>OBS配信＋業務用カメラによる3カメスイッチング＋簡易テロップ。1配信あたり<strong>計7名体制</strong>（出演者2名・現場ディレクション＆カメラ4名・配信オペレーション1名）。外部委託なし。</li>
+        <li><strong>メーカー担当者のコメント参加によるエンゲージ向上：</strong>体験会・ライブ配信中にメーカー担当者が直接コメント欄に参加し、視聴者からの質問にリアルタイムで回答。</li>
+        <li><strong>「中の人」コミュニティ醸成と休憩コーナー：</strong>運営スタッフも「中の人」としてコメントに参加し、常連視聴者との一体感を形成。配信の合間に意図的な「休憩コーナー」を設けリピーター増加。</li>
+        <li><strong>BA育成の仕組み化（育成マネージャー配置）：</strong>トップ美容部員6名の成功要因を言語化・体系化し、再現性のある育成プランを策定。オンライン活躍を人事評価・インセンティブ制度と連動。</li>
+        <li><strong>次世代戦略（OMO・AI・海外展開）：</strong>会員アプリと店舗接客ログを統合したOMO基盤を保有。AI Copilot・AI FAQ導入を検討中。海外展開（香港・台湾）もAI翻訳活用で進行中。</li>
+      </ul>
+    </div>
+
+    <div class="page-num">SECTION 02</div>
+  </div>
+
+  <!-- SECTION 03 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-badge orange">03</span>
+      <div>
+        <div class="section-title">他社にあってマツココライブにないもの</div>
+        <div class="section-subtitle">GAP整理 / 競合分析から見えた構造的ギャップ</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="main">マツココライブに足りない「5つの構造的ギャップ」</div>
+      <div class="sub">§1〜§2の競合分析を踏まえ、マツココライブが他社と比較して欠いているものをカテゴリ別に整理。これは単なる施策の不足ではなく、「配信の思想」そのものに起因する構造的な差である。</div>
+    </div>
+
+    <h3>3-1. カテゴリ別GAP一覧</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>カテゴリ</th>
+          <th>他社にあるもの</th>
+          <th>マツココライブの現状</th>
+          <th class="center">GAP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ブランドファンコミュニティ</strong></td>
+          <td>KANEBO：熱狂的ブランド愛好家が既に存在し、出演者が匿名でも視聴・購買を牽引（リピーターエンゲ率92.7%）</td>
+          <td>「マツキヨファン」は店舗ベースでは存在するが、"ライブ視聴者"として定着していない</td>
+          <td class="center"><span class="tag red">🔴 大</span></td>
+        </tr>
+        <tr>
+          <td><strong>リピーター導線設計</strong></td>
+          <td>全社：LINE通知／SNS告知／次回予告／定期配信で戻り客を作る仕組みを多層構築</td>
+          <td>新規5,000人への一極依存。戻り客を育てる導線が不在（リピーター比率5.0%）</td>
+          <td class="center"><span class="tag red">🔴 大</span></td>
+        </tr>
+        <tr>
+          <td><strong>出演者のアイデンティティ</strong></td>
+          <td>資生堂：個人インフルエンサー累計99万人フォロワー／KANEBO：接客歴8〜16年のベテランBA固定出演</td>
+          <td>出演者の個性が見えにくい。属人性（個人ファン）と継続性（顔なじみ）の両方が弱い</td>
+          <td class="center"><span class="tag red">🔴 大</span></td>
+        </tr>
+        <tr>
+          <td><strong>「自分ごと化」の構成設計</strong></td>
+          <td>アットコスメ：セルフチェック機能・原因解説を配信中に挿入し、視聴者が自分の悩みと商品を結びつける</td>
+          <td>商品紹介中心の構成。視聴者の「自分の悩み」に接続する仕掛けがない</td>
+          <td class="center"><span class="tag red">🔴 大</span></td>
+        </tr>
+        <tr>
+          <td><strong>視聴習慣の継続性</strong></td>
+          <td>アットコスメ：毎週金曜20時×4年間継続／資生堂：月6回以上＋累計300回超の実績</td>
+          <td>週1火曜17:55×約2年。継続はしているが、視聴者側の「習慣化」には至っていない</td>
+          <td class="center"><span class="tag orange">🟡 中</span></td>
+        </tr>
+        <tr>
+          <td><strong>運営内製化（スピード）</strong></td>
+          <td>アットコスメ：100%内製・企画から配信まで約2週間・計7名体制</td>
+          <td>Firework外部委託／薬機法チェックのため準備1.5〜2ヶ月必要</td>
+          <td class="center"><span class="tag orange">🟡 中</span></td>
+        </tr>
+        <tr>
+          <td><strong>BA育成の仕組み化</strong></td>
+          <td>アットコスメ：育成マネージャー専任配置・トップBA6名の成功要因を言語化・人事評価／インセンティブ連動</td>
+          <td>2026年10月の完全内製化が予定されているが、育成体系は未着手</td>
+          <td class="center"><span class="tag orange">🟡 中</span></td>
+        </tr>
+        <tr>
+          <td><strong>マルチチャネル集客</strong></td>
+          <td>KANEBO：LINE通知＋IGサイマル配信＋Sprocket連携／アットコスメ：TikTok（13.8万フォロワー）経由の流入</td>
+          <td>配信告知チャネルが限定的（公式LINEの活用実態が不明）</td>
+          <td class="center"><span class="tag orange">🟡 中</span></td>
+        </tr>
+        <tr>
+          <td><strong>運営コミュニティ醸成</strong></td>
+          <td>アットコスメ：運営スタッフが「中の人」としてコメント参加／休憩コーナーでリピーター層の楽しみを演出</td>
+          <td>配信中の運営介入が弱く、コメント欄が「視聴者 vs 出演者」の一方向になりがち</td>
+          <td class="center"><span class="tag orange">🟡 中</span></td>
+        </tr>
+        <tr>
+          <td><strong>次回予告・LTV設計</strong></td>
+          <td>アットコスメ：KSF「出会いの量 × 絆の質」でLTV最大化を指標化</td>
+          <td>視聴者のLTV（生涯価値）を追う仕組み・指標が不在</td>
+          <td class="center"><span class="tag orange">🟡 中</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3-2. 5つの構造的ギャップ（本質的課題の言語化）</h3>
+    <p>上記10カテゴリのGAPを集約すると、マツココライブに不足しているのは<strong>5つの構造的ギャップ</strong>に収束する。</p>
+
+    <ol class="action-list">
+      <li>
+        <div>
+          <div class="ac-title">① リピーター設計の欠如</div>
+          <div class="ac-desc">マツココライブは「新規集客は得意、リテンション（戻り客作り）は未着手」。リピーター比率5.0%は業界最下位であり、これは施策の問題ではなく<strong>「戻り客を作る」という思想そのものが配信設計に組み込まれていない</strong>ことを示す。競合は全社がLINE通知・次回予告・定期開催・コミュニティ設計のいずれか（または複数）でリピーター導線を確保している。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">② ブランドファンコミュニティの未醸成</div>
+          <div class="ac-desc">KANEBOが個人SNSを公開せずともリピーターエンゲ率92.7%を実現できるのは、<strong>「ブランドそのもののファン」が既に存在する</strong>から。マツココライブの視聴者は「マツキヨで買い物する人」ではあっても「マツココライブのコミュニティの一員」ではない。視聴者とブランドの関係が"通りがかり"のまま止まっている。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">③ 出演者のアイデンティティ不在</div>
+          <div class="ac-desc">資生堂は「個人インフルエンサー型（PBP制度）」で個々のファンを形成し、KANEBOは「ベテランBA固定型（接客歴8〜16年）」で顔なじみを育てている。マツココライブは<strong>どちらの型にも振り切れていない</strong>ため、視聴者から見て「誰が出ているか／誰を見に行くか」が曖昧。これが「次も見よう」という動機を弱めている。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">④ 購買動機の浅さ（「自分ごと化」の欠如）</div>
+          <div class="ac-desc">アットコスメが実装している「セルフチェック機能」「原因解説」は、視聴者が<strong>「これは自分の悩みだ」と気づく仕掛け</strong>。単なる商品紹介ではなく「この配信は自分のためのものだ」と感じさせる構成が、平均視聴24.0分・CTR49.4%という異次元の数値を生んでいる。マツココライブは商品紹介止まりで、視聴者の自分ごと化を支援していない。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">⑤ 運営スピードの遅さ</div>
+          <div class="ac-desc">アットコスメの2週間準備に対し、マツココライブは1.5〜2ヶ月。主因は薬機法チェックだが、これは<strong>「月5回以上の受注体制」と矛盾する</strong>。運営が遅いままでは、いくら施策を打っても実行フェーズで詰まる。運営スピード＝打ち手の量＝改善サイクル数、なので、この詰まりが他の4つのGAPを塞ぐ上でも最大のボトルネックになりうる。</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3>3-3. GAPを埋める上での優先順位（仮）</h3>
+    <p>5つのGAPは相互依存しているが、打ち手の順序としては以下が合理的。</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="center">優先度</th>
+          <th>GAP</th>
+          <th>打ち手の起点</th>
+          <th>効果発現までの時間軸</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center"><span class="tag red">最優先</span></td>
+          <td>① リピーター設計</td>
+          <td>次回予告の義務化／LINE連携／「常連呼びかけ」コメント運用</td>
+          <td class="center">即日〜1ヶ月</td>
+        </tr>
+        <tr>
+          <td class="center"><span class="tag red">最優先</span></td>
+          <td>⑤ 運営スピード</td>
+          <td>薬機法チェック外注化／Firework台本支援でMCCM側工数削減</td>
+          <td class="center">1〜3ヶ月</td>
+        </tr>
+        <tr>
+          <td class="center"><span class="tag orange">高</span></td>
+          <td>③ 出演者のアイデンティティ</td>
+          <td>レギュラー出演者の固定化／個人SNS解禁の是非検討</td>
+          <td class="center">3〜6ヶ月</td>
+        </tr>
+        <tr>
+          <td class="center"><span class="tag orange">高</span></td>
+          <td>④ 「自分ごと化」構成</td>
+          <td>セルフチェック／原因解説パートの台本組み込み</td>
+          <td class="center">1〜3ヶ月</td>
+        </tr>
+        <tr>
+          <td class="center"><span class="tag blue">中長期</span></td>
+          <td>② ブランドファンコミュニティ</td>
+          <td>マツキヨアプリ／公式LINE会員とライブ視聴者の統合</td>
+          <td class="center">6〜12ヶ月</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note info">⑤（運営スピード）は他のGAPを埋める施策を「実行できるかどうか」に直結するため、①と並ぶ最優先。③④は構成・演出の問題なので台本レベルで着手可能。②はマツキヨ本体の顧客データと接続する必要があるため、最も時間がかかる。</div>
+
+    <div class="page-num">SECTION 03</div>
+  </div>
+
+
+  <!-- SECTION 04 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-badge red">04</span>
+      <div>
+        <div class="section-title">リピーター徹底調査</div>
+        <div class="section-subtitle">2026.4.15 追加調査／active_repeat 実数値＋競合4社＋業界ベンチマーク</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="main">マツココライブはリピーター比率・視聴分・エンゲ率・CTRの全指標で業界最下位</div>
+      <div class="sub">競合4社のactive_repeatデータ（Firework由来）を全て入手し実測比較した結果、当初仮説した「リピーターは隠れ資産」は誤り。リピーター比率5.0%はアットコスメ(50.5%)の約1/10、リピーターCTR 3.87%はアットコスメ(49.4%)の約1/13。リピーターですら他社水準に遠く及ばない構造的課題。</div>
+    </div>
+
+    <h3>7-1. 定義の前提整理</h3>
+    <p><strong>Fireworkの「active_repeat」は標準指標ではない</strong></p>
+    <p>Firework公式ヘルプドキュメントに存在するリピート系の唯一の指標は「<strong>Repeat Purchase Rate</strong>（動画視聴後に2回以上注文した顧客の割合）」であり、視聴ベースの<code>active_repeat</code>は公式ダッシュボードには定義されていない。マツココライブの協賛レポートで使われている<code>active_repeat</code>は、マツキヨ-Firework間での独自実装または運用定義である可能性が高い。</p>
+    <ul style="list-style:none;padding-left:0;margin:10px 0;">
+      <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span>想定される定義①：同一配信内で離脱→再入室した視聴者</li>
+      <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span>想定される定義②：過去配信を視聴したことがあるアカウントが当該配信にも参加した</li>
+    </ul>
+    <div class="note warning">⚠️ <strong>先方確認事項：</strong><code>active_repeat</code> の正確な定義をFirework担当者経由で確認する（A1タスクに追加）。本調査は「定義②（過去配信視聴経験あり）」を仮の前提として整理している。</div>
+
+    <h3>7-2. 【確定版】5社のリピーター実測値比較（2026.1-3）</h3>
+    <div class="note warning"><strong>重要更新（2026.4.15）：</strong>当初「競合各社のリピーターデータは非公開」と記載していたが、実際には <code>04_過去資料/参考資料/競合他社数値まとめ/</code> 配下のxlsx・CSVに<strong>資生堂・KANEBO・ロート製薬・アットコスメの4社すべての <code>active_repeat</code> データ</strong>が存在した。以下は全5社のFirework由来実測値比較。</div>
+
+    <h4>全視聴者 vs リピーター 比較表（2026.1-3 実測値）</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>ブランド</th>
+          <th class="center">n</th>
+          <th class="center">全視聴者</th>
+          <th class="center">リピーター数</th>
+          <th class="center">リピーター<br>比率</th>
+          <th class="center">視聴分</th>
+          <th class="center">エンゲ率</th>
+          <th class="center">コメント率</th>
+          <th class="center">CTR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>アットコスメ</strong></td>
+          <td class="center">29回</td>
+          <td class="center">1,771</td>
+          <td class="center"><strong>894</strong></td>
+          <td class="center"><strong>50.5%</strong> 🥇</td>
+          <td class="center">24.0分</td>
+          <td class="center">72.7%</td>
+          <td class="center"><strong>42.3%</strong> 🥇</td>
+          <td class="center"><strong>49.4%</strong> 🥇</td>
+        </tr>
+        <tr>
+          <td><strong>KANEBO（花王）</strong></td>
+          <td class="center">4回</td>
+          <td class="center">1,486</td>
+          <td class="center"><strong>641</strong></td>
+          <td class="center"><strong>43.1%</strong> 🥈</td>
+          <td class="center"><strong>38.2分</strong> 🥇</td>
+          <td class="center"><strong>92.7%</strong> 🥇</td>
+          <td class="center">11.3%</td>
+          <td class="center">14.3%</td>
+        </tr>
+        <tr>
+          <td><strong>資生堂</strong></td>
+          <td class="center">19回</td>
+          <td class="center"><strong>10,900</strong></td>
+          <td class="center"><strong>1,891</strong></td>
+          <td class="center"><strong>17.3%</strong> 🥉</td>
+          <td class="center">23.3分</td>
+          <td class="center">44.0%</td>
+          <td class="center">7.8%</td>
+          <td class="center">25.0%</td>
+        </tr>
+        <tr>
+          <td><strong>ロート製薬</strong></td>
+          <td class="center">3回</td>
+          <td class="center">704</td>
+          <td class="center">116</td>
+          <td class="center">16.5%</td>
+          <td class="center">12.1分</td>
+          <td class="center">61.9%</td>
+          <td class="center">6.9%</td>
+          <td class="center">5.3%</td>
+        </tr>
+        <tr class="mccm">
+          <td><strong>マツココライブ</strong></td>
+          <td class="center">10回</td>
+          <td class="center">5,458</td>
+          <td class="center">270</td>
+          <td class="center"><strong>5.0%</strong> ⚠️最下位</td>
+          <td class="center"><strong>7.9分</strong> ⚠️</td>
+          <td class="center"><strong>14.5%</strong> ⚠️</td>
+          <td class="center"><strong>4.2%</strong> ⚠️</td>
+          <td class="center"><strong>3.87%</strong> ⚠️</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>ランキング分析（衝撃の実態）</h4>
+
+    <div class="two-col">
+      <div class="col-box" style="background:#fff5f7;">
+        <div class="col-title" style="color:#c0392b;">1. リピーター比率ランキング</div>
+        <table style="margin:8px 0;">
+          <thead><tr><th class="center">順位</th><th>ブランド</th><th class="center">比率</th><th class="center">マツコ比</th></tr></thead>
+          <tbody>
+            <tr><td class="center">🥇</td><td>アットコスメ</td><td class="center">50.5%</td><td class="center"><strong>10.1倍</strong></td></tr>
+            <tr><td class="center">🥈</td><td>KANEBO</td><td class="center">43.1%</td><td class="center"><strong>8.6倍</strong></td></tr>
+            <tr><td class="center">🥉</td><td>資生堂</td><td class="center">17.3%</td><td class="center"><strong>3.5倍</strong></td></tr>
+            <tr><td class="center">4</td><td>ロート製薬</td><td class="center">16.5%</td><td class="center"><strong>3.3倍</strong></td></tr>
+            <tr class="mccm"><td class="center">5</td><td><strong>マツココライブ</strong></td><td class="center"><strong>5.0%</strong></td><td class="center">—</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:#c0392b;">→ マツココライブは<strong>業界最下位</strong>。最下位の競合(ロート16.5%)と比べても約1/3、アットコスメの約1/10。</p>
+      </div>
+
+      <div class="col-box" style="background:#fff5f7;">
+        <div class="col-title" style="color:#c0392b;">2. リピーター平均視聴分ランキング</div>
+        <table style="margin:8px 0;">
+          <thead><tr><th class="center">順位</th><th>ブランド</th><th class="center">視聴分</th><th class="center">マツコ比</th></tr></thead>
+          <tbody>
+            <tr><td class="center">🥇</td><td>KANEBO</td><td class="center">38.2分</td><td class="center"><strong>4.8倍</strong></td></tr>
+            <tr><td class="center">🥈</td><td>アットコスメ</td><td class="center">24.0分</td><td class="center"><strong>3.0倍</strong></td></tr>
+            <tr><td class="center">🥉</td><td>資生堂</td><td class="center">23.3分</td><td class="center"><strong>2.9倍</strong></td></tr>
+            <tr><td class="center">4</td><td>ロート製薬</td><td class="center">12.1分</td><td class="center"><strong>1.5倍</strong></td></tr>
+            <tr class="mccm"><td class="center">5</td><td><strong>マツココライブ</strong></td><td class="center"><strong>7.9分</strong></td><td class="center">—</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:#c0392b;">→ リピーター視聴分でも<strong>最下位</strong>。リピーターですら他社の1/5〜1/3しか見ていない。</p>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:16px;">
+      <div class="col-box" style="background:#fff5f7;">
+        <div class="col-title" style="color:#c0392b;">3. リピーターエンゲージメント率ランキング</div>
+        <table style="margin:8px 0;">
+          <thead><tr><th class="center">順位</th><th>ブランド</th><th class="center">エンゲ率</th><th class="center">マツコ比</th></tr></thead>
+          <tbody>
+            <tr><td class="center">🥇</td><td>KANEBO</td><td class="center">92.7%</td><td class="center"><strong>6.4倍</strong></td></tr>
+            <tr><td class="center">🥈</td><td>アットコスメ</td><td class="center">72.7%</td><td class="center"><strong>5.0倍</strong></td></tr>
+            <tr><td class="center">🥉</td><td>ロート製薬</td><td class="center">61.9%</td><td class="center"><strong>4.3倍</strong></td></tr>
+            <tr><td class="center">4</td><td>資生堂</td><td class="center">44.0%</td><td class="center"><strong>3.0倍</strong></td></tr>
+            <tr class="mccm"><td class="center">5</td><td><strong>マツココライブ</strong></td><td class="center"><strong>14.5%</strong></td><td class="center">—</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:#c0392b;">→ KANEBOのリピーターは<strong>ほぼ全員がエンゲージ</strong>（92.7%）。マツココは最下位。</p>
+      </div>
+
+      <div class="col-box" style="background:#fff5f7;">
+        <div class="col-title" style="color:#c0392b;">4. リピーターCTRランキング</div>
+        <table style="margin:8px 0;">
+          <thead><tr><th class="center">順位</th><th>ブランド</th><th class="center">CTR</th><th class="center">マツコ比</th></tr></thead>
+          <tbody>
+            <tr><td class="center">🥇</td><td>アットコスメ</td><td class="center">49.4%</td><td class="center"><strong>12.7倍</strong></td></tr>
+            <tr><td class="center">🥈</td><td>資生堂</td><td class="center">25.0%</td><td class="center"><strong>6.5倍</strong></td></tr>
+            <tr><td class="center">🥉</td><td>KANEBO</td><td class="center">14.3%</td><td class="center"><strong>3.7倍</strong></td></tr>
+            <tr><td class="center">4</td><td>ロート製薬</td><td class="center">5.3%</td><td class="center"><strong>1.4倍</strong></td></tr>
+            <tr class="mccm"><td class="center">5</td><td><strong>マツココライブ</strong></td><td class="center"><strong>3.87%</strong></td><td class="center">—</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px;color:#c0392b;">→ リピーターCTRも<strong>最下位</strong>。リピーターですらロート以下の購買行動。</p>
+      </div>
+    </div>
+
+    <h4>マツココライブ参考数値（全視聴者 vs リピーター内部比較）</h4>
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="center">全視聴者</th><th class="center">リピーター</th><th class="center">内部倍率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>平均視聴分数</td><td class="center">3.19分</td><td class="center">7.9分</td><td class="center">2.5倍</td></tr>
+        <tr><td>エンゲージ率</td><td class="center">5.11%</td><td class="center">14.5%</td><td class="center">2.8倍</td></tr>
+        <tr><td>コメント参加率</td><td class="center">0.71%</td><td class="center">4.2%</td><td class="center">5.9倍</td></tr>
+        <tr><td>商品CTR</td><td class="center">1.04%</td><td class="center">3.87%</td><td class="center">3.7倍</td></tr>
+      </tbody>
+    </table>
+    <div class="note info">全視聴者に比べればリピーターは各指標2.5〜5.9倍の水準だが、それは全視聴者が壊滅的に低いだけで、<strong>絶対値としては他社リピーターの1/3〜1/13</strong>にすぎない。</div>
+
+    <h4>結論（読み）</h4>
+    <ol class="action-list">
+      <li>
+        <div>
+          <div class="ac-title">マツココライブは「リピーター比率」も「リピーターの深さ」も完敗</div>
+          <div class="ac-desc">当初「リピーターは隠れ資産」と仮説を立てたが、実データで見ると<strong>リピーター比率も、リピーターのエンゲージメントも、リピーターのCTRも全て業界最下位</strong>だった。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">リピーター化率の低さは氷山の一角</div>
+          <div class="ac-desc">5%という数字自体が極端に低く、かつその5%ですら他社リピーター水準の1/3〜1/6しかエンゲージしていない。<strong>「新規集客→リピート化」と「リピート後の深度化」の両方に課題がある二重構造</strong>。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">アットコスメ・KANEBOの「50%前後のリピーター比率」はベンチマーク</div>
+          <div class="ac-desc">週1・4年継続のアットコスメと、LINE連携×Sprocket配信誘導のKANEBOが圧倒的。逆に言えば、戦略次第でマツココライブも<strong>リピーター比率を10倍に伸ばす伸びしろがある</strong>。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">配信頻度だけの問題ではない</div>
+          <div class="ac-desc">資生堂・ロートがマツココライブより3倍高いリピーター比率を実現している点から、月1〜週1の配信頻度でもリピーター化は可能。<strong>マツココライブは「新規集客5,000人に依存しすぎて、戻り客設計が後回し」になっている構造が疑われる</strong>。</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3>7-3. 競合4社のリピーター獲得施策（定性情報）</h3>
+    <div class="note">定量データは §7-2 に実測値あり。ここでは各社がなぜ高いリピーター比率を実現できているかの定性要因を整理する。</div>
+
+    <div class="brand-card shiseido">
+      <div class="brand-head">
+        <div class="brand-name">資生堂（Find Beauty Live / watashi+）</div>
+        <span class="brand-tag">リピ比率 17.3%（3位）</span>
+      </div>
+      <h4>実測値（§7-2より）</h4>
+      <ul>
+        <li>リピーター比率：<strong>17.3%</strong>（マツココライブの3.5倍）</li>
+        <li>リピーター視聴分：<strong>23.3分</strong></li>
+        <li>リピーターエンゲ率：<strong>44.0%</strong></li>
+        <li>リピーターCTR：<strong>25.0%</strong></li>
+        <li>全視聴者：10,900人／配信（5社最大のリーチ）、配信数19回（2026.1-3）</li>
+      </ul>
+      <h4>補足情報</h4>
+      <ul>
+        <li>同時接続数（個人BAアカウント）：最大400人（Web担当者Forum, 2024年8月）</li>
+        <li>累計配信回数：300回超、月6回以上（2024年7月時点）</li>
+        <li>Firework導入効果：「視聴者数・売上ともに向上」と言及（PRTimes, 2024年10月）</li>
+      </ul>
+
+      <h4>リピーター獲得施策（間接指標）</h4>
+      <ul>
+        <li><strong>社員インフルエンサー（オムニPBP）約50名</strong>が個人Instagramで配信。個別フォロワー5〜16万人規模の美容部員が複数、累計フォロワー合計約99万人（確認済み14名）</li>
+        <li><strong>ライブ視聴者限定500円クーポン</strong>（3,300円以上購入・1週間以内登録）</li>
+        <li><strong>累計300回超の定期配信</strong>による視聴習慣定着。「給湯室感」を意識した手作り感</li>
+        <li><strong>Firework AI Copilot導入</strong>（2024年10月〜）でコンテンツ制作効率化を推進</li>
+      </ul>
+
+      <h4>出典</h4>
+      <ul>
+        <li><a href="https://webtan.impress.co.jp/e/2024/08/27/47254" target="_blank">Web担当者Forum「資生堂の社員インフルエンサープロジェクト」（2024-08-27）</a></li>
+        <li><a href="https://prtimes.jp/main/html/rd/p/000000096.000075453.html" target="_blank">PRTimes「資生堂インタラクティブビューティーがFirework導入」（2024-10-01）</a></li>
+      </ul>
+    </div>
+
+    <div class="brand-card kanebo">
+      <div class="brand-head">
+        <div class="brand-name">KANEBO（花王）</div>
+        <span class="brand-tag">リピ比率 43.1%（2位）</span>
+      </div>
+      <h4>実測値（§3-2より）</h4>
+      <ul>
+        <li>リピーター比率：<strong>43.1%</strong>（マツココライブの8.6倍・5社中2位）</li>
+        <li>リピーター視聴分：<strong>38.2分</strong>（5社中1位・マツココライブの4.8倍）</li>
+        <li>リピーターエンゲ率：<strong>92.7%</strong>（5社中1位・ほぼ全リピーターがエンゲージ）</li>
+        <li>リピーターCTR：<strong>14.3%</strong></li>
+        <li>全視聴者：1,486人／配信、配信数4回（2026.1-3）</li>
+      </ul>
+
+      <div class="note info">📌 出演者・公式SNS・配信形態・「第三の型」考察は <strong>§2「各ブランドの配信の強みと特徴」KANEBOカード</strong> に統合済み。</div>
+
+      <h4>補足情報（公開データ）</h4>
+      <ul>
+        <li><strong>LINEミニアプリ経由のメッセージ開封率：70%以上</strong>（LINEヤフー for Business, 2020年12月, n=2,965）</li>
+        <li><strong>関連リンクCTR：10〜15%前後</strong>（同上）</li>
+        <li>旧ネイティブアプリ単独運用比で<strong>約2倍の効果</strong>（開封率ベース）</li>
+      </ul>
+
+      <h4>リピーター獲得施策</h4>
+      <ul>
+        <li><strong>LINEミニアプリ「スマイルコネクト」</strong>でSENSAI・KANEBO・LUNASOLの3ブランドを統合管理。誕生日・購買履歴に応じた1to1メッセージ配信（2020年〜）</li>
+        <li><strong>Sprocket（Web接客ツール）</strong>による配信中のライブ誘導</li>
+        <li><strong>クーポン不使用戦略</strong>：商品・コンテンツの純粋な魅力で繰り返し視聴を促す方針</li>
+        <li>全国5,500人の美容部員全員にデジタル接客教育（2025年目標）</li>
+      </ul>
+    </div>
+
+    <div class="brand-card rohto">
+      <div class="brand-head">
+        <div class="brand-name">ロート製薬</div>
+        <span class="brand-tag">リピ比率 16.5%（4位）</span>
+      </div>
+      <h4>実測値（§7-2より）</h4>
+      <ul>
+        <li>リピーター比率：<strong>16.5%</strong>（マツココライブの3.3倍）</li>
+        <li>リピーター視聴分：<strong>12.1分</strong></li>
+        <li>リピーターエンゲ率：<strong>61.9%</strong></li>
+        <li>リピーターCTR：<strong>5.3%</strong></li>
+        <li>全視聴者：704人／配信、配信数3回（2026.1-3）</li>
+      </ul>
+      <div class="note info"><strong>注目点：</strong>配信数が少ない（3回／3ヶ月）にもかかわらず、リピーター比率16.5%・エンゲ率61.9%を実現している。配信頻度ではなく<strong>コンテンツとコミュニティ設計の質</strong>でリピート化している好例。</div>
+
+      <h4>補足情報</h4>
+      <ul>
+        <li><strong>初回配信視聴者数：400人超</strong>（予想10人に対して）</li>
+        <li><strong>月1回配信</strong>の定期スケジュール（ロートハートライブ）</li>
+        <li><strong>ライブ限定キット商品</strong>の販売で視聴インセンティブを提供</li>
+        <li>糀肌・エピステーム・オバジなど複数ブランドを横断紹介</li>
+      </ul>
+
+      <h4>出典</h4>
+      <ul>
+        <li><a href="https://www.shop.rohto.co.jp/column-list/column-niconico-0090.html" target="_blank">ロート製薬オンライン公式「ロートハートライブ」</a></li>
+      </ul>
+    </div>
+
+    <div class="brand-card atcosme">
+      <div class="brand-head">
+        <div class="brand-name">アットコスメ（@cosme / アイスタイル）</div>
+        <span class="brand-tag">リピ比率 50.5%（1位）</span>
+      </div>
+      <h4>実測値（§7-2より・5社中1位）</h4>
+      <ul>
+        <li>リピーター比率：<strong>50.5%</strong>（5社中1位・マツココライブの10.1倍）</li>
+        <li>リピーター視聴分：<strong>24.0分</strong></li>
+        <li>リピーターエンゲ率：<strong>72.7%</strong></li>
+        <li>リピーターコメント率：<strong>42.3%</strong>（5社中1位）</li>
+        <li>リピーターCTR：<strong>49.4%</strong>（5社中1位・マツココライブの12.7倍）</li>
+        <li>全視聴者：1,771人／配信、配信数29回（3ヶ月で5社中最多）</li>
+      </ul>
+      <h4>補足情報（公開データ）</h4>
+      <ul>
+        <li><strong>年間累計視聴者数：100万人以上</strong>（2021年12月開始、毎週金曜20時配信）</li>
+        <li><strong>平均視聴回数：5,000〜7,000回／配信</strong>（@cosme for BUSINESS公式）</li>
+      </ul>
+
+      <h4>エンゲージメント推移（3フェーズ）</h4>
+      <p style="font-size:11px;color:#666;">出典：デジタルマーケターズサミット2025 Winter／アイスタイルリテール 大西清貴氏発表</p>
+      <table>
+        <thead>
+          <tr><th>フェーズ</th><th class="center">ENG率</th><th class="center">平均視聴時間</th><th class="center">コメント数/配信</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>プロダクトアウト期</td><td class="center">9.8%</td><td class="center">10分07秒</td><td class="center">1,130件</td></tr>
+          <tr><td>アクション最大化PoC期</td><td class="center">18.0%</td><td class="center">12分51秒</td><td class="center">4,268件</td></tr>
+          <tr class="highlight"><td>コミュニケーションアップデート期</td><td class="center"><strong>19.3%</strong></td><td class="center"><strong>14分17秒</strong></td><td class="center"><strong>4,996件</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="note info"><strong>カウンセリング受講ユーザーのLTV：非受講者比 約2倍</strong>（同発表）</div>
+
+      <h4>リピーター獲得施策</h4>
+      <ul>
+        <li><strong>毎週金曜20時の固定スケジュール</strong>で視聴習慣を形成（4年間継続）</li>
+        <li><strong>「中立な美容部員」ポジション</strong>：特定ブランド所属ではなく「知識豊富なお姉さん」として設計し、リピート理由を強化</li>
+        <li><strong>KSF定義「出会いの量 × 絆の質」</strong>をLTV最大化指標に据える</li>
+        <li><strong>「中の人」コメント参加</strong>：運営スタッフもコメント欄で常連と対話しコミュニティ醸成</li>
+        <li><strong>休憩コーナー設置</strong>：配信中の離脱を防ぐだけでなく、リピーター層の楽しみ要素として機能</li>
+        <li><strong>BA育成マネージャーの専任配置</strong>＋人事評価・インセンティブ連動</li>
+      </ul>
+
+      <h4>出典</h4>
+      <ul>
+        <li><a href="https://webtan.impress.co.jp/e/2025/04/24/48896" target="_blank">Web担当者Forum「@cosmeが実践するユーザーとのコミュニケーション」（2025-04-24）</a></li>
+        <li><a href="https://business.cosme.net/service/liveshopping" target="_blank">@cosme for BUSINESS ライブショッピング紹介</a></li>
+      </ul>
+    </div>
+
+    <h3>7-4. 業界ベンチマーク（リピーター関連）</h3>
+
+    <h4>業界標準のリピーター定義</h4>
+    <ul style="list-style:none;padding-left:0;">
+      <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span><strong>Firework公式：</strong>視聴起点の <code>repeat viewer</code> 指標は公式ダッシュボードに未定義。唯一あるのは <code>Repeat Purchase Rate</code>（視聴後に2回以上購入した顧客の割合）</li>
+      <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span><strong>YouTube Analytics：</strong>Returning viewers（期間内に過去視聴したことがある視聴者）を計測</li>
+      <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span><strong>一般EC文脈：</strong>Repeat Purchase Rate（一定期間内に2回以上購入した顧客の割合）</li>
+    </ul>
+    <div class="note warning">業界に統一定義は存在しない。各事業者が独自定義で運用しており、直接比較には定義の統一が必須。</div>
+
+    <h4>業界ベンチマーク数値（購買リピート起点）</h4>
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="center">通常EC</th><th class="center">ライブコマース全般</th><th>代表事例</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>リピート顧客率</td><td class="center">20〜30%</td><td class="center"><strong>60〜70%</strong></td><td>ぞうねこちゃんねる：2022年40.6% → 2023年55.3%（ECのミカタ）</td></tr>
+        <tr><td>CVR</td><td class="center">2〜3%</td><td class="center"><strong>9〜30%</strong></td><td>Firework Video Showroom：3.8%（チャット時10.6%）</td></tr>
+        <tr><td>視聴頻度</td><td class="center">—</td><td class="center"><strong>毎月視聴32.3%</strong></td><td>MMD研究所「ライブコマース利用実態調査」</td></tr>
+      </tbody>
+    </table>
+    <div class="note info">日本国内のライブコマース視聴経験者の<strong>32.3%がほぼ毎月視聴</strong>。購入頻度は毎月31.0%、2〜3ヶ月に1回38.0%。ライブコマースは通常動画の<strong>10倍のエンゲージメント</strong>を生成（marketingltb.com）。</div>
+
+    <h4>出典</h4>
+    <ul>
+      <li><a href="https://www.commercepick.com/archives/90264" target="_blank">commercepick「ライブコマースが売れる本当の理由」</a></li>
+      <li><a href="https://ecnomikata.com/ecnews/marketing/41902/" target="_blank">ECのミカタ「ぞうねこちゃんねる 2023年上半期実績」</a></li>
+      <li><a href="https://help.firework.com/firework-performance-metrics" target="_blank">Firework Performance Metrics公式ヘルプ</a></li>
+      <li><a href="https://mmdlabo.jp/investigation/detail_1960.html" target="_blank">MMD研究所「ライブコマース利用実態調査」</a></li>
+      <li><a href="https://marketingltb.com/blog/statistics/live-shopping-statistics/" target="_blank">marketingltb「Live Shopping Statistics 2025」</a></li>
+    </ul>
+
+    <h3>7-5. マツココライブ vs 競合の比較総括</h3>
+
+    <h4>定量比較（2026.1-3 実測値・全社Firework由来）</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th class="center">マツココ</th>
+          <th class="center">資生堂</th>
+          <th class="center">KANEBO</th>
+          <th class="center">ロート</th>
+          <th class="center">アットコスメ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>配信数（n）</td>
+          <td class="center">10</td>
+          <td class="center">19</td>
+          <td class="center">4</td>
+          <td class="center">3</td>
+          <td class="center">29</td>
+        </tr>
+        <tr>
+          <td>全視聴者／配信</td>
+          <td class="center">5,458</td>
+          <td class="center"><strong>10,900</strong> 🥇</td>
+          <td class="center">1,486</td>
+          <td class="center">704</td>
+          <td class="center">1,771</td>
+        </tr>
+        <tr>
+          <td>リピーター数／配信</td>
+          <td class="center">270</td>
+          <td class="center"><strong>1,891</strong> 🥇</td>
+          <td class="center">641</td>
+          <td class="center">116</td>
+          <td class="center">894</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>リピーター比率</strong></td>
+          <td class="center" style="color:#c0392b;"><strong>5.0%</strong> ⚠️</td>
+          <td class="center">17.3%</td>
+          <td class="center">43.1%</td>
+          <td class="center">16.5%</td>
+          <td class="center"><strong>50.5%</strong> 🥇</td>
+        </tr>
+        <tr>
+          <td>リピーター視聴分</td>
+          <td class="center" style="color:#c0392b;"><strong>7.9分</strong> ⚠️</td>
+          <td class="center">23.3分</td>
+          <td class="center"><strong>38.2分</strong> 🥇</td>
+          <td class="center">12.1分</td>
+          <td class="center">24.0分</td>
+        </tr>
+        <tr>
+          <td>リピーターエンゲ率</td>
+          <td class="center" style="color:#c0392b;"><strong>14.5%</strong> ⚠️</td>
+          <td class="center">44.0%</td>
+          <td class="center"><strong>92.7%</strong> 🥇</td>
+          <td class="center">61.9%</td>
+          <td class="center">72.7%</td>
+        </tr>
+        <tr>
+          <td>リピーターコメント率</td>
+          <td class="center" style="color:#c0392b;"><strong>4.2%</strong> ⚠️</td>
+          <td class="center">7.8%</td>
+          <td class="center">11.3%</td>
+          <td class="center">6.9%</td>
+          <td class="center"><strong>42.3%</strong> 🥇</td>
+        </tr>
+        <tr>
+          <td>リピーターCTR</td>
+          <td class="center" style="color:#c0392b;"><strong>3.87%</strong> ⚠️</td>
+          <td class="center">25.0%</td>
+          <td class="center">14.3%</td>
+          <td class="center">5.3%</td>
+          <td class="center"><strong>49.4%</strong> 🥇</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note warning"><strong>衝撃の結論：</strong>マツココライブは<strong>リピーター比率・リピーター視聴分・リピーターエンゲ率・リピーターコメント率・リピーターCTRの全指標で業界最下位</strong>。当初仮説した「リピーターは隠れ資産」は誤りで、<strong>リピーターですら他社水準に遠く及ばない</strong>。</div>
+
+    <h4>定性比較：リピーター獲得施策の成熟度</h4>
+    <table>
+      <thead>
+        <tr><th>施策カテゴリ</th><th class="center">マツココライブ</th><th class="center">資生堂</th><th class="center">KANEBO</th><th class="center">ロート</th><th class="center">アットコスメ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>定期配信（固定曜日・時間）</td><td class="center">✅ 火17:55／週1</td><td class="center">✅ 月6回+</td><td class="center"><span class="tag gray">要調査</span></td><td class="center">✅ 月1回</td><td class="center">✅ 金20時／週1（4年）</td></tr>
+        <tr><td>LINE連携通知</td><td class="center"><span class="tag gray">要調査</span></td><td class="center">—</td><td class="center">✅ ミニアプリ</td><td class="center">—</td><td class="center">—</td></tr>
+        <tr><td>SNS個人アカウント経由流入</td><td class="center">🔻 弱い</td><td class="center">✅ 強い（99万人級）</td><td class="center">—</td><td class="center">—</td><td class="center">🟡 番組ブランド型</td></tr>
+        <tr><td>コミュニティ設計（中の人・休憩）</td><td class="center">🔻 弱い</td><td class="center">🟡 「給湯室感」意識</td><td class="center">—</td><td class="center">—</td><td class="center">✅ 確立済み</td></tr>
+        <tr><td>BA育成・評価連動</td><td class="center"><span class="tag gray">2026.10 内製化予定</span></td><td class="center">✅ オムニPBP制度</td><td class="center"><span class="tag gray">要調査</span></td><td class="center">—</td><td class="center">✅ 育成マネージャー専任</td></tr>
+        <tr><td>次回予告・会員化設計</td><td class="center"><span class="tag gray">要調査</span></td><td class="center"><span class="tag gray">要調査</span></td><td class="center"><span class="tag gray">要調査</span></td><td class="center">—</td><td class="center">✅ LTV指標で運用</td></tr>
+      </tbody>
+    </table>
+
+    <h4>戦略的示唆</h4>
+    <ol class="action-list">
+      <li>
+        <div>
+          <div class="ac-title">マツココライブの「隠れ強み」</div>
+          <div class="ac-desc">リピーター270人はエンゲ率14.5%・CTR 3.87%という<strong>一般メーカー水準に近い</strong>数値を叩き出している。配信の中身そのものは「見続けてくれる人には刺さっている」証拠。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">本質的課題は「リピーター化率5%の低さ」</div>
+          <div class="ac-desc">5,000人集客→270人リピーター化という歩留まりが問題。新規集客→リピート化の導線が欠けている。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">アットコスメの4年継続・週1定期配信モデルがベンチマーク</div>
+          <div class="ac-desc">マツコライブはまだ運用2年・週1配信のため、時間軸的にも伸びしろがある。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">LINEミニアプリ（KANEBOモデル）導入検討の価値あり</div>
+          <div class="ac-desc">マツキヨは公式LINEアカウントを保有しており、ライブ配信告知への活用余地がある（開封率70%・CTR10〜15%水準）。</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">2026年度KPI先行指標として「リピーター比率」を追加する提案</div>
+          <div class="ac-desc">現状5.0% → 上期7%／下期10%を目標に。視聴分数・CTR改善の先行指標として有効。</div>
+        </div>
+      </li>
+    </ol>
+
+    <h4>2026年度アクション仮説</h4>
+    <ol class="action-list">
+      <li>
+        <div>
+          <div class="ac-title">リピーター誘導導線の設計</div>
+          <div class="ac-desc">配信終了時に「次回予告＋LINE登録」「アーカイブ動画のX拡散」を義務化</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">LINEミニアプリ的な通知設計の検討</div>
+          <div class="ac-desc">マツキヨ公式LINE→ライブ配信告知の導線強化</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">「常連呼びかけ」コメント運用</div>
+          <div class="ac-desc">運営スタッフが「いつもありがとうございます」「先週お話ししたあの商品…」など、アットコスメ的コミュニティ醸成を部分導入</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title">リピーター限定コンテンツ</div>
+          <div class="ac-desc">リピーターだけ見られる先行情報／クーポンの検討</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="ac-title"><code>active_repeat</code> 定義の明文化</div>
+          <div class="ac-desc">Firework担当者経由で指標定義を確認し、社内共通言語化する</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3>7-6. 先方確認事項（Next Step）</h3>
+    <ul style="list-style:none;padding-left:0;">
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span><code>active_repeat</code> の正確な定義（Firework担当者への確認）</li>
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span>マツキヨ公式LINEアカウントからのライブ配信告知実態（過去の実施有無・効果）</li>
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span>Xフォロリポ実施回とリピーター比率の相関（A5分析の追加深掘り）</li>
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span>美容部員個人SNSアカウントの運用状況（資生堂モデルの部分適用可能性）</li>
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;">⬜</span>リピーター層の属性データ（年齢・性別・購買履歴）の取得可否</li>
+    </ul>
+
+    <div class="page-num">SECTION 04</div>
+  </div>
+
+  <!-- SECTION 05 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-badge gray">05</span>
+      <div>
+        <div class="section-title">制作体制比較：マツキヨ vs アットコスメ</div>
+        <div class="section-subtitle">出典：アットコスメ制作体制ヒアリングまとめ.md ／マツキヨ側は情報入手次第更新予定</div>
+      </div>
+    </div>
+
+    <h3>6-1. 制作体制一覧</h3>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>マツキヨ</th><th>アットコスメ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>運用開始</td><td><strong>2024年4月</strong></td><td><strong>2021年12月</strong>（毎週金曜定期配信は2022年1月〜）</td></tr>
+        <tr><td>運用年数（2026年4月時点）</td><td><strong>約2年</strong></td><td><strong>約4年4ヶ月</strong></td></tr>
+        <tr><td>運営形態</td><td><span class="tag gray">情報待ち</span></td><td><strong>100%内製</strong></td></tr>
+        <tr><td>配信システム</td><td><span class="tag gray">情報待ち</span></td><td><strong>OBS配信</strong></td></tr>
+        <tr><td>カメラ</td><td><span class="tag gray">情報待ち</span></td><td><strong>業務用カメラ・3カメスイッチング</strong></td></tr>
+        <tr><td>テロップ</td><td><span class="tag gray">情報待ち</span></td><td><strong>簡易テロップあり</strong></td></tr>
+        <tr><td>1配信あたりスタッフ数</td><td><span class="tag gray">情報待ち</span></td><td><strong>計7名</strong></td></tr>
+        <tr><td>・出演者</td><td><span class="tag gray">情報待ち</span></td><td>2名</td></tr>
+        <tr><td>・現場ディレクション＆カメラ</td><td><span class="tag gray">情報待ち</span></td><td>4名</td></tr>
+        <tr><td>・配信オペレーション</td><td><span class="tag gray">情報待ち</span></td><td>1名</td></tr>
+        <tr><td>外部委託</td><td><span class="tag gray">情報待ち</span></td><td>なし（完全内製）</td></tr>
+        <tr class="highlight"><td><strong>1配信あたり制作工数（合計）</strong></td><td><strong>約23〜33時間</strong></td><td>非公開</td></tr>
+        <tr><td>・MCCM側工数（メーカーやりとり・台本確認・薬事CK）</td><td><strong>10〜20時間</strong></td><td>—</td></tr>
+        <tr><td>・Firework側工数（台本作成）</td><td><strong>約13時間</strong></td><td>—</td></tr>
+        <tr><td>台本作成担当</td><td>Firework（外部）</td><td><strong>内製ディレクターが担当</strong></td></tr>
+        <tr><td>企画会議</td><td><span class="tag gray">情報待ち</span></td><td><strong>月1回 企画持ち寄り会議</strong></td></tr>
+        <tr><td>薬機法チェック</td><td><strong>あり</strong>（法務確認が工数の主要因）<br>・フロー：オムニチャネルチームが台本作成 → 社内法務確認（担当者が薬事に精通しスムーズ）<br>・<strong>美容部員個人配信（PoC）はライブ配信チームの目視のみ（法務不通過）</strong> → アーカイブ非保存</td><td><strong>なし</strong>（美容部員が薬機法を熟知・過去トラブルゼロ）</td></tr>
+        <tr><td><strong>1配信あたり準備期間</strong></td><td><strong>1.5〜2ヶ月前から準備必要</strong></td><td><strong>約2週間前後</strong>（推定）</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6-2. 演出・エンゲージメント施策の比較</h3>
+    <table>
+      <thead>
+        <tr><th>施策</th><th class="center">マツキヨ</th><th class="center">アットコスメ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>メーカー担当者のコメント参加</td><td class="center"><span class="tag gray">情報待ち</span></td><td class="center">✅ 実施（エンゲージ向上の主要因）</td></tr>
+        <tr><td>運営「中の人」のコメント参加</td><td class="center"><span class="tag gray">情報待ち</span></td><td class="center">✅ 実施（常連コミュニティ形成）</td></tr>
+        <tr><td>休憩コーナー設置</td><td class="center"><span class="tag gray">情報待ち</span></td><td class="center">✅ 実施（リピーター増加に寄与）</td></tr>
+        <tr><td>台本・構成設計</td><td class="center"><span class="tag gray">情報待ち</span></td><td class="center">✅ 「自分ごと化」構成（セルフチェック・原因解説）</td></tr>
+        <tr><td>切り抜き動画の二次利用</td><td class="center">検討中（提案済み）</td><td class="center">✅ 実施（店頭サイネージ・SNS転用）</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6-3. BA（美容部員）育成・評価体制の比較</h3>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>マツキヨ</th><th>アットコスメ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>育成担当者</td><td><span class="tag gray">情報待ち</span></td><td>育成マネージャーを専任配置</td></tr>
+        <tr><td>成功要因の体系化</td><td><span class="tag gray">情報待ち</span></td><td>トップBA6名の成功要因を言語化・再現性ある育成プランを策定</td></tr>
+        <tr><td>人事・インセンティブ連動</td><td><span class="tag gray">情報待ち</span></td><td>オンライン活躍を人事評価・インセンティブ制度と連動</td></tr>
+        <tr><td>内製化目標</td><td><strong>2026年10月 完全内製化目標</strong></td><td>達成済み</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6-4. 示唆</h3>
+    <div class="note success">アットコスメの制作体制で特筆すべきは、<strong>プロ品質を外注ではなく内製で実現している点</strong>と、<strong>メーカー担当者・運営スタッフ・視聴者の三者が一体となるコミュニティ設計</strong>にある。マツキヨが2026年10月の内製化完了後に目指すべき体制の具体的なベンチマークとして活用できる。</div>
+
+    <h3>6-5. 制作工数の費用対効果と課題認識</h3>
+    <h4>背景・課題提起</h4>
+    <p>報告会の場において、執行役員・中尾氏より「<strong>現行の制作品質に対して、この工数（23〜33時間/配信）は適正か</strong>」という問いが提起された。売上・エンゲージメント等の指標で評価するよう指摘を受けている。</p>
+
+    <p>現状の数値を照合すると、工数対比での指標水準は以下のとおり：</p>
+    <table>
+      <thead>
+        <tr><th>指標</th><th class="center">現状値</th><th>課題感</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>商品CTR</td><td class="center">1.0%</td><td>一般メーカー水準（5%超）を大きく下回る</td></tr>
+        <tr><td>平均視聴分数</td><td class="center">3.1分</td><td>競合最低水準。商品紹介すら届いていない可能性</td></tr>
+        <tr><td>コメント率</td><td class="center">0.8%</td><td>競合比で最低水準。エンゲージメントが機能していない</td></tr>
+        <tr><td>1配信あたり制作工数</td><td class="center">23〜33時間</td><td>上記KPIと比較した際、ROIの観点で正当化しにくい状態</td></tr>
+      </tbody>
+    </table>
+
+    <h4>課題の構造</h4>
+    <p>工数の主要因は<strong>薬機法チェック（法務確認）</strong>にある。薬機法対応は社内での代替案提示が難しく、確認に時間がかかるため、準備期間が1.5〜2ヶ月前からとなっている。一方アットコスメは美容部員が薬機法を熟知しており、法務チェックなし・過去トラブルゼロで2週間前後の準備期間を実現している。</p>
+
+    <h4>検討中の対策</h4>
+    <p>先方（MCCM）より、<strong>薬機法チェックの外注化</strong>が検討されている。単なるNG判定にとどまらず、<strong>ライブコマースに適した表現の代替案提示まで対応できる外注先</strong>の活用を想定している。これが実現すれば、準備期間の短縮と受注回数増（月5回以上体制）の両立が視野に入る。</p>
+
+    <div class="note warning">⬜ <strong>マツキヨ側の情報を入手次第、「情報待ち」の項目を更新すること</strong></div>
+    <div class="page-num">SECTION 05</div>
+  </div>
+
+</div>
+</body>
+</html>
