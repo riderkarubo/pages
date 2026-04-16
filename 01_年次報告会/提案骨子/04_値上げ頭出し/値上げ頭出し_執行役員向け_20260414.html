@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツキヨココカラライブ 協賛単価改定のご提案 2026.04</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+<meta name="description" content="マツキヨココカラライブ協賛単価改定提案・執行役員向け事前共有資料（2026年4月）">
+<meta property="og:title" content="マツキヨココカラライブ 協賛単価改定のご提案">
+<meta property="og:description" content="マツキヨココカラライブ協賛単価改定提案・執行役員向け事前共有資料（2026年4月）">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riderkarubo.github.io/mccm-proposal/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="マツキヨココカラライブ 協賛単価改定のご提案">
+<meta name="twitter:description" content="マツキヨココカラライブ協賛単価改定提案・執行役員向け事前共有資料（2026年4月）">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
+
+  .page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* ===== COVER ===== */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 60px; border-radius: 16px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 250px; height: 250px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #e94560; font-weight: 600; margin-bottom: 20px; }
+  .cover h1 { font-size: 32px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+  .cover-sub { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 40px; }
+  .cover-meta-item { border-left: 2px solid #e94560; padding-left: 16px; }
+  .cover-meta-item .label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 14px; color: white; font-weight: 600; }
+
+  /* ===== SECTION ===== */
+  .section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+  .section-badge { background: #1a1a2e; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .section-badge.red { background: #e94560; }
+  .section-badge.blue { background: #0f3460; }
+  .section-badge.green { background: #1b998b; }
+  .section-badge.orange { background: #e07a5f; }
+  .section-badge.gray { background: #6c757d; }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-subtitle { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* ===== TABLES ===== */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; letter-spacing: 0.5px; }
+  thead th.center { text-align: center; }
+  thead th.right { text-align: right; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9fa; }
+  tbody td { padding: 10px 14px; }
+  tbody td.center { text-align: center; }
+  tbody td.right { text-align: right; }
+  tbody tr.highlight { background: #fff8e1; font-weight: 600; }
+  tbody tr.win { background: #f0faf8; font-weight: 600; }
+  tbody tr.danger { background: #fff5f7; }
+  tbody tr.total { background: #1a1a2e; color: white; font-weight: 700; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.red { background: #ffe0e6; color: #c0392b; }
+  .tag.green { background: #d4f5ef; color: #1b998b; }
+  .tag.blue { background: #dce8ff; color: #0f3460; }
+  .tag.gray { background: #f0f0f0; color: #666; }
+  .tag.orange { background: #fde8e0; color: #c0522b; }
+
+  /* ===== HERO KPI ===== */
+  .hero-kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 24px 0; }
+  .hero-card { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 12px; padding: 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero-card.accent { background: linear-gradient(135deg, #e94560, #c93050); }
+  .hero-card.green { background: linear-gradient(135deg, #1b998b, #0d7a6d); }
+  .hero-card .label { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .hero-card .value { font-size: 36px; font-weight: 800; line-height: 1.1; }
+  .hero-card .value span { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.7); }
+  .hero-card .sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+
+  /* ===== HIGHLIGHT ===== */
+  .highlight-box { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 10px; padding: 24px; margin: 16px 0; }
+  .highlight-box .main { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .highlight-box .sub { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .highlight-box.red { background: linear-gradient(135deg, #e94560, #c93050); }
+  .highlight-box.green { background: linear-gradient(135deg, #1b998b, #0d7a6d); }
+
+  /* ===== NOTE ===== */
+  .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .note.warning { border-left-color: #e94560; background: #fff5f7; color: #c0392b; }
+  .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
+  .note.success { border-left-color: #1b998b; background: #f0faf8; color: #0d7a6d; }
+
+  /* ===== QUOTE ===== */
+  .quote-box { background: #fff8e1; border-left: 4px solid #e94560; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 16px 0; font-size: 13px; color: #444; line-height: 1.8; }
+  .quote-box .who { font-size: 11px; color: #888; margin-bottom: 8px; letter-spacing: 1px; }
+
+  /* ===== COMPARISON ===== */
+  .comparison { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; margin: 24px 0; }
+  .comparison .col { background: #f8f9fa; border-radius: 10px; padding: 24px; text-align: center; }
+  .comparison .col.before { border-top: 3px solid #888; }
+  .comparison .col.after { border-top: 3px solid #e94560; background: #fff5f7; }
+  .comparison .col .label { font-size: 11px; color: #888; letter-spacing: 1px; margin-bottom: 8px; }
+  .comparison .col .value { font-size: 32px; font-weight: 800; color: #1a1a2e; }
+  .comparison .col.after .value { color: #e94560; }
+  .comparison .col .unit { font-size: 14px; font-weight: 400; color: #666; }
+  .comparison .arrow { font-size: 40px; color: #e94560; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #f0f0f0; }
+  .timeline-item { position: relative; margin-bottom: 20px; }
+  .timeline-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 12px; height: 12px; background: #ddd; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px #ddd; }
+  .timeline-item.milestone::before { background: #e94560; box-shadow: 0 0 0 2px #e94560; }
+  .timeline-item.done::before { background: #1b998b; box-shadow: 0 0 0 2px #1b998b; }
+  .timeline-date { font-size: 11px; color: #888; font-weight: 700; margin-bottom: 2px; letter-spacing: 1px; }
+  .timeline-content { font-size: 13px; color: #333; }
+  .timeline-content strong { color: #1a1a2e; }
+  .timeline-content .sub { font-size: 11px; color: #888; margin-top: 4px; }
+
+  /* ===== THREE COL ===== */
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .col-box { background: #f8f9fa; border-radius: 10px; padding: 20px; }
+  .col-box .col-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
+  .col-box ul { list-style: none; }
+  .col-box ul li { font-size: 12px; color: #555; padding: 4px 0; padding-left: 14px; position: relative; line-height: 1.6; }
+  .col-box ul li::before { content: '•'; position: absolute; left: 0; color: #e94560; }
+  .col-box.accent { background: #fff5f7; border-left: 3px solid #e94560; }
+
+  /* ===== TOC ===== */
+  .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 13px; }
+  .toc-item a { display: flex; align-items: center; gap: 12px; width: 100%; text-decoration: none; color: inherit; border-radius: 6px; padding: 4px 6px; transition: background 0.15s; }
+  .toc-item a:hover { background: #e8eaf0; }
+  .toc-num { width: 28px; height: 28px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .toc-label { flex: 1; }
+  .toc-title { font-size: 13px; font-weight: 600; color: #1a1a2e; }
+  .toc-desc { font-size: 11px; color: #888; margin-top: 2px; }
+
+  /* ===== SUMMARY BOX ===== */
+  .summary-box { background: #1a1a2e; color: white; border-radius: 12px; padding: 32px; margin: 24px 0; position: relative; overflow: hidden; }
+  .summary-box::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: rgba(233,69,96,0.1); border-radius: 50%; }
+  .summary-box h3 { color: white; font-size: 18px; margin-bottom: 16px; position: relative; }
+  .summary-box .point { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; }
+  .summary-box .point:last-child { border-bottom: none; }
+  .summary-box .point-num { min-width: 32px; height: 32px; background: #e94560; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .summary-box .point-text { font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.7; }
+  .summary-box .point-text strong { color: white; }
+
+  /* ===== PAGE NUMBER ===== */
+  .page-num { text-align: right; font-size: 11px; color: #bbb; margin-top: 24px; padding-top: 12px; border-top: 1px solid #f0f0f0; letter-spacing: 1px; }
+
+  h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 20px 0 12px; }
+  h4 { font-size: 13px; font-weight: 700; color: #444; margin: 16px 0 8px; }
+  p { margin: 8px 0; color: #444; }
+  .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
+
+  @media print {
+    /* 全要素で背景色・画像を強制印刷（Chromeの「背景のグラフィック」OFF時でも色を保持） */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    @page { size: A4; margin: 10mm; }
+    .page { padding: 0; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; page-break-inside: avoid; }
+    .slide, section { page-break-inside: avoid; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-label">Executive Briefing · Pricing Revision</div>
+  <h1>マツキヨココカラライブ<br>協賛単価改定のご提案</h1>
+  <div class="cover-sub">2026年度下半期 フルサポートプラン 50万円 → 65万円 値上げ方針</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Date</div>
+      <div class="value">2026年4月14日</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Last Updated</div>
+      <div class="value">2026年4月14日 17:39</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">For</div>
+      <div class="value">仲尾武彦 執行役員</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Status</div>
+      <div class="value">事前共有 Draft v1.0</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge gray">Contents</div>
+    <div>
+      <div class="section-title">目次</div>
+      <div class="section-subtitle">Executive Briefing 10枚構成</div>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-item"><a href="#s01"><span class="toc-num">01</span><div class="toc-label"><div class="toc-title">エグゼクティブサマリー</div><div class="toc-desc">1行結論・判断いただきたいこと</div></div></a></div>
+    <div class="toc-item"><a href="#s02"><span class="toc-num">02</span><div class="toc-label"><div class="toc-title">現状認識</div><div class="toc-desc">粗利率課題と外注費の正体</div></div></a></div>
+    <div class="toc-item"><a href="#s03"><span class="toc-num">03</span><div class="toc-label"><div class="toc-title">競合公式料金との比較</div><div class="toc-desc">@cosme公式メディアガイドから</div></div></a></div>
+    <div class="toc-item"><a href="#s04"><span class="toc-num">04</span><div class="toc-label"><div class="toc-title">広告換算価値の分析</div><div class="toc-desc">デジタルマーケ視点での妥当価格</div></div></a></div>
+    <div class="toc-item"><a href="#s05"><span class="toc-num">05</span><div class="toc-label"><div class="toc-title">値上げ提案</div><div class="toc-desc">単価構造の再設計</div></div></a></div>
+    <div class="toc-item"><a href="#s06"><span class="toc-num">06</span><div class="toc-label"><div class="toc-title">PL/事業インパクト試算</div><div class="toc-desc">離脱率シナリオ別損益試算</div></div></a></div>
+    <div class="toc-item"><a href="#s07"><span class="toc-num">07</span><div class="toc-label"><div class="toc-title">離脱リスクと救済プラン</div><div class="toc-desc">最悪ケースでも売上維持</div></div></a></div>
+    <div class="toc-item"><a href="#s08"><span class="toc-num">08</span><div class="toc-label"><div class="toc-title">市場成長文脈</div><div class="toc-desc">リテールメディア成長期</div></div></a></div>
+    <div class="toc-item"><a href="#s09"><span class="toc-num">09</span><div class="toc-label"><div class="toc-title">段階的合意プロセス</div><div class="toc-desc">Phase 0〜4のロードマップ</div></div></a></div>
+    <div class="toc-item"><a href="#s10"><span class="toc-num">10</span><div class="toc-label"><div class="toc-title">ご判断いただきたいこと</div><div class="toc-desc">意思決定ポイント</div></div></a></div>
+  </div>
+</div>
+
+<!-- ===== 01. エグゼクティブサマリー ===== -->
+<div class="section" id="s01">
+  <div class="section-header">
+    <div class="section-badge red">01</div>
+    <div>
+      <div class="section-title">エグゼクティブサマリー</div>
+      <div class="section-subtitle">本提案の骨子</div>
+    </div>
+  </div>
+
+  <div class="highlight-box red">
+    <div class="main">マツキヨココカラライブ協賛単価を 50万円 → 65万円 に改定したい</div>
+    <div class="sub">2026年度下半期（10月〜）より実施。これは値上げではなく、業界相場と広告換算価値に基づく「市場価格への是正」です。</div>
+  </div>
+
+  <div class="hero-kpi">
+    <div class="hero-card">
+      <div class="label">現行単価</div>
+      <div class="value">50<span>万円/回</span></div>
+      <div class="sub">2024〜2025年度実績ベース</div>
+    </div>
+    <div class="hero-card accent">
+      <div class="label">改定後単価</div>
+      <div class="value">65<span>万円/回</span></div>
+      <div class="sub">フルサポートプラン</div>
+    </div>
+    <div class="hero-card green">
+      <div class="label">年間収益インパクト</div>
+      <div class="value">+720<span>万円/年</span></div>
+      <div class="sub">離脱なし・48回想定</div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <h3>本提案の5つのポイント</h3>
+    <div class="point"><div class="point-num">1</div><div class="point-text"><strong>業界相場比較</strong>：@cosmeライブショッピング公式料金は15〜100万円。マツココライブの現行50万円は15分プラン（45万円）とほぼ同額だが、MCCMは60分フル配信＋購買データ連動で明確に優位。</div></div>
+    <div class="point"><div class="point-num">2</div><div class="point-text"><strong>広告換算価値</strong>：デジタル広告換算で保守的に見ても <strong>70万円</strong>、中央値 <strong>150万円</strong>、上限 <strong>330万円</strong>の価値を提供。現行50万円は明らかに過小評価。</div></div>
+    <div class="point"><div class="point-num">3</div><div class="point-text"><strong>粗利率改善</strong>：ソーシャルメディア課内で粗利率最下位（69.3%）の問題を、単価引き上げで <strong>73%</strong> に改善。年間粗利 +720万円。</div></div>
+    <div class="point"><div class="point-num">4</div><div class="point-text"><strong>リスク限定的</strong>：20%離脱想定でも年間売上は +96万円で現状プラス。損益分岐離脱率は23.1%で、8割が残れば勝ち。救済プランと段階移行で防御。</div></div>
+    <div class="point"><div class="point-num">5</div><div class="point-text"><strong>成長市場文脈</strong>：国内リテールメディア市場は前年比125%成長。TikTok Shop参入で競争激化。今が適正価格化のラストチャンス。</div></div>
+  </div>
+
+  <div class="note info">※本資料は2026年4月14日時点のドラフト版です。正式提案前に笹木様確認の上、数値・前提を最終化する想定です。</div>
+
+  <div class="page-num">01 / 10</div>
+</div>
+
+<!-- ===== 02. 現状認識 ===== -->
+<div class="section" id="s02">
+  <div class="section-header">
+    <div class="section-badge blue">02</div>
+    <div>
+      <div class="section-title">現状認識</div>
+      <div class="section-subtitle">粗利率課題と外注費の正体</div>
+    </div>
+  </div>
+
+  <h3>粗利率69.3% — ソーシャルメディア課内で最下位</h3>
+
+  <div class="hero-kpi">
+    <div class="hero-card">
+      <div class="label">ライブコマース</div>
+      <div class="value">69.3<span>%</span></div>
+      <div class="sub">マツココライブ</div>
+    </div>
+    <div class="hero-card" style="background:linear-gradient(135deg,#555,#333);">
+      <div class="label">ショート動画</div>
+      <div class="value">83.3<span>%</span></div>
+      <div class="sub">同じ課内の別施策</div>
+    </div>
+    <div class="hero-card" style="background:linear-gradient(135deg,#555,#333);">
+      <div class="label">Xフォロリポ</div>
+      <div class="value">81.6<span>%</span></div>
+      <div class="sub">同じ課内の別施策</div>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <div class="who">笹木様FB（2026-04-13）</div>
+    「ライブコマース粗利率69.3%はソーシャルメディア課内で最低水準。単価・コストの両面から改善が必要」
+  </div>
+
+  <h3>外注費の正体が判明</h3>
+  <table>
+    <thead>
+      <tr><th>項目</th><th>金額</th><th>備考</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>協賛基本単価</td><td class="right">500,000円/回</td><td>固定</td></tr>
+      <tr><td>2025年度 平均受注単価</td><td class="right">約571,000円/回</td><td>従量課金込み</td></tr>
+      <tr class="danger"><td><strong>推定原価</strong></td><td class="right"><strong>約175,000円/回</strong></td><td>粗利率30.7%逆算</td></tr>
+      <tr class="danger"><td><strong>原価の内訳</strong></td><td colspan="2"><strong>Firework委託費</strong>（台本作成・現場立会・アプリバナー等クリエイティブ制作）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note warning">※ 先方メンバーの他業務増加により、<strong>年度内の内製化は不可</strong>。粗利率改善は来年度フェーズに先送り。今年度は「単価引き上げによる値ざや拡大」が唯一の打ち手。</div>
+
+  <h3>現行50万円の構造的問題</h3>
+  <div class="three-col">
+    <div class="col-box accent">
+      <div class="col-title">問題①：費用が混在</div>
+      <ul>
+        <li>メーカーは50万円を「広告費」として認識</li>
+        <li>実態は広告費＋台本作成費＋クリエイティブ制作費の混在</li>
+        <li>台本費内包が粗利圧迫の主因</li>
+      </ul>
+    </div>
+    <div class="col-box accent">
+      <div class="col-title">問題②：価値対比で割安</div>
+      <ul>
+        <li>60分フル配信＋5,000人超リーチ＋アーカイブ3.3倍</li>
+        <li>購買データ連動（CDP）付き</li>
+        <li>@cosmeの15分プラン（45万円）と+5万円差のみ</li>
+      </ul>
+    </div>
+    <div class="col-box accent">
+      <div class="col-title">問題③：改善余地放置</div>
+      <ul>
+        <li>他施策（粗利80%超）との比較で最下位</li>
+        <li>売上最大化の機会損失</li>
+        <li>リテールメディア事業としての競争力低下</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-num">02 / 10</div>
+</div>
+
+<!-- ===== 03. 競合公式料金との比較 ===== -->
+<div class="section" id="s03">
+  <div class="section-header">
+    <div class="section-badge blue">03</div>
+    <div>
+      <div class="section-title">競合公式料金との比較</div>
+      <div class="section-subtitle">@cosme公式メディアガイドから入手した業界内部情報</div>
+    </div>
+  </div>
+
+  <div class="note info">※ 業界慣行として公開されていない情報を、アイスタイル公式の営業資料（2026年4-6月期メディアガイド）から入手。Webには一切掲載されていない業界内部価格。</div>
+
+  <h3>アイスタイル @cosme「教えて！美容部員さんライブショッピング」公式料金</h3>
+
+  <table>
+    <thead>
+      <tr><th>プラン</th><th class="right">公式料金（税別）</th><th>内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ライトプラン</td><td class="right"><strong>¥150,000</strong></td><td>5分間紹介・1商品</td></tr>
+      <tr class="highlight"><td>スタンダードプラン</td><td class="right"><strong>¥450,000</strong></td><td>15分間紹介・最大3商品</td></tr>
+      <tr><td>ポップアップ中継プラン</td><td class="right"><strong>¥700,000</strong></td><td>ポップアップストアから生中継</td></tr>
+      <tr><td>ブランドジャックプラン</td><td class="right"><strong>¥1,000,000</strong></td><td>1配信1社専有</td></tr>
+    </tbody>
+  </table>
+
+  <h3>マツココライブとの直接比較</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>比較軸</th>
+        <th>@cosmeスタンダード（45万円）</th>
+        <th>マツココライブ（現行50万円）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>紹介時間</td><td>15分</td><td class="win-text"><strong>約60分（フル配信）</strong></td></tr>
+      <tr><td>紹介商品数</td><td>最大3商品</td><td><strong>複数商品（制約なし）</strong></td></tr>
+      <tr><td>リーチ</td><td>公表なし</td><td><strong>5,000人超/回</strong></td></tr>
+      <tr><td>アーカイブ価値</td><td>言及なし</td><td><strong>1ヶ月で3.3倍拡大</strong></td></tr>
+      <tr><td>購買データ連動</td><td>言及なし</td><td><strong>CDPで会員ID突合可能</strong></td></tr>
+      <tr class="highlight"><td><strong>価格</strong></td><td>¥450,000</td><td><strong>¥500,000</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <div class="main">MCCMの50万円は @cosmeの15分プラン＋5万円にすぎない</div>
+    <div class="sub">60分フル配信＋データ連動付きで、@cosmeの15分紹介より「わずか5万円高いだけ」。時間価値だけで換算しても、マツココライブは@cosmeの4倍の時間を提供して同等価格。</div>
+  </div>
+
+  <h3>値上げ後65万円のポジショニング</h3>
+  <div class="comparison">
+    <div class="col before">
+      <div class="label">@cosmeスタンダード</div>
+      <div class="value">45<span class="unit">万円</span></div>
+    </div>
+    <div class="arrow">＜</div>
+    <div class="col after">
+      <div class="label">MCCM改定後</div>
+      <div class="value">65<span class="unit">万円</span></div>
+    </div>
+    <div class="arrow">＜</div>
+    <div class="col before">
+      <div class="label">@cosmeポップアップ</div>
+      <div class="value">70<span class="unit">万円</span></div>
+    </div>
+  </div>
+
+  <div class="note success">値上げ後の65万円は、@cosmeポップアップ中継（70万円）より安い位置づけ。業界2位水準としても控えめかつ妥当な設定。</div>
+
+  <div class="page-num">03 / 10</div>
+</div>
+
+<!-- ===== 04. 広告換算価値 ===== -->
+<div class="section" id="s04">
+  <div class="section-header">
+    <div class="section-badge blue">04</div>
+    <div>
+      <div class="section-title">広告換算価値の分析</div>
+      <div class="section-subtitle">デジタルマーケティング視点での妥当価格</div>
+    </div>
+  </div>
+
+  <h3>1配信あたり合計16,500回の動画視聴を創出</h3>
+
+  <div class="hero-kpi">
+    <div class="hero-card">
+      <div class="label">ライブ視聴</div>
+      <div class="value">5,500<span>人</span></div>
+      <div class="sub">1配信平均</div>
+    </div>
+    <div class="hero-card">
+      <div class="label">アーカイブ1ヶ月</div>
+      <div class="value">11,000<span>回</span></div>
+      <div class="sub">アーカイブ累計</div>
+    </div>
+    <div class="hero-card accent">
+      <div class="label">合算視聴</div>
+      <div class="value">16,500<span>回</span></div>
+      <div class="sub">ライブ+アーカイブ</div>
+    </div>
+  </div>
+
+  <h3>各広告媒体での換算価値（1配信あたり）</h3>
+
+  <table>
+    <thead>
+      <tr><th>換算軸</th><th class="right">低位</th><th class="right">中央値</th><th class="right">高位</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CPM系（Instagram/TikTok基準）</td><td class="right">50万円</td><td class="right">150万円</td><td class="right">330万円</td></tr>
+      <tr><td>CPV系（YouTube基準・質係数込み）</td><td class="right">80万円</td><td class="right">200万円</td><td class="right">400万円</td></tr>
+      <tr><td>インフルエンサー換算</td><td class="right">70万円</td><td class="right">85万円</td><td class="right">100万円</td></tr>
+      <tr><td>記事/雑誌タイアップ換算</td><td class="right">100万円</td><td class="right">180万円</td><td class="right">300万円</td></tr>
+      <tr class="total"><td><strong>総合レンジ</strong></td><td class="right"><strong>70万円</strong></td><td class="right"><strong>150万円</strong></td><td class="right"><strong>330万円</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box green">
+    <div class="main">保守的に見ても最低70万円、中央値150万円、上限330万円の広告価値</div>
+    <div class="sub">現行50万円は明らかに過小評価。65万円値上げは「値上げ」ではなく「市場価格への是正」であり、メーカーにとって依然として割安な水準。</div>
+  </div>
+
+  <h3>単純な広告換算に乗らない付加価値</h3>
+  <div class="three-col">
+    <div class="col-box">
+      <div class="col-title">① 購買データ連動</div>
+      <ul>
+        <li>会員IDとの突合で「誰が見て誰が買ったか」を追跡</li>
+        <li>CRMサービス単独で月額30〜50万円相当</li>
+        <li>@cosmeを含め他媒体では購買追跡不可</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <div class="col-title">② 中立的な第三者発信</div>
+      <ul>
+        <li>マツキヨ美容部員＝買い場のプロ推薦として高信頼</li>
+        <li>メーカー自社広告を大きく上回る権威性</li>
+        <li>ROAS換算で2〜3倍の効果</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <div class="col-title">③ ラストマイル接点</div>
+      <ul>
+        <li>Instagram/YouTubeから購買まで：何段階も経由</li>
+        <li>マツココライブから購買まで：1クリック</li>
+        <li>ファネル下流接点は上流の5〜10倍の単価</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-num">04 / 10</div>
+</div>
+
+<!-- ===== 05. 値上げ提案 ===== -->
+<div class="section" id="s05">
+  <div class="section-header">
+    <div class="section-badge red">05</div>
+    <div>
+      <div class="section-title">値上げ提案</div>
+      <div class="section-subtitle">単価構造の再設計</div>
+    </div>
+  </div>
+
+  <h3>3プラン構成への再設計</h3>
+  <table>
+    <thead>
+      <tr><th>プラン</th><th>内容</th><th class="right">メーカー負担</th><th>位置づけ</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>台本持参プラン<br><span class="tag gray">サブ</span></td><td>広告費のみ（台本はメーカー用意）</td><td class="right"><strong>40〜45万円</strong></td><td>実質ほぼ使われない想定</td></tr>
+      <tr class="win"><td><strong>フルサポートプラン<br><span class="tag red">メイン</span></strong></td><td>広告費＋台本作成＋クリエイティブ制作</td><td class="right"><strong>65万円</strong></td><td>メイン提案</td></tr>
+      <tr><td>プレミアムプラン<br><span class="tag blue">上位</span></td><td>フル＋追加クリエイティブ・特別企画</td><td class="right"><strong>80〜100万円</strong></td><td>将来拡張余地</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note info">※「台本持参プラン」は現実的に使うメーカーはほぼいない想定。サブメニュー扱いでメインはフルサポート値上げ一本。</div>
+
+  <h3>粗利率への影響（48回想定）</h3>
+
+  <table>
+    <thead>
+      <tr><th>項目</th><th class="right">現行50万</th><th class="right">改定後65万</th><th class="right">差分</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>売上/回</td><td class="right">500,000円</td><td class="right">650,000円</td><td class="right">+150,000円</td></tr>
+      <tr><td>推定原価</td><td class="right">175,000円</td><td class="right">175,000円</td><td class="right">据置</td></tr>
+      <tr><td>粗利/回</td><td class="right">325,000円</td><td class="right">475,000円</td><td class="right">+150,000円</td></tr>
+      <tr class="win"><td><strong>粗利率</strong></td><td class="right"><strong>65.0%</strong></td><td class="right"><strong>73.1%</strong></td><td class="right"><strong>+8.1pt</strong></td></tr>
+      <tr><td>年間売上</td><td class="right">2,400万円</td><td class="right">3,120万円</td><td class="right">+720万円</td></tr>
+      <tr class="win"><td><strong>年間粗利</strong></td><td class="right"><strong>1,560万円</strong></td><td class="right"><strong>2,280万円</strong></td><td class="right"><strong>+720万円</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <div class="main">単価引き上げだけで粗利率を +8.1pt 改善、年間粗利 +720万円</div>
+    <div class="sub">ソーシャルメディア課内で最下位だった粗利率69.3%が、競合プロダクト水準（73%台）に並ぶ。</div>
+  </div>
+
+  <div class="page-num">05 / 10</div>
+</div>
+
+<!-- ===== 06. PL/事業インパクト試算 ===== -->
+<div class="section" id="s06">
+  <div class="section-header">
+    <div class="section-badge green">06</div>
+    <div>
+      <div class="section-title">PL/事業インパクト試算</div>
+      <div class="section-subtitle">離脱率シナリオ別損益試算</div>
+    </div>
+  </div>
+
+  <h3>4シナリオでのPL試算（年間48回想定）</h3>
+
+  <table>
+    <thead>
+      <tr><th>シナリオ</th><th class="center">単価</th><th class="center">離脱率</th><th class="right">年間売上</th><th class="right">現状差分</th><th class="center">判定</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>現状維持</td><td class="center">50万円</td><td class="center">—</td><td class="right">2,400万円</td><td class="right">±0</td><td class="center"><span class="tag gray">基準</span></td></tr>
+      <tr class="win"><td><strong>A. 離脱なし（楽観）</strong></td><td class="center">65万円</td><td class="center">0%</td><td class="right"><strong>3,120万円</strong></td><td class="right"><strong>+720万円</strong></td><td class="center"><span class="tag green">Best</span></td></tr>
+      <tr class="win"><td><strong>B. 標準（保守想定）</strong></td><td class="center">65万円</td><td class="center">20%</td><td class="right"><strong>2,496万円</strong></td><td class="right"><strong>+96万円</strong></td><td class="center"><span class="tag green">PLUS</span></td></tr>
+      <tr class="danger"><td>C. 悲観想定</td><td class="center">65万円</td><td class="center">30%</td><td class="right">2,184万円</td><td class="right">−216万円</td><td class="center"><span class="tag red">Minus</span></td></tr>
+      <tr><td>D. 70万円・標準</td><td class="center">70万円</td><td class="center">20%</td><td class="right">2,688万円</td><td class="right">+288万円</td><td class="center"><span class="tag green">PLUS</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box green">
+    <div class="main">損益分岐離脱率：23.1%</div>
+    <div class="sub">65万円値上げの場合、離脱率23.1%までなら現状売上（2,400万円）を維持。つまり「8割が残れば勝ち」という非常に余裕のある前提。</div>
+  </div>
+
+  <h3>視覚的な理解：シナリオ別売上</h3>
+  <div class="comparison">
+    <div class="col before">
+      <div class="label">現状</div>
+      <div class="value">2,400<span class="unit">万円</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col after">
+      <div class="label">標準B（20%離脱想定）</div>
+      <div class="value">2,496<span class="unit">万円</span></div>
+    </div>
+  </div>
+
+  <div class="comparison">
+    <div class="col before">
+      <div class="label">現状</div>
+      <div class="value">2,400<span class="unit">万円</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col after">
+      <div class="label">ベストA（離脱なし）</div>
+      <div class="value">3,120<span class="unit">万円</span></div>
+    </div>
+  </div>
+
+  <div class="note warning">※ 配信回数48回、協賛社数・離脱率は仮置き値。正式化前に笹木様確認を経て数値を最終化する予定。</div>
+
+  <div class="page-num">06 / 10</div>
+</div>
+
+<!-- ===== 07. 離脱リスクと救済プラン ===== -->
+<div class="section" id="s07">
+  <div class="section-header">
+    <div class="section-badge orange">07</div>
+    <div>
+      <div class="section-title">離脱リスクと救済プラン</div>
+      <div class="section-subtitle">最悪ケースでも売上を維持する設計</div>
+    </div>
+  </div>
+
+  <h3>4段階のリスク防御設計</h3>
+
+  <div class="three-col">
+    <div class="col-box accent">
+      <div class="col-title">① 損益分岐余裕</div>
+      <ul>
+        <li>損益分岐離脱率 <strong>23.1%</strong></li>
+        <li>業界標準の保守想定（20%）でも黒字</li>
+        <li>現実的な離脱想定ライン内</li>
+      </ul>
+    </div>
+    <div class="col-box accent">
+      <div class="col-title">② 救済プラン</div>
+      <ul>
+        <li>台本持参プラン <strong>40〜45万円</strong></li>
+        <li>「値上げに抵抗あり」の社に離脱しない選択肢</li>
+        <li>粗利率はむしろ改善</li>
+      </ul>
+    </div>
+    <div class="col-box accent">
+      <div class="col-title">③ グレース期間</div>
+      <ul>
+        <li>既存契約社は <strong>6ヶ月</strong> 旧価格維持</li>
+        <li>移行期の不満を最小化</li>
+        <li>新規契約から順次新価格</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>優先打診順（リスクコントロール）</h3>
+
+  <div class="timeline">
+    <div class="timeline-item done">
+      <div class="timeline-date">STEP 1</div>
+      <div class="timeline-content">
+        <strong>友好社・継続協賛社</strong>
+        <div class="sub">関係性の強い社から事前相談。反応見て方針調整可能</div>
+      </div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">STEP 2</div>
+      <div class="timeline-content">
+        <strong>中立社・単発協賛社</strong>
+        <div class="sub">Step1の結果を踏まえ、トーク内容を最適化してから打診</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">STEP 3</div>
+      <div class="timeline-content">
+        <strong>離脱リスクの高い社</strong>
+        <div class="sub">最後に打診。救済プラン提示で離脱防止を最大化</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="main">「離脱したら失敗」ではなく「8割残れば成功」の設計</div>
+    <div class="sub">執行役員レベルで最も懸念される「値上げによる顧客離脱リスク」を、数値的防御＋救済プラン＋段階移行の三重構造で最小化。</div>
+  </div>
+
+  <div class="page-num">07 / 10</div>
+</div>
+
+<!-- ===== 08. 市場成長文脈 ===== -->
+<div class="section" id="s08">
+  <div class="section-header">
+    <div class="section-badge green">08</div>
+    <div>
+      <div class="section-title">市場成長文脈</div>
+      <div class="section-subtitle">なぜ今、値上げすべきか</div>
+    </div>
+  </div>
+
+  <h3>国内リテールメディア市場は急成長期</h3>
+
+  <div class="hero-kpi">
+    <div class="hero-card green">
+      <div class="label">2024年市場規模</div>
+      <div class="value">4,692<span>億円</span></div>
+      <div class="sub">前年比125%成長</div>
+    </div>
+    <div class="hero-card">
+      <div class="label">TikTok Shop</div>
+      <div class="value">2025.6<span></span></div>
+      <div class="sub">日本正式参入</div>
+    </div>
+    <div class="hero-card accent">
+      <div class="label">BtoC EC市場</div>
+      <div class="value">約25<span>兆円</span></div>
+      <div class="sub">前年比9.23%</div>
+    </div>
+  </div>
+
+  <h3>競争環境の変化と値上げの好機</h3>
+
+  <table>
+    <thead>
+      <tr><th>動き</th><th>事業への影響</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>TikTok Shop 日本参入</strong>（2025.6）</td><td>ライブコマース市場が一気に拡大・競争激化</td></tr>
+      <tr><td><strong>@cosmeが公式料金15〜100万円で明示</strong></td><td>業界内で「適正価格」の基準線が形成</td></tr>
+      <tr><td><strong>メーカーのリテールメディア予算拡大</strong></td><td>「単価」より「効果」で選ばれる時代に移行</td></tr>
+      <tr class="win"><td><strong>マツキヨココカラライブの業界2位ポジション</strong></td><td>今適正価格化しないと競争優位性を失う</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote-box">
+    <div class="who">日経クロストレンド・Think with Google</div>
+    「2025年はライブコマース元年。国内リテールメディア市場は前年比125%成長で4,692億円に到達。マーケティング分野『今後伸びるビジネス』ランキング第2位。」
+  </div>
+
+  <div class="highlight-box red">
+    <div class="main">「今が値上げの好機」。やらないリスクは取り逃し機会損失720万円/年</div>
+    <div class="sub">成長市場に立地している優良事業を、業界最低価格水準のまま放置することは事業価値の毀損。競合が価格明示化する中、マツココライブだけ割安を続けるのは競争力低下のサイン。</div>
+  </div>
+
+  <div class="page-num">08 / 10</div>
+</div>
+
+<!-- ===== 09. 段階的合意プロセス ===== -->
+<div class="section" id="s09">
+  <div class="section-header">
+    <div class="section-badge blue">09</div>
+    <div>
+      <div class="section-title">段階的合意プロセス</div>
+      <div class="section-subtitle">Phase 0〜4のロードマップ</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item done">
+      <div class="timeline-date">PHASE 0 — 年次報告会前（〜2026.5）</div>
+      <div class="timeline-content">
+        <strong>笹木様に事前打診・反応確認・情報最終化</strong>
+        <div class="sub">本資料の前提数値（配信回数・協賛社数・離脱率想定）を確定。現場側の合意形成。</div>
+      </div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">PHASE 1 — 年次報告会（2026.5-6）</div>
+      <div class="timeline-content">
+        <strong>仲尾執行役員含む場で正式提案・合意形成</strong>
+        <div class="sub">本資料をベースに提案。PL試算とリスク防御ロジックで執行役員レベル合意を取得。</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">PHASE 2 — 2026.6-9</div>
+      <div class="timeline-content">
+        <strong>既存協賛社への個別通知・新価格説明</strong>
+        <div class="sub">優先順位に沿って段階的に打診。グレース期間（6ヶ月）と救済プランを併せて提示。</div>
+      </div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">PHASE 3 — 2026.10〜</div>
+      <div class="timeline-content">
+        <strong>新価格運用開始（2026年度下半期）</strong>
+        <div class="sub">フルサポートプラン65万円で新規契約開始。既存社は順次移行。</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">PHASE 4 — 2027年度以降</div>
+      <div class="timeline-content">
+        <strong>内製化フェーズ開始・80%粗利率を目指す</strong>
+        <div class="sub">体制整備完了を待って原価圧縮フェーズへ。粗利率80%超を目標。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note info">※ 年次報告会でのPhase 1合意 → Phase 2の個別通知 → Phase 3の新価格運用開始を、無理のない段階で進行。ソフトランディングを最優先。</div>
+
+  <div class="page-num">09 / 10</div>
+</div>
+
+<!-- ===== 10. ご判断いただきたいこと ===== -->
+<div class="section" id="s10">
+  <div class="section-header">
+    <div class="section-badge red">10</div>
+    <div>
+      <div class="section-title">ご判断いただきたいこと</div>
+      <div class="section-subtitle">意思決定ポイント</div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <h3>本日ご判断いただきたい3点</h3>
+    <div class="point">
+      <div class="point-num">1</div>
+      <div class="point-text"><strong>値上げ方向性の承認</strong>：フルサポートプラン50万円 → 65万円への単価改定方針について、基本方向での合意</div>
+    </div>
+    <div class="point">
+      <div class="point-num">2</div>
+      <div class="point-text"><strong>実施タイミングの承認</strong>：2026年度下半期（10月〜）スタート、既存社6ヶ月グレース期間の設定</div>
+    </div>
+    <div class="point">
+      <div class="point-num">3</div>
+      <div class="point-text"><strong>段階的打診の進行承認</strong>：年次報告会後から既存協賛社への順次打診開始</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>次のアクション</h3>
+
+  <table>
+    <thead>
+      <tr><th>項目</th><th>オーナー</th><th>期日</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>前提数値の確定（配信回数・協賛社数）</td><td>笹木様 × MCCM</td><td>2026.5上旬</td></tr>
+      <tr><td>年次報告会プレゼン資料への統合</td><td>Firework</td><td>2026.5中旬</td></tr>
+      <tr><td>年次報告会での正式提案</td><td>笹木様 × Firework</td><td>2026.5-6</td></tr>
+      <tr><td>既存協賛社への順次打診</td><td>笹木様（主）</td><td>2026.6-9</td></tr>
+      <tr><td>新価格運用開始</td><td>全体</td><td>2026.10</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box green">
+    <div class="main">マツキヨココカラライブを業界2位の適正価格ポジションへ</div>
+    <div class="sub">本提案は単なる値上げではなく、事業価値の適正評価と成長市場での競争力維持を目的とした戦略的意思決定です。Phase 0から丁寧に進めることで、顧客離反リスクを最小化しつつ、年間+720万円の粗利改善を実現します。</div>
+  </div>
+
+  <div class="note info">本資料の出典・詳細データは <code>分析_A9_粗利率改善_単価設定と根拠_20260413.md</code> に全文掲載。前提条件・仮置き値は <code>値上げ頭出し_前提条件_20260414.md</code> を参照。</div>
+
+  <div class="page-num">10 / 10</div>
+</div>
+
+</div>
+</body>
+</html>

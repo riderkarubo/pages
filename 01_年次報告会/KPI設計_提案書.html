@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【MCCM】マツキヨココカラLIVE KPI設計提案書</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --background-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #e2e8f0;
+            --table-header-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 50px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            font-size: 1.5em;
+            background-color: #fdfdfd;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 30px;
+            font-size: 1.25em;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        th:first-child, td:first-child {
+            text-align: left;
+        }
+        th {
+            background-color: var(--table-header-bg);
+            font-weight: 600;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .badge-strength { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .badge-weakness { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .badge-goal { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 4px;
+            border-left: 4px solid #ced4da;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>【MCCM】マツキヨココカラLIVE KPI設計提案書<br><span style="font-size: 0.6em; color: #666; font-weight: normal;">（2026.1-3実績・KANEBO加味・60分換算版）</span></h1>
+
+        <h2>1. 配信分数を基準とした全体データテーブル（すべて2026.1-3実績・60分換算）</h2>
+        <p>各配信プラットフォームやブランドによって実際の配信時間（尺）が異なるため、Apple-to-Appleで比較できるよう、<strong>すべての数値を「配信時間60分あたり」に換算（正規化）</strong>したデータテーブルを作成しました。</p>
+        <div class="note">
+            ※マツココライブ、競合共に<strong>直近の「2026年1月〜3月」の実績のみ</strong>を抽出・比較しています。<br>
+            ※アットコスメは極端なクローズド配信（オンライン体験会等）を除外した「オープン企画型」で集計しています。
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ブランド / 配信タイプ</th>
+                    <th>2026.1-3<br>実績配信数</th>
+                    <th>実際の平均<br>配信時間</th>
+                    <th>視聴者数<br><span style="font-size: 0.85em; color: #666;">※60分換算</span></th>
+                    <th>平均視聴分数<br><span style="font-size: 0.85em; color: #666;">※60分換算</span></th>
+                    <th>商品CTR<br><span style="font-size: 0.85em; color: #666;">※60分換算</span></th>
+                    <th>コメント率<br><span style="font-size: 0.85em; color: #666;">※60分換算</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #fff9e6; font-weight: bold;">
+                    <td>マツココライブ (2026.1-3)</td>
+                    <td>10 回</td>
+                    <td>64.2 分</td>
+                    <td><span class="highlight">5,084 人</span></td>
+                    <td><span class="highlight">3.1 分</span></td>
+                    <td><span class="highlight">1.0 %</span></td>
+                    <td><span class="highlight">0.8 %</span></td>
+                </tr>
+                <tr>
+                    <td>ロート製薬 (一般メーカー)</td>
+                    <td>3 回</td>
+                    <td>51.5 分</td>
+                    <td>871 人</td>
+                    <td>9.9 分</td>
+                    <td>5.3 %</td>
+                    <td>4.4 %</td>
+                </tr>
+                <tr style="background-color: #eafbe4;">
+                    <td>KANEBO (花王)</td>
+                    <td>4 回</td>
+                    <td>63.0 分</td>
+                    <td>1,458 人</td>
+                    <td>28.2 分</td>
+                    <td>11.7 %</td>
+                    <td>9.1 %</td>
+                </tr>
+                <tr>
+                    <td>資生堂 (自社特化型)</td>
+                    <td>23 回</td>
+                    <td>81.1 分</td>
+                    <td>6,958 人</td>
+                    <td>11.8 分</td>
+                    <td>8.2 %</td>
+                    <td>5.1 %</td>
+                </tr>
+                <tr>
+                    <td>アットコスメ (オープン企画型)</td>
+                    <td>13 回</td>
+                    <td>74.8 分</td>
+                    <td>2,494 人</td>
+                    <td>24.3 分</td>
+                    <td>29.4 %</td>
+                    <td>33.4 %</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>2. データテーブルに基づく現状分析 (GAP Analysis)</h2>
+        <p>同条件（2026.1-3期間・60分換算）でKANEBOを加味して比較した結果、マツココライブの立ち位置と競合との乖離（ギャップ）がより立体的になりました。</p>
+        <ul>
+            <li>
+                <span class="badge badge-strength">強み</span> <strong>視聴者数（リーチ）:</strong><br>
+                ロート製薬（871人）やKANEBO（1,458人）、アットコスメの企画（2,494人）と比較しても、5,000人超えという<strong>業界平均を大きく上回る極めて高いリーチ力</strong>を持っています。事前の集客導線は非常にうまくいっています。
+            </li>
+            <li>
+                <span class="badge badge-weakness">課題</span> <strong>平均視聴分数（リテンション）:</strong><br>
+                マツココライブは直近で <strong>わずか 3.1分</strong> であり、競合で最も低い水準です。ロート製薬や資生堂（約10〜12分）と比較しても1/3未満であり、KANEBO（28.2分）のような「視聴者を釘付けにする構成」ができておらず、深刻な早期離脱が起きています。
+            </li>
+            <li>
+                <span class="badge badge-weakness">課題</span> <strong>商品CTR（アクション）:</strong><br>
+                マツココライブは <strong>1.0%</strong>。一般メーカーであるロート製薬（5.3%）や、高いエンゲージメントを誇るKANEBO（11.7%）を大きく下回っており、商品への「クリック誘導」が機能していません。
+            </li>
+            <li>
+                <span class="badge badge-weakness">課題</span> <strong>コメント率（エンゲージメント）:</strong><br>
+                マツココライブは <strong>0.8%</strong> と最低水準です。KANEBO（9.1%）などのように「参加感」を高める工夫が不足していることが、早期離脱を引き起こしている最大の要因と考えられます。
+            </li>
+        </ul>
+
+        <h3 style="margin-top: 40px;">参考：各ブランドの配信の強みと特徴（定性要因）</h3>
+        <p>データテーブルの背景にある、各社の配信戦略上の工夫と定性的な強みです。</p>
+        <div class="note" style="background-color: #fdfdfd; border-left: 4px solid #aaa;">
+            <p style="margin-bottom: 5px;"><strong>マツココライブ (内部全体):</strong></p>
+            <p style="margin: 0; color: #888;">【今後アップデート予定（ブランク）】</p>
+        </div>
+        <div class="note" style="background-color: #f8f9fa; border-left: 4px solid #e74c3c;">
+            <p style="margin-bottom: 5px;"><strong>資生堂:</strong></p>
+            <ul style="margin-bottom: 0;">
+                <li>資生堂は競合比較において全体的に数値が突出して高い傾向にあります。</li>
+                <li><strong>リーチの最大化:</strong> Instagramのサイマル配信を活用してFireworkプレーヤーへの流入を促進しており、Instagramから自社ホームページへと視聴習慣を定着させている点が大きな要因と考えられます。</li>
+                <li><strong>属人的なエンゲージメント:</strong> Instagramのフォロワーが多い美容部員が出演することで、美容部員個人のファンがライブに流入し、コメント数や視聴時間を押し上げています。また3月18日からは美容部員個人発信のライブも開始しています。</li>
+                <li><strong>販促連動 (CTR):</strong> クーポンの提供、新商品の打ち出し、「ここでしか買えない」といった限定性の訴求を組み合わせることで、視聴者の購買意欲を高めています。</li>
+            </ul>
+        </div>
+        <div class="note" style="background-color: #f8f9fa; border-left: 4px solid #2c3e50;">
+            <p style="margin-bottom: 5px;"><strong>KANEBO (花王):</strong></p>
+            <ul style="margin-bottom: 0;">
+                <li><strong>高リテンション・高エンゲージメント:</strong> 視聴時間とCTR・コメントといったエンゲージメント指標が特に高いのが特徴です。</li>
+                <li><strong>マルチチャネルでの集客:</strong> LINE通知・IGサイマル配信・スプロケット（配信中にライブ映像を表示）という複数のチャネルを組み合わせて視聴者を集めています。</li>
+                <li><strong>ブランド主導のコミュニティ:</strong> 美容部員個人のInstagramアカウントに依存しているわけではなく、KANEBOというブランド自体が熱狂的なブランド愛好家から支持されており、ライブを通じてそのファンが定着していることが背景にあります。</li>
+                <li><strong>純粋なコンテンツ力に基づくCTR:</strong> クーポンはほぼ使用しておらず、商品やコンテンツそのものの魅力で購買行動を引き出している点が資生堂との大きな違いと言えます。</li>
+            </ul>
+        </div>
+        <div class="note" style="background-color: #fdfdfd; border-left: 4px solid #aaa;">
+            <p style="margin-bottom: 5px;"><strong>ロート製薬:</strong></p>
+            <p style="margin: 0; color: #888;">【今後アップデート予定（ブランク）】</p>
+        </div>
+        <div class="note" style="background-color: #fdfdfd; border-left: 4px solid #aaa;">
+            <p style="margin-bottom: 5px;"><strong>アットコスメ:</strong></p>
+            <p style="margin: 0; color: #888;">【今後アップデート予定（ブランク）】</p>
+        </div>
+
+        <h2>3. 各数値・項目のKPI設計とターゲット値（2026年度）</h2>
+        <p>前項のGAP分析に基づき、<strong>「圧倒的強みであるリーチ（5,000人規模）を維持しつつ、致命的な弱みである『視聴維持』と『アクション（CTR）』を、まずは一般メーカー水準（ロート製薬基準）へ引き上げ、中長期的にKANEBO水準のエンゲージメントを目指す」</strong> ことを全体方針とします。</p>
+
+        <h3><span class="badge badge-goal">KPI ①</span> ライブ視聴者数（リーチ指標）</h3>
+        <ul>
+            <li><strong>KPI目標値:</strong> <span class="highlight">5,000 人 / 60分あたり</span> （現状維持・ディフェンス目標）</li>
+            <li><strong>設計ロジック:</strong> 既に他社ベンチマーク（KANEBOやロート）を遥かに凌ぐ集客力があるため、無理に新規層を追うのではなく、現在のリーチ数を「最低ラインのベース」として安定確保することをKPIとします。</li>
+        </ul>
+
+        <h3><span class="badge badge-goal">KPI ②</span> 平均視聴分数（リテンション指標）</h3>
+        <ul>
+            <li><strong>KPI目標値:</strong>
+                <ul>
+                    <li><strong>STEP 1 (上期目標): <span class="highlight">6.0 分</span></strong> （現状の約2倍へ）</li>
+                    <li><strong>STEP 2 (下期目標): <span class="highlight">10.0 分</span></strong> （ロート製薬・資生堂の下限水準）</li>
+                    <li><span style="color:#666; font-size:0.9em;">(North Star: KANEBO水準 28.0分)</span></li>
+                </ul>
+            </li>
+            <li><strong>設計ロジック:</strong> 現状の3.1分は商品訴求すらままならない短さです。いきなりKANEBOの28分を目指すのは非現実的なため、まずは「冒頭の目玉紹介と1商品目の紹介を確実に見てもらう」目安となる6.0分をSTEP1とし、下期には標準水準である10.0分を目指します。</li>
+        </ul>
+
+        <h3><span class="badge badge-goal">KPI ③</span> 商品クリック率 / CTR（アクション指標）</h3>
+        <ul>
+            <li><strong>KPI目標値:</strong>
+                <ul>
+                    <li><strong>STEP 1 (上期目標): <span class="highlight">3.0 %</span></strong></li>
+                    <li><strong>STEP 2 (下期目標): <span class="highlight">5.5 %</span></strong> （ロート製薬水準の突破）</li>
+                </ul>
+            </li>
+            <li><strong>設計ロジック:</strong> ほぼクリックされていない（1.0%）現状から、まずは「クリックを促す配信構成」へと転換し、3.0%の壁を突破します。最終的には一般メーカー水準の5.5%をマイルストーンとして設定します。</li>
+        </ul>
+
+        <h3><span class="badge badge-goal">KPI ④</span> コメント参加率（エンゲージメント指標）</h3>
+        <ul>
+            <li><strong>KPI目標値:</strong> <span class="highlight">3.0 % 〜 4.5 %</span></li>
+            <li><strong>設計ロジック:</strong> 視聴分数を上げるための先行指標です。現状（0.8%）の受動的なスタイルから、競合同等の「4%強」を目指してユーザーにアクションを促し、将来的にKANEBO（9%台）のような双方向コミュニティを築く土台を作ります。</li>
+        </ul>
+
+        <h2>4. KPI達成に向けたアクションプラン仮説（Next Step）</h2>
+        <p>直近分析によって「驚異的な集客力に反し、配信中の『引き留め』と『誘導』が全く機能していない」ことが明白となりました。これらを解決するための具体アクションです。</p>
+        <ol>
+            <li><strong>「魔の最初の3分」の対策（平均視聴分数向上へ）</strong>
+                <p style="margin-top: 5px;">現状の平均視聴分数が3.1分のため、配信開始から3分以内に「今日紹介する目玉商品」や「最後まで見るともらえる特典等」を最も高い熱量で伝え、即座の離脱を防ぎます。</p>
+            </li>
+            <li><strong>アクション誘導の「型」化（商品クリック率向上へ）</strong>
+                <p style="margin-top: 5px;">商品を紹介する際、<strong>「今表示されている〇〇のボタンから詳細が見れます。一旦カートに入れておいてください」</strong>と実演付きでアナウンスを義務化し、CTRの劇的改善を狙います。</p>
+            </li>
+            <li><strong>冒頭・中盤での「簡易アンケート」実施（コメント参加率向上へ）</strong>
+                <p style="margin-top: 5px;">「普段〇〇で悩んでる方、1を押して！」「どっちの色が好き？」など、タップだけで答えられる簡易的な投げかけを序盤に仕込み、参加（コメント）への心理的ハードルを下げます。</p>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

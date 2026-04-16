@@ -1,0 +1,224 @@
+- application [ref=e1]:
+  - iframe [ref=e2]:
+    
+  - iframe [ref=e3]:
+    
+  - banner "メニューバー" [ref=e819]:
+    - generic [ref=e7]:
+      - link "ドキュメント ホーム" [ref=e820] [cursor=pointer]:
+        - /url: https://docs.google.com/document/u/0/?authuser=0&usp=docs_web
+      - generic [ref=e16]:
+        - generic "年次報告会_提案骨子_20260408_v3.md" [ref=e821]:
+          - generic [ref=e19]:
+            - generic: 年次報告会_提案骨子_20260408_v3.md
+            - textbox "名前を変更" [ref=e822]: 年次報告会_提案骨子_20260408_v3.md
+          - generic [ref=e22]:
+            - checkbox "スター" [ref=e823] [cursor=pointer]
+            - button "移動" [ref=e824] [cursor=pointer]
+            - 'button "ドキュメントのステータス: ドライブに保存しました." [ref=e825]'
+        - generic [ref=e39]:
+          - 'button "最終編集: 12 分前" [ref=e1044] [cursor=pointer]'
+          - button "すべてのコメントを表示 0 件の新しいコメント" [ref=e827] [cursor=pointer]
+          - button "ここから通話に参加するか、このタブの画面を通話で共有できます" [ref=e828] [cursor=pointer]
+          - generic [ref=e54]:
+            - button "共有します。Firework。 このリンクを知っているこのグループのメンバーは、誰でもファイルを開くことができます" [ref=e829] [cursor=pointer]: 共有
+            - button "クイック共有操作" [ref=e830] [cursor=pointer]
+          - generic [ref=e60]:
+            - generic:
+              - button "Gemini に質問する" [ref=e831] [cursor=pointer]:
+                - img [ref=e66]
+              - tooltip [ref=e69]: Gemini に質問する
+          - 'button "Google アカウント: Shinya Issy Ishijima (shinya@fireworkhq.com)" [ref=e832] [cursor=pointer]':
+            - img [ref=e78]
+    - generic [ref=e79]:
+      - menubar [active] [ref=e81]:
+        - menuitem "ファイル" [ref=e833] [cursor=pointer]
+        - menuitem "編集" [ref=e834] [cursor=pointer]
+        - menuitem "表示" [ref=e835] [cursor=pointer]
+        - menuitem "挿入" [ref=e836] [cursor=pointer]
+        - menuitem "表示形式" [ref=e837] [cursor=pointer]
+        - menuitem "ツール" [ref=e838] [cursor=pointer]
+        - menuitem "拡張機能" [ref=e839] [cursor=pointer]
+        - menuitem "ヘルプ" [ref=e840] [cursor=pointer]
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - toolbar "メニューを検索 (option+/)" [ref=e841]:
+            - combobox "メニュー" [ref=e842]
+          - toolbar "メイン" [ref=e843]:
+            - button "元に戻す (⌘Z)" [ref=e844] [cursor=pointer]
+            - button "やり直し (⌘Y)" [ref=e845] [cursor=pointer]
+            - button "印刷 (⌘P)" [ref=e846] [cursor=pointer]
+            - button "スペルと文法のチェック (⌘+option+X)" [ref=e847] [cursor=pointer]
+            - button "書式を貼り付け" [ref=e848] [cursor=pointer]
+            - combobox "ズーム" [ref=e849] [cursor=pointer]:
+              - option "ズーム のリストで 100% を選択しています。" [selected] [ref=e850]:
+                - textbox "ズーム" [ref=e851]: 100%
+            - separator [disabled] [ref=e129]
+            - listbox "スタイル" [ref=e852] [cursor=pointer]:
+              - option "スタイル のリストで 見出し 2 を選択しています。" [selected] [ref=e853]: 見出し 2
+            - separator [disabled] [ref=e137]
+            - listbox "フォント" [ref=e854] [cursor=pointer]:
+              - option "フォント のリストで Arial を選択しています。" [selected] [ref=e855]: Arial
+            - separator [disabled] [ref=e145]
+            - button "フォントサイズを縮小 (⌘+Shift+カンマ)" [ref=e856] [cursor=pointer]
+            - combobox "フォント サイズ" [ref=e857] [cursor=pointer]:
+              - option "フォント サイズ のリストで 16 を選択しています。" [selected] [ref=e858]:
+                - textbox "フォント サイズ" [ref=e859]: "16"
+            - button "フォントサイズを拡大 (⌘+Shift+ピリオド)" [ref=e860] [cursor=pointer]
+            - separator [disabled] [ref=e161]
+            - button "太字 (⌘B)" [ref=e861] [cursor=pointer]
+            - button "斜体 (⌘I)" [ref=e862] [cursor=pointer]
+            - button "下線 (⌘U)" [ref=e863] [cursor=pointer]
+            - button "テキストの色" [ref=e864] [cursor=pointer]
+            - button "ハイライトの色" [ref=e865] [cursor=pointer]
+            - separator [disabled] [ref=e191]
+            - button "リンクを挿入 (⌘K)" [ref=e866] [cursor=pointer]
+            - button "コメントを追加 (⌘+option+M)" [ref=e867] [cursor=pointer]
+            - button "画像の挿入" [ref=e868] [cursor=pointer]
+            - separator [disabled] [ref=e208]
+            - button "もっと見る" [disabled] [ref=e869] [cursor=pointer]
+        - toolbar "モードと表示" [ref=e870]:
+          - button "提案モード" [ref=e908] [cursor=pointer]:
+            - generic [ref=e220]: 提案
+          - separator [disabled] [ref=e224]
+          - button "メニューを非表示 (Ctrl+Shift+F)" [ref=e872] [cursor=pointer]
+    - generic [ref=e230]:
+      - complementary "サイドパネル" [ref=e873]:
+        - tablist [ref=e233]:
+          - tab "カレンダー"
+          - tab "Keep"
+          - tab "ToDo リスト"
+          - tab "コンタクト"
+          - tab "マップ"
+          - separator [disabled] [ref=e239]
+          - tab "Atlassian"
+          - tab "Miro"
+          - tab "アドオンを取得"
+      - generic:
+        - button "サイドパネルを非表示":
+          - img [ref=e244] [cursor=pointer]
+  - generic [ref=e249]:
+    - generic [ref=e254]:
+      - generic [ref=e255]: "22"
+      - generic [ref=e260]: "21"
+      - generic [ref=e265]: "20"
+      - generic [ref=e270]: "19"
+      - generic [ref=e275]: "18"
+      - generic [ref=e280]: "17"
+      - generic [ref=e285]: "16"
+      - generic [ref=e290]: "15"
+      - generic [ref=e295]: "14"
+      - generic [ref=e300]: "13"
+      - generic [ref=e305]: "12"
+      - generic [ref=e310]: "11"
+      - generic [ref=e315]: "10"
+      - generic [ref=e320]: "9"
+      - generic [ref=e325]: "8"
+      - generic [ref=e330]: "7"
+      - generic [ref=e335]: "6"
+      - generic [ref=e340]: "5"
+      - generic [ref=e345]: "4"
+      - generic [ref=e350]: "3"
+      - generic [ref=e355]: "2"
+      - generic [ref=e360]: "1"
+      - generic [ref=e369]: "1"
+      - generic [ref=e374]: "2"
+      - generic [ref=e379]: "3"
+      - generic [ref=e384]: "4"
+      - generic [ref=e389]: "5"
+      - generic [ref=e394]: "6"
+      - generic [ref=e399]: "7"
+      - generic [ref=e404]: "8"
+      - generic [ref=e409]: "9"
+      - generic [ref=e414]: "10"
+      - generic [ref=e419]: "11"
+      - generic [ref=e424]: "12"
+      - generic [ref=e429]: "13"
+      - generic [ref=e434]: "14"
+      - generic [ref=e439]: "15"
+      - generic [ref=e444]: "16"
+      - generic [ref=e449]: "17"
+      - generic [ref=e454]: "18"
+      - generic [ref=e459]: "19"
+      - generic [ref=e464]: "20"
+      - generic [ref=e469]: "21"
+    - generic [ref=e484]:
+      - generic:
+        - generic [ref=e488]:
+          - button
+        - generic:
+          - list
+        - generic [ref=e491] [cursor=pointer]:
+          - button "コメントを追加" [ref=e875]
+          - button "絵文字のリアクションを追加" [ref=e876]
+    - generic [ref=e514]:
+      - generic [ref=e515]: "28"
+      - generic [ref=e520]: "27"
+      - generic [ref=e525]: "26"
+      - generic [ref=e530]: "25"
+      - generic [ref=e535]: "24"
+      - generic [ref=e540]: "23"
+      - generic [ref=e545]: "22"
+      - generic [ref=e550]: "21"
+      - generic [ref=e555]: "20"
+      - generic [ref=e560]: "19"
+      - generic [ref=e565]: "18"
+      - generic [ref=e570]: "17"
+      - generic [ref=e575]: "16"
+      - generic [ref=e580]: "15"
+      - generic [ref=e585]: "14"
+      - generic [ref=e590]: "13"
+      - generic [ref=e595]: "12"
+      - generic [ref=e600]: "11"
+      - generic [ref=e605]: "10"
+      - generic [ref=e610]: "9"
+      - generic [ref=e615]: "8"
+      - generic [ref=e620]: "7"
+      - generic [ref=e625]: "6"
+      - generic [ref=e630]: "5"
+      - generic [ref=e635]: "4"
+      - generic [ref=e640]: "3"
+      - generic [ref=e645]: "2"
+      - generic [ref=e650]: "1"
+      - generic [ref=e659]: "1"
+      - generic [ref=e664]: "2"
+      - generic [ref=e669]: "3"
+      - generic [ref=e674]: "4"
+      - generic [ref=e679]: "5"
+      - generic [ref=e684]: "6"
+      - generic [ref=e689]: "7"
+      - generic [ref=e694]: "8"
+      - generic [ref=e699]: "9"
+      - generic [ref=e704]: "10"
+      - generic [ref=e709]: "11"
+      - generic [ref=e714]: "12"
+      - generic [ref=e719]: "13"
+      - generic [ref=e724]: "14"
+      - generic [ref=e729]: "15"
+      - generic [ref=e734]: "16"
+      - generic [ref=e739]: "17"
+      - generic [ref=e744]: "18"
+      - generic [ref=e749]: "19"
+      - generic [ref=e754]: "20"
+      - generic [ref=e759]: "21"
+      - generic [ref=e764]: "22"
+      - generic [ref=e769]: "23"
+      - generic [ref=e774]: "24"
+      - generic [ref=e779]: "25"
+      - generic [ref=e784]: "26"
+      - generic [ref=e789]: "27"
+    - img [ref=e797]
+    - button "タブとアウトラインを表示" [ref=e878]:
+      - generic [ref=e810] [cursor=pointer]: タブ 1
+  - iframe [ref=e811]:
+    - textbox "ドキュメントのコンテンツ" [ref=f9e1]
+    - group
+  - link "スクリーン リーダーのサポートを有効にする" [ref=e879] [cursor=pointer]:
+    - /url: "#"
+  - region [ref=e813]: スクリーン リーダーのサポートを有効にするには、⌘+option+Z を押します。キーボード ショートカットの詳細については、⌘スラッシュ を押します。
+  - generic [ref=e814]: バナーを非表示にしました
+  - region
+  - dialog [ref=e816]:
+    - iframe [ref=e818]:
+      - generic [active] [ref=f20e1]:
+        - region

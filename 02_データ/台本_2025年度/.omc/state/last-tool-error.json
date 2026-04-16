@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"python3 << 'PYEOF'\\nimport re, statistics, math\\n\\nwith open(\\\"/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/02_データ/【マツokokライブ】配信数値まとめ - 数値まとめ.csv\\\", encoding=\\\"utf-8-sig\\\") as f:...",
+  "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 3, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/issy/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM/02_データ/【マツokokライブ】配信数値まとめ - 数値まとめ.csv'",
+  "timestamp": "2026-04-09T08:58:41.561Z",
+  "retry_count": 2
+}

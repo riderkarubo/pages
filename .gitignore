@@ -1,0 +1,7 @@
+.DS_Store
+**/.DS_Store
+.omc/state/
+# 大容量ファイル（GitHubの100MB制限のため除外）
+**/*.pptx
+**/*.xlsx
+**/*.docx

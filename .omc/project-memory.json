@@ -1,0 +1,170 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776233889077,
+  "projectRoot": "/Users/issy_s/コーディング/02_Claude_Code/02_仕事/03_クライアント/MCCM",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "01_年次報告会": {
+      "path": "01_年次報告会",
+      "purpose": null,
+      "fileCount": 10,
+      "lastAccessed": 1776233889072,
+      "keyFiles": [
+        "KPI設計_提案書.html",
+        "KPI設計_提案書.md",
+        "MCCM_2025_年度統括報告会_ドラフト_修正_Opus_v2.pptx",
+        "MCCM_2025_年度統括報告会_ドラフト統合版.pptx",
+        "MCCM_2025年度統括報告会.pdf"
+      ]
+    },
+    "02_データ": {
+      "path": "02_データ",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1776233889072,
+      "keyFiles": [
+        "【MCCM用】競合他社ライブ配信数値まとめ（2026.1-3) - アットコスメ.csv",
+        "【マツココライブ】スケジュール・数値リスト - SNS数値.csv",
+        "【マツココライブ】配信数値まとめ - 数値まとめ.csv",
+        "協賛配信のあゆみ.txt"
+      ]
+    },
+    "03_テンプレート": {
+      "path": "03_テンプレート",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1776233889072,
+      "keyFiles": [
+        "MCCM_HTML設計書_v1.md",
+        "MCCM_新構成案_v1.md",
+        "スライドテンプレート用サンプルスライド.pptx",
+        "テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml"
+      ]
+    },
+    "04_過去資料": {
+      "path": "04_過去資料",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776233889072,
+      "keyFiles": []
+    },
+    "05_メーカー実績レポート資料": {
+      "path": "05_メーカー実績レポート資料",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1776233889072,
+      "keyFiles": [
+        "マツココライブLIVEメニュー協賛実績260330.xlsx"
+      ]
+    },
+    "code-guide": {
+      "path": "code-guide",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776233889072,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "mccm-proposal": {
+      "path": "mccm-proposal",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1776233889073,
+      "keyFiles": [
+        "index.html"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "mccm-proposal/index.html",
+      "accessCount": 106,
+      "lastAccessed": 1776244212892,
+      "type": "directory"
+    },
+    {
+      "path": "02_データ/競合/競合調査・KPI設計_提案書_20260415.html",
+      "accessCount": 48,
+      "lastAccessed": 1776244397510,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/競合/競合調査・KPI設計_提案書.md",
+      "accessCount": 27,
+      "lastAccessed": 1776244342702,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 10,
+      "lastAccessed": 1776271012606,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html",
+      "accessCount": 8,
+      "lastAccessed": 1776270678468,
+      "type": "directory"
+    },
+    {
+      "path": "mccm-proposal/bunkakai/index.html",
+      "accessCount": 4,
+      "lastAccessed": 1776236315362,
+      "type": "directory"
+    },
+    {
+      "path": "",
+      "accessCount": 2,
+      "lastAccessed": 1776244199553,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/01_提案書/分科会用資料_20260414.html",
+      "accessCount": 1,
+      "lastAccessed": 1776236303771,
+      "type": "directory"
+    },
+    {
+      "path": "01_年次報告会/提案骨子/02_分析_A1-A6/分析_A5_フォロリポ分析_20260410.md",
+      "accessCount": 1,
+      "lastAccessed": 1776238698984,
+      "type": "file"
+    },
+    {
+      "path": "02_データ/競合",
+      "accessCount": 1,
+      "lastAccessed": 1776240956821,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}
