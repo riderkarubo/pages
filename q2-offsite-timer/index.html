@@ -231,7 +231,7 @@
     function updateDelay(id, change) {
       schedule = schedule.map(item => {
         if (item.id === id) {
-          const newDelay = Math.max(0, item.delay + change);
+          const newDelay = item.delay + change;
           return { ...item, delay: newDelay };
         }
         return item;
@@ -253,11 +253,13 @@
       const delayEl = document.getElementById('total-delay');
       if (totalDelay > 0) {
         delayEl.textContent = `🔺 ${totalDelay}分遅延`;
-        delayEl.classList.remove('hidden');
+        delayEl.className = 'text-lg font-bold text-red-500';
+      } else if (totalDelay < 0) {
+        delayEl.textContent = `🔽 ${Math.abs(totalDelay)}分前倒し`;
+        delayEl.className = 'text-lg font-bold text-blue-500';
       } else {
         delayEl.textContent = '✅ 予定通り';
-        delayEl.classList.remove('text-red-500');
-        delayEl.classList.add('text-green-500');
+        delayEl.className = 'text-lg font-bold text-green-500';
       }
 
       // 現在進行中セッション
@@ -278,8 +280,9 @@
       listEl.innerHTML = calculated.map((item, index) => {
         const isCurrent = currentSession && currentSession.id === item.id;
         const isPast = timeToMinutes(item.actualEndTime) < currentMinutes;
-        const hasDelay = item.delay > 0;
+        const hasDelay = item.delay !== 0;
         const isStartDelayed = item.startDiff > 0;
+        const isStartEarly = item.startDiff < 0;
 
         let borderColor = 'border-blue-500';
         let bgColor = 'bg-white';
@@ -290,10 +293,14 @@
         } else if (isCurrent) {
           borderColor = 'border-blue-500';
           bgColor = 'bg-blue-50';
-        } else if (hasDelay) {
+        } else if (item.delay > 0) {
           borderColor = 'border-red-500';
+        } else if (item.delay < 0) {
+          borderColor = 'border-blue-500';
         } else if (isStartDelayed) {
           borderColor = 'border-orange-400';
+        } else if (isStartEarly) {
+          borderColor = 'border-blue-400';
         }
 
         return `
@@ -309,8 +316,9 @@
                     ${item.actualEndTime}
                   </span>
                   ${isStartDelayed && !isPast ? `<span class="text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded-full">+${item.startDiff}分</span>` : ''}
+                  ${isStartEarly && !isPast ? `<span class="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">${item.startDiff}分</span>` : ''}
                 </div>
-                <div class="text-gray-500 text-sm line-through ${isStartDelayed ? '' : 'hidden'}">
+                <div class="text-gray-500 text-sm line-through ${(isStartDelayed || isStartEarly) ? '' : 'hidden'}">
                   予定: ${item.originalTime}
                 </div>
                 <div class="font-semibold text-gray-800 mt-1">${item.title}</div>
@@ -319,14 +327,14 @@
               </div>
 
               <div class="flex flex-col items-center gap-1">
-                <div class="text-xs text-gray-500 mb-1">ディレイ</div>
+                <div class="text-xs text-gray-500 mb-1">時間調整</div>
                 <div class="flex items-center gap-1">
                   <button
                     data-delay-id="${item.id}" data-delay-change="-1"
-                    class="delay-btn flex items-center justify-center ${item.delay === 0 ? 'bg-gray-100 text-gray-300' : 'bg-gray-200 hover:bg-gray-300 text-gray-600'} rounded-lg font-bold transition-colors"
+                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-lg font-bold transition-colors"
                   >-1</button>
-                  <span class="w-10 text-center font-bold text-lg ${hasDelay ? 'text-red-600' : 'text-gray-400'}">
-                    ${item.delay}
+                  <span class="w-10 text-center font-bold text-lg ${item.delay > 0 ? 'text-red-600' : item.delay < 0 ? 'text-blue-600' : 'text-gray-400'}">
+                    ${item.delay > 0 ? '+' : ''}${item.delay}
                   </span>
                   <button
                     data-delay-id="${item.id}" data-delay-change="1"
@@ -336,7 +344,7 @@
                 <div class="flex gap-1 mt-1">
                   <button
                     data-delay-id="${item.id}" data-delay-change="-5"
-                    class="delay-btn flex items-center justify-center ${item.delay === 0 ? 'bg-gray-100 text-gray-300' : 'bg-gray-200 hover:bg-gray-300 text-gray-500'} rounded-lg font-bold transition-colors"
+                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-500 rounded-lg font-bold transition-colors"
                   >-5</button>
                   <button
                     data-delay-id="${item.id}" data-delay-change="5"
