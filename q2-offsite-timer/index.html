@@ -322,25 +322,25 @@
                 <div class="text-xs text-gray-500 mb-1">ディレイ</div>
                 <div class="flex items-center gap-1">
                   <button
-                    onclick="updateDelay(${item.id}, -1)"
+                    data-delay-id="${item.id}" data-delay-change="-1"
                     class="delay-btn flex items-center justify-center ${item.delay === 0 ? 'bg-gray-100 text-gray-300' : 'bg-gray-200 hover:bg-gray-300 text-gray-600'} rounded-lg font-bold transition-colors"
                   >-1</button>
                   <span class="w-10 text-center font-bold text-lg ${hasDelay ? 'text-red-600' : 'text-gray-400'}">
                     ${item.delay}
                   </span>
                   <button
-                    onclick="updateDelay(${item.id}, 1)"
+                    data-delay-id="${item.id}" data-delay-change="1"
                     class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-gray-600 transition-colors"
                   >+1</button>
                 </div>
                 <div class="flex gap-1 mt-1">
                   <button
-                    onclick="updateDelay(${item.id}, -5)"
-                    class="px-3 py-2 text-sm ${item.delay === 0 ? 'bg-gray-100 text-gray-300' : 'bg-gray-200 hover:bg-gray-300 text-gray-500'} rounded transition-colors"
+                    data-delay-id="${item.id}" data-delay-change="-5"
+                    class="delay-btn flex items-center justify-center ${item.delay === 0 ? 'bg-gray-100 text-gray-300' : 'bg-gray-200 hover:bg-gray-300 text-gray-500'} rounded-lg font-bold transition-colors"
                   >-5</button>
                   <button
-                    onclick="updateDelay(${item.id}, 5)"
-                    class="px-3 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded text-gray-500 transition-colors"
+                    data-delay-id="${item.id}" data-delay-change="5"
+                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-gray-500 transition-colors"
                   >+5</button>
                 </div>
               </div>
@@ -370,16 +370,35 @@
       }
     }
 
+    // render抑制フラグ（ボタン操作直後の自動renderを防ぐ）
+    let lastInteraction = 0;
+
     // 初期化
     document.addEventListener('DOMContentLoaded', () => {
       render();
       updateClock();
 
+      // イベント委譲: data-delay-id を持つボタンのクリック/タップを捕捉
+      document.getElementById('schedule-list').addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-delay-id]');
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const id = parseInt(btn.dataset.delayId, 10);
+        const change = parseInt(btn.dataset.delayChange, 10);
+        lastInteraction = Date.now();
+        updateDelay(id, change);
+      });
+
       // 1秒ごとに時計更新
       setInterval(updateClock, 1000);
 
-      // 30秒ごとにセッション状態更新
-      setInterval(render, 30000);
+      // 30秒ごとにセッション状態更新（操作直後2秒は再描画をスキップ）
+      setInterval(() => {
+        if (Date.now() - lastInteraction > 2000) {
+          render();
+        }
+      }, 30000);
     });
   </script>
 </body>
