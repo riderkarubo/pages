@@ -29,8 +29,20 @@
       50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
     }
     .delay-btn {
-      min-width: 36px;
-      height: 36px;
+      min-width: 44px;
+      height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+      user-select: none;
+    }
+    .delay-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
@@ -330,7 +342,7 @@
                   <button
                     onclick="updateDelay(${item.id}, -5)"
                     class="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded text-gray-500 transition-colors"
-                    ${item.delay < 5 ? 'disabled' : ''}
+                    ${item.delay === 0 ? 'disabled' : ''}
                   >-5</button>
                   <button
                     onclick="updateDelay(${item.id}, 5)"
