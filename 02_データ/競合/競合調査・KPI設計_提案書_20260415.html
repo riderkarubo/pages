@@ -187,7 +187,7 @@
       </div>
       <div class="cover-meta-item">
         <div class="label">Last Updated</div>
-        <div class="value">2026年4月15日 17:46</div>
+        <div class="value">2026年4月20日 15:49</div>
       </div>
       <div class="cover-meta-item">
         <div class="label">Source</div>
@@ -754,13 +754,48 @@
     </div>
 
     <h3>7-1. 定義の前提整理</h3>
-    <p><strong>Fireworkの「active_repeat」は標準指標ではない</strong></p>
+
+    <h4 style="margin-top:16px;">Firework公式の視聴系指標（2026-04-20 Issyさんヒアリングで確定）</h4>
+    <p>以下4指標の公式定義がFireworkヒアリングにより確定した。本調査書および KPI設計はこの定義に準拠する。</p>
+    <table>
+      <thead>
+        <tr>
+          <th>指標名</th>
+          <th>英語表記</th>
+          <th>定義</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>エンゲージ視聴者数</strong></td>
+          <td>Visitors With Engaged Views</td>
+          <td>ライブ配信を最大化 or Storyblockで3秒以上視聴、またはすぐにボタンクリックなどのエンゲージメントをしたユニークユーザー数</td>
+        </tr>
+        <tr>
+          <td><strong>アクティブ視聴者数</strong></td>
+          <td>Visitors With Active Views</td>
+          <td>ライブ配信内で、ボタンクリックなどのエンゲージメントをしたユーザー数</td>
+        </tr>
+        <tr>
+          <td><strong>エンゲージ率</strong></td>
+          <td>—</td>
+          <td>エンゲージ視聴者数 ÷ active 視聴者数</td>
+        </tr>
+        <tr>
+          <td><strong>アクティブ率</strong></td>
+          <td>—</td>
+          <td>アクティブ視聴者数 ÷ active 視聴者数</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="margin-top:16px;">一方、<code>active_repeat</code>（リピーター）は依然として標準指標ではない</h4>
     <p>Firework公式ヘルプドキュメントに存在するリピート系の唯一の指標は「<strong>Repeat Purchase Rate</strong>（動画視聴後に2回以上注文した顧客の割合）」であり、視聴ベースの<code>active_repeat</code>は公式ダッシュボードには定義されていない。マツココライブの協賛レポートで使われている<code>active_repeat</code>は、マツキヨ-Firework間での独自実装または運用定義である可能性が高い。</p>
     <ul style="list-style:none;padding-left:0;margin:10px 0;">
       <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span>想定される定義①：同一配信内で離脱→再入室した視聴者</li>
       <li style="padding:6px 0 6px 18px;position:relative;font-size:12px;color:#444;"><span style="position:absolute;left:0;color:#e94560;font-weight:700;">▸</span>想定される定義②：過去配信を視聴したことがあるアカウントが当該配信にも参加した</li>
     </ul>
-    <div class="note warning">⚠️ <strong>先方確認事項：</strong><code>active_repeat</code> の正確な定義をFirework担当者経由で確認する（A1タスクに追加）。本調査は「定義②（過去配信視聴経験あり）」を仮の前提として整理している。</div>
+    <div class="note warning">⚠️ <strong>先方確認事項（未確定）：</strong><code>active_repeat</code> の正確な定義をFirework担当者経由で確認する（A1タスクに追加）。本調査は「定義②（過去配信視聴経験あり）」を仮の前提として整理している。※エンゲージ率／アクティブ率／エンゲージ視聴者数／アクティブ視聴者数の4指標は 2026-04-20 Issyさんヒアリングで公式定義を確認済。</div>
 
     <h3>7-2. 【確定版】5社のリピーター実測値比較（2026.1-3）</h3>
     <div class="note warning"><strong>重要更新（2026.4.15）：</strong>当初「競合各社のリピーターデータは非公開」と記載していたが、実際には <code>04_過去資料/参考資料/競合他社数値まとめ/</code> 配下のxlsx・CSVに<strong>資生堂・KANEBO・ロート製薬・アットコスメの4社すべての <code>active_repeat</code> データ</strong>が存在した。以下は全5社のFirework由来実測値比較。</div>
@@ -1298,7 +1333,8 @@
 
     <h3>7-6. 先方確認事項（Next Step）</h3>
     <ul style="list-style:none;padding-left:0;">
-      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span><code>active_repeat</code> の正確な定義（Firework担当者への確認）</li>
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#888;border-bottom:1px solid #f0f0f0;text-decoration:line-through;"><span style="position:absolute;left:0;">✅</span>エンゲージ率／アクティブ率／エンゲージ視聴者数／アクティブ視聴者数の公式定義（Firework担当者への確認） → <strong>2026-04-20 Issyさんヒアリングで確定</strong>（§7-1 参照）</li>
+      <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span><code>active_repeat</code> の正確な定義（Firework担当者への確認・未確定）</li>
       <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span>マツキヨ公式LINEアカウントからのライブ配信告知実態（過去の実施有無・効果）</li>
       <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span>Xフォロリポ実施回とリピーター比率の相関（A5分析の追加深掘り）</li>
       <li style="padding:8px 0 8px 24px;position:relative;font-size:12px;color:#444;border-bottom:1px solid #f0f0f0;"><span style="position:absolute;left:0;">⬜</span>美容部員個人SNSアカウントの運用状況（資生堂モデルの部分適用可能性）</li>
