@@ -14,7 +14,7 @@
   'use strict';
 
   const CONFIG = {
-    CLIENT_ID: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+    CLIENT_ID: '1001667206230-ljl0oogq5vmgia28sk37bo3restv23gc.apps.googleusercontent.com',
     ALLOWED_DOMAIN: 'fireworkhq.com',
     TOKEN_KEY: 'firework_sso_token',
     TOKEN_EXPIRY_KEY: 'firework_sso_token_expiry',
