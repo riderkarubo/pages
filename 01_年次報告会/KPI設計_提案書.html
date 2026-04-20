@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【MCCM】マツキヨココカラライブ KPI設計提案書</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
-    <meta name="description" content="マツキヨココカラライブ 2026年度 KPI設計提案書。主KPI＝リピーター系／守備KPI＝全視聴者系の階層構造で、競合4社（資生堂・KANEBO・ロート製薬・アットコスメ）と比較しつつ目標値を設計。">
+    <meta name="description" content="マツキヨココカラライブ 2026年度 KPI設計提案書。主KPI＝リピーター系と全体KPI＝全視聴者系を両立させて追う構造で、競合4社（資生堂・KANEBO・ロート製薬・アットコスメ）と比較しつつ目標値を設計。">
     <meta property="og:title" content="【MCCM】マツキヨココカラライブ KPI設計提案書">
-    <meta property="og:description" content="マツキヨココカラライブ 2026年度 KPI設計提案書。主KPI＝リピーター系／守備KPI＝全視聴者系の階層構造で、競合4社と比較しつつ目標値を設計。">
+    <meta property="og:description" content="マツキヨココカラライブ 2026年度 KPI設計提案書。主KPI＝リピーター系と全体KPI＝全視聴者系を両立させて追う構造で、競合4社と比較しつつ目標値を設計。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="#">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【MCCM】マツキヨココカラライブ KPI設計提案書">
-    <meta name="twitter:description" content="マツキヨココカラライブ 2026年度 KPI設計提案書。主KPI＝リピーター系／守備KPI＝全視聴者系の階層構造で、競合4社と比較しつつ目標値を設計。">
+    <meta name="twitter:description" content="マツキヨココカラライブ 2026年度 KPI設計提案書。主KPI＝リピーター系と全体KPI＝全視聴者系を両立させて追う構造で、競合4社と比較しつつ目標値を設計。">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -116,6 +116,7 @@
         .badge-goal { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
         .badge-main { background-color: #ffe8cc; color: #8a4b00; border: 1px solid #ffd4a3; }
         .badge-defense { background-color: #e0e0e0; color: #333; border: 1px solid #bbb; }
+        .badge-total { background-color: #cfe8ff; color: #0b4d8a; border: 1px solid #9cc9f0; }
         .note {
             font-size: 0.9em;
             color: #666;
@@ -153,7 +154,7 @@
 <body>
     <div class="container">
         <h1>【MCCM】マツキヨココカラライブ KPI設計提案書<br><span style="font-size: 0.6em; color: #666; font-weight: normal;">（2026.1-3実績・競合4社比較版）</span></h1>
-        <p style="text-align: center; color: #888; font-size: 0.9em; margin-top: -20px; margin-bottom: 30px;">最終更新：2026年4月20日 15:49</p>
+        <p style="text-align: center; color: #888; font-size: 0.9em; margin-top: -20px; margin-bottom: 30px;">最終更新：2026年4月20日 15:58</p>
 
         <h2>1. 配信分数を基準とした全体データテーブル（すべて2026.1-3実績・60分換算）</h2>
         <p>各配信プラットフォームやブランドによって実際の配信時間（尺）が異なるため、Apple-to-Appleで比較できるよう、<strong>すべての数値を「配信時間60分あたり」に換算（正規化）</strong>したデータテーブルを作成しました。</p>
@@ -297,18 +298,32 @@
             </ul>
         </div>
 
-        <h2>2.5. 全視聴者（active）の頭打ち分析（過去全配信ベース）</h2>
-        <p>2026.1-3単独の比較だけでなく、マツキヨココカラライブ過去全94配信（2024-02 〜 2026-03、配信時間60分換算）を時系列で分析した結果、<strong>「2024年度は伸びていた指標が2025年度以降は明確な天井（頭打ち）に達している」</strong>ことが判明しました。これがKPI再設計の最大の根拠です。</p>
+        <h2>2.5. 全視聴者（active）の指標推移分析（過去全配信ベース）</h2>
+        <p>マツキヨココカラライブは<strong>これまでの改善努力によって、5,000人超の安定リーチという他社にない強みを実現してきました</strong>。事前集客導線の最適化・プッシュ通知／メルマガ／公式アプリの活用、配信本数の積み上げ、出演者体制の拡充——一つひとつの施策が積み重なった結果、現在の水準に到達しています。</p>
+        <p>本節では、その<strong>成長プロセスの結果、各指標がどの水準まで到達したか</strong>を時系列で可視化し、<strong>2026年度にどこに伸び代があるか</strong>を特定します。過去全94配信（2024-02 〜 2026-03）の分析から、以下の2点が見えてきました。</p>
+        <ol>
+            <li><strong>視聴者数（リーチ）</strong>は改善施策の積み重ねにより<strong>5,000人超の水準まで押し上げられ</strong>、現状は集客導線の<strong>刈り取り可能な上限に達しつつある</strong></li>
+            <li><strong>エンゲージメント系指標（視聴分数・CTR・コメント率）</strong>も一定の水準に達しつつあり、<strong>同じ全視聴者母数での伸びしろは限定的</strong>。一方で<strong>リピーター比率は明確な上昇トレンド</strong>にあり、ここを起点にKPIを設計し直すことで次の成長ステージに進めます</li>
+        </ol>
 
         <h3>期間別 主要指標分布（配信時間60分換算・active＝全視聴者）</h3>
         <p>表ヘッダの「直近6ヶ月の実質上限」は、2025年10月〜2026年3月の22配信における <strong>実測最大値（max）</strong> を指します。これが現行運用で届いている実質的な上限です。</p>
+
+        <div class="note" style="background-color: #fff8e1; border-left: 4px solid #f39c12;">
+            <p style="margin-bottom: 8px;"><strong>※重要：期間比較の前提</strong></p>
+            <p style="margin-bottom: 10px;">2024年度は集客導線の整備段階で配信規模が急拡大した期間のため、2024年度(n=44)と2025年度(n=47)の単純比較には初期立ち上げ期のブレが含まれます。<strong>Apple-to-Apple比較として 2024年8月以降（集客基盤が安定稼働した時期以降）で再集計した表を本表とし</strong>、参考として従来の年度別分類も小さく併記します。</p>
+            <p style="margin-bottom: 8px;"><strong>※視聴分数ロジック変更の注釈</strong></p>
+            <p style="margin-bottom: 0;">2026年1月からFireworkの視聴分数算出ロジックが変更されています。このため、<strong>2025年12月以前の値と2026年1月以降の値は直接比較できません</strong>。2026.1-3期間で視聴分数が下がって見える要因には、このロジック変更の影響も含まれます（純粋な配信パフォーマンス劣化ではない可能性がある）。</p>
+        </div>
+
+        <h4 style="margin-top: 30px; color: #2c3e50;">■ メインテーブル：2024年8月以降のApple-to-Apple比較</h4>
         <table>
             <thead>
                 <tr>
                     <th>指標</th>
-                    <th>2024年度<br>(n=44)</th>
-                    <th>2025年度<br>(n=47)</th>
-                    <th>直近6ヶ月<br>(n=22)</th>
+                    <th>2024.8-<br>2025.3<br>(n=31)</th>
+                    <th>2025.4-<br>2026.3<br>(n=47)</th>
+                    <th>直近6ヶ月<br>2025.10-<br>2026.3<br>(n=22)</th>
                     <th>2026.1-3<br>(n=10)</th>
                     <th>直近6ヶ月の<br>実質上限</th>
                 </tr>
@@ -316,15 +331,15 @@
             <tbody>
                 <tr>
                     <td>視聴者数<br>(人/60分)</td>
-                    <td>平均 4,034<br>中央 5,355<br>max 6,934</td>
+                    <td>平均 5,501<br>中央 5,731<br>max 6,934</td>
                     <td>平均 5,151<br>中央 5,231<br>max 6,404</td>
                     <td>平均 5,284<br>中央 5,384<br>max 6,234</td>
                     <td>平均 5,084<br>中央 5,320<br>max 5,584</td>
-                    <td><strong>6,234人</strong><br>（刈り取り上限到達＆微減傾向）</td>
+                    <td><strong>6,234人</strong><br>（到達上限水準）</td>
                 </tr>
                 <tr>
-                    <td>平均視聴分数<br>(分/60分)</td>
-                    <td>平均 8.21<br>中央 6.79<br>max 27.45</td>
+                    <td>平均視聴分数<br>(分/60分)<br><span style="font-size:0.8em;color:#d9534f;">※2026.1以降<br>ロジック変更</span></td>
+                    <td>平均 6.14<br>中央 6.09<br>max 10.33</td>
                     <td>平均 3.64<br>中央 3.66<br>max 6.65</td>
                     <td>平均 3.62<br>中央 3.71<br>max 5.80</td>
                     <td>平均 3.09<br>中央 2.94<br>max 5.80</td>
@@ -332,7 +347,7 @@
                 </tr>
                 <tr>
                     <td>商品CTR<br>(%)</td>
-                    <td>平均 5.38<br>中央 2.14<br>max 24.86</td>
+                    <td>平均 1.94<br>中央 1.58<br>max 6.55</td>
                     <td>平均 1.09<br>中央 1.09<br>max 2.49</td>
                     <td>平均 1.07<br>中央 1.02<br>max 2.48</td>
                     <td>平均 1.04<br>中央 0.96<br>max 2.48</td>
@@ -340,7 +355,7 @@
                 </tr>
                 <tr>
                     <td>コメント参加率<br>(%)</td>
-                    <td>平均 2.49<br>中央 0.89<br>max 16.57</td>
+                    <td>平均 0.77<br>中央 0.61<br>max 3.65</td>
                     <td>平均 0.52<br>中央 0.45<br>max 3.04</td>
                     <td>平均 0.62<br>中央 0.51<br>max 3.04</td>
                     <td>平均 0.71<br>中央 0.52<br>max 3.04</td>
@@ -348,7 +363,7 @@
                 </tr>
                 <tr>
                     <td>エンゲージ率<br>(%)<br><span style="font-size:0.8em;color:#888;">※Firework公式</span></td>
-                    <td>平均 26.20<br>中央 11.40<br>max 87.29</td>
+                    <td>平均 10.50<br>中央 9.97<br>max 20.03</td>
                     <td>平均 7.58<br>中央 7.68<br>max 12.54</td>
                     <td>平均 7.25<br>中央 7.63<br>max 12.54</td>
                     <td>平均 5.11<br>中央 5.07<br>max 8.81</td>
@@ -356,7 +371,7 @@
                 </tr>
                 <tr style="background-color: #fff9e6;">
                     <td>リピーター比率<br>(%)<br><span style="font-size:0.8em;color:#888;">※active_repeat / active</span></td>
-                    <td>平均 3.30<br>中央 2.98<br>max 8.97</td>
+                    <td>平均 2.74<br>中央 2.74<br>max 4.13</td>
                     <td>平均 4.36<br>中央 4.45<br>max 5.69</td>
                     <td>平均 4.93<br>中央 4.97<br>max 5.69</td>
                     <td>平均 4.88<br>中央 4.92<br>max 5.59</td>
@@ -365,102 +380,131 @@
             </tbody>
         </table>
 
-        <h3>頭打ちから読み取れる3つの構造的事実</h3>
+        <h4 style="margin-top: 30px; color: #888;">■ 参考テーブル：従来の年度別分類（全94配信ベース）</h4>
+        <p style="font-size: 0.92em; color: #666;">以下は2024年度（n=44）・2025年度（n=47）の単純比較ですが、2024年度の前半（2024.2-7）には初期立ち上げ期の特異配信（高エンゲージ配信が数件含まれ平均を押し上げている）が含まれるため、<strong>本テーブルは参考扱いとし、分析の主軸はメインテーブル（2024.8-2025.3 vs 2025.4-2026.3）に置きます</strong>。</p>
+        <table style="font-size: 0.9em;">
+            <thead>
+                <tr>
+                    <th>指標</th>
+                    <th>2024年度<br>(n=44)</th>
+                    <th>2025年度<br>(n=47)</th>
+                    <th>注釈</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>視聴者数<br>(人/60分)</td>
+                    <td>平均 4,034<br>中央 5,355<br>max 6,934</td>
+                    <td>平均 5,151<br>中央 5,231<br>max 6,404</td>
+                    <td style="text-align: left; font-size: 0.9em;">2024年度前半の立ち上げ期は配信数少・集客規模小のため平均が低く出ている</td>
+                </tr>
+                <tr>
+                    <td>平均視聴分数<br>(分/60分)</td>
+                    <td>平均 8.21<br>中央 6.79<br>max 27.45</td>
+                    <td>平均 3.64<br>中央 3.66<br>max 6.65</td>
+                    <td style="text-align: left; font-size: 0.9em;">2024年度前半の超高エンゲージ配信（max 27.45分）が平均を大きく押し上げている構造</td>
+                </tr>
+                <tr>
+                    <td>商品CTR<br>(%)</td>
+                    <td>平均 5.38<br>中央 2.14<br>max 24.86</td>
+                    <td>平均 1.09<br>中央 1.09<br>max 2.49</td>
+                    <td style="text-align: left; font-size: 0.9em;">同上（max 24.86%が平均を押し上げ）</td>
+                </tr>
+                <tr>
+                    <td>コメント参加率<br>(%)</td>
+                    <td>平均 2.49<br>中央 0.89<br>max 16.57</td>
+                    <td>平均 0.52<br>中央 0.45<br>max 3.04</td>
+                    <td style="text-align: left; font-size: 0.9em;">同上（max 16.57%が平均を押し上げ）</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>指標推移から読み取れる3つのポイント</h3>
         <ol>
             <li>
-                <strong>視聴者数（リーチ）は「刈り取り上限到達＆微減傾向」にある:</strong>
-                <p style="margin-top: 5px;">2024年度の平均4,034人から2025年度は5,151人へ伸びたが、最大値（max）の上限は2024年度6,934人 → 2025年度6,404人 → 2026.1-3は5,584人と、<strong>むしろ上限が下がっている</strong>。これは集客導線（プッシュ通知・メルマガ等）の刈り取り上限に達していることを意味する。</p>
+                <strong>視聴者数（リーチ）は改善施策の積み重ねで5,000人超の水準に到達し、現状は集客導線の実力値に達しつつある:</strong>
+                <p style="margin-top: 5px;">2024.8-2025.3の平均5,501人から2025.4-2026.3は5,151人と高水準で推移しており、「5,000人超を毎回安定的に集められる」という<strong>マツキヨ本体の集客基盤の強みを活かした水準</strong>に到達しています。最大値（max）は 6,934人 → 6,404人 → 直近6ヶ月6,234人と推移しており、<strong>既存の集客チャネル（プッシュ通知・メルマガ等）で刈り取れる上限に近づいている</strong>と読めます。新規層の獲得には外部チャネル（SNSサイマル配信、インフルエンサー連動等）との連動が次の打ち手として有効です。</p>
             </li>
             <li>
-                <strong>エンゲージメント系指標（視聴分数・CTR・コメント率）は2025年度以降、明確に劣化している:</strong>
-                <p style="margin-top: 5px;">平均視聴分数は2024年度8.21分 → 2025年度3.64分（<strong>▼56%</strong>）、商品CTRも5.38% → 1.09%（<strong>▼80%</strong>）、コメント率も2.49% → 0.52%（<strong>▼79%</strong>）と全て大幅低下。</p>
-                <p style="margin-top: 5px;">ただし <strong>中央値ベース</strong> で見ると劣化幅はやや緩やか：平均視聴分数 6.79分 → 3.66分（<strong>▼46%</strong>）、CTR 2.14% → 1.09%（<strong>▼49%</strong>）、コメント率 0.89% → 0.45%（<strong>▼49%</strong>）。つまり 2024年度は特定の高エンゲージ配信（max 27.45分／CTR 24.86%／コメント率 16.57%）が平均を大きく押し上げていた構造であり、通常配信ベースでの劣化は「平均▼56〜80%」ほど劇的ではない。それでも ▼46〜49% の中央値劣化は無視できず、配信本数の増加（2024年度44回 → 2025年度47回）に伴う「番組の量産化・型化の固定」と、新規視聴者の流入比率上昇（後述リピーター比率参照）が要因として考えられる。</p>
+                <strong>エンゲージメント系指標（視聴分数・CTR・コメント率）は一定の水準まで押し上げてきた結果、全視聴者母数での伸びしろは限定的:</strong>
+                <p style="margin-top: 5px;">Apple-to-Apple揃えの2024.8-2025.3ベースで、平均視聴分数は 6.14分 → 3.64分、CTR は 1.94% → 1.09%、コメント率は 0.77% → 0.52% と推移しています（<strong>※ただし視聴分数は2026年1月以降の算出ロジック変更の影響を含む</strong>）。この水準は、全視聴者ベースの実質上限（直近6ヶ月max：視聴分数5.80分・CTR2.48%・コメント率3.04%）に近接しており、<strong>「同じ全視聴者母数で数値を押し上げる」戦略の余地は狭まっている</strong>ことを示しています。</p>
             </li>
             <li>
-                <strong>リピーター比率は2025年度に入って上昇基調（3.30% → 4.93%）にあり、ここに伸びしろがある:</strong>
-                <p style="margin-top: 5px;">全体エンゲージメントは下がる一方で、リピーター（active_repeat）比率は明確に上昇トレンド。<strong>「全視聴者を引き上げる」より「リピーターを増やしてエンゲージメントの分母から底上げする」戦略の方が現実的</strong>であることが、データ面から裏付けられている。</p>
+                <strong>リピーター比率は明確な上昇トレンド（2.74% → 4.93%）にあり、ここに次の成長機会がある:</strong>
+                <p style="margin-top: 5px;">2024.8-2025.3の平均2.74%から、2025年度は4.36%、直近6ヶ月は4.93%と<strong>着実にリピーター層が厚くなってきています</strong>。これはコンテンツの継続的な発信と視聴者との関係構築の成果であり、<strong>「リピーター層をさらに育て、そのエンゲージメントの高さを全体指標に波及させる」戦略が、次の成長フェーズでの合理的な打ち手</strong>であることがデータから裏付けられています。</p>
             </li>
         </ol>
 
-        <h3>2026年度の戦略構造（主KPI / 守備KPI の階層）</h3>
+        <h3>2026年度の戦略構造（主KPI / 全体KPI の両立モデル）</h3>
         <div class="note" style="background-color: #fff9e6; border-left: 4px solid #f39c12;">
-            <p style="margin-bottom: 10px;"><strong>「全視聴者（active）のKPIで戦わない」</strong> ことが本提案の核となります。全視聴者の実質上限（直近6ヶ月max）は 6,234人（視聴）／5.80分（分数）／2.48%（CTR）／3.04%（コメント）で、これ以上はマツキヨ本体の集客チャネルでは押し上げ困難です。</p>
-            <p style="margin-bottom: 10px;">一方、<strong>リピーター（active_repeat）は全視聴者比でCTR約3.7倍（3.87% vs 1.04%）・コメント率約5.3倍（3.78% vs 0.71%）</strong>と圧倒的な深度を持ち、母数も伸びています。</p>
-            <p style="margin-bottom: 10px;">よって2026年度は以下の階層構造でKPI全体を設計します。</p>
+            <p style="margin-bottom: 10px;">ここまでの分析を踏まえ、2026年度のKPI設計は<strong>「リピーター系（主KPI）」と「全視聴者系（全体KPI）」を両立させて同時に追う構造</strong>とします。</p>
+            <p style="margin-bottom: 10px;"><strong>リピーター層（active_repeat）は全視聴者比でCTR約3.7倍（3.87% vs 1.04%）・コメント率約5.3倍（3.78% vs 0.71%）</strong>と圧倒的な深度を持ち、母数も明確に伸びています。一方、<strong>全視聴者の数値もリピーター層の厚みが増すことで自然に押し上げられる構造</strong>にあるため、両方の指標を対等に目標設定することで、相互に引き上げ合う設計にします。</p>
         </div>
 
         <div class="structure-diagram">【主KPI】リピーター系 3指標（3.5 節で目標値を定義）
   A: リピーター比率（active_repeat / active）
   B: リピーターCTR
   C: リピーターコメント率
-         ↓ これが上がると
-【守備KPI】全視聴者系（3 節の KPI ①〜④）
+         ↕ 相互に引き上げ合う
+【全体KPI】全視聴者系（3 節の KPI ①〜④）
   ① ライブ視聴者数（リーチ）
   ② 平均視聴分数（リテンション）
   ③ 商品CTR（アクション）
   ④ コメント参加率（エンゲージメント）
-  → 主KPI改善の副次効果として自然に改善する水準を
-    「現状維持の防衛ライン」として設計</div>
+  → 主KPI改善と並行して、独自の目標水準を追う</div>
 
-        <p>リピーター母数を底上げすれば、彼らが全視聴者の分母に混ざることで、全視聴者ベースの②③④も自然に引き上がる構造です。主KPI（リピーター系）を「攻め」、守備KPI（全視聴者系）を「守り」として役割を明確に分離します。</p>
+        <p><strong>ストーリー</strong>：リピーターの数値を上げる → それが全体の数値を押し上げる → 両方でKPIを追う。主KPI（リピーター系）は「深度を作るための攻めの指標」、全体KPI（全視聴者系）は「リーチの強みを維持しつつ全体の質を押し上げる指標」として、<strong>どちらも対等に目標達成を追う</strong>設計です。</p>
 
-        <h2>3. 各数値・項目のKPI設計とターゲット値（2026年度・守備KPI）</h2>
-        <p><strong>本セクションは守備KPI＝全視聴者ベース（KPI ①〜④）</strong> を定義します。主KPI＝リピーター系 3 指標は「3.5. 主KPI：リピーター系」で定義します。</p>
-        <p>守備KPIは単独で達成を追うものではなく、<strong>主KPI（リピーター系）の改善に伴う副次効果として自然に到達する水準</strong>として設計しています。現状値・過去の天井を踏まえ、STEP1（上期）／STEP2（下期）の目標値は以下のとおり維持しつつ、各目標値の位置付けは「主KPI改善の結果として到達する水準」とします。</p>
+        <h2>3. 各数値・項目のKPI設計とターゲット値（2026年度・全体KPI）</h2>
+        <p><strong>本セクションは全体KPI＝全視聴者ベース（KPI ①〜④）</strong> を定義します。主KPI＝リピーター系 3 指標は「3.5. 主KPI：リピーター系」で定義します。</p>
+        <p>全体KPIは主KPI（リピーター系）と並行して追う<strong>対等な目標</strong>です。リピーター層の厚みが増すことで全視聴者ベースの数値も押し上げられる構造であり、両方を同時に追うことで相互に引き上げ合います。2026年度は<strong>単一の年度目標</strong>として以下の水準を設定します。</p>
 
-        <h3><span class="badge badge-defense">守備KPI ①</span> ライブ視聴者数（リーチ指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ①</span> ライブ視聴者数（リーチ指標）</h3>
         <ul>
-            <li><strong>KPI目標値:</strong> <span class="highlight">5,000 人 / 60分あたり</span> （現状維持・ディフェンス目標）</li>
-            <li><strong>設計ロジック:</strong> 既に他社ベンチマーク（KANEBOやロート）を遥かに凌ぐ集客力があるため、無理に新規層を追うのではなく、現在のリーチ数を「最低ラインのベース」として安定確保します。主KPI（リピーター系）改善に伴い、同水準を安定維持できることを確認します。</li>
+            <li><strong>2026年度目標:</strong> <span class="highlight">5,000 人 / 60分あたり</span> （現状水準を維持）</li>
+            <li><strong>設計ロジック:</strong> 既に他社ベンチマーク（KANEBOやロート）を遥かに凌ぐ集客力があるため、無理に新規層を追うのではなく、現在のリーチ数を「強みのベース」として安定確保します。主KPI（リピーター系）改善と並行し、この水準を維持することを目標とします。</li>
         </ul>
 
-        <h3><span class="badge badge-defense">守備KPI ②</span> 平均視聴分数（リテンション指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ②</span> 平均視聴分数（リテンション指標）</h3>
         <ul>
-            <li><strong>KPI目標値:</strong>
+            <li><strong>2026年度目標:</strong> <span class="highlight">10.0 分</span> （ロート製薬・資生堂の下限水準）
                 <ul>
-                    <li><strong>STEP 1 (上期目標): <span class="highlight">6.0 分</span></strong> （現状の約2倍へ）</li>
-                    <li><strong>STEP 2 (下期目標): <span class="highlight">10.0 分</span></strong> （ロート製薬・資生堂の下限水準）</li>
                     <li><span style="color:#666; font-size:0.9em;">(North Star: KANEBO水準 28.0分)</span></li>
                 </ul>
             </li>
-            <li><strong>設計ロジック:</strong> 全視聴者の実質上限が 5.80分（直近6ヶ月max）であるため、STEP1 の 6.0分は「主KPI＝リピーター比率が6.0%に伸びることで、分母にリピーター層が占める比率が上がり自然に到達する水準」として設計。STEP2 の 10.0分もリピーター比率が 8.0% に伸びた状態での結果指標です。</li>
+            <li><strong>設計ロジック:</strong> リピーター比率が8.0%に伸びることで、分母にリピーター層が占める比率が上がり、全視聴者ベースの視聴分数も押し上げられる構造。直近6ヶ月のmax値5.80分（全視聴者のみでの実質上限）を突破し、他社の下限水準（ロート・資生堂）に並ぶことを年度末ゴールとします。</li>
         </ul>
 
-        <h3><span class="badge badge-defense">守備KPI ③</span> 商品クリック率 / CTR（アクション指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ③</span> 商品クリック率 / CTR（アクション指標）</h3>
         <ul>
-            <li><strong>KPI目標値:</strong>
+            <li><strong>2026年度目標:</strong> <span class="highlight">5.5 %</span> （ロート製薬水準の突破）
                 <ul>
-                    <li><strong>STEP 1 (上期目標): <span class="highlight">3.0 %</span></strong></li>
-                    <li><strong>STEP 2 (下期目標): <span class="highlight">5.5 %</span></strong> （ロート製薬水準の突破）</li>
                     <li><span style="color:#666; font-size:0.9em;">(North Star: KANEBO水準 11.7%)</span></li>
                 </ul>
             </li>
-            <li><strong>設計ロジック:</strong> 全視聴者CTR 1.04% とリピーターCTR 3.87% が混在する現状から、リピーター母数を増やすことで分子・分母構成が変わり自然に上昇する想定。主KPI（リピーターCTR）が 5.5% に伸びれば、全視聴者CTR も 3.0% 台に到達します。</li>
+            <li><strong>設計ロジック:</strong> 全視聴者CTR 1.04% とリピーターCTR 3.87% が混在する現状から、リピーター母数を増やすことで分子・分母構成が変わり、かつ配信内の誘導施策が重なることで目標水準到達を狙います。主KPI（リピーターCTR）が 8.0% に到達した状態での全視聴者CTR水準として設計。</li>
         </ul>
 
-        <h3><span class="badge badge-defense">守備KPI ④</span> コメント参加率（エンゲージメント指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ④</span> コメント参加率（エンゲージメント指標）</h3>
         <ul>
-            <li><strong>KPI目標値:</strong>
+            <li><strong>2026年度目標:</strong> <span class="highlight">4.5 %</span>
                 <ul>
-                    <li><strong>STEP 1 (上期目標): <span class="highlight">3.0 %</span></strong></li>
-                    <li><strong>STEP 2 (下期目標): <span class="highlight">4.5 %</span></strong></li>
                     <li><span style="color:#666; font-size:0.9em;">(North Star: KANEBO水準 9.1%)</span></li>
                 </ul>
             </li>
-            <li><strong>設計ロジック:</strong> 視聴分数を上げるための先行指標。主KPI＝リピーターコメント率が伸びれば、全視聴者コメント率も同様に上がる構造。現状（0.71%）から競合同等水準（4.5%）を最終目標とし、将来的にKANEBO（9.1%）水準の双方向コミュニティを築く土台を作ります。</li>
+            <li><strong>設計ロジック:</strong> 視聴分数を上げるための先行指標。主KPI＝リピーターコメント率が伸びれば、全視聴者コメント率も同様に上がる構造。現状（0.71%）から競合同等水準（4.5%）を年度末目標とし、将来的にKANEBO（9.1%）水準の双方向コミュニティを築く土台を作ります。</li>
         </ul>
 
         <h2>3.5. 主KPI：リピーター系 3指標（2026年度の攻めKPI）</h2>
         <h3>設計思想</h3>
-        <p>2.5 節の頭打ち分析より、<strong>「全視聴者では天井に到達。リピーター層こそ伸び代のある資産」</strong>であることが判明しました。リピーター層は全視聴者比でCTR約3.7倍・コメント率約5.3倍と圧倒的な深度を持つため、ここを主KPIに据えて底上げを図ります。</p>
+        <p>2.5 節の推移分析より、<strong>「全視聴者ベースでの伸び代は限定的。リピーター層こそ伸び代のある資産」</strong>であることが判明しました。リピーター層は全視聴者比でCTR約3.7倍・コメント率約5.3倍と圧倒的な深度を持つため、ここを主KPIに据えて底上げを図ります。全体KPI（3節）と両立させる形で、2026年度は<strong>単一の年度目標</strong>として以下の水準を設定します。</p>
 
         <table>
             <thead>
                 <tr>
                     <th>主KPI</th>
                     <th>現状値<br>(2026.1-3)</th>
-                    <th>STEP 1<br>(上期)</th>
-                    <th>STEP 2<br>(下期)</th>
+                    <th>2026年度目標</th>
                     <th>North Star</th>
                 </tr>
             </thead>
@@ -468,21 +512,18 @@
                 <tr style="background-color: #fff9e6;">
                     <td><strong>A: リピーター比率</strong></td>
                     <td>4.88%</td>
-                    <td><strong>6.0%</strong></td>
                     <td><strong>8.0%</strong></td>
                     <td>ロート製薬 16.5% ／ アットコスメ 50.5%</td>
                 </tr>
                 <tr style="background-color: #fff9e6;">
                     <td><strong>B: リピーターCTR</strong></td>
                     <td>3.87%</td>
-                    <td><strong>5.5%</strong></td>
                     <td><strong>8.0%</strong></td>
                     <td>ロート製薬 5.3% ／ KANEBO 14.3% ／ アットコスメ 49.4%</td>
                 </tr>
                 <tr style="background-color: #fff9e6;">
                     <td><strong>C: リピーターコメント率</strong></td>
                     <td>3.78%</td>
-                    <td><strong>5.5%</strong></td>
                     <td><strong>7.5%</strong></td>
                     <td>ロート製薬 4.2% ／ KANEBO 11.7% ／ アットコスメ 42.3%</td>
                 </tr>
@@ -496,8 +537,8 @@
                 <tr><td>定義</td><td><strong>active_repeat 視聴者数 ÷ active 視聴者数（全視聴者）</strong></td></tr>
                 <tr><td>算出式</td><td><code>Firework CSV: active_repeat セクション「ライブ視聴者数(1秒以上)」 ÷ active セクション「ライブ視聴者数(1秒以上)」</code></td></tr>
                 <tr><td>参照データ元</td><td>行30（active_repeat／視聴者数） ÷ 行6（active／視聴者数）</td></tr>
-                <tr><td>マツキヨココカラライブ実績</td><td><strong>2026.1-3 平均 4.88%</strong>／2025年度 4.36%／2024年度 3.30%（上昇トレンド）</td></tr>
-                <tr><td>目標値</td><td>現状 4.88% → <strong>STEP1（上期）6.0% → STEP2（下期）8.0%</strong></td></tr>
+                <tr><td>マツキヨココカラライブ実績</td><td><strong>2026.1-3 平均 4.88%</strong>／2025年度 4.36%／2024.8-2025.3 2.74%（上昇トレンド）</td></tr>
+                <tr><td>目標値</td><td>現状 4.88% → <strong>2026年度目標 8.0%</strong></td></tr>
                 <tr><td>North Star</td><td>ロート製薬 16.5% ／ アットコスメ 50.5%<span style="font-size:0.9em;color:#666;">（出典：@cosme公式料金メディアガイド 202604_202606_atcosmeBA_promotion.pdf）</span></td></tr>
                 <tr><td>注意事項<br>（重要・要Firework確認）</td><td><strong><code>active_repeat</code>はマツキヨココカラライブ独自実装</strong>。Firework公式の「リピーター」定義と一致するか不明。「同一配信内での再入場」を指すのか、「過去の別配信を視聴したことがある人」を指すのか、Firework担当者経由で正式な算出ロジック確認が必要</td></tr>
             </tbody>
@@ -511,7 +552,7 @@
                 <tr><td>算出式</td><td><code>Firework CSV: active_repeat セクション「商品クリック率」</code></td></tr>
                 <tr><td>参照データ元</td><td>行36（active_repeat／商品クリック率）</td></tr>
                 <tr><td>マツキヨココカラライブ実績</td><td><strong>2026.1-3 平均 3.87%</strong>（全視聴者CTR 1.04% の <strong>約3.7倍</strong> ＝ 3.87% ÷ 1.04% ＝ 3.72）</td></tr>
-                <tr><td>目標値</td><td>現状 3.87% → <strong>STEP1（上期）5.5%（ロート製薬 5.3% 突破） → STEP2（下期）8.0%</strong></td></tr>
+                <tr><td>目標値</td><td>現状 3.87% → <strong>2026年度目標 8.0%</strong>（ロート製薬 5.3% 突破水準）</td></tr>
                 <tr><td>North Star</td><td>KANEBO 14.3% ／ アットコスメ 49.4%<span style="font-size:0.9em;color:#666;">（出典：@cosme公式料金メディアガイド 202604_202606_atcosmeBA_promotion.pdf）</span></td></tr>
             </tbody>
         </table>
@@ -524,13 +565,13 @@
                 <tr><td>算出式</td><td><code>Firework CSV: active_repeat セクション「コメント参加率」</code></td></tr>
                 <tr><td>参照データ元</td><td>行38（active_repeat／コメント参加率）</td></tr>
                 <tr><td>マツキヨココカラライブ実績</td><td><strong>2026.1-3 平均 3.78%</strong>（全視聴者コメント率 0.71% の <strong>約5.3倍</strong> ＝ 3.78% ÷ 0.71% ＝ 5.32）／直近6ヶ月 3.74%／2025年度 3.86%</td></tr>
-                <tr><td>目標値</td><td>現状 3.78% → <strong>STEP1（上期）5.5% → STEP2（下期）7.5%</strong></td></tr>
+                <tr><td>目標値</td><td>現状 3.78% → <strong>2026年度目標 7.5%</strong></td></tr>
                 <tr><td>North Star</td><td>KANEBO 11.7% ／ アットコスメ 42.3%<span style="font-size:0.9em;color:#666;">（出典：@cosme公式料金メディアガイド 202604_202606_atcosmeBA_promotion.pdf）</span></td></tr>
             </tbody>
         </table>
 
-        <h2>3.6. 守備KPI：KPI定義と算出式（読み手向け注釈）</h2>
-        <p>各守備KPIが「何を意味し」「どう算出された数値か」を明示します。社内・先方の双方が同じ基準で進捗を確認できるようにするための定義集です。</p>
+        <h2>3.6. 全体KPI：KPI定義と算出式（読み手向け注釈）</h2>
+        <p>各全体KPIが「何を意味し」「どう算出された数値か」を明示します。社内・先方の双方が同じ基準で進捗を確認できるようにするための定義集です。</p>
 
         <h3>共通の前提条件</h3>
         <ul>
@@ -540,7 +581,7 @@
             <li><strong>比較期間:</strong> 競合との比較は全て <strong>2026年1月〜3月の3ヶ月（直近）</strong> に揃えている</li>
         </ul>
 
-        <h3><span class="badge badge-defense">守備KPI ①</span> ライブ視聴者数（リーチ指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ①</span> ライブ視聴者数（リーチ指標）</h3>
         <table>
             <thead><tr><th style="width: 25%;">項目</th><th>内容</th></tr></thead>
             <tbody>
@@ -552,7 +593,7 @@
             </tbody>
         </table>
 
-        <h3><span class="badge badge-defense">守備KPI ②</span> 平均視聴分数（リテンション指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ②</span> 平均視聴分数（リテンション指標）</h3>
         <table>
             <thead><tr><th style="width: 25%;">項目</th><th>内容</th></tr></thead>
             <tbody>
@@ -564,7 +605,7 @@
             </tbody>
         </table>
 
-        <h3><span class="badge badge-defense">守備KPI ③</span> 商品クリック率 / CTR（アクション指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ③</span> 商品クリック率 / CTR（アクション指標）</h3>
         <table>
             <thead><tr><th style="width: 25%;">項目</th><th>内容</th></tr></thead>
             <tbody>
@@ -576,7 +617,7 @@
             </tbody>
         </table>
 
-        <h3><span class="badge badge-defense">守備KPI ④</span> コメント参加率（エンゲージメント指標）</h3>
+        <h3><span class="badge badge-total">全体KPI ④</span> コメント参加率（エンゲージメント指標）</h3>
         <table>
             <thead><tr><th style="width: 25%;">項目</th><th>内容</th></tr></thead>
             <tbody>
@@ -611,15 +652,15 @@
         </div>
 
         <h2>4. KPI達成に向けたアクションプラン仮説（Next Step）</h2>
-        <p>直近分析によって「驚異的な集客力に反し、配信中の『引き留め』と『誘導』が全く機能していない」ことが明白となりました。これらを解決するための具体アクションです。<strong>4. リピーター育成施策</strong> が主KPI（リピーター系3指標）に直結する打ち手で、1〜3 は守備KPI（全視聴者系）を下支えする配信内施策です。</p>
+        <p>リーチ面では5,000人超の強みを築いてきた一方、配信中の「引き留め」と「誘導」には次の成長余地があります。これらを解決するための具体アクションです。<strong>4. リピーター育成施策</strong> が主KPI（リピーター系3指標）に直結する打ち手で、1〜3 は全体KPI（全視聴者系）を引き上げる配信内施策です。</p>
         <ol>
-            <li><strong>「魔の最初の3分」の対策（守備KPI②・平均視聴分数向上へ）</strong>
+            <li><strong>「魔の最初の3分」の対策（全体KPI②・平均視聴分数向上へ）</strong>
                 <p style="margin-top: 5px;">現状の平均視聴分数が3.09分のため、配信開始から3分以内に「今日紹介する目玉商品」や「最後まで見るともらえる特典等」を最も高い熱量で伝え、即座の離脱を防ぎます。</p>
             </li>
-            <li><strong>アクション誘導の「型」化（守備KPI③・商品クリック率向上へ）</strong>
+            <li><strong>アクション誘導の「型」化（全体KPI③・商品クリック率向上へ）</strong>
                 <p style="margin-top: 5px;">商品を紹介する際、<strong>「今表示されている〇〇のボタンから詳細が見れます。一旦カートに入れておいてください」</strong>と実演付きでアナウンスを義務化し、CTRの劇的改善を狙います。</p>
             </li>
-            <li><strong>冒頭・中盤での「簡易アンケート」実施（守備KPI④・コメント参加率向上へ）</strong>
+            <li><strong>冒頭・中盤での「簡易アンケート」実施（全体KPI④・コメント参加率向上へ）</strong>
                 <p style="margin-top: 5px;">「普段〇〇で悩んでる方、1を押して！」「どっちの色が好き？」など、タップだけで答えられる簡易的な投げかけを序盤に仕込み、参加（コメント）への心理的ハードルを下げます。</p>
             </li>
             <li><strong>リピーター育成施策（主KPI A・B・C の底上げへ・2.5 節結論と接続）</strong>
