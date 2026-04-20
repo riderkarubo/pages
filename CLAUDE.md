@@ -173,16 +173,41 @@ GitHub Pagesで公開されるHTMLファイル：
 ### ⚠️ 注意
 - 提案骨子フォルダのHTMLを編集しても、`mccm-proposal/` 配下を更新しないと公開URLに反映されない
 - **pre-commitフックは日本語パスのgrepで動作しない既知バグあり**（2026-04-14確認）→ 自動同期されない
-- 骨子HTMLを編集してcommit後は、**必ず手動で以下を実行**してから追いcommitする:
-  ```bash
-  # 統合版
-  cp "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html" mccm-proposal/index.html
-  # 分科会用
-  cp "01_年次報告会/提案骨子/01_提案書/分科会用資料_20260414.html" mccm-proposal/bunkakai/index.html
-  git add mccm-proposal/
-  git commit -m "mccm: 公開HTML同期"
-  ```
 - フックの根本修正は未対応（`core.quotepath false` 設定 or grep方式変更が必要）
+
+### 🔁 HTML編集ルーティーン（MANDATORY）
+
+**cp方式は禁止**（公開版に含まれる SSO 2行 `<script src="auth.js">` / `FireworkSSO.protect()` が消えるため）。以下の手順で必ず進める：
+
+1. **骨子版HTMLを編集**（正本）
+   - 統合版: `01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html`
+   - 分科会用: `01_年次報告会/提案骨子/01_提案書/分科会用資料_20260414.html`
+
+2. **公開版との差分確認**
+   ```bash
+   diff "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html" "mccm-proposal/index.html"
+   ```
+   → SSO2行とコンテンツ差分が両方見える。SSO2行は公開版のみに存在するため必ず残す。
+
+3. **公開版にも同じ変更を Edit ツールで反映**（cp不可）
+   - 骨子版で変更した箇所と同じ `old_string → new_string` を公開版にも適用
+   - 3箇所以上変わる場合は一つずつ Edit で順に差し替える
+
+4. **両ファイルの Last Updated を実時刻で更新**（必ず両方）
+   ```bash
+   date '+%Y年%-m月%-d日 %H:%M'
+   ```
+   → 出力結果を両ファイルの `<div class="value">` に貼る。思い込み・キリのいい時刻は禁止。
+
+5. **git add → commit → push**
+   ```bash
+   git add "mccm-proposal/index.html" "01_年次報告会/提案骨子/01_提案書/提案に向けた情報まとめ_統合版_20260414.html"
+   git commit -m "mccm: {変更内容}"
+   git push
+   ```
+
+### 分科会用HTMLの場合
+同じ手順で `mccm-proposal/bunkakai/index.html` と骨子版分科会用ファイルを両方更新する。SSO行のパスは `../auth.js`（1階層下のため）。
 
 ### 提案書HTML 大幅修正時の運用ルール
 - 旧版は削除せず `01_提案書/_old/{元名}_old.html` に mv で退避
