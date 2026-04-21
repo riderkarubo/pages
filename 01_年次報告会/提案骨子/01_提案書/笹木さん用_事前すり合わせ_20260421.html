@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツキヨココカラライブ 年次報告会 提案資料統合版 2026.04.14</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>">
+<meta name="description" content="マツキヨココカラライブ 年次報告会に向けた提案骨子・情報統合まとめ（2026年4月14日版・フィードバック反映）">
+<meta property="og:title" content="マツキヨココカラライブ 年次報告会 提案資料統合版">
+<meta property="og:description" content="年次報告会に向けた提案骨子・情報統合まとめ（2026年4月14日・FB反映版）">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riderkarubo.github.io/mccm-proposal/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="マツキヨココカラライブ 年次報告会 提案資料統合版">
+<meta name="twitter:description" content="年次報告会に向けた提案骨子・情報統合まとめ（2026年4月14日・FB反映版）">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
+
+  .page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* ===== COVER ===== */
+  .cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 60px; border-radius: 16px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 250px; height: 250px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #e94560; font-weight: 600; margin-bottom: 20px; }
+  .cover h1 { font-size: 32px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+  .cover-sub { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 40px; flex-wrap: wrap; }
+  .cover-meta-item { border-left: 2px solid #e94560; padding-left: 16px; }
+  .cover-meta-item .label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 14px; color: white; font-weight: 600; }
+
+  /* ===== PAGE NUMBER ===== */
+  .page-num { text-align: right; font-size: 11px; color: #bbb; margin-top: 24px; padding-top: 12px; border-top: 1px solid #f0f0f0; letter-spacing: 1px; }
+
+  /* ===== SECTION ===== */
+  .section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+  .section-badge { background: #1a1a2e; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .section-badge.red { background: #e94560; }
+  .section-badge.blue { background: #0f3460; }
+  .section-badge.green { background: #1b998b; }
+  .section-badge.orange { background: #e07a5f; }
+  .section-badge.gray { background: #6c757d; }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-subtitle { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* ===== KPI CARDS ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card { background: #f8f9fa; border-radius: 10px; padding: 20px; text-align: center; border-top: 3px solid #1a1a2e; }
+  .kpi-card.accent { border-top-color: #e94560; background: #fff5f7; }
+  .kpi-card.blue { border-top-color: #0f3460; background: #f0f4ff; }
+  .kpi-card.green { border-top-color: #1b998b; background: #f0faf8; }
+  .kpi-label { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .kpi-value { font-size: 22px; font-weight: 800; color: #1a1a2e; line-height: 1.2; }
+  .kpi-value span { font-size: 12px; font-weight: 400; color: #666; }
+  .kpi-note { font-size: 10px; color: #888; margin-top: 6px; }
+  .kpi-badge { display: inline-block; background: #e94560; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+  .kpi-badge.up { background: #1b998b; }
+
+  /* ===== TABLES ===== */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; letter-spacing: 0.5px; }
+  thead th.center { text-align: center; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9fa; }
+  tbody td { padding: 10px 14px; }
+  tbody td.center { text-align: center; }
+  tbody td.right { text-align: right; }
+  tbody tr.highlight { background: #fff8e1; font-weight: 600; }
+  tbody tr.total { background: #1a1a2e; color: white; font-weight: 700; }
+  tbody tr.total td { padding: 12px 14px; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.red { background: #ffe0e6; color: #c0392b; }
+  .tag.green { background: #d4f5ef; color: #1b998b; }
+  .tag.blue { background: #dce8ff; color: #0f3460; }
+  .tag.gray { background: #f0f0f0; color: #666; }
+  .tag.orange { background: #fde8e0; color: #c0522b; }
+
+  /* ===== FLOW ===== */
+  .flow { display: flex; align-items: center; gap: 0; margin: 20px 0; }
+  .flow-step { flex: 1; background: #f8f9fa; border-radius: 10px; padding: 16px; text-align: center; }
+  .flow-step.active { background: #1a1a2e; color: white; }
+  .flow-step .step-label { font-size: 10px; color: #888; letter-spacing: 1px; }
+  .flow-step.active .step-label { color: rgba(255,255,255,0.6); }
+  .flow-step .step-value { font-size: 16px; font-weight: 700; margin: 4px 0; }
+  .flow-step .step-sub { font-size: 11px; color: #888; }
+  .flow-step.active .step-sub { color: rgba(255,255,255,0.6); }
+  .flow-arrow { font-size: 20px; color: #ccc; padding: 0 8px; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #f0f0f0; }
+  .timeline-item { position: relative; margin-bottom: 20px; }
+  .timeline-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 10px; height: 10px; background: #ddd; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px #ddd; }
+  .timeline-item.milestone::before { background: #e94560; box-shadow: 0 0 0 2px #e94560; }
+  .timeline-date { font-size: 11px; color: #888; font-weight: 600; margin-bottom: 2px; }
+  .timeline-content { font-size: 13px; color: #333; }
+  .timeline-content strong { color: #1a1a2e; }
+
+  /* ===== ASSETS GRID ===== */
+  .assets-grid { display: grid; grid-template-columns: repeat(3, 1fr) repeat(2, 1fr); gap: 12px; }
+  .asset-card { background: #f8f9fa; border-radius: 10px; padding: 16px; border-left: 4px solid #1a1a2e; }
+  .asset-card:nth-child(1) { border-color: #e94560; }
+  .asset-card:nth-child(2) { border-color: #0f3460; }
+  .asset-card:nth-child(3) { border-color: #1b998b; }
+  .asset-card:nth-child(4) { border-color: #e07a5f; }
+  .asset-card:nth-child(5) { border-color: #f2c14e; }
+  .asset-card:nth-child(6) { border-color: #8b5cf6; }
+  .asset-card:nth-child(7) { border-color: #06b6d4; }
+  .asset-no { font-size: 10px; color: #888; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .asset-name { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .asset-value { font-size: 12px; color: #444; }
+
+  /* ===== KPI TARGETS ===== */
+  .kpi-target-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .kpi-target-card { background: #f8f9fa; border-radius: 10px; padding: 20px; position: relative; overflow: hidden; }
+  .kpi-target-card::after { content: ''; position: absolute; right: -20px; top: -20px; width: 100px; height: 100px; background: rgba(0,0,0,0.03); border-radius: 50%; }
+  .kpi-target-card .now { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .kpi-target-card .now-val { font-size: 24px; font-weight: 800; color: #1a1a2e; }
+  .kpi-target-card .kpi-name { font-size: 12px; font-weight: 700; color: #1a1a2e; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; margin-bottom: 12px; }
+  .kpi-target-card .north-star { font-size: 11px; color: #888; margin-top: 8px; }
+
+  /* ===== BENCHMARK ===== */
+  .bench-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .bench-label { width: 160px; font-size: 12px; color: #444; flex-shrink: 0; }
+  .bench-bar-wrap { flex: 1; background: #f0f0f0; border-radius: 4px; height: 20px; position: relative; }
+  .bench-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 700; color: white; transition: width 0.3s; }
+  .bench-val { width: 80px; font-size: 12px; font-weight: 700; text-align: right; flex-shrink: 0; }
+
+  /* ===== TODO ===== */
+  .todo-section { margin-bottom: 24px; }
+  .todo-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .todo-badge { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+  .todo-badge.blocker { background: #ffe0e6; color: #c0392b; }
+  .todo-badge.self { background: #fff3cd; color: #856404; }
+  .todo-badge.ready { background: #d4f5ef; color: #1b998b; }
+  .todo-title { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+  .todo-desc { font-size: 12px; color: #888; }
+  .todo-table table thead tr { background: #f0f0f0; }
+  .todo-table table thead th { color: #333; }
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .checklist li:last-child { border-bottom: none; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #ddd; border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+  .checklist li .item-desc { color: #666; font-size: 11px; margin-top: 2px; }
+
+  /* ===== STRATEGY ===== */
+  .strategy-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; }
+  .strategy-card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 28px; background: #fff; }
+  .strategy-card .priority { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px; }
+  .strategy-card .priority.high { background: #ffe0e6; color: #c0392b; }
+  .strategy-card .priority.mid { background: #fff3cd; color: #856404; }
+  .strategy-card .title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 10px; }
+  .strategy-card .desc { font-size: 13px; color: #555; line-height: 1.8; }
+  .strategy-card .evidence { font-size: 11px; color: #1b998b; margin-top: 10px; padding: 8px 12px; background: #f0faf8; border-radius: 6px; }
+  .strategy-card .sub-list { margin-top: 14px; padding: 14px 18px; background: #f8f9fa; border-left: 3px solid #1a1a2e; border-radius: 0 8px 8px 0; }
+  .strategy-card .sub-list-title { font-size: 11px; font-weight: 700; color: #888; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+  .strategy-card .sub-list ul { list-style: none; }
+  .strategy-card .sub-list ul li { font-size: 12px; color: #444; padding: 5px 0 5px 18px; position: relative; line-height: 1.6; }
+  .strategy-card .sub-list ul li::before { content: '▸'; position: absolute; left: 0; color: #e94560; font-weight: 700; }
+  .strategy-card.policy-1 { border-left: 6px solid #e94560; }
+  .strategy-card.policy-2 { border-left: 6px solid #0f3460; }
+  .strategy-card.policy-3 { border-left: 6px solid #1b998b; }
+  .policy-num { display: inline-block; width: 32px; height: 32px; background: #1a1a2e; color: #fff; border-radius: 50%; text-align: center; line-height: 32px; font-weight: 800; font-size: 14px; margin-right: 10px; vertical-align: middle; }
+
+  /* ===== MISC ===== */
+  .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .note.warning { border-left-color: #e94560; background: #fff5f7; color: #c0392b; }
+  .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
+  .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
+  h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 20px 0 12px; }
+  h4 { font-size: 13px; font-weight: 700; color: #444; margin: 16px 0 8px; }
+  p { margin: 8px 0; color: #444; }
+  .highlight-box { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border-radius: 10px; padding: 24px; margin: 16px 0; }
+  .highlight-box .main { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .highlight-box .sub { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .col-box { background: #f8f9fa; border-radius: 10px; padding: 16px; }
+  .col-box .col-title { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .col-box ul { list-style: none; }
+  .col-box ul li { font-size: 12px; color: #555; padding: 3px 0; padding-left: 14px; position: relative; }
+  .col-box ul li::before { content: '•'; position: absolute; left: 0; color: #e94560; }
+  .discussion-list { list-style: none; counter-reset: disc-counter; }
+  .discussion-list li { counter-increment: disc-counter; display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+  .discussion-list li:last-child { border-bottom: none; }
+  .discussion-list li::before { content: counter(disc-counter); min-width: 28px; height: 28px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .discussion-list .disc-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .discussion-list .disc-desc { font-size: 12px; color: #666; }
+  .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 13px; }
+  .toc-item a { display: flex; align-items: center; gap: 12px; width: 100%; text-decoration: none; color: inherit; border-radius: 6px; padding: 2px 4px; transition: background 0.15s; }
+  .toc-item a:hover { background: #e8eaf0; }
+  .toc-num { width: 24px; height: 24px; background: #1a1a2e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .toc-time { margin-left: auto; font-size: 11px; color: #888; white-space: nowrap; }
+  tr.done { opacity: 0.4; }
+  .kpi-confirmed { background: linear-gradient(135deg, #1b998b 0%, #0f3460 100%); color: #fff; border-radius: 14px; padding: 32px 36px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(27,153,139,0.25); }
+  .kpi-confirmed .label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-transform: uppercase; margin-bottom: 10px; }
+  .kpi-confirmed .main { font-size: 26px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .kpi-confirmed .num { font-size: 32px; color: #ffd166; }
+  .kpi-confirmed .sub { font-size: 13px; color: rgba(255,255,255,0.8); }
+
+  /* ===== DELETED / GRAYED-OUT ===== */
+  .deleted-section { background: #fafafa; border: 1px dashed #ccc; border-radius: 12px; padding: 32px; margin-bottom: 24px; opacity: 0.55; }
+  .deleted-section * { color: #888 !important; }
+  .deleted-section .deleted-label { display: inline-block; font-size: 11px; font-weight: 700; color: #999; background: #e0e0e0; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; margin-bottom: 16px; }
+  .deleted-section h3 { color: #888 !important; }
+  .deleted-section ul { padding-left: 20px; }
+  .deleted-section li { padding: 4px 0; font-size: 12px; }
+
+  @media print {
+    /* 全要素で背景色・画像を強制印刷（Chromeの「背景のグラフィック」OFF時でも色を保持） */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    @page { size: A4; margin: 10mm; }
+    .page { padding: 0; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; page-break-inside: avoid; }
+    .slide, section { page-break-inside: avoid; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-label">Annual Report · Proposal</div>
+  <h1>マツキヨココカラライブ<br>年次報告会 提案資料</h1>
+  <div class="cover-sub">2025年度 資産価値報告 × 2026年度 戦略提案</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Date</div>
+      <div class="value">2026年4月14日</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Last Updated</div>
+      <div class="value">2026年4月21日 10:56</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Prepared by</div>
+      <div class="value">Firework</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Status</div>
+      <div class="value">笹木さん事前すり合わせ用</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge gray">INDEX</div>
+    <div>
+      <div class="section-title">目次 · アジェンダ</div>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-item"><a href="#sec-exec"><div class="toc-num">1</div><span>エグゼクティブサマリ</span><div class="toc-time">00:00－00:05（5分）</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar1"><div class="toc-num">2</div><span>2025年度総括 ― 資産価値の報告</span><div class="toc-time">00:00－00:05（5分）</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar2"><div class="toc-num">3</div><span>2026年度 KPIご提案</span><div class="toc-time">00:05－00:15（10分）</div></a></div>
+    <div class="toc-item" style="padding-left: 32px;"><a href="#sec-benchmark"><div class="toc-num" style="background:#6c757d; font-size:9px;">↳</div><span style="color:#666;">競合ベンチマーク（A社〜D社）</span><div class="toc-time">参考資料</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar3"><div class="toc-num">4</div><span>主要KPI達成に向けた2026年度の戦略と2本柱</span><div class="toc-time">00:15－00:30（15分）</div></a></div>
+    <div class="toc-item"><a href="#sec-discussion"><div class="toc-num">5</div><span>ディスカッション議題</span><div class="toc-time">00:30－00:45（15分）</div></a></div>
+    <div class="toc-item"><a href="#sec-sb"><div class="toc-num">6</div><span>SBパート</span><div class="toc-time">00:45－01:00（15分）</div></a></div>
+  </div>
+  <div class="note info" style="margin-top: 16px;">
+    ✉️ <strong>関連資料：</strong>A3/A5/A6/A7/A11は本資料から分離し、<strong><a href="./bunkakai/" style="color:#0f3460; text-decoration:underline; font-weight:700;">分科会用資料</a></strong>に移設しました。<br>
+    🔗 公開URL：<a href="https://riderkarubo.github.io/pages/mccm-proposal/bunkakai/" style="color:#0f3460; text-decoration:underline;">https://riderkarubo.github.io/pages/mccm-proposal/bunkakai/</a>
+  </div>
+  <div class="page-num">P.1 / 9</div>
+</div>
+
+<!-- ===== EXEC SUMMARY ===== -->
+<div class="section" id="sec-exec">
+  <div class="section-header">
+    <div class="section-badge">EXEC SUMMARY</div>
+    <div>
+      <div class="section-title">エグゼクティブサマリ</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="main">「マツキヨココカラライブは、配信する媒体から資産を積み上げるプラットフォームへと進化した。」</div>
+    <div class="sub">2024〜2025年度の累計で総視聴200万人超・91回の配信を達成。1回の配信が1ヶ月後に2〜3倍のリーチを生み続けるストック型資産へ。</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card accent">
+      <div class="kpi-label">2024年度〜現在 累計視聴（ライブ＋アーカイブ）</div>
+      <div class="kpi-value">200万<span>人超</span></div>
+      <div class="kpi-note">2024年度 578,567人 ＋ 2025年度 1,440,000人</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">累計 協賛売上（2024〜2025年度）</div>
+      <div class="kpi-value">2,935<span>万円</span></div>
+      <div class="kpi-note">2024年度 1,432万円 ＋ 2025年度 1,487万円</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">配信回数（2024〜2025年度 累計）</div>
+      <div class="kpi-value">91<span>回</span></div>
+      <div class="kpi-note">2024年度開始〜2025年度までの累計配信数</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">平均視聴者数（2025年度）</div>
+      <div class="kpi-value">5,860<span>人/回</span></div>
+      <div class="kpi-note">前年比 +52%（前年 3,857人）</div>
+    </div>
+  </div>
+  <div class="page-num">P.2 / 9</div>
+</div>
+
+<!-- ===== PILLAR 1 ===== -->
+<div class="section" id="sec-pillar1">
+  <div class="section-header">
+    <div class="section-badge red">① 5分</div>
+    <div>
+      <div class="section-title">2025年度総括 ― 1年間で積み上げた「資産価値」</div>
+      <div class="section-subtitle">出典：マスターデータ・協賛実績xlsx・SNS数値CSV</div>
+    </div>
+  </div>
+
+  <h3>年度別 視聴者数推移</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>期間</th>
+        <th class="center">ライブ累計</th>
+        <th class="center">前年比</th>
+        <th class="center">アーカイブ累計</th>
+        <th class="center">前年比</th>
+        <th class="center">合計</th>
+        <th class="center">前年比</th>
+        <th class="center">1回平均（ライブ）</th>
+        <th class="center">前年比</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2024年度（2024.4〜2025.3）</td>
+        <td class="center">169,725人</td>
+        <td class="center">—</td>
+        <td class="center">408,842人</td>
+        <td class="center">—</td>
+        <td class="center">578,567人</td>
+        <td class="center">—</td>
+        <td class="center">3,857人</td>
+        <td class="center">—</td>
+      </tr>
+      <tr class="highlight">
+        <td>2025年度（2025.4〜2026.3）</td>
+        <td class="center">860,000人</td>
+        <td class="center"><span class="tag green">+407%</span></td>
+        <td class="center">580,000人</td>
+        <td class="center"><span class="tag green">+42%</span></td>
+        <td class="center">1,440,000人</td>
+        <td class="center"><span class="tag green">+149%</span></td>
+        <td class="center"><strong>5,860人</strong></td>
+        <td class="center"><span class="tag green">+52%</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note">※ 前年比は2024年度実績との比較。</div>
+
+  <h3>年度別 協賛実績</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>期間</th>
+        <th class="center">協賛実施回数</th>
+        <th class="center">前年比</th>
+        <th class="right">売上合計</th>
+        <th class="center">前年比</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2024年度（2024.4〜2025.3）</td>
+        <td class="center">18回</td>
+        <td class="center">—</td>
+        <td class="right">14,320,290円</td>
+        <td class="center">—</td>
+        <td><strong>単価300万円を2件受注</strong>（ブランドジャック型）／基本単価は50万円</td>
+      </tr>
+      <tr class="highlight">
+        <td>2025年度（2025.4〜2026.3）</td>
+        <td class="center">26回</td>
+        <td class="center"><span class="tag green">+44%</span></td>
+        <td class="right">14,868,840円</td>
+        <td class="center"><span class="tag green">+4%</span></td>
+        <td>基本単価50万円（+従量課金）</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note info">
+    💡 <strong>ポイント：</strong>2024年度は高単価案件2件（300万円／件）で売上を積み上げた年。2025年度は件数ベース（26回）で受注を安定化させ、売上はほぼ横ばい維持。<strong>2026年度は件数KPI確定（48件/年）＋単価見直しでトップライン成長を目指す</strong>（詳細：A9）。
+  </div>
+
+  <h3>マイルストーン</h3>
+  <div class="timeline">
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年4月</div>
+      <div class="timeline-content"><strong>本格稼働スタート</strong></div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年6月5日</div>
+      <div class="timeline-content"><strong>1社協賛 初回配信実施（melt）</strong></div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年8月</div>
+      <div class="timeline-content"><strong>オンラインサイトのフローティング表示導入により視聴者数が急増</strong>（5月平均約300人→8月以降5,000人超）</div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2024年8月19日</div>
+      <div class="timeline-content"><strong>ブランド横断型 初回配信実施</strong>（売れ筋ナプキン徹底比較 / ユニ・チャーム協賛）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024年11月</div>
+      <div class="timeline-content">毎月メーカー協賛を安定獲得する体制を確立</div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2025年10月</div>
+      <div class="timeline-content"><strong>第2期出演者オーディションにより新メンバー3名加入（1期生含め計10名）</strong></div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2025年10月28日</div>
+      <div class="timeline-content"><strong>LIPSコラボ 初回配信実施（KATE）</strong></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026年1月〜5月</div>
+      <div class="timeline-content">内製化レクチャー開始（全5回）</div>
+    </div>
+    <div class="timeline-item milestone">
+      <div class="timeline-date">2026年度 目標</div>
+      <div class="timeline-content"><strong>アプリ内ライブLP導線の改修により視聴者数増加予定</strong></div>
+    </div>
+  </div>
+
+  <h3>7つの経営資産</h3>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr) repeat(2, 1fr); gap: 12px;">
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 01</div>
+      <div class="asset-name">視聴者資産</div>
+      <div class="asset-value">累計約144万人<br>アーカイブが3.3倍に拡張</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 02</div>
+      <div class="asset-name">コンテンツ資産</div>
+      <div class="asset-value">91回<br>配信後もアーカイブとして蓄積</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 03</div>
+      <div class="asset-name">メーカー関係資産</div>
+      <div class="asset-value">約19社（のべ）・累計44回<br>月4〜5回広告販売できる体制の構築</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 04</div>
+      <div class="asset-name">データ資産</div>
+      <div class="asset-value">CDP上に蓄積中<br>視聴者ID×会員ID突合</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 05</div>
+      <div class="asset-name">ノウハウ資産</div>
+      <div class="asset-value">内製化レクチャー全5回<br>（2026年1月〜5月実施）</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 06</div>
+      <div class="asset-name">出演者資産</div>
+      <div class="asset-value">育成された出演者 計10名<br>（第2期オーディションで3名追加）</div>
+    </div>
+    <div class="asset-card" style="grid-column: span 1;">
+      <div class="asset-no">資産 07</div>
+      <div class="asset-name">パートナー資産</div>
+      <div class="asset-value">LIPSとの連携によるリテールメディア強化<br>（メニュー化済み）</div>
+    </div>
+  </div>
+
+  <div class="page-num">P.3 / 9</div>
+</div>
+
+<!-- ===== PILLAR 2 ===== -->
+<div class="section" id="sec-pillar2">
+  <div class="section-header">
+    <div class="section-badge blue">② 10分</div>
+    <div>
+      <div class="section-title">2026年度 KPIご提案</div>
+      <div class="section-subtitle">確定KPIを起点に、競合ベンチマークで現状ポジションを示す</div>
+    </div>
+  </div>
+
+  <!-- ★主要KPI（暫定目標）— 先頭に配置 -->
+  <div class="kpi-confirmed">
+    <div class="label">2026年度 主要KPI（暫定目標）</div>
+    <div class="main">協賛配信 受注件数：<span class="num">月平均4件 / 年間48件</span></div>
+    <div class="main" style="font-size: 20px; margin-top: 4px;">売上換算：<span class="num">2,400万円</span>（1件あたり50万円換算）</div>
+    <div style="margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div style="background: rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 16px;">
+        <div style="font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 1px;">2026年度進捗（※4/30更新予定）</div>
+        <div style="font-size: 20px; font-weight: 800; color: #ffd166; margin-top: 4px;">7<span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8);"> 件</span></div>
+        <div style="font-size: 9px; color: rgba(255,255,255,0.55); margin-top: 4px;">※5月以降配信含む</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 16px;">
+        <div style="font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 1px;">2026年度進捗 売上（※先方共有待ち）</div>
+        <div style="font-size: 20px; font-weight: 800; color: #ffd166; margin-top: 4px;">◯<span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8);"> 万円</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-bottom: 16px;">※ 本目標は現時点の暫定値です。本資料の競合ベンチマーク分析を踏まえ、最適なKPI体系を改めてご提案します。</div>
+
+  <!-- KPIツリー（売上構造の分解） -->
+  <h3>協賛配信の売上構造</h3>
+  <div style="background: #f8f9fa; border-radius: 12px; padding: 28px; margin-bottom: 20px;">
+    <!-- Level 0: 売上 -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <div style="display: inline-block; background: #0f3460; color: white; padding: 12px 32px; border-radius: 8px; font-size: 16px; font-weight: 800; letter-spacing: 1px;">売上</div>
+    </div>
+    <!-- 分岐線 -->
+    <div style="display: flex; justify-content: center; margin-bottom: 0;">
+      <div style="width: 2px; height: 20px; background: #0f3460;"></div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 0;">
+      <div style="flex: 1; max-width: 220px; height: 2px; background: #0f3460;"></div>
+      <div style="background: #e5e7eb; color: #555; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 4px;">×</div>
+      <div style="flex: 1; max-width: 220px; height: 2px; background: #0f3460;"></div>
+    </div>
+    <!-- Level 1: 受注件数 × 受注単価 -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 0;">
+      <!-- 受注件数 -->
+      <div>
+        <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 16px; background: #0f3460;"></div></div>
+        <div style="background: white; border: 2px solid #0f3460; border-radius: 10px; padding: 16px; text-align: center;">
+          <div style="font-size: 14px; font-weight: 700; color: #0f3460;">受注件数</div>
+        </div>
+        <!-- Level 2 分岐 -->
+        <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 14px; background: #999;"></div></div>
+        <div style="display: flex; justify-content: center;">
+          <div style="flex: 1; max-width: 100px; height: 2px; background: #999;"></div>
+          <div style="background: #e5e7eb; color: #555; font-size: 10px; font-weight: 700; padding: 1px 8px; border-radius: 4px;">×</div>
+          <div style="flex: 1; max-width: 100px; height: 2px; background: #999;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0;">
+          <div>
+            <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 10px; background: #999;"></div></div>
+            <div style="background: #f0faf8; border: 1px solid #1b998b; border-radius: 8px; padding: 10px; text-align: center;">
+              <div style="font-size: 10px; color: #888; margin-bottom: 2px;">KPI</div>
+              <div style="font-size: 12px; font-weight: 700; color: #1b998b;">商談件数</div>
+              <div style="font-size: 10px; color: #888; margin-top: 4px;">貴社セールス設計</div>
+            </div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 10px; background: #999;"></div></div>
+            <div style="background: #fff5f7; border: 1px solid #e94560; border-radius: 8px; padding: 10px; text-align: center;">
+              <div style="font-size: 10px; color: #888; margin-bottom: 2px;">KPI</div>
+              <div style="font-size: 12px; font-weight: 700; color: #e94560;">受注率</div>
+            </div>
+            <!-- 受注率の下位ツリー -->
+            <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 10px; background: #e94560;"></div></div>
+            <div style="background: #fff0f3; border: 1px dashed #e94560; border-radius: 6px; padding: 8px; text-align: center;">
+              <div style="font-size: 10px; font-weight: 700; color: #e94560;">▲ コンテンツ品質向上</div>
+              <div style="font-size: 10px; font-weight: 700; color: #e94560; margin-top: 2px;">▲ メディアパワー向上</div>
+              <div style="font-size: 9px; color: #e94560; margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(233,69,96,0.2);">Fireworkがサポート</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 受注単価 -->
+      <div>
+        <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 16px; background: #0f3460;"></div></div>
+        <div style="background: white; border: 2px solid #0f3460; border-radius: 10px; padding: 16px; text-align: center;">
+          <div style="font-size: 14px; font-weight: 700; color: #0f3460;">受注単価</div>
+        </div>
+        <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 14px; background: #999;"></div></div>
+        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; text-align: center;">
+          <div style="font-size: 11px; line-height: 1.7; color: #555;">エンゲージメントが高く<br>「ここに広告出稿したい」と<br>思わせるメディアであれば<br>単価を引き上げられる</div>
+        </div>
+        <div style="display: flex; justify-content: center;"><div style="width: 2px; height: 10px; background: #e94560;"></div></div>
+        <div style="background: #fff0f3; border: 1px dashed #e94560; border-radius: 6px; padding: 8px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: #e94560;">▲ コンテンツ品質向上</div>
+          <div style="font-size: 10px; font-weight: 700; color: #e94560; margin-top: 2px;">▲ メディアパワー向上</div>
+          <div style="font-size: 9px; color: #e94560; margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(233,69,96,0.2);">Fireworkがサポート</div>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top: 16px; font-size: 11px;">
+      💡 商談件数の拡大は貴社で設計いただき、Fireworkは<strong>受注率と受注単価を押し上げるためのコンテンツ・メディア強化</strong>に集中します。以下のKPI目標は、このメディアパワー向上をトラッキングするための指標です。
+    </div>
+  </div>
+
+  <h3>メディアパワーをトラッキングするKPI（直近実績 → 2026年度目標）</h3>
+  <div class="kpi-target-grid">
+    <div class="kpi-target-card" style="border-left: 4px solid #0f3460;">
+      <div class="kpi-name">① ライブ視聴者数（リーチ指標・最大値ベース）</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end;">
+        <div>
+          <div class="now">直近3ヶ月平均</div>
+          <div class="now-val">6,192<span style="font-size: 13px; font-weight: 600;">人</span></div>
+        </div>
+        <div style="border-left: 2px solid #e0e0e0; padding-left: 12px;">
+          <div class="now" style="color: #e94560;">2026年度目標</div>
+          <div class="now-val" style="color: #e94560;">10,000<span style="font-size: 13px; font-weight: 600;">人</span></div>
+        </div>
+      </div>
+      <div style="margin-top: 10px; font-size: 11px; color: #555;">ギャップ：<strong style="color: #e94560;">+3,808人</strong></div>
+      <div class="north-star">業界上位の高水準。直近3ヶ月は6,000人台で安定、最大10,000人を目指す。</div>
+    </div>
+    <div class="kpi-target-card" style="border-left: 4px solid #e94560;">
+      <div class="kpi-name">② 平均視聴分数（リテンション指標）</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end;">
+        <div>
+          <div class="now">直近3ヶ月平均</div>
+          <div class="now-val">3.7<span style="font-size: 13px; font-weight: 600;">分</span></div>
+        </div>
+        <div style="border-left: 2px solid #e0e0e0; padding-left: 12px;">
+          <div class="now" style="color: #e94560;">2026年度目標</div>
+          <div class="now-val" style="color: #e94560;">7<span style="font-size: 13px; font-weight: 600;">分</span></div>
+        </div>
+      </div>
+      <div style="margin-top: 10px; font-size: 11px; color: #555;">ギャップ：<strong style="color: #e94560;">+3.3分</strong></div>
+      <div class="north-star">エンゲージメント改善でさらに突き抜けられる。リピーター中心設計で改善の余地が大きい。</div>
+    </div>
+    <div class="kpi-target-card" style="border-left: 4px solid #e07a5f;">
+      <div class="kpi-name">③ 商品クリック率 / CTR（アクション指標・中央値ベース）</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end;">
+        <div>
+          <div class="now">2025年平均</div>
+          <div class="now-val">1.13<span style="font-size: 13px; font-weight: 600;">%</span></div>
+        </div>
+        <div style="border-left: 2px solid #e0e0e0; padding-left: 12px;">
+          <div class="now" style="color: #e94560;">2026年度目標</div>
+          <div class="now-val" style="color: #e94560;">2.2<span style="font-size: 13px; font-weight: 600;">%</span></div>
+        </div>
+      </div>
+      <div style="margin-top: 10px; font-size: 11px; color: #555;">ギャップ：<strong style="color: #e94560;">+1.07pt</strong></div>
+      <div class="north-star">エンゲージメント改善でさらに突き抜けられる。クーポン・限定訴求・CTR誘導設計で改善余地あり。</div>
+    </div>
+    <div class="kpi-target-card" style="border-left: 4px solid #1b998b;">
+      <div class="kpi-name">④ コメント参加率（エンゲージメント指標・中央値ベース）</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end;">
+        <div>
+          <div class="now">2025年平均</div>
+          <div class="now-val">約0.68<span style="font-size: 13px; font-weight: 600;">%</span></div>
+        </div>
+        <div style="border-left: 2px solid #e0e0e0; padding-left: 12px;">
+          <div class="now" style="color: #e94560;">2026年度目標</div>
+          <div class="now-val" style="color: #e94560;">1.0<span style="font-size: 13px; font-weight: 600;">%</span></div>
+        </div>
+      </div>
+      <div style="margin-top: 10px; font-size: 11px; color: #555;">ギャップ：<strong style="color: #e94560;">+0.32pt</strong></div>
+      <div class="north-star">エンゲージメント改善でさらに突き抜けられる。参加型コンテンツ強化で改善余地あり。</div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-top: 16px;">
+    💡 <strong>データ出典：</strong>直近3ヶ月平均は2026年3月分科会資料（12月・1月・2月実績）を基に算出（平均値ベース）。2026年度目標値は分科会資料「2026年目標数値進捗」に準拠し、視聴者数は最大値、CTR・コメント率は中央値を基準に設定。直近値は平均値ベースのため、目標基準（最大値／中央値）とは集計方法が異なる点に留意。
+  </div>
+
+  <!-- 競合調査の前フリ -->
+  <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e8edf8 100%); border: 1px solid #c5d0e6; border-radius: 12px; padding: 24px 28px; margin-bottom: 24px; text-align: center;">
+    <div style="font-size: 11px; letter-spacing: 2px; color: #0f3460; font-weight: 600; margin-bottom: 8px;">COMPETITIVE BENCHMARK</div>
+    <div style="font-size: 16px; font-weight: 700; color: #1a1a2e; line-height: 1.6;">2026年度のライブ配信にかかわるKPI再提案にむけて<br>ご要望いただいた競合調査を実施いたしました。</div>
+  </div>
+
+  <h3 id="sec-benchmark">競合ベンチマーク（60分換算・2026.1-3実績）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ブランド / 配信タイプ</th>
+        <th class="center">実績配信数</th>
+        <th class="center">平均配信時間</th>
+        <th class="center">視聴者数<br>（60分換算）</th>
+        <th class="center">平均視聴分数<br>（60分換算）</th>
+        <th class="center">商品CTR<br>（60分換算）</th>
+        <th class="center">コメント率<br>（60分換算）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>マツキヨココカラライブ</strong></td>
+        <td class="center">10回</td>
+        <td class="center">64.2分</td>
+        <td class="center"><strong>5,084人</strong> <span class="tag green">業界2位・高水準</span></td>
+        <td class="center">3.1分 <span class="tag red">さらに伸ばせる</span></td>
+        <td class="center">1.0% <span class="tag red">さらに伸ばせる</span></td>
+        <td class="center">0.8% <span class="tag red">さらに伸ばせる</span></td>
+      </tr>
+      <tr>
+        <td>A社（リテール）</td>
+        <td class="center">13回</td>
+        <td class="center">74.8分</td>
+        <td class="center">2,494人</td>
+        <td class="center">24.3分</td>
+        <td class="center">29.4% <span class="tag green">首位</span></td>
+        <td class="center">33.4% <span class="tag green">首位</span></td>
+      </tr>
+      <tr>
+        <td>B社（コスメブランド）</td>
+        <td class="center">23回</td>
+        <td class="center">81.1分</td>
+        <td class="center">6,958人 <span class="tag green">首位</span></td>
+        <td class="center">11.8分</td>
+        <td class="center">8.2%</td>
+        <td class="center">5.1%</td>
+      </tr>
+      <tr>
+        <td>C社（コスメブランド）</td>
+        <td class="center">4回</td>
+        <td class="center">63.0分</td>
+        <td class="center">1,458人</td>
+        <td class="center">28.2分 <span class="tag green">首位</span></td>
+        <td class="center">11.7%</td>
+        <td class="center">9.1%</td>
+      </tr>
+      <tr>
+        <td>D社（メーカー）</td>
+        <td class="center">3回</td>
+        <td class="center">51.5分</td>
+        <td class="center">871人</td>
+        <td class="center">9.9分</td>
+        <td class="center">5.3%</td>
+        <td class="center">4.4%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note">※ 全数値は配信時間60分あたりに換算（正規化）。A社はオープン企画型のみ集計（クローズド体験会は除外）。社名はA〜D社で表記（A社＝リテール／B社・C社＝コスメブランド／D社＝メーカー）。</div>
+
+  <h3>各社の運用開始時期・配信頻度</h3>
+  <table>
+    <colgroup>
+      <col style="width: 28%;">
+      <col style="width: 22%;">
+      <col style="width: 18%;">
+      <col style="width: 32%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ブランド</th>
+        <th class="center">運用開始</th>
+        <th class="center">運用年数</th>
+        <th class="center">配信頻度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>マツキヨココカラライブ</strong></td>
+        <td class="center">2024年4月</td>
+        <td class="center">約2年</td>
+        <td class="center">毎週火曜</td>
+      </tr>
+      <tr>
+        <td>A社（リテール）</td>
+        <td class="center">2021年12月</td>
+        <td class="center">約4年4ヶ月</td>
+        <td class="center">毎週金曜20時</td>
+      </tr>
+      <tr>
+        <td>B社（コスメブランド）</td>
+        <td class="center">2021年4月</td>
+        <td class="center">約5年</td>
+        <td class="center">週2回（月6回超）</td>
+      </tr>
+      <tr>
+        <td>C社（コスメブランド）</td>
+        <td class="center">2023年</td>
+        <td class="center">約3年</td>
+        <td class="center">月1回程度</td>
+      </tr>
+      <tr>
+        <td>D社（メーカー）</td>
+        <td class="center">2024年12月</td>
+        <td class="center">約1年4ヶ月</td>
+        <td class="center">月1回程度</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note">※ 運用開始・運用年数は各社の公開情報ベース。</div>
+
+  <!-- なぜ各指標に差がつくのか：リピーター比率 -->
+  <h3>なぜ各指標に差がつくのか：リピーター比率の影響</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ブランド</th>
+        <th class="center">リピーター比率</th>
+        <th class="center">リピーターCTR</th>
+        <th class="center">リピーター視聴分</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A社(リテール)</td>
+        <td class="center"><strong>50.5%</strong> <span class="tag green">首位</span></td>
+        <td class="center">49.4%</td>
+        <td class="center">24.0分</td>
+      </tr>
+      <tr>
+        <td>C社(コスメブランド)</td>
+        <td class="center"><strong>43.1%</strong></td>
+        <td class="center">14.3%</td>
+        <td class="center">38.2分</td>
+      </tr>
+      <tr>
+        <td>B社(コスメブランド)</td>
+        <td class="center">17.3%</td>
+        <td class="center">25.0%</td>
+        <td class="center">23.3分</td>
+      </tr>
+      <tr>
+        <td>D社(メーカー)</td>
+        <td class="center">16.5%</td>
+        <td class="center">5.3%</td>
+        <td class="center">12.1分</td>
+      </tr>
+      <tr class="mccm">
+        <td><strong>マツキヨココカラライブ</strong></td>
+        <td class="center"><strong>5.0%</strong> ⚠️最下位</td>
+        <td class="center">3.87%</td>
+        <td class="center">7.9分</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="highlight-box" style="background: #fff5f7; border-left: 4px solid #c0392b; margin-bottom: 16px; color: #1a1a2e;">
+    <div class="sub" style="line-height: 1.8; color: #1a1a2e;">
+      <strong style="color: #c0392b;">読み解き：</strong>リピーター比率が高い企業ほどCTR・視聴分数も高い。マツキヨココカラライブの各指標が競合最弱な最大の要因は、<strong>リピーター比率5.0%(業界最下位・首位の1/10)という"常連客不在"の構造</strong>にある。
+    </div>
+  </div>
+  <div class="note">※ 全5社のFirework由来実測値(2026.1-3)。リピーター＝同一期間中に2回以上視聴した視聴者。</div>
+
+  <h3 style="margin-top: 24px;">競合ベンチマークからわかったこと</h3>
+  <div class="highlight-box" style="background: #f0f4ff; border-left: 4px solid #0f3460; margin-bottom: 16px; color: #1a1a2e;">
+    <div class="main" style="font-size: 15px; color: #0f3460;">すでに国内大手と比べてもトップクラス。エンゲージメントが改善すれば、さらに頭一つ抜けられる</div>
+    <div class="sub" style="margin-top: 8px; line-height: 2; color: #1a1a2e;">
+      ✅ <strong>視聴者数（リーチ）は業界上位・高水準</strong>。5,000人超を安定確保し、B社（首位）に次ぐポジション。<br>
+      ✅ <strong>アーカイブ資産</strong>が1ヶ月後に3.3倍拡大する「ストック型メディア」の強みは競合にない独自優位性。<br>
+      ✅ <strong>CDP（会員ID突合）</strong>によるデータ基盤はリテールメディアとして希少な武器。<br>
+      ✅ <strong>毎週メーカー協賛配信を実施</strong>できている配信頻度は、業界最高峰水準と推定される。<br>
+      → <strong>エンゲージメント（視聴分数・CTR・コメント率）が改善すれば、さらに突き抜けられるポジションにいる。</strong>
+    </div>
+  </div>
+
+  <h3>競合比較：他社の強み</h3>
+  <table>
+    <colgroup>
+      <col style="width: 20%;">
+      <col style="width: 80%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>観点</th>
+        <th style="background: #0f3460;">他社の強み</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>出演者</strong></td>
+        <td style="background: #fff5f7;">SNSフォロワー数万〜16万超のBAが個人ファンを配信に連れてくる（B社）。ベテランBA固定でブランドファンがコミュニティ化（C社）。<strong>→ 推しが紹介するから買いたい・コミュ取りたいという動機</strong>が強い。</td>
+      </tr>
+      <tr>
+        <td><strong>購買誘導</strong></td>
+        <td style="background: #fff5f7;">B社：視聴者限定500円クーポン＋限定性訴求でCTR 8.2%<sup>（※1）</sup>。C社：クーポン不使用、純粋なコンテンツ力でCTR 11.7%<sup>（※2）</sup>。</td>
+      </tr>
+      <tr>
+        <td><strong>コンテンツ力</strong></td>
+        <td style="background: #fff5f7;">A社：セルフチェック・原因解説など「自分ごと化」設計でCTR 49.4%・視聴24分。C社：クーポンなしで純粋なコンテンツ力でCTR 11.7%・視聴28分。</td>
+      </tr>
+      <tr>
+        <td><strong>リーチ</strong></td>
+        <td style="background: #fff5f7;">B社が視聴者数6,958人で首位。ファンが多いInstagramで配信して認知を広げ、ECサイトでのライブ配信に流入させている。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 旧テーブル「マツキヨココカラライブの構造的な弱み」は4課題統合セクションに集約・削除 -->
+
+  <!-- 旧「なぜ各指標に差がつくのか」セクションは競合ベンチマーク手前へ移設済 -->
+
+
+  <!-- 旧「5つの構造的ギャップ」ブロックは4課題統合セクションに集約・削除 -->
+
+  <!-- ========== 統合：競合調査・配信数値から見えた4つの構造的課題 ========== -->
+  <div class="highlight-box" style="background: #f5f3ff; border-left: 4px solid #6366f1; margin-bottom: 20px; color: #1a1a2e; margin-top: 24px;">
+    <div class="main" style="font-size: 15px; color: #4338ca;">競合調査・配信数値から見えた4つの構造的課題</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.9; color: #1a1a2e;">
+      2年間の配信数値と競合4社のベンチマークから浮かんだ、向き合うべき4つの課題。各課題は<strong>「数値(症状)」と「構造的な原因(なぜそうなっているか)」</strong>の2点で整理している。<br>
+      <span style="font-size: 12px; color: #555;">※ 4課題は因果鎖で繋がっている:<strong>❶カテゴリ期待値の欠如 → ❷リピーター不在 → ❸熱量のある視聴者の不在 → ❹購買動機の浅さ</strong></span>
+    </div>
+  </div>
+
+  <!-- 課題❶ カテゴリ -->
+  <div style="background: #ffffff; border: 1px solid #e5e7eb; border-left: 4px solid #1b998b; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px;">
+    <div style="font-size: 14px; font-weight: 700; color: #1b998b; margin-bottom: 6px;">❶ 商品カテゴリがバラバラで「再訪動機」が弱い</div>
+    <div style="font-size: 12px; line-height: 1.8; color: #1a1a2e;">
+      <strong style="color: #6b7280;">数値</strong>:平均視聴3.1分(60分配信の約5%)／リテール横断でコスメ・日用品・食品など幅広く扱い、回ごとにテーマが変わる<br>
+      <strong style="color: #6b7280;">構造的な原因</strong>:競合が「コスメ特化」「推しBA紹介」といった<strong>明確な期待値</strong>を視聴者に持たせているのに対し、マツキヨココカラライブは配信ごとに商品ジャンルが変わるため、視聴者が「次に何が見られるか」を予想できず、再訪のきっかけを持ちにくい。
+    </div>
+  </div>
+
+  <!-- 課題❷ リピーター不在 -->
+  <div style="background: #ffffff; border: 1px solid #e5e7eb; border-left: 4px solid #e94560; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px;">
+    <div style="font-size: 14px; font-weight: 700; color: #e94560; margin-bottom: 6px;">❷ リピーター不在<span style="font-size: 11px; font-weight: 600; background: #c0392b; color: #fff; padding: 2px 8px; border-radius: 4px; margin-left: 8px;">最重点</span></div>
+    <div style="font-size: 12px; line-height: 1.8; color: #1a1a2e;">
+      <strong style="color: #6b7280;">数値</strong>:リピーター比率5.0%(業界最下位・首位A社の1/10)／平均視聴3.1分／CTR1.0%<br>
+      <strong style="color: #6b7280;">構造的な原因</strong>:<strong>「戻り客を作る」思想</strong>が配信設計に組み込まれていない。競合は全社がLINE通知・次回予告・定期開催・コミュニティ設計のいずれかでリピーター導線を確保。B社・C社は「ブランドそのもののファン」が既に存在するため、何もしなくても視聴者が戻ってくる構造を持っている。
+    </div>
+  </div>
+
+  <!-- 課題❸ 熱量のある視聴者の不在 -->
+  <div style="background: #ffffff; border: 1px solid #e5e7eb; border-left: 4px solid #e07a5f; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px;">
+    <div style="font-size: 14px; font-weight: 700; color: #e07a5f; margin-bottom: 6px;">❸ 熱量のある視聴者の不在</div>
+    <div style="font-size: 12px; line-height: 1.8; color: #1a1a2e;">
+      <strong style="color: #6b7280;">数値</strong>:コメント率0.8%(1,000人のうちコメントするのは8人程度／A社33.4%の約1/40)<br>
+      <strong style="color: #6b7280;">構造的な原因</strong>:B社は「SNSフォロワー数万〜16万超の個人インフルエンサー型」、C社は「ベテランBA固定型(接客歴8〜16年)」で<strong>顔なじみ・推しを育成</strong>し、視聴者の熱量を引き出している。マツキヨココカラライブはどちらにも振り切れておらず、視聴者が"推し"を持てず、積極的に参加(コメント・シェア)する動機が薄い。
+    </div>
+  </div>
+
+  <!-- 課題❹ 購買動機 -->
+  <div style="background: #ffffff; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px;">
+    <div style="font-size: 14px; font-weight: 700; color: #6366f1; margin-bottom: 6px;">❹ 購買動機の浅さ(自分ごと化できていない)</div>
+    <div style="font-size: 12px; line-height: 1.8; color: #1a1a2e;">
+      <strong style="color: #6b7280;">数値</strong>:商品CTR 1.0%(100人視聴しても商品カードを1人しかタップしない／A社29.4%・C社11.7%の1/12〜1/30)<br>
+      <strong style="color: #6b7280;">構造的な原因</strong>:A社は「セルフチェック機能」「原因解説」で視聴者の<strong>自分ごと化</strong>を支援し、平均視聴24分・CTR49.4%を実現。マツキヨココカラライブは商品紹介止まりで、「なぜ自分に必要か」を伝えきれず、視聴→購買の動機変換ができていない。
+    </div>
+  </div>
+
+  <div class="note info">
+    💡 <strong>次の一手</strong>:これら4つの課題を踏まえて、次の柱③で2026年度の戦略と2本柱を提示する。
+  </div>
+
+  <div class="page-num">P.4 / 9</div>
+</div>
+
+<!-- ===== PILLAR 3 ===== -->
+<div class="section" id="sec-pillar3">
+  <div class="section-header">
+    <div class="section-badge green">③ 15分</div>
+    <div>
+      <div class="section-title">主要KPI達成に向けた2026年度の戦略と2本柱</div>
+      <div class="section-subtitle">競合他社とのベンチマークに基づくKPI・戦略設計</div>
+    </div>
+  </div>
+
+  <!-- 戦略（上位概念） -->
+  <div class="highlight-box" style="background: #f0f4ff; border-left: 4px solid #0f3460; margin-bottom: 20px; color: #1a1a2e;">
+    <div class="main" style="font-size: 16px; color: #0f3460;">戦略：競合他社とのベンチマークに基づくKPI戦略設計</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.8; color: #1a1a2e;">
+      競合他社の配信を継続的にベンチマークし、マツキヨココカラライブが業界内で「どのポジションにいるか」「どの指標で勝ち、どの指標で負けているか」を定期的に可視化する。その差分をもとに、次の一手を戦略的に決定する仕組みを構築する。
+    </div>
+    <div style="margin-top: 12px; font-size: 12px; color: #555; line-height: 1.8;">
+      <strong>具体的アクション：</strong><br>
+      ・競合他社の月次ウォッチ体制構築<br>
+      ・「社員インフルエンサー型」モデルで先行する競合他社を直接ベンチマークに据える<br>
+      ・視聴分数・CTR・コメント率で「なぜ負けているか」の4原因を明文化し、打ち手を紐付け（A2参照）<br>
+      ・競合の単価・コスト情報を継続調査し、値上げ根拠の強化材料とする（A9参照）
+    </div>
+    <div style="margin-top: 8px; font-size: 11px; color: #888;">根拠：A2分析（競合比較による改善余地の4原因言語化）／A9分析（A社公式料金との直接比較）</div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 20px;">
+    💡 上記の戦略をトラッキングするKPIを設定した上で、以下の<strong>2本柱</strong>で受注率・受注単価を押し上げます。
+  </div>
+
+  <div class="strategy-grid">
+
+    <!-- 柱① -->
+    <div class="strategy-card policy-1">
+      <div class="priority high">優先度：高</div>
+      <div class="title"><span class="policy-num">柱①</span>協賛配信のメニュー・体制改善</div>
+      <div class="desc">現行フルサポート50万円プランに内包されている「台本作成・薬機法チェック・現場立会・クリエイティブ制作」の工数とコストを再設計し、受注後の運営体制を標準化する。レギュレーションを明確化することでメーカー側の期待値とのズレをなくし、月5回以上の安定受注を実現する。</div>
+
+      <div class="sub-list">
+        <div class="sub-list-title">内包する中項目</div>
+        <ul>
+          <li><strong>薬機法チェック工数の見直し</strong>（社内法務フローの棚卸し・早期着手プロトコル化・テンプレート化・AI一次チェック導入検討）</li>
+          <li><strong>LIPSコラボ定期メニュー化</strong>（座談会・ベスコス連動協賛を定型化）</li>
+          <li><strong>目的別の配信尺設計</strong>（購買転換重視 vs アーカイブ課金重視）</li>
+          <li><strong>協賛配信レギュレーションの策定</strong>：1配信あたりの商品紹介点数上限・実演回数・台本修正ルール等を明文化し、メーカーと Firework 双方の期待値を整える</li>
+        </ul>
+      </div>
+
+      <div class="evidence">根拠：A9分析（粗利率69.3%・準備期間1.5〜2ヶ月）／A10分析（台本外注13時間・薬機法確認が準備期間の主因）</div>
+    </div>
+
+    <!-- 柱② -->
+    <div class="strategy-card policy-3">
+      <div class="priority high">優先度：高</div>
+      <div class="title"><span class="policy-num">柱②</span>社員インフルエンサー強化</div>
+      <div class="desc">出演者（美容部員・店舗スタッフ）をインフルエンサー化し、マツキヨココカラライブの認知拡大とエンゲージメント向上を実現する。「推しの出演者が出るから観る」という再訪動機を生み出し、リピーター比率の底上げを狙う。</div>
+
+      <div class="sub-list">
+        <div class="sub-list-title">具体的アクション</div>
+        <ul>
+          <li>出演者のSNSアカウント育成（目標フォロワー数・運用ルール設計）</li>
+        </ul>
+      </div>
+
+      <div class="evidence">根拠：競合B社は個人SNSフォロワー数万〜16万超のBAが複数在籍しファン流入→高エンゲージを実現。マツキヨココカラライブはリピーター比率5.0%（業界最下位）であり、出演者ファンベース構築が最重点課題。</div>
+    </div>
+
+  </div>
+
+  <div class="page-num">P.5 / 9</div>
+</div>
+
+<!-- ===== DISCUSSION ===== -->
+<div class="section" id="sec-discussion">
+  <div class="section-header">
+    <div class="section-badge orange">ディスカッション 15分</div>
+    <div>
+      <div class="section-title">ディスカッションパート</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+    <!-- テーマ 1 -->
+    <div style="background: #f8f9fa; border: 2px solid #1a1a2e; border-radius: 12px; padding: 0; overflow: hidden;">
+      <div style="background: #1a1a2e; color: white; padding: 10px 16px; display: flex; align-items: center; gap: 10px;">
+        <div style="width: 28px; height: 28px; background: white; color: #1a1a2e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0;">1</div>
+        <div style="font-size: 13px; font-weight: 700;">店舗スタッフ × インフルエンサー（&amp;ST連携）</div>
+      </div>
+      <div style="padding: 16px;">
+        <ul class="discussion-list" style="counter-reset: disc-counter;">
+          <li>
+            <div>
+              <div class="disc-title">&amp;ST様との施策に対する明確なプラスの提示</div>
+              <div class="disc-desc">Firework独自プラットフォーム・グローバル知見の活用で何がプラスオンされるか。</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="disc-title">システム導入の親和性と必要性</div>
+              <div class="disc-desc">階層化承認システム等と既存ツールの機能重複・現場適合性の検討。</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- テーマ 2 -->
+    <div style="background: #f8f9fa; border: 2px solid #e07a5f; border-radius: 12px; padding: 0; overflow: hidden;">
+      <div style="background: #e07a5f; color: white; padding: 10px 16px; display: flex; align-items: center; gap: 10px;">
+        <div style="width: 28px; height: 28px; background: white; color: #e07a5f; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0;">2</div>
+        <div style="font-size: 13px; font-weight: 700;">リテールメディアにおけるさらなる収益化（オプション）</div>
+      </div>
+      <div style="padding: 16px;">
+        <ul class="discussion-list" style="counter-reset: disc-counter;">
+          <li>
+            <div>
+              <div class="disc-title">アーカイブ資産の活用・収益化</div>
+              <div class="disc-desc">「1配信の投資が1ヶ月後に4倍超のリーチを生む」という事実を協賛メーカーへどう訴求するか。切り抜き動画メニュー化の収益シミュレーション。</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top: 12px;">※ 「収益化の具体スキーム（コネクテッドコマース）」は話が広がりすぎるリスクがあるため、別タイミングで提案予定。</div>
+  <div class="page-num">P.6 / 9</div>
+</div>
+
+
+<div style="margin-top: 48px; padding: 24px 0; text-align: center; border-top: 1px solid #e0e0e0; color: #999; font-size: 12px; letter-spacing: 1px;">
+  マツキヨココカラライブ 年次報告会 提案資料 — 笹木さん事前すり合わせ用 — 2026.04.21 — Confidential
+</div>
+
+</div><!-- /.page -->
+</body>
+</html>
