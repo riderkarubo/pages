@@ -135,6 +135,13 @@ YYYY/M/D [配信名]
 | `delivery-analysis` | CSV配信数値の分析、KPI抽出、トレンド分析 | md/xlsx |
 | `pitch-deck` | 報告資料・提案資料の構成案、スライド文案 | md/pptx構成案 |
 | `strategy-plan` | 次年度戦略、事業計画、売上シミュレーション | md企画書/xlsx |
+| `/fw-slide` | Google Slides/PPTX生成（Fireworkテンプレ準拠） | gs/pptx |
+
+### MCCM案件のスライド作業情報
+
+- MCCMテンプレ実体: `03_テンプレート/スライドテンプレート/スライドテンプレート用サンプルスライド.pptx`
+- 仕様YAML: `03_テンプレート/テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml`
+- Slides化作業中の出力先（2026-04-27更新）: `https://docs.google.com/presentation/d/14fq9YY5dAOksIIT-H_d1qsiCwyJEnhAY3dGp-KZSO6U/edit`
 
 ## 作業フロー（重要）
 
@@ -276,7 +283,29 @@ GitHub Pagesで公開されるHTMLファイル：
 - **視聴者数の直近値は 5,084人（2026.1-3 自社集計平均）で統一**。古い値「6,192人（12-2月の分科会資料ベース）」は誤記として削除済み。再追加しないこと
 - **Edit時の文字化け注意**：全角括弧「（）」・カギ括弧「」・中点「・」などは必ず原文通りに old_string にコピー。半角「()」に勝手に変換すると `String to replace not found` で失敗する
 
-## 🔄 Session Handoff（2026-04-27更新 / 薬事ルール・エグゼクティブサマリ・表記統一）
+## 🔄 Session Handoff（2026-04-27 21:25 更新 / fw-slide統合・MCCMスライド化準備）
+
+### 今日やったこと（最新セッション）
+
+- **`/fw-slide` コマンド新規作成**：ロレアル案件 `replaceSlides_v2.js`（21関数のGASヘルパー）と MCCM `/mccm-slide`（python-pptxテンプレ準拠）を統合。gas/pptxの2モード対応
+- **既存コマンド退避**：`/mccm-slide` `/gas-slide-import` を `~/.claude/commands/要確認_統合済み_260427/` にmv（削除でなく移動）。Skill一覧にプレフィックス付きで残存
+- **learnedスキル更新**：`cross-project-skill-discovery.md` 新規作成（過去案件のスキル発掘3段階並列検索パターン）、`old-version-archive-pattern.md` にコマンド統合退避の派生パターン追記
+- **CLAUDE.md更新**：03_クライアント/CLAUDE.md（横断ルート）と MCCM/CLAUDE.md にスライド作業情報を追加
+
+### 次回やること（MCCMスライド化作業）
+
+- **対象**：提案HTML §1〜§4（アジェンダ1〜4）→ Google Slides化
+- **出力先Slides**：`https://docs.google.com/presentation/d/14fq9YY5dAOksIIT-H_d1qsiCwyJEnhAY3dGp-KZSO6U/edit`（2026-04-27更新）
+- **次の最初のステップ**：`/fw-slide` 起動 → Phase 0（テンプレ調査用GAS実行）→ ログ受領 → スライド構成案作成 → 章ごとGAS実装
+
+### 注意点・申し送り（スライド化作業）
+
+- 出力先SlidesにインポートされているFireworkテーマを使用（既存スライドのレイアウトを `duplicate()` で踏襲する方式）
+- ロレアル案件の `02_仕事/03_クライアント/ロレアル/04_ツール/replaceSlides_v2.js` のヘルパー21関数がそのまま再利用可能
+- `/fw-slide` のpptxモードはMCCMテンプレ専用ロジック（idx=3削除、page_numberXML埋め込み）を内蔵済み
+- 実装はユーザーがApps Scriptに貼って実行する方式。スクショで微調整1〜2往復前提
+
+---
 
 ### 完了タスク（累積）
 
