@@ -24,14 +24,17 @@ var PRESENTATION_ID = "14fq9YY5dAOksIIT-H_d1qsiCwyJEnhAY3dGp-KZSO6U";
 var C_DARK    = "#1A1A2E";  // タイトルバー・ダークカード
 var C_WHITE   = "#FFFFFF";
 var C_TEXT    = "#333333";
-var C_ACCENT  = "#E94560";  // 赤・柱①・MCCM強調色
+var C_ACCENT  = "#FA006D";  // マゼンタ・MCCM強調色（テキスト・KPI・タイムライン強調すべてここ・絶対変更禁止）
 var C_ACCENT2 = "#1B998B";  // 緑・柱②・成長
 var C_ACCENT3 = "#0F3460";  // 紺・KPI・タイトル
 var C_GRAY    = "#666666";
 var C_LIGHT   = "#F5F5F5";
 var C_BORDER  = "#DDDDDD";
 var C_SOFT    = "#F8F8F8";
-var C_HIGHLIGHT = "#FFF3CD";  // 強調行ハイライト（黄）
+var C_HIGHLIGHT = "#FFF2CC";  // 「2025年度=今年度」強調背景（実測値・P4-P5両方で使用）
+var C_TIPS_BG   = "#F0F7FF";  // ポイントボックス背景（薄水色・実測値）
+var C_TIPS_HEAD = "#1E3A8A";  // ポイント見出し色（紺青・実測値）
+var C_NOTE      = "#434343";  // 標準テキスト（タイムライン・メッセージ系）
 
 // === スライド寸法（16:9 = 720×405pt） ===
 var SW = 720;
@@ -389,19 +392,19 @@ function makeTable(slide, x, y, w, colDefs, rows, opts) {
   var totalH = opts.h || (hdrH + rowH * rows.length);
   var tbl = slide.insertTable(rows.length + 1, colDefs.length, x, y, w, totalH);
 
-  // ヘッダー
+  // ヘッダー（先にテキストを入れてからスタイル適用）
   for (var c = 0; c < colDefs.length; c++) {
     var cell = tbl.getCell(0, c);
     cell.getFill().setSolidFill(opts.headerBg || C_DARK);
+    cell.getText().setText(colDefs[c].label || "");
     _styleCell(cell,
       opts.headerSize || 10,
       true,
       C_WHITE,
       opts.headerAlign || SlidesApp.ParagraphAlignment.CENTER);
-    cell.getText().setText(colDefs[c].label);
   }
 
-  // ボディ
+  // ボディ（先にテキストを入れてからスタイル適用）
   var highlightRows = opts.highlightRows || [];
   for (var r = 0; r < rows.length; r++) {
     var isHighlight = highlightRows.indexOf(r) >= 0;
@@ -409,23 +412,33 @@ function makeTable(slide, x, y, w, colDefs, rows, opts) {
       var cell2 = tbl.getCell(r + 1, c2);
       var bg = isHighlight ? C_HIGHLIGHT : (r % 2 === 0 ? C_WHITE : C_SOFT);
       cell2.getFill().setSolidFill(bg);
+      cell2.getText().setText(rows[r][c2] || "");
       _styleCell(cell2,
         opts.bodySize || 9,
         colDefs[c2].nameCol || isHighlight,
         C_TEXT,
         colDefs[c2].align || SlidesApp.ParagraphAlignment.START);
-      cell2.getText().setText(rows[r][c2] || "");
     }
   }
   return tbl;
 }
 
 function _styleCell(cell, size, bold, color, align) {
-  cell.getText().getParagraphs().forEach(function(p) {
-    var st = p.getRange().getTextStyle();
-    st.setFontFamily("Noto Sans JP").setFontSize(size).setForegroundColor(color);
-    if (bold) st.setBold(true);
-    p.getRange().getParagraphStyle().setParagraphAlignment(align);
+  var tr = cell.getText();
+  // セルが空だとgetParagraphs()が空 → スペース1文字を入れて段落を作る
+  if (!tr.asString() || tr.asString().length === 0) {
+    tr.setText(" ");
+  }
+  tr.getParagraphs().forEach(function(p) {
+    var range = p.getRange();
+    if (!range) return;
+    var st = range.getTextStyle();
+    if (st) {
+      st.setFontFamily("Noto Sans JP").setFontSize(size).setForegroundColor(color);
+      if (bold) st.setBold(true);
+    }
+    var ps = range.getParagraphStyle();
+    if (ps) ps.setParagraphAlignment(align);
   });
   cell.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
 }
@@ -466,4 +479,246 @@ function newSlide(pres, title) {
   var s = dup(pres, base);
   if (title) setTitle(s, title);
   return s;
+}
+
+// ============================================================
+// Issy手直しテンプレ（P4-P7 解析実測値ベース）
+// ============================================================
+
+/**
+ * 結論メッセージ（テーブル上に置く中央太字16pt）
+ * 強調キーワードだけ赤(C_ACCENT)、それ以外は #434343
+ *
+ * @param slide
+ * @param y    Y座標（推奨: 90〜100、テーブル上に置く）
+ * @param text 全文
+ * @param highlight 強調する部分文字列（その部分だけ赤太字）
+ */
+function drawConclusionMessage(slide, y, text, highlight) {
+  var sh = slide.insertTextBox(text || "", 35, y, 651, 24);
+  sh.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  var tr = sh.getText();
+  tr.getParagraphs().forEach(function(p) {
+    var ps = p.getRange().getParagraphStyle();
+    ps.setParagraphAlignment(SlidesApp.ParagraphAlignment.CENTER);
+    var st = p.getRange().getTextStyle();
+    st.setFontFamily("Noto Sans JP").setFontSize(16).setBold(true).setForegroundColor(C_NOTE);
+  });
+  // インライン強調（部分文字列だけ赤）
+  if (highlight && text.indexOf(highlight) >= 0) {
+    var start = text.indexOf(highlight);
+    var end = start + highlight.length;
+    try {
+      var range = tr.getRange(start, end);
+      range.getTextStyle().setForegroundColor(C_ACCENT).setBold(true);
+    } catch(e) {}
+  }
+  return sh;
+}
+
+/**
+ * 列ハイライト型テーブル（P4=視聴者数推移パターン）
+ * 「2025年度=今年度」を視覚強調するため、特定の列だけクリーム背景にする
+ *
+ * 偶数行=#F8F8F8 / 奇数行=#FFFFFF / 指定列=#FFF2CC で上書き
+ *
+ * @param slide
+ * @param x, y, w
+ * @param colDefs       [{label, align, nameCol}, ...]
+ * @param rows          [[r1c1, ...], ...]
+ * @param opts          {highlightCol: 列番号(0始まり), highlightRow: 行番号(0始まり), bodySize}
+ */
+function makeColHighlightTable(slide, x, y, w, colDefs, rows, opts) {
+  opts = opts || {};
+  var rowH = opts.rowH || 32;
+  var hdrH = opts.hdrH || 30;
+  var totalH = hdrH + rowH * rows.length;
+  var tbl = slide.insertTable(rows.length + 1, colDefs.length, x, y, w, totalH);
+
+  var headerSize = opts.headerSize || 10;
+  var bodySize = opts.bodySize || 10;
+  var highlightCol = (typeof opts.highlightCol === "number") ? opts.highlightCol : -1;
+  var highlightRow = (typeof opts.highlightRow === "number") ? opts.highlightRow : -1;
+
+  // ヘッダー
+  for (var c = 0; c < colDefs.length; c++) {
+    var cell = tbl.getCell(0, c);
+    cell.getFill().setSolidFill(C_DARK);
+    cell.getText().setText(colDefs[c].label || "");
+    _styleCell(cell, headerSize, true, C_WHITE,
+      colDefs[c].headerAlign || SlidesApp.ParagraphAlignment.CENTER);
+  }
+
+  // ボディ
+  for (var r = 0; r < rows.length; r++) {
+    var isRowHighlight = (r === highlightRow);
+    for (var c2 = 0; c2 < colDefs.length; c2++) {
+      var cell2 = tbl.getCell(r + 1, c2);
+      var bg;
+      if (c2 === highlightCol || isRowHighlight) {
+        bg = C_HIGHLIGHT;  // クリーム
+      } else {
+        bg = (r % 2 === 0) ? C_WHITE : C_SOFT;
+      }
+      cell2.getFill().setSolidFill(bg);
+      cell2.getText().setText(rows[r][c2] || "");
+      var bold = colDefs[c2].nameCol || isRowHighlight || (rows[r].__bold === true);
+      var color = colDefs[c2].forceColor || C_TEXT;
+      _styleCell(cell2, bodySize, bold, color,
+        colDefs[c2].align || SlidesApp.ParagraphAlignment.CENTER);
+    }
+  }
+
+  // 特定行を bold にする(highlightRow指定時)
+  if (highlightRow >= 0) {
+    for (var c3 = 0; c3 < colDefs.length; c3++) {
+      var cb = tbl.getCell(highlightRow + 1, c3);
+      try {
+        cb.getText().getParagraphs().forEach(function(p) {
+          p.getRange().getTextStyle().setBold(true);
+        });
+      } catch(e) {}
+    }
+  }
+
+  return tbl;
+}
+
+/**
+ * ポイントボックス（P5=協賛実績パターン）
+ * 薄水色背景 + 「💡 ポイント」見出し + 本文複数行 + 結論行(矢印つき bold)
+ *
+ * @param slide
+ * @param x, y, w, h
+ * @param lines [{ text, conclusion: true|false }, ...]
+ */
+function drawTipsBox(slide, x, y, w, h, lines) {
+  // 背景
+  rect(slide, x, y, w, h, C_TIPS_BG);
+
+  // 見出し
+  var head = slide.insertTextBox("💡 ポイント", x + 10, y + 10, w - 20, 18);
+  head.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  head.getText().getParagraphs().forEach(function(p) {
+    p.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+    p.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(11).setBold(true).setForegroundColor(C_TIPS_HEAD);
+  });
+
+  // 本文
+  var lineY = y + 32;
+  lines.forEach(function(line) {
+    var sh = slide.insertTextBox(line.text || "", x + 7, lineY, w - 15, 22);
+    sh.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+    sh.getText().getParagraphs().forEach(function(p) {
+      p.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+      var st = p.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(11);
+      if (line.conclusion) {
+        st.setBold(true).setForegroundColor(C_ACCENT);
+      } else {
+        st.setForegroundColor(C_TEXT);
+      }
+    });
+    lineY += 23;
+  });
+}
+
+/**
+ * タイムライン1行を描画（P6=マツココライブの変遷パターン）
+ *
+ * @param slide
+ * @param y           行のY座標(マークの中心)
+ * @param date        左の日付ラベル
+ * @param desc        右の説明テキスト
+ * @param highlight   先頭の強調キーワード（その部分だけ赤、無ければ全文 #434343）
+ * @param isMilestone true=赤丸 / false=グレー丸
+ */
+function drawTimelineRow(slide, y, date, desc, highlight, isMilestone) {
+  // 日付ラベル(左, x=30, w=110)
+  var dateBox = slide.insertTextBox(date || "", 30, y, 110, 20);
+  dateBox.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  dateBox.getText().getParagraphs().forEach(function(p) {
+    p.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.END);
+    p.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(9).setBold(true).setForegroundColor(C_NOTE);
+  });
+
+  // ●マーク(中央、x=152, y=y+4 → 中心揃え)
+  var dotColor = isMilestone ? C_ACCENT : C_GRAY;
+  var dot = slide.insertShape(SlidesApp.ShapeType.ELLIPSE, 152, y + 4, 10, 10);
+  dot.getFill().setSolidFill(dotColor);
+  dot.getBorder().setTransparent();
+
+  // 説明テキスト(右, x=175, w=520)
+  var descBox = slide.insertTextBox(desc || "", 175, y, 520, 22);
+  descBox.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  var tr = descBox.getText();
+  tr.getParagraphs().forEach(function(p) {
+    p.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+    p.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(9.5).setBold(true).setForegroundColor(C_NOTE);
+  });
+
+  // インライン強調（先頭のキーワードだけ赤）
+  if (highlight && desc.indexOf(highlight) >= 0) {
+    var start = desc.indexOf(highlight);
+    var end = start + highlight.length;
+    try {
+      tr.getRange(start, end).getTextStyle().setForegroundColor(C_ACCENT).setBold(true);
+    } catch(e) {}
+  }
+}
+
+/**
+ * タイムラインの縦線（P6パターン）
+ * @param slide
+ * @param topY, bottomY    縦線の上下端
+ */
+function drawTimelineAxis(slide, topY, bottomY) {
+  rect(slide, 156, topY, 2, bottomY - topY, C_BORDER);
+}
+
+/**
+ * 経営資産カード（P7パターン）
+ * 左ボーダー w=3 / 名前11pt bold / 値12pt bold アクセント色 / 注釈8pt #666
+ *
+ * @param slide
+ * @param x, y, w=160, h=110
+ * @param p {no, name, value, note, accent}
+ */
+function drawAssetCardP7(slide, x, y, w, h, p) {
+  var accent = p.accent || C_ACCENT;
+  // カード本体（白＋グレー枠線）
+  rect(slide, x, y, w, h, C_WHITE, C_BORDER, 1);
+  // 左ボーダー（資産ごとのアクセント色）
+  rect(slide, x, y, 3, h, accent);
+
+  // 番号(資産 NN) - y+6, h=12, 8pt bold #666
+  var noBox = slide.insertTextBox(p.no || "", x + 10, y + 6, w - 20, 12);
+  noBox.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  noBox.getText().getParagraphs().forEach(function(pp) {
+    pp.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+    pp.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(8).setBold(true).setForegroundColor(C_GRAY);
+  });
+
+  // 名前 - y+22, h=16, 11pt bold #1A1A2E
+  var nameBox = slide.insertTextBox(p.name || "", x + 10, y + 22, w - 20, 16);
+  nameBox.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  nameBox.getText().getParagraphs().forEach(function(pp) {
+    pp.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+    pp.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(11).setBold(true).setForegroundColor(C_DARK);
+  });
+
+  // 値 - y+44, h=36, 12pt bold アクセント色
+  var valBox = slide.insertTextBox(p.value || "", x + 10, y + 44, w - 20, 36);
+  valBox.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  valBox.getText().getParagraphs().forEach(function(pp) {
+    pp.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+    pp.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(12).setBold(true).setForegroundColor(accent);
+  });
+
+  // 注釈 - y+84, h=22, 8pt 通常 #666
+  var noteBox = slide.insertTextBox(p.note || "", x + 10, y + 84, w - 20, 22);
+  noteBox.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  noteBox.getText().getParagraphs().forEach(function(pp) {
+    pp.getRange().getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.START);
+    pp.getRange().getTextStyle().setFontFamily("Noto Sans JP").setFontSize(8).setBold(false).setForegroundColor(C_GRAY);
+  });
 }
