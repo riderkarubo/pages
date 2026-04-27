@@ -142,6 +142,17 @@ YYYY/M/D [配信名]
 - MCCMテンプレ実体: `03_テンプレート/スライドテンプレート/スライドテンプレート用サンプルスライド.pptx`
 - 仕様YAML: `03_テンプレート/テンプレート仕様書_四半期ビジネスレビュー_20260326.yaml`
 - Slides化作業中の出力先（2026-04-27更新）: `https://docs.google.com/presentation/d/14fq9YY5dAOksIIT-H_d1qsiCwyJEnhAY3dGp-KZSO6U/edit`
+- 作業フォルダ: `01_年次報告会/提案骨子/05_スライド化/`（GAS群＋構成案＋README）
+
+### Slides生成の確定ノウハウ（2026-04-27）
+
+- **タイトル黒帯座標は絶対不変**: `x=9, y=20, w=671, h=45`（18pt bold, 白文字, START, MIDDLE）
+- **配色は黒ベース**（`C_DARK=#1A1A2E`）。紺色（`#0F3460`）は使わない
+- **タイトル黒帯はマスター由来の装飾**で、`getPlaceholder` では取得不可。`txt()` で同座標に白文字を新規挿入
+- **Noto Sans JP Bold文字幅係数**（Playwright実測）: 半角数字=0.71, 全角=1.0, カンマ=0.27, スラッシュ=0.52
+- **GAS APIではドロップシャドウは取得・設定不可** → 生成後にユーザーが UI から手動で「書式設定 → 影」を一括適用
+- **ユーザー手動修正版を完全踏襲する**: AI汎用ヘルパー禁止、各オブジェクトを実測絶対座標で再現
+- 詳細: `~/.claude/skills/learned/gas-slides-noto-sans-jp-text-width.md` / `user-edited-layout-faithful-reproduction.md` / `playwright-font-measurement-without-bash.md`
 
 ## 作業フロー（重要）
 
@@ -283,27 +294,32 @@ GitHub Pagesで公開されるHTMLファイル：
 - **視聴者数の直近値は 5,084人（2026.1-3 自社集計平均）で統一**。古い値「6,192人（12-2月の分科会資料ベース）」は誤記として削除済み。再追加しないこと
 - **Edit時の文字化け注意**：全角括弧「（）」・カギ括弧「」・中点「・」などは必ず原文通りに old_string にコピー。半角「()」に勝手に変換すると `String to replace not found` で失敗する
 
-## 🔄 Session Handoff（2026-04-27 21:25 更新 / fw-slide統合・MCCMスライド化準備）
+## 🔄 Session Handoff（2026-04-27 22:40 更新 / S1完成・P4完全踏襲方式確立）
 
 ### 今日やったこと（最新セッション）
 
-- **`/fw-slide` コマンド新規作成**：ロレアル案件 `replaceSlides_v2.js`（21関数のGASヘルパー）と MCCM `/mccm-slide`（python-pptxテンプレ準拠）を統合。gas/pptxの2モード対応
-- **既存コマンド退避**：`/mccm-slide` `/gas-slide-import` を `~/.claude/commands/要確認_統合済み_260427/` にmv（削除でなく移動）。Skill一覧にプレフィックス付きで残存
-- **learnedスキル更新**：`cross-project-skill-discovery.md` 新規作成（過去案件のスキル発掘3段階並列検索パターン）、`old-version-archive-pattern.md` にコマンド統合退避の派生パターン追記
-- **CLAUDE.md更新**：03_クライアント/CLAUDE.md（横断ルート）と MCCM/CLAUDE.md にスライド作業情報を追加
+- **§1 エグゼクティブサマリ完成**：Google Slides にP4完全再現版で生成成功。タイトル＋メッセージ部＋KPI 4枚（累計視聴200万人超／協賛売上2,935万円／配信91回／平均5,860人/回）
+- **`/fw-slide` Skill 大幅進化**：実セッションで判明した5つの重要ノウハウを恒久ルール化（タイトル座標固定／黒ベース配色／マスター由来装飾は重ね描画／Noto Sans JP実測係数／シャドウ取得不可）
+- **Playwright実測で文字幅係数を確定**：Noto Sans JP Bold で 半角数字=0.71, 全角=1.0 等を確定。`gas-slides-noto-sans-jp-text-width.md` に記録
+- **学びを2件learned化**：`playwright-font-measurement-without-bash.md`（Bash不要のフォント計測手法）、`user-edited-layout-faithful-reproduction.md`（ユーザー修正版を絶対座標で完全踏襲する設計パターン）
+- **S1の作業フォルダ整備**：`01_年次報告会/提案骨子/05_スライド化/` にGAS群8ファイル＋構成案＋README配置
 
-### 次回やること（MCCMスライド化作業）
+### 次回やること（S2以降のスライド作成）
 
-- **対象**：提案HTML §1〜§4（アジェンダ1〜4）→ Google Slides化
-- **出力先Slides**：`https://docs.google.com/presentation/d/14fq9YY5dAOksIIT-H_d1qsiCwyJEnhAY3dGp-KZSO6U/edit`（2026-04-27更新）
-- **次の最初のステップ**：`/fw-slide` 起動 → Phase 0（テンプレ調査用GAS実行）→ ログ受領 → スライド構成案作成 → 章ごとGAS実装
+- **構成案の §2〜§4 を生成**：構成案（`00_スライド構成案.md`）は確定済（全18枚）。残り17枚を作成
+   - S2〜S4: 2025年度総括（3枚）
+   - S5〜S10: 2026年度KPI（6枚・因数分解スライド含む）
+   - S11〜S17: 2本柱（7枚）
+- **次の最初のステップ**：S2（2025年度総括 章扉）から1枚ずつ作成 → ユーザー手動調整 → inspect → 後続スライド生成
+- **シャドウ運用**：4枚KPIごとにユーザーが Slides UI で「書式設定 → 影」を一括適用（GAS API制約のため）
 
-### 注意点・申し送り（スライド化作業）
+### 注意点・申し送り（重要）
 
-- 出力先SlidesにインポートされているFireworkテーマを使用（既存スライドのレイアウトを `duplicate()` で踏襲する方式）
-- ロレアル案件の `02_仕事/03_クライアント/ロレアル/04_ツール/replaceSlides_v2.js` のヘルパー21関数がそのまま再利用可能
-- `/fw-slide` のpptxモードはMCCMテンプレ専用ロジック（idx=3削除、page_numberXML埋め込み）を内蔵済み
-- 実装はユーザーがApps Scriptに貼って実行する方式。スクショで微調整1〜2往復前提
+- **タイトル黒帯座標は絶対不変**: `TITLE_X=9, TITLE_Y=20, TITLE_W=671, TITLE_H=45`。`02_helpers.gs` で定数化済。新スライド作成時もずらさない
+- **マスター由来装飾は取得不可**: Slidesのテーマ装飾要素（黒帯・本文枠）は `getPageElements/getPlaceholder` で取得できない → `txt()` で同座標に重ね描画する方式
+- **AI汎用ヘルパーは使わず実測座標で**: ユーザー修正版を `inspectSlideN()` で完全Inspect → 各オブジェクトの座標を絶対値で `drawXXX(s, p)` に渡す方式が確実
+- **配色は黒ベース統一**（`#1A1A2E`）。紺色（`#0F3460`）は使わない
+- **S2以降も同じパターン**：「P4をリファレンスとして次のスライドを作る」→「ユーザー微調整」→「inspect → 次のスライド」
 
 ---
 
