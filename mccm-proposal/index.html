@@ -206,25 +206,21 @@
   .kpi-confirmed .sub { font-size: 13px; color: rgba(255,255,255,0.8); }
 
   /* ===== REVIEW (2025年度の振り返り) ===== */
-  .review-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
-  .review-block { background: #f8f9fa; border-radius: 10px; padding: 18px 20px; }
+  .review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .review-block { background: #f8f9fa; border-radius: 10px; padding: 18px 22px; }
   .review-block.highlight { border-left: 4px solid #1b998b; background: #f0faf8; }
   .review-block.lowlight { border-left: 4px solid #fa006d; background: #fff5f7; }
-  .review-block.learn { border-left: 4px solid #0f3460; background: #f0f4ff; }
-  .review-head { font-size: 13px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
-  .review-note { font-size: 10px; color: #888; margin-bottom: 12px; line-height: 1.5; }
+  .review-block.learn { grid-column: 1 / -1; border-left: 4px solid #0f3460; background: #f0f4ff; padding: 22px 28px; }
+  .review-head { font-size: 14px; font-weight: 800; color: #1a1a2e; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.5px; }
   .review-item { font-size: 12px; color: #333; padding: 8px 0; border-bottom: 1px dashed #e0e0e0; line-height: 1.6; }
   .review-item:last-child { border-bottom: none; }
   .review-item strong { color: #1a1a2e; font-weight: 700; }
   .review-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 4px; }
   .review-tag.eff { background: #e0f5f0; color: #1b998b; }
   .review-tag.freq { background: #fff3cd; color: #856404; }
-  .learn-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px dashed #e0e0e0; font-size: 12px; }
-  .learn-row:last-child { border-bottom: none; }
-  .learn-issue { flex: 1; color: #333; }
-  .learn-arrow { color: #fa006d; font-weight: 800; font-size: 14px; }
-  .learn-action { flex: 1; color: #1a1a2e; font-weight: 700; }
-  .learn-ref { font-size: 10px; color: #888; margin-left: 4px; }
+  .learn-message { font-size: 14px; color: #1a1a2e; line-height: 1.8; }
+  .learn-message strong { color: #fa006d; font-weight: 800; }
+  .learn-arrow-large { display: inline-block; color: #fa006d; font-weight: 800; font-size: 18px; margin: 0 6px; }
 
   /* ===== DELETED / GRAYED-OUT ===== */
   .deleted-section { background: #fafafa; border: 1px dashed #ccc; border-radius: 12px; padding: 32px; margin-bottom: 24px; opacity: 0.55; }
@@ -263,7 +259,7 @@
     </div>
     <div class="cover-meta-item">
       <div class="label">Last Updated</div>
-      <div class="value">2026年4月29日 19:00</div>
+      <div class="value">2026年4月29日 19:19</div>
     </div>
     <div class="cover-meta-item">
       <div class="label">Prepared by</div>
@@ -522,10 +518,9 @@
   </div>
 
   <div class="review-grid">
-    <!-- ハイライト -->
+    <!-- Highlight -->
     <div class="review-block highlight">
-      <div class="review-head">🎯 ハイライト</div>
-      <div class="review-note">※ Fireworkが担当する範囲、知り得る情報の中で</div>
+      <div class="review-head">🎯 Highlight</div>
       <div class="review-item">
         <span class="review-tag eff">効率性</span>
         <strong>3名体制</strong>で毎週配信を実施<br>
@@ -538,10 +533,9 @@
       </div>
     </div>
 
-    <!-- ローライト -->
+    <!-- Lowlight -->
     <div class="review-block lowlight">
-      <div class="review-head">⚠️ ローライト</div>
-      <div class="review-note">対昨年・現状認識として</div>
+      <div class="review-head">⚠️ Lowlight</div>
       <div class="review-item">
         視聴者数・視聴分数などの<br><strong>エンゲージメント数値が頭打ち</strong>
       </div>
@@ -551,19 +545,13 @@
       </div>
     </div>
 
-    <!-- 学び -->
+    <!-- Learning -->
     <div class="review-block learn">
-      <div class="review-head">💡 学び（次年度への接続）</div>
-      <div class="review-note">課題 → 次年度施策の対応関係</div>
-      <div class="learn-row">
-        <div class="learn-issue">コンテンツの<br>磨き込み不足</div>
-        <div class="learn-arrow">→</div>
-        <div class="learn-action">体制改善<span class="learn-ref">（柱②）</span></div>
-      </div>
-      <div class="learn-row">
-        <div class="learn-issue">新規獲得型<br>施策の限界</div>
-        <div class="learn-arrow">→</div>
-        <div class="learn-action">リピーター戦略<span class="learn-ref">（補足）</span></div>
+      <div class="review-head">💡 Learning</div>
+      <div class="learn-message">
+        エンゲージメントが頭打ちの中、新規獲得型施策には限界がある。
+        <span class="learn-arrow-large">→</span>
+        <strong>リピーターを増やすことが次年度の最重要テーマ</strong>
       </div>
     </div>
   </div>
