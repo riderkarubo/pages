@@ -36,6 +36,7 @@
 | `11_section4_v2.gs` | §4 (S13-S19) v2版・実測テンプレ準拠（2本柱・グレーアウト除外） | コード作成済 |
 | `12_inspectAllSlides.gs` | 完成版全スライドの構造解析（テンプレライブラリ吸収用） | 実行待ち |
 | `13_section5_repeater.gs` | S20（リピーターを増やす3つの戦略・1枚補足） | コード作成済（2026-04-29追加） |
+| `14_section_review.gs` | S振り返り（2025年度の振り返り・1枚・7つの資産直後挿入想定） | コード作成済（2026-04-29追加） |
 | `KPI_tree_S8.pptx` | S8用 KPIツリー画像のPPTXソース（python-pptxで生成） | 確認待ち |
 | `build_s8_kpi_tree.py` | KPI_tree_S8.pptx を再生成するPythonスクリプト | ✅ |
 | `_使用済み/` | Phase 0 テンプレ調査GAS（`01_*.gs`）と統合前の章別GAS（`03_section1.gs` 〜 `06_section4.gs`）を保管 | アーカイブ |
@@ -49,6 +50,7 @@
 | `insertSection3()` | S7〜S12（2026年度KPI・6枚） | 実行待ち |
 | `insertSection4()` | S13〜S19（2本柱・7枚） | 実行待ち |
 | `insertSection5Repeater()` | S20（リピーター3戦略・1枚補足） | コード作成済 |
+| `insertSectionReview()` | S振り返り（2025年度の振り返り・1枚） | コード作成済 |
 
 ## スライド構成（全20枚）
 
