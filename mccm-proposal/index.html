@@ -205,6 +205,27 @@
   .kpi-confirmed .num { font-size: 32px; color: #ffd166; }
   .kpi-confirmed .sub { font-size: 13px; color: rgba(255,255,255,0.8); }
 
+  /* ===== REVIEW (2025年度の振り返り) ===== */
+  .review-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .review-block { background: #f8f9fa; border-radius: 10px; padding: 18px 20px; }
+  .review-block.highlight { border-left: 4px solid #1b998b; background: #f0faf8; }
+  .review-block.lowlight { border-left: 4px solid #fa006d; background: #fff5f7; }
+  .review-block.learn { border-left: 4px solid #0f3460; background: #f0f4ff; }
+  .review-head { font-size: 13px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .review-note { font-size: 10px; color: #888; margin-bottom: 12px; line-height: 1.5; }
+  .review-item { font-size: 12px; color: #333; padding: 8px 0; border-bottom: 1px dashed #e0e0e0; line-height: 1.6; }
+  .review-item:last-child { border-bottom: none; }
+  .review-item strong { color: #1a1a2e; font-weight: 700; }
+  .review-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 4px; }
+  .review-tag.eff { background: #e0f5f0; color: #1b998b; }
+  .review-tag.freq { background: #fff3cd; color: #856404; }
+  .learn-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px dashed #e0e0e0; font-size: 12px; }
+  .learn-row:last-child { border-bottom: none; }
+  .learn-issue { flex: 1; color: #333; }
+  .learn-arrow { color: #fa006d; font-weight: 800; font-size: 14px; }
+  .learn-action { flex: 1; color: #1a1a2e; font-weight: 700; }
+  .learn-ref { font-size: 10px; color: #888; margin-left: 4px; }
+
   /* ===== DELETED / GRAYED-OUT ===== */
   .deleted-section { background: #fafafa; border: 1px dashed #ccc; border-radius: 12px; padding: 32px; margin-bottom: 24px; opacity: 0.55; }
   .deleted-section * { color: #888 !important; }
@@ -242,7 +263,7 @@
     </div>
     <div class="cover-meta-item">
       <div class="label">Last Updated</div>
-      <div class="value">2026年4月29日 17:48</div>
+      <div class="value">2026年4月29日 19:00</div>
     </div>
     <div class="cover-meta-item">
       <div class="label">Prepared by</div>
@@ -266,11 +287,12 @@
   <div class="toc">
     <div class="toc-item"><a href="#sec-exec"><div class="toc-num">1</div><span>エグゼクティブサマリ</span><div class="toc-time">00:00－00:05（5分）</div></a></div>
     <div class="toc-item"><a href="#sec-pillar1"><div class="toc-num">2</div><span>2025年度総括 ― 資産価値の報告</span><div class="toc-time">00:00－00:05（5分）</div></a></div>
-    <div class="toc-item"><a href="#sec-pillar2"><div class="toc-num">3</div><span>2026年度 KPIご提案</span><div class="toc-time">00:05－00:15（10分）</div></a></div>
+    <div class="toc-item"><a href="#sec-review"><div class="toc-num">3</div><span>2025年度の振り返り（ハイライト・ローライト・学び）</span><div class="toc-time">3分</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar2"><div class="toc-num">4</div><span>2026年度 KPIご提案</span><div class="toc-time">00:05－00:15（10分）</div></a></div>
     <div class="toc-item" style="padding-left: 32px;"><a href="#sec-benchmark"><div class="toc-num" style="background:#6c757d; font-size:9px;">↳</div><span style="color:#666;">競合ベンチマーク（A社〜D社）</span><div class="toc-time">参考資料</div></a></div>
-    <div class="toc-item"><a href="#sec-pillar3"><div class="toc-num">4</div><span>2026年度の2本柱</span><div class="toc-time">00:15－00:30（15分）</div></a></div>
-    <div class="toc-item"><a href="#sec-discussion"><div class="toc-num">5</div><span>ディスカッション（社員インフルエンサー施策など）</span><div class="toc-time">00:30－00:45（15分）</div></a></div>
-    <div class="toc-item"><a href="#sec-sb"><div class="toc-num">6</div><span>SBパート</span><div class="toc-time">00:45－01:00（15分）</div></a></div>
+    <div class="toc-item"><a href="#sec-pillar3"><div class="toc-num">5</div><span>2026年度の2本柱</span><div class="toc-time">00:15－00:30（15分）</div></a></div>
+    <div class="toc-item"><a href="#sec-discussion"><div class="toc-num">6</div><span>ディスカッション（社員インフルエンサー施策など）</span><div class="toc-time">00:30－00:45（15分）</div></a></div>
+    <div class="toc-item"><a href="#sec-sb"><div class="toc-num">7</div><span>SBパート</span><div class="toc-time">00:45－01:00（15分）</div></a></div>
     <div style="margin: 12px 0 4px; padding: 6px 12px; background: #fff5f7; border-radius: 6px; font-size: 11px; font-weight: 700; color: #fa006d; letter-spacing: 1px;">— 補足資料（年次報告会本編には含まれない）—</div>
     <div class="toc-item"><a href="#sec-repeater-strategy"><div class="toc-num" style="background:#fa006d;">補</div><span>リピーターを増やすための3つの戦略方針</span><div class="toc-time">参考</div></a></div>
   </div>
@@ -487,6 +509,71 @@
   </div>
 
   <div class="page-num">P.3 / 9</div>
+</div>
+
+<!-- ===== REVIEW (2025年度の振り返り) ===== -->
+<div class="section" id="sec-review">
+  <div class="section-header">
+    <div class="section-badge red">2025年度 振り返り</div>
+    <div>
+      <div class="section-title">2025年度の振り返り ― ハイライト・ローライト・学び</div>
+      <div class="section-subtitle">7つの資産の総括として、1年間で見えた強み・弱み・次年度への学びを整理</div>
+    </div>
+  </div>
+
+  <div class="review-grid">
+    <!-- ハイライト -->
+    <div class="review-block highlight">
+      <div class="review-head">🎯 ハイライト</div>
+      <div class="review-note">※ Fireworkが担当する範囲、知り得る情報の中で</div>
+      <div class="review-item">
+        <span class="review-tag eff">効率性</span>
+        <strong>3名体制</strong>で毎週配信を実施<br>
+        <span style="font-size:11px;color:#666;">他社は5〜7名体制が標準</span>
+      </div>
+      <div class="review-item">
+        <span class="review-tag freq">実施頻度</span>
+        <strong>協賛配信を毎週受注</strong><br>
+        <span style="font-size:11px;color:#666;">リテール業界でもトップクラスの実施頻度</span>
+      </div>
+    </div>
+
+    <!-- ローライト -->
+    <div class="review-block lowlight">
+      <div class="review-head">⚠️ ローライト</div>
+      <div class="review-note">対昨年・現状認識として</div>
+      <div class="review-item">
+        視聴者数・視聴分数などの<br><strong>エンゲージメント数値が頭打ち</strong>
+      </div>
+      <div class="review-item">
+        <strong>リピーター率5.0%</strong><br>
+        コンテンツのファンが積み上がっていない
+      </div>
+    </div>
+
+    <!-- 学び -->
+    <div class="review-block learn">
+      <div class="review-head">💡 学び（次年度への接続）</div>
+      <div class="review-note">課題 → 次年度施策の対応関係</div>
+      <div class="learn-row">
+        <div class="learn-issue">コンテンツの<br>磨き込み不足</div>
+        <div class="learn-arrow">→</div>
+        <div class="learn-action">体制改善<span class="learn-ref">（柱②）</span></div>
+      </div>
+      <div class="learn-row">
+        <div class="learn-issue">新規獲得型<br>施策の限界</div>
+        <div class="learn-arrow">→</div>
+        <div class="learn-action">リピーター戦略<span class="learn-ref">（補足）</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-top: 20px;">
+    <strong>このセクションの位置づけ：</strong>「7つの資産」の数値報告に続き、<strong>定性的な振り返り</strong>として強み・弱みを総括。
+    弱み（ローライト）は次セクション以降の「2026年度KPI目標設定」「2026年度の2本柱」で具体的な打ち手として接続される。
+  </div>
+
+  <div class="page-num">P.3.5 / 9</div>
 </div>
 
 <!-- ===== PILLAR 2 ===== -->
