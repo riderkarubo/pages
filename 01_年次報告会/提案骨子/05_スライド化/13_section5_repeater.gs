@@ -1,7 +1,7 @@
 /**
  * MCCM提案スライド化 - §補足: リピーターを増やす3つの戦略（1スライド）
  *
- * 最終更新: 2026-04-29 18:16
+ * 最終更新: 2026-04-29 18:21
  *
  * マスター情報源: https://riderkarubo.github.io/pages/mccm-proposal/
  *  （これ以外の場所からは情報を拾わない）
@@ -9,7 +9,6 @@
  * Issy手直し解析パターン準拠:
  *  - タイトル黒帯: x=9, y=20, w=671, h=45（newSlide()自動配置）
  *  - 強調色: ① C_ACCENT (#FA006D マゼンタ) / ② #C07000 オレンジ / ③ C_ACCENT2 (#1B998B 緑)
- *  - rectTxt() で1要素化を基本（複数色・複数サイズが必要なところだけレイヤー）
  *
  * 構成（1スライド完結・3カラム横並び）:
  *  S20: リピーターを増やす3つの戦略
@@ -17,16 +16,14 @@
  *    - ②「おトク」でまた観たくなる
  *    - ③「いつもの」でまた観たくなる
  *
- * レイアウト座標:
- *  カード x: ① 25 / ② 252 / ③ 479（gap 12pt・w=215）
- *  カード y: 110、h: 215
+ * カード構成（修正版）:
+ *  - 上部バッジ帯: 番号 + STRATEGY 0X + できっかけを作る + 戦略名（統合）
+ *  - 区切り線
+ *  - 狙い文
  *
  * 修正履歴:
- *  - 2026-04-29 18:16: フィードバック反映
- *    - サブヘッダー削除（「出演者でまた観たくなる」など）
- *    - タグ3つ削除（●曜日担当制でレギュラー化など）
- *    - 戦略名を「①「推し」でまた観たくなる」の統合形式に変更
- *    - 狙い文を短縮版に書き換え
+ *  - 2026-04-29 18:21: 戦略名をバッジ帯に統合、コアコピー削除
+ *  - 2026-04-29 18:16: サブヘッダー削除・タグ削除・狙い文短縮
  *
  * 実行手順:
  *  1. 02_helpers.gs を最新版で貼り付け済み
@@ -78,8 +75,7 @@ function insertS20_repeaterStrategy(pres) {
   drawRepeaterCard(s, cardX1, cardY, cardW, cardH, {
     no: "①",
     code: "STRATEGY 01",
-    name: '①「推し」でまた観たくなる',
-    core: "「あの人が出ているから観る」を作る",
+    name: '「推し」でまた観たくなる',
     aim: "出演者をきっかけにライブを観に来てもらう。",
     accent: C_ACCENT,
     bgTint: "#FFF5F7"
@@ -89,8 +85,7 @@ function insertS20_repeaterStrategy(pres) {
   drawRepeaterCard(s, cardX2, cardY, cardW, cardH, {
     no: "②",
     code: "STRATEGY 02",
-    name: '②「おトク」でまた観たくなる',
-    core: "「観ないと損」を仕組みで作る",
+    name: '「おトク」でまた観たくなる',
     aim: "顧客情報と連携できている強みを活かし、視聴をポイント・限定特典がもらえる場にする。",
     accent: "#C07000",
     bgTint: "#FFFAF0"
@@ -100,8 +95,7 @@ function insertS20_repeaterStrategy(pres) {
   drawRepeaterCard(s, cardX3, cardY, cardW, cardH, {
     no: "③",
     code: "STRATEGY 03",
-    name: '③「いつもの」でまた観たくなる',
-    core: "「火曜と言えば、いつものあれ」を作る",
+    name: '「いつもの」でまた観たくなる',
     aim: "コスメに特化することで、視聴者が「毎週コスメの最新情報・新商品が知れる」と分かる構造にする。",
     accent: C_ACCENT2,
     bgTint: "#F0FAF8"
@@ -135,18 +129,20 @@ function insertS20_repeaterStrategy(pres) {
 /**
  * リピーター戦略カード描画（縦長カード・3カラム並べる前提）
  *
- * 構成（縦方向・サブヘッダーとタグを廃止した簡潔版）:
+ * 構成（修正版・コアコピー&サブヘッダー&タグ廃止でスッキリ化）:
  *  - カード本体（白＋枠線）
  *  - 左ボーダー（4pt幅・アクセント色）
- *  - 上部バッジ帯（薄ティント背景に番号＋STRATEGY 0X＋できっかけを作る）
- *  - 戦略名（「①「推し」でまた観たくなる」・bold・アクセント色）
- *  - コアコピー（「あの人が...」 など・bold・濃色）
+ *  - 上部バッジ帯（薄ティント背景）:
+ *    - 番号 ① ② ③
+ *    - STRATEGY 0X
+ *    - できっかけを作る
+ *    - 戦略名「①「推し」でまた観たくなる」（バッジ帯に統合）
  *  - 区切り線
  *  - 狙い文（短縮版・行間広め）
  *
  * @param slide
  * @param x, y, w, h
- * @param p {no, code, name, core, aim, accent, bgTint}
+ * @param p {no, code, name, aim, accent, bgTint}
  */
 function drawRepeaterCard(slide, x, y, w, h, p) {
   // カード本体（白＋グレー枠線）
@@ -158,8 +154,9 @@ function drawRepeaterCard(slide, x, y, w, h, p) {
   var contentX = x + pad;
   var contentW = w - pad * 2;
 
-  // 上部バッジ帯（薄ティント背景） y〜y+38
-  rect(slide, x + 4, y, w - 4, 38, p.bgTint);
+  // 上部バッジ帯（薄ティント背景） y〜y+86（戦略名分まで含めて拡大）
+  var badgeH = 86;
+  rect(slide, x + 4, y, w - 4, badgeH, p.bgTint);
 
   // 番号 ① ② ③（左寄せ・大きめ・アクセント色）
   txt(slide, p.no, contentX, y + 8, 20, 22, {
@@ -187,9 +184,9 @@ function drawRepeaterCard(slide, x, y, w, h, p) {
     va: SlidesApp.ContentAlignment.MIDDLE
   });
 
-  // 戦略名（中・bold・アクセント色） y+50〜y+76
-  // 「①「推し」でまた観たくなる」を1行に収めるため14ptに調整
-  txt(slide, p.name, contentX, y + 50, contentW, 26, {
+  // 戦略名（バッジ帯下部に統合・bold・アクセント色） y+44〜y+82
+  // 「「推し」でまた観たくなる」を1行に収めるため14pt
+  txt(slide, p.no + p.name, contentX, y + 50, contentW, 30, {
     size: 14,
     color: p.accent,
     bold: true,
@@ -197,20 +194,11 @@ function drawRepeaterCard(slide, x, y, w, h, p) {
     va: SlidesApp.ContentAlignment.MIDDLE
   });
 
-  // コアコピー（中・bold・濃色） y+82〜y+106
-  txt(slide, p.core, contentX, y + 82, contentW, 24, {
-    size: 12,
-    color: C_DARK,
-    bold: true,
-    align: SlidesApp.ParagraphAlignment.CENTER,
-    va: SlidesApp.ContentAlignment.MIDDLE
-  });
+  // 区切り線 y+badgeH+10
+  rect(slide, contentX + 30, y + badgeH + 10, contentW - 60, 1, C_BORDER);
 
-  // 区切り線 y+114
-  rect(slide, contentX + 30, y + 114, contentW - 60, 1, C_BORDER);
-
-  // 狙い文（短縮版・行間広め） y+124〜y+205
-  txt(slide, p.aim, contentX, y + 124, contentW, 80, {
+  // 狙い文（短縮版・行間広め） y+badgeH+22〜
+  txt(slide, p.aim, contentX, y + badgeH + 22, contentW, h - badgeH - 30, {
     size: 11,
     color: C_TEXT,
     align: SlidesApp.ParagraphAlignment.START,
