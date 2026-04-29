@@ -1,17 +1,17 @@
 /**
  * MCCM提案スライド化 - §振り返り: 2025年度の振り返り（1スライド）
  *
- * 最終更新: 2026-04-29 20:03
+ * 最終更新: 2026-04-29 20:15
  *
  * マスター情報源: https://riderkarubo.github.io/pages/mccm-proposal/
  *  （これ以外の場所からは情報を拾わない）
  *
  * Issy手直し解析パターン準拠:
  *  - タイトル黒帯: x=9, y=20, w=671, h=45（newSlide()自動配置）
- *  - 強調色:
- *    Highlight: C_ACCENT2 (#1B998B 緑)
- *    Lowlight : C_ACCENT  (#FA006D マゼンタ)
- *    学び     : C_ACCENT3 (#0F3460 紺)
+ *  - 役割別色分け（HTMLの直感色とは別意図・スライド独自）:
+ *    Highlight: C_ACCENT  (#FA006D マゼンタ) - 強調・目立たせる
+ *    Lowlight : C_ACCENT3 (#0F3460 紺)      - 冷静な課題提起
+ *    学び     : C_ACCENT2 (#1B998B 緑)      - 未来への提案
  *
  * 構成（1スライド完結・上段2カラム＋下段1カラム）:
  *  Highlight 横並び ＋ Lowlight 横並び（上段）
@@ -76,14 +76,14 @@ function insertSReview_yearReview(pres) {
   var bottomW = BODY_W;
 
   // ============================================================
-  // Highlight ブロック（緑 #1B998B）
+  // Highlight ブロック（マゼンタ #FA006D - 強調）
   // ============================================================
   drawReviewBlock(s, hlX, topY, topCardW, topH, {
     label: "🎯 Highlight",
-    accent: C_ACCENT2,
-    bg: "#F0FAF8",
+    accent: C_ACCENT,
+    bg: "#FFF5F7",
     items: [
-      { tag: "効率性", tagBg: "#E0F5F0", tagColor: C_ACCENT2,
+      { tag: "効率性", tagBg: "#FFE0EC", tagColor: C_ACCENT,
         main: "3名体制で毎週配信を実施",
         sub: "他社は5〜7名体制が標準" },
       { tag: "実施頻度", tagBg: "#FFF3CD", tagColor: "#856404",
@@ -93,16 +93,15 @@ function insertSReview_yearReview(pres) {
   });
 
   // ============================================================
-  // Lowlight ブロック（マゼンタ #FA006D）
+  // Lowlight ブロック（紺 #0F3460 - 冷静な課題提起）
+  // 1メッセージに統合（独立2項目だと前半がHighlightに見えるため）
   // ============================================================
   drawReviewBlock(s, llX, topY, topCardW, topH, {
     label: "⚠️ Lowlight",
-    accent: C_ACCENT,
-    bg: "#FFF5F7",
+    accent: C_ACCENT3,
+    bg: "#F0F4FF",
     items: [
-      { main: "視聴者数・コメント率は順調に成長",
-        sub: null, positive: true },
-      { main: "平均視聴分数・商品CTR は伸び悩み",
+      { main: "視聴者数・コメント率は順調に成長する一方、平均視聴分数・商品CTR は伸び悩み",
         sub: "リピーター率 5.0% と低水準" }
     ]
   });
@@ -185,12 +184,12 @@ function drawReviewBlock(s, x, y, w, h, cfg) {
 }
 
 // ============================================================
-// 学びブロック描画（幅広・1メッセージ）
+// 学びブロック描画（幅広・1メッセージ・緑）
 // ============================================================
 function drawLearnBlock(s, x, y, w, h) {
-  // 背景矩形（紺左ボーダー）
-  rect(s, x, y, w, h, "#F0F4FF");
-  rect(s, x, y, 4, h, C_ACCENT3);  // 左ボーダー紺
+  // 背景矩形（緑左ボーダー）
+  rect(s, x, y, w, h, "#F0FAF8");
+  rect(s, x, y, 4, h, C_ACCENT2);  // 左ボーダー緑
 
   // ラベル
   txt(s, "💡 学び", x + 14, y + 8, w - 18, 22, {
