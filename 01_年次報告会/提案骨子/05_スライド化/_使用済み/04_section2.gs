@@ -1,6 +1,8 @@
 /**
  * MCCM提案スライド化 - §2: 2025年度総括（5スライド）
  *
+ * 最終更新: 2026-04-29 18:53
+ *
  * マスター情報源: https://riderkarubo.github.io/pages/mccm-proposal/
  * （これ以外の場所からは情報を拾わない）
  *
@@ -9,7 +11,7 @@
  *  S3: 視聴者数の急成長（テーブル5列）
  *  S4: 協賛実績の推移（テーブル4列）
  *  S5: マイルストーン（時系列9項目）
- *  S6: 7つの経営資産（7カード）
+ *  S6: 7つの経営資産（7カード + 一言メッセージ）
  *
  * 実行手順:
  *  1. 02_helpers.gs を貼り付け済みであること
@@ -38,6 +40,20 @@ function insertSection2() {
   Logger.log("S6 完了");
 
   Logger.log("§2 完了 - 現在: " + pres.getSlides().length + "枚");
+}
+
+/**
+ * S6単独再生成用ラッパー
+ * 使い方:
+ *  1. Slides上で既存のS6スライド（タイトル「7つの経営資産」）を手動で削除
+ *  2. Apps Scriptで rebuildS6_sevenAssets() を実行 → 末尾に新S6が追加される
+ *  3. Slides上で新S6を正しい位置（S5の直後）にドラッグ移動
+ */
+function rebuildS6_sevenAssets() {
+  var pres = SlidesApp.openById(PRESENTATION_ID);
+  Logger.log("S6 再生成 開始 - 現在: " + pres.getSlides().length + "枚");
+  insertS6_sevenAssets(pres);
+  Logger.log("S6 再生成 完了 - 現在: " + pres.getSlides().length + "枚");
 }
 
 // ============================================================
@@ -295,13 +311,30 @@ function insertS5_milestones(pres) {
 function insertS6_sevenAssets(pres) {
   var s = newSlide(pres, "7つの経営資産");
 
+  // タイトル直下の一言メッセージ（タイトル黒帯 y=20-65 の直下）
+  // 「毎週協賛配信が成立するリテールメディア」を C_ACCENT で部分強調
+  var msgFull = "2年間で積み上げた7つの資産が、毎週協賛配信が成立するリテールメディアへと成長させることができた。";
+  var msgBox = txt(s, msgFull, 27, 72, 666, 18, {
+    size: 11, color: C_DARK, bold: false,
+    align: SlidesApp.ParagraphAlignment.START,
+    va: SlidesApp.ContentAlignment.MIDDLE
+  });
+  // 部分強調：「毎週協賛配信が成立するリテールメディア」だけ C_ACCENT + Bold
+  var keyword = "毎週協賛配信が成立するリテールメディア";
+  var idx = msgFull.indexOf(keyword);
+  if (idx >= 0) {
+    var range = msgBox.getText().getRange(idx, idx + keyword.length);
+    range.getTextStyle().setForegroundColor(C_ACCENT).setBold(true);
+  }
+
   // 7カードを配置（4列×2行で7枚 = 4+3 でも、横7列でも、3+4 でもOK）
   // ここでは: 上段4枚（160pt幅）+ 下段3枚（中央寄せ）
+  // 一言メッセージ用に y=90 → y=110 に20pt下シフト
   var cardW = 160;
   var cardH = 110;
   var gapX = 12;
   var rowGap = 14;
-  var topY = 90;
+  var topY = 110;
   var bottomY = topY + cardH + rowGap;
 
   // 上段4枚 (x: 27, 199, 371, 543)
