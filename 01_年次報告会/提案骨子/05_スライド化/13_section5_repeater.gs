@@ -1,26 +1,32 @@
 /**
  * MCCM提案スライド化 - §補足: リピーターを増やす3つの戦略（1スライド）
  *
- * 最終更新: 2026-04-29 17:56
+ * 最終更新: 2026-04-29 18:16
  *
  * マスター情報源: https://riderkarubo.github.io/pages/mccm-proposal/
  *  （これ以外の場所からは情報を拾わない）
  *
  * Issy手直し解析パターン準拠:
  *  - タイトル黒帯: x=9, y=20, w=671, h=45（newSlide()自動配置）
- *  - 結論メッセージ相当: drawConclusionMessage() で y≈90、16pt bold #434343 + 強調語だけアクセント色
  *  - 強調色: ① C_ACCENT (#FA006D マゼンタ) / ② #C07000 オレンジ / ③ C_ACCENT2 (#1B998B 緑)
  *  - rectTxt() で1要素化を基本（複数色・複数サイズが必要なところだけレイヤー）
  *
  * 構成（1スライド完結・3カラム横並び）:
  *  S20: リピーターを増やす3つの戦略
- *    - ①「推し」できっかけを作る ― 出演者でまた観たくなる
- *    - ②「おトク」できっかけを作る ― おトクでまた観たくなる
- *    - ③「いつもの」できっかけを作る ― いつもの番組としてまた観たくなる
+ *    - ①「推し」でまた観たくなる
+ *    - ②「おトク」でまた観たくなる
+ *    - ③「いつもの」でまた観たくなる
  *
  * レイアウト座標:
  *  カード x: ① 25 / ② 252 / ③ 479（gap 12pt・w=215）
- *  カード y: 110、h: 250
+ *  カード y: 110、h: 215
+ *
+ * 修正履歴:
+ *  - 2026-04-29 18:16: フィードバック反映
+ *    - サブヘッダー削除（「出演者でまた観たくなる」など）
+ *    - タグ3つ削除（●曜日担当制でレギュラー化など）
+ *    - 戦略名を「①「推し」でまた観たくなる」の統合形式に変更
+ *    - 狙い文を短縮版に書き換え
  *
  * 実行手順:
  *  1. 02_helpers.gs を最新版で貼り付け済み
@@ -60,8 +66,8 @@ function insertS20_repeaterStrategy(pres) {
   // ============================================================
   // 3カード（横並び）
   // ============================================================
-  var cardY = 115;
-  var cardH = 245;
+  var cardY = 125;
+  var cardH = 215;
   var cardW = 215;
   var gap = 12;
   var cardX1 = 25;
@@ -72,15 +78,9 @@ function insertS20_repeaterStrategy(pres) {
   drawRepeaterCard(s, cardX1, cardY, cardW, cardH, {
     no: "①",
     code: "STRATEGY 01",
-    name: "「推し」",
-    sub: "出演者でまた観たくなる",
+    name: '①「推し」でまた観たくなる',
     core: "「あの人が出ているから観る」を作る",
-    aim: "商品を見に来る視聴者から、人を見に来る視聴者へ転換。リピート理由を商品ラインナップではなく出演者のキャラクターに固定する。",
-    tags: [
-      "曜日担当制でレギュラー化",
-      "出演者個人SNSの強化",
-      "出演者プロフィールページ"
-    ],
+    aim: "出演者をきっかけにライブを観に来てもらう。",
     accent: C_ACCENT,
     bgTint: "#FFF5F7"
   });
@@ -89,15 +89,9 @@ function insertS20_repeaterStrategy(pres) {
   drawRepeaterCard(s, cardX2, cardY, cardW, cardH, {
     no: "②",
     code: "STRATEGY 02",
-    name: "「おトク」",
-    sub: "おトクでまた観たくなる",
+    name: '②「おトク」でまた観たくなる',
     core: "「観ないと損」を仕組みで作る",
-    aim: "「ふらっと来た人」から、会員ログインして観る人へ転換。CDP×マツキヨアプリ×全国会員基盤を活用し、視聴をポイント・限定特典の場に位置付ける(マツキヨ独自)。",
-    tags: [
-      "会員ログイン視聴特典の常設化",
-      "ライブ限定SKU・バンドル",
-      "CDP起点の1to1通知"
-    ],
+    aim: "顧客情報と連携できている強みを活かし、視聴をポイント・限定特典がもらえる場にする。",
     accent: "#C07000",
     bgTint: "#FFFAF0"
   });
@@ -106,22 +100,15 @@ function insertS20_repeaterStrategy(pres) {
   drawRepeaterCard(s, cardX3, cardY, cardW, cardH, {
     no: "③",
     code: "STRATEGY 03",
-    name: "「いつもの」",
-    sub: "いつもの番組としてまた観たくなる",
+    name: '③「いつもの」でまた観たくなる',
     core: "「火曜と言えば、いつものあれ」を作る",
-    aim: "毎回ジャンルが変わる現状から、コスメに特化した定番番組へ転換。視聴者が「来週も同じ世界観のものが見られる」と分かって戻ってくる構造を作る。",
-    tags: [
-      "コスメ特化フォーマットの確立",
-      "「悩み診断」コーナー導入",
-      "「火曜ナイトコスメ」番組ブランド化"
-    ],
+    aim: "コスメに特化することで、視聴者が「毎週コスメの最新情報・新商品が知れる」と分かる構造にする。",
     accent: C_ACCENT2,
     bgTint: "#F0FAF8"
   });
 
   // ============================================================
   // フッター：3戦略を重ねがけし、リピーター比率 5.0% → 8.0% を達成する
-  //   ※ page-num領域（y=391付近）の手前に配置
   // ============================================================
   var footerY = 370;
   var footerH = 18;
@@ -148,20 +135,18 @@ function insertS20_repeaterStrategy(pres) {
 /**
  * リピーター戦略カード描画（縦長カード・3カラム並べる前提）
  *
- * 構成（縦方向）:
+ * 構成（縦方向・サブヘッダーとタグを廃止した簡潔版）:
  *  - カード本体（白＋枠線）
  *  - 左ボーダー（4pt幅・アクセント色）
- *  - 上部バッジ帯（薄ティント背景に番号＋STRATEGY 0X）
- *  - 戦略名（「推し」など・大きく・bold・アクセント色）
- *  - サブヘッダー（出演者でまた観たくなる など・グレー）
+ *  - 上部バッジ帯（薄ティント背景に番号＋STRATEGY 0X＋できっかけを作る）
+ *  - 戦略名（「①「推し」でまた観たくなる」・bold・アクセント色）
  *  - コアコピー（「あの人が...」 など・bold・濃色）
- *  - 区切り線（薄グレー）
- *  - 狙い文（小さめ・行間広め）
- *  - タグ3つ（●先頭）
+ *  - 区切り線
+ *  - 狙い文（短縮版・行間広め）
  *
  * @param slide
  * @param x, y, w, h
- * @param p {no, code, name, sub, core, aim, tags[], accent, bgTint}
+ * @param p {no, code, name, core, aim, accent, bgTint}
  */
 function drawRepeaterCard(slide, x, y, w, h, p) {
   // カード本体（白＋グレー枠線）
@@ -173,7 +158,7 @@ function drawRepeaterCard(slide, x, y, w, h, p) {
   var contentX = x + pad;
   var contentW = w - pad * 2;
 
-  // 上部バッジ帯（薄ティント背景） y+8〜y+30
+  // 上部バッジ帯（薄ティント背景） y〜y+38
   rect(slide, x + 4, y, w - 4, 38, p.bgTint);
 
   // 番号 ① ② ③（左寄せ・大きめ・アクセント色）
@@ -185,7 +170,7 @@ function drawRepeaterCard(slide, x, y, w, h, p) {
     va: SlidesApp.ContentAlignment.MIDDLE
   });
 
-  // STRATEGY 0X（番号の右隣・グレー小文字）
+  // STRATEGY 0X（番号の右隣・アクセント色）
   txt(slide, p.code, contentX + 22, y + 12, contentW - 22, 14, {
     size: 8,
     color: p.accent,
@@ -202,53 +187,33 @@ function drawRepeaterCard(slide, x, y, w, h, p) {
     va: SlidesApp.ContentAlignment.MIDDLE
   });
 
-  // 戦略名（大・bold・アクセント色） y+44〜y+72
-  txt(slide, p.name, contentX, y + 44, contentW, 28, {
-    size: 22,
+  // 戦略名（中・bold・アクセント色） y+50〜y+76
+  // 「①「推し」でまた観たくなる」を1行に収めるため14ptに調整
+  txt(slide, p.name, contentX, y + 50, contentW, 26, {
+    size: 14,
     color: p.accent,
     bold: true,
     align: SlidesApp.ParagraphAlignment.CENTER,
     va: SlidesApp.ContentAlignment.MIDDLE
   });
 
-  // サブヘッダー（小・グレー） y+76〜y+90
-  txt(slide, p.sub, contentX, y + 76, contentW, 14, {
-    size: 9,
-    color: C_GRAY,
-    align: SlidesApp.ParagraphAlignment.CENTER,
-    va: SlidesApp.ContentAlignment.MIDDLE
-  });
-
-  // コアコピー（中・bold・濃色） y+94〜y+114
-  txt(slide, p.core, contentX, y + 94, contentW, 20, {
-    size: 11,
+  // コアコピー（中・bold・濃色） y+82〜y+106
+  txt(slide, p.core, contentX, y + 82, contentW, 24, {
+    size: 12,
     color: C_DARK,
     bold: true,
     align: SlidesApp.ParagraphAlignment.CENTER,
     va: SlidesApp.ContentAlignment.MIDDLE
   });
 
-  // 区切り線 y+120
-  rect(slide, contentX + 30, y + 120, contentW - 60, 1, C_BORDER);
+  // 区切り線 y+114
+  rect(slide, contentX + 30, y + 114, contentW - 60, 1, C_BORDER);
 
-  // 狙い文（小・行間広め） y+128〜y+200
-  txt(slide, p.aim, contentX, y + 128, contentW, 70, {
-    size: 9,
+  // 狙い文（短縮版・行間広め） y+124〜y+205
+  txt(slide, p.aim, contentX, y + 124, contentW, 80, {
+    size: 11,
     color: C_TEXT,
     align: SlidesApp.ParagraphAlignment.START,
     va: SlidesApp.ContentAlignment.TOP
-  });
-
-  // タグ3つ（●先頭） y+200〜y+240
-  var tagY = y + 200;
-  var tagH = 13;
-  p.tags.forEach(function(tag, i) {
-    txt(slide, "● " + tag, contentX, tagY + i * tagH, contentW, tagH, {
-      size: 8.5,
-      color: p.accent,
-      bold: true,
-      align: SlidesApp.ParagraphAlignment.START,
-      va: SlidesApp.ContentAlignment.MIDDLE
-    });
   });
 }
