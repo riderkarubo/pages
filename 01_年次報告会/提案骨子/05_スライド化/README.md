@@ -31,7 +31,11 @@
 | `02_helpers.gs` | 共通ヘルパー（dup/setTitle/txt/rect/makeTable/drawKpiCard等） | ✅ |
 | `03_sections.gs` | §1〜§4 全20枚のGAS実装（`insertSection1〜4` の4関数を統合） | コード作成済 |
 | `07_inspectP4toP7.gs` | Phase 0+++: 手直し済P4〜P7の完全構造取得（テーブルセル含む詳細解析） | ✅ 解析済 |
-| `08_section3_v2.gs` | §3 (S7-S12) v2版・実測テンプレ準拠（S10コスメ限定比較を統合済み） | コード作成済 |
+| `08_section3_v2.gs` | §3 (S7-S12 + S10b) v2版・実測テンプレ準拠 | コード作成済 |
+| `10_s12b_self_data_trend.gs` | S12b 自社データ(コメント参加率・リピーター比率) 単独追加 | コード作成済 |
+| `11_section4_v2.gs` | §4 (S13-S19) v2版・実測テンプレ準拠（2本柱・グレーアウト除外） | コード作成済 |
+| `12_inspectAllSlides.gs` | 完成版全スライドの構造解析（テンプレライブラリ吸収用） | 実行待ち |
+| `13_section5_repeater.gs` | S20（リピーターを増やす3つの戦略・1枚補足） | コード作成済（2026-04-29追加） |
 | `KPI_tree_S8.pptx` | S8用 KPIツリー画像のPPTXソース（python-pptxで生成） | 確認待ち |
 | `build_s8_kpi_tree.py` | KPI_tree_S8.pptx を再生成するPythonスクリプト | ✅ |
 | `_使用済み/` | Phase 0 テンプレ調査GAS（`01_*.gs`）と統合前の章別GAS（`03_section1.gs` 〜 `06_section4.gs`）を保管 | アーカイブ |
@@ -44,6 +48,7 @@
 | `insertSection2()` | S2〜S6（2025年度総括・5枚） | 実行待ち |
 | `insertSection3()` | S7〜S12（2026年度KPI・6枚） | 実行待ち |
 | `insertSection4()` | S13〜S19（2本柱・7枚） | 実行待ち |
+| `insertSection5Repeater()` | S20（リピーター3戦略・1枚補足） | コード作成済 |
 
 ## スライド構成（全20枚）
 
@@ -68,6 +73,7 @@
 | S17 | §4 | 柱① 体制改善 上半期①:レギュレーション設定 |
 | S18 | §4 | 柱① 体制改善:薬機法CK + AI活用 |
 | S19 | §4 | 柱② 社員インフルエンサー強化 |
+| S20 | 補足 | リピーターを増やす3つの戦略（1枚版・2026-04-29追加） |
 
 ## 使用スキル・参考資料
 
@@ -97,3 +103,8 @@
 3. `insertSection2()` を実行 → ブラウザで確認 → 修正指示（5枚追加）
 4. `insertSection3()` を実行 → ブラウザで確認 → 修正指示（6枚追加）
 5. `insertSection4()` を実行 → ブラウザで確認 → 修正指示（7枚追加）
+6. `insertSection5Repeater()` を実行 → ブラウザで確認 → 修正指示（1枚追加・S20）
+
+### S20 単独実行
+- `runS20Only()` で S20 のみ末尾に追加可能
+- `13_section5_repeater.gs` を Apps Script に追加し、`insertSection5Repeater()` または `runS20Only()` を実行
