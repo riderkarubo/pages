@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マツキヨココカラライブ 分科会｜完了タスクアーカイブ</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+<meta name="description" content="マツキヨココカラライブ 分科会｜完了タスクアーカイブ。資料反映済みの分析・タスクを格納（A5 Xフォロリポキャンペーン分析 ほか）">
+<meta property="og:title" content="マツキヨココカラライブ 分科会｜完了タスクアーカイブ">
+<meta property="og:description" content="資料反映済みの分析・タスクを格納（A5 Xフォロリポキャンペーン分析 ほか）">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/mccm-proposal/bunkakai/completed/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="マツキヨココカラライブ 分科会｜完了タスクアーカイブ">
+<meta name="twitter:description" content="資料反映済みの分析・タスクを格納（A5 Xフォロリポキャンペーン分析 ほか）">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
+
+  .page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* ===== COVER ===== */
+  .cover { background: linear-gradient(135deg, #6c757d 0%, #495057 50%, #1a1a2e 100%); color: white; padding: 80px 60px; border-radius: 16px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 250px; height: 250px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+  .cover-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd166; font-weight: 600; margin-bottom: 20px; }
+  .cover h1 { font-size: 30px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+  .cover-sub { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 36px; flex-wrap: wrap; }
+  .cover-meta-item { border-left: 2px solid #ffd166; padding-left: 16px; }
+  .cover-meta-item .label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 14px; color: white; font-weight: 600; }
+
+  /* ===== SECTION ===== */
+  .section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+  .section-badge { background: #1b998b; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .section-badge.red { background: #fa006d; }
+  .section-badge.blue { background: #0f3460; }
+  .section-badge.gray { background: #6c757d; }
+  .section-badge.purple { background: #6c63ff; }
+  .section-title { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+  .section-subtitle { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* ===== TOC ===== */
+  .toc { background: #f8f9fa; border-radius: 10px; padding: 20px 24px; }
+  .toc-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 13px; border-bottom: 1px dashed #e0e0e0; }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-item a { display: flex; align-items: center; gap: 12px; width: 100%; text-decoration: none; color: inherit; border-radius: 6px; padding: 2px 4px; transition: background 0.15s; }
+  .toc-item a:hover { background: #e8eaf0; }
+  .toc-num { width: 32px; height: 32px; background: #6c757d; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .toc-status { margin-left: auto; font-size: 10px; color: #1b998b; font-weight: 700; white-space: nowrap; }
+
+  /* ===== TABLES ===== */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 10px 14px; text-align: left; font-weight: 600; letter-spacing: 0.5px; }
+  thead th.center { text-align: center; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9fa; }
+  tbody td { padding: 10px 14px; }
+  tbody td.center { text-align: center; }
+  tbody tr.highlight { background: #fff8e1; font-weight: 600; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .tag.green { background: #d4f5ef; color: #1b998b; }
+  .tag.gray { background: #f0f0f0; color: #666; }
+
+  /* ===== MISC ===== */
+  .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .note.warning { border-left-color: #fa006d; background: #fff5f7; color: #c0392b; }
+  .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
+  .note.success { border-left-color: #1b998b; background: #f0faf8; color: #1b998b; }
+  h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 20px 0 12px; }
+  h4 { font-size: 13px; font-weight: 700; color: #444; margin: 16px 0 8px; }
+  p { margin: 8px 0; color: #444; }
+
+  .completed-banner { background: linear-gradient(135deg, #1b998b, #0f3460); color: white; padding: 16px 24px; border-radius: 10px; margin-bottom: 20px; font-weight: 700; font-size: 14px; }
+  .completed-banner .check { display: inline-block; background: white; color: #1b998b; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; margin-right: 10px; font-weight: 800; }
+
+  /* ===== TASK LIST ===== */
+  .task-section { background: #fff8e1; border: 2px dashed #f59e0b; border-radius: 10px; padding: 24px; margin: 24px 0; }
+  .task-section h4 { color: #856404; margin-top: 0; font-size: 14px; }
+  .task-section ul { list-style: none; padding: 0; }
+  .task-section ul li { padding: 10px 0 10px 28px; position: relative; font-size: 13px; line-height: 1.7; border-bottom: 1px dashed #e0c89f; }
+  .task-section ul li:last-child { border-bottom: none; }
+  .task-section ul li::before { content: '☐'; position: absolute; left: 0; top: 10px; color: #f59e0b; font-size: 16px; font-weight: 700; }
+  .task-section ul li strong { color: #856404; }
+
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    @page { size: A4; margin: 10mm; }
+    .page { padding: 0; }
+    .section { box-shadow: none; border: 1px solid #e0e0e0; break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-label">Bunkakai · Completed Tasks Archive</div>
+  <h1>マツキヨココカラライブ<br>分科会｜完了タスクアーカイブ</h1>
+  <div class="cover-sub">資料反映済みの分析・タスクを格納（本資料は社内参照用）</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Created</div>
+      <div class="value">2026年5月1日</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Last Updated</div>
+      <div class="value">2026年5月1日 22:08</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Prepared by</div>
+      <div class="value">Firework</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Status</div>
+      <div class="value">Archive v1.0</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<div class="section" id="sec-intro">
+  <div class="section-header">
+    <div class="section-badge gray">本ページについて</div>
+    <div>
+      <div class="section-title">アーカイブの位置づけ</div>
+    </div>
+  </div>
+  <div class="note info">
+    本ページは、月次分科会の「<strong>追加タスクリスト</strong>」のうち <strong>分析が完了し、関連資料への反映が済んだタスク</strong>を格納する社内参照用アーカイブです。本資料の役割は2つあります：
+    <ul style="margin-top: 10px; padding-left: 20px; line-height: 2;">
+      <li>① 分科会本体（<a href="../">分科会用資料</a>）から完了済みタスクを除外し、<strong>進行中タスクに注力できるようにする</strong></li>
+      <li>② 過去の分析結果と反映先を <strong>後から検証・参照できる形で保管</strong>する</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-badge gray">INDEX</div>
+    <div>
+      <div class="section-title">完了タスク一覧</div>
+      <div class="section-subtitle">完了日が新しい順</div>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-item">
+      <a href="#sec-a5">
+        <div class="toc-num">A5</div>
+        <span>Xフォロリポキャンペーン分析（実施5回 vs 非実施82回）+ 関連検証2件 + 提案落とし込み</span>
+        <div class="toc-status">✅ 2026-05-01</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A5 完了タスク本体 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a5">
+  <div class="completed-banner">
+    <span class="check">✓</span>A5｜Xフォロリポキャンペーン分析 — 完了 2026-05-01
+  </div>
+
+  <div class="section-header">
+    <div class="section-badge purple">A5</div>
+    <div>
+      <div class="section-title">A5｜Xフォロリポキャンペーン分析</div>
+      <div class="section-subtitle">実施5回 vs 非実施82回の全指標比較 <span class="tag green">完了</span></div>
+    </div>
+  </div>
+
+  <div class="note success" style="margin-bottom: 16px;">
+    <strong>📌 反映先：</strong>本分析結果は分科会本体および提案資料に組み込み済み。フォロリポは「X拡散・ファン巻き込み施策」として位置づけ、KPIをX再生数・リポスト数で設計する方針で確定。
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>分析概要：</strong>フォロリポ実施5回（2025-10-07 ディアボーテ／10-21 プロスタイル／10-28 ケイト／2026-02-17 いち髪／03-03 ケイト）と非実施回（82回）を全指標で比較。リピーター数・チャット数に顕著な差、購買系指標への効果は限定的。X上のアーカイブ再生数でKATE回は通常の約2倍。
+  </div>
+
+  <h4>active（全視聴者）比較</h4>
+  <table>
+    <thead><tr><th>指標</th><th class="center">フォロリポ回平均</th><th class="center">非フォロリポ平均</th><th class="center">差</th><th>読み</th></tr></thead>
+    <tbody>
+      <tr><td>最大同時接続者数</td><td class="center">438人</td><td class="center">434人</td><td class="center">▲0.8%</td><td>ほぼ同じ</td></tr>
+      <tr><td>平均視聴分数</td><td class="center">4.0分</td><td class="center">7.1分</td><td class="center" style="color:#fa006d;"><strong>▼43.5%</strong></td><td>浅い視聴が増える</td></tr>
+      <tr class="highlight"><td>チャット参加ユーザー数</td><td class="center"><strong>46.4人</strong></td><td class="center">28.9人</td><td class="center" style="color:#1b998b;"><strong>▲60.8%</strong></td><td>場が盛り上がる</td></tr>
+      <tr class="highlight"><td>チャット数</td><td class="center"><strong>247.8件</strong></td><td class="center">148.3件</td><td class="center" style="color:#1b998b;"><strong>▲67.1%</strong></td><td>場が盛り上がる</td></tr>
+      <tr><td>商品カードクリック数</td><td class="center">105.8件</td><td class="center">125.7件</td><td class="center" style="color:#fa006d;">▼15.8%</td><td>購買転換は弱い</td></tr>
+      <tr><td>エンゲージ視聴者数</td><td class="center">451人</td><td class="center">365人</td><td class="center" style="color:#1b998b;">▲23.6%</td><td>反応する人は多め</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">active_repeat（リピーター）比較</h4>
+  <table>
+    <thead><tr><th>指標</th><th class="center">フォロリポ回平均</th><th class="center">非フォロリポ平均</th><th class="center">差</th><th>読み</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>リピーター数</strong></td><td class="center" style="color:#1b998b;"><strong>302人</strong></td><td class="center">167人</td><td class="center" style="color:#1b998b;"><strong>▲81.5%</strong></td><td>最大の効果。既存ファンを引き込む</td></tr>
+      <tr><td>リピーター視聴分数</td><td class="center">9.9分</td><td class="center">13.8分</td><td class="center" style="color:#fa006d;">▼27.9%</td><td>長居はしない</td></tr>
+      <tr><td>Total Watched Minutes</td><td class="center">3,017</td><td class="center">1,762</td><td class="center" style="color:#1b998b;">▲71.2%</td><td>総視聴時間は大幅増</td></tr>
+      <tr><td>チャット数（repeat）</td><td class="center">70.8件</td><td class="center">49.2件</td><td class="center" style="color:#1b998b;">▲43.9%</td><td>リピーターもチャット活発</td></tr>
+      <tr><td>商品カードクリック数</td><td class="center">15.4件</td><td class="center">22.1件</td><td class="center" style="color:#fa006d;">▼30.5%</td><td>購買転換は弱い</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">X投稿アーカイブ再生数（先方提供）</h4>
+  <div class="note success" style="margin-bottom: 16px;">
+    <strong>KATE回（フォロリポあり）：約10,000回再生</strong> vs 通常回：約5,000回再生 → <strong style="color:#1b998b;">約2倍</strong><br>
+    ライブ中の同時接続者数への影響は軽微だが、<strong>X上の拡散・アーカイブ視聴に大きな効果</strong>が出ている。
+  </div>
+
+  <div class="note warning">
+    <strong>提案への活用方針：</strong>フォロリポは「ライブ中の購買転換施策」ではなく「<strong>X拡散・ファン巻き込み施策</strong>」として位置づける。コンテンツの面白さ（KATE回）と組み合わせることで拡散効果が最大化する。KPIはX再生数・リポスト数を設定すべき。
+  </div>
+
+  <!-- ===== A5 関連 追加検証タスク（完了済） ===== -->
+  <div class="task-section">
+    <h4>🔍 A5関連の追加検証タスク（2026-04-14 FB反映）— ✅完了</h4>
+    <ul>
+      <li><strong>リピーター数「最大の効果・既存ファン引き込み」の真偽検証</strong>：タイトルやプッシュ通知からフォロリポキャンペーンが判別できるのか確認。単に商材やタイトルの他の要因で視聴者数が増えただけではないかチェックする。</li>
+      <li><strong>他のフォロリポキャンペーン回のX投稿アーカイブ再生数差分</strong>：KATE回以外（ディアボーテ／プロスタイル／いち髪等）のX投稿アーカイブ再生数を調査し、フォロリポの効果が一貫しているかを検証。</li>
+    </ul>
+  </div>
+
+  <!-- ===== A8 提案への落とし込み（A5派生）===== -->
+  <div class="task-section" style="background: #f0faf8; border-color: #1b998b;">
+    <h4 style="color: #0f6e63;">🎯 A8｜Xフォロリポ施策の提案への落とし込み — ✅完了</h4>
+    <ul>
+      <li><strong>A5分析結果をもとにフォロリポ施策を提案資料へ組み込み</strong>：A5分析結果（リピーター▲81%・チャット▲67%・X拡散2倍）をもとに、フォロリポを「X拡散・ファン巻き込み施策」として提案資料に組み込み済。KPIはX再生数・リポスト数で設計。</li>
+    </ul>
+  </div>
+
+  <div class="note" style="margin-top: 24px; background: #f0f0f0; border-left-color: #6c757d;">
+    <strong>📁 アーカイブ移設の経緯：</strong>2026-05-01 に分科会用資料の整理にあたり、本セクションは資料反映済みのため分科会本体から本アーカイブへ退避。今後の進行中タスクに注力できる構造に再編した。
+  </div>
+</div>
+
+<div style="margin-top: 48px; padding: 24px 0; text-align: center; border-top: 1px solid #e0e0e0; color: #999; font-size: 12px; letter-spacing: 1px;">
+  マツキヨココカラライブ 分科会｜完了タスクアーカイブ — 2026.05.01 — Confidential
+</div>
+
+</div><!-- /.page -->
+</body>
+</html>
