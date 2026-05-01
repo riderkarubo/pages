@@ -132,10 +132,30 @@ YYYY/M/D [配信名]
 
 | スキル | 使用シーン | 出力形式 |
 |--------|----------|--------|
+| **`/reporting-cycle`** | **報告会(年次/四半期/月次)・提案書を組み立てる際のオーケストレーション** | md/HTML/Slides |
+| `/fw-slide` | Google Slides/PPTX生成（Fireworkテンプレ準拠） | gs/pptx |
+| `/proposal-builder` | クライアント向け提案書HTML | html |
 | `delivery-analysis` | CSV配信数値の分析、KPI抽出、トレンド分析 | md/xlsx |
 | `pitch-deck` | 報告資料・提案資料の構成案、スライド文案 | md/pptx構成案 |
 | `strategy-plan` | 次年度戦略、事業計画、売上シミュレーション | md企画書/xlsx |
-| `/fw-slide` | Google Slides/PPTX生成（Fireworkテンプレ準拠） | gs/pptx |
+
+### Firework Reporting Kit (Claude Code プラグイン・2026-05-01追加)
+
+報告会・提案書作成は **firework-reporting-kit** プラグインで一元管理。
+GitHub: https://github.com/riderkarubo/firework-reporting-kit (private)
+
+**プラグインに含まれるリソース** (自然言語で自動発動):
+- `/reporting-cycle` (報告会・提案書プレイブック・自然言語トリガー: 「年次報告会」「四半期レビュー」「QBR」「月次分科会」等)
+- `/fw-slide` `/proposal-builder` `/asics-proposal` (個別ツール)
+- `templates/` (年次/四半期/月次/提案書 章立て骨子 + 章単位10テンプレ)
+- `rules/` (品質ゲート・呼称統一・エグゼセルフレビュー)
+- `skills/learned/` (デザインスペック・GASノウハウ)
+- `gas/` (`02_helpers.gs` `16_template_helpers.gs` `15_inspectFinalDeck.gs`)
+- `learned-decks/` (過去スライド吸い出しJSON)
+
+**インストール**: `/plugin install github:riderkarubo/firework-reporting-kit`
+**更新**: `/plugin update firework-reporting-kit`
+**編集元**: `02_仕事/04_ツール開発/firework-reporting-kit/` (commit→push→`/plugin update`)
 
 ### MCCM案件のスライド作業情報
 
