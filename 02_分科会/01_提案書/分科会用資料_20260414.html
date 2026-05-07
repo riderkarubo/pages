@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>マツキヨココカラライブ 分科会用資料 2026.04.14</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
-<meta name="description" content="マツキヨココカラライブ 月次分科会用資料。A3/A5/A6/A7/A11の詳細分析とディスカッション掘り下げ用（2026年4月14日版）">
+<meta name="description" content="マツキヨココカラライブ 月次分科会用資料。A3/A6/A7/A11の詳細分析とディスカッション掘り下げ用（A5は完了タスクアーカイブへ移設）">
 <meta property="og:title" content="マツキヨココカラライブ 分科会用資料">
-<meta property="og:description" content="月次分科会用の詳細分析資料（A3/A5/A6/A7/A11 収録）">
+<meta property="og:description" content="月次分科会用の詳細分析資料（A3/A6/A7/A11 収録）">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://riderkarubo.github.io/mccm-proposal/bunkakai.html">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/mccm-proposal/bunkakai/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="マツキヨココカラライブ 分科会用資料">
-<meta name="twitter:description" content="月次分科会用の詳細分析資料（A3/A5/A6/A7/A11 収録）">
+<meta name="twitter:description" content="月次分科会用の詳細分析資料（A3/A6/A7/A11 収録）">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; font-size: 13px; color: #1a1a2e; background: #f8f9fa; line-height: 1.7; }
@@ -35,7 +35,7 @@
   .section { background: white; border-radius: 12px; padding: 40px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
   .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
   .section-badge { background: #1b998b; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
-  .section-badge.red { background: #e94560; }
+  .section-badge.red { background: #fa006d; }
   .section-badge.blue { background: #0f3460; }
   .section-badge.orange { background: #e07a5f; }
   .section-badge.gray { background: #6c757d; }
@@ -55,14 +55,14 @@
   /* ===== KPI CARDS ===== */
   .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
   .kpi-card { background: #f8f9fa; border-radius: 10px; padding: 20px; text-align: center; border-top: 3px solid #1a1a2e; }
-  .kpi-card.accent { border-top-color: #e94560; background: #fff5f7; }
+  .kpi-card.accent { border-top-color: #fa006d; background: #fff5f7; }
   .kpi-card.blue { border-top-color: #0f3460; background: #f0f4ff; }
   .kpi-card.green { border-top-color: #1b998b; background: #f0faf8; }
   .kpi-label { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
   .kpi-value { font-size: 22px; font-weight: 800; color: #1a1a2e; line-height: 1.2; }
   .kpi-value span { font-size: 12px; font-weight: 400; color: #666; }
   .kpi-note { font-size: 10px; color: #888; margin-top: 6px; }
-  .kpi-badge { display: inline-block; background: #e94560; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+  .kpi-badge { display: inline-block; background: #fa006d; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
   .kpi-badge.up { background: #1b998b; }
 
   /* ===== TABLES ===== */
@@ -85,7 +85,7 @@
 
   /* ===== MISC ===== */
   .note { font-size: 11px; color: #888; padding: 10px 14px; background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; margin: 12px 0; }
-  .note.warning { border-left-color: #e94560; background: #fff5f7; color: #c0392b; }
+  .note.warning { border-left-color: #fa006d; background: #fff5f7; color: #c0392b; }
   .note.info { border-left-color: #0f3460; background: #f0f4ff; color: #0f3460; }
   .note.success { border-left-color: #1b998b; background: #f0faf8; color: #1b998b; }
   .divider { height: 1px; background: #f0f0f0; margin: 24px 0; }
@@ -125,7 +125,7 @@
 <div class="cover">
   <div class="cover-label">Monthly Sub-Committee · Reference</div>
   <h1>マツキヨココカラライブ<br>分科会用資料</h1>
-  <div class="cover-sub">年次報告会から外した詳細分析（A3・A5・A6・A7・A11）＋ 追加調査タスクリスト</div>
+  <div class="cover-sub">年次報告会から外した詳細分析（A3・A6・A7・A11）＋ 追加調査タスクリスト ｜ A5は<a href="../02_完了タスクアーカイブ/完了タスク_A5_20260501.html" style="color:#ffd166;">完了アーカイブ</a>へ移設</div>
   <div class="cover-meta">
     <div class="cover-meta-item">
       <div class="label">Date</div>
@@ -133,7 +133,7 @@
     </div>
     <div class="cover-meta-item">
       <div class="label">Last Updated</div>
-      <div class="value">2026年4月20日 12:36</div>
+      <div class="value">2026年5月1日 22:08</div>
     </div>
     <div class="cover-meta-item">
       <div class="label">Prepared by</div>
@@ -157,12 +157,34 @@
   </div>
   <div class="toc">
     <div class="toc-item"><a href="#sec-intro"><div class="toc-num">0</div><span>本資料の位置づけ</span><div class="toc-status">イントロ</div></a></div>
+  </div>
+
+  <div style="margin: 24px 0 8px; padding: 8px 14px; background: #fa006d; color: #fff; font-weight: 700; border-radius: 4px; font-size: 13px;">
+    Layer 1｜全体可視化フレーム（2026年度の上位レイヤー）
+  </div>
+  <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
+    2026/4/30 年次報告会で握られた次年度の最上位テーマ。配信単体KPIではなく、店頭含めたプラットフォーム全体のCV可視化を主軸に置く。
+  </div>
+  <div class="toc">
+    <div class="toc-item"><a href="#sec-overview"><div class="toc-num">L1</div><span>マツココライブ 全体可視化フレーム（GA × 会員ID × 店頭POS）</span><div class="toc-status" style="background:#fa006d; color:#fff;">最上位</div></a></div>
+  </div>
+
+  <div style="margin: 24px 0 8px; padding: 8px 14px; background: #1a1a2e; color: #fff; font-weight: 700; border-radius: 4px; font-size: 13px;">
+    Layer 2｜配信単体指標分析（Layer 1の下位レイヤー）
+  </div>
+  <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
+    配信単体のエンゲージメント・運営体制・粗利率に関する詳細分析。Layer 1の全体可視化フレームに接続する形で運用していく。
+  </div>
+  <div class="toc">
     <div class="toc-item"><a href="#sec-a3"><div class="toc-num">A3</div><span>協賛回 vs レギュラー回 エンゲージメント比較</span><div class="toc-status">完了</div></a></div>
-    <div class="toc-item"><a href="#sec-a5"><div class="toc-num">A5</div><span>Xフォロリポキャンペーン分析</span><div class="toc-status">完了</div></a></div>
     <div class="toc-item"><a href="#sec-a6"><div class="toc-num">A6</div><span>台本「お悩み訴求（自分ごと化）」チェック</span><div class="toc-status">完了</div></a></div>
     <div class="toc-item"><a href="#sec-a7"><div class="toc-num">A7</div><span>キャンペーン有無とエンゲージメントの差分析</span><div class="toc-status">完了</div></a></div>
     <div class="toc-item"><a href="#sec-a11"><div class="toc-num">A11</div><span>月次振り返り項目の見直し提案</span><div class="toc-status">分析済</div></a></div>
+    <div class="toc-item"><a href="#sec-a14"><div class="toc-num">A14</div><span>リピーター数をいかに増やすべきかの提案</span><div class="toc-status">ブレスト論点</div></a></div>
+    <div class="toc-item"><a href="#sec-a9"><div class="toc-num">A9</div><span>粗利率改善｜正しい単価設定と根拠</span><div class="toc-status">分析済</div></a></div>
+    <div class="toc-item"><a href="#sec-a10"><div class="toc-num">A10</div><span>受注後の運営体制の整理と提示</span><div class="toc-status">分析済</div></a></div>
     <div class="toc-item"><a href="#sec-tasks"><div class="toc-num">📋</div><span>追加タスクリスト（2026-04-14 FB反映）</span><div class="toc-status">要実施</div></a></div>
+    <div class="toc-item"><a href="../02_完了タスクアーカイブ/完了タスク_A5_20260501.html"><div class="toc-num" style="background:#1b998b;">✅</div><span>完了タスクアーカイブ（A5・別ページ）</span><div class="toc-status" style="color:#1b998b;">アーカイブ</div></a></div>
   </div>
 </div>
 
@@ -179,15 +201,72 @@
     年次報告会では全体戦略・KPI・3大方針に集中するため、以下の分析は分科会でのディスカッション・掘り下げ用として本資料に収録しています。
   </div>
 
-  <h4>収録内容</h4>
+  <h4>収録内容（2階層構造）</h4>
   <ul style="padding-left: 20px; line-height: 2;">
-    <li><strong>A3：協賛回 vs レギュラー回 エンゲージメント比較</strong> — 2025年度41回の分類分析</li>
-    <li><strong>A5：Xフォロリポキャンペーン分析</strong> — 実施5回 vs 非実施82回の比較</li>
-    <li><strong>A6：台本「お悩み訴求」チェック</strong> — 44台本の内容分析＋強い事例の型5パターン</li>
-    <li><strong>A7：キャンペーン有無とエンゲージメントの差分析</strong> — CP種別ごとの効果量比較</li>
-    <li><strong>A11：月次振り返り項目の見直し提案</strong> — リピーター指標・粗利率モニタリング追加</li>
+    <li><strong style="color:#fa006d;">Layer 1｜全体可視化フレーム</strong> — 2026/4/30年次報告会で握られた次年度の最上位テーマ。配信単体KPIではなく、店頭含めた全体CVを主軸にする</li>
+    <li><strong>Layer 2｜配信単体指標分析（A3・A6・A7・A11・A14・A9・A10）</strong> — Layer 1の下位レイヤー。配信単体のエンゲージメント・運営体制・粗利率の詳細分析</li>
     <li><strong>📋 追加タスクリスト</strong> — 2026-04-14 FBで追加された要調査項目</li>
+    <li><strong style="color:#1b998b;">✅ 完了タスクアーカイブ（別ページ）</strong> — 資料反映済みの分析（A5 Xフォロリポキャンペーン分析 ほか）は <a href="../02_完了タスクアーカイブ/完了タスク_A5_20260501.html">こちら</a> に格納</li>
   </ul>
+
+  <div class="note" style="background:#fff5f7; border-left: 4px solid #fa006d; margin-top: 18px;">
+    <strong style="color:#fa006d;">2026/4/30 年次報告会 中尾さんFB（要旨）：</strong><br>
+    「最大の強みはリアル店舗（8000億物販）。そこの数字を見ないと全体が見えない」<br>
+    「リピートしようがしなかろうが、来てる人のCVも店も含めて上がってるっていう事実がある」<br>
+    「意義だけしっかり、目的だけしっかりしてればお金関係ない」<br>
+    → 本資料の各分析は<strong>Layer 1（全体可視化）の下位レイヤー</strong>として位置付け直し、今後はオフラインインパクト測定（GA × 会員ID × POS連携）と接続した形で運用する。
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Layer 1：全体可視化フレーム -->
+<!-- ============================================================ -->
+<div class="section" id="sec-overview">
+  <div class="section-header">
+    <div class="section-badge" style="background:#fa006d; color:#fff;">L1</div>
+    <div>
+      <div class="section-title">マツココライブ 全体可視化フレーム（GA × 会員ID × 店頭POS）</div>
+      <div class="section-subtitle">2026年度の最上位レイヤー <span class="tag" style="background:#fa006d; color:#fff;">最優先</span></div>
+    </div>
+  </div>
+
+  <div class="note info">
+    <strong>本セクションの位置づけ：</strong>2026/4/30 年次報告会で中尾さんから「**店頭含めた全体CVで意義を作る**」という方針が示された。これを受けて、配信単体KPI（視聴者数・視聴分数・CTR）の改善議論より上位に、<strong>「ライブ起点で店頭・アーカイブ・後日購買まで含めた全体可視化」</strong>を最上位フレームとして置く。
+  </div>
+
+  <h4 style="margin-top: 24px;">なぜ「全体可視化」が最優先か</h4>
+  <ul style="padding-left: 20px; line-height: 2;">
+    <li><strong>配信単体KPIだけでは意義が示せない</strong>：エンゲージメントが頭打ちでも、店頭やアーカイブで購買が起きている可能性がある。これを捕捉できないと「伸び悩み」と誤判定するリスクがある</li>
+    <li><strong>来訪者のCV率向上が本丸</strong>：中尾さんFB「リピートあるなしどうでもいい。来てる人のCVが上がってくれれば、それが一番の白兎」</li>
+    <li><strong>包括提案モデルの基盤になる</strong>：年間バンドル販売（フラッグシップ＋ライブ協賛＋切り抜き動画）を売るためには、全体での意義が示せる必要がある</li>
+  </ul>
+
+  <h4 style="margin-top: 24px;">データスキーム概念図（Mishima作成中）</h4>
+  <div style="background: #f0f4ff; border: 2px dashed #1a1a2e; border-radius: 8px; padding: 24px; text-align: center; margin: 12px 0;">
+    <div style="font-size: 14px; color: #666; margin-bottom: 8px;">📐 概念図 placeholder</div>
+    <div style="font-size: 13px; line-height: 1.8;">
+      <strong>[ライブ視聴]</strong> → GA（セッション・行動データ）<br>
+      ↓ ID連携（マツキヨ会員ID × GA Cookie）<br>
+      <strong>[アプリ会員行動]</strong> → JP INFO 統合データ<br>
+      ↓ POS連携<br>
+      <strong>[店頭購買]</strong> → 配信前後の購買率変化を捕捉<br>
+      ↓<br>
+      <strong>[全体CV可視化レポート]</strong> → メーカー協賛価値の証明＋包括提案の基盤
+    </div>
+    <div style="font-size: 11px; color: #999; margin-top: 12px;">※ 詳細図はMishima作成中。次回（6月分科会）で初版を共有予定</div>
+  </div>
+
+  <h4 style="margin-top: 24px;">ネクストステップ</h4>
+  <ol style="padding-left: 20px; line-height: 2;">
+    <li><strong>データスキーム概念図の完成</strong>（Mishima担当）— GA × 会員ID × POSの技術連携可能性を確認</li>
+    <li><strong>既存データで何が取れるか検証</strong>（Muto担当）— 内部σマ等から派生取得可能なデータを調査</li>
+    <li><strong>5/7文化会で頭出し</strong>（Issy担当）— 「今後こうしたい」を1枚で先方に共有</li>
+    <li><strong>6月以降、上流議論を2-3回集中</strong> — 方向性を固めてから定例化</li>
+  </ol>
+
+  <div class="note" style="background:#f0faf8; border-left: 4px solid #1b998b; margin-top: 18px;">
+    <strong style="color:#1b998b;">下位レイヤー（A3〜A14）との関係：</strong>本フレームが固まれば、A3〜A14の各分析は「全体可視化レポートを構成する1要素」として再配置される。各分析の詳細は引き続き有効だが、<strong>単独で意義を主張するのではなく、全体CVへの貢献度を示す形</strong>に運用を変えていく。
+  </div>
 </div>
 
 <!-- ============================================================ -->
@@ -265,65 +344,7 @@
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- A5 -->
-<!-- ============================================================ -->
-<div class="section" id="sec-a5">
-  <div class="section-header">
-    <div class="section-badge purple">A5</div>
-    <div>
-      <div class="section-title">A5｜Xフォロリポキャンペーン分析</div>
-      <div class="section-subtitle">実施5回 vs 非実施82回の全指標比較 <span class="tag green">完了</span></div>
-    </div>
-  </div>
-
-  <div class="note info" style="margin-bottom: 16px;">
-    <strong>分析概要：</strong>フォロリポ実施5回（2025-10-07 ディアボーテ／10-21 プロスタイル／10-28 ケイト／2026-02-17 いち髪／03-03 ケイト）と非実施回（82回）を全指標で比較。リピーター数・チャット数に顕著な差、購買系指標への効果は限定的。X上のアーカイブ再生数でKATE回は通常の約2倍。
-  </div>
-
-  <h4>active（全視聴者）比較</h4>
-  <table>
-    <thead><tr><th>指標</th><th class="center">フォロリポ回平均</th><th class="center">非フォロリポ平均</th><th class="center">差</th><th>読み</th></tr></thead>
-    <tbody>
-      <tr><td>最大同時接続者数</td><td class="center">438人</td><td class="center">434人</td><td class="center">▲0.8%</td><td>ほぼ同じ</td></tr>
-      <tr><td>平均視聴分数</td><td class="center">4.0分</td><td class="center">7.1分</td><td class="center" style="color:#e94560;"><strong>▼43.5%</strong></td><td>浅い視聴が増える</td></tr>
-      <tr class="highlight"><td>チャット参加ユーザー数</td><td class="center"><strong>46.4人</strong></td><td class="center">28.9人</td><td class="center" style="color:#1b998b;"><strong>▲60.8%</strong></td><td>場が盛り上がる</td></tr>
-      <tr class="highlight"><td>チャット数</td><td class="center"><strong>247.8件</strong></td><td class="center">148.3件</td><td class="center" style="color:#1b998b;"><strong>▲67.1%</strong></td><td>場が盛り上がる</td></tr>
-      <tr><td>商品カードクリック数</td><td class="center">105.8件</td><td class="center">125.7件</td><td class="center" style="color:#e94560;">▼15.8%</td><td>購買転換は弱い</td></tr>
-      <tr><td>エンゲージ視聴者数</td><td class="center">451人</td><td class="center">365人</td><td class="center" style="color:#1b998b;">▲23.6%</td><td>反応する人は多め</td></tr>
-    </tbody>
-  </table>
-
-  <h4 style="margin: 24px 0 10px;">active_repeat（リピーター）比較</h4>
-  <table>
-    <thead><tr><th>指標</th><th class="center">フォロリポ回平均</th><th class="center">非フォロリポ平均</th><th class="center">差</th><th>読み</th></tr></thead>
-    <tbody>
-      <tr class="highlight"><td><strong>リピーター数</strong></td><td class="center" style="color:#1b998b;"><strong>302人</strong></td><td class="center">167人</td><td class="center" style="color:#1b998b;"><strong>▲81.5%</strong></td><td>最大の効果。既存ファンを引き込む</td></tr>
-      <tr><td>リピーター視聴分数</td><td class="center">9.9分</td><td class="center">13.8分</td><td class="center" style="color:#e94560;">▼27.9%</td><td>長居はしない</td></tr>
-      <tr><td>Total Watched Minutes</td><td class="center">3,017</td><td class="center">1,762</td><td class="center" style="color:#1b998b;">▲71.2%</td><td>総視聴時間は大幅増</td></tr>
-      <tr><td>チャット数（repeat）</td><td class="center">70.8件</td><td class="center">49.2件</td><td class="center" style="color:#1b998b;">▲43.9%</td><td>リピーターもチャット活発</td></tr>
-      <tr><td>商品カードクリック数</td><td class="center">15.4件</td><td class="center">22.1件</td><td class="center" style="color:#e94560;">▼30.5%</td><td>購買転換は弱い</td></tr>
-    </tbody>
-  </table>
-
-  <h4 style="margin: 24px 0 10px;">X投稿アーカイブ再生数（先方提供）</h4>
-  <div class="note success" style="margin-bottom: 16px;">
-    <strong>KATE回（フォロリポあり）：約10,000回再生</strong> vs 通常回：約5,000回再生 → <strong style="color:#1b998b;">約2倍</strong><br>
-    ライブ中の同時接続者数への影響は軽微だが、<strong>X上の拡散・アーカイブ視聴に大きな効果</strong>が出ている。
-  </div>
-
-  <div class="note warning">
-    <strong>提案への活用方針：</strong>フォロリポは「ライブ中の購買転換施策」ではなく「<strong>X拡散・ファン巻き込み施策</strong>」として位置づける。コンテンツの面白さ（KATE回）と組み合わせることで拡散効果が最大化する。KPIはX再生数・リポスト数を設定すべき。
-  </div>
-
-  <div class="task-section">
-    <h4>🔍 追加検証タスク（2026-04-14 FB反映）</h4>
-    <ul>
-      <li><strong>リピーター数「最大の効果・既存ファン引き込み」の真偽検証</strong>：タイトルやプッシュ通知からフォロリポキャンペーンが判別できるのか確認。単に商材やタイトルの他の要因で視聴者数が増えただけではないかチェックする。</li>
-      <li><strong>他のフォロリポキャンペーン回のX投稿アーカイブ再生数差分</strong>：KATE回以外（ディアボーテ／プロスタイル／いち髪等）のX投稿アーカイブ再生数を調査し、フォロリポの効果が一貫しているかを検証。</li>
-    </ul>
-  </div>
-</div>
+<!-- A5 は完了タスクアーカイブへ移設（2026-05-01）：../02_完了タスクアーカイブ/完了タスク_A5_20260501.html -->
 
 <!-- ============================================================ -->
 <!-- A6 -->
@@ -389,7 +410,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>平均視聴分数</td><td class="center">3.82分</td><td class="center">4.18分</td><td class="center" style="color:#e94560;">-0.36（-8.6%）</td><td>尺が長い分の影響あり</td></tr>
+      <tr><td>平均視聴分数</td><td class="center">3.82分</td><td class="center">4.18分</td><td class="center" style="color:#fa006d;">-0.36（-8.6%）</td><td>尺が長い分の影響あり</td></tr>
       <tr><td>エンゲージ率</td><td class="center">7.35%</td><td class="center">7.49%</td><td class="center">-0.14（-1.9%）</td><td>ほぼ同等</td></tr>
       <tr class="highlight"><td><strong>商品CTR</strong></td><td class="center"><strong>1.13%</strong></td><td class="center"><strong>1.02%</strong></td><td class="center" style="color:#1b998b;"><strong>+0.11（+10.8%）</strong></td><td style="color:#1b998b;">✅が上回る ← 最強シグナル</td></tr>
       <tr><td>コメント参加率</td><td class="center">0.54%</td><td class="center">0.55%</td><td class="center">-0.01（-1.8%）</td><td>ほぼ同等</td></tr>
@@ -599,7 +620,7 @@
   <h4 style="margin: 20px 0 10px;">1. 追加提案項目（3本柱）</h4>
 
   <div class="highlight-box" style="margin-bottom: 16px;">
-    <div class="main" style="color:#ffd166;">提案①：リピーター指標の追加 <span class="tag" style="background:#e94560; color:#fff; font-size:11px; margin-left:8px;">🔴 優先度 高</span></div>
+    <div class="main" style="color:#ffd166;">提案①：リピーター指標の追加 <span class="tag" style="background:#fa006d; color:#fff; font-size:11px; margin-left:8px;">🔴 優先度 高</span></div>
     <div class="sub" style="margin-top: 6px;">根拠：A1分析より、リピーターは全体の8%だがCTR3.8倍・コメント率7.4倍。リピーター増加が全KPI改善の最短経路。</div>
   </div>
   <table>
@@ -612,7 +633,7 @@
   </table>
 
   <div class="highlight-box" style="margin: 20px 0 16px;">
-    <div class="main" style="color:#ffd166;">提案②：粗利率の月次モニタリング <span class="tag" style="background:#e94560; color:#fff; font-size:11px; margin-left:8px;">🔴 優先度 高</span></div>
+    <div class="main" style="color:#ffd166;">提案②：粗利率の月次モニタリング <span class="tag" style="background:#fa006d; color:#fff; font-size:11px; margin-left:8px;">🔴 優先度 高</span></div>
     <div class="sub" style="margin-top: 6px;">根拠：笹木さん直接イシュー。現状69.3%を毎月確認し、値上げ・内製化の効果を可視化。</div>
   </div>
   <table>
@@ -665,6 +686,280 @@
 </div>
 
 <!-- ============================================================ -->
+<!-- A14 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a14">
+  <div class="section-header">
+    <div class="section-badge purple">A14</div>
+    <div>
+      <div class="section-title">A14｜リピーター数をいかに増やすべきかの提案</div>
+      <div class="section-subtitle">マイルストーン②「リピーター数値」達成に向けた打ち手 <span class="tag orange">ブレスト論点</span></div>
+    </div>
+  </div>
+
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>年次報告会（2026-04-30）での扱い：</strong>本論点は<strong>「具体的なHowは今後の分科会で別途ご報告する」</strong>とメッセージのみ伝える。詳細な施策提案は本セクションを起点に、次期分科会以降で佐々木さんと協議・確定する。
+  </div>
+
+  <div class="note" style="background:#fff5f7; border-left: 4px solid #fa006d; margin-bottom: 16px;">
+    <strong style="color:#fa006d;">⚠️ 中尾さんFB（2026/4/30 年次報告会）：</strong><br>
+    「<strong>リピートしようがしなかろうが、来てる人のCVも店も含めて上がってるっていう事実がある</strong>。皆さんにとってはリピートあるなしどうでもない話だけど、<strong>来てる人の中のCVが上がってくれれば、それが一番の白兎</strong>」<br><br>
+    → リピーター施策は引き続き<strong>手段の1つ</strong>として有効だが、<strong>主軸は「来訪者全体のCV向上」（Layer 1の全体可視化フレーム）</strong>に置く。本セクションの打ち手はその下位施策として位置づける。
+  </div>
+
+  <h4 style="margin: 20px 0 10px;">背景</h4>
+  <div class="highlight-box" style="margin-bottom: 16px;">
+    <div class="main">リピーターはCTR約3.7倍・コメント率約5.3倍のエンゲージメントを持つ貴重な視聴層</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.8;">
+      A1のKPI設計でマイルストーン②＝リピーター系（リピーター比率・リピーターCTR・リピーターコメント率）に決定。<br>
+      2026年度はリピーター比率 <strong>4.88% → 8.0%</strong> を目標に設定（D社 16.5%・A社 50.5%が参考水準）。<br>
+      現状のマツキヨココカラライブのリピーター比率は業界最下位であり、施策次第で伸びしろが大きい領域。
+    </div>
+  </div>
+
+  <h4 style="margin: 24px 0 10px;">検討すべき打ち手（ブレスト論点）</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>論点</th>
+        <th>具体アイデア例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="center">①</td>
+        <td><strong>定期的にみたくなる仕掛け</strong>とは何か？</td>
+        <td>毎回の「次回予告」／連載型企画／カテゴリシリーズ化 等</td>
+      </tr>
+      <tr>
+        <td class="center">②</td>
+        <td><strong>リピーターだけのお得な情報・特典</strong>の設計</td>
+        <td>限定先行発表・会員限定価格・サンプル配布 等</td>
+      </tr>
+      <tr>
+        <td class="center">③</td>
+        <td><strong>継続視聴のインセンティブ化</strong></td>
+        <td>ポイント還元・リピーター限定クーポン・累計視聴回数バッジ 等</td>
+      </tr>
+      <tr>
+        <td class="center">④</td>
+        <td><strong>視聴習慣の形成</strong></td>
+        <td>曜日・時間帯の固定化／ルーティン化／通知機能の活用</td>
+      </tr>
+      <tr>
+        <td class="center">⑤</td>
+        <td><strong>リピーター向け限定コンテンツ</strong></td>
+        <td>裏話・先行情報・出演者オフショット・アーカイブ限定尺 等</td>
+      </tr>
+      <tr>
+        <td class="center">⑥</td>
+        <td><strong>コミュニティ化</strong></td>
+        <td>リピーター同士の交流・常連認識・名前呼び・コメントハイライト 等</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">アウトプット（次期分科会に向けて）</h4>
+  <div class="note">
+    上記論点を整理し、マツキヨココカラライブで実装可能な施策を優先度付きで提案する。<br>
+    佐々木さんとの協議後に確定し、次期分科会で先方に提示する。
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A9: 粗利率改善｜正しい単価設定と根拠 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a9" style="margin-top: 40px;">
+  <h3 style="margin-top: 0; border-left: 4px solid #fa006d; padding-left: 12px;">A9｜粗利率改善｜正しい単価設定と根拠 <span class="tag green" style="font-size:12px; margin-left:8px;">分析済</span></h3>
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>笹木さんFB（2026-04-13）：</strong>「ライブコマース粗利率69.3%はソーシャルメディア課内で最低（ショート動画83.3%・Xフォロリポ81.6%比）。単価が低いor コストがかかり過ぎているかを明確にするため、競合単価・コスト情報を教えてほしい」
+  </div>
+
+  <h4 style="margin: 20px 0 10px;">結論サマリー（2026-04-13 方針確定）</h4>
+  <div class="highlight-box" style="margin-bottom: 16px;">
+    <div class="main">コストの正体はFirework委託費（台本・現場立会・クリエイティブ）。年度内内製化は不可。</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.8;">
+      ① 50万円の実態：広告費＋Firework台本費が<strong>混在</strong>（台本費内包が粗利圧迫の主因）<br>
+      ② 2026年度上半期はKPI達成伴走を最優先、粗利改善は<strong>下半期に50万→65〜70万値上げ</strong>で実現<br>
+      ③ 台本持参プランはサブメニュー扱い（現実に使う会社はほぼいない想定）。メインはフルサポート値上げ一本<br>
+      ④ 値上げは年次報告会前にオンラインで頭出し→本番でスムーズ合意の流れを想定
+    </div>
+  </div>
+
+  <h4 style="margin: 20px 0 10px;">1. 現行コスト構造</h4>
+  <table>
+    <thead><tr><th>項目</th><th class="center">金額</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>協賛基本単価</td><td class="center"><strong>500,000円/回</strong></td><td>固定</td></tr>
+      <tr><td>従量課金（再生回数）</td><td class="center">約26,000円/回</td><td>2025年度平均</td></tr>
+      <tr><td><strong>2025年度 平均受注単価</strong></td><td class="center"><strong>約571,000円/回</strong></td><td>マスターデータ§2</td></tr>
+      <tr><td>推定原価（粗利率30.7%逆算）</td><td class="center">約175,000円/回</td><td>Firework委託費（台本＋立会＋クリエイティブ）</td></tr>
+    </tbody>
+  </table>
+  <div class="note" style="background:#fff8e1; border-left-color:#f59e0b; margin-top: 12px;">
+    <strong>本来の構造：</strong>広告費（配信露出）＋ 台本作成費 は<strong>別建てにすべき</strong>だが、現状は50万円に内包されているため粗利を圧迫している。
+  </div>
+
+  <h4 style="margin: 24px 0 10px;">2. A社公式料金との直接比較（2026-04-14入手・業界内部情報）</h4>
+  <div class="note info" style="margin-bottom: 12px;">
+    データソース：<strong>A社 美容部員サービス 公式メディアガイド（2026年4-6月期）</strong>。A社公式サイトからの問い合わせにより入手可能な営業資料（公開情報）。
+  </div>
+  <table>
+    <thead><tr><th>プラン</th><th class="center">価格（税別）</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>ライトプラン</td><td class="center">¥150,000</td><td>5分間紹介・1商品</td></tr>
+      <tr class="highlight"><td><strong>スタンダードプラン</strong></td><td class="center"><strong>¥450,000</strong></td><td>15分間紹介・最大3商品</td></tr>
+      <tr><td>ポップアップ中継プラン</td><td class="center">¥700,000</td><td>ポップアップストアから生中継</td></tr>
+      <tr><td><strong>ブランドジャックプラン（オンライン体験会配信）</strong></td><td class="center">¥1,000,000</td><td>1配信1社専有</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 20px 0 10px;">マツココライブ（現行50万円）との価値対比</h4>
+  <table>
+    <thead><tr><th>比較軸</th><th class="center">A社スタンダード</th><th class="center">マツココライブ</th></tr></thead>
+    <tbody>
+      <tr><td>紹介時間</td><td class="center">15分</td><td class="center"><strong>約60分（フル配信）</strong></td></tr>
+      <tr><td>紹介商品数</td><td class="center">最大3商品</td><td class="center">制約なし</td></tr>
+      <tr><td>リーチ</td><td class="center">公表なし</td><td class="center"><strong>5,000人超/回</strong></td></tr>
+      <tr><td>アーカイブ価値</td><td class="center">言及なし</td><td class="center"><strong>1ヶ月で3.3倍拡大</strong></td></tr>
+      <tr><td>購買データ連動</td><td class="center">言及なし</td><td class="center"><strong>CDPで会員ID突合</strong></td></tr>
+      <tr class="highlight"><td><strong>価格</strong></td><td class="center"><strong>¥450,000</strong></td><td class="center"><strong>¥500,000</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="note info" style="margin-top: 12px;">
+    <strong>決定的な事実：</strong>MCCMの50万円は<strong>A社の15分プラン＋5万円にすぎない</strong>。60分フル配信＋データ連動＋5,000人リーチ付きでA社の15分紹介と実質同水準。<br>
+    → 値上げ後の65万円はポップアップ中継（70万円）より安い位置づけで、業界2位水準として妥当かつ控えめ。
+  </div>
+
+  <h4 style="margin: 24px 0 10px;">3. 先方の協賛セールス資料アップデート提案</h4>
+  <div class="note warning" style="margin-bottom: 12px;">
+    <strong>🆕 追加提案（2026-04-14 FB反映）：</strong>現行の協賛セールス資料は50万円の内訳が曖昧。<strong>ライブ配信協賛メニューとしてサービス内容を明記し、50万円で何がついてくるかを納得感をもって伝えられるようにする</strong>。場合によっては内訳を明示する。
+  </div>
+  <table>
+    <thead><tr><th>項目</th><th>サービス内容（明記すべきもの）</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 広告出稿費</strong></td><td>60分フル配信のプラットフォーム出稿、アプリ内ライブLPからの誘導、SNS告知</td></tr>
+      <tr><td><strong>② 台本作成費</strong></td><td>メーカーヒアリング／企画／構成／台本執筆／薬機法チェック対応</td></tr>
+      <tr><td><strong>③ 実績レポート提出</strong></td><td>視聴者数・視聴分数・CTR・コメント率・リピーター数等のレポーティング</td></tr>
+      <tr><td><strong>④ クリエイティブ制作</strong></td><td>OGP・アプリ内バナー・告知素材</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="margin: 24px 0 10px;">4. 広告換算価値（デジタルマーケティング視点）</h4>
+  <div class="sub" style="margin-bottom: 12px;">
+    「そもそも50万円のマツココライブは広告費としていくら相当か？」を各媒体のCPM/CPV相場で換算。
+  </div>
+  <table>
+    <thead><tr><th>換算軸</th><th class="center">低位</th><th class="center">中央値</th><th class="center">高位</th></tr></thead>
+    <tbody>
+      <tr><td>CPM系（Instagram/TikTok基準）</td><td class="center">50万円</td><td class="center">150万円</td><td class="center">330万円</td></tr>
+      <tr><td>CPV系（YouTube・質係数込み）</td><td class="center">80万円</td><td class="center">200万円</td><td class="center">400万円</td></tr>
+      <tr><td>インフルエンサー換算</td><td class="center">70万円</td><td class="center">85万円</td><td class="center">100万円</td></tr>
+      <tr><td>記事/雑誌タイアップ換算</td><td class="center">100万円</td><td class="center">180万円</td><td class="center">300万円</td></tr>
+      <tr class="highlight"><td><strong>総合レンジ</strong></td><td class="center"><strong>70万円</strong></td><td class="center"><strong>150万円</strong></td><td class="center"><strong>330万円</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="note info" style="margin-top: 12px;">
+    <strong>結論：</strong>保守的に見ても70万円、中央値で150万円、上限で330万円の広告価値。<br>
+    現行50万円は明らかに<strong>過小評価</strong>。最低ライン70万円への引き上げは「値上げ」ではなく「<strong>市場価格への是正</strong>」。65万円値上げ案は控えめな打診であり、メーカーにとって依然として割安。
+  </div>
+
+  <h4 style="margin: 24px 0 10px;">5. 単価引き上げシナリオと粗利率影響試算</h4>
+  <table>
+    <thead><tr><th>シナリオ</th><th class="center">単価</th><th class="center">推定原価</th><th class="center">粗利率</th><th class="center">年間売上（48回）</th></tr></thead>
+    <tbody>
+      <tr><td>現状維持</td><td class="center">50万円</td><td class="center">17.5万円</td><td class="center">69.3%</td><td class="center">2,400万円</td></tr>
+      <tr class="highlight"><td><strong>推奨：フルサポート値上げ</strong></td><td class="center"><strong>65万円</strong></td><td class="center">17.5万円</td><td class="center"><strong>73.1%</strong></td><td class="center"><strong>3,120万円（+720万円）</strong></td></tr>
+      <tr><td>フルサポート上限</td><td class="center">70万円</td><td class="center">17.5万円</td><td class="center">75.0%</td><td class="center">3,360万円（+960万円）</td></tr>
+      <tr><td>内製化後（2027年度〜）</td><td class="center">80万円</td><td class="center">削減</td><td class="center">80%台</td><td class="center">3,840万円（+1,440万円）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box" style="margin-top: 20px;">
+    <div class="main">笹木さん向け回答骨子（3段構成）</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.8;">
+      <strong>Step1（コスト原因の自己診断）：</strong>粗利率差の主因は台本作成・現場立会・クリエイティブ制作のFirework委託費。年度内内製化は体制上困難なため、粗利率改善は内製化実現の来年度フェーズで。<br><br>
+      <strong>Step2（競合単価の調査結果）：</strong>A社公式料金で15分¥450,000・ポップアップ中継¥700,000。60分フル配信＋データ連動＋5,000人リーチの現行50万円は明らかに割安。<br><br>
+      <strong>Step3（単価引き上げ提案）：</strong>2026年度下半期より<strong>フルサポートプランを65万円</strong>に設定。業界第2位の適正な位置づけで、ポップアップ中継70万円よりなお安い。粗利率69.3%→73.1%・年間+720万円の収益改善。
+    </div>
+  </div>
+  <div class="note" style="margin-top: 12px; font-size: 11px; color: #666;">
+    詳細分析：<code>01_年次報告会/提案骨子/03_分析_A9-A11/分析_A9_粗利率改善_単価設定と根拠_20260413.md</code>（脚注※1〜※10で広告媒体・業界相場・マスターデータの引用元を明記）
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- A10: 受注後の運営体制 -->
+<!-- ============================================================ -->
+<div class="section" id="sec-a10" style="margin-top: 40px;">
+  <h3 style="margin-top: 0; border-left: 4px solid #1b998b; padding-left: 12px;">A10｜受注後の運営体制の整理と提示 <span class="tag green" style="font-size:12px; margin-left:8px;">分析済</span></h3>
+  <div class="note info" style="margin-bottom: 16px;">
+    <strong>笹木さんFB（2026-04-13）：</strong>「月5回以上の受注はできている。課題は<strong>受注後の運営体制の認識</strong>」<br>
+    → 提示すべきは「受注してから配信当日まで何をどう回すか」の可視化と、月5回以上を安定運営できる体制設計。
+  </div>
+
+  <h4 style="margin: 20px 0 10px;">1. 現状の受注後フローとボトルネック</h4>
+  <table>
+    <thead><tr><th>ボトルネック</th><th>現状</th><th>問題</th></tr></thead>
+    <tbody>
+      <tr><td><strong>台本作成（外注）</strong></td><td>Firework担当・約13時間</td><td>コスト発生＋修正往復で時間ロス</td></tr>
+      <tr><td><strong>薬機法チェック</strong></td><td>社内法務に通す</td><td>1.5〜2ヶ月の準備期間の主因</td></tr>
+      <tr><td>貴社側メーカー対応</td><td>10〜20時間/回</td><td>担当者の工数が月5回超では飽和リスク</td></tr>
+      <tr><td>準備期間の長さ</td><td>1.5〜2ヶ月</td><td>月5回受注しても先埋まり管理が複雑化</td></tr>
+    </tbody>
+  </table>
+  <div class="note" style="background:#fff8e1; border-left-color:#f59e0b; margin-top: 12px;">
+    <strong>現状合計：</strong>工数 約23〜33時間/回、準備期間 1.5〜2ヶ月（競合A社は約2週間）
+  </div>
+
+  <h4 style="margin: 24px 0 10px;">2. 月5回以上を安定運営する2フェーズ体制案</h4>
+
+  <div class="highlight-box" style="margin-bottom: 16px; background: #f0faf8; color: #1a1a2e;">
+    <div class="main" style="color: #1b998b;">フェーズ1：現状体制の最適化（〜2026年9月）</div>
+    <div class="sub" style="margin-top: 8px; color: #1a1a2e;">外注＋薬機法フロー維持しつつ、工数管理を最適化</div>
+  </div>
+  <table>
+    <thead><tr><th>対策</th><th>内容</th><th>効果</th></tr></thead>
+    <tbody>
+      <tr><td>台本テンプレート標準化</td><td>A6分析の「お悩み訴求5型」をベースにフォーマット化</td><td>Firework作成工数13h→8h程度</td></tr>
+      <tr><td>薬機法チェック早期着手</td><td>メーカー決定後、最優先で法務確認を開始</td><td>準備期間 1.5ヶ月→1ヶ月</td></tr>
+      <tr><td>月次スケジュール管理表</td><td>5回分の準備進捗を一覧管理（Notion等）</td><td>並行進行の見落とし防止</td></tr>
+      <tr><td>担当者ローテーション</td><td>貴社側工数を複数担当者でシェア</td><td>1人飽和リスクを分散</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box" style="margin: 20px 0 16px; background: #f0faf8; color: #1a1a2e;">
+    <div class="main" style="color: #1b998b;">フェーズ2：内製化後（2026年10月〜）</div>
+    <div class="sub" style="margin-top: 8px; color: #1a1a2e;">完全内製化で準備期間・コスト両面を改善</div>
+  </div>
+  <table>
+    <thead><tr><th>対策</th><th>内容</th><th>効果</th></tr></thead>
+    <tbody>
+      <tr><td>台本内製化</td><td>社内担当者が台本作成（Firework外注廃止）</td><td>コスト削減＋修正往復ゼロ</td></tr>
+      <tr><td>AI薬機法チェッカー導入</td><td>AIによる一次チェックで法務確認工数を半減</td><td>準備期間 2週間〜1ヶ月</td></tr>
+      <tr><td>出演者育成（社員インフルエンサー）</td><td>出演者が自由度高く配信できる体制</td><td>台本制約減＋エンゲージ向上</td></tr>
+      <tr><td>週次配信キャパ拡大</td><td>月5回→月6〜8回の受注体制へ</td><td>年間KPI72〜96回も視野</td></tr>
+    </tbody>
+  </table>
+  <div class="note info" style="margin-top: 12px;">
+    <strong>フェーズ2到達時の想定：</strong>準備期間 2〜4週間／工数 15〜20時間/回（推定）／月6〜8回の安定受注体制
+  </div>
+
+  <div class="highlight-box" style="margin-top: 20px;">
+    <div class="main">笹木さん向けアンサー骨子</div>
+    <div class="sub" style="margin-top: 8px; line-height: 1.8;">
+      「受注後の運営体制について、現状と2026年10月の内製化完了後の<strong>2フェーズ</strong>でご提示します。<br><br>
+      <strong>現状（フェーズ1）</strong>：受注から配信まで1.5〜2ヶ月・工数約23〜33時間/回。台本外注と薬機法チェックが準備期間の主因。月5回の受注は達成済みだが、並行進行の管理負荷が高まっている状況です。<br><br>
+      <strong>内製化後（フェーズ2）</strong>：AI薬機法チェック導入と台本内製化により、準備期間を2〜4週間に短縮し、月6〜8回の安定受注体制を目指します。内製化完了（2026年10月）までの移行計画をロードマップとして提示します。」
+    </div>
+  </div>
+  <div class="note" style="margin-top: 12px; font-size: 11px; color: #666;">
+    詳細分析：<code>01_年次報告会/提案骨子/03_分析_A9-A11/分析_A10_受注後運営体制_20260413.md</code>
+  </div>
+</div>
+
+<!-- ============================================================ -->
 <!-- 追加タスクリスト -->
 <!-- ============================================================ -->
 <div class="section" id="sec-tasks">
@@ -680,13 +975,7 @@
     以下は2026-04-14のフィードバックミーティングで追加された、月次分科会で継続的に扱うべき検証タスクです。分析リソースに応じて優先順に着手します。
   </div>
 
-  <div class="task-section">
-    <h4>A5｜Xフォロリポ関連の追加検証</h4>
-    <ul>
-      <li><strong>リピーター数の読みの最大の効果「既存ファンを引き込む」の真偽検証</strong>：タイトルやプッシュ通知からフォロリポキャンペーンが判別できるのか確認。単に商材やタイトルの他の要因からたまたま視聴者数が増えただけじゃないかチェック。</li>
-      <li><strong>他のフォロリポキャンペーン回のX投稿アーカイブ再生数差分</strong>：KATE回以外（ディアボーテ／プロスタイル／いち髪）のX再生数を調査し、フォロリポ効果の一貫性を検証。</li>
-    </ul>
-  </div>
+  <!-- A5タスクは完了タスクアーカイブへ移設（2026-05-01） -->
 
   <div class="task-section">
     <h4>A6｜台本分析関連の追加検証</h4>
@@ -703,21 +992,16 @@
   </div>
 
   <div class="task-section">
-    <h4>A2'｜他社の「参加型コンテンツ」詳細調査 <span style="background:#e94560;color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;">統合版から移設</span></h4>
+    <h4>A2'｜他社の「参加型コンテンツ」詳細調査 <span style="background:#fa006d;color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;">統合版から移設</span></h4>
     <ul>
       <li><strong>他社の参加型コンテンツの具体的な企画内容を詳細調査</strong>：A2セクションで挙げた「なぜ低いか 4つの原因」のうち、①他社の参加型コンテンツについて、具体的にどういう企画をやっているか詳細チェック（セルフチェック／ゲーム／アンケート等）。マツキヨココカラライブの配信構成改善に直結する実践的な知見を収集する。</li>
     </ul>
   </div>
 
-  <div class="task-section">
-    <h4>A8｜Xフォロリポ施策の提案への落とし込み <span style="background:#e94560;color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;">統合版から移設</span></h4>
-    <ul>
-      <li><strong>A5分析結果をもとにフォロリポ施策を提案資料へ組み込み</strong>：A5分析結果（リピーター▲81%・チャット▲67%・X拡散2倍）をもとに、フォロリポを「X拡散・ファン巻き込み施策」として提案資料に組み込む。KPIはX再生数・リポスト数で設計。</li>
-    </ul>
-  </div>
+  <!-- A8タスクは完了タスクアーカイブへ移設（2026-05-01） -->
 
   <div class="task-section">
-    <h4>A4｜データ資産（CDP突合）の活用整理 <span style="background:#e94560;color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;">統合版から移設</span></h4>
+    <h4>A4｜データ資産（CDP突合）の活用整理 <span style="background:#fa006d;color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;">統合版から移設</span></h4>
     <ul>
       <li><strong>視聴者ID × 会員ID 突合で「何ができるようになったか」の具体化</strong>：CDP突合によって可能になった分析・施策（視聴行動と購買行動の紐付け、セグメント別配信効果測定、リピート購買トラッキング等）を洗い出し、スライドに載せるメッセージとして言語化する。</li>
       <li><strong>社内協議</strong>：マツキヨ側のCDP運用チームとFirework側で、実際に使えているデータ範囲・今後活用可能な領域を擦り合わせる。</li>

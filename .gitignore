@@ -1,6 +1,9 @@
 .DS_Store
 **/.DS_Store
 .omc/state/
+.playwright-mcp/
+# 一時バックアップディレクトリ（色置換等の作業用）
+.backup_*/
 # 大容量ファイル（GitHubの100MB制限のため除外）
 **/*.pptx
 **/*.xlsx
