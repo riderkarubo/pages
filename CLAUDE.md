@@ -407,6 +407,43 @@ GitHub Pagesで公開されるHTMLファイル：
 - **Edit が3回連続で失敗したら Write に切り替える、複数箇所×複数ファイルの文言修正は最初からPython一括置換**：MD/HTMLで日本語括弧（全角）と英文括弧（半角）が混在するファイルは、Edit の `old_string` 完全一致が取れないことが多い。3回失敗したらファイル全文を Read → Write で全置換する方が速い。**さらに、複数ファイルにまたがる文言修正（例：「お得→おトク」を5箇所×2ファイル）は Python ヒアドキュメントで一括置換した方が手戻りが少ない**
 - **リストでポジ＋ネガ事実を独立2項目で並べると誤読リスク**：「視聴者数+ / 視聴分数-」のように振り返りセクションでポジティブ事実とネガティブ事実を独立並列で書くと、前半がHighlightと混同される。「〜する一方、〜」で1メッセージに統合する
 
+## 🔄 Session Handoff（2026-05-01 22:23 更新 / firework-reporting-kit プラグイン化＋MCCM分科会専用テンプレ）
+
+### 今日やったこと
+
+- **firework-reporting-kit プラグインを GitHub privateリポとして新設・公開**
+  - リポ: https://github.com/riderkarubo/firework-reporting-kit (private)
+  - ローカル: `02_仕事/04_ツール開発/firework-reporting-kit/`
+  - 含むもの: commands(4) / skills/learned(11) / rules(6) / templates(章立て骨子+章単位10) / gas(3) / learned-decks(MCCM 2026 annual JSON)
+- **3バージョン リリース**
+  - v0.1.0: 初回リリース (39ファイル)
+  - v0.2.0: 自然言語トリガー強化 + `/reporting-cycle` 新規 (報告会・提案書プレイブック)
+  - v0.3.0: MCCM分科会専用skeleton + `install.sh`
+- **シンボリックリンク方式インストール完了** (`/plugin install` が動かない環境向け)
+  - `~/.claude/{commands,rules,skills/learned}` 配下に全ファイルがリポへのリンク
+  - 旧ファイルは `~/.claude/_退避_firework-kit_20260501_221858/` に退避
+  - 編集→push→`git pull`/`/plugin update` で全マシン自動反映
+- **自然言語トリガー強化**: 「分科会資料」「年次報告会」「四半期レビュー」「QBR」「コンテンツ分科会」「MCCM分科会」等で自動発動
+- **MCCM分科会専用skeleton 作成**: 過去pptx (`02_分科会/03_過去pptx/2025年度/【MCCM様】月次コンテンツ分科会_20260312.pptx`・36枚) の内容を python-pptx で抽出→章立てパターン化。トンマナは年次報告会ベースを必ず踏襲する設計
+
+### 未完了・次回やること
+
+- **同僚2名への配布** (Issyさんアクション)
+  1. Step A: GitHub Collaborator 招待 (https://github.com/riderkarubo/firework-reporting-kit/settings/access)
+  2. Step B: Slackで連絡 (clone→`bash install.sh`→使い方)
+  3. Step C: 同僚に分科会1案件で動作確認してもらう
+- **次回の合言葉**: 「**firework-reporting-kit の続き**」で再開可能
+
+### 注意点・申し送り
+
+- **編集元は MCCMリポではなく `02_仕事/04_ツール開発/firework-reporting-kit/`** (リポ単独管理)
+- **`/plugin install github:...` は Issyさん環境では動かなかった** → シンボリックリンク方式 (`install.sh`) で対応
+- **過去pptxは内容のみ参考、トンマナは年次報告会ベース** (今日作成した `mccm-bunkakai-skeleton.md` の冒頭で明記)
+- **退避済み旧ファイル**: `~/.claude/_退避_firework-kit_20260501_221858/` (削除しないこと・参照用に保持)
+- **学習スキル2本追加**: `claude-code-plugin-symlink-distribution.md` / `slide-pptx-text-extract-for-skeleton.md`
+
+---
+
 ## 🔄 Session Handoff（2026-05-01 22:15 更新 / チェックポイント・メーカー実績レポート資料格納）
 
 ### 今日やったこと
