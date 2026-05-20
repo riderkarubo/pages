@@ -246,6 +246,14 @@
       padding: 2px 8px; white-space: nowrap; color: var(--text-sub);
     }
     .action-text { font-size: 13px; flex: 1; }
+    .action-link {
+      display: inline-block; margin-left: 10px;
+      color: var(--accent); font-size: 12px; font-weight: 600;
+      text-decoration: none; border: 1px solid var(--accent);
+      border-radius: 4px; padding: 1px 8px;
+      transition: background 0.15s;
+    }
+    .action-link:hover { background: var(--accent); color: #000; }
 
     /* ========= APPROACH ========= */
     .flow {
@@ -661,13 +669,18 @@
         <div class="action-who">グループ</div>
         <div class="action-text">Slackアンケートで次のターゲットカテゴリを2〜3個に絞る（TOP10から投票）</div>
       </div>
+      <div class="action-item">
+        <div class="action-status status-pending"></div>
+        <div class="action-who">みどりさん</div>
+        <div class="action-text">カンパニーズへAIGCをプレイリスト販売モデルで提案（100本100万円まとめ売り）<a href="./companies.html" class="action-link">詳細 →</a></div>
+      </div>
     </div>
   </section>
 
 </div>
 
 <footer class="footer">
-  AIGC戦略プロジェクト — Firework Japan Team — Last Updated: 2026年5月20日 18:41
+  AIGC戦略プロジェクト — Firework Japan Team — Last Updated: 2026年5月20日 18:46
 </footer>
 
 </body>
