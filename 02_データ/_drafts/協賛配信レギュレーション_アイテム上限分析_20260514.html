@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>協賛配信 体制改善案：レギュレーション設定（アイテム上限）</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<meta name="description" content="マツキヨココカラLIVE協賛配信の体制改善案。過去台本44本を分析し、主要紹介アイテム数の上限レギュレーションを提案。">
+<meta property="og:title" content="協賛配信 体制改善案：レギュレーション設定（アイテム上限）">
+<meta property="og:description" content="マツキヨココカラLIVE協賛配信の体制改善案。過去台本44本を分析し、主要紹介アイテム数の上限レギュレーションを提案。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="協賛配信 体制改善案：レギュレーション設定（アイテム上限）">
+<meta name="twitter:description" content="マツキヨココカラLIVE協賛配信の体制改善案。過去台本44本を分析し、主要紹介アイテム数の上限レギュレーションを提案。">
+<style>
+:root{
+  --primary:#1a1a2e;
+  --accent:#FA006D;
+  --accent-bg:#fff5f7;
+  --gray:#666666;
+  --line:#e8eaf0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Noto Sans JP","Hiragino Sans",sans-serif;
+  color:var(--primary);
+  line-height:1.8;
+  background:#f4f5f7;
+  font-size:15px;
+}
+.wrap{max-width:880px;margin:0 auto;background:#fff;}
+/* === Cover === */
+.cover{
+  background:var(--primary);
+  color:#fff;
+  padding:48px 44px 38px;
+}
+.cover-tag{
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.08em;
+  background:var(--accent);
+  padding:4px 12px;
+  border-radius:3px;
+  margin-bottom:18px;
+}
+.cover h1{font-size:26px;line-height:1.5;font-weight:700;margin-bottom:6px;}
+.cover .sub{font-size:14px;color:#b8bcd0;margin-bottom:26px;}
+.cover-meta{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid #3a3a52;padding-top:18px;}
+.cover-meta-item .label{font-size:10px;color:#8a8ea8;letter-spacing:.05em;}
+.cover-meta-item .value{font-size:13px;color:#fff;}
+/* === Body === */
+.body{padding:34px 44px 50px;}
+section{margin-bottom:38px;}
+h2{
+  font-size:19px;font-weight:700;
+  padding:8px 0 8px 14px;
+  border-left:5px solid var(--accent);
+  margin-bottom:16px;
+}
+h3{font-size:15px;font-weight:700;margin:20px 0 8px;color:var(--primary);}
+p{margin-bottom:10px;}
+ul,ol{margin:8px 0 12px 22px;}
+li{margin-bottom:5px;}
+/* === TOC === */
+.toc{background:#f8f9fa;border-radius:10px;padding:18px 22px;margin-bottom:34px;}
+.toc-title{font-size:15px;font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:10px;}
+.toc-item a{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;padding:4px 6px;border-radius:6px;font-size:14px;transition:background .15s;}
+.toc-item a:hover{background:#e8eaf0;}
+.toc-num{width:24px;height:24px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+/* === Table === */
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;}
+th{background:var(--primary);color:#fff;font-weight:600;font-size:12.5px;}
+tr:nth-child(even) td{background:#fafafa;}
+td.num{text-align:center;}
+.tbl-accent{background:var(--accent-bg)!important;font-weight:700;}
+/* === Cards / boxes === */
+.kpi-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;}
+.kpi{flex:1;min-width:130px;background:#f8f9fa;border-radius:8px;padding:14px 16px;border-top:3px solid var(--accent);}
+.kpi .k-label{font-size:11px;color:var(--gray);}
+.kpi .k-value{font-size:24px;font-weight:700;color:var(--primary);}
+.kpi .k-value .unit{font-size:13px;font-weight:400;}
+.callout{
+  background:var(--accent-bg);
+  border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;margin:14px 0;
+}
+.callout strong{color:var(--accent);}
+.warn{
+  background:#fffbe6;
+  border-left:4px solid #e0a800;
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;margin:12px 0;
+  font-size:14px;
+}
+.warn .w-head{font-weight:700;margin-bottom:4px;}
+/* bar chart */
+.bar-row{display:flex;align-items:center;gap:10px;margin:3px 0;font-size:13px;}
+.bar-label{width:54px;text-align:right;color:var(--gray);flex-shrink:0;}
+.bar{height:18px;background:var(--accent);border-radius:3px;min-width:3px;}
+.bar.dim{background:#c9ccd8;}
+.bar-cnt{font-size:12px;color:var(--gray);}
+/* proposal table emphasis */
+.prop-table td:first-child{font-weight:600;width:110px;}
+.zone-std td{background:#f4faf4!important;}
+.zone-limit td{background:var(--accent-bg)!important;font-weight:700;}
+.zone-ng td{background:#fdf0f0!important;}
+.note{font-size:11.5px;color:var(--gray);margin-top:6px;}
+.appendix summary{cursor:pointer;font-weight:700;font-size:14px;padding:8px 0;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
+  @page{size:A4;margin:10mm;}
+  section{page-break-inside:avoid;break-inside:avoid;}
+  body{background:#fff;}
+  .wrap{max-width:none;}
+}
+@media(max-width:600px){
+  .cover,.body{padding-left:22px;padding-right:22px;}
+  .cover h1{font-size:21px;}
+  table{font-size:12px;}
+  th,td{padding:5px 6px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ===== Cover ===== -->
+<div class="cover">
+  <span class="cover-tag">協賛配信 体制改善案</span>
+  <h1>レギュレーション設定<br>― 主要紹介アイテム数の上限 ―</h1>
+  <div class="sub">配信ごとの「商品変更・追加・修正の無制限受け入れ」に歯止めをかける</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="label">Date</div><div class="value">2026年5月14日</div></div>
+    <div class="cover-meta-item"><div class="label">Last Updated</div><div class="value">2026年5月14日 17:20</div></div>
+    <div class="cover-meta-item"><div class="label">Prepared by</div><div class="value">Firework</div></div>
+    <div class="cover-meta-item"><div class="label">対象</div><div class="value">MCCM協賛配信</div></div>
+  </div>
+</div>
+
+<div class="body">
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">目次</div>
+  <div class="toc-item"><a href="#sec-1"><div class="toc-num">1</div><span>お題と制約条件</span></a></div>
+  <div class="toc-item"><a href="#sec-2"><div class="toc-num">2</div><span>分析対象</span></a></div>
+  <div class="toc-item"><a href="#sec-3"><div class="toc-num">3</div><span>集計結果</span></a></div>
+  <div class="toc-item"><a href="#sec-4"><div class="toc-num">4</div><span>提案：アイテム数の上限</span></a></div>
+  <div class="toc-item"><a href="#sec-5"><div class="toc-num">5</div><span>提案前の論点整理（留意点）</span></a></div>
+  <div class="toc-item"><a href="#sec-6"><div class="toc-num">6</div><span>次のアクション</span></a></div>
+  <div class="toc-item"><a href="#sec-7"><div class="toc-num">7</div><span>付録：全43本の集計データ</span></a></div>
+</div>
+
+<!-- ===== 1 ===== -->
+<section id="sec-1">
+  <h2>1. お題と制約条件</h2>
+  <p>配信ごとの「商品変更・追加・修正の<strong>無制限受け入れ</strong>」にレギュレーションを設ける。その第一弾として、<strong>主要紹介アイテム数の上限</strong>を、過去台本の実績分析から提案する。</p>
+  <h3>制約条件</h3>
+  <ul>
+    <li>カラバリ・香り・サイズ・本体/詰め替え/レフィルなどの<strong>バリエーションは1アイテムとして数える</strong></li>
+    <li>配信時間は60分におさめる（延長しても70分まで）</li>
+  </ul>
+</section>
+
+<!-- ===== 2 ===== -->
+<section id="sec-2">
+  <h2>2. 分析対象</h2>
+  <p>2025年度の台本 <strong>44本</strong>（<code>02_データ/台本_2025年度/</code>）。うち1本（#85 春の新作コスメ）はテンプレ未記入のため除外し、<strong>有効43本</strong>で集計した。</p>
+  <p>カウント単位は2軸で取得：</p>
+  <ul>
+    <li><strong>主要アイテム数</strong>：紹介商品リストから、カラバリ・香り・サイズ違いを統合した実商品数</li>
+    <li><strong>コーナー数</strong>：構成セクションの ①②③…（見どころ）の数。1コーナー ≒ 1主力アイテム/シリーズ</li>
+  </ul>
+</section>
+
+<!-- ===== 3 ===== -->
+<section id="sec-3">
+  <h2>3. 集計結果</h2>
+
+  <h3>主要アイテム数（バリエーション統合後・43本）</h3>
+  <div class="kpi-row">
+    <div class="kpi"><div class="k-label">平均</div><div class="k-value">5.4<span class="unit">本</span></div></div>
+    <div class="kpi"><div class="k-label">中央値</div><div class="k-value">5<span class="unit">本</span></div></div>
+    <div class="kpi"><div class="k-label">75パーセンタイル</div><div class="k-value">7<span class="unit">本</span></div></div>
+    <div class="kpi"><div class="k-label">最小／最大</div><div class="k-value">2<span class="unit">／</span>13<span class="unit">本</span></div></div>
+  </div>
+
+  <p>分布（本数別の配信数）：</p>
+  <div class="bar-row"><span class="bar-label">2本</span><div class="bar" style="width:24px"></div><span class="bar-cnt">3</span></div>
+  <div class="bar-row"><span class="bar-label">3本</span><div class="bar" style="width:64px"></div><span class="bar-cnt">8</span></div>
+  <div class="bar-row"><span class="bar-label">4本</span><div class="bar" style="width:40px"></div><span class="bar-cnt">5</span></div>
+  <div class="bar-row"><span class="bar-label">5本</span><div class="bar" style="width:56px"></div><span class="bar-cnt">7</span></div>
+  <div class="bar-row"><span class="bar-label">6本</span><div class="bar" style="width:56px"></div><span class="bar-cnt">7</span></div>
+  <div class="bar-row"><span class="bar-label">7本</span><div class="bar" style="width:40px"></div><span class="bar-cnt">5</span></div>
+  <div class="bar-row"><span class="bar-label">8本</span><div class="bar" style="width:40px"></div><span class="bar-cnt">5</span></div>
+  <div class="bar-row"><span class="bar-label">9本</span><div class="bar dim" style="width:8px"></div><span class="bar-cnt">1</span></div>
+  <div class="bar-row"><span class="bar-label">10本</span><div class="bar dim" style="width:8px"></div><span class="bar-cnt">1</span></div>
+  <div class="bar-row"><span class="bar-label">13本</span><div class="bar dim" style="width:8px"></div><span class="bar-cnt">1</span></div>
+  <div class="callout"><strong>3〜8本に全体の約9割（39/43本）が収まる。</strong>9本以上は外れ値（3本のみ）。</div>
+
+  <h3>コーナー数（構成の①②③）</h3>
+  <table>
+    <tr><th>コーナー数</th><th>配信数</th></tr>
+    <tr><td class="num">1</td><td class="num">1</td></tr>
+    <tr><td class="num">2</td><td class="num">5</td></tr>
+    <tr class="tbl-accent" style="text-align:center"><td class="num">3</td><td class="num">35</td></tr>
+    <tr><td class="num">4</td><td class="num">1</td></tr>
+  </table>
+  <p><strong>3コーナー構成が標準（35/42本＝83%）。</strong>「1テーマ3コーナー」がマツココライブの型として定着している。</p>
+
+  <h3>バリエーション統合の効果（リスト記載SKU総数 → 主要アイテム数）</h3>
+  <p>カラバリ・香り展開が多い商材ほど、リスト上のSKU数と実アイテム数の乖離が大きい：</p>
+  <table>
+    <tr><th>配信</th><th>リスト記載SKU</th><th>主要アイテム</th><th>乖離の中身</th></tr>
+    <tr><td>#69 ディアボーテ</td><td class="num">21</td><td class="num">6</td><td>香り展開シリーズの統合</td></tr>
+    <tr><td>#74 バンドエイド</td><td class="num">16</td><td class="num">3</td><td>サイズ・部位違いを統合</td></tr>
+    <tr><td>#86 いち髪</td><td class="num">17</td><td class="num">13</td><td>3ライン×S/C/T＋香り展開</td></tr>
+    <tr><td>#57 Agデオ24</td><td class="num">14</td><td class="num">8</td><td>無香/香り付スプレー類の統合</td></tr>
+  </table>
+  <div class="callout">レギュレーション化する際は「<strong>SKUの行数ではなく、バリエーションを統合した実アイテム数で数える</strong>」と明記しないと、現場の数え方がぶれる。</div>
+</section>
+
+<!-- ===== 4 ===== -->
+<section id="sec-4">
+  <h2>4. 提案：主要紹介アイテム数の上限</h2>
+  <div class="callout" style="font-size:16px">
+    提案値：<strong>1配信あたり 主要アイテム 7本まで</strong><br>
+    （標準は3コーナー × 各2〜3アイテム）
+  </div>
+
+  <table class="prop-table">
+    <tr><th>区分</th><th>アイテム数</th><th>運用</th></tr>
+    <tr class="zone-std"><td>標準ゾーン</td><td>3〜6本</td><td>通常運用。過去実績の中心</td></tr>
+    <tr class="zone-limit"><td>上限</td><td>7本</td><td>ここまでは追加受け入れ可（過去実績の75パーセンタイル）</td></tr>
+    <tr class="zone-ng"><td>例外ゾーン</td><td>8本以上</td><td>原則NG。やる場合は事前に2社協議し、尺・深掘り度の調整を合意</td></tr>
+  </table>
+
+  <h3>根拠</h3>
+  <ol>
+    <li><strong>過去実績の自然な上限が7本</strong>：43本中、7本以下が約8割（35/43本）。75パーセンタイル＝7本。「過去の大半の配信が収まっていた範囲」を基準にすれば、現場の感覚ともズレない。</li>
+    <li><strong>3コーナー構成との整合</strong>：標準の3コーナー構成で、1コーナーあたり2〜3アイテムが妥当な深掘り尺。3×2＝6、3×2.3＝7が自然な上限。8本を超えると1アイテムあたりの紹介が浅くなり、巻きの圧がかかる。</li>
+    <li><strong>時間制約との関係</strong>：60分（延長70分）枠で、オープニング・エンディング・商品まとめ（計15分前後）を差し引くと本編は約45分。7アイテムなら1アイテム平均6分前後を確保できる。</li>
+  </ol>
+</section>
+
+<!-- ===== 5 ===== -->
+<section id="sec-5">
+  <h2>5. 提案前の論点整理（留意点）</h2>
+  <p>MCCM側に提示する前の、論理チェック結果：</p>
+
+  <div class="warn">
+    <div class="w-head">⚠ 「アイテム数が多い→時間超過」とは言い切れない</div>
+    75分の長尺配信2本（#58 リップ特集／#61 横断型）は、むしろアイテム数3〜4本と<strong>少なめ</strong>。時間超過の主因は「1コーナー20分×3」という尺設計であり、アイテム数ではない。<br>
+    → 提案では「アイテム数上限＝時間を守るため」ではなく「<strong>アイテム数上限＝1アイテムあたりの紹介品質を担保するため</strong>」というロジックで出すのが正確。時間制御は別途「コーナーあたりの尺上限」で対応する話。
+  </div>
+
+  <div class="warn">
+    <div class="w-head">⚠ レギュレーションの本来の目的</div>
+    今回の上限値は「無制限な追加受け入れに歯止めをかける線引き基準」。過去実績の分布を根拠にしているので、「Fireworkの恣意的な制約」ではなく「これまでの運用実態の明文化」と説明できる。
+  </div>
+
+  <div class="warn">
+    <div class="w-head">⚠ 数え方の定義が肝</div>
+    「バリエーション統合後の実アイテム数」をレギュレーション文に明記しないと、SKU行数で数えられて形骸化する。
+  </div>
+</section>
+
+<!-- ===== 6 ===== -->
+<section id="sec-6">
+  <h2>6. 次のアクション</h2>
+  <ol>
+    <li>この上限値（7本）をMCCM側に提示し、過去実績分布とセットで合意を取る</li>
+    <li>レギュレーション文書化：「主要アイテム数の数え方の定義」＋「8本以上は事前協議」を明文化</li>
+    <li>第2弾レギュレーション候補：
+      <ul>
+        <li>コーナーあたりの尺上限（時間超過の本当の主因への対応）</li>
+        <li>商品変更・修正の「受付期限」（配信N日前以降は変更不可）</li>
+        <li>上記2点も同様に過去台本・進行実績から基準値を出せる</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- ===== 7 ===== -->
+<section id="sec-7">
+  <h2>7. 付録：全43本の集計データ</h2>
+  <details class="appendix" open>
+    <summary>全43本の集計表を表示</summary>
+    <table>
+      <tr><th>配信</th><th>時間</th><th>コーナー数</th><th>主要アイテム数</th><th>SKU総数</th></tr>
+      <tr><td>#48 資生堂アネッサ</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">6</td></tr>
+      <tr><td>#49 ウィズメソッド</td><td class="num">60分</td><td class="num">3</td><td class="num">7</td><td class="num">7</td></tr>
+      <tr><td>#50 マツキヨPB美容部員推し</td><td class="num">60分</td><td class="num">3</td><td class="num">7</td><td class="num">10</td></tr>
+      <tr><td>#51 韓国コスメ</td><td class="num">60分</td><td class="num">3</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>#52 3650アイメイク</td><td class="num">60分</td><td class="num">3</td><td class="num">2</td><td class="num">リスト無</td></tr>
+      <tr><td>#53 休息グッズ</td><td class="num">60分</td><td class="num">3</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>#54 &amp;honey</td><td class="num">60分</td><td class="num">3</td><td class="num">4</td><td class="num">4</td></tr>
+      <tr><td>#55 アルジェラン冷感ボディ</td><td class="num">60分</td><td class="num">3</td><td class="num">8</td><td class="num">9</td></tr>
+      <tr><td>#56 CONCRED</td><td class="num">60分</td><td class="num">3</td><td class="num">3(推定)</td><td class="num">リスト無</td></tr>
+      <tr><td>#57 Agデオ24</td><td class="num">60分</td><td class="num">3</td><td class="num">8</td><td class="num">14</td></tr>
+      <tr><td>#58 リップ特集</td><td class="num">75分</td><td class="num">3</td><td class="num">3</td><td class="num">3</td></tr>
+      <tr><td>#59 雪肌精</td><td class="num">60分</td><td class="num">3</td><td class="num">3</td><td class="num">6</td></tr>
+      <tr><td>#60 夏コスメ</td><td class="num">60分</td><td class="num">4</td><td class="num">7</td><td class="num">10</td></tr>
+      <tr><td>#61 横断型サンケア制汗剤</td><td class="num">75分</td><td class="num">3</td><td class="num">4</td><td class="num">3</td></tr>
+      <tr><td>#62 旅行用コスメ</td><td class="num">60分</td><td class="num">3</td><td class="num">4</td><td class="num">7</td></tr>
+      <tr><td>#63 Loretta</td><td class="num">60分</td><td class="num">3</td><td class="num">3</td><td class="num">3</td></tr>
+      <tr><td>#64 FANCLドラえもん</td><td class="num">60分</td><td class="num">3</td><td class="num">6</td><td class="num">12</td></tr>
+      <tr><td>#65 エイトザタラソ</td><td class="num">60分</td><td class="num">3</td><td class="num">7</td><td class="num">14</td></tr>
+      <tr><td>#67 マツココPB品特集</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">7</td></tr>
+      <tr><td>#68 新作PBコスメ</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">8</td></tr>
+      <tr><td>#68 プリズムミラーオイル</td><td class="num">60分</td><td class="num">3</td><td class="num">3</td><td class="num">6</td></tr>
+      <tr><td>#69 ディアボーテBloomdOr</td><td class="num">60分</td><td class="num">3</td><td class="num">6</td><td class="num">21</td></tr>
+      <tr><td>#70 PB新商品特集</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">9</td></tr>
+      <tr><td>#71 プロスタイル&amp;いち髪</td><td class="num">60分</td><td class="num">2</td><td class="num">8</td><td class="num">10</td></tr>
+      <tr><td>#72 KATEクリスタルポッド</td><td class="num">60分</td><td class="num">3</td><td class="num">4</td><td class="num">9</td></tr>
+      <tr><td>#74 バンドエイドキズパワー</td><td class="num">60分</td><td class="num">3</td><td class="num">3</td><td class="num">16</td></tr>
+      <tr><td>#75 +tmr</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">12</td></tr>
+      <tr><td>#76 GENiS</td><td class="num">60分</td><td class="num">2</td><td class="num">3</td><td class="num">5</td></tr>
+      <tr><td>#77 nake</td><td class="num">60分</td><td class="num">3</td><td class="num">8</td><td class="num">10</td></tr>
+      <tr><td>#78 横断型年末大掃除</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">6</td></tr>
+      <tr><td>#79 プロスタイル</td><td class="num">60分</td><td class="num">2</td><td class="num">2</td><td class="num">2</td></tr>
+      <tr><td>#80 2025リアルバイ</td><td class="num">60分</td><td class="num">0</td><td class="num">9</td><td class="num">13</td></tr>
+      <tr><td>#81 ビューティ&amp;エチケット</td><td class="num">60分</td><td class="num">3</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>#82 コスメランキング</td><td class="num">60分</td><td class="num">3</td><td class="num">10</td><td class="num">10</td></tr>
+      <tr><td>#83 保湿アイテム</td><td class="num">60分</td><td class="num">2</td><td class="num">8</td><td class="num">8</td></tr>
+      <tr><td>#84 春のゆらぎ肌花粉対策</td><td class="num">60分</td><td class="num">3</td><td class="num">7</td><td class="num">7</td></tr>
+      <tr><td>#86 いち髪</td><td class="num">60分</td><td class="num">3</td><td class="num">13</td><td class="num">17</td></tr>
+      <tr><td>#87 春の新作コスメ</td><td class="num">60分</td><td class="num">3</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>#88 KATE</td><td class="num">60分</td><td class="num">3</td><td class="num">3</td><td class="num">8</td></tr>
+      <tr><td>#89 キャンメイク</td><td class="num">60分</td><td class="num">1</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>#90 スキンアクア</td><td class="num">60分</td><td class="num">3</td><td class="num">2</td><td class="num">6</td></tr>
+      <tr><td>#91 ディアボーテマー&amp;ミー</td><td class="num">60分</td><td class="num">2</td><td class="num">4</td><td class="num">6</td></tr>
+      <tr><td>#92 アネッサ(260331)</td><td class="num">60分</td><td class="num">3</td><td class="num">5</td><td class="num">6</td></tr>
+    </table>
+    <p class="note">※ #85（春の新作コスメ）はテンプレ未記入のため集計対象外。<br>
+    ※ 配信時間「60分」は台本記載の本番尺。60分超は #58／#61 の2本のみ。<br>
+    ※ 主要アイテム数は「紹介商品リスト」からカラバリ・香り・サイズ違いを統合した値。リスト未記載の台本（#52/#56等）は構成のコーナー内容から推定。<br>
+    ※ #80 はコーナー数 0 ＝構成欄が空欄だった台本。</p>
+  </details>
+</section>
+
+</div><!-- /body -->
+</div><!-- /wrap -->
+</body>
+</html>
