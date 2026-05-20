@@ -311,7 +311,7 @@
     </div>
   </div>
   <div class="header-meta">
-    Last Updated<br>2026年5月20日 18:05
+    Last Updated<br>2026年5月20日 18:19
   </div>
 </header>
 
@@ -348,8 +348,9 @@
       <div class="toc-item"><a href="#sec-strategy"><div class="toc-num">1</div><div class="toc-text">戦略コンセプト</div></a></div>
       <div class="toc-item"><a href="#sec-persona"><div class="toc-num">2</div><div class="toc-text">ターゲットペルソナ</div></a></div>
       <div class="toc-item"><a href="#sec-approach"><div class="toc-num">3</div><div class="toc-text">制作アプローチ</div></a></div>
-      <div class="toc-item"><a href="#sec-category"><div class="toc-num">4</div><div class="toc-text">カテゴリ優先順位</div></a></div>
-      <div class="toc-item"><a href="#sec-actions"><div class="toc-num">5</div><div class="toc-text">ネクストアクション</div></a></div>
+      <div class="toc-item"><a href="#sec-fit"><div class="toc-num">4</div><div class="toc-text">AIGC適性マトリクス</div></a></div>
+      <div class="toc-item"><a href="#sec-category"><div class="toc-num">5</div><div class="toc-text">カテゴリ優先順位</div></a></div>
+      <div class="toc-item"><a href="#sec-actions"><div class="toc-num">6</div><div class="toc-text">ネクストアクション</div></a></div>
     </div>
   </div>
 
@@ -456,9 +457,90 @@
     </div>
   </section>
 
-  <!-- 4. カテゴリ優先順位 -->
+  <!-- 4. AIGC適性マトリクス -->
+  <section class="section" id="sec-fit">
+    <h2><span class="ch">Ch.4</span>AIGC適性マトリクス</h2>
+    <p style="font-size:12px; color:var(--text-muted); margin-bottom:16px;">「どんな商材・状況がAIGCに向いているか」の切り口整理</p>
+    <div class="persona-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom:20px;">
+
+      <div class="persona-card" style="border-color: rgba(0,212,170,0.3);">
+        <div class="persona-icon">👶🐾👴</div>
+        <div class="persona-title">撮影対象ハードル — 人物・動物</div>
+        <div class="persona-desc">
+          子ども・シニア・ペットなど撮影調整が困難な対象。<br>
+          キャスティング費が1本5万円超になるケースもあり、AIGCで費用対効果が飛躍的に改善。
+        </div>
+        <div class="rank-tags" style="margin-top:10px;">
+          <span class="tag green">費用削減◎</span><span class="tag green">調整コスト◎</span>
+        </div>
+      </div>
+
+      <div class="persona-card" style="border-color: rgba(0,212,170,0.3);">
+        <div class="persona-icon">🏔️🌊⛷️</div>
+        <div class="persona-title">撮影場所ハードル — 自然・極地</div>
+        <div class="persona-desc">
+          山・海・雪山など実際に行かないと撮れない場所が必要な商材（アウトドア・キャンプ・スキー等）。<br>
+          ロケ費・季節制約をAIGCで解決。
+        </div>
+        <div class="rank-tags" style="margin-top:10px;">
+          <span class="tag green">季節制約解消</span><span class="tag green">ロケ費ゼロ</span>
+        </div>
+      </div>
+
+      <div class="persona-card" style="border-color: rgba(0,212,170,0.3);">
+        <div class="persona-icon">👗👒👟</div>
+        <div class="persona-title">SKU量産ニーズ — アパレル・ファッション</div>
+        <div class="persona-desc">
+          トップス・ボトムス・インナーなど1カテゴリでSKU数百点規模。<br>
+          モデル着用画像を色・サイズ違いで大量生成でき、量産型のロールモデルを作りやすい。
+        </div>
+        <div class="rank-tags" style="margin-top:10px;">
+          <span class="tag green">量産◎</span><span class="tag green">現在最有力</span>
+        </div>
+      </div>
+
+      <div class="persona-card" style="border-color: rgba(124,77,255,0.3);">
+        <div class="persona-icon">💰📦</div>
+        <div class="persona-title">既存コスト代替 — 実写撮影が高額</div>
+        <div class="persona-desc">
+          ユナイテッドアローズ試算：年間撮影費〜1億円 → AIGCで70%削減可能。<br>
+          「コンバージョン向上」より「コスト削減」訴求の方が刺さるクライアントに有効。
+        </div>
+        <div class="rank-tags" style="margin-top:10px;">
+          <span class="tag purple">コスト代替</span><span class="tag">ROI訴求</span>
+        </div>
+      </div>
+
+      <div class="persona-card" style="border-color: rgba(124,77,255,0.3);">
+        <div class="persona-icon">🏭🔩🌾</div>
+        <div class="persona-title">リテラシー層 — 職人・一次産業</div>
+        <div class="persona-desc">
+          農家・漁業・製造業など動画制作リテラシーが高くない職種。<br>
+          「とにかく作ってほしい」ニーズが強く、クオリティのこだわりが少ないためAIGCが通りやすい。
+        </div>
+        <div class="rank-tags" style="margin-top:10px;">
+          <span class="tag purple">クオリティ許容度◎</span>
+        </div>
+      </div>
+
+      <div class="persona-card" style="border-color: rgba(255,107,53,0.3);">
+        <div class="persona-icon">💎✨</div>
+        <div class="persona-title">⚠️ NG — ハイブランド・高単価</div>
+        <div class="persona-desc">
+          1点3万円以上のセレクトショップ・ラグジュアリーブランドはAIGCへのアレルギーが強い。<br>
+          ブランドディレクターが「NO」を出すケースが多く、現時点では避けるべき。
+        </div>
+        <div class="rank-tags" style="margin-top:10px;">
+          <span class="tag" style="border-color:rgba(255,107,53,0.4); color:var(--warn);">現時点は非推奨</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. カテゴリ優先順位 -->
   <section class="section" id="sec-category">
-    <h2><span class="ch">Ch.4</span>次に狙うカテゴリ優先順位 TOP10</h2>
+    <h2><span class="ch">Ch.5</span>次に狙うカテゴリ優先順位 TOP10</h2>
     <p style="font-size:12px; color:var(--text-muted); margin-bottom:16px;">「1社あたりの予算規模が大きい」を重視して評価・ソート済み（2026年5月20日時点）</p>
     <div class="rank-list">
 
@@ -555,9 +637,9 @@
     </div>
   </section>
 
-  <!-- 5. ネクストアクション -->
+  <!-- 6. ネクストアクション -->
   <section class="section" id="sec-actions">
-    <h2><span class="ch">Ch.5</span>ネクストアクション</h2>
+    <h2><span class="ch">Ch.6</span>ネクストアクション</h2>
     <div class="action-list">
       <div class="action-item">
         <div class="action-status status-pending"></div>
@@ -600,7 +682,7 @@
 </div>
 
 <footer class="footer">
-  AIGC戦略プロジェクト — Firework Japan Team — Last Updated: 2026年5月20日 18:05
+  AIGC戦略プロジェクト — Firework Japan Team — Last Updated: 2026年5月20日 18:19
 </footer>
 
 </body>
