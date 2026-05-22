@@ -464,3 +464,44 @@ Firework側の集計ロジック変更により**視聴分数の数値水準が�
 - **A15最大ライブ視聴者数の論拠ロジック**：「過去2年で7,500人超は70分以内では0回 = 過去最高（6,897人）を約1割上回るストレッチ目標」。配信時間バイアス分析は `CLAUDE.md` の「配信時間バイアス分析（2026-05-11確立）」セクション参照
 - **A15が最新KPI目標値の正本**：マイルストーン①は5指標（視聴分数・CTR・コメント率・いいね率・最大ライブ視聴者数70分以内）。視聴者数の旧「平均ベース」は除外済み
 - **HTML編集は骨子版・公開版の両方を必ず同期**（公開版のSSO 2行は消さない・cp禁止・Edit ツールで差分反映）
+## 🔄 Session Handoff（2026-05-22 18:31・スライドデザイン学習＆型サンプル探索）← 最新
+
+### 今日やったこと（3本立て）
+1. **提案スライド レイアウトパターン辞典を確立**（リファレンス46枚を分析→18の型に体系化）
+   - スキル: `firework-reporting-kit/skills/learned/fw-slide-layout-patterns.md`（`~/.claude/skills/learned/` にシンボリックリンク済）
+   - リファレンス画像: `firework-decks/スライドデザインリファレス/` を型カテゴリ別12フォルダに整理（commit 0b8de9f）
+   - 内容→型マッピング・Firework色置換ルール・GAS再現性（◎○△▲）付き
+2. **MCCM年次報告会で辞典の型を使った10枚HTMLモックを作成**
+   - `_sandbox/MCCM型サンプル_260522/MCCM型サンプルスライド_260522.html`（付箋機能付き・MCCM色準拠）
+   - 型: ハブ&スポーク/データカード/主張オーバーレイ/マトリクス/グリッド反復/帯グラフ対比/シェブロンタイムライン/ロゴグリッド
+   - evaluator厳格レビュー: 条件付き合格（S9シェブロンの継ぎ目処理が甘い以外は良好）
+3. **ハイブリッド方式（背景画像＋文字レイヤー）をS2ハブ&スポークで試作**
+   - 背景HTML→画像化（Chrome headless）→firework-decks公開URL→GAS insertImage(url)＋文字重ね
+   - `_sandbox/MCCM型サンプル_260522/hybrid_S2_GAS.gs`（clasp push済・関数 `buildHybridS2`）
+
+### 🔴 次回の方針転換（重要・Issy FB 2026-05-22 18:30）
+**HTMLモック経由のハイブリッドは遠回りだった。次回は方針を変える:**
+- **「SlidesのP1（テンプレート）を dup() で複製 → 中身を差し替える」が本筋**（HTMLモックは不要）
+- HTMLでデザインを作ってGASに持ち込むのではなく、**Googleスライド側のデザインを厳守**して再現する
+- Issy確認済み: 「最終的にGoogleスライドで再現できればいい。HTMLモックで再現しなくていいなら楽になる」→ YES、大幅に楽。HTML作成・画像化・座標一致の工程が全部不要になる
+- 今日確立した **dumpSlide思想（正解スライドの実数値を読んで踏襲・推測禁止）** がそのまま使える
+
+### 次回やること
+1. **生成先Slides（1FH5lNs_qJKpSMiLrcC0wOrALng5O5mzT3CWN_EmLdss）の現状確認**：私の試作スライドが複数残っている。listSlides()でP1（複製元テンプレ）が無事か確認
+2. **P1のデザインを dumpSlide(1) で実数値把握**（黒帯座標・プレースホルダー・装飾）
+3. **P1を複製→中身差替で型サンプルを生成**（辞典の型を、Slidesテンプレのデザインを厳守して再現）
+4. 混乱の元: 「辞典の型(HTMLで分析)」と「Slidesデザイン厳守」を両立する設計の整理が必要
+
+### 検討した代替手段（結論）
+- GAS生成: デザイン再現性 **低**（凝った図は破綻）← 今回の課題の元
+- HTML→画像→Slides全面貼付: 再現性◎だが文字編集不可
+- **ハイブリッド（背景画像＋文字）: 再現性○・文字編集可・画像自由移動可** ← Issyの好み
+- python-pptx: GASよりマシだが限界
+- **Claude Design（2026-04 Anthropic Labs新製品・claude.ai/design）**: HTML生成→PPTX/PDFエクスポート可とのこと。**未検証（要Issy実機確認）**。今回の要件（文字編集・画像自由移動）を満たすか試す価値あり
+
+### 環境メモ
+- 生成先Slides: `1FH5lNs_qJKpSMiLrcC0wOrALng5O5mzT3CWN_EmLdss`
+- clasp scriptId: `1zmQ9DsIaQ3GwX-EC70a3fPSYb9Oz14HXhZ2uf9-tCnPpSI29ZBteSePn`（02/03/04/05_hybrid push済）
+- clasp配下: `_sandbox/Firework提案スライド_汎用テンプレ_260522/clasp-fw-template/`
+- 背景画像URL（試作）: https://riderkarubo.github.io/firework-decks/assets/slide-bg/hybrid_S2_bg.png
+- checkpoint: `mccm-slide-type-samples-and-hybrid-探索`（6f1e26b）
