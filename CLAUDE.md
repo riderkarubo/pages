@@ -139,6 +139,7 @@ YYYY/M/D [配信名]
 | スキル | 使用シーン | 出力形式 |
 |--------|----------|--------|
 | **`/reporting-cycle`** | **報告会(年次/四半期/月次)・提案書を組み立てる際のオーケストレーション** | md/HTML/Slides |
+| `/plaud-template` | Plaud AI向け議事録テンプレート生成（出演者FB・分科会・提案等） | md |
 | `/fw-slide` | Google Slides/PPTX生成（Fireworkテンプレ準拠） | gs/pptx |
 | `/proposal-builder` | クライアント向け提案書HTML | html |
 | `delivery-analysis` | CSV配信数値の分析、KPI抽出、トレンド分析 | md/xlsx |
@@ -464,59 +465,20 @@ Firework側の集計ロジック変更により**視聴分数の数値水準が�
 - **A15最大ライブ視聴者数の論拠ロジック**：「過去2年で7,500人超は70分以内では0回 = 過去最高（6,897人）を約1割上回るストレッチ目標」。配信時間バイアス分析は `CLAUDE.md` の「配信時間バイアス分析（2026-05-11確立）」セクション参照
 - **A15が最新KPI目標値の正本**：マイルストーン①は5指標（視聴分数・CTR・コメント率・いいね率・最大ライブ視聴者数70分以内）。視聴者数の旧「平均ベース」は除外済み
 - **HTML編集は骨子版・公開版の両方を必ず同期**（公開版のSSO 2行は消さない・cp禁止・Edit ツールで差分反映）
-## 🔄 Session Handoff（2026-05-22 18:31・スライドデザイン学習＆型サンプル探索）← 最新
+## 🔄 Session Handoff（2026-05-28 16:31・Plaud議事録テンプレートスキル化）← 最新
 
-### 今日やったこと（3本立て）
-1. **提案スライド レイアウトパターン辞典を確立**（リファレンス46枚を分析→18の型に体系化）
-   - スキル: `firework-reporting-kit/skills/learned/fw-slide-layout-patterns.md`（`~/.claude/skills/learned/` にシンボリックリンク済）
-   - リファレンス画像: `firework-decks/スライドデザインリファレス/` を型カテゴリ別12フォルダに整理（commit 0b8de9f）
-   - 内容→型マッピング・Firework色置換ルール・GAS再現性（◎○△▲）付き
-2. **MCCM年次報告会で辞典の型を使った10枚HTMLモックを作成**
-   - `_sandbox/MCCM型サンプル_260522/MCCM型サンプルスライド_260522.html`（付箋機能付き・MCCM色準拠）
-   - 型: ハブ&スポーク/データカード/主張オーバーレイ/マトリクス/グリッド反復/帯グラフ対比/シェブロンタイムライン/ロゴグリッド
-   - evaluator厳格レビュー: 条件付き合格（S9シェブロンの継ぎ目処理が甘い以外は良好）
-3. **ハイブリッド方式（背景画像＋文字レイヤー）をS2ハブ&スポークで試作**
-   - 背景HTML→画像化（Chrome headless）→firework-decks公開URL→GAS insertImage(url)＋文字重ね
-   - `_sandbox/MCCM型サンプル_260522/hybrid_S2_GAS.gs`（clasp push済・関数 `buildHybridS2`）
+### 今日やったこと
+- **Plaud AI用議事録テンプレートスキルを新設**（`/plaud-template` コマンド: `~/.claude/commands/plaud-template.md`）
+- **MCCM出演者FB会議の議事録テンプレートを作成**（`03_テンプレート/議事録テンプレート_出演者FB会議.md`）
+  - 構成: 出演者FBセクション（4項目）/ Firework共有セクション（数値テーブル+Tips+方針）/ 決定事項テーブル / 内部メモ（非公開）
+- **CLAUDE.mdスキル一覧に `/plaud-template` を追記**
 
-### 🔴 確定したワークフロー（重要・Issy整理 2026-05-22 18:50）
-**今日の混乱の正体: ①内容HTML と ②デザインSlide を混同していた。役割が違う。**
+### 未完了・次回やること
+- 単一JSON方式スライド設計（前セッション持ち越し）: slide-spec JSONから背景HTML画像＋GAS文字を両方生成するジェネレーター
+- MCCMの1トピックで内容HTML→JSON抽出→Slide化（型適用）を1枚通す実証
+- 出演者FB会議が実際に開催されたら `/plaud-template` でテンプレを呼び出して使う
 
-```
-① 内容HTML（Webページ風・読み物・モックではない）
-   - 「何を訴うか」骨子・内容を固める作業ドキュメント
-   - 見た目はこれまでのMCCM提案書HTMLでOK。可能なら辞典の型に「多少寄せる」（完全再現不要）
-        ↓
-② Slide作成（ここで初めてデザインを組む）
-   - ①の内容を辞典の型でデザインしてスライド化
-   - 「単一JSONを source of truth」にする方式（Issy選択）:
-       1つの座標＋テキスト定義JSONから、背景図(HTML→画像)とGAS文字を両方生成
-       → 手で座標を合わせる手間が消える（今日詰まった所の解決策）
-```
-
-- **①と②は別物**：①はモックではなく内容ドキュメント。デザインは②で組む
-- 「再現性×文字編集×画像自由」は全部100%両立できない（トレードオフ）→ Issyは**両取り（ハイブリッド改良＝単一JSON方式）**を選択
-
-### 次回やること（クリアな状態で着手）
-1. **単一JSON方式の設計**：1つのslide-spec JSONを作り、(a)背景図形HTML→画像化 (b)GAS文字配置 を両方そのJSONから生成するジェネレーターを設計
-2. **MCCMの1トピックで①→②を実証**：内容HTML（既存提案書ベース）→ JSON抽出 → Slide化（型適用）の流れを1枚で通す
-3. **辞典の型（fw-slide-layout-patterns.md・18型）を②のデザインに適用**
-4. 参考: 今日のハイブリッド試作（hybrid_S2_GAS.gs・背景画像URL方式）は単一JSON化の叩き台
-
-### 混乱を繰り返さないための注意
-- 「HTMLでスライドのモックを作る」のは①の内容HTMLとは別物。①はあくまで内容ドキュメント
-- ②のデザインで初めて型・座標・画像を扱う。①の段階で座標を気にしない
-
-### 検討した代替手段（結論）
-- GAS生成: デザイン再現性 **低**（凝った図は破綻）← 今回の課題の元
-- HTML→画像→Slides全面貼付: 再現性◎だが文字編集不可
-- **ハイブリッド（背景画像＋文字）: 再現性○・文字編集可・画像自由移動可** ← Issyの好み
-- python-pptx: GASよりマシだが限界
-- **Claude Design（2026-04 Anthropic Labs新製品・claude.ai/design）**: HTML生成→PPTX/PDFエクスポート可とのこと。**未検証（要Issy実機確認）**。今回の要件（文字編集・画像自由移動）を満たすか試す価値あり
-
-### 環境メモ
-- 生成先Slides: `1FH5lNs_qJKpSMiLrcC0wOrALng5O5mzT3CWN_EmLdss`
-- clasp scriptId: `1zmQ9DsIaQ3GwX-EC70a3fPSYb9Oz14HXhZ2uf9-tCnPpSI29ZBteSePn`（02/03/04/05_hybrid push済）
-- clasp配下: `_sandbox/Firework提案スライド_汎用テンプレ_260522/clasp-fw-template/`
-- 背景画像URL（試作）: https://riderkarubo.github.io/firework-decks/assets/slide-bg/hybrid_S2_bg.png
-- checkpoint: `mccm-slide-type-samples-and-hybrid-探索`（6f1e26b）
+### 注意点・申し送り
+- `/plaud-template` はPlaudのプロンプト欄に「Plaud用インストラクション＋テンプレート本体」の2層構成で渡す
+- 前セッションの環境メモ（Slides ID・clasp scriptId）は直前のHandoff（2026-05-22版）に記載あり
+- checkpoint: `plaud-template-skill-and-mccm-meeting-memo`（9c18c35）
