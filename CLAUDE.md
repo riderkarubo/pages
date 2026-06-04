@@ -482,3 +482,8 @@ Firework側の集計ロジック変更により**視聴分数の数値水準が�
 - `/plaud-template` はPlaudのプロンプト欄に「Plaud用インストラクション＋テンプレート本体」の2層構成で渡す
 - 前セッションの環境メモ（Slides ID・clasp scriptId）は直前のHandoff（2026-05-22版）に記載あり
 - checkpoint: `plaud-template-skill-and-mccm-meeting-memo`（9c18c35）
+
+## 関連（追記 2026-06-04）: A4 PDF化・先祖返り根絶（グローバル版）
+
+MCCM報告会HTMLをA4 PDF化する際も `~/.claude/rules/html-proposal-pdf-a4.md`（1章1ページ印刷CSS＋headless Chrome生成）に準拠する。
+本CLAUDE.mdの「マスターを1つ指定したら古いHTML/骨子版は参照しない」方針は、グローバルの `~/.claude/rules/numbers-source-of-truth.md`（数値の正は実データ台帳のみ・過去成果物/記憶を信用しない）と同一思想。提出/PDF化直前のgrepゲート（PDFは `pdftotext` 抽出後）を必ず通す。
