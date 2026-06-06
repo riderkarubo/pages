@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>没ネタ・ログ — Creative Brain</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+  <meta name="last-modified" content="2026-06-06T17:45:00+09:00">
+  <meta name="description" content="Issyのクリエイティブブレーン 没ネタ・ログ — 保留中のアイデア・いつか使いたいネタの集約ページ">
+  <meta property="og:title" content="没ネタ・ログ — Creative Brain">
+  <meta property="og:description" content="保留中のアイデア・いつか使いたいネタの集約ページ。定期的に眺めて掘り起こす。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="#">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="没ネタ・ログ — Creative Brain">
+  <meta name="twitter:description" content="保留中のアイデア・いつか使いたいネタの集約ページ。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-base: #E8E6DF;
+      --bg-card: #FFFFFF;
+      --accent-primary: #E0005F;
+      --accent-secondary: #008566;
+      --accent-gold: #8A6E22;
+      --text-primary: #161616;
+      --text-secondary: #4E4E4E;
+      --text-muted: #8A8A86;
+      --border: #D6D3CB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--accent-primary);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg-card);
+      transition: all 0.15s;
+    }
+    .back-link:hover {
+      border-color: var(--accent-primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .page-header {
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--accent-gold);
+      margin-bottom: 28px;
+    }
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+    .page-header .sub {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .page-header .meta {
+      margin-top: 8px;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .log-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      transition: all 0.18s;
+    }
+    .log-item:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transform: translateY(-1px);
+    }
+
+    .log-id {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      min-width: 54px;
+    }
+    .log-title {
+      font-size: 14px;
+      color: var(--text-primary);
+      flex: 1;
+      line-height: 1.4;
+    }
+    .log-title small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-family: 'IBM Plex Mono', monospace;
+      white-space: nowrap;
+    }
+    .status-badge.hold {
+      background: rgba(138,110,34,0.12);
+      color: var(--accent-gold);
+      border: 1px solid rgba(138,110,34,0.3);
+    }
+    .status-badge.pending {
+      background: rgba(138,138,134,0.12);
+      color: var(--text-secondary);
+      border: 1px solid rgba(138,138,134,0.3);
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      text-align: center;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      @page { size: A4; margin: 12mm; }
+      .back-link { display: none; }
+      .log-item { page-break-inside: avoid; break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-link" href="creative-brain.html">← Creative Brain に戻る</a>
+
+    <div class="page-header">
+      <h1>📋 没ネタ・ログ</h1>
+      <div class="sub">没になったアイデア・やりかけのまま眠っているもの・いつか使いたいもの。定期的にここを眺めてアイデアを掘り起こす。</div>
+      <div class="meta">Last Updated: 2026年6月6日 17:45</div>
+    </div>
+
+    <div class="log-item">
+      <div class="log-id">V-003</div>
+      <div class="log-title">蝋人形の館・フライデーチャイナタウン替え歌<small>やべぇおじさんとやべぇおじさん構成</small></div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item">
+      <div class="log-id">V-013</div>
+      <div class="log-title">昔の流行語（がちょーん・だっちゅーの）アド街風紹介</div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item">
+      <div class="log-id">V-019</div>
+      <div class="log-title">チャップリン風無声動画</div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item">
+      <div class="log-id">V-026</div>
+      <div class="log-title">80・90年代流行ったものオマージュ洗い出し</div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item">
+      <div class="log-id">V-030</div>
+      <div class="log-title">サンダーバード風人形劇</div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item">
+      <div class="log-id">V-039</div>
+      <div class="log-title">職人ドキュメント風タッチなのに超絶くだらないものを作る</div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item">
+      <div class="log-id">M-004</div>
+      <div class="log-title">◯◯おぢ（こじらせおじさん列挙）</div>
+      <span class="status-badge hold">保留</span>
+    </div>
+    <div class="log-item" style="opacity:0.5">
+      <div class="log-id">🔲</div>
+      <div class="log-title" style="color:var(--text-muted)">あとで追加</div>
+      <span class="status-badge pending">—</span>
+    </div>
+
+    <div class="footer">Creative Brain — 没ネタ・ログ / Last Updated: 2026年6月6日 17:45</div>
+  </div>
+</body>
+</html>

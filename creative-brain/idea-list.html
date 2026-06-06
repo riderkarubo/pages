@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea Vault — Issyのネタ在庫台帳</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+  <meta name="last-modified" content="2026-06-06T18:04:35+09:00">
+  <meta name="description" content="Issyのアイデア在庫台帳 — 動画企画42件・作曲アイデア55件・ロードマップ・ユニット名をすべて格納">
+  <meta property="og:title" content="Idea Vault — Issyのネタ在庫台帳">
+  <meta property="og:description" content="Issyのアイデア在庫台帳 — 動画企画42件・作曲アイデア55件・ロードマップ・ユニット名をすべて格納">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="#">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Idea Vault — Issyのネタ在庫台帳">
+  <meta name="twitter:description" content="Issyのアイデア在庫台帳 — 動画企画42件・作曲アイデア55件・ロードマップ・ユニット名をすべて格納">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-base: #E8E6DF;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFFFF;
+      --accent-primary: #E0005F;
+      --accent-secondary: #008566;
+      --accent-gold: #8A6E22;
+      --accent-electric: #0079B8;
+      --text-primary: #161616;
+      --text-secondary: #4E4E4E;
+      --text-muted: #8A8A86;
+      --border: #D6D3CB;
+      --tag-bg: #FCE9F1;
+      --tag-text: #E0005F;
+      --sidebar-w: 220px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* スキャンライン演出は視認性のため無効化 */
+
+    .card, .idea-card, .song-card {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .card:hover, .idea-card:hover, .song-card:hover {
+      box-shadow: 0 5px 16px rgba(0,0,0,0.14);
+    }
+
+    /* ===== LAYOUT ===== */
+    .app-layout { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: #FFFFFF;
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      padding: 0 0 40px;
+    }
+
+    .sidebar-logo {
+      padding: 20px 16px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo .logo-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-logo .logo-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.06em;
+    }
+
+    .sidebar-updated {
+      padding: 8px 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-section-label {
+      padding: 16px 16px 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+      text-decoration: none;
+    }
+
+    .nav-item:hover {
+      color: var(--text-primary);
+      background: rgba(0,0,0,0.04);
+    }
+
+    .nav-item.active {
+      color: var(--accent-primary);
+      border-left-color: var(--accent-primary);
+      background: rgba(224,0,95,0.05);
+    }
+
+    .nav-item.back-link {
+      color: var(--accent-secondary);
+      font-weight: 700;
+      border-left-color: var(--accent-secondary);
+      background: rgba(0,133,102,0.04);
+    }
+
+    .nav-item.back-link:hover {
+      background: rgba(0,133,102,0.1);
+    }
+
+    .nav-icon { font-size: 15px; width: 20px; text-align: center; }
+
+    /* ===== SIDEBAR TAG FILTER ===== */
+    .sidebar-tag-section {
+      padding: 12px 12px 16px;
+    }
+
+    .sidebar-tag-section .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .sidebar-tag-section .tag {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 3px 10px;
+    }
+
+    .tag-all-btn {
+      display: block;
+      width: 100%;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 4px 8px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.06em;
+    }
+
+    .tag-all-btn:hover, .tag-all-btn.active {
+      background: rgba(224,0,95,0.08);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* ===== MAIN ===== */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 0 40px 80px;
+      max-width: 1100px;
+    }
+
+    .main-header {
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .main-header h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+
+    .main-header h1 .grad {
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .main-header .header-sub {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .header-meta {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-meta-item {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .header-meta-item span { color: var(--accent-secondary); }
+    .header-meta-item a { color: var(--accent-secondary); text-decoration: none; }
+    .header-meta-item a:hover { text-decoration: underline; }
+
+    /* ===== SEARCH BAR ===== */
+    .search-bar {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    #search-box {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    #search-box:focus { border-color: var(--accent-primary); }
+    #search-box::placeholder { color: var(--text-muted); }
+
+    #filter-count {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    mark {
+      background: var(--tag-bg);
+      color: var(--accent-primary);
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+
+    /* ===== SECTION ===== */
+    .section-block { margin-bottom: 64px; }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid;
+    }
+
+    .section-heading.pink { border-color: var(--accent-primary); }
+    .section-heading.green { border-color: var(--accent-secondary); }
+    .section-heading.gold { border-color: var(--accent-gold); }
+    .section-heading.blue { border-color: var(--accent-electric); }
+
+    .section-heading .s-icon { font-size: 20px; }
+
+    .section-heading h2 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .section-heading .s-id {
+      margin-left: auto;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== CARD ===== */
+    .card-grid { display: grid; gap: 10px; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent-primary);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover { border-color: #C8C6C0; transform: translateY(-1px); }
+    .card:hover::before { opacity: 1; }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 4px;
+    }
+
+    .card-label.gold { color: var(--accent-gold); }
+    .card-label.green { color: var(--accent-secondary); }
+
+    .card-text {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* ===== IDEA CARD (Section C) ===== */
+    .idea-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 12px 14px 10px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 優先度ボーダー — 常時表示 */
+    .idea-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      transition: width 0.15s;
+    }
+
+    .idea-card:hover::before { width: 4px; }
+
+    .idea-card[data-prio="high"]::before   { background: var(--accent-primary); }
+    .idea-card[data-prio="mid"]::before    { background: var(--accent-electric); }
+    .idea-card[data-prio="low"]::before    { background: var(--text-muted); }
+    .idea-card[data-prio="none"]::before   { background: var(--accent-gold); }
+    .idea-card[data-prio="done"]::before   { background: #C8C6C0; }
+
+    .idea-card:hover { border-color: #C8C6C0; transform: translateY(-1px); }
+
+    .idea-card[data-prio="done"] .card-text {
+      text-decoration: line-through;
+      opacity: 0.45;
+    }
+
+    /* 通し番号 */
+    .idea-no {
+      position: absolute;
+      top: 8px; right: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* hover コピーボタン */
+    .idea-copy-btn {
+      position: absolute;
+      top: 6px; right: 6px;
+      font-size: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 2px 7px;
+      border: 1px solid rgba(0,212,255,0.4);
+      border-radius: 12px;
+      color: var(--accent-electric);
+      background: var(--bg-card);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 2;
+    }
+
+    .idea-card:hover .idea-copy-btn { opacity: 1; }
+
+    .idea-tags {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    /* ===== SONG CARD (Section D) ===== */
+    .song-card {
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .song-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+    }
+
+    .song-card[data-status="wip"]::before   { background: var(--accent-electric); }
+    .song-card[data-status="done"]::before  { background: var(--accent-secondary); }
+    .song-card[data-status="killed"]::before { background: #C8C6C0; }
+    .song-card[data-status="pending"]::before { background: transparent; }
+
+    .song-card:hover { border-color: #C8C6C0; transform: translateY(-1px); }
+
+    .song-no {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      min-width: 44px;
+      padding-top: 1px;
+    }
+
+    .song-text {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .song-card[data-status="killed"] .song-text {
+      text-decoration: line-through;
+      opacity: 0.45;
+    }
+
+    .song-copy-btn {
+      position: absolute;
+      top: 4px; right: 6px;
+      font-size: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 2px 7px;
+      border: 1px solid rgba(0,212,255,0.4);
+      border-radius: 12px;
+      color: var(--accent-electric);
+      background: var(--bg-card);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 2;
+    }
+
+    .song-card:hover .song-copy-btn { opacity: 1; }
+
+    /* ===== TAG ===== */
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: 600;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid rgba(224,0,95,0.3);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .tag:hover {
+      background: rgba(224,0,95,0.15);
+      border-color: var(--accent-primary);
+    }
+
+    .tag.selected {
+      background: rgba(224,0,95,0.15);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      font-weight: 700;
+    }
+
+    /* ===== STATUS BADGE ===== */
+    .status-badge {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'IBM Plex Mono', monospace;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .status-badge.active {
+      background: rgba(0,133,102,0.1);
+      color: var(--accent-secondary);
+      border: 1px solid rgba(0,133,102,0.3);
+    }
+
+    .status-badge.pending {
+      background: rgba(136,136,136,0.1);
+      color: var(--text-secondary);
+      border: 1px solid rgba(136,136,136,0.3);
+    }
+
+    .status-badge.wip {
+      background: rgba(0,121,184,0.1);
+      color: var(--accent-electric);
+      border: 1px solid rgba(0,121,184,0.3);
+    }
+
+    .status-badge.killed {
+      background: rgba(136,136,136,0.07);
+      color: var(--text-muted);
+      border: 1px solid rgba(136,136,136,0.2);
+      text-decoration: line-through;
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .filter-btn {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(224,0,95,0.1);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* ===== ARCHIVE TOGGLE ===== */
+    .archive-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .archive-toggle:hover {
+      border-color: var(--text-muted);
+      color: var(--text-secondary);
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-state {
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      display: none;
+    }
+
+    /* ===== TOAST ===== */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent-secondary);
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--accent-secondary);
+      font-family: 'IBM Plex Mono', monospace;
+      z-index: 9000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ===== PRINT ===== */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      @page { size: A4; margin: 10mm; }
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 0; }
+      .section-block { page-break-inside: avoid; break-inside: avoid; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 0 16px 60px; }
+      .card-grid.cols-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="toast">コピーしました</div>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-title">💡 IDEA VAULT</div>
+      <div class="logo-sub">Issy / ネタ在庫台帳</div>
+    </div>
+    <div class="sidebar-updated">Last Updated: 2026年6月6日 18:04</div>
+
+    <!-- Creative Brain 相互リンク -->
+    <a class="nav-item back-link" href="creative-brain.html">
+      <span class="nav-icon">🧠</span>← Creative Brain へ
+    </a>
+
+    <div class="nav-section-label">Browse</div>
+    <a class="nav-item active" href="#a-roadmap">
+      <span class="nav-icon">🗺️</span>ロードマップ
+    </a>
+    <a class="nav-item" href="#b-unit">
+      <span class="nav-icon">👥</span>ユニット・衣装
+    </a>
+    <a class="nav-item" href="#c-video">
+      <span class="nav-icon">🎬</span>動画企画
+    </a>
+    <a class="nav-item" href="#d-song">
+      <span class="nav-icon">🎵</span>作曲アイデア
+    </a>
+
+    <div class="nav-section-label">Filter</div>
+    <div class="sidebar-tag-section">
+      <button class="tag-all-btn active" id="tag-all-btn" onclick="clearTags()">ALL（全解除）</button>
+      <div class="tag-wrap" id="sidebar-tags">
+        <span class="tag" data-tag="おじさん" onclick="toggleTag(this)">おじさん</span>
+        <span class="tag" data-tag="替え歌" onclick="toggleTag(this)">替え歌</span>
+        <span class="tag" data-tag="AI" onclick="toggleTag(this)">AI</span>
+        <span class="tag" data-tag="パロディ" onclick="toggleTag(this)">パロディ</span>
+        <span class="tag" data-tag="ネットミーム" onclick="toggleTag(this)">ネットミーム</span>
+        <span class="tag" data-tag="あるある" onclick="toggleTag(this)">あるある</span>
+        <span class="tag" data-tag="昭和ネタ" onclick="toggleTag(this)">昭和ネタ</span>
+        <span class="tag" data-tag="トレンド" onclick="toggleTag(this)">トレンド</span>
+        <span class="tag" data-tag="オリジナルソング" onclick="toggleTag(this)">オリジナルソング</span>
+        <span class="tag" data-tag="ノスタルジー" onclick="toggleTag(this)">ノスタルジー</span>
+        <span class="tag" data-tag="夫婦ネタ" onclick="toggleTag(this)">夫婦ネタ</span>
+        <span class="tag" data-tag="自虐ネタ" onclick="toggleTag(this)">自虐ネタ</span>
+        <span class="tag" data-tag="AIネタ" onclick="toggleTag(this)">AIネタ</span>
+        <span class="tag" data-tag="ゲームネタ" onclick="toggleTag(this)">ゲームネタ</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-header">
+      <h1><span class="grad">IDEA VAULT</span></h1>
+      <div class="header-sub">Issyのネタ金庫 — 思いついたら全部ここ</div>
+      <div class="header-meta">
+        <div class="header-meta-item">Last Updated: <span>2026年6月6日 18:04</span></div>
+        <div class="header-meta-item">Total: <span id="total-count">97</span> 件</div>
+        <div class="header-meta-item">Creative Brain: <span><a href="creative-brain.html">→ 相互リンク</a></span></div>
+      </div>
+      <div class="search-bar">
+        <input id="search-box" type="text" placeholder="🔍 全アイデアを検索…（本文・タグ・番号）" oninput="onSearch()">
+        <span id="filter-count" class="header-meta-item">表示中 <span id="filter-count-num">97</span> 件</span>
+      </div>
+    </div>
+
+    <!-- ===== SECTION A: ロードマップ ===== -->
+    <section id="a-roadmap" class="section-block">
+      <div class="section-heading gold">
+        <span class="s-icon">🗺️</span>
+        <h2>2026年ロードマップ</h2>
+        <span class="s-id">A</span>
+      </div>
+      <div class="card-grid" id="grid-a">
+        <div class="card" onclick="copyCardText(this, 'サンプラーでふざけたパフォーマンス')">
+          <div class="card-label gold">パフォーマンス</div>
+          <div class="card-text">サンプラーでふざけたパフォーマンス</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, 'R-1に出たい（お笑いやりたい）')">
+          <div class="card-label gold">お笑い</div>
+          <div class="card-text">R-1に出たい（お笑いやりたい）</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, '小さなライブハウスでライブやりたい')">
+          <div class="card-label gold">ライブ</div>
+          <div class="card-text">小さなライブハウスでライブやりたい</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, 'キーボード上達・キーボードで作曲したい')">
+          <div class="card-label gold">スキル</div>
+          <div class="card-text">キーボード上達・キーボードで作曲したい</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, 'Sunoをつかってみる')">
+          <div class="card-label gold">ツール</div>
+          <div class="card-text">Sunoをつかってみる</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, '展望: キーボード自作メロ/Suno音源をサンプラーに取り込み「R-1向け音ネタ」「ライブハウスでの音楽×お笑い」へ繋げる')">
+          <div class="card-label gold">展望</div>
+          <div class="card-text">キーボード自作メロ/Suno音源をサンプラーに取り込み「R-1向け音ネタ」「ライブハウスでの音楽×お笑い」へ繋げる</div>
+        </div>
+      </div>
+      <div class="empty-state" id="empty-a">該当なし</div>
+    </section>
+
+    <!-- ===== SECTION B: ユニット・衣装 ===== -->
+    <section id="b-unit" class="section-block">
+      <div class="section-heading green">
+        <span class="s-icon">👥</span>
+        <h2>ユニット名・衣装メモ</h2>
+        <span class="s-id">B</span>
+      </div>
+      <div class="card-grid cols-2" id="grid-b">
+        <div class="card" onclick="copyCardText(this, 'スロースターターズ')">
+          <div class="card-label green">ユニット名候補①</div>
+          <div class="card-text">スロースターターズ</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, 'レイトブルーマーズ')">
+          <div class="card-label green">ユニット名候補②</div>
+          <div class="card-text">レイトブルーマーズ</div>
+        </div>
+        <div class="card" onclick="copyCardText(this, '池袋の変なメガネ屋さんで買う / カラフル / 80年代レトロ感 / ダサポップ / ネクタイ')">
+          <div class="card-label green">衣装コンセプト</div>
+          <div class="card-text">池袋の変なメガネ屋さんで買う / カラフル / 80年代レトロ感 / ダサポップ / ネクタイ</div>
+        </div>
+      </div>
+      <div class="empty-state" id="empty-b">該当なし</div>
+    </section>
+
+    <!-- ===== SECTION C: 動画企画 ===== -->
+    <section id="c-video" class="section-block">
+      <div class="section-heading pink">
+        <span class="s-icon">🎬</span>
+        <h2>動画企画アイデア</h2>
+        <span class="s-id">C</span>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">優先度:</span>
+        <button class="filter-btn active" data-prio="all" onclick="setPrioFilter(this)">ALL</button>
+        <button class="filter-btn" data-prio="high" onclick="setPrioFilter(this)">高</button>
+        <button class="filter-btn" data-prio="mid" onclick="setPrioFilter(this)">中</button>
+        <button class="filter-btn" data-prio="low" onclick="setPrioFilter(this)">低</button>
+        <button class="filter-btn" data-prio="none" onclick="setPrioFilter(this)">未設定</button>
+        <button class="filter-btn" data-prio="done" onclick="setPrioFilter(this)">済</button>
+      </div>
+
+      <div class="card-grid cols-2" id="grid-c">
+
+        <!-- 優先度【高】 -->
+        <div class="idea-card" data-prio="high" data-tags="おじさん" data-text="v-001 おじさんと一緒シリーズ chat爺pt おじさん">
+          <span class="idea-no">NO.001</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">おじさんと一緒シリーズ / Chat爺PT</div>
+          <div class="idea-tags"><span class="tag">おじさん</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="ギャグ" data-text="v-002 素人が考えた一発ギャグ 楽しんごドドスコ 素人感 じわる">
+          <span class="idea-no">NO.002</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">素人が考えた一発ギャグ（楽しんごドドスコ等。素人感たっぷりだけど"じわる"レベルが条件）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="AI" data-text="v-003 aiの言いなりシチュエーション 玄関に飾ったらよさそうな絵 ai">
+          <span class="idea-no">NO.003</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">AIの言いなりシチュエーションを考える（例: 玄関に飾ったらよさそうな絵を書いて）</div>
+          <div class="idea-tags"><span class="tag">AI</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="替え歌" data-text="v-004 替え歌 蝋人形の館 フライデーチャイナタウン さだまさし 最後の雨 やべぇおじさん">
+          <span class="idea-no">NO.004</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">替え歌（蝋人形の館／フライデーチャイナタウン／さだまさし／最後の雨／やべぇおじさんとやべぇおじさん〔としなお＆みつる〕。既存曲はYouTubeカラオケ音源を使用）</div>
+          <div class="idea-tags"><span class="tag">替え歌</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="トレンド,替え歌" data-text="v-005 be first 替え歌 新曲 すぐ トレンド">
+          <span class="idea-no">NO.005</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">BE:FIRST替え歌（新曲が出たらすぐ替え歌を出す）</div>
+          <div class="idea-tags"><span class="tag">トレンド</span><span class="tag">替え歌</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="パロディ" data-text="v-006 教習所ビデオ パロディ テーマ">
+          <span class="idea-no">NO.006</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">教習所ビデオをパロったらおもしろいテーマ</div>
+          <div class="idea-tags"><span class="tag">パロディ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="" data-text="v-007 いろんな状況で整う 会社編">
+          <span class="idea-no">NO.007</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">いろんな状況で"整う"（会社編）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="オリジナルソング" data-text="v-008 オリジナル楽曲 ある程度フォロワーがついたら">
+          <span class="idea-no">NO.008</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">オリジナル楽曲（ある程度フォロワーがついたら）</div>
+          <div class="idea-tags"><span class="tag">オリジナルソング</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="" data-text="v-009 意味不明ネタ">
+          <span class="idea-no">NO.009</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">意味不明ネタ</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="" data-text="v-010 得意な声をつかったネタ">
+          <span class="idea-no">NO.010</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">得意な声をつかったネタ</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="ネットミーム" data-text="v-011 ネットミーム 麦酒大学のつぎかた">
+          <span class="idea-no">NO.011</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">ネットミーム（麦酒大学のつぎかた 等）</div>
+          <div class="idea-tags"><span class="tag">ネットミーム</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="" data-text="v-012 一人実況 あわれな様子を実況">
+          <span class="idea-no">NO.012</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">一人実況（あわれな様子を実況していく）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="あるある" data-text="v-013 無名クリエイターあるある テロップエフェクト 絶望的 テロップデザイン ダサい">
+          <span class="idea-no">NO.013</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">無名クリエイターあるある（テロップエフェクトが絶望的・テロップデザインがダサい）</div>
+          <div class="idea-tags"><span class="tag">あるある</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="high" data-tags="おじさん,あるある" data-text="v-014 底辺クリエイターあるある バイブスが足りてない ラップバトル としなおさん">
+          <span class="idea-no">NO.014</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">底辺クリエイターあるある（「バイブスが足りてない」レベルのラップバトルをとしなおさんと繰り広げる）</div>
+          <div class="idea-tags"><span class="tag">おじさん</span><span class="tag">あるある</span></div>
+        </div>
+
+        <!-- 優先度【中】 -->
+        <div class="idea-card" data-prio="mid" data-tags="トレンド,ネットミーム" data-text="v-015 ウェイブ コマネチ ダンカンコノヤロー オフィス">
+          <span class="idea-no">NO.015</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">ウェイブをつかったなにか（ウェイブパンチと見せかけて頭を相手につけて一回転→グッドポーズ。オフィスで撮影）</div>
+          <div class="idea-tags"><span class="tag">トレンド</span><span class="tag">ネットミーム</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="トレンド,ネットミーム" data-text="v-016 ウェイブ コマネチ ダンカンコノヤロー">
+          <span class="idea-no">NO.016</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">ウェイブその②（コマネチ／ダンカンコノヤロー）</div>
+          <div class="idea-tags"><span class="tag">トレンド</span><span class="tag">ネットミーム</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="ノスタルジー,昭和ネタ" data-text="v-017 昔の流行語 ギャグ がちょーん だっちゅーの バッチグー あじゃぱー アド街風">
+          <span class="idea-no">NO.017</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">昔の流行語・ギャグ（がちょーん／だっちゅーの／バッチグー／あじゃぱー。アド街風にポンポン見せる）</div>
+          <div class="idea-tags"><span class="tag">ノスタルジー</span><span class="tag">昭和ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="昭和ネタ" data-text="v-018 昔の言葉 リアクション 英会話youtuber風に紹介">
+          <span class="idea-no">NO.018</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">昔の言葉・リアクションを英会話YouTuber風に紹介</div>
+          <div class="idea-tags"><span class="tag">昭和ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="" data-text="v-019 悪魔ネタ 悪魔の手助け 悪魔あるある ものまね">
+          <span class="idea-no">NO.019</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">悪魔ネタ（悪魔の手助け／悪魔あるある）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="" data-text="v-020 おとうちゃんと踊る お父ちゃん">
+          <span class="idea-no">NO.020</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">おとうちゃんと踊る</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="自虐ネタ" data-text="v-021 自分について紹介 なぜ動画を始めたか ad時代 ベンチャー時代 外資系 動画化">
+          <span class="idea-no">NO.021</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">自分について紹介（なぜ動画を始めたか／AD時代／ベンチャー時代・外資系 を動画化）</div>
+          <div class="idea-tags"><span class="tag">自虐ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="mid" data-tags="" data-text="v-022 チャップリン風無声動画">
+          <span class="idea-no">NO.022</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">チャップリン風無声動画</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <!-- 優先度【低】 -->
+        <div class="idea-card" data-prio="low" data-tags="あるある" data-text="v-023 悪魔あるある">
+          <span class="idea-no">NO.023</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">悪魔あるある</div>
+          <div class="idea-tags"><span class="tag">あるある</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="low" data-tags="" data-text="v-024 いろんなものに提言 恋愛リアリティやりすぎ">
+          <span class="idea-no">NO.024</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">いろんなものに提言（例: 恋愛リアリティやりすぎだろ！）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="low" data-tags="パロディ" data-text="v-025 テレフォンショッピング パロディ">
+          <span class="idea-no">NO.025</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">テレフォンショッピング</div>
+          <div class="idea-tags"><span class="tag">パロディ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="low" data-tags="" data-text="v-026 ことわざネタ">
+          <span class="idea-no">NO.026</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">ことわざネタ</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="low" data-tags="あるある" data-text="v-027 アトピーあるある">
+          <span class="idea-no">NO.027</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">アトピーあるある</div>
+          <div class="idea-tags"><span class="tag">あるある</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="low" data-tags="あるある" data-text="v-028 いつまでたっても無名な人 言うだけで全然行動にうつさない">
+          <span class="idea-no">NO.028</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">いつまでたっても無名な人（言うだけで全然行動にうつさない）</div>
+          <div class="idea-tags"><span class="tag">あるある</span></div>
+        </div>
+
+        <!-- 優先度【未設定】 -->
+        <div class="idea-card" data-prio="none" data-tags="ノスタルジー,昭和ネタ" data-text="v-029 昭和に流行ったもの 80 90年代 オマージュ 昔っぽい感じ">
+          <span class="idea-no">NO.029</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">昭和に流行ったものを洗い出す（80,90年代に流行ったもののオマージュ、昔っぽい感じに）</div>
+          <div class="idea-tags"><span class="tag">ノスタルジー</span><span class="tag">昭和ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="オリジナルソング,替え歌,自虐ネタ" data-text="v-030 自虐ネタ 替え歌 オリジナルソング ベンチャーあるある 外資系">
+          <span class="idea-no">NO.030</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">自分の自虐ネタを替え歌・オリジナルソングにする（テーマ: 自虐ネタ／ベンチャーあるある／外資系）</div>
+          <div class="idea-tags"><span class="tag">オリジナルソング</span><span class="tag">替え歌</span><span class="tag">自虐ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="夫婦ネタ" data-text="v-031 悪魔の夫婦シリーズ 恐怖の味噌汁 いじける自分をなだめる 奥さんシリーズ">
+          <span class="idea-no">NO.031</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">悪魔の夫婦シリーズ（恐怖の味噌汁／いじける自分をなだめる。ある程度運用できてから）</div>
+          <div class="idea-tags"><span class="tag">夫婦ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="" data-text="v-032 クソダサ演出 自己紹介 昔のword クソダサフォント 透明度さげてゆっくりズーム 回転">
+          <span class="idea-no">NO.032</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">クソダサ演出 自己紹介（昔のWordのクソダサフォント／今までの自分の写真を透明度さげてゆっくりズーム・回転）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="パロディ" data-text="v-033 サンダーバード風人形劇 オープニング 真似">
+          <span class="idea-no">NO.033</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">サンダーバード風人形劇（オープニング等を真似して何かおもしろいこと）</div>
+          <div class="idea-tags"><span class="tag">パロディ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="トレンド,パロディ" data-text="v-034 仮面ライダーネタ 変身シーン トレンド">
+          <span class="idea-no">NO.034</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">仮面ライダーネタ（変身シーン）</div>
+          <div class="idea-tags"><span class="tag">トレンド</span><span class="tag">パロディ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="パロディ,ゲームネタ" data-text="v-035 ガンバライドのパロディ 必殺技演出 くだらなく">
+          <span class="idea-no">NO.035</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">ガンバライドのパロディ（必殺技演出をくだらなく見せる）</div>
+          <div class="idea-tags"><span class="tag">パロディ</span><span class="tag">ゲームネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="パロディ" data-text="v-036 マリオペイントのハエたたきを実写で パロディ">
+          <span class="idea-no">NO.036</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">マリオペイントのハエたたきを実写で</div>
+          <div class="idea-tags"><span class="tag">パロディ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="AIネタ,トレンド" data-text="v-037 もう俺aiの言いなりでいいや 遅刻の言い訳 上司 daisukeさんと茶番">
+          <span class="idea-no">NO.037</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">もう俺AIの言いなりでいいや（遅刻の言い訳をAIに考えてもらって上司に送る。Daisukeさんと茶番、怒られたら…）</div>
+          <div class="idea-tags"><span class="tag">AIネタ</span><span class="tag">トレンド</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="パロディ,昭和ネタ" data-text="v-038 昔の子供番組のパロディ いってみようやってみよう さわやか3組 この街だいすき">
+          <span class="idea-no">NO.038</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">昔の子供番組のパロディ（いってみようやってみよう／さわやか3組／この街だいすき）</div>
+          <div class="idea-tags"><span class="tag">パロディ</span><span class="tag">昭和ネタ</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="" data-text="v-039 職人ドキュメント風タッチ 超絶くだらないものを作る 箱根のおばあちゃん家 畳の部屋">
+          <span class="idea-no">NO.039</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">職人ドキュメント風タッチなのに超絶くだらないものを作る（箱根のおばあちゃん家の畳の部屋で）</div>
+          <div class="idea-tags"></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="おじさん,トレンド" data-text="v-040 令和最後の降霊術師 イタコ芸 おじさんに即興 無茶振り">
+          <span class="idea-no">NO.040</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">令和最後の降霊術師（どんな人でも降霊して受け答え・メッセージ。おじさんに即興イタコ芸をしてもらう無茶振り）</div>
+          <div class="idea-tags"><span class="tag">おじさん</span><span class="tag">トレンド</span></div>
+        </div>
+
+        <div class="idea-card" data-prio="none" data-tags="パロディ" data-text="v-041 夢グループ社長の歌のパロディ">
+          <span class="idea-no">NO.041</span>
+          <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+          <div class="card-text">夢グループ社長の歌のパロディ</div>
+          <div class="idea-tags"><span class="tag">パロディ</span></div>
+        </div>
+
+      </div><!-- /grid-c (未済) -->
+
+      <!-- 済グループ -->
+      <button class="archive-toggle" id="done-toggle" onclick="toggleDone()">✓ 済 <span id="done-count">1</span> 件 ▸</button>
+      <div id="done-group" style="display:none; margin-top:10px;">
+        <div class="card-grid cols-2">
+          <div class="idea-card" data-prio="done" data-tags="" data-text="v-042 ハッピープライスパラダイス ダイソー 掛け声 としなお 河合">
+            <span class="idea-no">NO.042</span>
+            <button class="idea-copy-btn" onclick="copyIdeaBtn(event, this)">Copy</button>
+            <div class="card-text">ハッピープライスパラダイス（ダイソーの掛け声のところ。出演: としなお・河合。URL: https://youtu.be/Wcdz3VHmbhg）</div>
+            <div class="idea-tags"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty-state" id="empty-c">該当なし</div>
+    </section>
+
+    <!-- ===== SECTION D: 作曲アイデア ===== -->
+    <section id="d-song" class="section-block">
+      <div class="section-heading blue">
+        <span class="s-icon">🎵</span>
+        <h2>作曲アイデア</h2>
+        <span class="s-id">D</span>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">ステータス:</span>
+        <button class="filter-btn active" data-status="all" onclick="setStatusFilter(this)">ALL</button>
+        <button class="filter-btn" data-status="pending" onclick="setStatusFilter(this)">未着手</button>
+        <button class="filter-btn" data-status="wip" onclick="setStatusFilter(this)">制作中</button>
+        <button class="filter-btn" data-status="killed" onclick="setStatusFilter(this)">ボツ</button>
+        <button class="filter-btn" data-status="done" onclick="setStatusFilter(this)">済</button>
+      </div>
+
+      <div class="card-grid cols-2" id="grid-d">
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-001 チョモランマチョモチョモ">
+          <span class="song-no">M-001</span>
+          <span class="song-text">チョモランマチョモチョモ</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-002 使いたい外資系用語 グッドキャッチ must to have nice to have">
+          <span class="song-no">M-002</span>
+          <span class="song-text">使いたい外資系用語（グッドキャッチ／must to have, nice to have）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="自虐ネタ" data-text="m-003 自分についての歌 ポエトリーリーディング ビジネスパーソン 外資系it">
+          <span class="song-no">M-003</span>
+          <span class="song-text">自分についての歌（ポエトリーリーディング。歌詞→ビジネスパーソンだって好き勝手やりたい／外資系IT／英語は勉強中）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-004 tendreのチルい感じ アホなことをうたう">
+          <span class="song-no">M-004</span>
+          <span class="song-text">TENDREのチルい感じでアホなことをうたう</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="おじさん" data-text="m-005 ◯◯おぢ こじらせおじさん おばさん おねえさん liveを一人で観に行って">
+          <span class="song-no">M-005</span>
+          <span class="song-text">◯◯おぢ（こじらせおじさん／おばさん／おねえさんをただ羅列。LIVEを一人で観に行って手の上げ方が独特なおぢ。おぢ1,2,3）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="あるある" data-text="m-006 仕事のあるあるを歌にする がちー">
+          <span class="song-no">M-006</span>
+          <span class="song-text">仕事のあるあるを歌にする（がちー）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="あるある" data-text="m-007 slackあるあるのうた">
+          <span class="song-no">M-007</span>
+          <span class="song-text">Slackあるあるのうた</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="killed" data-tags="" data-text="m-008 ポストマンパットの替え歌 リモートワーク 在宅勤務 しろもこちゃん ふーちゃん ぽぽぽぽぽ love peace テロップ 制作中">
+          <span class="song-no">M-008</span>
+          <span class="song-text">ポストマンパットの替え歌（リモートワーク・在宅勤務／しろもこちゃん。ふーちゃんと戯れながらリモートワークする様子。キーボード押しまくって"ぽぽぽぽぽ"。最後にLove&amp;Peaceを叫ぶ or テロップで／制作中まで進めたが没）</span>
+          <span class="status-badge killed">ボツ</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-009 ＠＠＠くずれ">
+          <span class="song-no">M-009</span>
+          <span class="song-text">＠＠＠くずれ</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-010 作曲が上手くなる音源の聴き方">
+          <span class="song-no">M-010</span>
+          <span class="song-text">作曲が上手くなる音源の聴き方</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="自虐ネタ" data-text="m-011 俺は純ジャパ 海外行ってる間に 帰国子女 鼻につく感じ クソみたいなスメル">
+          <span class="song-no">M-011</span>
+          <span class="song-text">俺は純ジャパ（お前らが海外行ってる間に俺は◯◯してた。帰国子女の鼻につく感じ／クソみたいなスメル）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-012 純ジャパ means 説明 せんそばーじぇんしーおじさん">
+          <span class="song-no">M-012</span>
+          <span class="song-text">純ジャパ means（説明。せんそばーじぇんしーおじさん）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-013 作曲のキーワード サウナ ヒーロー">
+          <span class="song-no">M-013</span>
+          <span class="song-text">作曲のキーワード（サウナ／ヒーロー）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="あるある,自虐ネタ" data-text="m-014 会社員の葛藤 チームマネジメント 共感 真逆のオシャレなテイスト">
+          <span class="song-no">M-014</span>
+          <span class="song-text">会社員の葛藤・チームマネジメントで共感をうたう（それを真逆のオシャレなテイストの音源で歌う）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-015 ＠＠＠男 ◯◯とかするよ ワンノブゼム男">
+          <span class="song-no">M-015</span>
+          <span class="song-text">＠＠＠男（◯◯とかするよ ワンノブゼム男）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-016 shinsuke nakamura ネタ">
+          <span class="song-no">M-016</span>
+          <span class="song-text">Shinsuke Nakamuraネタ</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-017 knowerのgovernment knowsみたいな おしゃれだけど lyricsがどうしようもない">
+          <span class="song-no">M-017</span>
+          <span class="song-text">KNOWERのGovernment KnowsみたいなおしゃれだけどLyricsがどうしようもないやつ</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-018 歌唱方法 ルイスコールみたいに裏声をつかう">
+          <span class="song-no">M-018</span>
+          <span class="song-text">歌唱方法: ルイスコールみたいに裏声をつかう（演出方法）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="killed" data-tags="" data-text="m-019 モータルコンバットのパロディ">
+          <span class="song-no">M-019</span>
+          <span class="song-text">モータルコンバットのパロディ</span>
+          <span class="status-badge killed">ボツ</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-020 お色味 oiromi ◯◯のお色味となっております">
+          <span class="song-no">M-020</span>
+          <span class="song-text">お色味 OIROMI（◯◯のお色味となっております）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-021 取り消せ 今なら間に合う slack gmail line 取り消していく">
+          <span class="song-no">M-021</span>
+          <span class="song-text">取り消せ！取り消せ！今なら間に合う 今取り消せ！（Slack/Gmail/LINE いろんなものを取り消していく）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-022 釈迦に説法 shakaにせっぽー 教える立場が逆 ハゲだとモテませんよ">
+          <span class="song-no">M-022</span>
+          <span class="song-text">釈迦に説法 SHAKAにせっぽー（教える立場が逆のことを言う。「釈迦に説法ですが、ハゲだとモテませんよ」）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-023 ビジネス系の歌 申し訳ございません 土下座 謝る時に手をバタバタ 日本のビジネスパーソン エレベーターで別れる">
+          <span class="song-no">M-023</span>
+          <span class="song-text">ビジネス系の歌（申し訳ございません means I deeply apologize／土下座／謝る時に手をバタバタ／嘘の日本のビジネスパーソン／エレベーターで別れる時）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-024 彼らは謝罪をします ろくろを回す ゴーストみたい 下を舐めてページめくる段積み">
+          <span class="song-no">M-024</span>
+          <span class="song-text">彼らは謝罪をします（ろくろを回す、2人だとゴーストみたいなろくろ／下を舐めてページめくる段積み）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-025 猫が遊ぶやつ キャッチー イフユーキャンを追いかける">
+          <span class="song-no">M-025</span>
+          <span class="song-text">猫が遊ぶやつをいろいろやってみる（キャッチー イフユーキャンを追いかける）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="おじさん" data-text="m-026 old weirdo 変なおじさん">
+          <span class="song-no">M-026</span>
+          <span class="song-text">old weirdo 変なおじさん</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-027 あーちちちちあーしあしあし お風呂入る時みたいなシチュ">
+          <span class="song-no">M-027</span>
+          <span class="song-text">あーちちちちあーしあしあし（お風呂入る時みたいなシチュ）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-028 なんちゃっての歌 〜してなんちゃってー 英語のなんちゃっても">
+          <span class="song-no">M-028</span>
+          <span class="song-text">なんちゃっての歌（〜してなんちゃってー。英語のなんちゃっても）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="おじさん,パロディ" data-text="m-029 teamおじさん team友達のパロディ">
+          <span class="song-no">M-029</span>
+          <span class="song-text">Teamおじさん（Team友達のパロディ）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-030 釈迦に説法 社歌で説法的なことを言う 静的動的コミュニケーション アジャイル">
+          <span class="song-no">M-030</span>
+          <span class="song-text">釈迦に説法→社歌で説法的なことを言う（静的動的コミュニケーション／アジャイル◯◯）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-031 ttp 徹底的にパクれ アイツの">
+          <span class="song-no">M-031</span>
+          <span class="song-text">TTP 徹底的にパクれ（アイツの◎◎）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-032 ヒーリング音楽で瞑想風の変なことを言う">
+          <span class="song-no">M-032</span>
+          <span class="song-text">ヒーリング音楽で瞑想風の変なことを言う</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-033 戦隊 サウナ ベルマーレをテーマに">
+          <span class="song-no">M-033</span>
+          <span class="song-text">戦隊・サウナ・ベルマーレをテーマに</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-034 飽き性 出不精">
+          <span class="song-no">M-034</span>
+          <span class="song-text">飽き性・出不精</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-035 zoomのハウリングを作曲に">
+          <span class="song-no">M-035</span>
+          <span class="song-text">Zoomのハウリングを作曲に</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-036 whyの部分 howの部分 あなたはワイがたりてません you know right 無駄に多用する曲">
+          <span class="song-no">M-036</span>
+          <span class="song-text">whyの部分・howの部分（あなたはワイがたりてません。you know right?を無駄に多用する曲）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-037 ごめんください 色んなシチュエーション 入っちゃいけないところ">
+          <span class="song-no">M-037</span>
+          <span class="song-text">ごめんください（色んなシチュエーションで。入っちゃいけないところ）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-038 いやになっちゃった">
+          <span class="song-no">M-038</span>
+          <span class="song-text">いやになっちゃった</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-039 カブコール">
+          <span class="song-no">M-039</span>
+          <span class="song-text">カブコール</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-040 推せるものをあげてうたっていく ベルマーレの残留力 マーゼルトムくんの笑顔 奥さんのこと ゆるく歌う">
+          <span class="song-no">M-040</span>
+          <span class="song-text">推せるものをあげてうたっていく（誰かを批判するより応援する方が楽しい。ベルマーレの残留力／マーゼルトムくんの笑顔／奥さんのこと。ゆるく歌う）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-041 テーマに使えそうな海外に通じる日本語 obento これっくらいの">
+          <span class="song-no">M-041</span>
+          <span class="song-text">テーマに使えそうな海外に通じる日本語（Obento〔これっくらいの〕）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-042 申し訳ございませんの歌">
+          <span class="song-no">M-042</span>
+          <span class="song-text">申し訳ございませんの歌</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-043 何かの拍子 何かの拍子で君は◯◯し ぼくは◯◯">
+          <span class="song-no">M-043</span>
+          <span class="song-text">何かの拍子（何かの拍子で君は◯◯し／ぼくは◯◯）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="自虐ネタ" data-text="m-044 i am a 中途半端er 中途半端マン 楽天カードみたいな感じ">
+          <span class="song-no">M-044</span>
+          <span class="song-text">I'm a 中途半端er（中途半端マン。楽天カードみたいな感じ）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-045 作りたい曲調 new jack swing">
+          <span class="song-no">M-045</span>
+          <span class="song-text">作りたい曲調: new jack swing</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-046 言葉にならない言葉で感情表現して歌詞を作る いろんな言葉で一つの単語を歌う">
+          <span class="song-no">M-046</span>
+          <span class="song-text">言葉にならない言葉で感情表現して歌詞を作る（いろんな言葉で一つの単語を歌う）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-047 ごめんくださーい excuse me 手刀をきる">
+          <span class="song-no">M-047</span>
+          <span class="song-text">ごめんくださーい（Excuse me。手刀をきる）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-048 電話もしもし ぺこぺこする日本人をうたにする">
+          <span class="song-no">M-048</span>
+          <span class="song-text">電話もしもししながらぺこぺこする日本人をうたにする</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-049 キメの問題 やぶへび バカなふりして">
+          <span class="song-no">M-049</span>
+          <span class="song-text">キメの問題・やぶへび・バカなふりして</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="ノスタルジー" data-text="m-050 しとしとぴっちゃんしとぴっちゃん">
+          <span class="song-no">M-050</span>
+          <span class="song-text">しとしとぴっちゃんしとぴっちゃん</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-051 魔がさした">
+          <span class="song-no">M-051</span>
+          <span class="song-text">魔がさした</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="おじさん,自虐ネタ" data-text="m-052 イケおぢになりたい ハイセンスおぢ おぢさんをなめるな おぢさんが世界を変える">
+          <span class="song-no">M-052</span>
+          <span class="song-text">イケおぢになりたい（ハイセンスおぢ／おぢさんをなめるな／おぢさんが世界を変える）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-053 ずんずん教のうた">
+          <span class="song-no">M-053</span>
+          <span class="song-text">ずんずん教のうた</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-054 歌ってる途中に笑っちゃう 誰かに邪魔される ねぇーえー 演出方法">
+          <span class="song-no">M-054</span>
+          <span class="song-text">歌ってる途中に笑っちゃう・誰かに邪魔される「ねぇーえー！」（演出方法）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+        <div class="song-card" data-status="pending" data-tags="" data-text="m-055 南蛮職人 いきやごやー しんくんは南蛮職人">
+          <span class="song-no">M-055</span>
+          <span class="song-text">南蛮職人（いきやごやー。しんくんは南蛮職人）</span>
+          <span class="status-badge pending">未着手</span>
+          <button class="song-copy-btn" onclick="copySongBtn(event, this)">Copy</button>
+        </div>
+
+      </div>
+      <div class="empty-state" id="empty-d">該当なし</div>
+    </section>
+
+    <!-- フッター最終更新 -->
+    <footer style="border-top:1px solid var(--border); padding-top:16px; margin-top:32px;">
+      <p style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-muted);">
+        最終更新: 2026年6月6日 18:04 &nbsp;|&nbsp;
+        <a href="creative-brain.html" style="color:var(--accent-secondary); text-decoration:none;">← Creative Brain へ</a>
+      </p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // ===== STATE =====
+  var state = { search: '', prio: 'all', status: 'all', tags: new Set() };
+
+  // ===== TOAST =====
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg || 'コピーしました';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 1800);
+  }
+
+  // ===== COPY HELPERS =====
+  function copyCardText(el, text) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('コピーしました');
+    }).catch(function() { showToast('コピー失敗'); });
+  }
+
+  function copyIdeaBtn(e, btn) {
+    e.stopPropagation();
+    var card = btn.closest('.idea-card');
+    var text = card.querySelector('.card-text').textContent.trim();
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✓';
+      setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+      showToast('コピーしました');
+    }).catch(function() { showToast('コピー失敗'); });
+  }
+
+  function copySongBtn(e, btn) {
+    e.stopPropagation();
+    var card = btn.closest('.song-card');
+    var text = card.querySelector('.song-text').textContent.trim();
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✓';
+      setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+      showToast('コピーしました');
+    }).catch(function() { showToast('コピー失敗'); });
+  }
+
+  // ===== SEARCH =====
+  function onSearch() {
+    state.search = document.getElementById('search-box').value.trim().toLowerCase();
+    applyFilters();
+  }
+
+  // ===== PRIO FILTER =====
+  function setPrioFilter(btn) {
+    document.querySelectorAll('.filter-btn[data-prio]').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    state.prio = btn.getAttribute('data-prio');
+    applyFilters();
+  }
+
+  // ===== STATUS FILTER =====
+  function setStatusFilter(btn) {
+    document.querySelectorAll('.filter-btn[data-status]').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    state.status = btn.getAttribute('data-status');
+    applyFilters();
+  }
+
+  // ===== TAG FILTER =====
+  function toggleTag(tagEl) {
+    var tag = tagEl.getAttribute('data-tag');
+    if (state.tags.has(tag)) {
+      state.tags.delete(tag);
+      tagEl.classList.remove('selected');
+    } else {
+      state.tags.add(tag);
+      tagEl.classList.add('selected');
+    }
+    document.getElementById('tag-all-btn').classList.toggle('active', state.tags.size === 0);
+    applyFilters();
+  }
+
+  function clearTags() {
+    state.tags.clear();
+    document.querySelectorAll('#sidebar-tags .tag').forEach(function(t) { t.classList.remove('selected'); });
+    document.getElementById('tag-all-btn').classList.add('active');
+    applyFilters();
+  }
+
+  // ===== HIGHLIGHT =====
+  function highlight(text, query) {
+    if (!query) return text;
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp('(' + escaped + ')', 'gi'), '<mark>$1</mark>');
+  }
+
+  // ===== APPLY FILTERS =====
+  function applyFilters() {
+    var q = state.search;
+    var prio = state.prio;
+    var status = state.status;
+    var tags = state.tags;
+    var visible = 0;
+
+    // idea cards (Section C + 済グループも計上対象に含める)
+    var ideaCards = document.querySelectorAll('.idea-card');
+    ideaCards.forEach(function(card) {
+      var cardPrio = card.getAttribute('data-prio');
+      var cardTags = card.getAttribute('data-tags') || '';
+      var cardText = card.getAttribute('data-text') || '';
+
+      var prioOk = (prio === 'all') || (prio === cardPrio);
+      var tagOk = (tags.size === 0) || Array.from(tags).some(function(t) { return cardTags.indexOf(t) !== -1; });
+      var searchOk = !q || cardText.indexOf(q) !== -1;
+
+      var show = prioOk && tagOk && searchOk;
+      card.style.display = show ? '' : 'none';
+      if (show) {
+        visible++;
+        // highlight search
+        var textEl = card.querySelector('.card-text');
+        if (textEl) {
+          var orig = textEl.getAttribute('data-orig') || textEl.textContent;
+          textEl.setAttribute('data-orig', orig);
+          textEl.innerHTML = q ? highlight(orig, q) : orig;
+        }
+      }
+    });
+
+    var cEmpty = (document.querySelectorAll('#grid-c .idea-card:not([style*="none"])').length === 0);
+    document.getElementById('empty-c').style.display = cEmpty ? '' : 'none';
+
+    // song cards (Section D)
+    var songCards = document.querySelectorAll('#grid-d .song-card');
+    songCards.forEach(function(card) {
+      var cardStatus = card.getAttribute('data-status');
+      var cardTags = card.getAttribute('data-tags') || '';
+      var cardText = card.getAttribute('data-text') || '';
+
+      var statusOk = (status === 'all') || (status === cardStatus);
+      var tagOk = (tags.size === 0) || Array.from(tags).some(function(t) { return cardTags.indexOf(t) !== -1; });
+      var searchOk = !q || cardText.indexOf(q) !== -1;
+
+      var show = statusOk && tagOk && searchOk;
+      card.style.display = show ? '' : 'none';
+      if (show) {
+        visible++;
+        var textEl = card.querySelector('.song-text');
+        if (textEl) {
+          var orig = textEl.getAttribute('data-orig') || textEl.textContent;
+          textEl.setAttribute('data-orig', orig);
+          textEl.innerHTML = q ? highlight(orig, q) : orig;
+        }
+      }
+    });
+
+    var dEmpty = (document.querySelectorAll('#grid-d .song-card:not([style*="none"])').length === 0);
+    document.getElementById('empty-d').style.display = dEmpty ? '' : 'none';
+
+    // update counter — Total はアイデア件数（動画42 + 作曲55 = 97）に統一
+    var total = ideaCards.length + songCards.length;
+    document.getElementById('total-count').textContent = total;
+
+    // 表示中 = フィルタに一致した件数（済カードのグループ折りたたみに依存しない）
+    document.getElementById('filter-count-num').textContent = visible;
+  }
+
+  // ===== DONE TOGGLE =====
+  function toggleDone() {
+    var grp = document.getElementById('done-group');
+    var btn = document.getElementById('done-toggle');
+    var open = grp.style.display !== 'none';
+    grp.style.display = open ? 'none' : '';
+    btn.textContent = (open ? '✓ 済 1 件 ▸' : '✓ 済 1 件 ▾');
+  }
+
+  // ===== NAV (scroll-spy) =====
+  var sections = ['a-roadmap', 'b-unit', 'c-video', 'd-song'];
+  var navMap = {};
+  sections.forEach(function(id) {
+    var link = document.querySelector('.nav-item[href="#' + id + '"]');
+    if (link) navMap[id] = link;
+  });
+
+  var raf = 0;
+  window.addEventListener('scroll', function() {
+    if (!raf) raf = requestAnimationFrame(function() {
+      raf = 0;
+      var scrollY = window.scrollY;
+      var nearBottom = scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+      if (nearBottom) {
+        document.querySelectorAll('.nav-item[href^="#"]').forEach(function(n) { n.classList.remove('active'); });
+        if (navMap['d-song']) navMap['d-song'].classList.add('active');
+        return;
+      }
+      var cursor = scrollY + 80;
+      var current = sections[0];
+      for (var i = 0; i < sections.length; i++) {
+        var el = document.getElementById(sections[i]);
+        if (!el) continue;
+        var top = el.getBoundingClientRect().top + scrollY;
+        if (top <= cursor) current = sections[i];
+        else break;
+      }
+      document.querySelectorAll('.nav-item[href^="#"]').forEach(function(n) { n.classList.remove('active'); });
+      if (navMap[current]) navMap[current].classList.add('active');
+    });
+  }, { passive: true });
+
+  window.addEventListener('resize', function() {
+    if (!raf) raf = requestAnimationFrame(function() { raf = 0; });
+  });
+</script>
+</body>
+</html>

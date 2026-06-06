@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Brain — Issyの創作起点</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <meta name="last-modified" content="2026-06-06T18:26:00+09:00">
+  <meta name="description" content="Issyのクリエイティブブレーン — 美的センス・ネタの引き出し・哲学を集約した制作起点ハブ">
+  <meta property="og:title" content="Creative Brain — Issyの創作起点">
+  <meta property="og:description" content="Issyのクリエイティブブレーン — 美的センス・ネタの引き出し・哲学を集約した制作起点ハブ">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain/creative-brain.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creative Brain — Issyの創作起点">
+  <meta name="twitter:description" content="Issyのクリエイティブブレーン — 美的センス・ネタの引き出し・哲学を集約した制作起点ハブ">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-base: #E8E6DF;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFFFF;
+      --accent-primary: #E0005F;
+      --accent-secondary: #008566;
+      --accent-gold: #8A6E22;
+      --accent-electric: #0079B8;
+      --text-primary: #161616;
+      --text-secondary: #4E4E4E;
+      --text-muted: #8A8A86;
+      --border: #D6D3CB;
+      --tag-bg: #FCE9F1;
+      --tag-text: #E0005F;
+      --sidebar-w: 220px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* スキャンライン演出は視認性のため無効化 */
+
+    /* カードを背景から浮き立たせる共通シャドウ */
+    .card, .manifesto-card, .artist-card, .nostalgia-card, .ref-item,
+    .rule-column, .prompt-card, .project-card, .anti-card {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .card:hover, .manifesto-card:hover, .artist-card:hover, .nostalgia-card:hover,
+    .ref-item:hover, .prompt-card:hover {
+      box-shadow: 0 5px 16px rgba(0,0,0,0.14);
+    }
+
+    /* ===== LAYOUT ===== */
+    .app-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: #FFFFFF;
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      padding: 0 0 40px;
+    }
+
+    .sidebar-logo {
+      padding: 20px 16px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo .logo-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-logo .logo-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.06em;
+    }
+
+    .sidebar-updated {
+      padding: 8px 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-section-label {
+      padding: 16px 16px 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+      text-decoration: none;
+    }
+
+    .nav-item:hover {
+      color: var(--text-primary);
+      background: rgba(0,0,0,0.04);
+    }
+
+    .nav-item.active {
+      color: var(--accent-primary);
+      border-left-color: var(--accent-primary);
+      background: rgba(255,45,120,0.05);
+    }
+
+    .nav-icon {
+      font-size: 15px;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* ===== MAIN ===== */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 0 40px 80px;
+      max-width: 1100px;
+    }
+
+    .main-header {
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .main-header h1 {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .main-header h1 .grad {
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-electric));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .main-header .header-sub {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .header-meta {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-meta-item {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .header-meta-item span {
+      color: var(--accent-secondary);
+    }
+
+    /* ===== SECTION ===== */
+    .section-block {
+      margin-bottom: 64px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid;
+    }
+
+    .section-heading.pink { border-color: var(--accent-primary); }
+    .section-heading.green { border-color: var(--accent-secondary); }
+    .section-heading.gold { border-color: var(--accent-gold); }
+    .section-heading.blue { border-color: var(--accent-electric); }
+    .section-heading.white { border-color: #C8C6C0; }
+
+    .section-heading .s-icon {
+      font-size: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .section-heading .s-id {
+      margin-left: auto;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    /* ===== CARD ===== */
+    .card-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent-primary);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: #C8C6C0;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card.placeholder {
+      border-style: dashed;
+      border-color: #CFCDC7;
+      opacity: 0.6;
+    }
+
+    .card.placeholder:hover {
+      opacity: 0.8;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 6px;
+    }
+
+    .card-label.gold { color: var(--accent-gold); }
+    .card-label.green { color: var(--accent-secondary); }
+    .card-label.blue { color: var(--accent-electric); }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .card-text.large {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .card-note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ===== MANIFESTO CARD ===== */
+    .manifesto-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .manifesto-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255,45,120,0.3);
+    }
+
+    .manifesto-card .m-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--accent-primary);
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .manifesto-card .m-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .manifesto-card.placeholder .m-text {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ===== TAG ===== */
+    .tag {
+      display: inline-block;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: 600;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid rgba(255,45,120,0.3);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .tag:hover {
+      background: rgba(255,45,120,0.15);
+      border-color: var(--accent-primary);
+    }
+
+    .tag.green {
+      background: rgba(0,255,178,0.08);
+      color: var(--accent-secondary);
+      border-color: rgba(0,255,178,0.25);
+    }
+
+    .tag.green:hover {
+      background: rgba(0,255,178,0.15);
+      border-color: var(--accent-secondary);
+    }
+
+    .tag.blue {
+      background: rgba(0,212,255,0.08);
+      color: var(--accent-electric);
+      border-color: rgba(0,212,255,0.25);
+    }
+
+    .tag.blue:hover {
+      background: rgba(0,212,255,0.15);
+    }
+
+    .tag.gold {
+      background: rgba(198,166,75,0.08);
+      color: var(--accent-gold);
+      border-color: rgba(198,166,75,0.25);
+    }
+
+    .tag.gold:hover {
+      background: rgba(198,166,75,0.15);
+    }
+
+    .tag.placeholder-tag {
+      opacity: 0.4;
+      border-style: dashed;
+    }
+
+    .tag-group {
+      margin-bottom: 20px;
+    }
+
+    .tag-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    /* コピー成功トースト */
+    .tag.copied {
+      background: rgba(0,255,178,0.2) !important;
+      color: var(--accent-secondary) !important;
+      border-color: var(--accent-secondary) !important;
+    }
+
+    /* ===== ARTIST CARD ===== */
+    .artist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .artist-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .artist-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(0,255,178,0.3);
+    }
+
+    .artist-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .artist-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .artist-note {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ===== MATRIX TABLE ===== */
+    .matrix-wrap {
+      overflow-x: auto;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .matrix-table th {
+      background: #EFEDE8;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 8px 10px;
+      text-align: center;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .matrix-table th.row-header {
+      text-align: left;
+      color: var(--text-secondary);
+      padding-left: 12px;
+      min-width: 120px;
+    }
+
+    .matrix-table td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+      min-width: 100px;
+    }
+
+    .matrix-table td.row-label {
+      background: #EFEDE8;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      padding-left: 12px;
+    }
+
+    .matrix-table td.has-example {
+      background: rgba(255,45,120,0.05);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .matrix-table td.has-example:hover {
+      background: rgba(255,45,120,0.12);
+    }
+
+    .matrix-example {
+      font-size: 11px;
+      color: var(--accent-primary);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* ===== TWO COLUMN RULES ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .rule-column {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .rule-column-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .rule-item::before {
+      content: '→';
+      color: var(--text-muted);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ===== PROMPT TEMPLATE ===== */
+    .prompt-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .prompt-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(0,212,255,0.3);
+    }
+
+    .prompt-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .prompt-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-electric);
+      letter-spacing: 0.04em;
+    }
+
+    .copy-btn {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border: 1px solid rgba(0,212,255,0.4);
+      border-radius: 20px;
+      color: var(--accent-electric);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-transform: uppercase;
+    }
+
+    .copy-btn:hover {
+      background: rgba(0,212,255,0.1);
+    }
+
+    .copy-btn.success {
+      color: var(--accent-secondary);
+      border-color: var(--accent-secondary);
+    }
+
+    .prompt-body {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding: 10px 12px;
+      background: #F1EFEA;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+
+    .prompt-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ===== LOG LINK CARD ===== */
+    .log-link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 18px 22px;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+    .log-link-card:hover {
+      box-shadow: 0 5px 16px rgba(0,0,0,0.14);
+      transform: translateY(-1px);
+      border-left-color: var(--accent-primary);
+    }
+    .log-link-icon { font-size: 24px; }
+    .log-link-body { display: flex; flex-direction: column; gap: 2px; }
+    .log-link-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .log-link-note {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* ===== LOG LIST ===== */
+    .log-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .log-id {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      min-width: 50px;
+      padding-top: 2px;
+    }
+
+    .log-title {
+      font-size: 14px;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'IBM Plex Mono', monospace;
+      white-space: nowrap;
+    }
+
+    .status-badge.active {
+      background: rgba(0,255,178,0.1);
+      color: var(--accent-secondary);
+      border: 1px solid rgba(0,255,178,0.3);
+    }
+
+    .status-badge.hold {
+      background: rgba(198,166,75,0.1);
+      color: var(--accent-gold);
+      border: 1px solid rgba(198,166,75,0.3);
+    }
+
+    .status-badge.pending {
+      background: rgba(136,136,136,0.1);
+      color: var(--text-secondary);
+      border: 1px solid rgba(136,136,136,0.3);
+    }
+
+    /* ===== NOSTALGIA TIMELINE ===== */
+    .era-section {
+      margin-bottom: 28px;
+    }
+
+    .era-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-left: 10px;
+      border-left: 2px solid var(--accent-gold);
+    }
+
+    .nostalgia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px;
+    }
+
+    .nostalgia-card {
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .nostalgia-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(198,166,75,0.3);
+    }
+
+    .nostalgia-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .nostalgia-type {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .nostalgia-note {
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* ===== VISUAL REF ===== */
+    .ref-category {
+      margin-bottom: 20px;
+    }
+
+    .ref-cat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .ref-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ref-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .ref-item:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255,45,120,0.3);
+    }
+
+    .ref-item-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .ref-item-note {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* ===== PROJECT STATUS ===== */
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle at top right, rgba(0,255,178,0.05), transparent);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .project-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .project-genre {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .project-theme {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .project-next {
+      background: rgba(0,255,178,0.05);
+      border: 1px solid rgba(0,255,178,0.15);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--accent-secondary);
+    }
+
+    .project-next::before {
+      content: 'Next → ';
+      font-weight: 700;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+    }
+
+    .project-asset {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* ===== ANTI-THEMA ===== */
+    .anti-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-left: 3px solid #C8C6C0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .anti-symbol {
+      font-size: 17px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .anti-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .anti-text strong {
+      color: var(--text-primary);
+    }
+
+    /* ===== TOAST ===== */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent-secondary);
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--accent-secondary);
+      font-family: 'IBM Plex Mono', monospace;
+      z-index: 9000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .filter-btn {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(255,45,120,0.1);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* ===== AI CONSULT BAR ===== */
+    .idea-vault-bar {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .idea-vault-btn-big {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 16px 32px;
+      border-radius: 16px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.18s;
+      border: 1px solid transparent;
+      background: linear-gradient(90deg, var(--accent-primary), #FF5C9A);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(224,0,95,0.3);
+    }
+
+    .idea-vault-btn-big:hover {
+      box-shadow: 0 8px 26px rgba(224,0,95,0.45);
+      transform: translateY(-2px);
+    }
+
+    .idea-vault-btn-big .arrow {
+      font-size: 22px;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      @page { size: A4; margin: 10mm; }
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 0; }
+      .section-block { page-break-inside: avoid; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toast -->
+<div id="toast">コピーしました</div>
+
+<!-- Layout -->
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-title">🧠 CREATIVE BRAIN</div>
+      <div class="logo-sub">Issy / 創作起点ハブ</div>
+    </div>
+    <div class="sidebar-updated">Last Updated: 2026年6月6日 18:26</div>
+
+    <div class="nav-section-label">Core</div>
+    <a class="nav-item active" href="#s01" onclick="setNav(this)">
+      <span class="nav-icon">🧬</span>俺の核 — 哲学
+    </a>
+    <a class="nav-item" href="#s07" onclick="setNav(this)">
+      <span class="nav-icon">🚧</span>進行プロジェクト
+    </a>
+    <a class="nav-item" href="#s05" onclick="setNav(this)">
+      <span class="nav-icon">💡</span>エッセンス辞典
+    </a>
+    <a class="nav-item" href="#anti" onclick="setNav(this)">
+      <span class="nav-icon">🚫</span>やりたくないこと
+    </a>
+
+    <div class="nav-section-label">References</div>
+    <a class="nav-item" href="#s03" onclick="setNav(this)">
+      <span class="nav-icon">🎧</span>音楽ルーツ
+    </a>
+    <a class="nav-item" href="#s04" onclick="setNav(this)">
+      <span class="nav-icon">📺</span>ビジュアル聖典
+    </a>
+    <a class="nav-item" href="#s06" onclick="setNav(this)">
+      <span class="nav-icon">📼</span>好きだったもの
+    </a>
+
+    <div class="nav-section-label">Tools</div>
+    <a class="nav-item" href="#s02" onclick="setNav(this)">
+      <span class="nav-icon">🗄️</span>ジャンル×手法
+    </a>
+    <a class="nav-item" href="#s08" onclick="setNav(this)">
+      <span class="nav-icon">🎬</span>映像制作ルール
+    </a>
+    <a class="nav-item" href="#s09" onclick="setNav(this)">
+      <span class="nav-icon">⚡</span>AIdeaスターター
+    </a>
+
+    <div class="nav-section-label">Archive</div>
+    <a class="nav-item" href="#s10" onclick="setNav(this)">
+      <span class="nav-icon">📋</span>没ネタ・ログ
+    </a>
+    <a class="nav-item" href="creative-brain-log.html">
+      <span class="nav-icon">↗</span>没ネタ一覧（別ページ）
+    </a>
+
+    <div class="nav-section-label">Vault</div>
+    <a class="nav-item" href="idea-list.html" style="color:var(--accent-gold);font-weight:700;">
+      <span class="nav-icon">💡</span>アイデアリスト
+    </a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-header">
+      <h1><span class="grad">Creative Brain</span></h1>
+      <div class="header-sub">Issyの制作哲学・ネタの引き出し・参照源をすべて一枚に集約したハブ。AIdeaを考える前に必ず開く。</div>
+      <div class="header-meta">
+        <div class="header-meta-item">Last Updated: <span>2026年6月6日 18:26</span></div>
+        <div class="header-meta-item">Current Project: <span>SUMIMASEN — 動画生成フェーズ</span></div>
+        <div class="header-meta-item">Version: <span>1.1</span></div>
+      </div>
+      <div class="idea-vault-bar">
+        <a class="idea-vault-btn-big" href="idea-list.html">💡 アイデアネタ帳 <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- S01: クリエイター哲学 -->
+    <section id="s01" class="section-block">
+      <div class="section-heading pink">
+        <span class="s-icon">🧬</span>
+        <h2>俺の核 — クリエイター哲学</h2>
+        <span class="s-id">S01</span>
+      </div>
+      <p class="section-desc">制作物すべての根っこにある価値観・美学・人生態度。迷ったときに見返す羅針盤。</p>
+      <div class="card-grid cols-2">
+        <div class="manifesto-card" onclick="copyText('ラーメン二郎的な振り切り。マイノリティでも熱狂的なファンがいる方向', this)">
+          <div class="m-label">一番大事な軸</div>
+          <div class="m-text">ラーメン二郎的な振り切り<br>マイノリティでも熱狂的なファンがいる方向</div>
+        </div>
+        <div class="manifesto-card" onclick="copyText('無駄・非効率性を美徳とする。AI・デジタル時代にあえて「ムダなこと」をやる', this)">
+          <div class="m-label">ムダの美学</div>
+          <div class="m-text">無駄・非効率性を美徳とする<br>AI・デジタル時代にあえて「ムダなこと」をやる</div>
+        </div>
+        <div class="manifesto-card" onclick="copyText('ジジイになってもあきれるほどバカやってたい', this)">
+          <div class="m-label">人生目標</div>
+          <div class="m-text">ジジイになってもあきれるほど<br>バカやってたい</div>
+        </div>
+        <div class="manifesto-card" onclick="copyText('緊張と緩和、期待を大きく裏切るオチ。ヘタウマ・親近感', this)">
+          <div class="m-label">笑いの構造</div>
+          <div class="m-text">緊張と緩和、期待を大きく裏切るオチ<br>ヘタウマ・親近感</div>
+        </div>
+        <div class="manifesto-card" onclick="copyText('HENJIN HENTAI — 変人変態。禁断感・ホリック・中毒。逆転・逸脱の思考法', this)">
+          <div class="m-label">HENJIN HENTAI</div>
+          <div class="m-text">変人変態。禁断感・ホリック・中毒<br>逆転・逸脱の思考法</div>
+        </div>
+        <div class="manifesto-card placeholder">
+          <div class="m-label">🔲 あとで追記</div>
+          <div class="m-text">言語化したい追加の哲学・信条があれば<br>ここに追記する</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S07: 現在進行プロジェクト（哲学の直後） -->
+    <section id="s07" class="section-block">
+      <div class="section-heading green">
+        <span class="s-icon">🚧</span>
+        <h2>現在進行プロジェクト</h2>
+        <span class="s-id">S07</span>
+      </div>
+      <p class="section-desc">今動いている制作物のスナップショット。AIdeaを考える際に「今何をやっているか」を把握するため。</p>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-name">SUMIMASEN</div>
+            <div class="project-genre">シュールコメディ × チルR&amp;B / New Jack Swing</div>
+          </div>
+          <span class="status-badge active">動画生成フェーズ</span>
+        </div>
+        <div class="project-theme">日本のビジネス謝罪文化をユーモラスに描く。楽曲Fix版完成済み。次は映像。</div>
+        <div class="project-next">Google Flow（labs.google）で動画生成。Flowプロンプト設計が次のアクション。</div>
+        <div class="project-asset">Asset: FIX_sumimasen260606.wav（Fix版・作曲・DTM/動画プロジェクト/SUMIMASEN/）</div>
+      </div>
+
+      <div class="project-card" style="border-style:dashed;opacity:0.5">
+        <div class="project-header">
+          <div>
+            <div class="project-name" style="color:var(--text-muted)">🔲 次の楽曲プロジェクト</div>
+          </div>
+          <span class="status-badge pending">未定</span>
+        </div>
+        <div class="project-theme" style="color:var(--text-muted)">テーマ・ジャンル・ステータスをここに追記する</div>
+      </div>
+    </section>
+
+    <!-- S05: エッセンス辞典（Core直下） -->
+    <section id="s05" class="section-block">
+      <div class="section-heading green">
+        <span class="s-icon">💡</span>
+        <h2>ネタの核心ワード — エッセンス辞典</h2>
+        <span class="s-id">S05</span>
+      </div>
+      <p class="section-desc">AIにアイデアを相談する際に必ず入力するキーワード群。タグをクリックするとコピーされる。複数組み合わせてAIに投げる。</p>
+
+      <div class="filter-bar">
+        <span class="filter-label">FILTER</span>
+        <button class="filter-btn active" data-filter="all" onclick="filterTags(this,'all')">すべて</button>
+        <button class="filter-btn" data-filter="laugh" onclick="filterTags(this,'laugh')">笑いの構造</button>
+        <button class="filter-btn" data-filter="theme" onclick="filterTags(this,'theme')">世界観・テーマ</button>
+        <button class="filter-btn" data-filter="method" onclick="filterTags(this,'method')">表現手法</button>
+        <button class="filter-btn" data-filter="emotion" onclick="filterTags(this,'emotion')">感情</button>
+      </div>
+
+      <div class="tag-group" data-group="laugh">
+        <div class="tag-group-label">笑いの構造</div>
+        <div class="tag-wrap" id="laugh-tags">
+          <span class="tag" onclick="copyTag(this)">ナンセンス（圧倒的意味のわからなさ）</span>
+          <span class="tag" onclick="copyTag(this)">緊張と緩和</span>
+          <span class="tag" onclick="copyTag(this)">期待を大きく裏切るオチ</span>
+          <span class="tag" onclick="copyTag(this)">ギャップの笑い</span>
+          <span class="tag" onclick="copyTag(this)">ヘタウマ</span>
+          <span class="tag" onclick="copyTag(this)">素人感たっぷり</span>
+          <span class="tag" onclick="copyTag(this)">じわる</span>
+          <span class="tag" onclick="copyTag(this)">茶化す</span>
+          <span class="tag" onclick="copyTag(this)">低予算感をあえて強調</span>
+          <span class="tag placeholder-tag">🔲 追加</span>
+        </div>
+      </div>
+
+      <div class="tag-group" data-group="theme">
+        <div class="tag-group-label">世界観・テーマ</div>
+        <div class="tag-wrap">
+          <span class="tag green" onclick="copyTag(this)">80〜90年代オマージュ</span>
+          <span class="tag green" onclick="copyTag(this)">昭和ノスタルジー</span>
+          <span class="tag green" onclick="copyTag(this)">過去が描いた未来感</span>
+          <span class="tag green" onclick="copyTag(this)">おじさん・自虐</span>
+          <span class="tag green" onclick="copyTag(this)">ビジネスあるある</span>
+          <span class="tag green" onclick="copyTag(this)">外資系あるある</span>
+          <span class="tag green" onclick="copyTag(this)">謝罪文化・SUMIMASEN</span>
+          <span class="tag green" onclick="copyTag(this)">HENJIN HENTAI</span>
+          <span class="tag green" onclick="copyTag(this)">禁断感・中毒</span>
+          <span class="tag green" onclick="copyTag(this)">逆転・逸脱</span>
+          <span class="tag green" onclick="copyTag(this)">無名クリエイター自虐</span>
+          <span class="tag green" onclick="copyTag(this)">本気すぎる身体技能・武術ガチ勢</span>
+          <span class="tag green" onclick="copyTag(this)">ニッチすぎる対象への密着</span>
+          <span class="tag green" onclick="copyTag(this)">規格外の量・大食い・デカ盛り</span>
+          <span class="tag placeholder-tag">🔲 追加</span>
+        </div>
+      </div>
+
+      <div class="tag-group" data-group="method">
+        <div class="tag-group-label">表現手法</div>
+        <div class="tag-wrap">
+          <span class="tag blue" onclick="copyTag(this)">替え歌</span>
+          <span class="tag blue" onclick="copyTag(this)">パロディ</span>
+          <span class="tag blue" onclick="copyTag(this)">ポエトリーリーディング</span>
+          <span class="tag blue" onclick="copyTag(this)">一人実況</span>
+          <span class="tag blue" onclick="copyTag(this)">職人ドキュメント風</span>
+          <span class="tag blue" onclick="copyTag(this)">無声動画</span>
+          <span class="tag blue" onclick="copyTag(this)">降霊・なりきり</span>
+          <span class="tag blue" onclick="copyTag(this)">人形劇</span>
+          <span class="tag blue" onclick="copyTag(this)">ものまね</span>
+          <span class="tag blue" onclick="copyTag(this)">茶番劇</span>
+          <span class="tag blue" onclick="copyTag(this)">啖呵売・口上・実演販売</span>
+          <span class="tag blue" onclick="copyTag(this)">ニッチ密着ドキュメント</span>
+          <span class="tag placeholder-tag">🔲 追加</span>
+        </div>
+      </div>
+
+      <div class="tag-group" data-group="emotion">
+        <div class="tag-group-label">感情・ターゲット感情</div>
+        <div class="tag-wrap">
+          <span class="tag gold" onclick="copyTag(this)">共感（あるある）</span>
+          <span class="tag gold" onclick="copyTag(this)">懐かしさ</span>
+          <span class="tag gold" onclick="copyTag(this)">意外性・驚き</span>
+          <span class="tag gold" onclick="copyTag(this)">脱力感</span>
+          <span class="tag gold" onclick="copyTag(this)">親近感</span>
+          <span class="tag gold" onclick="copyTag(this)">狂気</span>
+          <span class="tag placeholder-tag">🔲 追加</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTI-THEMA -->
+    <section id="anti" class="section-block">
+      <div class="section-heading white">
+        <span class="s-icon">🚫</span>
+        <h2>やりたくないこと — アンチテーゼ</h2>
+        <span class="s-id">ANTI</span>
+      </div>
+      <p class="section-desc">これをやると「自分っぽくない」と感じるもの。制作の境界線。</p>
+      <div class="card-grid">
+        <div class="anti-card">
+          <span class="anti-symbol">🚫</span>
+          <div class="anti-text"><strong>AIっぽいキラキラ</strong> — 生成AI臭全開の過剰彩度・チルトシフト・存在しないモデルの顔。「上手い」だけのビジュアルに意味はない</div>
+        </div>
+        <div class="anti-card">
+          <span class="anti-symbol">🚫</span>
+          <div class="anti-text"><strong>無難な笑い</strong> — 誰も傷つけない・誰にも刺さらない優等生コンテンツ。振り切れていないものは作らない</div>
+        </div>
+        <div class="anti-card">
+          <span class="anti-symbol">🚫</span>
+          <div class="anti-text"><strong>バズ狙いの逆算</strong> — トレンドを拾ってアルゴリズムに媚びる。自分が面白いと思えないものは作らない</div>
+        </div>
+        <div class="anti-card">
+          <span class="anti-symbol">🚫</span>
+          <div class="anti-text"><strong>クオリティの高さが目的になる</strong> — 技術の披露会・MV職人的な「うまさ」の見せ合いには興味ない。バカさが主役</div>
+        </div>
+        <div class="anti-card">
+          <span class="anti-symbol">🚫</span>
+          <div class="anti-text"><strong>意味を追いかけすぎる</strong> — 深読みさせようとする作家性・メッセージ性の押し付け。「意味わかんねー」で終わってOK</div>
+        </div>
+        <div class="anti-card">
+          <span class="anti-symbol">🔲</span>
+          <div class="anti-text"><strong>あとで追記</strong> — 「これは絶対違う」と感じた体験があれば追加する</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S03: 音楽ルーツ -->
+    <section id="s03" class="section-block">
+      <div class="section-heading green">
+        <span class="s-icon">🎧</span>
+        <h2>音楽ルーツ — ベンチマークアーティスト</h2>
+        <span class="s-id">S03</span>
+      </div>
+      <p class="section-desc">楽曲制作・ボーカルスタイル・世界観の参照先。どのアーティストのどの要素を取るかを明記。</p>
+      <div class="artist-grid">
+        <div class="artist-card">
+          <div class="artist-name">KNOWER / Louis Cole</div>
+          <div class="artist-tags">
+            <span class="tag green">ジャズファンク</span>
+            <span class="tag green">おしゃれ×くだらない歌詞</span>
+            <span class="tag green">裏声</span>
+            <span class="tag green">自然体ユーモア</span>
+          </div>
+          <div class="artist-note">音楽性は高いのに歌詞がどうしようもない、の理想形</div>
+        </div>
+        <div class="artist-card">
+          <div class="artist-name">TENDRE</div>
+          <div class="artist-tags">
+            <span class="tag green">チルR&amp;B</span>
+            <span class="tag green">アホなことを上品に歌う</span>
+          </div>
+          <div class="artist-note">チルい空気感の参照軸</div>
+        </div>
+        <div class="artist-card">
+          <div class="artist-name">電気グルーヴ / YMO</div>
+          <div class="artist-tags">
+            <span class="tag green">シンセ</span>
+            <span class="tag green">テクノポップ</span>
+            <span class="tag green">ナンセンス歌詞</span>
+            <span class="tag green">日本語感</span>
+          </div>
+          <div class="artist-note">電子音楽とナンセンスの融合の先駆け</div>
+        </div>
+        <div class="artist-card">
+          <div class="artist-name">オメガトライブ</div>
+          <div class="artist-tags">
+            <span class="tag green">80年代シンセベース</span>
+            <span class="tag green">夏の未来感</span>
+            <span class="tag green">レトロ</span>
+          </div>
+          <div class="artist-note">サウンドの時代感の参照</div>
+        </div>
+        <div class="artist-card">
+          <div class="artist-name">マイケル・ジャクソン</div>
+          <div class="artist-tags">
+            <span class="tag green">80〜90年代シンセベース</span>
+            <span class="tag green">New Jack Swing</span>
+          </div>
+          <div class="artist-note">Wanna Be Startin' Somethin'系のビート感</div>
+        </div>
+        <div class="artist-card" style="border-style:dashed;opacity:0.6">
+          <div class="artist-name">どんぐりず</div>
+          <div class="artist-tags">
+            <span class="tag green">日本語ヒップホップ</span>
+            <span class="tag green">ゆるい</span>
+            <span class="tag green">ポップ</span>
+          </div>
+          <div class="artist-note" style="color:var(--accent-gold)">🔲 「どの要素を取る」を追記</div>
+        </div>
+        <div class="artist-card" style="border-style:dashed;opacity:0.6">
+          <div class="artist-name">リーサル・ウェポンズ</div>
+          <div class="artist-tags"><span class="tag placeholder-tag">🔲 要素を追記</span></div>
+          <div class="artist-note" style="color:var(--accent-gold)">🔲 どの要素を取るか</div>
+        </div>
+        <div class="artist-card" style="border-style:dashed;opacity:0.6">
+          <div class="artist-name">ポニーテールリボンズ</div>
+          <div class="artist-tags"><span class="tag placeholder-tag">🔲 要素を追記</span></div>
+          <div class="artist-note" style="color:var(--accent-gold)">🔲 どの要素を取るか</div>
+        </div>
+        <div class="artist-card">
+          <div class="artist-name">Team友達</div>
+          <div class="artist-tags">
+            <span class="tag green">パロディ元ネタ</span>
+            <span class="tag green">Teamおじさん</span>
+          </div>
+        </div>
+        <div class="artist-card" style="border-style:dashed;opacity:0.4">
+          <div class="artist-name" style="color:var(--text-muted)">🔲 追加アーティスト</div>
+          <div class="artist-note">ここに追記する</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S04: ビジュアル聖典 -->
+    <section id="s04" class="section-block">
+      <div class="section-heading pink">
+        <span class="s-icon">📺</span>
+        <h2>ビジュアル聖典 — 見た目の参照源</h2>
+        <span class="s-id">S04</span>
+      </div>
+      <p class="section-desc">MV・映像・写真・ゲーム・番組。「これっぽい」をAIに伝えるための視覚的ソース集。クリックでコピー。</p>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">TV番組・バラエティ</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('スネークマンショー風（ナンセンスコント・ラジオ的なボケ）', this)">
+            <div class="ref-item-name">スネークマンショー</div>
+            <div class="ref-item-note">ナンセンスコント・ラジオ的なボケ</div>
+          </div>
+          <div class="ref-item" onclick="copyText('ウゴウゴルーガ風（チープなCGエフェクト・子供向けのふりしたシュール）', this)">
+            <div class="ref-item-name">ウゴウゴルーガ</div>
+            <div class="ref-item-note">チープCGエフェクト・シュール</div>
+          </div>
+          <div class="ref-item" onclick="copyText('とんねるずパロディ風（テレビ的誇張とギャグのテンポ）', this)">
+            <div class="ref-item-name">とんねるずパロディ</div>
+            <div class="ref-item-note">テレビ的誇張とギャグのテンポ</div>
+          </div>
+          <div class="ref-item" onclick="copyText('昔の子供番組（さわやか3組・この街だいすき）風（棒読み・白々しいロールプレイ）', this)">
+            <div class="ref-item-name">昔の子供番組</div>
+            <div class="ref-item-note">さわやか3組・棒読み</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">映画・人形劇</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('サンダーバード風（人形劇の動き・チープな英国ジェントル感・ミニチュア撮影）', this)">
+            <div class="ref-item-name">サンダーバード</div>
+            <div class="ref-item-note">人形劇・チープな英国ジェントル感</div>
+          </div>
+          <div class="ref-item" onclick="copyText('チャップリン風無声映画（過剰な表情・大げさな動き）', this)">
+            <div class="ref-item-name">チャップリン風無声映画</div>
+            <div class="ref-item-note">過剰な表情・大げさな動き</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">アニメ</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('進撃の巨人風（壁の中の日常 vs 巨大な脅威・絶望と反撃の構図・立体機動の疾走感・重厚なシリアスをあえてバカに転用）', this)">
+            <div class="ref-item-name">進撃の巨人</div>
+            <div class="ref-item-note">絶望と反撃の構図・重厚さをバカに転用</div>
+          </div>
+          <div class="ref-item" onclick="copyText('ワンパンマン風（最強すぎて気だるい脱力ヒーロー・作画の本気とギャグの落差・全力で描くほどバカバカしい）', this)">
+            <div class="ref-item-name">ワンパンマン</div>
+            <div class="ref-item-note">脱力ヒーロー・本気作画×ギャグの落差</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">漫画</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('キングダム風（大将軍の熱い演説・天下の大将軍ノリ・成り上がりの高揚・大げさな名乗り口上を日常のしょうもない場面に持ち込む）', this)">
+            <div class="ref-item-name">キングダム</div>
+            <div class="ref-item-note">熱い口上・大将軍ノリを日常に持ち込む</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">特撮</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('仮面ライダー（平成）風（変身バンク・等身大の悲哀ヒーロー・ライダーキック演出・過剰なフォームチェンジ）', this)">
+            <div class="ref-item-name">仮面ライダー（平成）</div>
+            <div class="ref-item-note">変身バンク・等身大の悲哀・過剰フォームチェンジ</div>
+          </div>
+          <div class="ref-item" onclick="copyText('ウルトラマン（初代〜ティガ）風（巨大変身・3分の制約・ミニチュア特撮・スペシウム光線ポーズ・カラータイマー点滅の焦り）', this)">
+            <div class="ref-item-name">ウルトラマン（初代〜ティガ）</div>
+            <div class="ref-item-note">3分制約・ミニチュア特撮・光線ポーズ</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">ゲーム</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('ペルソナ5風（スタイリッシュなUIアニメーション・赤黒白のデザイン）', this)">
+            <div class="ref-item-name">ペルソナ5</div>
+            <div class="ref-item-note">スタイリッシュなUIアニメ</div>
+          </div>
+          <div class="ref-item" onclick="copyText('ニーアオートマタ風（メタ的なゲームUI・自己言及的演出）', this)">
+            <div class="ref-item-name">ニーアオートマタ</div>
+            <div class="ref-item-note">メタ的なUI・自己言及</div>
+          </div>
+          <div class="ref-item" onclick="copyText('ビシバシチャンプ風（90年代アーケードの煽りテキスト感）', this)">
+            <div class="ref-item-name">ビシバシチャンプ</div>
+            <div class="ref-item-note">90年代アーケードの煽りテキスト</div>
+          </div>
+          <div class="ref-item" onclick="copyText('せがれいじり風（くだらない操作性・シュールなファミコン的世界観）', this)">
+            <div class="ref-item-name">せがれいじり</div>
+            <div class="ref-item-note">くだらない操作性・ファミコン世界観</div>
+          </div>
+          <div class="ref-item" onclick="copyText('マリオペイント（ハエたたき）風（実写でゲームを再現）', this)">
+            <div class="ref-item-name">マリオペイント（ハエたたき）</div>
+            <div class="ref-item-note">実写でゲームを再現</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">ネット文化・ニコ動</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('東京ダイナマイト原付き（ニコ動）風（低画質・コメント弾幕・バカ真剣）', this)">
+            <div class="ref-item-name">東京ダイナマイト原付き（ニコ動）</div>
+            <div class="ref-item-note">低画質・弾幕・バカ真剣の原点</div>
+          </div>
+          <div class="ref-item" onclick="copyText('スポンジボブ風（間抜けな効果音・キャラのリアクション過剰）', this)">
+            <div class="ref-item-name">スポンジボブ</div>
+            <div class="ref-item-note">間抜けな効果音・過剰リアクション</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-category">
+        <div class="ref-cat-label">広告・CM文化</div>
+        <div class="ref-items">
+          <div class="ref-item" onclick="copyText('テレフォンショッピング風（オーバーな売り込み・効果音・主婦の感動リアクション）', this)">
+            <div class="ref-item-name">テレフォンショッピング</div>
+            <div class="ref-item-note">オーバーな売り込み・効果音</div>
+          </div>
+          <div class="ref-item" onclick="copyText('昔のWordのクソダサフォント演出風（意図的にダサいテロップ）', this)">
+            <div class="ref-item-name">昔のWordのクソダサフォント</div>
+            <div class="ref-item-note">意図的にダサいテロップ演出</div>
+          </div>
+          <div class="ref-item" onclick="copyText('教習所ビデオ風（棒読み・ロールプレイの白々しさ）', this)">
+            <div class="ref-item-name">教習所ビデオ</div>
+            <div class="ref-item-note">棒読み・ロールプレイの白々しさ</div>
+          </div>
+          <div class="ref-item" style="border-style:dashed;opacity:0.4">
+            <div class="ref-item-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S06: 好きだったもの -->
+    <section id="s06" class="section-block">
+      <div class="section-heading gold">
+        <span class="s-icon">📼</span>
+        <h2>好きだったもの — オマージュ対象リスト</h2>
+        <span class="s-id">S06</span>
+      </div>
+      <p class="section-desc">懐かしくて愛してるもの。制作カットに取り入れたいオマージュ元。随時追記するログ。</p>
+
+      <div class="era-section">
+        <div class="era-label">幼少期〜小学生（〜1990年代）</div>
+        <div class="nostalgia-grid">
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">TV</div>
+            <div class="nostalgia-name">ウゴウゴルーガ</div>
+            <div class="nostalgia-note">チープCGとシュールなキャラ</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">TV</div>
+            <div class="nostalgia-name">サンダーバード</div>
+            <div class="nostalgia-note">人形劇の動きとミニチュア撮影</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">TV</div>
+            <div class="nostalgia-name">さわやか3組 / この街だいすき</div>
+            <div class="nostalgia-note">学校向け教育番組の白々しさ</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ゲーム</div>
+            <div class="nostalgia-name">マリオペイント</div>
+            <div class="nostalgia-note">ハエたたきミニゲームの理不尽感</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ゲーム</div>
+            <div class="nostalgia-name">ガンバライド</div>
+            <div class="nostalgia-note">必殺技演出の過剰さ</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.5">
+            <div class="nostalgia-type">?</div>
+            <div class="nostalgia-name" style="color:var(--text-muted)">せがれいじり</div>
+            <div class="nostalgia-note" style="color:var(--accent-gold)">🔲 どこが好きだったか追記</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.4">
+            <div class="nostalgia-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era-section">
+        <div class="era-label">中高生（2000年代前後）</div>
+        <div class="nostalgia-grid">
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ネット</div>
+            <div class="nostalgia-name">東京ダイナマイト原付き（ニコ動）</div>
+            <div class="nostalgia-note">バカ真剣の原体験</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">アニメ</div>
+            <div class="nostalgia-name">スポンジボブ</div>
+            <div class="nostalgia-note">海外のシュール感</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ゲーム</div>
+            <div class="nostalgia-name">ビシバシチャンプ</div>
+            <div class="nostalgia-note">アーケードのテキストとノリ</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">TV</div>
+            <div class="nostalgia-name">仮面ライダー</div>
+            <div class="nostalgia-note">変身シーンの大げさな演出</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.4">
+            <div class="nostalgia-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era-section">
+        <div class="era-label">音楽との出会い（時期追記）</div>
+        <div class="nostalgia-grid">
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.7">
+            <div class="nostalgia-type">音楽</div>
+            <div class="nostalgia-name">YMO / 電気グルーヴとの出会い</div>
+            <div class="nostalgia-note" style="color:var(--accent-gold)">🔲 いつ・どんなきっかけで好きになったか</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.7">
+            <div class="nostalgia-type">音楽</div>
+            <div class="nostalgia-name">オメガトライブ（80年代シンセ）</div>
+            <div class="nostalgia-note" style="color:var(--accent-gold)">🔲 具体的に好きな曲・シーンを追記</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.7">
+            <div class="nostalgia-type">ラジオ・コント</div>
+            <div class="nostalgia-name">スネークマンショー</div>
+            <div class="nostalgia-note" style="color:var(--accent-gold)">🔲 どの作品が特に好きか追記</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">音楽・子供の頃</div>
+            <div class="nostalgia-name">ポンキッキーズ「回文21面相」</div>
+            <div class="nostalgia-note">子供の頃に好きだった曲。言葉遊び（回文）×ナンセンスの原体験</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.4">
+            <div class="nostalgia-name" style="color:var(--text-muted)">🔲 追加</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era-section">
+        <div class="era-label">YouTubeお気に入りから発掘（2026-06 / 再生リスト分析）</div>
+        <div class="nostalgia-grid">
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">武術・ガチ</div>
+            <div class="nostalgia-name">ヒロ渡邊JKD / システマ / 前田日明 / 猪木</div>
+            <div class="nostalgia-note">本気すぎる身体技能。ガチさそのものが芸になる</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">職人</div>
+            <div class="nostalgia-name">Bar Benfiddich 香山 / 石垣忍</div>
+            <div class="nostalgia-note">バーテンダーの静謐な超絶技巧。150秒の所作</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">話芸</div>
+            <div class="nostalgia-name">堺・直次郎の包丁口上 / コストコMITSUKAZU実演販売</div>
+            <div class="nostalgia-note">啖呵売・口上。喋りで魅せる実演の話芸</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">密着</div>
+            <div class="nostalgia-name">独身Jリーガーのスパイク磨き / 餃子の王将店長会 / 鳩に困ったら雨宮</div>
+            <div class="nostalgia-note">ニッチすぎる対象を真剣に追う眼差し。無駄の美学の極北</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">規格外</div>
+            <div class="nostalgia-name">マッスル北村 / 月30万食費 / 二郎三田 vs 牛めし</div>
+            <div class="nostalgia-note">大食い・デカ盛り。二郎的振り切りの人間版</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">お笑い</div>
+            <div class="nostalgia-name">ラバーガール / ルシファー吉岡『生姜』 / ザコシ / やさしいズ牛丼最強理論</div>
+            <div class="nostalgia-note">じわる・素人感・緊張と緩和のシュールコント</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ネット</div>
+            <div class="nostalgia-name">のび太dance hop / Funky Gutsman</div>
+            <div class="nostalgia-note">淫夢・MAD・ニコ動アングラ文化の素材感</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">禁断</div>
+            <div class="nostalgia-name">大分のエロG取材 / 禁断の呪法 / 村西とおる</div>
+            <div class="nostalgia-note">裏社会・オカルト・変態。禁断感と中毒の具体ソース</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.4">
+            <div class="nostalgia-name" style="color:var(--text-muted)">🔲 Takeout分析後に追記</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S02: ジャンル×手法マトリクス -->
+    <section id="s02" class="section-block">
+      <div class="section-heading blue">
+        <span class="s-icon">🗄️</span>
+        <h2>ネタの引き出し — ジャンル × 手法マトリクス</h2>
+        <span class="s-id">S02</span>
+      </div>
+      <p class="section-desc">どのジャンルでどの手法を使うか。AIdeaを考える際の組み合わせ表。セルをクリックでコピー。</p>
+      <div class="matrix-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="row-header">ジャンル \ 手法</th>
+              <th>替え歌</th>
+              <th>パロディ</th>
+              <th>一人実況</th>
+              <th>職人ドキュメント風</th>
+              <th>ポエトリー</th>
+              <th>オリジナル楽曲</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">ビジネスあるある</td>
+              <td class="has-example" onclick="copyText('M-006 Slackあるあるのうた', this)"><span class="matrix-example">M-006 Slackあるあるのうた</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="has-example" onclick="copyText('M-002 外資系IT英語勉強中ポエトリー', this)"><span class="matrix-example">M-002 外資系IT英語</span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="row-label">昭和・80〜90年代ネタ</td>
+              <td></td>
+              <td class="has-example" onclick="copyText('V-037 昔の子供番組パロディ', this)"><span class="matrix-example">V-037 子供番組パロ</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="row-label">おじさん・自虐</td>
+              <td></td>
+              <td></td>
+              <td class="has-example" onclick="copyText('V-038 あわれなおじさんの様子を実況', this)"><span class="matrix-example">V-038 あわれな様子実況</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="row-label">謝罪・日本文化</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="has-example" onclick="copyText('SUMIMASEN — 謝罪文化×チルR&B×New Jack Swing', this)"><span class="matrix-example">SUMIMASEN</span></td>
+            </tr>
+            <tr>
+              <td class="row-label">AIネタ</td>
+              <td></td>
+              <td class="has-example" onclick="copyText('V-034 AIの言いなりになる人間パロディ', this)"><span class="matrix-example">V-034 AIの言いなり</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="row-label">意味不明・ナンセンス</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="row-label">夫婦・家族</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="row-label" style="color:var(--text-muted)">🔲 追加ジャンル</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- S08: 映像制作ルール -->
+    <section id="s08" class="section-block">
+      <div class="section-heading white">
+        <span class="s-icon">🎬</span>
+        <h2>映像制作ルール — AIに渡すプロンプト設計原則</h2>
+        <span class="s-id">S08</span>
+      </div>
+      <p class="section-desc">個人コンテンツ（パロディ・シュール系）とAIGC仕事（商品動画）を混同しないための分岐設計。</p>
+      <div class="two-col">
+        <div class="rule-column">
+          <div class="rule-column-label" style="color:var(--accent-primary)">個人コンテンツ（パロディ・MV・バカ系）</div>
+          <div class="rule-item">あえて低予算感・チープな80年代CGエフェクトを狙う</div>
+          <div class="rule-item">過剰彩度OK・レトロカラー（蛍光ピンク・黄緑・シアン）</div>
+          <div class="rule-item">人間の「ヘタウマ」な動きを活かす</div>
+          <div class="rule-item">ダサいテロップ・昔のWordフォント演出もアリ</div>
+          <div class="rule-item">スキャンライン・ノイズ・VHS感の演出歓迎</div>
+          <div class="rule-item" style="color:var(--text-muted)">🔲 追加ルール</div>
+        </div>
+        <div class="rule-column">
+          <div class="rule-column-label" style="color:var(--accent-gold)">AIGC仕事（商品動画・クライアント向け）</div>
+          <div class="rule-item">商品の形状・色・ロゴは一切変えない</div>
+          <div class="rule-item">ソフトな自然光（窓明かり・サイド光）+ リムライト</div>
+          <div class="rule-item">カメラ: f/1.8〜2.8、85mm相当、ゆっくりドリーイン</div>
+          <div class="rule-item">AIっぽいツルッとした非現実感・過剰彩度はNG</div>
+          <div class="rule-item">カラーライン: gold #C6A64B × 黒 #000000</div>
+          <div class="rule-item" style="color:var(--text-muted)">🔲 追加ルール</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S09: AIdeaスターター -->
+    <section id="s09" class="section-block">
+      <div class="section-heading blue">
+        <span class="s-icon">⚡</span>
+        <h2>AIdeaスターターキット</h2>
+        <span class="s-id">S09</span>
+      </div>
+      <p class="section-desc">「今日ネタを考えたい」ときのAIへの問いかけテンプレ集。{}部分をS03・S05のタグから選んで埋める。コピーボタンで即使用可。</p>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <div class="prompt-title">楽曲アイデア出し</div>
+          <button class="copy-btn" onclick="copyPrompt(event, 'prompt-1')">COPY</button>
+        </div>
+        <div class="prompt-body" id="prompt-1">Issyとして、{ジャンル}の曲を作りたい。テーマは「{ネタの核心ワード}」。
+参照アーティストは{アーティスト名}。
+KNOWERのように音楽性は高いがどうしようもない歌詞の方向で、
+5つのコンセプト案を出して。</div>
+        <div class="prompt-note">{}部分をS03・S05のタグから選んで埋める</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <div class="prompt-title">MV・動画演出アイデア出し</div>
+          <button class="copy-btn" onclick="copyPrompt(event, 'prompt-2')">COPY</button>
+        </div>
+        <div class="prompt-body" id="prompt-2">この曲「{曲名}」のMV演出を考えて。
+世界観: {オマージュ元}風。
+手法: {表現手法タグ}。
+低予算感をあえて活かしたチープな80年代CGエフェクトで。</div>
+        <div class="prompt-note">S04・S05のタグを入れる</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <div class="prompt-title">一発ネタ・ショート動画アイデア出し</div>
+          <button class="copy-btn" onclick="copyPrompt(event, 'prompt-3')">COPY</button>
+        </div>
+        <div class="prompt-body" id="prompt-3">テーマ「{ネタジャンル}」で一発ギャグ / ショートネタを10案出して。
+条件: じわるレベル・素人感たっぷり・緊張と緩和のオチがある。
+参照: {参照番組・ゲーム}</div>
+        <div class="prompt-note">「じわるレベルが条件」の基本形</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <div class="prompt-title">歌詞初稿</div>
+          <button class="copy-btn" onclick="copyPrompt(event, 'prompt-4')">COPY</button>
+        </div>
+        <div class="prompt-body" id="prompt-4">曲名「{曲名}」の歌詞を書いて。
+テーマ: {テーマ}。
+スタイル: ポエトリーリーディング or ルイスコール風の自然体ユーモア。
+おじさん・自虐・{追加キーワード}を入れる。</div>
+        <div class="prompt-note">自虐ネタ歌詞の基本形</div>
+      </div>
+
+      <div class="prompt-card" style="border-style:dashed;opacity:0.5">
+        <div class="prompt-card-header">
+          <div class="prompt-title" style="color:var(--text-muted)">🔲 追加テンプレート</div>
+        </div>
+        <div class="prompt-body" style="color:var(--text-muted)">よく使うプロンプトパターンがあれば追加する</div>
+      </div>
+    </section>
+
+    <!-- S10: 没ネタ・ログ（別ページにリンク） -->
+    <section id="s10" class="section-block">
+      <div class="section-heading white">
+        <span class="s-icon">📋</span>
+        <h2>没ネタ・ログ</h2>
+        <span class="s-id">S10</span>
+      </div>
+      <p class="section-desc">没になったアイデア・保留中のネタ・いつか使いたいものは別ページに集約。定期的に眺めて掘り起こす。</p>
+      <a class="log-link-card" href="creative-brain-log.html">
+        <span class="log-link-icon">📋</span>
+        <span class="log-link-body">
+          <span class="log-link-title">没ネタ・ログを開く →</span>
+          <span class="log-link-note">保留中のアイデア一覧（別ページ）</span>
+        </span>
+      </a>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // ===== TOAST =====
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg || 'コピーしました';
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 1800);
+  }
+
+  // ===== COPY TAG =====
+  function copyTag(el) {
+    var text = el.textContent.trim();
+    if (text.startsWith('🔲')) return;
+    navigator.clipboard.writeText(text).then(function() {
+      el.classList.add('copied');
+      setTimeout(function() { el.classList.remove('copied'); }, 1000);
+      showToast('"' + text + '" をコピー');
+    }).catch(function() {
+      showToast('コピー失敗');
+    });
+  }
+
+  // ===== COPY TEXT =====
+  function copyText(text, el) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('コピーしました');
+    }).catch(function() {
+      showToast('コピー失敗');
+    });
+  }
+
+  // ===== COPY PROMPT =====
+  function copyPrompt(e, id) {
+    e.stopPropagation();
+    var el = document.getElementById(id);
+    var text = el.textContent.trim();
+    var btn = e.target;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'COPIED!';
+      btn.classList.add('success');
+      setTimeout(function() {
+        btn.textContent = 'COPY';
+        btn.classList.remove('success');
+      }, 1500);
+      showToast('プロンプトをコピーしました');
+    }).catch(function() {
+      showToast('コピー失敗');
+    });
+  }
+
+  // ===== FILTER TAGS =====
+  function filterTags(btn, cat) {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('#s05 .tag-group').forEach(function(g) {
+      var show = (cat === 'all') || (g.getAttribute('data-group') === cat);
+      g.style.display = show ? '' : 'none';
+    });
+  }
+
+  // ===== NAV =====
+  function setNav(el) {
+    document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+    el.classList.add('active');
+  }
+
+  // ===== SCROLL SPY =====
+  var sections = ['s01','s07','s05','anti','s03','s04','s06','s02','s08','s09','s10'];
+  var navMap = {};
+  sections.forEach(function(id) {
+    var link = document.querySelector('.nav-item[href="#' + id + '"]');
+    if (link) navMap[id] = link;
+  });
+
+  var raf = 0;
+  window.addEventListener('scroll', function() {
+    if (!raf) raf = requestAnimationFrame(function() {
+      raf = 0;
+      var scrollY = window.scrollY;
+      var cursor = scrollY + 80;
+      var current = sections[0];
+      for (var i = 0; i < sections.length; i++) {
+        var el = document.getElementById(sections[i]);
+        if (!el) continue;
+        var top = el.getBoundingClientRect().top + scrollY;
+        if (top <= cursor) current = sections[i];
+        else break;
+      }
+      document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+      if (navMap[current]) navMap[current].classList.add('active');
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
