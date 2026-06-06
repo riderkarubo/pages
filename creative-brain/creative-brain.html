@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Brain — Issyの創作起点</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
-  <meta name="last-modified" content="2026-06-06T18:26:00+09:00">
+  <meta name="last-modified" content="2026-06-06T22:08:00+09:00">
   <meta name="description" content="Issyのクリエイティブブレーン — 美的センス・ネタの引き出し・哲学を集約した制作起点ハブ">
   <meta property="og:title" content="Creative Brain — Issyの創作起点">
   <meta property="og:description" content="Issyのクリエイティブブレーン — 美的センス・ネタの引き出し・哲学を集約した制作起点ハブ">
@@ -1011,6 +1011,18 @@
       margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
+      gap: 14px;
+    }
+    .growth-btn-big {
+      background: linear-gradient(90deg, var(--accent-electric), var(--accent-secondary)) !important;
+      box-shadow: 0 4px 18px rgba(0,121,184,0.3) !important;
+    }
+    .flow-btn-big {
+      background: linear-gradient(90deg, #7c5cff, #b14dff) !important;
+      box-shadow: 0 4px 18px rgba(124,92,255,0.3) !important;
+    }
+    .flow-btn-big:hover {
+      box-shadow: 0 8px 26px rgba(124,92,255,0.45) !important;
     }
 
     .idea-vault-btn-big {
@@ -1067,7 +1079,7 @@
       <div class="logo-title">🧠 CREATIVE BRAIN</div>
       <div class="logo-sub">Issy / 創作起点ハブ</div>
     </div>
-    <div class="sidebar-updated">Last Updated: 2026年6月6日 18:26</div>
+    <div class="sidebar-updated">Last Updated: 2026年6月6日 22:08</div>
 
     <div class="nav-section-label">Core</div>
     <a class="nav-item active" href="#s01" onclick="setNav(this)">
@@ -1117,6 +1129,12 @@
     <a class="nav-item" href="idea-list.html" style="color:var(--accent-gold);font-weight:700;">
       <span class="nav-icon">💡</span>アイデアリスト
     </a>
+    <a class="nav-item" href="growth-playbook.html" style="color:var(--accent-electric);font-weight:700;">
+      <span class="nav-icon">🚀</span>グロースプレイブック
+    </a>
+    <a class="nav-item" href="https://riderkarubo.github.io/pages/google-flow-playbook.html" target="_blank" rel="noopener" style="color:#7c5cff;font-weight:700;">
+      <span class="nav-icon">🎬</span>Flow動画プレイブック
+    </a>
   </nav>
 
   <!-- MAIN -->
@@ -1125,12 +1143,14 @@
       <h1><span class="grad">Creative Brain</span></h1>
       <div class="header-sub">Issyの制作哲学・ネタの引き出し・参照源をすべて一枚に集約したハブ。AIdeaを考える前に必ず開く。</div>
       <div class="header-meta">
-        <div class="header-meta-item">Last Updated: <span>2026年6月6日 18:26</span></div>
+        <div class="header-meta-item">Last Updated: <span>2026年6月6日 22:08</span></div>
         <div class="header-meta-item">Current Project: <span>SUMIMASEN — 動画生成フェーズ</span></div>
         <div class="header-meta-item">Version: <span>1.1</span></div>
       </div>
       <div class="idea-vault-bar">
         <a class="idea-vault-btn-big" href="idea-list.html">💡 アイデアネタ帳 <span class="arrow">→</span></a>
+        <a class="idea-vault-btn-big growth-btn-big" href="growth-playbook.html">🚀 グロースプレイブック <span class="arrow">→</span></a>
+        <a class="idea-vault-btn-big flow-btn-big" href="https://riderkarubo.github.io/pages/google-flow-playbook.html" target="_blank" rel="noopener">🎬 Flow動画プレイブック <span class="arrow">→</span></a>
       </div>
     </div>
 
@@ -1731,6 +1751,25 @@
           </div>
           <div class="nostalgia-card" style="border-style:dashed;opacity:0.4">
             <div class="nostalgia-name" style="color:var(--text-muted)">🔲 Takeout分析後に追記</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era-section">
+        <div class="era-label">ダンス・振り付け（動きのオマージュ）</div>
+        <div class="nostalgia-grid">
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ダンス・MV</div>
+            <div class="nostalgia-name">マイケル・ジャクソン</div>
+            <div class="nostalgia-note">代表的な振り付け・MVの1シーンを引用したい。誰もが知る決めポーズ／キメ所を1カットで再現</div>
+          </div>
+          <div class="nostalgia-card">
+            <div class="nostalgia-type">ダンス・MV</div>
+            <div class="nostalgia-name">MC Hammer「Too Legit to Quit」</div>
+            <div class="nostalgia-note">あの振り付けをそのままオマージュ。ダボダボの動き・キレと脱力のコントラスト</div>
+          </div>
+          <div class="nostalgia-card" style="border-style:dashed;opacity:0.4">
+            <div class="nostalgia-name" style="color:var(--text-muted)">🔲 追加</div>
           </div>
         </div>
       </div>

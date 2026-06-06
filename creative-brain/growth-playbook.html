@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>グロース実戦プレイブック — Issy 創作チャンネル</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <meta name="last-modified" content="2026-06-06T21:48:00+09:00">
+  <meta name="description" content="TikTok/YouTubeのグロース8次元を調査し俗説を排除、Issyの創作作風（ガチへの偏愛）に最適化した実戦プレイブック。今すぐ打つべき5手・30日アクションプラン付き。">
+  <meta property="og:title" content="グロース実戦プレイブック — Issy 創作チャンネル">
+  <meta property="og:description" content="TikTok/YouTubeのグロース8次元を調査し俗説を排除、Issyの創作作風に最適化した実戦プレイブック。今すぐ打つべき5手・30日アクションプラン付き。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain/growth-playbook.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="グロース実戦プレイブック — Issy 創作チャンネル">
+  <meta name="twitter:description" content="TikTok/YouTubeのグロース8次元を調査し俗説を排除、Issyの創作作風に最適化した実戦プレイブック。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-base: #E8E6DF;
+      --bg-card: #FFFFFF;
+      --accent-primary: #E0005F;
+      --accent-secondary: #008566;
+      --accent-gold: #8A6E22;
+      --accent-electric: #0079B8;
+      --text-primary: #161616;
+      --text-secondary: #4E4E4E;
+      --text-muted: #8A8A86;
+      --border: #D6D3CB;
+      --tag-bg: #FCE9F1;
+      --tag-text: #E0005F;
+      --warn-bg: #FBEAEA;
+      --warn-border: #E0005F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      padding: 56px 0 32px;
+      border-bottom: 3px solid var(--accent-primary);
+      margin-bottom: 8px;
+    }
+    .cover .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+    }
+    .cover h1 {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.3;
+      margin: 10px 0 14px;
+      letter-spacing: -0.01em;
+    }
+    .cover .lead {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 720px;
+    }
+    .cover-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 22px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .cover-meta .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cover-meta .value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .backlink {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-secondary);
+      text-decoration: none;
+      border: 1px solid var(--accent-secondary);
+      border-radius: 8px;
+      padding: 6px 14px;
+      transition: all 0.15s;
+    }
+    .backlink:hover { background: var(--accent-secondary); color: #fff; }
+
+    /* ===== TOC ===== */
+    .toc {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 28px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .toc-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-primary);
+    }
+    .toc-item a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 15px;
+      transition: background 0.15s;
+    }
+    .toc-item a:hover { background: #F3EFE7; }
+    .toc-num {
+      width: 28px; height: 28px;
+      flex-shrink: 0;
+      background: var(--text-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .toc-item.hot .toc-num { background: var(--accent-primary); }
+
+    /* ===== SECTION ===== */
+    .section { margin: 40px 0; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .section-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-primary);
+    }
+    .section h2 {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+    .section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 24px 0 10px;
+      color: var(--text-primary);
+    }
+    .section p { margin: 10px 0; color: var(--text-secondary); }
+    .section strong { color: var(--text-primary); font-weight: 700; }
+
+    .core-box {
+      background: #fff;
+      border-left: 4px solid var(--accent-primary);
+      border-radius: 10px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-size: 16px;
+    }
+
+    /* ===== TABLE ===== */
+    .tbl-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14.5px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    th, td {
+      text-align: left;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      background: var(--text-primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #FAF8F3; }
+    td strong { color: var(--accent-primary); }
+
+    /* ===== MOVE CARDS (5手) ===== */
+    .move {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      position: relative;
+    }
+    .move .move-badge {
+      display: inline-block;
+      background: var(--accent-primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 8px;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .move h3 { margin: 0 0 10px; font-size: 18px; }
+    .move .why {
+      font-size: 14px;
+      color: var(--accent-electric);
+      font-weight: 600;
+      margin: 6px 0;
+    }
+    .move ul { margin: 8px 0 0 20px; }
+    .move li { margin: 5px 0; color: var(--text-secondary); font-size: 15px; }
+
+    /* ===== NG CARDS ===== */
+    .ng {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+    .ng .ng-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--accent-primary);
+      margin-bottom: 6px;
+    }
+    .ng p { margin: 4px 0; font-size: 14.5px; }
+
+    /* ===== TAGS ===== */
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin: 12px 0; }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 999px;
+    }
+
+    /* ===== CHECKLIST (30日) ===== */
+    .week {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 14px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .week h3 {
+      margin: 0 0 12px;
+      font-size: 17px;
+      color: var(--accent-secondary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    .check { display: flex; gap: 10px; margin: 8px 0; align-items: flex-start; }
+    .check .box {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      border: 2px solid var(--accent-secondary);
+      border-radius: 4px;
+      margin-top: 3px;
+    }
+    .check span { font-size: 15px; color: var(--text-secondary); }
+
+    /* ===== CASE ===== */
+    .case {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 14px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .case h3 { margin: 0 0 8px; color: var(--accent-gold); font-size: 17px; }
+
+    .callout-faq {
+      background: #EAF4F1;
+      border-left: 4px solid var(--accent-secondary);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 18px 0;
+    }
+    .callout-faq h3 { color: var(--accent-secondary); margin: 0 0 8px; }
+
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    a.src { color: var(--accent-electric); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .cover h1 { font-size: 26px; }
+      .section h2 { font-size: 20px; }
+      body { font-size: 15px; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      @page { size: A4; margin: 12mm; }
+      html, body { background: #fff; }
+      .page { max-width: none; padding: 0; }
+      .backlink { display: none; }
+      #sec1, #sec2, #sec3, #sec4, #sec5, #sec6, #sec7, #sec8 { page-break-before: always; }
+      .move, .ng, .week, .case, .core-box, table tr, .callout-faq {
+        page-break-inside: avoid; break-inside: avoid;
+      }
+      .section h2, .section h3 { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===== COVER ===== -->
+  <header class="cover">
+    <div class="eyebrow">Growth Playbook · TikTok × YouTube</div>
+    <h1>Issy 創作チャンネル<br>グロース実戦プレイブック</h1>
+    <p class="lead">グロース8次元を調査し俗説を排除、<strong>「ガチへの偏愛」という作風を殺さずに伸ばす</strong>ための実戦設計。今すぐ打つべき5手・コンテンツ設計・運用設計・30日アクションプランを収録。</p>
+    <div class="cover-meta">
+      <div><div class="label">Last Updated</div><div class="value">2026年6月6日 21:48</div></div>
+      <div><div class="label">対象</div><div class="value">Issy個人の創作チャンネル</div></div>
+      <div><div class="label">検証</div><div class="value">採用69 / 俗説排除10</div></div>
+    </div>
+    <a class="backlink" href="creative-brain.html">← Creative Brain へ</a>
+  </header>
+
+  <!-- ===== TOC ===== -->
+  <nav class="toc">
+    <div class="toc-title">目次</div>
+    <div class="toc-item"><a href="#sec0"><span class="toc-num">0</span><span>戦略の核</span></a></div>
+    <div class="toc-item"><a href="#sec1"><span class="toc-num">1</span><span>プラットフォーム別アルゴリズムの本質</span></a></div>
+    <div class="toc-item hot"><a href="#sec2"><span class="toc-num">2</span><span>今すぐ打つべき5手</span></a></div>
+    <div class="toc-item"><a href="#sec3"><span class="toc-num">3</span><span>コンテンツ設計（フック・離脱対策・パッケージング）</span></a></div>
+    <div class="toc-item"><a href="#sec4"><span class="toc-num">4</span><span>運用設計（頻度・タイミング・転用）</span></a></div>
+    <div class="toc-item"><a href="#sec5"><span class="toc-num">5</span><span>ポジショニング</span></a></div>
+    <div class="toc-item"><a href="#sec6"><span class="toc-num">6</span><span>隣接ニッチ成功事例の型</span></a></div>
+    <div class="toc-item"><a href="#sec7"><span class="toc-num">7</span><span>やってはいけないこと（俗説）</span></a></div>
+    <div class="toc-item"><a href="#sec8"><span class="toc-num">8</span><span>30日アクションプラン</span></a></div>
+  </nav>
+
+  <!-- ===== FAQ: SynthID ===== -->
+  <div class="callout-faq">
+    <h3>Q. Google Flow の不可視透かし（SynthID）は収益に影響する？</h3>
+    <p><strong>A. SynthID 自体は収益に影響しない。</strong> SynthIDは来歴マーカーであり、Content IDのような著作権クレームではない。YouTube公式は「AIラベルは推薦・収益適格性を変えない」と明言。唯一の条件は<strong>「Altered Content（改変済み）」ラベルの開示</strong>。本当の収益リスクは透かしではなく「量産・使い回し・人間のキュレーション不在」であり、Issyの"ガチ"作風はむしろその逆＝安全。可視ウォーターマーク（無料枠の右下「veo」ロゴ）は別物で見栄えの問題のみ（商用納品はPro版で除去）。</p>
+  </div>
+
+  <!-- ===== SEC 0 ===== -->
+  <section class="section" id="sec0">
+    <div class="section-head"><span class="section-num">00</span><h2>戦略の核</h2></div>
+    <div class="core-box">
+      Issyの「ガチへの偏愛」は 2026年アルゴリズムが最も優遇する<strong>「唯一無二性 × 高満足度 × リウォッチ誘発」</strong>の三拍子を<strong>もともと備えている</strong>。戦略の目的は「バズるために作風を曲げる」ことではなく、「すでに持っている本気度をアルゴリズムに正しく読まれるよう実装する」こと。テンプレに媚びず、しかし届け方を設計する。
+    </div>
+  </section>
+
+  <!-- ===== SEC 1 ===== -->
+  <section class="section" id="sec1">
+    <div class="section-head"><span class="section-num">01</span><h2>プラットフォーム別アルゴリズムの本質</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>観点</th><th>YouTube 2026</th><th>TikTok 2026</th></tr></thead>
+        <tbody>
+          <tr><td><strong>最優先指標</strong></td><td>視聴後満足度・シェア・セッション滞在時間</td><td>完了率70%超・リウォッチ率・シェア</td></tr>
+          <tr><td><strong>初期テスト</strong></td><td>非公開だがShortsは類似ロジック（6-8h観察）</td><td>投稿後1-2hで200-500人の初期テスト層に配信</td></tr>
+          <tr><td><strong>推薦単位</strong></td><td>Shortsと長尺は完全別アルゴリズム（2025年末分離）</td><td>アカウント全体の「トピック密度」で推薦先決定</td></tr>
+          <tr><td><strong>ニッチ対応</strong></td><td>Feb 2026 Browse Feed改訂でマイクロ興味クラスタを高精度識別</td><td>2026第4世代でtopic authorityを測定・拡大許容</td></tr>
+          <tr><td><strong>品質判定</strong></td><td>フレーム単位AI解析（タグより実質価値優先）</td><td>Authenticity志向（AI音声・透かしは不利）</td></tr>
+          <tr><td><strong>継続ペナルティ</strong></td><td>2-3週間途絶えると配信範囲縮小</td><td>同左。フォロワーファーストテスト突破が先決</td></tr>
+          <tr><td><strong>稼ぎどころ</strong></td><td>長尺CPM $2-8/1K（Shortsの10-15倍）</td><td>ライブギフト・TikTok Shop・Creator Fund</td></tr>
+          <tr><td><strong>Issyとの相性</strong></td><td>長尺「制作思想の深掘り」+ Shorts「発見入口」の二層</td><td>60-180秒の「ガチ系ショート」が最適域</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== SEC 2 ===== -->
+  <section class="section" id="sec2">
+    <div class="section-head"><span class="section-num">02</span><h2>今すぐ打つべき5手</h2></div>
+
+    <div class="move">
+      <span class="move-badge">手①</span>
+      <h3>タイトル/タグより「冒頭15秒の実装」を先に固める</h3>
+      <p class="why">なぜ今すぐか: YouTube 2026は冒頭15秒で品質判定を事実上終える。高CTRでも30秒以内に離脱すると「詐欺的」と判定され逆推薦停止になる。</p>
+      <ul>
+        <li>0-5秒: 武術技のサビ動作 / 楽曲SUMIMASENのビート爆発 / AI映像の色彩激変 — いずれかで<strong>視覚ショック</strong></li>
+        <li>5-15秒: 「この3分で〇〇がわかる」など本編ペイオフを明示</li>
+        <li>15秒時点で保持率 <strong>65-80%</strong> を目標（「40%以下を目指す」は誤りなので注意）</li>
+      </ul>
+    </div>
+
+    <div class="move">
+      <span class="move-badge">手②</span>
+      <h3>投稿フォーマットを「Shorts週3-5本 ＋ 長尺月1-2本」に固定</h3>
+      <p class="why">なぜ今すぐか: 月12本以上は月3本比で登録者成長66%速い（VidIQ 2026・※方向性の目安）。ただし質を落とすと逆効果。バッチ制作で質を維持。</p>
+      <ul>
+        <li>月1回・週末2日集中ブロックでShorts素材を一気に制作</li>
+        <li>長尺1本（「SUMIMASENを12分で解体」「Veo3で日本武術を再現した全プロセス」等）からShorts 5-10本を逆算抽出</li>
+        <li>CapCut / Google Flowのスケジューラーで火・木・日21時の<strong>固定配信</strong></li>
+      </ul>
+    </div>
+
+    <div class="move">
+      <span class="move-badge">手③</span>
+      <h3>TikTokキャプションを「問い型3語」に変換する</h3>
+      <p class="why">なぜ今すぐか: シェアはいいね1件の約4倍の推薦重み。問い型キャプションは保存・シェア誘発率+45%。</p>
+      <ul>
+        <li>「これDTMでできる？」「本気でこんなん作った」「AIと本物、どっちが怖い？」</li>
+        <li>「新作MV完成！」等の告知型は廃止</li>
+        <li>投稿直後にピン留めコメント「どのシーン好きでした？」で初速加速</li>
+      </ul>
+    </div>
+
+    <div class="move">
+      <span class="move-badge">手④</span>
+      <h3>Google FlowのVeo「Variants並列生成」をフックABテストに使う</h3>
+      <p class="why">なぜ今すぐか: 同一プロンプトから4-8パターンを並列生成可能。「冒頭1-3秒を変えた4バリアント」の低コストABテストに直結。</p>
+      <ul>
+        <li>SUMIMASEN.wavを入力 → 「武術シーン冒頭」「波形ビジュアル冒頭」「AI色彩激変冒頭」「無音から爆発冒頭」の4バリアント生成</li>
+        <li>同日の13時・15時・18時・21時に投稿 → 6時間後の数値で本命判定</li>
+        <li>注: 個人用途は無料枠OK。商用納品が発生する場合はPro版を要確認</li>
+      </ul>
+    </div>
+
+    <div class="move">
+      <span class="move-badge">手⑤</span>
+      <h3>エンドスクリーン＋プレイリストで「セッション貢献」を設計</h3>
+      <p class="why">なぜ今すぐか: 2026年に「セッション滞在時間」が新推薦シグナルに昇格。自分の動画を連続視聴させると加点。</p>
+      <ul>
+        <li>長尺エンドスクリーン: 「この技のバリエーション版」「同じAI作風のMV別曲」へリンク</li>
+        <li>Shortsは系列テーマをプレイリスト化（「SUMIMASEN制作シリーズ」「Veo3 × 日本美学 実験録」）</li>
+        <li>終盤5秒で口頭CTA「次はこっちも見てみて」</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== SEC 3 ===== -->
+  <section class="section" id="sec3">
+    <div class="section-head"><span class="section-num">03</span><h2>コンテンツ設計</h2></div>
+
+    <h3>3-1. フック設計（0-8秒の三層構造）</h3>
+    <div class="tags">
+      <span class="tag">型A: パターンインタラプト（Issyの得意）</span>
+      <span class="tag">型B: 直接約束（AI・技術系）</span>
+      <span class="tag">型C: 質問型（ニッチ共鳴）</span>
+    </div>
+    <p><strong>型A</strong>: 0-0.5秒で予期しない映像転換（関節技の最終形だけ／波形が爆発する瞬間だけ）→ 0.5-3秒で視覚的コントラスト（ヘタウマ×職人技を並置）→ 3-8秒で本編導入。</p>
+    <p><strong>型B</strong>: 「Veo3.1で日本刀を60秒で動かした」→ 完成品を即見せる → 解説へ。 <strong>型C</strong>: 「なぜ柔術家は力を使わないのに人が飛ぶ？」→ 本気解説へ。</p>
+    <p><strong>テスト方法</strong>: 3種を週1本ずつ投稿 → YouTube Studio「最初の3秒保持率」で比較 → 上位型を量産。</p>
+
+    <h3>3-2. 離脱対策（V字保持曲線を意図的に設計）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>秒数</th><th>目標保持率</th><th>Issyの介入</th></tr></thead>
+        <tbody>
+          <tr><td>0-3秒</td><td><strong>80%</strong></td><td>視覚ショック型フック</td></tr>
+          <tr><td>9-15秒（中盤の谷）</td><td>60%</td><td>テロップを画面いっぱい大型化（15px/600基準）＋BGMビート変化</td></tr>
+          <tr><td>20秒以降</td><td>70%（リバウンド）</td><td>ループ設計 or クライマックス配置</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3-3. ループ構造（リウォッチ率を意図的に作る）</h3>
+    <p>最後の1秒の映像・音が冒頭と「ドーナツ型」でつながるよう編集する。MVは「スピンする物体／ビートの着地点」を開始・終了の両方に配置。武術系は技の予備動作（始）と残像（終）を同じフレームで設計。<strong>リウォッチ1回追加で実質視聴時間が200%カウント</strong> → 平均2-3回再生は「見かけの伸び3倍」に直結。</p>
+
+    <h3>3-4. パッケージング（サムネ・タイトル・字幕）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>要素</th><th>原則</th></tr></thead>
+        <tbody>
+          <tr><td><strong>サムネ</strong></td><td>実写Issyの顔（驚き/納得/集中の3表情ストック）× AI背景。テキストはNoto Sans JP・16-18px・3語以下。<strong>サムネ=視覚的謎、タイトル=文脈補完</strong>の分業（同じ情報を繰り返さない）</td></tr>
+          <tr><td><strong>タイトル◎</strong></td><td>「3時間でできた、理由はここにある」（謎残し）/「Veo3で日本武術を動かした、全プロセス」（文脈補完）</td></tr>
+          <tr><td><strong>タイトル✕</strong></td><td>「新作MVできました！」（情報ゼロ）/ サムネと全く同じ情報の文字化</td></tr>
+          <tr><td><strong>字幕3層</strong></td><td>L1本文（中央・15px以上・4-7語）／L2強調（上・28-32px太字・驚き数値）／L3 CTA（下・「↓次も見て」）。出現は音声の最大0.3秒後</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== SEC 4 ===== -->
+  <section class="section" id="sec4">
+    <div class="section-head"><span class="section-num">04</span><h2>運用設計</h2></div>
+
+    <h3>4-1. 週次カレンダー（個人運用の現実解）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>曜日</th><th>タスク</th></tr></thead>
+        <tbody>
+          <tr><td>月</td><td>バッチ制作Day1（撮影・録音・Veo3生成）</td></tr>
+          <tr><td>火</td><td>バッチ制作Day2（編集・サムネ・予約設定）→ 21時 Shorts #1</td></tr>
+          <tr><td>水</td><td>コメント返信・分析確認（前投稿の6h数値）</td></tr>
+          <tr><td>木</td><td>21時 Shorts #2</td></tr>
+          <tr><td>金</td><td>次週企画メモ（フォロワーコメントから50%テーマ化）</td></tr>
+          <tr><td>土</td><td>長尺動画制作（月1-2本ペース）</td></tr>
+          <tr><td>日</td><td>21時 Shorts #3 ＋ 週次数値振り返り（完了率/リウォッチ/シェア）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>燃え尽き防止</strong>: 1日のタスク数7以下。「交互切り替え」より「ブロック集中」を優先。</p>
+
+    <h3>4-2. 投稿タイミング</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>プラットフォーム</th><th>推奨時刻</th><th>根拠</th></tr></thead>
+        <tbody>
+          <tr><td>TikTok 日本向け</td><td>21-23時</td><td>夜のリラックスタイム・最高集中度</td></tr>
+          <tr><td>TikTok 海外向け（英語alt）</td><td>翌朝6時</td><td>タイムゾーン二重戦術</td></tr>
+          <tr><td>YouTube Shorts</td><td>平日20時・休日10時</td><td>最高エンゲージ帯（自Analyticsで毎月微調整）</td></tr>
+          <tr><td>YouTube 長尺</td><td>平日20時</td><td>検索流入は時刻依存が低い・内容優先</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>注意</strong>: 時刻より「自チャンネルの視聴者アクティブ時間」が重要。成長後はAnalyticsで毎月調整。</p>
+
+    <h3>4-3. 初速エンゲージメント戦術（投稿後30-60分）</h3>
+    <ul style="margin-left:20px;color:var(--text-secondary)">
+      <li>TikTok投稿直後: 「このシーン、どこが好き？」ピン留めコメント</li>
+      <li>Discord / X のサポーター向けティザー通知</li>
+      <li>30分以内にコメント全件返信</li>
+      <li>TikTok Close Friendsで既存フォロワー50-200人に48時間前プレビュー → 保存・シェアが初期信号に</li>
+    </ul>
+    <p>TikTokフォロワーファーストテスト（2025後半確定）。初期テスト層200-500人の反応で拡散スコアが決まる。</p>
+
+    <h3>4-4. クロスプラットフォーム転用フロー</h3>
+    <div class="core-box" style="border-left-color:var(--accent-electric);font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:1.9">
+      長尺YouTube（12-20分）<br>
+      &nbsp;├─ Shorts × 5-10本（最インパクト場面を抽出・フック型に再編集）<br>
+      &nbsp;│&nbsp;&nbsp;&nbsp;├─ TikTok版（完了率重視・60-90秒・日英dualキャプション）<br>
+      &nbsp;│&nbsp;&nbsp;&nbsp;└─ YouTube Shorts版（SEOキーワード挿入・ループ構造）<br>
+      &nbsp;└─ Instagram Reels版（ビジュアル重視・30-45秒）
+    </div>
+    <p><strong>必須ルール: 単なる流用禁止</strong>（YouTube 2026春にrecycled content detection強化）。各プラットフォーム向けにフック・ナレーション・字幕デザインを再構成。ウォーターマークは完全除去（After Effectsで再圧縮 or Veo3で同概念の新規生成）。</p>
+
+    <h3>4-5. 音源の段階的戦略</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>フェーズ</th><th>オリジナル比率</th><th>戦術</th></tr></thead>
+        <tbody>
+          <tr><td>初期（0-50投稿）</td><td>30%</td><td>オリジナルはBGM用・トレンド音源で拡大</td></tr>
+          <tr><td>成長期（50-100投稿）</td><td>40%</td><td>SUMIMASEN等の制作背景動画でファン育成</td></tr>
+          <tr><td>成熟期（100投稿〜）</td><td>60%+</td><td>オリジナル音源をTikTok Soundに登録しUGC化を誘発</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>著作権注意</strong>: TikTok Commercial Music Library規定を確認。オリジナル楽曲は問題なし。AI生成コンテンツは「AI-generated content」ラベル貼付必須（未対応でFYP除外リスク）。</p>
+
+    <h3>4-6. 継続性の絶対ルール</h3>
+    <p>2-3週間以上の途絶えは配信範囲縮小リスク。休止する場合は<strong>事前予告</strong>（サイレント休止より信頼維持）。バッチ制作＋予約投稿で「見た目の継続性」を担保。</p>
+  </section>
+
+  <!-- ===== SEC 5 ===== -->
+  <section class="section" id="sec5">
+    <div class="section-head"><span class="section-num">05</span><h2>ポジショニング（ガチ系作風で刺さる立ち位置）</h2></div>
+
+    <h3>5-1. Issyの競合ゼロ領域</h3>
+    <div class="core-box">「AI（Veo3/Google Flow）× 日本武術/職人美学 × オリジナル楽曲 × 海外視点」</div>
+    <p>Feb 2026 Browse Feed改訂でアルゴリズムのマイクロニッチ・クラスタリング精度が大幅向上。「既存クリエイターと異なる」と判定されればマイクロ興味群に直線で届く。ただし<strong>黙っていても分類されるわけではない</strong> — タイトル・説明欄・英語サブタイトルでの明示的タグ付けが必要。</p>
+    <div class="tags">
+      <span class="tag">Veo3で日本武術を動かした（海外最新AI×日本ガチ勢）</span>
+      <span class="tag">Studio Oneで3時間、SUMIMASENのビート設計全プロセス</span>
+      <span class="tag">ヘタウマ×本気、これが俺の作風だ</span>
+    </div>
+
+    <h3>5-2. チャンネル軸の言語化</h3>
+    <div class="core-box" style="border-left-color:var(--accent-secondary)">「AI × 楽曲制作 × 身体技能の本気度100% — Issyの創作チャンネル」</div>
+    <p>投稿の70%をメインニッチに統一。残り30%は関連周辺テーマ（段階的拡張は20投稿ごとに1-2件）。</p>
+
+    <h3>5-3. 最初の1000人戦略</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>フェーズ</th><th>目標</th><th>重点指標</th></tr></thead>
+        <tbody>
+          <tr><td>0-100人</td><td>「ガチ勢が認める」コア100人</td><td>エンゲージ率5%+・コメント返信率100%</td></tr>
+          <tr><td>100-500人</td><td>「真摯なクリエイター」と分類 → 初期テスト配信増</td><td>完了率70%+・リウォッチ率15%+</td></tr>
+          <tr><td>500-1000人</td><td>フォロワーが第一次テスト用オーディエンスに</td><td>シェア率1%+・セッション継続動画数</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>1000人到達後の収益入口</strong>: Discordメンバーシップ（月額$10「制作プロセス映像・失敗実例」/ $25「1on1制作相談」）／ DistroKidでSUMIMASEN等をSpotify/Apple Music/YouTube Musicに登録。</p>
+  </section>
+
+  <!-- ===== SEC 6 ===== -->
+  <section class="section" id="sec6">
+    <div class="section-head"><span class="section-num">06</span><h2>隣接ニッチ成功事例の型</h2></div>
+
+    <div class="case">
+      <h3>事例1: Kengo Kamijyo（書評YouTuber）— TikTok Discover List 2026 日本代表</h3>
+      <p><strong>学べる点</strong>: 「深い知識×知的エンゲージメント」の一点集中。トレンドを追わず自分の見方を一貫 → アルゴリズムが「深い思考を求める人向け」と分類。</p>
+      <p><strong>Issyへの転用</strong>: 「武術の原理をDTMのビート設計に応用したら」「AI映像に日本美学のルールを与えると何が起きるか」など"Issyにしかできない知的接続"を言語化。</p>
+    </div>
+
+    <div class="case">
+      <h3>事例2: AI映画チャンネル（Sora）— 6ヶ月で登録者50万</h3>
+      <p><strong>学べる点</strong>: 短編映画を毎週投稿。「新技術×ストーリーテリング」の掛け算で急成長。ただし「量産型AI映像」は2026年に規制強化対象になりつつある。</p>
+      <p><strong>差別化</strong>: AI映像そのものより「AI×人間の本気度（楽曲・身体技能）」のハイブリッドを前面に。AI合成ラベルを透明性の証拠として逆活用（「AI×本物のハイブリッド制作」ポジション）。</p>
+    </div>
+
+    <div class="case">
+      <h3>事例3: 3-5分シリーズ化型クリエイター</h3>
+      <p><strong>学べる点</strong>: 楽曲1曲で「メイキング3分→MV的本編3分→楽曲解説5分」の3パート化。1制作物から3本生成。</p>
+      <p><strong>Issyへの転用</strong>: SUMIMASEN = ①制作意図とビート設計 ②MVフル+AI映像メイキング ③使った技法解説。</p>
+    </div>
+
+    <div class="case">
+      <h3>事例4: ハブ＆スポーク型展開</h3>
+      <p><strong>学べる点</strong>: 長尺1本（10-20分）から5-10本の短尺を抽出・各プラットフォーム最適化。制作効率最大化＋多点接触。</p>
+      <p><strong>Issyへの転用</strong>: 「SUMIMASENを全解体する15分」がハブ。スポークはTikTok「0秒で爆発するビートの正体」・Shorts「3時間でできた編曲の核心」・Reels「AIと本物の音、聴き比べ」。</p>
+    </div>
+  </section>
+
+  <!-- ===== SEC 7 ===== -->
+  <section class="section" id="sec7">
+    <div class="section-head"><span class="section-num">07</span><h2>やってはいけないこと（排除した俗説・作風を殺すNG）</h2></div>
+
+    <div class="ng"><div class="ng-title">NG-1: 「15秒で保持率40%以下を目指す」（目標値が逆）</div><p>正: 冒頭15秒の保持率は<strong>65-80%</strong>を目指すのが正解。「40%以下」は離脱の多い悪い状態を示す数値で、目標ではない。</p></div>
+    <div class="ng"><div class="ng-title">NG-2: 毎日投稿で質を下げる</div><p>月12本以上は有効だが、低品質を量産すると逆効果。Issyの「本気度」が損なわれた時点でアルゴリズム優遇も消える。バッチ制作で質維持が大前提。</p></div>
+    <div class="ng"><div class="ng-title">NG-3: 「スワイプスルー率」を追う（2026年は死語）</div><p>正: 2026年の正確な用語は「replay rate」「satisfaction signals」。追うべきは完了率・リウォッチ率・シェア率の3つ。</p></div>
+    <div class="ng"><div class="ng-title">NG-4: TikTokロゴ付き動画をそのままYouTube Shortsへ転載</div><p>YouTube 2026春でrecycled content detection強化。ウォーターマーク検知はピクセルレベル。単純なロゴ除去トリミングは90%失敗。必ず再圧縮 or Veo3で新規生成。</p></div>
+    <div class="ng"><div class="ng-title">NG-5: サムネとタイトルで同じ情報を繰り返す</div><p>サムネ=視覚的謎、タイトル=文脈補完の分業が正解。繰り返しはCTR低下。</p></div>
+    <div class="ng"><div class="ng-title">NG-6: AIフルスキン生成の肖像サムネイル</div><p>誇張顔・AI完全生成肖像は信頼性低下。実写Issy+AI背景のハイブリッドが18-22% CTR優位。Issyの「本気顔」がそのまま最大の武器。</p></div>
+    <div class="ng"><div class="ng-title">NG-7: 「TikTokの初期30分判定」を絶対視する</div><p>正: 「6-8時間で最終決定」が正確。30分は目安に過ぎず、6時間後の数値が意思決定の根拠。</p></div>
+    <div class="ng"><div class="ng-title">NG-8: バズのためにトレンドに乗っかる量産</div><p>TikTok Discover List 2026入選50名の共通点は「トレンドを追わず哲学を一貫」。量産・乗っかりは2026年AI規制の真っ先の対象。Issyの「ガチへの偏愛」は量産の逆だから強い。</p></div>
+    <div class="ng"><div class="ng-title">NG-9: Veo3の「商用権がクリア」を無条件に信じる</div><p>個人発信は問題なし。商業案件・クライアント納品が発生する場合、無料枠は可視ウォーターマーク付きで不適。Pro版が必要。</p></div>
+    <div class="ng"><div class="ng-title">NG-10: オリジナル楽曲の「自動推薦」を期待しすぎる</div><p>YouTube MusicとYouTube Videoは別システム。「オーディオフィンガープリントで類似ファンへ自動推薦」は2026年現在公式確認なし。MV×ショート×ライブの相互流入を能動設計で。</p></div>
+  </section>
+
+  <!-- ===== SEC 8 ===== -->
+  <section class="section" id="sec8">
+    <div class="section-head"><span class="section-num">08</span><h2>30日アクションプラン</h2></div>
+
+    <div class="week">
+      <h3>Week 1（6/8-6/14）: 基盤設計</h3>
+      <div class="check"><div class="box"></div><span>チャンネル説明文を「一文で作風確定」に書き換え（YouTube・TikTok両方）</span></div>
+      <div class="check"><div class="box"></div><span>SUMIMASENの30-45秒サンプル版をTikTok Soundに登録申請</span></div>
+      <div class="check"><div class="box"></div><span>Google FlowでSUMIMASEN.wavのバリアント4パターン生成（ABテスト素材確保）</span></div>
+      <div class="check"><div class="box"></div><span>YouTube Studio「オーディエンス保持グラフ」の確認方法を把握・現在値を記録</span></div>
+      <div class="check"><div class="box"></div><span>TikTok Analyticsで「完了率・リウォッチ率・シェア率」の確認方法を把握</span></div>
+    </div>
+
+    <div class="week">
+      <h3>Week 2（6/15-6/21）: コンテンツ初回バッチ</h3>
+      <div class="check"><div class="box"></div><span>月次バッチ制作Day1・2 — SUMIMASEN関連Shorts 3本（ビート設計編／AI映像生成編／ヘタウマ失敗テイク編）</span></div>
+      <div class="check"><div class="box"></div><span>各Shortsのフック3型（パターンインタラプト・直接約束・質問型）をそれぞれ試す</span></div>
+      <div class="check"><div class="box"></div><span>Google Flowで各Shortsの冒頭バリアント4パターンを生成</span></div>
+      <div class="check"><div class="box"></div><span>TikTok問い型キャプションの準備（各動画に3語問い）</span></div>
+      <div class="check"><div class="box"></div><span>スケジュール投稿設定（火・木・日21時）</span></div>
+    </div>
+
+    <div class="week">
+      <h3>Week 3（6/22-6/28）: 運用 ＋ 初速戦術</h3>
+      <div class="check"><div class="box"></div><span>3本のShortsを予定通り配信</span></div>
+      <div class="check"><div class="box"></div><span>各投稿直後30分: ピン留めコメント + コメント全件返信</span></div>
+      <div class="check"><div class="box"></div><span>6時間後の完了率・リウォッチ率・シェア率を記録（スプレッドシート管理開始）</span></div>
+      <div class="check"><div class="box"></div><span>長尺動画1本の企画確定（「SUMIMASENを全解体する15分」等）</span></div>
+      <div class="check"><div class="box"></div><span>Close Friends / TikTok DMで既存フォロワーへのプレビュー打診</span></div>
+    </div>
+
+    <div class="week">
+      <h3>Week 4（6/29-7/5）: 長尺制作 ＋ 月次振り返り</h3>
+      <div class="check"><div class="box"></div><span>YouTube長尺1本を撮影・編集・投稿（エンドスクリーン+プレイリスト設計）</span></div>
+      <div class="check"><div class="box"></div><span>長尺からShorts素材抽出（5-10本リスト化、翌月バッチの素材に）</span></div>
+      <div class="check"><div class="box"></div><span>4週間の数値整理（最高バリアント／シェア最多の共通点／次月テーマのヒント3つ）</span></div>
+      <div class="check"><div class="box"></div><span>翌月テーマ決定（フォロワーコメント50% + 自分がやりたい50%）</span></div>
+      <div class="check"><div class="box"></div><span>必要に応じてDistroKidでSUMIMASEN配信登録手続き開始</span></div>
+    </div>
+
+    <h3>付録: 数値目標の目安</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>指標</th><th>初期（0-3ヶ月）</th><th>成長（3-6ヶ月）</th></tr></thead>
+        <tbody>
+          <tr><td>冒頭3秒保持率</td><td>60%</td><td>75%+</td></tr>
+          <tr><td>完了率（60-90秒）</td><td>55%</td><td>70%+</td></tr>
+          <tr><td>リウォッチ率</td><td>8%</td><td>15%+</td></tr>
+          <tr><td>シェア率</td><td>0.5%</td><td>1%+</td></tr>
+          <tr><td>エンゲージメント率</td><td>3%</td><td>5%+</td></tr>
+          <tr><td>投稿頻度</td><td>週3本</td><td>週5本</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted)">※ これらは「比較で判断する」相対値。自チャンネルの伸び率でトレンドを見ることが重要。一部の具体数値はWeb調査由来のため方向性の目安として扱う。</p>
+  </section>
+
+  <div class="footer">
+    Last Updated: 2026年6月6日 21:48 JST ／ 2026年6月時点の検証済み情報に基づく。アルゴリズムは3-6ヶ月で変化するため半期ごとに見直し推奨。<br>
+    元データ: creative-brain-trends/260606_tiktok-youtube-growth-playbook.md ／ 姉妹ページ: <a href="creative-brain.html" class="src">Creative Brain</a>
+  </div>
+
+</div>
+</body>
+</html>
