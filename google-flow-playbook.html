@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Flow AI動画制作マスタープレイブック</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<meta name="last-modified" content="2026-06-06T21:23:14+09:00">
+<meta name="description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
+<meta property="og:title" content="Google Flow AI動画制作マスタープレイブック">
+<meta property="og:description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Flow AI動画制作マスタープレイブック">
+<meta name="twitter:description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
+<style>
+  :root {
+    --bg: #0e0e16;
+    --panel: #ffffff;
+    --ink: #1a1a24;
+    --muted: #6b6b7b;
+    --line: #e6e6ee;
+    --accent: #7c5cff;
+    --accent2: #ff4d9d;
+    --accent3: #18c29c;
+    --soft: #f5f4fb;
+    --code-bg: #f0eefb;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    line-height: 1.8; font-size: 15px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 940px; margin: 0 auto; padding: 0 18px 80px; }
+  /* cover */
+  .cover {
+    background:
+      radial-gradient(120% 140% at 80% -10%, rgba(124,92,255,.45), transparent 55%),
+      radial-gradient(120% 130% at 0% 0%, rgba(255,77,157,.35), transparent 50%),
+      linear-gradient(135deg, #15131f 0%, #0b0b13 100%);
+    color: #fff; margin: 0 -18px 0; padding: 64px 32px 56px; border-radius: 0 0 26px 26px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  }
+  .cover .kicker { letter-spacing: .35em; font-size: 11px; color: #c9bfff; font-weight: 700; text-transform: uppercase; }
+  .cover h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.25; margin: 14px 0 12px; font-weight: 800; }
+  .cover .sub { color: #d7d3ee; font-size: 14px; max-width: 680px; }
+  .cover-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16); }
+  .cover-meta .label { font-size: 10px; letter-spacing: .12em; color: #9d95c9; text-transform: uppercase; }
+  .cover-meta .value { font-size: 13px; color: #fff; font-weight: 600; margin-top: 3px; }
+  .badges { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.12); color: #efeaff; border: 1px solid rgba(255,255,255,.18); }
+  /* card surface */
+  .card { background: var(--panel); border-radius: 16px; padding: 26px 28px; margin: 22px 0; box-shadow: 0 6px 24px rgba(20,16,50,.10); border: 1px solid var(--line); }
+  /* toc */
+  .toc-title { font-size: 19px; font-weight: 800; margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+  ol.toc { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 28px; }
+  .toc-item { break-inside: avoid; margin-bottom: 4px; }
+  .toc-item a { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); padding: 7px 8px; border-radius: 9px; transition: background .15s; font-size: 13.5px; }
+  .toc-item a:hover { background: var(--soft); }
+  .toc-num { flex-shrink: 0; width: 25px; height: 25px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  /* sections */
+  .section h2 { font-size: 21px; font-weight: 800; margin: 0 0 16px; line-height: 1.35; }
+  .section h2::before { content: ""; display: inline-block; width: 6px; height: 21px; background: linear-gradient(var(--accent), var(--accent2)); border-radius: 3px; margin-right: 11px; vertical-align: -3px; }
+  .body p { margin: 0 0 14px; }
+  .body ul, .body ol { margin: 6px 0 16px; padding-left: 22px; }
+  .body li { margin-bottom: 6px; }
+  .body strong { color: #2a1f6b; background: linear-gradient(transparent 62%, #e7e1ff 62%); padding: 0 1px; }
+  code { background: var(--code-bg); color: #5a3df0; padding: 2px 6px; border-radius: 5px; font-size: 12.5px; font-family: "SFMono-Regular", Consolas, Menlo, monospace; word-break: break-word; }
+  .tbl-wrap { overflow-x: auto; margin: 8px 0 18px; border-radius: 10px; border: 1px solid var(--line); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  thead th { background: #2a2540; color: #fff; text-align: left; padding: 10px 12px; font-weight: 700; white-space: nowrap; }
+  tbody td { padding: 9px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--soft); }
+  /* tips */
+  ol.tips { counter-reset: tip; list-style: none; padding: 0; margin: 0; }
+  ol.tips li { position: relative; padding: 12px 14px 12px 46px; margin-bottom: 9px; background: var(--soft); border-radius: 11px; border-left: 3px solid var(--accent3); font-size: 14px; }
+  ol.tips li::before { counter-increment: tip; content: counter(tip); position: absolute; left: 12px; top: 11px; width: 24px; height: 24px; background: var(--accent3); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  /* templates */
+  .tpl { border: 1px solid var(--line); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+  .tpl-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #2a2540; color: #fff; padding: 11px 14px; }
+  .tpl-name { font-weight: 800; font-size: 14px; }
+  .copy { background: var(--accent); color: #fff; border: 0; border-radius: 7px; padding: 5px 13px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .copy:hover { background: var(--accent2); }
+  .copy.done { background: var(--accent3); }
+  .tpl-when { font-size: 12.5px; color: var(--muted); padding: 10px 14px 0; }
+  pre.tpl-body { margin: 8px 14px 14px; padding: 13px; background: var(--code-bg); border-radius: 9px; font-size: 12.5px; line-height: 1.7; white-space: pre-wrap; word-break: break-word; font-family: "SFMono-Regular", Consolas, Menlo, monospace; color: #2a2540; }
+  /* glossary */
+  dl.glossary { margin: 0; }
+  dl.glossary dt { font-weight: 800; color: #2a1f6b; margin-top: 14px; font-size: 14px; }
+  dl.glossary dd { margin: 3px 0 0; color: #3a3a48; font-size: 13.5px; }
+  /* pitfalls */
+  table.pitfalls td.pit-p { width: 42%; color: #8a2b4d; font-weight: 600; }
+  /* misc */
+  .note { background: linear-gradient(135deg, #fff6fb, #f4f1ff); border: 1px solid #ecd9f5; border-radius: 12px; padding: 16px 20px; margin: 22px 0; font-size: 13.5px; }
+  .note b { color: var(--accent2); }
+  footer { text-align: center; color: #7a7790; font-size: 12px; margin-top: 40px; }
+  .top-link { position: fixed; right: 18px; bottom: 18px; background: var(--accent); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; box-shadow: 0 6px 18px rgba(124,92,255,.5); opacity: .9; }
+  @media (max-width: 680px) { ol.toc { columns: 1; } .card { padding: 20px 18px; } }
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    @page { size: A4; margin: 12mm; }
+    body { background: #fff; font-size: 11px; }
+    .top-link, .copy { display: none; }
+    .cover { border-radius: 0; box-shadow: none; }
+    .card { box-shadow: none; page-break-inside: avoid; break-inside: avoid; }
+    .section { page-break-inside: auto; }
+    .tpl, ol.tips li, table tr { page-break-inside: avoid; break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="kicker">AI Video Master Playbook</div>
+  <h1>Google Flow AI動画制作マスタープレイブック</h1>
+  <div class="sub">Veo搭載のGoogle Flowで、音楽MV・SNSショートを実戦で作り切るための完全ガイド（2026年6月時点・料金/仕様は公式で要確認）</div>
+  <div class="badges">
+    <span class="badge">Veo 3.1 世代</span>
+    <span class="badge">MV / SNSショート</span>
+    <span class="badge">7要素プロンプト設計</span>
+    <span class="badge">BPM→ショット同期</span>
+    <span class="badge">穴埋めテンプレ7種</span>
+  </div>
+  <div class="cover-meta">
+    <div><div class="label">Tool</div><div class="value">Google Flow (labs.google)</div></div>
+    <div><div class="label">Last Updated</div><div class="value">2026年6月6日 21:23</div></div>
+    <div><div class="label">Prepared by</div><div class="value">軍師 (Claude) × Issy</div></div>
+    <div><div class="label">Status</div><div class="value">v1.1 / 主要事実を実査済(2026-06-06)</div></div>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="card">
+    <div class="toc-title">目次</div>
+    <ol class='toc'><li class='toc-item'><a href='#what-is-flow'><span class='toc-num'>1</span><span>Google Flowとは・何ができるか</span></a></li><li class='toc-item'><a href='#getting-started'><span class='toc-num'>2</span><span>はじめの一歩（アカウント・プラン・画面）</span></a></li><li class='toc-item'><a href='#three-modes'><span class='toc-num'>3</span><span>3つの生成モードの使い分け</span></a></li><li class='toc-item'><a href='#prompt-design'><span class='toc-num'>4</span><span>勝てるプロンプト設計（7要素＋ダイアログ作法）</span></a></li><li class='toc-item'><a href='#consistency'><span class='toc-num'>5</span><span>一貫性を保つ（キャラ・世界観・スタイル・開始終了フレーム）</span></a></li><li class='toc-item'><a href='#long-form'><span class='toc-num'>6</span><span>長尺化とつなぎ（Scenebuilder / Extend）</span></a></li><li class='toc-item'><a href='#credits-pricing'><span class='toc-num'>7</span><span>クレジット運用と料金（変動注意）</span></a></li><li class='toc-item'><a href='#mv-workflow'><span class='toc-num'>8</span><span>MV制作ワークフロー（BPM→セクション→ショット→同期）</span></a></li><li class='toc-item'><a href='#failures'><span class='toc-num'>9</span><span>よくある破綻と対処</span></a></li><li class='toc-item'><a href='#iteration-loop'><span class='toc-num'>10</span><span>反復改善のループ</span></a></li></ol>
+    <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;font-size:12.5px;">
+      <a href="#tips" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ これだけは押さえるTips</a>
+      <a href="#templates" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ 穴埋めプロンプトテンプレ</a>
+      <a href="#glossary" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ 用語集</a>
+      <a href="#pitfalls" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ 破綻と対処</a>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>使い方:</b> 1〜10章で全体像と作法を掴み、実戦では「<b>穴埋めテンプレ</b>」に被写体・場所・カメラ・光を流し込んで生成 → 「<b>破綻と対処</b>」で詰まりを解消 → 「<b>反復改善のループ</b>」でクレジットを節約しながら磨き込みます。料金・クレジット・モデル名は改定が速いので、購入前に必ず公式（support.google.com/labs）で再確認してください。
+  </div>
+
+  <div class="note" style="background:linear-gradient(135deg,#eefcf6,#eef4ff);border-color:#cfeede;">
+    <b style="color:var(--accent3);">実査メモ（2026年6月6日 WebSearch/WebFetchで一次情報を確認）</b>
+    <div style="margin-top:8px;font-size:13px;line-height:1.85;">
+      <b>✓ 確証できた事実</b><br>
+      ・現行モデルは <b>Veo 3.1</b>（2025年10月初出 → 2026年1月に <b>4K出力</b>・縦型9:16ネイティブ・Ingredients強化）。<br>
+      ・<b>ネイティブ音声</b>（台詞・環境音・SFX・リップシンク）を1パスで生成 ＝ 本ガイドの音声4層設計は有効。<br>
+      ・品質ティアの公式名は <b>Veo 3.1 ／ Veo 3.1 Fast ／ Veo 3.1 Lite</b>（本ガイドの「Quality」＝標準のVeo 3.1）。<br>
+      ・<b>クレジットは翌月繰り越し不可・毎月1日リフレッシュ</b>。<br>
+      <b style="color:var(--accent2);">⚠ I/O 2026（2026年5月）で構造が動いた・提案前に要再確認</b><br>
+      ・<b>AI Ultraが2層化</b>：$100/月（開発者向け新ティア）と $200/月（従来$250から値下げ）。「$249」は旧値。<br>
+      ・使用量が「<b>compute-used</b>」モデルへ移行。Flowは<b>追加クレジットのペイ・アズ・ユー・ゴー購入</b>が可能に。<br>
+      ・<b>月間クレジット付与数は情報源で食い違う</b>（両Ultra層 12,500/月 とする二次情報あり）。<b>第7章の本数表は提案前に <a href="https://one.google.com/about/google-ai-plans/" style="color:var(--accent);">one.google.com</a> で必ず実数を再確認</b>すること。<br>
+      <span style="color:var(--muted);font-size:12px;">出典: deepmind.google/models/veo・blog.google（I/O 2026 / Veo 3.1 Lite）・one.google.com。8秒上限/Scenebuilder等の機能名/SynthID/DaVinci Resolveのビート検出(Studio限定)は今回未再検証＝本文記載のまま（公式で要確認）。</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <section class='section' id='what-is-flow'><h2>1. Google Flowとは・何ができるか</h2><div class='body'><p>Google Flow（labs.google/fx/tools/flow）は、Google I/O 2025で発表されたAIフィルムメイキングツールです。映像生成エンジンVeo、画像生成（Nano Banana系/Imagen）、Geminiが1つの制作環境に統合されており、テキストや参照画像からシネマティックな動画クリップを生成し、それらを編集・連結して1本の映像に仕上げられます。Googleの発表では、提供開始から最初の5ヶ月で2.75億本以上の動画が生成されたとされています（時間経過で増える統計値）。</p>
+<p>Flowが「単なるテキスト→動画ジェネレーター」と一線を画すのは、生成だけでなく<strong>ショットの連結（Scenebuilder）・延長（Extend）・参照画像による一貫性管理・カメラワーク制御</strong>まで一つのUIで回せる点です。MVやSNSショートのように「複数カットを統一されたトーンで積み上げる」用途に向いています。</p>
+<div class='tbl-wrap'><table><thead><tr><th>強み</th><th>内容</th></tr></thead><tbody><tr><td>ネイティブ音声</td><td>環境音・効果音・台詞（リップシンク付き）をプロンプトから同時生成</td></tr><tr><td>縦横両対応</td><td>16:9（横）と9:16（縦・2026年1月更新で追加）をネイティブ生成</td></tr><tr><td>一貫性管理</td><td>参照画像（Ingredients）で同一キャラ・小道具を複数ショットで維持</td></tr><tr><td>編集機能内蔵</td><td>クリップ連結・延長・カメラプリセット・フレーム保存をUI内で完結</td></tr><tr><td>映画言語に対応</td><td>dolly / crane / close-up 等のシネマトグラフィ用語を解釈</td></tr></tbody></table></div>
+<p><strong>できないこと・限界も先に把握しておくこと:</strong></p>
+<ul><li>1クリップは最大8秒（4/6/8秒）。長尺は複数クリップの連結が前提。</li><li>楽曲との自動同期はできない（最終的な拍合わせは編集ソフトで手作業）。</li><li>手・指の精密動作、画面内テキスト、長い歌唱シーンは依然崩れやすい。</li><li>全出力に不可視透かしSynthIDが埋め込まれる（除去不可・AI生成物の開示が前提）。</li></ul>
+<p>Veoのバージョンは2025年10月15日にVeo 3.1が初回リリースされ、2026年1月13日に4K・縦型・Ingredients to Video強化の大型更新が入っています（複数ソースで日付一致）。本プレイブックはVeo 3.1世代を前提としますが、モデルは頻繁に更新されるため<strong>UI上の表記とできることは都度確認</strong>してください。</p></div></section><section class='section' id='getting-started'><h2>2. はじめの一歩（アカウント・プラン・画面）</h2><div class='body'><p>FlowはGoogleアカウントでログインするだけで開始できます（APIキー不要）。labs.google/fx/tools/flow にアクセスし、Google AIサブスクリプションのプランに応じたFlowクレジットを消費して生成します。</p>
+<p><strong>プラン構成（2026年6月時点・公式で要確認）</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>プラン</th><th>月額（日本）</th><th>月間Flowクレジット</th><th>位置づけ</th></tr></thead><tbody><tr><td>無契約（無料）</td><td>¥0</td><td>1日50クレジット（繰り越し不可）</td><td>UIの試用・お試し</td></tr><tr><td>Google AI Pro</td><td>¥2,900（米$19.99）</td><td>1,000クレジット/月</td><td>MV制作の入口</td></tr><tr><td>Google AI Ultra（下位）</td><td>¥14,500</td><td>10,000クレジット/月</td><td>本格量産</td></tr><tr><td>Google AI Ultra（上位）</td><td>¥32,000（米$200）</td><td>25,000クレジット/月</td><td>プロ用途・可視透かし免除</td></tr></tbody></table></div>
+<p>注: 米ドル最上位は2026年に$250→$200へ値下げ済み。$249/$250という表記は旧価格です。月間クレジットは<strong>翌月繰り越し不可・請求サイクル末で失効</strong>します（公式 support.google.com/labs 確認）。</p>
+<p>新規向けにProの無料プロモ（日本では年額大幅割引キャンペーン等）が存在しますが、内容は流動的です。学生無料特典は新規受付が各地域で順次終了済み（米は2026年4月30日締切、既存登録者も2026年6月30日まで・以降は学生割引$9.99/月）なので、現時点で当てにしないでください。</p>
+<p><strong>最初に押さえる画面要素</strong></p>
+<ol><li><strong>プロンプトボックス＋Generateボタン</strong> — ここに記述して生成。</li><li><strong>モデル名のクリック切替</strong> — Veoの品質モード（後述のLite/Fast/Quality）や画像モデルを選ぶ。2026年時点のFlow既定画像モデルは『Nano Banana 2』（無料）で、Nano Banana ProはUltra既定（旧記載のNano Banana Pro/Imagen 4から更新済み・UIで都度確認）。</li><li><strong>preferences（設定）</strong> — アスペクト比（16:9 / 9:16）、生成尺（4/6/8秒）、出力本数を選択。</li><li><strong>モード切替ボタン</strong> — Text / Frames / Ingredients（3章で詳述）。</li><li><strong>Historyパネル</strong> — 過去の全バージョンと使用プロンプトが保存され、復元・再生成できる。</li></ol>
+<p><strong>最初の30分の進め方（推奨）</strong></p>
+<ul><li>無料の日次50クレジットでLiteモードを試し、UIとプロンプトの効き方を体感する。</li><li>「縦か横か」を最初に決める（9:16ショートなら最初から縦で構図を組む）。</li><li>いきなり本番は作らず、1ショットの被写体・カメラ・光の効き方を確かめてからプランに入る。</li></ul></div></section><section class='section' id='three-modes'><h2>3. 3つの生成モードの使い分け</h2><div class='body'><p>Flowには3つの生成モードがあります。MV制作では「決めカットはFrames、登場人物の統一はIngredients、ラフ探りはText」と役割分担するのが定石です。</p>
+<div class='tbl-wrap'><table><thead><tr><th>モード</th><th>入力</th><th>得意なこと</th><th>MVでの使いどころ</th></tr></thead><tbody><tr><td>Text to Video</td><td>テキストのみ</td><td>構図・動きの方向性を素早く探る</td><td>コンセプト探索、抽象・環境ショット</td></tr><tr><td>Frames to Video</td><td>開始フレーム（＋任意で終了フレーム）画像</td><td>カメラワーク・トランジション制御</td><td>決めカット、入りと出を制御したいカット</td></tr><tr><td>Ingredients to Video</td><td>参照画像 最大3〜4枚</td><td>キャラ・小道具・スタイルの一貫性</td><td>同一人物が複数ショットに登場するMV</td></tr></tbody></table></div>
+<p><strong>Text to Video</strong> — プロンプトに「被写体・動作・環境・ライティング・スタイル」を詰め込む標準モード。4章のプロンプト設計がそのまま効きます。平均像になりやすいので、具体・多層記述が前提です。</p>
+<p><strong>Frames to Video</strong> — 開始フレームと終了フレームの2枚を与え、その間の遷移をテキストで記述してアニメーション化します（『+ Add start frame』『+ Add end frame』にドラッグ）。最初の1枚だけ与えて続きを生成することも可能。<strong>カメラアイコン</strong>からプリセット（Pan / Tilt / Dolly / Truck / Zoom 等）をプレビュー付きで選べるため、カメラワークを文章で書かずに指定できる「イージーモード」が使えます。より高度な制御はプロンプトにシネマトグラフィ用語を直接書く「プロモード」。</p>
+<p><strong>Ingredients to Video</strong> — キャラクター・オブジェクト・スタイルの参照画像を最大3枚（2026年1月更新で最大4枚の参照画像対応）渡し、それらをどう組み合わせるかを記述するモード。複数クリップ間で<strong>同一の被写体・小道具を維持</strong>するのが目的です。参照画像は『無地または切り抜き背景の被写体／商品』が最も効きます。Veo 3.1ではIngredients使用時も音声生成が可能になり、同一キャラの会話シーンに最適です。</p>
+<p><strong>重要な排他制約（落とし穴）:</strong> 1回の生成で『開始フレーム（＋終了フレーム）』か『参照画像セット』の<strong>どちらか一方しか指定できません</strong>。両方は同時指定不可なので、設計時にこの分岐を意識してください。</p>
+<p>なお『Insert（オブジェクト追加）』『Remove（削除）』などの編集モードもVeo 3.1で追加されています（Removeは時期により提供状況が変化・要確認）。これらは内部割当モデルや音声生成の有無が更新で変わるため、本番前にUIで挙動を確認してください。</p></div></section><section class='section' id='prompt-design'><h2>4. 勝てるプロンプト設計（7要素＋ダイアログ作法）</h2><div class='body'><p>Veoの公式プロンプトガイドが示す中核フォーミュラは『<strong>[Cinematography カメラワーク] + [Subject 被写体] + [Action 動作] + [Context 環境] + [Style &amp; Ambiance スタイル・雰囲気・光]</strong>』です。これを実務用に7要素へ分解し、全部を1文に積み上げる「レイヤー積み上げ」が高品質化の鍵です。</p>
+<div class='tbl-wrap'><table><thead><tr><th>#</th><th>要素</th><th>書く内容</th><th>効く語彙の例</th></tr></thead><tbody><tr><td>1</td><td>被写体 Subject</td><td>誰・何か（具体的に）</td><td>weathered green trench coat, a tired corporate worker</td></tr><tr><td>2</td><td>アクション Action</td><td>何をしているか</td><td>rubbing his temples, picks up a rotary phone</td></tr><tr><td>3</td><td>環境 Context</td><td>場所・時代・背景</td><td>cluttered 1980s office, gritty brick wall</td></tr><tr><td>4</td><td>カメラ Camera</td><td>移動・構図・アングル</td><td>dolly shot, close-up, low angle, tracking shot</td></tr><tr><td>5</td><td>光 Lighting</td><td>光源・時間帯</td><td>golden hour, harsh fluorescent, green neon glow</td></tr><tr><td>6</td><td>雰囲気・質感 Ambiance</td><td>ムード・フィルム質感</td><td>cinematic, moody, cool blue tones, slightly grainy</td></tr><tr><td>7</td><td>音声 Audio</td><td>台詞・効果音・環境音・BGM</td><td>下記ダイアログ作法を参照</td></tr></tbody></table></div>
+<p><strong>良い例 vs 悪い例（具体性の差）</strong></p>
+<ul><li>弱い: <code>A man answers a rotary phone</code></li><li>強い: <code>A shaky dolly zoom goes from far away blur to close-up cinematic shot of a desperate man in weathered green trench coat as he picks up a rotary phone mounted on gritty brick wall, bathed in eerie green neon glow.</code></li></ul>
+<p>差分は[カメラ移動][構図][被写体の具体性][環境][ライティング][質感]の全レイヤーが乗っている点。曖昧な短文は退屈な平均像に、具体・多層記述は監督的コントロールを生みます。</p>
+<p><strong>音声は4層を明示する（最重要・ハルシネーション対策）</strong><br>Veoはプロンプトから完全なサウンドトラックを生成します。指定しないと『live studio audience（観客の笑い声）』が勝手に入る既知のハルシネーションがあるため、期待する背景音を明示して抑制します。</p>
+<ol><li>ダイアログ: <code>A woman says, "We have to leave now."</code>（公式推奨の引用符+says形式）</li><li>効果音: <code>SFX: thunder cracks in the distance</code> / <code>SFX: tire screeching</code></li><li>環境音: <code>Ambient noise: the quiet hum of a starship bridge</code></li><li>BGM: <code>a swelling, gentle orchestral score begins to play</code></li></ol>
+<p><strong>ダイアログと字幕暴発の防止（実務直結）</strong></p>
+<ul><li>公式最新推奨は引用符+says形式（<code>A woman says, "..."</code>）。ただし意図しない字幕（焼き込みテキスト）が出る既知問題があり、回避策はコミュニティ報告ベースでモデル更新により挙動が変わります。</li><li>字幕を確実に消したい時は negative prompt や補足で <code>no subtitles</code> <code>no text</code> を入れる（しつこい場合は繰り返す）。Veo 3.1は negative prompt をサポートします（Gemini APIでは <code>negative_prompt</code> パラメータ。除外語を肯定的に列挙する用途に有効）。</li><li><code>say this</code> <code>write this on screen</code> <code>text appears</code> 等の表現や引用符の使い方が画面テキスト生成のトリガーになりやすい。</li><li>発話は<strong>約8秒以内に収める</strong>（詰め込むと早口・崩壊、少なすぎると無言）。発音は音素表記で矯正（例 <code>fofr</code> → <code>foh-fur</code>）。</li></ul>
+<p><strong>ネガティブの書き方</strong> — 公式は『除外したい物を肯定文で具体的に記述する』アプローチを推奨。良い <code>a desolate landscape with no buildings or roads</code> ／悪い <code>no man-made structures</code>（命令的否定だけ）。「何を出さないか」より「代わりに何があるか」を描く方が安定します。</p>
+<p><strong>日本語 vs 英語のハイブリッド運用</strong> — 場所・人物の特徴・セリフ内容は日本語でも比較的効きますが、<strong>カメラワーク・映像スタイル・構図・光/質感は英語で書く</strong>方が安定します（要確認/変動あり）。日本語セリフ音声はVeo 3.1で対応するものの自然さは流動的で、Kling等の多言語音声に劣るとの比較もあるため、短く明確に指定するのが安全です。</p></div></section><section class='section' id='consistency'><h2>5. 一貫性を保つ（キャラ・世界観・スタイル・開始終了フレーム）</h2><div class='body'><p>MVが破綻する最大の原因は「ショットごとにキャラの顔・服・世界観が変わる」ことです。一貫性は<strong>視覚アンカー（参照画像）＋テキストアンカー（キャラバイブル）</strong>の二本立てで担保します。</p>
+<p><strong>(A) テキスト側：キャラバイブル／identity anchor</strong><br>キャラの全特徴を記した再利用テキストブロックを作り、毎プロンプトに<strong>一字一句同じ文言</strong>で埋め込みます。</p>
+<ul><li>例: <code>John, a man in his 40s with short brown hair, wearing a blue jacket and glasses</code></li></ul>
+<p>この身元記述ブロックをショット1にもショット2にも verbatim（逐語）で再掲するだけで、長期一貫性が劇的に改善します。スタイル（カラーグレード・画調・時代設定）も同様に固定句で再掲します。</p>
+<ul><li>例: <code>Retro aesthetic, shot as if on 1980s color film, slightly grainy</code> / <code>Cool blue tones, moody, cinematic</code></li></ul>
+<p><strong>(B) 視覚側：Ingredients to Video（参照画像のロック）</strong><br>人間がOKを出した参照画像を<strong>ロックし、以降すべてのショットの画像入力に使い回す</strong>のが最も効きます。これを飛ばすとモデルは毎回キャラをゼロから創作し破綻します。</p>
+<ul><li>参照画像は無地／切り抜き背景の被写体が最も効果的。</li><li>複数の材料画像どうしのルック&amp;フィールを揃えると合成精度が上がる。</li><li>ただし100%の完全再現ではないため、テキストのキャラバイブルと必ず併用する。</li></ul>
+<p><strong>(C) ハイブリッド制作（画像生成→Flow持ち込み）</strong><br>王道は「先に完璧な静止画（材料）を作り、それを動かす」フローです。</p>
+<ol><li>Imagen / Nano Banana系で、キャラバイブルに基づく超詳細プロンプトから完璧な静止画を作る。</li><li>その静止画を Frames（開始フレーム）または Ingredients に投入し、アクション・カメラワークを付与。</li><li>Flow内では動画の任意フレームを一時停止→ホバー→『Save frame』で画像保存し、次の生成の ingredient / start frame / end frame として再利用する。</li></ol>
+<p><strong>(D) 開始→終了フレーム補間（Frames to Video）</strong><br>開始フレームと終了フレームを画像で与え、その間の遷移をテキストで指示します。モーション制御のコツは『<strong>能動的・ベクトル指定</strong>』。</p>
+<ul><li>弱い: <code>風が吹いている</code></li><li>強い: <code>突風が草を左から右へなびかせる</code> / <code>smooth 180-degree arc shot</code></li></ul>
+<p><strong>1回生成内のマルチショット制御（タイムスタンプ）</strong> — <code>[00:00-00:02] ... [00:02-00:04] ...</code> とタイムコードで区切り、各区間にショット・SFX・感情を割り当てると、1生成内で短いシーケンスを組めます（短いビート単位の方が一貫性とペーシングが安定）。なおtimestamp promptingは一次ソースでの裏取りが不足しているため、効き方は実機検証してください。</p></div></section><section class='section' id='long-form'><h2>6. 長尺化とつなぎ（Scenebuilder / Extend）</h2><div class='body'><p>1クリップ最大8秒という制約は、<strong>Extend（延長）とScenebuilder（連結）</strong>の2機能で越えます。</p>
+<p><strong>Extend（シーン延長）— 1つの動きを伸ばす</strong><br>直前クリップの最終フレーム/最終秒を入力に、続きの映像を生成して継ぎ目なく縫合する「生成的継続」です。</p>
+<ul><li>手順: クリップ選択 → 下部の『Extend』 → 動作の続きをプロンプト記述 → Generate。</li><li>Veo 3.1では旧クリップの最後の1秒を引き継ぎ、視覚・音声の連続性を保つ。</li><li>繰り返すと 8→16→24→32秒… と1分超のシーケンスを構築できる。</li><li><strong>重要な制約</strong>: Extend済みクリップには insert / remove / camera など他の編集モードを適用できない。またExtendの出力は720p限定（要確認）。</li></ul>
+<p><strong>Scenebuilder（クリップ連結）— 複数カットを物語にする</strong><br>複数クリップを時系列タイムラインに並べて1本のシーンに構築する編集機能です。</p>
+<ul><li>クリップにホバー → 『More』→『Add to Scene』で追加。</li><li>順序の入れ替え（rearrange）、ハンドルでの端点トリム、全体プレビュー、完成シーンのダウンロードが可能。</li><li>セグメント横断の視覚的一貫性はScenebuilder側で管理する。</li></ul>
+<p><strong>使い分けの目安</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>やりたいこと</th><th>使う機能</th></tr></thead><tbody><tr><td>1つのアクション/カメラムーブを長く見せる</td><td>Extend</td></tr><tr><td>別々のカットを順番に並べて構成する</td><td>Scenebuilder</td></tr><tr><td>開始＝終了フレームで擬似ループを作る</td><td>Frames to Video（専用ループ機能は未確認）</td></tr><tr><td>アップロードした自前動画を会話的に編集</td><td>Edit &amp; Refine（最大60秒/1GB・10秒以下に分割・約3ターンで文脈リセット）</td></tr></tbody></table></div>
+<p><strong>擬似ループ</strong> — 公式の専用ループ機能は一次ソースで確認できていません。Frames to Videoで開始フレーム＝終了フレームに同一画像を指定し、間のモーションを記述してシームレスな往復/円環を作るのが現実的な手段です（SNSループ動画向け）。</p></div></section><section class='section' id='credits-pricing'><h2>7. クレジット運用と料金（変動注意）</h2><div class='body'><p><strong>料金・クレジット付与数・プラン構成は頻繁に改定されます。</strong> 購入・提案の直前に必ず公式（one.google.com / support.google.com/labs / blog.google）で最新値を再確認してください。以下は2026年6月時点の公式確定値ベースです。</p>
+<p><strong>モデル別クレジット単価（8秒1本あたり・公式確定値）</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>モデル</th><th>非Ultra</th><th>Ultra</th><th>用途</th></tr></thead><tbody><tr><td>Veo 3.1 Lite</td><td>10</td><td>5</td><td>ラフ探り・量産・つなぎショット</td></tr><tr><td>Veo 3.1 Fast</td><td>20</td><td>10</td><td>標準制作</td></tr><tr><td>Veo 3.1 Quality</td><td>100</td><td>100（割引なし）</td><td>ヒーローショット・最終品質</td></tr></tbody></table></div>
+<p><strong>プラン別の生成可能本数（Ultra割引の有無で倍違う点に注意）</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>プラン</th><th>月クレジット</th><th>Lite</th><th>Fast</th><th>Quality</th></tr></thead><tbody><tr><td>Pro</td><td>1,000</td><td>約100本</td><td>約50本</td><td>約10本</td></tr><tr><td>Ultra上位</td><td>25,000</td><td>約5,000本</td><td>約2,500本</td><td>約250本</td></tr></tbody></table></div>
+<p>※ Ultraは割引単価（Lite5/Fast10）で計算するため本数が多い。QualityはUltraでも割引なしの100クレジットなので250本。非Ultra単価で割ると本数が半減するので換算時に注意。</p>
+<p><strong>透かし（ウォーターマーク）</strong></p>
+<ul><li>可視『veo』透かし: 右下に表示。Pro以下は表示、Ultraは免除（解説記事ベース・要確認）。</li><li>SynthID（不可視）: 全ティアに必ず埋め込まれ、<strong>どのプランでも除去不可</strong>。AI生成物の開示が前提。</li></ul>
+<p><strong>API直叩き（代替経路・参考）</strong><br>サブスクではなくAPI課金も可能で、API出力は可視透かしなし（SynthIDのみ）で商用に向きます。ただしFlow UIの編集機能（Scenebuilder等）は使えません。</p>
+<ul><li>Veo 3.1 Fast ≈ $0.15/秒（8秒で約$1.20）</li><li>Veo 3.1 Quality(Standard) ≈ $0.40/秒（8秒で約$3.20）</li><li>価格は2026年3月時点の代表値。音声有無・4k・Liteで変動するため公式pricingで再確認。</li></ul>
+<p><strong>運用の鉄則</strong></p>
+<ul><li>クレジットは翌月繰り越し不可・請求サイクル末で失効 → 月末に使い切る計画を。</li><li>無契約は1日50クレジット無料（繰り越し不可）。『月100クレジット』という記載は誤り。</li><li>Midjourney等にある『時間を犠牲にクレジット節約するRelaxed/無制限モード』はFlowに存在しない（Fast/Qualityの2モードのみ）。</li><li>高需要時は『Something Went Wrong』エラーや待ち時間が発生。Pro/Ultraは無料より優先されるが、Ultraの優位は大きなクレジットプールにある。</li></ul></div></section><section class='section' id='mv-workflow'><h2>8. MV制作ワークフロー（BPM→セクション→ショット→同期）</h2><div class='body'><p>AIは映像と楽曲を自動同期できません。<strong>1拍/1小節の秒数を先に計算し、それに合わせてクリップを切る</strong>のが手作業の肝です。各AIツールを『映画の各部門』に見立てて分業すると段取りが整理できます（コンセプトアート＝Midjourney/Imagen、撮影監督＝Veo/Flow、ポスプロ＝Topaz、編集＝DaVinci/CapCut）。</p>
+<p><strong>ステップ1: 楽曲確定 → BPMから小節グリッドを作る</strong><br>計算式: <code>1拍の秒数 = 60 ÷ BPM</code> ／ <code>1小節の秒数 =（60 ÷ BPM）× 拍数</code></p>
+<div class='tbl-wrap'><table><thead><tr><th>BPM（4/4）</th><th>1拍</th><th>1小節</th><th>8秒クリップ＝</th></tr></thead><tbody><tr><td>90</td><td>0.67秒</td><td>2.67秒</td><td>約3小節</td></tr><tr><td>100</td><td>0.60秒</td><td>2.40秒</td><td>約3.3小節</td></tr><tr><td>120</td><td>0.50秒</td><td>2.00秒</td><td>ちょうど4小節（16拍）</td></tr><tr><td>140</td><td>0.43秒</td><td>1.71秒</td><td>約4.7小節</td></tr></tbody></table></div>
+<p><strong>ステップ2: セクション分割 → 感情を1行で定義</strong><br>イントロ / Aメロ / Bメロ / サビ / 間奏 / Cメロ / アウトロに分け、各セクションの開始タイムコードと小節数を記録。各セクションに温度を1行で（例 Aメロ=静・内省、サビ=爆発・解放）。</p>
+<p><strong>ステップ3: ショットリスト → ショット尺で感情を設計</strong><br>『1ショット=1〜2小節』を基本単位に、小節数でショット尺を割り付けます。</p>
+<div class='tbl-wrap'><table><thead><tr><th>セクション</th><th>ショット尺の目安</th><th>狙い</th></tr></thead><tbody><tr><td>イントロ</td><td>長め（長回し）</td><td>雰囲気提示</td></tr><tr><td>Aメロ</td><td>2〜4小節/ショット</td><td>内省・余韻</td></tr><tr><td>Bメロ</td><td>徐々に短く</td><td>高揚への助走</td></tr><tr><td>サビ</td><td>1小節以下/ショット</td><td>畳み掛け・解放</td></tr><tr><td>間奏</td><td>長回し＋カメラムーブ</td><td>見せ場</td></tr><tr><td>ラスサビ</td><td>最短カット＋スピードランプ</td><td>最高潮</td></tr></tbody></table></div>
+<p>『1ショットに主要ビート1つ』を守るとカット点が自然に拍に乗ります。3分・4/4・120BPMなら全体約90小節 → 8秒換算で約22ショット、サビを刻めば30〜40ショット。</p>
+<p><strong>ステップ4: ムードボード＆リファレンス画像をロック</strong><br>楽曲から3〜5語のキーワード（例 夜・ネオン・孤独・スロー）を抽出し、配色・画調・モチーフを1枚のボードに集約。人間がOKした参照画像を『ビジュアルバイブル』としてロックし、全ショットの画像入力に使う（5章参照）。</p>
+<p><strong>ステップ5: 決めカットの絵コンテ（4〜6枚）→ 生成</strong><br>全ショットのキーフレームは不要。映像方向を決める『4〜6枚の決めカット』だけ先に静止画で作り、image-to-video / Frames / Ingredients で動かす。プロンプトにBPM・キー・拍を書くとクリップ内のカメラ/光が体感的にヒットへ寄る（例 <code>Upbeat electronic, 128 BPM, major key, dance energy</code>）が、複数クリップ間の正確な拍合わせは保証されない。</p>
+<p><strong>ステップ6: 編集ソフトで楽曲に同期</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>ツール</th><th>機能</th><th>向き</th></tr></thead><tbody><tr><td>DaVinci Resolve 20</td><td>Show Music Beats（AIビート検出）→スナップでカットを拍にスナップ</td><td>MV本格編集（<strong>Studio版限定</strong>・無償版不可）</td></tr><tr><td>CapCut</td><td>Auto Beat Sync＋スピードカーブ（Montage/Jump Cut）</td><td>SNSショート高速量産</td></tr><tr><td>手動マーキング</td><td>再生しながらキーで拍をマーク</td><td>確実だが3分曲で30〜60分</td></tr></tbody></table></div>
+<p><strong>歌詞・テーマの翻訳</strong> — 歌詞を直訳せず『感情の比喩＝モチーフ』に変換する（喪失→液体クロムの花が開いて散る、焦燥→点滅するネオンとガラスの反射）。Veoは天候・反射・浅い被写界深度など物理記述語を高精度で反映するため、抽象は『具体的な物理ディテール』として書くほど成立します。J-POP/オルタナ系は雨・濡れたアスファルトの反射・夜のネオン・電車/踏切・制服・フィルム粒状感とハレーションといったノスタルジア系モチーフが効きます（時点付きの所感）。</p></div></section><section class='section' id='failures'><h2>9. よくある破綻と対処</h2><div class='body'><p>AI動画特有の破綻はパターンが決まっています。<strong>原因→生成時の緩和→後処理</strong>の3段で対処します。</p>
+<div class='tbl-wrap'><table><thead><tr><th>破綻</th><th>原因</th><th>生成時の緩和</th><th>後処理</th></tr></thead><tbody><tr><td>手・顔のモーフィング</td><td>フレーム間の身元拘束欠如</td><td>参照画像で身元固定／カメラ移動を減らす／複雑なジェスチャより単純な手のポーズ（握り拳・開いた手のひら）</td><td>コンポジットで手・顔を差し替え／カット編集で隠す</td></tr><tr><td>時間的フリッカー・露出ふらつき</td><td>AIが光を物理でなく視覚パターンとして扱う＋長尺で初期指示への注意が弱まる</td><td>3〜5秒の短いセグメントで生成し縫合／重要記述子を反復＋<code>Throughout the entire clip...</code>等の時間アンカー／<code>一定したソフトな昼光、ライティング変化なし</code>と明示</td><td>全セグメントに一貫カラーグレード・露出正規化・スタビライズ</td></tr><tr><td>物理の不自然さ（フローティング）</td><td>質量・重力・運動量の理解なく見た目だけ模倣</td><td>物理を明示（<code>重い足音と地面への明確な衝撃</code>）／実世界動作を参照／環境との相互作用を描写</td><td>スローモーションで無重力感をマスク／フレーム補間</td></tr><tr><td>観客の笑い声が勝手に入る</td><td>音声未指定時のハルシネーション</td><td>期待する環境音を <code>Ambient noise:</code> で明示</td><td>不要音をミュート/差し替え</td></tr><tr><td>字幕・画面テキストの暴発</td><td>引用符の使い方・<code>say this</code>等の表現がトリガー</td><td>negative/補足で <code>no subtitles</code> <code>no text</code>（しつこい場合繰り返す）</td><td>マスク/クロップで隠す</td></tr><tr><td>平均的で退屈な絵</td><td>曖昧な短文</td><td>7要素を多層で積み上げる／カメラ・光・質感を必ず書く</td><td>—</td></tr><tr><td>キャラの見た目が毎カット変わる</td><td>リファレンス未固定</td><td>Ingredients参照画像ロック＋キャラバイブル逐語再掲</td><td>カット割りで破綻フレームを回避</td></tr><tr><td>長い歌唱シーンの口の崩れ</td><td>歌唱の長尺は仕様上弱い</td><td>台詞中心・短尺で設計／Ingredientで顔固定</td><td>リップ部分だけ別撮り合成</td></tr></tbody></table></div>
+<p><strong>設計段階での予防が最も効く</strong>: 「短く刻む・参照を固定する・光と物理を言葉で縛る」の3点を守るだけで、後処理の量が大きく減ります。</p></div></section><section class='section' id='iteration-loop'><h2>10. 反復改善のループ</h2><div class='body'><p>Veoはモデルベースで都度生成するため、同じプロンプトでも結果が揺れます。クレジットを浪費せず質を上げるには、<strong>安いモードで方向性を固め→本命だけ高品質化→気に入った絵を再利用</strong>するループが基本です。</p>
+<p><strong>反復ループの手順</strong></p>
+<ol><li><strong>Liteで構図と動きを探る</strong> — 同じシーンの方向性を複数Liteで撒き、当たりの構図・カメラ・光を見極める。</li><li><strong>当たりを言語化して固定</strong> — 効いたカメラ/光/質感の記述子をキャラバイブル/スタイル固定句に昇格させ、以降のプロンプトに逐語で再掲。</li><li><strong>ヒーローショットだけQualityで本生成</strong> — サビ頭・ラスサビ・タイトルが映る決めカットにクレジットを厚く。つなぎ/環境ショットはLiteで量産し編集の拍で速く流して粗を隠す。</li><li><strong>気に入ったフレームをSave frame→次の材料に</strong> — 一貫性の担保に再利用（Ingredients / start frame）。</li><li><strong>Historyで版を比較</strong> — 過去バージョンとプロンプトが残るので、効いた差分を学習として蓄積。</li></ol>
+<p><strong>クレジット節約の鉄則</strong></p>
+<ul><li>同じシーンのバリエーション乱発を避け、優先ショットに予算を集中する。</li><li>1ショットの『当て本数』に上限を決める（3〜4回再生成すると月クレジットを一気に消費する）。</li><li>まずDraft/Lite → 本命だけfull、を徹底する。</li></ul>
+<p><strong>反証を取り込む（任意）</strong> — 重要なMVや提案用クリップでは、Flow単体の思い込みループに陥らないよう、別系統のツール（Kling/Hailuo等）で同じショットを試して比較するのも有効です。ただしツール優劣評価は2025〜2026年初頭時点の主観で急速に陳腐化するため『時点付きの所感』として扱ってください（例: ChatGPTのSoraは2026年3月に終了発表済みで、Sora前提の比較は無効）。</p>
+<p><strong>ループを止める基準</strong> — 「(a)キャラ/世界観が全カットで保たれている」「(b)カット点が拍に乗っている」「(c)致命的な手・顔・物理の破綻がない」の3点を満たしたら本生成を止め、編集・カラーグレードに進みます。完璧を狙って再生成を続けるより、編集で隠せる粗は編集に回すのが現実的です。</p></div></section>
+  </div>
+
+  <div class="card" id="tips">
+    <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">これだけは押さえる実戦Tips</h2>
+    <ol class='tips'><li>1クリップは最大8秒。長尺は最初から『Extendで延長／Scenebuilderで連結』を前提に設計する。</li><li>プロンプトは7要素（被写体・動作・環境・カメラ・光・質感・音声）を1文に多層で積む。曖昧な短文は退屈な平均像になる。</li><li>音声は4層（台詞・SFX・環境音・BGM）を必ず明示。未指定だと『観客の笑い声』が勝手に入る。</li><li>台詞は引用符+says形式（A woman says, "..."）。字幕が出たら no subtitles / no text を補足し、しつこければ繰り返す。</li><li>発話は約8秒以内に収める。詰め込むと早口・崩壊、少なすぎると無言になる。</li><li>一貫性は『キャラバイブル（テキスト逐語再掲）＋参照画像のロック（Ingredients）』の二本立て。片方だけでは破綻する。</li><li>1回の生成で『開始/終了フレーム』と『参照画像セット』は同時指定できない（排他制約）。設計で分岐を意識する。</li><li>カメラワークは英語、被写体・セリフ内容は日本語可。演出・光・質感は英語で書く方が安定（要確認/変動あり）。</li><li>MVは先にBPMから小節グリッドを作る（1小節=（60÷BPM）×拍数）。120BPM・4/4なら8秒=ちょうど4小節。</li><li>ショット尺で感情を作る。サビ=1小節以下の畳み掛け、Aメロ=2〜4小節の長回し。1ショットに主要ビート1つ。</li><li>楽曲との拍合わせはAIではできない。DaVinci Resolve 20のビート検出（Studio版限定）かCapCutのAuto Beat Syncで最終同期する。</li><li>クレジットは翌月繰り越し不可・月末失効。Liteで探り→ヒーローショットだけQuality、で予算を集中する。</li><li>全出力にSynthID（不可視・除去不可）が入る。商用はAI生成物の開示が前提。可視透かしを消したいならUltraかAPI経由。</li><li>料金・クレジット・モデル名は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/labs等）で再確認する。</li><li>破綻は『短く刻む・参照を固定する・光と物理を言葉で縛る』の3点予防が後処理より効く。完璧再生成より編集で隠す。</li></ol>
+  </div>
+
+  <div class="card" id="templates">
+    <h2 style="font-size:21px;font-weight:800;margin:0 0 8px;">穴埋めプロンプトテンプレート</h2>
+    <p style="color:var(--muted);font-size:13px;margin:0 0 18px;">[　]を埋めて使う。カメラ・光・質感は英語、被写体・場所・セリフは日本語可。各テンプレ右上「コピー」でクリップボードへ。</p>
+    <div class='tpl'><div class='tpl-head'><span class='tpl-name'>MVシネマティック決めカット（横16:9）</span><button class='copy' data-copy='EN: [Camera move, e.g. slow dolly-in] [shot size, e.g. medium close-up] of [被写体の具体的描写], [動作], in [環境・時代], lit by [光源/時間帯]. [スタイル固定句, e.g. cinematic, cool blue tones, slightly grainy, shot on film]. Ambient noise: [環境音]. [SFX: 効果音]. [BGM: ジャンル・ムード].
+
+JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]／場所=[　]／温度=[内省/解放など]'>コピー</button></div><div class='tpl-when'>サビ頭・ラスサビなどヒーローショット。Qualityモードで本生成する決めカットに。</div><pre class='tpl-body'>EN: [Camera move, e.g. slow dolly-in] [shot size, e.g. medium close-up] of [被写体の具体的描写], [動作], in [環境・時代], lit by [光源/時間帯]. [スタイル固定句, e.g. cinematic, cool blue tones, slightly grainy, shot on film]. Ambient noise: [環境音]. [SFX: 効果音]. [BGM: ジャンル・ムード].
+
+JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]／場所=[　]／温度=[内省/解放など]</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>縦型SNSショート（9:16・テンポ重視）</span><button class='copy' data-copy='EN (9:16 portrait, subject centered): [被写体] [動作], [環境], [光]. Energetic [スタイル, e.g. vibrant, high-contrast]. Quick [カメラ move, e.g. whip pan / snap zoom]. SFX: [ヒット音]. BGM: [ジャンル, BPM約XX]. (no subtitles, no text)'>コピー</button></div><div class='tpl-when'>TikTok/Reels/Shorts用の短尺。最初から縦で被写体を中央〜やや上に配置。</div><pre class='tpl-body'>EN (9:16 portrait, subject centered): [被写体] [動作], [環境], [光]. Energetic [スタイル, e.g. vibrant, high-contrast]. Quick [カメラ move, e.g. whip pan / snap zoom]. SFX: [ヒット音]. BGM: [ジャンル, BPM約XX]. (no subtitles, no text)</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>人物クローズアップ（表情・浅い被写界深度）</span><button class='copy' data-copy='EN: Close-up with very shallow depth of field, [キャラバイブル逐語: 名前・年齢・髪・服], [表情/微細な動作], [環境ぼけ]. [光, e.g. soft window light from the left]. Melancholic mood, [カラー, e.g. cool blue tones], moody, cinematic. Ambient noise: [静かな環境音].'>コピー</button></div><div class='tpl-when'>感情を見せたいAメロ・ブリッジ。顔の一貫性が要るので参照画像ロックと併用。</div><pre class='tpl-body'>EN: Close-up with very shallow depth of field, [キャラバイブル逐語: 名前・年齢・髪・服], [表情/微細な動作], [環境ぼけ]. [光, e.g. soft window light from the left]. Melancholic mood, [カラー, e.g. cool blue tones], moody, cinematic. Ambient noise: [静かな環境音].</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>風景・抽象モチーフ（歌詞の比喩を物理ディテールに）</span><button class='copy' data-copy='EN: [カメラ, e.g. crane shot ascending] revealing [情景, 例: a desolate landscape with only wind-bent grass], [時間帯/光, e.g. at sunrise, soft morning light]. [物理ディテール, e.g. liquid chrome petals slowly unfurling]. [スタイル, e.g. epic, awe-inspiring, photorealistic, cinematic]. Ambient noise: [風/水音].'>コピー</button></div><div class='tpl-when'>つなぎ/環境ショット、歌詞テーマの抽象演出。Liteで量産可。</div><pre class='tpl-body'>EN: [カメラ, e.g. crane shot ascending] revealing [情景, 例: a desolate landscape with only wind-bent grass], [時間帯/光, e.g. at sunrise, soft morning light]. [物理ディテール, e.g. liquid chrome petals slowly unfurling]. [スタイル, e.g. epic, awe-inspiring, photorealistic, cinematic]. Ambient noise: [風/水音].</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>カメラワーク重視（Frames to Video）</span><button class='copy' data-copy='EN (start frame + end frame given): A [カメラ move, e.g. smooth 180-degree arc shot / dolly zoom] transitions from [開始の状態] to [終了の状態]. [能動的なモーション記述, 例: a gust sweeps the grass from left to right]. [スタイル固定句]. ※カメラアイコンのプリセット（Pan/Tilt/Dolly/Truck/Zoom）併用も可'>コピー</button></div><div class='tpl-when'>入りと出を制御したいカット。開始/終了フレーム画像を与え、遷移を能動的に記述。</div><pre class='tpl-body'>EN (start frame + end frame given): A [カメラ move, e.g. smooth 180-degree arc shot / dolly zoom] transitions from [開始の状態] to [終了の状態]. [能動的なモーション記述, 例: a gust sweeps the grass from left to right]. [スタイル固定句]. ※カメラアイコンのプリセット（Pan/Tilt/Dolly/Truck/Zoom）併用も可</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>ダイアログあり（リップシンク・字幕回避）</span><button class='copy' data-copy='EN: [shot size] of [キャラバイブル逐語]. He/She [動作] and says, &quot;[英語または短い日本語のセリフ]&quot;. [環境・光・スタイル]. Ambient noise: [環境音]. (no subtitles, no text)
+
+発音矯正が要る固有名詞は音素表記で（例 fofr → foh-fur）'>コピー</button></div><div class='tpl-when'>会話カット・歌唱以外のセリフ。発話は8秒以内、字幕暴発に注意。</div><pre class='tpl-body'>EN: [shot size] of [キャラバイブル逐語]. He/She [動作] and says, "[英語または短い日本語のセリフ]". [環境・光・スタイル]. Ambient noise: [環境音]. (no subtitles, no text)
+
+発音矯正が要る固有名詞は音素表記で（例 fofr → foh-fur）</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>1生成内マルチショット（タイムスタンプ）</span><button class='copy' data-copy='EN: [00:00-00:03] [ショット1: 被写体・動作・カメラ]. SFX: [音]. [00:03-00:06] [ショット2: 変化]. [00:06-00:08] [ショット3: 結び]. Consistent [スタイル固定句] throughout the entire clip. [全体の音声: Ambient noise / BGM]'>コピー</button></div><div class='tpl-when'>1クリップで小さなシーケンスを作りたい時。短いビート単位で割る（効きは要検証）。</div><pre class='tpl-body'>EN: [00:00-00:03] [ショット1: 被写体・動作・カメラ]. SFX: [音]. [00:03-00:06] [ショット2: 変化]. [00:06-00:08] [ショット3: 結び]. Consistent [スタイル固定句] throughout the entire clip. [全体の音声: Ambient noise / BGM]</pre></div>
+  </div>
+
+  <div class="card" id="glossary">
+    <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">用語集</h2>
+    <dl class='glossary'><dt>Google Flow</dt><dd>Google I/O 2025で発表されたAIフィルムメイキングツール。Veo・画像モデル・Geminiを統合し、生成から連結・編集までを一つのUIで行う（labs.google/fx/tools/flow）。</dd><dt>Veo / Veo 3.1</dt><dd>Flow搭載の映像生成モデル。3.1は2025年10月初回・2026年1月に4K/縦型/Ingredients強化。ネイティブ音声・リップシンクに対応。</dd><dt>Text to Video</dt><dd>テキスト記述のみから動画を生成する標準モード。構図・動きの方向性を素早く探るのに向く。</dd><dt>Frames to Video</dt><dd>開始フレーム（＋任意で終了フレーム）の画像を与え、その間の遷移を生成するモード。カメラワーク制御が最も活きる。</dd><dt>Ingredients to Video</dt><dd>キャラ・物・スタイルの参照画像（最大3〜4枚）を渡し、複数ショット間で同一性を保つモード。一貫性の中核。</dd><dt>Scenebuilder</dt><dd>複数クリップを時系列タイムラインに並べて1本のシーンに構築するFlowの編集機能。順序入替・トリム・ダウンロードが可能。</dd><dt>Extend</dt><dd>既存クリップ末尾に続きを生成して尺を伸ばす機能。繰り返すと60秒以上化できるが、他の編集モードと併用不可・720p限定（要確認）。</dd><dt>Ingredients / 材料</dt><dd>Ingredients to Videoに渡す参照画像のこと。無地・切り抜き背景の被写体が最も効く。</dd><dt>キャラバイブル（identity anchor）</dt><dd>キャラの全特徴を記した再利用テキストブロック。毎プロンプトに逐語で再掲し、長期の見た目一貫性を保つ。</dd><dt>SynthID</dt><dd>全Veo出力に必ず埋め込まれる不可視の電子透かし。専用ツールでのみ検出可能で、どのプランでも除去不可。</dd><dt>可視ウォーターマーク（veo透かし）</dt><dd>Flow出力の右下に表示される半透明の『veo』テキスト。Pro以下は表示、Ultraは免除（要確認）。</dd><dt>Flowクレジット</dt><dd>Flowで生成するたびに消費する月次/日次の通貨。モデル別単価（Lite10/Fast20/Quality100、Ultraは割引）。翌月繰り越し不可。</dd><dt>Lite / Fast / Quality</dt><dd>Veo 3.1の品質ティア。公式の正式名称は <strong>Veo 3.1（最高品質・本ガイドの『Quality』）／Veo 3.1 Fast（標準）／Veo 3.1 Lite（最安・ラフ探り）</strong> の3層。速度・コストと品質のトレードオフ。本ガイドでは最上位を便宜上『Quality』と表記するが、UI上は単に『Veo 3.1』。</dd><dt>negative prompt</dt><dd>出力から除外したい要素を指定するパラメータ/補足。字幕除去（no subtitles）等に使う。Gemini APIでは negative_prompt。</dd><dt>Show Music Beats</dt><dd>DaVinci Resolve 20のAIビート検出機能。タイムラインに拍を表示しカットをスナップできる。Studio版限定。</dd><dt>Auto Beat Sync</dt><dd>CapCut内蔵の自動ビート検出。楽曲の拍をドットで表示し、カット/トランジションを拍に合わせる。SNSショート量産に有効。</dd><dt>スピードランプ（speed ramp）</dt><dd>クリップ速度を曲線的に変化させる演出。サビの加速・ブレイクの減速など緩急をつける。CapCutやResolveで適用。</dd><dt>timestamp prompting</dt><dd>1回の生成内で[00:00-00:02]...と時間区切りで複数ショットを記述する手法。短いビート単位で一貫性が上がる（一次ソース未確認・要検証）。</dd></dl>
+  </div>
+
+  <div class="card" id="pitfalls">
+    <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">よくある破綻と対処（早見表）</h2>
+    <div class='tbl-wrap'><table class='pitfalls'><thead><tr><th>破綻パターン</th><th>対処</th></tr></thead><tbody><tr><td class='pit-p'>音声を指定せず生成したら『観客の笑い声（live studio audience）』が勝手に入る。</td><td class='pit-f'>期待する背景音を Ambient noise: で明示する。台詞・SFX・環境音・BGMの4層を毎回書く。</td></tr><tr><td class='pit-p'>台詞を入れたら画面に字幕（焼き込みテキスト）が暴発する。</td><td class='pit-f'>公式の引用符+says形式を使いつつ、補足/negativeで no subtitles・no text を入れる。しつこい場合は繰り返す。say this 等の表現は避ける。</td></tr><tr><td class='pit-p'>ショットごとにキャラの顔・服・世界観が変わり、MVとして成立しない。</td><td class='pit-f'>キャラバイブルを逐語で毎プロンプトに再掲し、OK済み参照画像をIngredientsでロックして全ショットに使い回す（テキスト＋画像の二本立て）。</td></tr><tr><td class='pit-p'>開始/終了フレームと参照画像を両方指定しようとして生成が意図通りにならない。</td><td class='pit-f'>1回の生成では『フレーム指定』か『参照画像セット』のどちらか一方のみ。設計時に分岐を決める（排他制約）。</td></tr><tr><td class='pit-p'>長めのクリップで露出・色が途中からふらつき、fever dream化する。</td><td class='pit-f'>3〜5秒の短いセグメントで生成し縫合。ライティングを明示固定し『Throughout the entire clip / ライティング変化なし』等の時間アンカーを入れ、後処理で全体に一貫カラーグレードをかける。</td></tr><tr><td class='pit-p'>手・指・顔がモーフィングして崩れる。</td><td class='pit-f'>参照画像で身元を固定し、カメラ移動と複雑なジェスチャを減らす。単純な手のポーズにする。崩れフレームは後処理の差し替え/カット編集で隠す。</td></tr><tr><td class='pit-p'>人物や物が地面から浮いて見える（物理の不自然さ）。</td><td class='pit-f'>重力・接地を言葉で縛る（『重い足音と地面への明確な衝撃』）。実世界動作を参照させ、後処理でスロー/フレーム補間を当てる。</td></tr><tr><td class='pit-p'>クレジットを再生成で一気に使い切り、月末に作れなくなる。</td><td class='pit-f'>1ショットの当て本数に上限を決める。Liteで方向性を固め、ヒーローショットだけQualityに回す。月クレジットは繰り越し不可なので月末計画を立てる。</td></tr><tr><td class='pit-p'>AI生成クリップを並べただけで楽曲とリズムが合わない。</td><td class='pit-f'>AIに自動同期はできない。先にBPMから小節グリッドを作り、編集ソフト（DaVinci Resolve 20のビート検出=Studio版限定／CapCut Auto Beat Sync）で拍にスナップする。</td></tr><tr><td class='pit-p'>古い料金/仕様/モデル名（$249、月100クレジット、Nano Banana Pro既定、Sora前提の比較）を信じて提案してしまう。</td><td class='pit-f'>料金・クレジット・モデル名・対応機能は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/labs・blog.google・ai.google.dev）で最新値を再確認する。 【2026-06-06実査】Google I/O 2026(2026年5月)でプラン構成が改定。AI Ultraは$100(開発者向け新)／$200(従来$250から値下げ)の2層、使用量は『compute-used』モデルへ移行、Flowはペイ・アズ・ユー・ゴーの追加クレジット購入が可能に。月間クレジット付与数は情報源により食い違う(両Ultra層12,500との二次情報あり)ため、本文の表の数値は提案前に one.google.com で必ず再確認。</td></tr></tbody></table></div>
+  </div>
+
+  <footer>
+    Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年6月6日 21:23 JST<br>
+    出典: labs.google・blog.google・support.google.com/labs・ai.google.dev ほか（2026年6月時点・仕様/料金は変動）
+  </footer>
+</div>
+
+<a href="#" class="top-link" aria-label="トップへ戻る">↑</a>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function(){
+        var o = b.textContent; b.textContent = '✓ コピー済'; b.classList.add('done');
+        setTimeout(function(){ b.textContent = o; b.classList.remove('done'); }, 1500);
+      });
+    });
+  });
+</script>
+</body>
+</html>
