@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUMIMASEN — カット案100（Claude案）</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <meta name="last-modified" content="2026-06-07T20:22:00+09:00">
+  <meta name="description" content="SUMIMASEN動画のカット案100（Claudeのディープダイブ案・確定前）。謝罪の所作×懐かしのエッセンスを軸に8カテゴリで展開。Creative Brain 姉妹ページ。">
+  <meta property="og:title" content="SUMIMASEN — カット案100（Claude案）">
+  <meta property="og:description" content="SUMIMASEN動画のカット案100。謝罪の所作×懐かしのエッセンス（マイケル等）を軸にCBの美学でディープダイブ。確定前のたたき台。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain/creative-brain-sumimasen-cuts.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SUMIMASEN — カット案100（Claude案）">
+  <meta name="twitter:description" content="SUMIMASEN動画のカット案100。謝罪の所作×懐かしのエッセンスでディープダイブ。確定前。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+    :root {
+      --bg-base:#E8E6DF; --bg-card:#FFFFFF;
+      --accent-primary:#E0005F; --accent-secondary:#008566; --accent-gold:#8A6E22;
+      --accent-electric:#0079B8; --accent-purple:#7c5cff;
+      --text-primary:#161616; --text-secondary:#4E4E4E; --text-muted:#8A8A86;
+      --border:#D6D3CB; --tag-bg:#FCE9F1; --tag-text:#E0005F;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html,body { background:var(--bg-base); color:var(--text-primary); font-family:'Noto Sans JP',sans-serif; min-height:100vh; font-size:16px; line-height:1.6; }
+    .cut { box-shadow:0 1px 3px rgba(0,0,0,0.10),0 1px 2px rgba(0,0,0,0.05); }
+    .cut:hover { box-shadow:0 5px 16px rgba(0,0,0,0.14); transform:translateY(-2px); }
+
+    /* TOP BAR */
+    .topbar { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:16px; padding:12px 28px; }
+    .topbar .back { font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; color:var(--accent-purple); text-decoration:none; letter-spacing:0.04em; white-space:nowrap; }
+    .topbar .back:hover { text-decoration:underline; }
+    .topbar .crumb { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase; }
+    .topbar .links { margin-left:auto; display:flex; gap:14px; }
+    .topbar .links a { font-size:13px; font-weight:600; text-decoration:none; color:var(--text-secondary); }
+    .topbar .links a:hover { color:var(--accent-primary); }
+
+    .wrap { max-width:1180px; margin:0 auto; padding:36px 28px 90px; }
+
+    /* HERO */
+    .hero .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; color:var(--accent-purple); letter-spacing:0.16em; text-transform:uppercase; }
+    .hero h1 { font-size:42px; font-weight:900; line-height:1.12; margin:6px 0 10px; }
+    .hero h1 .grad { background:linear-gradient(100deg,#E0005F,#7c5cff 55%,#0079B8); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .hero .sub { font-size:16px; color:var(--text-secondary); max-width:820px; }
+    .hero-note { margin-top:14px; background:#FFF6FA; border:1px dashed var(--accent-primary); border-radius:12px; padding:14px 18px; font-size:14.5px; color:var(--text-secondary); max-width:900px; }
+    .hero-note b { color:var(--accent-primary); }
+
+    /* AXIS chips */
+    .axis { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+    .axis .chip { font-size:13px; font-weight:600; background:#fff; border:1px solid var(--border); border-radius:999px; padding:5px 14px; color:var(--text-secondary); }
+
+    /* FILTER */
+    .filter-bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:30px 0 8px; position:sticky; top:53px; background:var(--bg-base); padding:10px 0; z-index:50; }
+    .filter-label { font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:0.1em; margin-right:4px; }
+    .fbtn { font-size:14px; font-weight:600; background:#fff; border:1px solid var(--border); border-radius:999px; padding:7px 15px; cursor:pointer; color:var(--text-secondary); transition:all 0.15s; }
+    .fbtn:hover { border-color:var(--accent-purple); }
+    .fbtn.active { background:var(--accent-purple); color:#fff; border-color:var(--accent-purple); }
+    .fbtn .n { font-family:'IBM Plex Mono',monospace; font-size:11px; opacity:0.7; margin-left:4px; }
+
+    /* CAT HEADING */
+    .cat { margin-top:38px; }
+    .cat-h { display:flex; align-items:center; gap:12px; padding-bottom:9px; margin-bottom:16px; border-bottom:2px solid var(--accent-purple); }
+    .cat-h .ic { font-size:24px; }
+    .cat-h h2 { font-size:20px; font-weight:700; flex:1; }
+    .cat-h .cnt { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); }
+
+    /* CUT GRID */
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:14px; }
+    .cut { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; display:flex; gap:12px; cursor:pointer; transition:all 0.15s; }
+    .cut-no { font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; color:#fff; background:#1A1A2E; border-radius:8px; min-width:34px; height:26px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cut-ttl { font-size:16px; font-weight:700; line-height:1.35; }
+    .cut-dsc { font-size:14px; color:var(--text-secondary); margin-top:4px; }
+    .cut-tg { margin-top:8px; display:flex; flex-wrap:wrap; gap:5px; }
+    .cut-tg span { font-size:11.5px; font-weight:600; background:var(--tag-bg); color:var(--tag-text); border-radius:999px; padding:2px 9px; }
+    .cut-tg span.g { background:#E3F3EE; color:var(--accent-secondary); }
+    .cut-tg span.b { background:#E2F0F8; color:var(--accent-electric); }
+    .cut-tg span.gd { background:#F3EEDC; color:var(--accent-gold); }
+
+    .foot { margin-top:56px; padding-top:20px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:8px 20px; }
+
+    #toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px); background:#1A1A2E; color:#fff; padding:10px 20px; border-radius:8px; font-size:14px; opacity:0; pointer-events:none; transition:all 0.25s; z-index:999; }
+    #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    @media (max-width:640px) { .hero h1 { font-size:32px; } .topbar .links { display:none; } }
+    @media print {
+      * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
+      @page { size:A4; margin:12mm; }
+      html,body { background:#fff; }
+      .topbar,.filter-bar,#toast { display:none; }
+      .cut { page-break-inside:avoid; break-inside:avoid; }
+      .cat-h { page-break-after:avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a class="back" href="creative-brain-sumimasen.html">← SUMIMASEN プロジェクトへ</a>
+    <span class="crumb">/ カット案100</span>
+    <div class="links">
+      <a href="creative-brain.html">🧠 Creative Brain</a>
+      <a href="idea-list.html">💡 アイデア</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">CB / SUMIMASEN / Cut Ideas — Deep Dive</div>
+      <h1><span class="grad">カット案 100</span></h1>
+      <div class="sub">SUMIMASEN動画のカット案を、Creative Brainの美学を軸に100個まで深掘りした。芯は「<b>謝罪の所作（すみません）× 懐かしのエッセンス（マイケル筆頭）</b>」。気に入ったものをSUMIMASENページの正式カットへ昇格させる。</div>
+      <div class="hero-note">
+        ⚠️ これは <b>Claudeのたたき台（まだ確定ではない）</b>。Issyの種（手刀ダッシュ / カラオケ闖入 / 別れ際 / ムーンウォーク）を起点に展開。カードをクリックでコピー。<b>採用・ボツ・改変</b>を指示してくれれば反映する。
+      </div>
+      <div class="axis">
+        <span class="chip">🎵 チルR&B × New Jack Swing</span>
+        <span class="chip">🙇 過剰な「すみません」文化</span>
+        <span class="chip">📼 チープ80sCG・VHS・過剰彩度</span>
+        <span class="chip">😏 緊張と緩和・ヘタウマ・自虐</span>
+        <span class="chip">🕺 マイケル / 80-90s オマージュ</span>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <span class="filter-label">FILTER</span>
+      <button class="fbtn active" data-f="all" onclick="filt(this,'all')">すべて<span class="n">100</span></button>
+      <button class="fbtn" data-f="gesture" onclick="filt(this,'gesture')">謝罪の所作<span class="n">15</span></button>
+      <button class="fbtn" data-f="situation" onclick="filt(this,'situation')">シチュ別すみません<span class="n">20</span></button>
+      <button class="fbtn" data-f="mj" onclick="filt(this,'mj')">MJ &amp; 80-90s洋楽<span class="n">15</span></button>
+      <button class="fbtn" data-f="showa" onclick="filt(this,'showa')">昭和・平成TV<span class="n">15</span></button>
+      <button class="fbtn" data-f="vfx" onclick="filt(this,'vfx')">チープVFX<span class="n">12</span></button>
+      <button class="fbtn" data-f="chara" onclick="filt(this,'chara')">登場人物<span class="n">8</span></button>
+      <button class="fbtn" data-f="dance" onclick="filt(this,'dance')">ダンス・振付<span class="n">8</span></button>
+      <button class="fbtn" data-f="meta" onclick="filt(this,'meta')">メタ・オチ<span class="n">7</span></button>
+    </div>
+
+    <!-- ===== 1. 謝罪の所作・ジェスチャー図鑑 ===== -->
+    <section class="cat" data-cat="gesture">
+      <div class="cat-h"><span class="ic">🙇</span><h2>謝罪の所作・ジェスチャー図鑑</h2><span class="cnt">01–15</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">01</span><div><div class="cut-ttl">手刀ダッシュ（いしじま）</div><div class="cut-dsc">人前を手刀を切りながら高速横断。変な格好のまま。虹色の残像トレイル。</div><div class="cut-tg"><span>Issy種</span><span>手刀</span><span>残像</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">02</span><div><div class="cut-ttl">最敬礼ドミノ</div><div class="cut-dsc">廊下ですれ違う社員が次々90度のお辞儀、ドミノ倒しのように連鎖。</div><div class="cut-tg"><span>群衆</span><span>連鎖</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">03</span><div><div class="cut-ttl">菓子折りスロー</div><div class="cut-dsc">謝罪の菓子折りをスローモーションで差し出す。後光がさしてキラキラ。</div><div class="cut-tg"><span>スロー</span><span>後光VFX</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">04</span><div><div class="cut-ttl">土下座スライディング</div><div class="cut-dsc">野球の滑り込みの勢いで土下座。砂煙のチープVFX。セーフのジェスチャー。</div><div class="cut-tg"><span>土下座</span><span>砂煙</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">05</span><div><div class="cut-ttl">名刺交換無限ループ</div><div class="cut-dsc">「申し遅れました」と二人の名刺交換が永遠に終わらない。お辞儀のループ。</div><div class="cut-tg"><span>無限ループ</span><span>ビジネス</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">06</span><div><div class="cut-ttl">エレベーター「閉」連打</div><div class="cut-dsc">開ボタンと間違えて「閉」を連打、乗ろうとした人に平謝り。</div><div class="cut-tg"><span>あるある</span><span>気まずさ</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">07</span><div><div class="cut-ttl">傘ぺこぺこ</div><div class="cut-dsc">雨の中すれ違い、傘を傾け合って譲り合いが無限に続く。水滴がきらめく。</div><div class="cut-tg"><span>譲り合い</span><span>雨</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">08</span><div><div class="cut-ttl">自販機にお辞儀</div><div class="cut-dsc">自販機に小銭を落として、機械に向かって「すみません」と深々と頭を下げる。</div><div class="cut-tg"><span>ナンセンス</span><span>対物</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">09</span><div><div class="cut-ttl">電話ぺこぺこ</div><div class="cut-dsc">見えない電話の相手に何度も頭を下げる昭和の定番所作。固定電話のコードをいじる。</div><div class="cut-tg"><span>昭和</span><span>あるある</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">10</span><div><div class="cut-ttl">ドア譲り合い地獄</div><div class="cut-dsc">「お先にどうぞ」「いえいえどうぞ」の譲り合いが永遠にループしてドアが通れない。</div><div class="cut-tg"><span>無限ループ</span><span>緊張と緩和</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">11</span><div><div class="cut-ttl">蕎麦すすり謝罪</div><div class="cut-dsc">音を立てて謝りながら蕎麦をすする。すするたびに会釈。リズムが曲に乗る。</div><div class="cut-tg"><span>リズム</span><span>食</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">12</span><div><div class="cut-ttl">改札ぶつかり謝罪</div><div class="cut-dsc">ICカードのエラーで急停止、後ろの人に振り返って平謝り。改札ピンポン音がSE。</div><div class="cut-tg"><span>あるある</span><span>都会</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">13</span><div><div class="cut-ttl">傘の雫払い儀式</div><div class="cut-dsc">電車で隣の人に濡れた傘が触れ、過剰なまでに何度も謝罪し雫を払う。</div><div class="cut-tg"><span>過剰</span><span>電車</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">14</span><div><div class="cut-ttl">千手観音 会釈ウォーク</div><div class="cut-dsc">オフィスを多方向に会釈しながら通り抜ける。腕が増えて千手観音化（チープ合成）。</div><div class="cut-tg"><span>合成VFX</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="gesture" onclick="copyCut(this)"><span class="cut-no">15</span><div><div class="cut-ttl">謝罪FAX</div><div class="cut-dsc">平成感あふれるオフィス。送信中のFAXに向かって頭を下げる。紙が出てくる音。</div><div class="cut-tg"><span>平成</span><span>対物</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 2. シチュエーション別「すみません」劇場 ===== -->
+    <section class="cat" data-cat="situation">
+      <div class="cat-h"><span class="ic">🚪</span><h2>シチュエーション別「すみません」劇場</h2><span class="cnt">16–35</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">16</span><div><div class="cut-ttl">カラオケ闖入「ごめんくださーい」</div><div class="cut-dsc">いちゃつくカップルの部屋に「おかあさんおとうさんが…」とドアを開け閉め反復。</div><div class="cut-tg"><span>Issy種</span><span>気まずさ</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">17</span><div><div class="cut-ttl">カップル別れ際「すみません」</div><div class="cut-dsc">別れ際に何度も振り返り、謝りながら去っていく。トレンディドラマ風夜景。</div><div class="cut-tg"><span>Issy種</span><span>切なさ</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">18</span><div><div class="cut-ttl">満員電車プレス</div><div class="cut-dsc">押し込まれながら乗客全員が「すみません」を合唱。ドアが閉まるたびに声が重なる。</div><div class="cut-tg"><span>群衆</span><span>合唱</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">19</span><div><div class="cut-ttl">会議遅刻スライドイン</div><div class="cut-dsc">中腰ダッシュで会議室に滑り込む。腰を低く、手刀を切りながら自席へ。</div><div class="cut-tg"><span>中腰</span><span>ビジネス</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">20</span><div><div class="cut-ttl">レジ小銭探し謝罪</div><div class="cut-dsc">後ろの行列に謝りながら財布の小銭を必死に数える。汗のチープVFX。</div><div class="cut-tg"><span>あるある</span><span>焦り</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">21</span><div><div class="cut-ttl">渋滞のお辞儀運転</div><div class="cut-dsc">車線変更でハザード、車内から手を上げ会釈。車ごとぺこっと傾く。</div><div class="cut-tg"><span>運転</span><span>あるある</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">22</span><div><div class="cut-ttl">居酒屋オーダー連呼</div><div class="cut-dsc">「すみませーん」が店員に全然届かない。だんだん声が大きくなり虚しく響く。</div><div class="cut-tg"><span>虚無</span><span>あるある</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">23</span><div><div class="cut-ttl">図書館くしゃみ謝罪</div><div class="cut-dsc">静寂で巨大なくしゃみ。全方向に小声で謝罪、本で顔を隠す。</div><div class="cut-tg"><span>静と動</span><span>緊張と緩和</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">24</span><div><div class="cut-ttl">葬式マナー過剰</div><div class="cut-dsc">焼香の作法に自信がなく、周りを横目でチラ見しながら見よう見まねで謝る。</div><div class="cut-tg"><span>あるある</span><span>緊張</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">25</span><div><div class="cut-ttl">エスカレーター片側空け</div><div class="cut-dsc">急ぐ人に道を譲って体を縮め、通り過ぎる全員に会釈。</div><div class="cut-tg"><span>都会</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">26</span><div><div class="cut-ttl">試着室「失礼しまーす」</div><div class="cut-dsc">店員のノックに過剰反応、カーテンの中で何度も「あっ、すみません」。</div><div class="cut-tg"><span>あるある</span><span>小心</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">27</span><div><div class="cut-ttl">出前持ち玄関</div><div class="cut-dsc">「お待たせしましたー」と過剰に低姿勢で岡持ちを差し出す出前持ち。</div><div class="cut-tg"><span>昭和</span><span>低姿勢</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">28</span><div><div class="cut-ttl">病院待合の呼び出し</div><div class="cut-dsc">名前を呼ばれ慌てて立ち上がり、待合室全員に会釈してから診察室へ。</div><div class="cut-tg"><span>あるある</span><span>小心</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">29</span><div><div class="cut-ttl">タクシー乗り込み恐縮</div><div class="cut-dsc">行き先を告げるのに「近くてすみません…」と必要以上に恐縮する。</div><div class="cut-tg"><span>あるある</span><span>自虐</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">30</span><div><div class="cut-ttl">コンビニ温め小心</div><div class="cut-dsc">「あ、温めで…すみません」とレジで小さくなる。袋いる/いらない問答も恐縮。</div><div class="cut-tg"><span>あるある</span><span>小心</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">31</span><div><div class="cut-ttl">結婚式スピーチ噛み</div><div class="cut-dsc">緊張で噛み、マイクに向かって「すみません」を連発、汗だく。</div><div class="cut-tg"><span>緊張</span><span>自虐</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">32</span><div><div class="cut-ttl">ATM行列で操作迷子</div><div class="cut-dsc">操作がわからず後ろに何度も謝りながらボタンを連打。</div><div class="cut-tg"><span>あるある</span><span>焦り</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">33</span><div><div class="cut-ttl">銭湯かけ湯会釈</div><div class="cut-dsc">先客に会釈しながら湯船に入る。湯気の中、過剰なマナーの応酬。</div><div class="cut-tg"><span>昭和</span><span>礼儀</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">34</span><div><div class="cut-ttl">電車寝過ごし飛び起き</div><div class="cut-dsc">寄りかかって寝てしまった隣人に飛び起きて平謝り、慌てて降りる。</div><div class="cut-tg"><span>あるある</span><span>気まずさ</span></div></div></div>
+        <div class="cut" data-cat="situation" onclick="copyCut(this)"><span class="cut-no">35</span><div><div class="cut-ttl">狭い階段すれ違い</div><div class="cut-dsc">狭い階段で体を限界まで縮め、壁に張り付いて「すみません」。</div><div class="cut-tg"><span>あるある</span><span>身体</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 3. マイケル & 80s-90s洋楽オマージュ ===== -->
+    <section class="cat" data-cat="mj">
+      <div class="cat-h"><span class="ic">🕺</span><h2>マイケル &amp; 80s-90s洋楽オマージュ</h2><span class="cnt">36–50</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">36</span><div><div class="cut-ttl">ムーンウォーク退場</div><div class="cut-dsc">気まずさを、ムーンウォークで滑るように去ることで昇華する。スポットライト。</div><div class="cut-tg"><span class="b">Issy種</span><span class="b">MJ</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">37</span><div><div class="cut-ttl">Smooth Criminal 斜め立ち</div><div class="cut-dsc">深いお辞儀から、そのまま斜め45度に静止。重力に逆らう謝罪ポーズ。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">キメ</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">38</span><div><div class="cut-ttl">Thriller ゾンビ謝罪</div><div class="cut-dsc">ゾンビの群れが一斉に頭を下げる振付。墓場から「すみません」が湧く。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">群舞</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">39</span><div><div class="cut-ttl">BAD 路地裏群舞</div><div class="cut-dsc">路地裏で謝罪ダンスバトル。New Jack Swingのグルーヴで腰を切る。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">NJS</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">40</span><div><div class="cut-ttl">Beat It 謝り対決</div><div class="cut-dsc">二人の謝り合いを、ナイフの代わりにお辞儀の応酬ダンスで決着させる。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">対決</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">41</span><div><div class="cut-ttl">白手袋キラーン</div><div class="cut-dsc">片手の白手袋で謝罪のキメポーズ。指先がキラーンと光るチープVFX。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">VFX</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">42</span><div><div class="cut-ttl">They Don't Care 行進</div><div class="cut-dsc">群衆が胸を叩きながら「SU-MI-MA-SEN」とシュプレヒコールで行進。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">群衆</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">43</span><div><div class="cut-ttl">Bobby Brown スウィング</div><div class="cut-dsc">New Jack Swing本家の腰ムーブで「My Prerogative」風に謝る。</div><div class="cut-tg"><span class="b">NJS</span><span class="b">90s</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">44</span><div><div class="cut-ttl">Rhythm Nation 隊列会釈</div><div class="cut-dsc">ジャネット風の軍隊的隊列で、キレキレの一斉お辞儀。モノトーン衣装。</div><div class="cut-tg"><span class="b">90s</span><span class="b">群舞</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">45</span><div><div class="cut-ttl">トゥスタンド最敬礼</div><div class="cut-dsc">マイケルのつま先立ち（トゥスタンド）から、そのまま深々と最敬礼。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">キメ</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">46</span><div><div class="cut-ttl">ゼロ・グラビティ謝辞</div><div class="cut-dsc">Smooth Criminalの前傾を謝罪に転用。仲間が一斉に同じ角度でお辞儀。</div><div class="cut-tg"><span class="b">MJ</span><span class="b">群舞</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">47</span><div><div class="cut-ttl">プリンス風 悩殺謝罪</div><div class="cut-dsc">紫の照明、色っぽく振り返って「…ごめんね」。ファルセットのため息。</div><div class="cut-tg"><span class="b">80s</span><span class="b">色気</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">48</span><div><div class="cut-ttl">MCハマー横っ飛び</div><div class="cut-dsc">だぼだぼパンツで「U Can't Touch This」風に横っ飛び謝罪（CBオマージュと接続）。</div><div class="cut-tg"><span class="b">90s</span><span class="b">CB既出</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">49</span><div><div class="cut-ttl">New Edition 整列謝罪</div><div class="cut-dsc">5人組ボーイズグループが振付で順に一歩出て謝る。コーラスで「サーセン」。</div><div class="cut-tg"><span class="b">NJS</span><span class="b">群舞</span></div></div></div>
+        <div class="cut" data-cat="mj" onclick="copyCut(this)"><span class="cut-no">50</span><div><div class="cut-ttl">ステージ煙幕せり上がり</div><div class="cut-dsc">謝罪者が煙とともにステージにせり上がり、スポットライトで最敬礼。</div><div class="cut-tg"><span class="b">ステージ</span><span class="b">大袈裟</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 4. 昭和・平成 日本TVノスタルジー ===== -->
+    <section class="cat" data-cat="showa">
+      <div class="cat-h"><span class="ic">📺</span><h2>昭和・平成 日本TVノスタルジー</h2><span class="cnt">51–65</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">51</span><div><div class="cut-ttl">夜のヒットスタジオ風</div><div class="cut-dsc">きらびやかな階段を降りながら謝罪のバラードを熱唱。スモークと電飾。</div><div class="cut-tg"><span class="g">歌番組</span><span class="g">昭和</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">52</span><div><div class="cut-ttl">ドリフ「後ろー！」風</div><div class="cut-dsc">背後の怒れる上司に気づかず、観客の「後ろー！」で振り返り平謝り。</div><div class="cut-tg"><span class="g">コント</span><span class="g">昭和</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">53</span><div><div class="cut-ttl">トレンディドラマ別れ</div><div class="cut-dsc">都会の夜景バックに、レインコートで振り返り「ごめん…」。フジテレビ感。</div><div class="cut-tg"><span class="g">90sドラマ</span><span class="g">切なさ</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">54</span><div><div class="cut-ttl">仮面ライダー変身→謝罪</div><div class="cut-dsc">勇ましい変身ポーズの流れで、そのまま深々と最敬礼（CB既出ネタと接続）。</div><div class="cut-tg"><span class="g">特撮</span><span class="g">CB既出</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">55</span><div><div class="cut-ttl">教習所ビデオ風</div><div class="cut-dsc">「このような時、すみませんと言いましょう」と再現VTRの説明口調（CB既出）。</div><div class="cut-tg"><span class="g">パロディ</span><span class="g">CB既出</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">56</span><div><div class="cut-ttl">通販番組 啖呵売風</div><div class="cut-dsc">「今なら謝罪セットを特別価格で！」と実演販売の啖呵売トーン（CB既出タグ）。</div><div class="cut-tg"><span class="g">啖呵売</span><span class="g">CB既出</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">57</span><div><div class="cut-ttl">時代劇 平身低頭</div><div class="cut-dsc">「お代官様、何卒…」とチープな城セットで土下座。書き割りが揺れる。</div><div class="cut-tg"><span class="g">時代劇</span><span class="g">チープ</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">58</span><div><div class="cut-ttl">歌のお兄さん風 謝罪体操</div><div class="cut-dsc">子供番組のテンションで「あやまり体操」を振付つきで教える。着ぐるみも。</div><div class="cut-tg"><span class="g">子供番組</span><span class="g">体操</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">59</span><div><div class="cut-ttl">全員集合セット崩壊</div><div class="cut-dsc">巨大セットがガラガラ崩れる中、それでも謝り続ける。大掛かりなドリフ的崩壊。</div><div class="cut-tg"><span class="g">大セット</span><span class="g">昭和</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">60</span><div><div class="cut-ttl">野球中継テロップ</div><div class="cut-dsc">「ただ今のプレー、申し訳ございません」が画面下にテロップで流れる。</div><div class="cut-tg"><span class="g">テロップ</span><span class="g">中継</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">61</span><div><div class="cut-ttl">ニュース速報 割り込み</div><div class="cut-dsc">番組中に「謝罪します」の速報テロップとピロピロ音が割り込む。</div><div class="cut-tg"><span class="g">速報</span><span class="g">SE</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">62</span><div><div class="cut-ttl">CMの「ピンポーン」宅配謝罪</div><div class="cut-dsc">玄関チャイムが鳴り、宅配が「再配達ですみません」と低姿勢。昭和CM画質。</div><div class="cut-tg"><span class="g">CM</span><span class="g">VHS画質</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">63</span><div><div class="cut-ttl">ワイドショー謝罪会見</div><div class="cut-dsc">フラッシュを焚かれ、長机で深々と土下座会見。記者の怒号がSE。</div><div class="cut-tg"><span class="g">会見</span><span class="g">過剰</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">64</span><div><div class="cut-ttl">アド街風ランキング</div><div class="cut-dsc">「謝りたい街ベスト10」をポンポンとパネルで紹介（CB既出V-013接続）。</div><div class="cut-tg"><span class="g">パロディ</span><span class="g">CB既出</span></div></div></div>
+        <div class="cut" data-cat="showa" onclick="copyCut(this)"><span class="cut-no">65</span><div><div class="cut-ttl">紅白風 大トリ土下座</div><div class="cut-dsc">紙吹雪と金屏風の中、フィナーレで全身全霊の土下座。客席総立ち。</div><div class="cut-tg"><span class="g">フィナーレ</span><span class="g">大袈裟</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 5. チープVFX・演出ギミック ===== -->
+    <section class="cat" data-cat="vfx">
+      <div class="cat-h"><span class="ic">📼</span><h2>チープVFX・演出ギミック</h2><span class="cnt">66–77</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">66</span><div><div class="cut-ttl">VHS巻き戻し謝罪</div><div class="cut-dsc">謝罪が巻き戻り音とともに逆再生し、何度も繰り返される。トラッキングノイズ。</div><div class="cut-tg"><span class="gd">VHS</span><span class="gd">ループ</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">67</span><div><div class="cut-ttl">クロマキー破綻</div><div class="cut-dsc">合成背景がズレて体が透ける。それに気づいて「すみません」とメタ謝罪。</div><div class="cut-tg"><span class="gd">合成</span><span class="gd">メタ</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">68</span><div><div class="cut-ttl">テロップ過剰埋め尽くし</div><div class="cut-dsc">「すみません」の極太テロップが画面を埋め尽くす。ダサいWordフォント。</div><div class="cut-tg"><span class="gd">テロップ</span><span class="gd">ダサ</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">69</span><div><div class="cut-ttl">右上ワイプ謝罪</div><div class="cut-dsc">右上の小窓ワイプの自分が、本編と同時に謝る。バラエティ感。</div><div class="cut-tg"><span class="gd">ワイプ</span><span class="gd">バラエティ</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">70</span><div><div class="cut-ttl">80sCG 回転ズーム顔</div><div class="cut-dsc">謝る顔が80年代CGでぐるぐる回転しながらズームイン。過剰彩度。</div><div class="cut-tg"><span class="gd">80sCG</span><span class="gd">過剰彩度</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">71</span><div><div class="cut-ttl">虹色残像トレイル</div><div class="cut-dsc">お辞儀のたびに体に虹色の残像が尾を引く。チープなモーション演出。</div><div class="cut-tg"><span class="gd">残像</span><span class="gd">虹色</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">72</span><div><div class="cut-ttl">万華鏡分裂謝罪</div><div class="cut-dsc">謝る顔が万華鏡状に増殖・分裂。蛍光ピンク/黄緑/シアンの過剰彩度。</div><div class="cut-tg"><span class="gd">万華鏡</span><span class="gd">過剰彩度</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">73</span><div><div class="cut-ttl">Tron風レーザー床ダンス</div><div class="cut-dsc">光るグリッド床の上で謝罪ダンス。チープなワイヤーフレーム空間。</div><div class="cut-tg"><span class="gd">レーザー床</span><span class="gd">80s</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">74</span><div><div class="cut-ttl">星キラキラSE会釈</div><div class="cut-dsc">お辞儀のたびに「キラーン」というSEと星のVFXが飛ぶ。歌番組エフェクト。</div><div class="cut-tg"><span class="gd">星VFX</span><span class="gd">SE</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">75</span><div><div class="cut-ttl">砂嵐トランジション</div><div class="cut-dsc">場面転換が全部、テレビの砂嵐とチャンネル切替音で繋がる。</div><div class="cut-tg"><span class="gd">砂嵐</span><span class="gd">VHS</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">76</span><div><div class="cut-ttl">ピクセル化退場</div><div class="cut-dsc">謝罪のあと、体がドット状に崩壊して消える。8bitな消滅SE。</div><div class="cut-tg"><span class="gd">ドット</span><span class="gd">8bit</span></div></div></div>
+        <div class="cut" data-cat="vfx" onclick="copyCut(this)"><span class="cut-no">77</span><div><div class="cut-ttl">スローモー虹色の涙</div><div class="cut-dsc">過剰なスローで一粒の涙が落ちる。涙が虹色に反射するチープVFX。</div><div class="cut-tg"><span class="gd">スロー</span><span class="gd">涙</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 6. 登場人物・キャラ ===== -->
+    <section class="cat" data-cat="chara">
+      <div class="cat-h"><span class="ic">🧑</span><h2>登場人物・キャラ</h2><span class="cnt">78–85</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">78</span><div><div class="cut-ttl">いしじま（変装ダッシュ）</div><div class="cut-dsc">毎回違う変な格好でフレームを横切る常連キャラ。必ず手刀を切る（Issy種展開）。</div><div class="cut-tg"><span>Issy種</span><span>常連</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">79</span><div><div class="cut-ttl">謝罪課長</div><div class="cut-dsc">部下の代わりに一日中謝り続ける中間管理職。哀愁。背中で泣いている。</div><div class="cut-tg"><span>おじさん</span><span>哀愁</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">80</span><div><div class="cut-ttl">謝罪道 師範</div><div class="cut-dsc">道場で「謝罪道」を極めた白髭の老師。弟子に最敬礼の角度を本気で指導（武術ガチ勢タグ）。</div><div class="cut-tg"><span>武術ガチ</span><span>CB既出</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">81</span><div><div class="cut-ttl">外国人観光客</div><div class="cut-dsc">過剰なJAPANお辞儀文化に感動し、見よう見まねで全力で真似してくる。</div><div class="cut-tg"><span>異文化</span><span>ギャップ</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">82</span><div><div class="cut-ttl">謝罪代行業者</div><div class="cut-dsc">ビジネスで謝罪を請け負うおじさん。名刺を出すと「謝罪代行」の肩書き。</div><div class="cut-tg"><span>おじさん</span><span>ビジネス</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">83</span><div><div class="cut-ttl">AIロボ謝罪</div><div class="cut-dsc">「モウシワケ…ゴザイマセン」と機械音声でカクカク頭を下げるロボ（CB AIネタ接続）。</div><div class="cut-tg"><span>AIネタ</span><span>CB既出</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">84</span><div><div class="cut-ttl">赤ちゃん謝罪</div><div class="cut-dsc">ハイハイで近づき、ぷくぷくの手で手刀を切る。ギャップの破壊力。</div><div class="cut-tg"><span>ギャップ</span><span>かわいい</span></div></div></div>
+        <div class="cut" data-cat="chara" onclick="copyCut(this)"><span class="cut-no">85</span><div><div class="cut-ttl">犬の謝罪</div><div class="cut-dsc">「お手」の延長でぺこりと頭を下げる犬。飼い主が代わりに「すみません」。</div><div class="cut-tg"><span>動物</span><span>かわいい</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 7. ダンス・振付（New Jack Swing系）===== -->
+    <section class="cat" data-cat="dance">
+      <div class="cat-h"><span class="ic">💃</span><h2>ダンス・振付（New Jack Swing系）</h2><span class="cnt">86–93</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">86</span><div><div class="cut-ttl">謝罪ロボットダンス</div><div class="cut-dsc">カクカクとロボットダンスでお辞儀。関節がギシギシ鳴るSE。</div><div class="cut-tg"><span class="b">NJS</span><span class="b">ロボ</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">87</span><div><div class="cut-ttl">ぺこぺこステップ</div><div class="cut-dsc">8カウントでお辞儀を刻むNew Jack Swingの基本ステップ。腰でグルーヴ。</div><div class="cut-tg"><span class="b">NJS</span><span class="b">基本振付</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">88</span><div><div class="cut-ttl">手刀ウェーブ</div><div class="cut-dsc">横一列で手刀を波のように繋ぐウェーブ（CB既出ウェイブネタV-006接続）。</div><div class="cut-tg"><span class="b">ウェーブ</span><span class="b">CB既出</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">89</span><div><div class="cut-ttl">土下座フリーズ</div><div class="cut-dsc">ブレイクダンスのフリーズを土下座の体勢で決める。仲間が指差し「サーセン！」。</div><div class="cut-tg"><span class="b">ブレイク</span><span class="b">キメ</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">90</span><div><div class="cut-ttl">名刺シャッフルダンス</div><div class="cut-dsc">名刺をトランプのように配りながらステップ。「申し遅れました」のリフレイン。</div><div class="cut-tg"><span class="b">小道具</span><span class="b">ビジネス</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">91</span><div><div class="cut-ttl">お辞儀シンクロ</div><div class="cut-dsc">大人数が一糸乱れぬ完璧シンクロで最敬礼。マスゲーム的俯瞰ショット。</div><div class="cut-tg"><span class="b">群舞</span><span class="b">俯瞰</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">92</span><div><div class="cut-ttl">すみませんコール&レスポンス</div><div class="cut-dsc">「スミ！」「マセン！」のコール&レスポンスで客席と掛け合うライブ感。</div><div class="cut-tg"><span class="b">ライブ</span><span class="b">掛け合い</span></div></div></div>
+        <div class="cut" data-cat="dance" onclick="copyCut(this)"><span class="cut-no">93</span><div><div class="cut-ttl">菓子折りジャグリング</div><div class="cut-dsc">謝罪の菓子折りを複数回しながら踊る。落としてまた「すみません」。</div><div class="cut-tg"><span class="b">小道具</span><span class="b">ヘタウマ</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 8. メタ・自虐・オチ ===== -->
+    <section class="cat" data-cat="meta">
+      <div class="cat-h"><span class="ic">🪞</span><h2>メタ・自虐・オチ</h2><span class="cnt">94–100</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">94</span><div><div class="cut-ttl">謝罪の謝罪 無限ループ</div><div class="cut-dsc">「謝りすぎてすみません」とさらに謝り、それをまた謝る無限ループ。</div><div class="cut-tg"><span>無限ループ</span><span>メタ</span></div></div></div>
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">95</span><div><div class="cut-ttl">無名クリエイター自虐</div><div class="cut-dsc">「こんな動画作ってすみません」と画面に向かって自虐（CB既出V-041接続）。</div><div class="cut-tg"><span>自虐</span><span>CB既出</span></div></div></div>
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">96</span><div><div class="cut-ttl">再生数謝罪</div><div class="cut-dsc">「再生回数が伸びず申し訳…」と低い数字のアナリティクス画面に頭を下げる。</div><div class="cut-tg"><span>自虐</span><span>メタ</span></div></div></div>
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">97</span><div><div class="cut-ttl">AIに謝らせる</div><div class="cut-dsc">「この企画AIが考えました、すみません」とテロップ。AIが代わりに土下座（CB AIネタ）。</div><div class="cut-tg"><span>AIネタ</span><span>メタ</span></div></div></div>
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">98</span><div><div class="cut-ttl">制作費謝罪</div><div class="cut-dsc">「低予算でこのクオリティ、すみません」とチープなセットを指差し自虐（ムダの美学）。</div><div class="cut-tg"><span>自虐</span><span>ムダの美学</span></div></div></div>
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">99</span><div><div class="cut-ttl">全員集合 一斉土下座</div><div class="cut-dsc">出演者全員が横一列に並び、紙吹雪の中で一斉に土下座するフィナーレ。</div><div class="cut-tg"><span>フィナーレ</span><span>群衆</span></div></div></div>
+        <div class="cut" data-cat="meta" onclick="copyCut(this)"><span class="cut-no">100</span><div><div class="cut-ttl">エンドカード「以上、すみませんでした」</div><div class="cut-dsc">VHS終了画面に「以上、すみませんでした」。砂嵐とトラッキングノイズで暗転。</div><div class="cut-tg"><span>エンド</span><span>VHS</span></div></div></div>
+      </div>
+    </section>
+
+    <div class="foot">
+      <span>SUMIMASEN — Cut Ideas 100 (Claude案・確定前)</span>
+      <span>Last Updated: 2026年6月7日 20:22 JST</span>
+      <span>← <a href="creative-brain-sumimasen.html" style="color:var(--accent-purple)">SUMIMASEN プロジェクト</a></span>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script>
+    function showToast(msg){ var t=document.getElementById('toast'); t.textContent=msg||'コピーしました'; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1700); }
+    function copyCut(el){
+      var ttl=el.querySelector('.cut-ttl').textContent.trim();
+      var dsc=el.querySelector('.cut-dsc').textContent.trim();
+      var text=ttl+' — '+dsc;
+      navigator.clipboard.writeText(text).then(function(){ showToast('「'+ttl+'」をコピー'); }).catch(function(){ showToast('コピー失敗'); });
+    }
+    function filt(btn,f){
+      document.querySelectorAll('.fbtn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.cat').forEach(function(sec){
+        sec.style.display = (f==='all'||sec.getAttribute('data-cat')===f) ? '' : 'none';
+      });
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>

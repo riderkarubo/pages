@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUMIMASEN — 動画プロジェクト</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🙇</text></svg>">
+  <meta name="last-modified" content="2026-06-07T20:22:00+09:00">
+  <meta name="description" content="SUMIMASEN 動画プロジェクトの専用ハブ。楽曲コンセプト・カット案/絵コンテのストック・進捗・ネクストアクションを集約。Creative Brain 姉妹ページ。">
+  <meta property="og:title" content="SUMIMASEN — 動画プロジェクト">
+  <meta property="og:description" content="SUMIMASEN 動画プロジェクトの専用ハブ。楽曲コンセプト・カット案/絵コンテのストック・進捗・ネクストアクションを集約。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain/creative-brain-sumimasen.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SUMIMASEN — 動画プロジェクト">
+  <meta name="twitter:description" content="SUMIMASEN 動画プロジェクトの専用ハブ。カット案ストック・進捗・ネクストアクション。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-base: #E8E6DF;
+      --bg-card: #FFFFFF;
+      --accent-primary: #E0005F;
+      --accent-secondary: #008566;
+      --accent-gold: #8A6E22;
+      --accent-electric: #0079B8;
+      --accent-purple: #7c5cff;
+      --text-primary: #161616;
+      --text-secondary: #4E4E4E;
+      --text-muted: #8A8A86;
+      --border: #D6D3CB;
+      --tag-bg: #FCE9F1;
+      --tag-text: #E0005F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .card, .project-card, .cut-card, .asset-card, .prompt-card, .action-card {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .cut-card:hover, .prompt-card:hover, .asset-card:hover, .action-card:hover {
+      box-shadow: 0 5px 16px rgba(0,0,0,0.14);
+    }
+
+    /* ===== TOP BAR ===== */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 16px;
+      padding: 12px 28px;
+    }
+    .topbar .back {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px; font-weight: 600;
+      color: var(--accent-primary);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .topbar .back:hover { text-decoration: underline; }
+    .topbar .crumb {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; color: var(--text-muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .topbar .links { margin-left: auto; display: flex; gap: 14px; }
+    .topbar .links a {
+      font-size: 13px; font-weight: 600; text-decoration: none;
+      color: var(--text-secondary);
+    }
+    .topbar .links a:hover { color: var(--accent-primary); }
+
+    /* ===== WRAP ===== */
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 36px 28px 80px; }
+
+    /* ===== HERO ===== */
+    .hero { margin-bottom: 14px; }
+    .hero .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px; font-weight: 600;
+      color: var(--accent-primary);
+      letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 46px; font-weight: 900; line-height: 1.1;
+      margin: 6px 0 10px; letter-spacing: 0.02em;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(100deg, #E0005F 0%, #7c5cff 60%, #0079B8 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .sub { font-size: 16px; color: var(--text-secondary); max-width: 760px; }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--text-muted);
+    }
+    .hero-meta span { color: var(--text-primary); font-weight: 600; }
+
+    /* ===== SECTION ===== */
+    .section { margin-top: 44px; }
+    .section-heading {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 10px; margin-bottom: 18px;
+      border-bottom: 2px solid var(--accent-primary);
+    }
+    .section-heading.green { border-color: var(--accent-secondary); }
+    .section-heading.blue { border-color: var(--accent-electric); }
+    .section-heading.gold { border-color: var(--accent-gold); }
+    .section-heading.purple { border-color: var(--accent-purple); }
+    .section-heading .s-icon { font-size: 26px; }
+    .section-heading h2 { font-size: 22px; font-weight: 700; flex: 1; }
+    .section-heading .s-id {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+      color: var(--text-muted); letter-spacing: 0.1em;
+    }
+    .section-desc { font-size: 14.5px; color: var(--text-secondary); margin-bottom: 18px; }
+
+    /* ===== CONCEPT ===== */
+    .concept-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px; }
+    .concept-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+    .concept-card .c-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600;
+      color: var(--accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .concept-card.green .c-label { color: var(--accent-secondary); }
+    .concept-card.blue .c-label { color: var(--accent-electric); }
+    .concept-card .c-text { font-size: 15.5px; font-weight: 600; line-height: 1.5; }
+
+    /* ===== STATUS ===== */
+    .status-list { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 8px 6px; }
+    .status-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 15.5px; font-weight: 500;
+    }
+    .status-item:last-child { border-bottom: none; }
+    .status-item .box { font-size: 20px; flex-shrink: 0; }
+    .status-item.done { color: var(--text-muted); }
+    .status-item.done .label { text-decoration: line-through; }
+    .status-item.active { background: #FFF6FA; }
+    .status-pill {
+      margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 999px; letter-spacing: 0.06em;
+    }
+    .status-pill.now { background: var(--tag-bg); color: var(--tag-text); }
+    .status-pill.todo { background: #EDEBE4; color: var(--text-muted); }
+
+    /* ===== NEXT ACTIONS ===== */
+    .action-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 14px; }
+    .action-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--accent-electric); border-radius: 10px; padding: 16px 18px; }
+    .action-card .a-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: var(--accent-electric); }
+    .action-card .a-title { font-size: 16px; font-weight: 700; margin: 4px 0 6px; }
+    .action-card .a-note { font-size: 14px; color: var(--text-secondary); }
+
+    /* ===== CUT / STORYBOARD ===== */
+    .notice-banner {
+      background: #FFF6FA; border: 1px dashed var(--accent-primary); border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 20px; font-size: 14.5px; color: var(--text-secondary);
+    }
+    .notice-banner b { color: var(--accent-primary); }
+    .cut-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 16px; }
+    .cut-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+    .cut-card.placeholder { border-style: dashed; opacity: 0.65; }
+    .cut-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #1A1A2E; color: #fff; }
+    .cut-num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; }
+    .cut-time { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C9C7D6; }
+    .cut-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+    .cut-field { }
+    .cut-field .f-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+      color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px;
+    }
+    .cut-field .f-val { font-size: 15px; line-height: 1.5; }
+    .cut-field .f-val.muted { color: var(--text-muted); }
+
+    /* ===== ASSET ===== */
+    .asset-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 8px 6px; }
+    .asset-row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14.5px; }
+    .asset-row:last-child { border-bottom: none; }
+    .asset-row .a-ic { font-size: 20px; }
+    .asset-row .a-name { font-weight: 600; }
+    .asset-row .a-path { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-muted); text-align: right; }
+
+    /* ===== PROMPT ===== */
+    .prompt-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; }
+    .prompt-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .prompt-title { font-size: 16px; font-weight: 700; }
+    .copy-btn {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600;
+      background: var(--accent-primary); color: #fff; border: none; border-radius: 6px;
+      padding: 5px 12px; cursor: pointer; letter-spacing: 0.04em;
+    }
+    .copy-btn.success { background: var(--accent-secondary); }
+    .prompt-body { background: #F6F4EE; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 14px; white-space: pre-wrap; line-height: 1.6; cursor: text; }
+    .prompt-note { font-size: 12.5px; color: var(--text-muted); margin-top: 8px; }
+
+    /* ===== FOOTER ===== */
+    .foot { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 8px 20px; }
+
+    /* ===== TOAST ===== */
+    #toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: #1A1A2E; color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 14px;
+      opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 999;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 34px; }
+      .topbar .links { display: none; }
+    }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+      @page { size: A4; margin: 12mm; }
+      html, body { background: #fff; }
+      .topbar, #toast { display: none; }
+      .section { page-break-inside: auto; }
+      .cut-card, .concept-card, .action-card, .prompt-card, .asset-card, .status-list { page-break-inside: avoid; break-inside: avoid; }
+      .section-heading { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <a class="back" href="creative-brain.html">← Creative Brain へ</a>
+    <span class="crumb">/ SUMIMASEN</span>
+    <div class="links">
+      <a href="idea-list.html">💡 アイデアリスト</a>
+      <a href="growth-playbook.html">🚀 グロース</a>
+      <a href="https://riderkarubo.github.io/pages/google-flow-playbook.html" target="_blank" rel="noopener">🎬 Flow</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="eyebrow">CB / Project Page</div>
+      <h1><span class="grad">SUMIMASEN</span></h1>
+      <div class="sub">日本のビジネス謝罪文化をユーモラスに描くオリジナル楽曲のMV／動画プロジェクト。楽曲Fix版は完成済み。このページにカット案・絵コンテ・進捗を貯めていく。</div>
+      <div class="hero-meta">
+        <div>Genre: <span>シュールコメディ × チルR&amp;B / New Jack Swing</span></div>
+        <div>Phase: <span>動画生成フェーズ</span></div>
+        <div>Last Updated: <span>2026年6月7日 20:22</span></div>
+      </div>
+    </div>
+
+    <!-- CONCEPT -->
+    <section class="section">
+      <div class="section-heading">
+        <span class="s-icon">🎙️</span>
+        <h2>楽曲コンセプト・座標</h2>
+        <span class="s-id">CONCEPT</span>
+      </div>
+      <p class="section-desc">カット案を考えるときの羅針盤。曲の世界観からブレないための基準。</p>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="c-label">テーマ</div>
+          <div class="c-text">日本のビジネス謝罪文化<br>「すみません」の多義性・過剰さ</div>
+        </div>
+        <div class="concept-card green">
+          <div class="c-label">音楽性</div>
+          <div class="c-text">チルR&amp;B × New Jack Swing<br>音楽性は高いが、どうしようもない歌詞</div>
+        </div>
+        <div class="concept-card blue">
+          <div class="c-label">トーン</div>
+          <div class="c-text">緊張と緩和・ヘタウマ・親近感<br>シュールコメディ／自虐</div>
+        </div>
+        <div class="concept-card">
+          <div class="c-label">映像の方向（個人コンテンツ基準）</div>
+          <div class="c-text">あえて低予算感・チープな80年代CG<br>過剰彩度・レトロカラー・VHS感</div>
+        </div>
+        <div class="concept-card placeholder" style="border-style:dashed;opacity:0.6">
+          <div class="c-label" style="color:var(--text-muted)">🔲 追記</div>
+          <div class="c-text" style="color:var(--text-muted)">歌詞の核フレーズ・サビ・尺など<br>確定したらここに追記</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUT / STORYBOARD -->
+    <section class="section">
+      <div class="section-heading purple">
+        <span class="s-icon">🎬</span>
+        <h2>カット案・絵コンテ ストック</h2>
+        <span class="s-id">CUTS</span>
+      </div>
+      <p class="section-desc">このプロジェクトのカット／シーンのアイデアをここに貯めていく。1カード＝1カット。思いついたら追加。</p>
+
+      <div class="notice-banner">
+        💡 <b>やりたいこと:</b> 自分が好きだった<b>懐かしのエッセンス（マイケル等）をちりばめる</b>。謝罪文化 ×「すみません」の所作を、80〜90年代のグルーヴで踊らせる。
+        <br>※ 下のカードは現時点の<b>種（まだ確定ではない）</b>。思いついたら追加していく。
+      </div>
+
+      <a class="log-link-card" href="creative-brain-sumimasen-cuts.html"
+         style="display:flex;align-items:center;gap:14px;background:linear-gradient(100deg,#FFF6FA,#F3EEFF);border:1px solid var(--accent-purple);border-radius:14px;padding:18px 22px;margin-bottom:22px;text-decoration:none;color:inherit;">
+        <span style="font-size:30px;">🎬</span>
+        <span>
+          <span style="display:block;font-size:18px;font-weight:700;color:var(--accent-purple);">Claudeのカット案100案を見る →</span>
+          <span style="display:block;font-size:14px;color:var(--text-secondary);margin-top:2px;">CBの美学を軸にディープダイブした100カット。気に入ったものをここに昇格させる。</span>
+        </span>
+      </a>
+
+      <div class="cut-grid">
+        <div class="cut-card">
+          <div class="cut-head">
+            <span class="cut-num">SEED A</span>
+            <span class="cut-time">手刀</span>
+          </div>
+          <div class="cut-body">
+            <div class="cut-field"><div class="f-label">ビジュアル</div><div class="f-val">いしじまが変な格好で、ダッシュするポーズのまま画面を横切る</div></div>
+            <div class="cut-field"><div class="f-label">カメラ・演出</div><div class="f-val">手刀を切りながら（「すんません」の所作）高速横断。残像トレイル</div></div>
+            <div class="cut-field"><div class="f-label">メモ</div><div class="f-val muted">毎回違う変装で何度も横切ると反復ギャグに</div></div>
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="cut-head">
+            <span class="cut-num">SEED B</span>
+            <span class="cut-time">闖入</span>
+          </div>
+          <div class="cut-body">
+            <div class="cut-field"><div class="f-label">ビジュアル</div><div class="f-val">カラオケボックスでいちゃつくカップル。そこへ「ごめんくださーい、おかあさんおとうさんが…」</div></div>
+            <div class="cut-field"><div class="f-label">カメラ・演出</div><div class="f-val">ドアを開け閉めする反復。気まずさ＝緊張と緩和</div></div>
+            <div class="cut-field"><div class="f-label">メモ</div><div class="f-val muted">闖入謝罪の定番。開け閉めのリズムを曲に合わせる</div></div>
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="cut-head">
+            <span class="cut-num">SEED C</span>
+            <span class="cut-time">別れ際</span>
+          </div>
+          <div class="cut-body">
+            <div class="cut-field"><div class="f-label">ビジュアル</div><div class="f-val">カップルの別れ際</div></div>
+            <div class="cut-field"><div class="f-label">カメラ・演出</div><div class="f-val">何度も振り返りながら去る「すみません」の余韻（トレンディドラマ風も可）</div></div>
+            <div class="cut-field"><div class="f-label">メモ</div><div class="f-val muted">切なさとシュールの両立</div></div>
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="cut-head">
+            <span class="cut-num">SEED D</span>
+            <span class="cut-time">MJ</span>
+          </div>
+          <div class="cut-body">
+            <div class="cut-field"><div class="f-label">ビジュアル</div><div class="f-val">ムーンウォークでどこかを通過する</div></div>
+            <div class="cut-field"><div class="f-label">カメラ・演出</div><div class="f-val">気まずさ・謝罪をムーンウォークで去ることで昇華（マイケル＝懐かしエッセンス）</div></div>
+            <div class="cut-field"><div class="f-label">メモ</div><div class="f-val muted">100案カテゴリ「MJ&80s-90s洋楽」の核</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="section">
+      <div class="section-heading green">
+        <span class="s-icon">📊</span>
+        <h2>進捗ステータス</h2>
+        <span class="s-id">STATUS</span>
+      </div>
+      <div class="status-list">
+        <div class="status-item done">
+          <span class="box">✅</span><span class="label">作曲完了</span>
+        </div>
+        <div class="status-item done">
+          <span class="box">✅</span><span class="label">Fix版WAVエクスポート（FIX_sumimasen260606.wav）</span>
+        </div>
+        <div class="status-item active">
+          <span class="box">⬜</span><span class="label">カット案・絵コンテの確定</span>
+          <span class="status-pill now">NOW</span>
+        </div>
+        <div class="status-item">
+          <span class="box">⬜</span><span class="label">Flow 動画プロンプト設計</span>
+          <span class="status-pill todo">TODO</span>
+        </div>
+        <div class="status-item">
+          <span class="box">⬜</span><span class="label">Flow で動画生成</span>
+          <span class="status-pill todo">TODO</span>
+        </div>
+        <div class="status-item">
+          <span class="box">⬜</span><span class="label">編集・尺合わせ・書き出し</span>
+          <span class="status-pill todo">TODO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT ACTIONS -->
+    <section class="section">
+      <div class="section-heading blue">
+        <span class="s-icon">⚡</span>
+        <h2>ネクストアクション</h2>
+        <span class="s-id">NEXT</span>
+      </div>
+      <div class="action-grid">
+        <div class="action-card">
+          <div class="a-num">NEXT 01</div>
+          <div class="a-title">カット案メモを貼る</div>
+          <div class="a-note">過去に考えたカット案をこのチャットに貼る → 上の「カット案ストック」へ反映。絵コンテ画像でも可。</div>
+        </div>
+        <div class="action-card">
+          <div class="a-num">NEXT 02</div>
+          <div class="a-title">Flowプロンプト設計</div>
+          <div class="a-note">確定したカットごとに Flow 用プロンプトを編む。<code>flow-prompt</code> スキル（「動画作る」で発動）が対話で組み立てる。</div>
+        </div>
+        <div class="action-card">
+          <div class="a-num">NEXT 03</div>
+          <div class="a-title">Flow で動画生成・確認</div>
+          <div class="a-note">labs.google/fx の Flow で生成。FIX_sumimasen260606.wav に合わせて尺・テンポを調整。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSETS -->
+    <section class="section">
+      <div class="section-heading gold">
+        <span class="s-icon">📁</span>
+        <h2>アセット・ファイル</h2>
+        <span class="s-id">ASSETS</span>
+      </div>
+      <div class="asset-card">
+        <div class="asset-row">
+          <span class="a-ic">🎵</span>
+          <span class="a-name">FIX_sumimasen260606.wav</span>
+          <span class="a-path">Fix版（本番）<br>作曲・DTM/動画プロジェクト/SUMIMASEN/</span>
+        </div>
+        <div class="asset-row">
+          <span class="a-ic">🎚️</span>
+          <span class="a-name">sumimasen_demo260517.wav</span>
+          <span class="a-path">デモミックス（2026-05-17）</span>
+        </div>
+        <div class="asset-row">
+          <span class="a-ic">🎛️</span>
+          <span class="a-name">Studio One 5 プロジェクト</span>
+          <span class="a-path">~/Music/Studio One/Songs/<br>SUIMASEN+2026-03-27/（1.1GB）</span>
+        </div>
+        <div class="asset-row">
+          <span class="a-ic">💾</span>
+          <span class="a-name">SSDバックアップ</span>
+          <span class="a-path">/Volumes/Issy_SSD1TB/06_DTM/<br>_New_2026-05-17_ローカル複製/…</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOW PROMPT SEEDS -->
+    <section class="section">
+      <div class="section-heading purple">
+        <span class="s-icon">🤖</span>
+        <h2>Flowプロンプトの種</h2>
+        <span class="s-id">PROMPT</span>
+      </div>
+      <p class="section-desc">カットが固まったらこの雛形に流し込む。個人コンテンツ基準（チープ・レトロ・ヘタウマ）で。COPYで即コピー。</p>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <div class="prompt-title">MV演出アイデア出し</div>
+          <button class="copy-btn" onclick="copyPrompt(event,'p1')">COPY</button>
+        </div>
+        <div class="prompt-body" id="p1">楽曲「SUMIMASEN」（日本のビジネス謝罪文化がテーマ、チルR&B × New Jack Swing）のMV演出を考えて。
+世界観: 80〜90年代オマージュ・昭和ノスタルジー風。
+手法: シュールコメディ／自虐／ヘタウマ。
+低予算感をあえて活かしたチープな80年代CGエフェクト・過剰彩度・VHS感で。
+サビ・Aメロ・Bメロごとにカット案を5案ずつ出して。</div>
+        <div class="prompt-note">演出のたたき出し用</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <div class="prompt-title">Flow 1カット生成プロンプト（英語化前の日本語下書き）</div>
+          <button class="copy-btn" onclick="copyPrompt(event,'p2')">COPY</button>
+        </div>
+        <div class="prompt-body" id="p2">シーン: {このカットで映るもの}
+被写体・動き: {誰が何をする / ヘタウマな動き}
+カメラ: {アングル・寄り引き・カメラの動き}
+ルック: チープな80年代CG・過剰彩度・蛍光ピンク/黄緑/シアン・VHSノイズ・スキャンライン
+尺: {秒数}
+ムード: 緊張と緩和・脱力・じわる</div>
+        <div class="prompt-note">flow-prompt スキルに渡す前の整理用</div>
+      </div>
+    </section>
+
+    <div class="foot">
+      <span>SUMIMASEN — CB Project Page</span>
+      <span>Last Updated: 2026年6月7日 20:22 JST</span>
+      <span>← <a href="creative-brain.html" style="color:var(--accent-primary)">Creative Brain</a></span>
+    </div>
+
+  </div>
+
+  <div id="toast"></div>
+
+  <script>
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg || 'コピーしました';
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 1800);
+    }
+    function copyPrompt(e, id) {
+      e.stopPropagation();
+      var el = document.getElementById(id);
+      var text = el.textContent.trim();
+      var btn = e.currentTarget;
+      navigator.clipboard.writeText(text).then(function(){
+        btn.textContent = 'COPIED!'; btn.classList.add('success');
+        setTimeout(function(){ btn.textContent = 'COPY'; btn.classList.remove('success'); }, 1500);
+        showToast('プロンプトをコピーしました');
+      }).catch(function(){ showToast('コピー失敗'); });
+    }
+  </script>
+</body>
+</html>
