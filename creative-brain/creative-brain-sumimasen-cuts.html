@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SUMIMASEN — カット案100（Claude案）</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-  <meta name="last-modified" content="2026-06-07T20:22:00+09:00">
+  <meta name="last-modified" content="2026-06-07T21:44:00+09:00">
   <meta name="description" content="SUMIMASEN動画のカット案100（Claudeのディープダイブ案・確定前）。謝罪の所作×懐かしのエッセンスを軸に8カテゴリで展開。Creative Brain 姉妹ページ。">
   <meta property="og:title" content="SUMIMASEN — カット案100（Claude案）">
   <meta property="og:description" content="SUMIMASEN動画のカット案100。謝罪の所作×懐かしのエッセンス（マイケル等）を軸にCBの美学でディープダイブ。確定前のたたき台。">
@@ -77,6 +77,27 @@
     .cut-tg span.g { background:#E3F3EE; color:var(--accent-secondary); }
     .cut-tg span.b { background:#E2F0F8; color:var(--accent-electric); }
     .cut-tg span.gd { background:#F3EEDC; color:var(--accent-gold); }
+    .cut-tg span.gl { background:linear-gradient(120deg,#FCE9F1,#EDE7FF); color:#7c5cff; }
+    .cat[data-cat="global"] .cat-h { border-bottom-color:#7c5cff; }
+    .cut[data-cat="global"] .cut-no { background:linear-gradient(125deg,#E0005F,#7c5cff 55%,#0079B8); }
+
+    /* REJECT (ボツ) */
+    .cut { position:relative; }
+    .cut > div { flex:1; padding-right:24px; }
+    .cut-x { position:absolute; top:8px; right:8px; width:23px; height:23px; border-radius:7px; border:1px solid var(--border); background:#fff; color:var(--text-muted); font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0.5; transition:all 0.15s; z-index:3; padding:0; }
+    .cut:hover .cut-x { opacity:1; }
+    .cut-x:hover { background:var(--accent-primary); color:#fff; border-color:var(--accent-primary); transform:scale(1.08); }
+    .cut.rejected { opacity:0.55; filter:grayscale(0.85); background:#EFEDE7; }
+    .cut.rejected:hover { transform:none; box-shadow:0 1px 3px rgba(0,0,0,0.10); }
+    .cut.rejected .cut-no { background:#9B9B97; }
+    .cut.rejected .cut-x { opacity:1; color:var(--accent-secondary); border-color:var(--accent-secondary); }
+    .cut.rejected .cut-x:hover { background:var(--accent-secondary); color:#fff; }
+
+    /* BIN section */
+    .binsec { margin-top:46px; }
+    .binsec .cat-h { border-bottom-color:#B9B6AE; }
+    .binsec .hint { margin-top:12px; font-size:13px; color:var(--text-muted); }
+    .binsec .hint b { color:var(--text-secondary); }
 
     .foot { margin-top:56px; padding-top:20px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:8px 20px; }
 
@@ -88,7 +109,8 @@
       * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
       @page { size:A4; margin:12mm; }
       html,body { background:#fff; }
-      .topbar,.filter-bar,#toast { display:none; }
+      .topbar,.filter-bar,#toast,.cut-x,#bin-section { display:none !important; }
+      .cut.rejected { display:none !important; }
       .cut { page-break-inside:avoid; break-inside:avoid; }
       .cat-h { page-break-after:avoid; }
     }
@@ -119,12 +141,14 @@
         <span class="chip">📼 チープ80sCG・VHS・過剰彩度</span>
         <span class="chip">😏 緊張と緩和・ヘタウマ・自虐</span>
         <span class="chip">🕺 マイケル / 80-90s オマージュ</span>
+        <span class="chip">🌐 海外でも刺さる（非言語・普遍）</span>
       </div>
     </div>
 
     <div class="filter-bar">
       <span class="filter-label">FILTER</span>
-      <button class="fbtn active" data-f="all" onclick="filt(this,'all')">すべて<span class="n">100</span></button>
+      <button class="fbtn active" data-f="all" onclick="filt(this,'all')">すべて<span class="n">116</span></button>
+      <button class="fbtn" data-f="global" onclick="filt(this,'global')">🌐 海外でも刺さる<span class="n">16</span></button>
       <button class="fbtn" data-f="gesture" onclick="filt(this,'gesture')">謝罪の所作<span class="n">15</span></button>
       <button class="fbtn" data-f="situation" onclick="filt(this,'situation')">シチュ別すみません<span class="n">20</span></button>
       <button class="fbtn" data-f="mj" onclick="filt(this,'mj')">MJ &amp; 80-90s洋楽<span class="n">15</span></button>
@@ -291,15 +315,49 @@
       </div>
     </section>
 
+    <!-- ===== 🌐 GLOBAL（海外でも刺さる）===== -->
+    <section class="cat" data-cat="global">
+      <div class="cat-h"><span class="ic">🌐</span><h2>海外でも刺さる（非言語・普遍）</h2><span class="cnt">G01–G16</span></div>
+      <div style="background:linear-gradient(100deg,#FFF6FA,#F3EEFF);border:1px solid #7c5cff;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:14px;color:var(--text-secondary);">
+        🔎 <b style="color:#7c5cff;">海外ヒットの型をBrain通しで翻案</b>（Khaby Lame／Ojigiループ／PPAP／Mr Bean／ヴェイパーウェイヴ）。日本文脈なしで伝わる<b>非言語・身体・反復ループ</b>に寄せた案。調査正典: <code>creative-brain-trends/260607_global-nonverbal-comedy-research.md</code>
+      </div>
+      <div class="grid">
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G01</span><div><div class="cut-ttl">無言ライフハック論破</div><div class="cut-dsc">「完璧な謝罪の裏ワザ」風の過剰手順動画に、無言でただ一礼→両手を広げてカメラ目線。手刀＝署名ジェスチャー化。翻訳不要。</div><div class="cut-tg"><span class="gl">Khaby式</span><span>翻訳不要</span><span class="b">署名ポーズ</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G02</span><div><div class="cut-ttl">お辞儀・無限応酬ループ</div><div class="cut-dsc">2人が交互に深く→だんだん軽く→永遠に終わらない。完璧にループする5秒。冒頭1秒でフック（oddly satisfying）。</div><div class="cut-tg"><span class="gl">Ojigiループ</span><span>翻訳不要</span><span>無駄の美学</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G03</span><div><div class="cut-ttl">ぶつかった相手が鏡の自分</div><div class="cut-dsc">角でぶつかった相手が自分。自分同士で延々と謝り合う。ナンセンス×ループ×不条理。</div><div class="cut-tg"><span class="gl">不条理</span><span>ナンセンス</span><span>ループ</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G04</span><div><div class="cut-ttl">自動ドア謝罪（対物Mr Bean）</div><div class="cut-dsc">開かない自動ドア／回転ドア／ルンバ／ATMに全力で謝る。日常物×極端化＝言語ゼロで成立。</div><div class="cut-tg"><span class="gl">Mr Bean式</span><span>対物</span><span>身体ギャグ</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G05</span><div><div class="cut-ttl">無重力お辞儀（宇宙）</div><div class="cut-dsc">宇宙で謝ろうとして反動でクルクル回り続ける。設定が一発で伝わる物理ギャグ。チープな星空合成。</div><div class="cut-tg"><span class="gl">物理ギャグ</span><span>SF</span><span>不条理</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G06</span><div><div class="cut-ttl">動く歩道で無限後退</div><div class="cut-dsc">進んでいるのに謝って下がり、永遠に前へ進めない。無駄・非効率の不条理ループ。</div><div class="cut-tg"><span class="gl">ループ</span><span>無駄の美学</span><span>あるある</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G07</span><div><div class="cut-ttl">SUMIMASEN＝PPAP化</div><div class="cut-dsc">「SUMIMASEN」を耳に残る4拍フックに。誰でも真似できる手刀＋会釈の振付。45秒で「は?」とループ（imitability＝拡散燃料）。</div><div class="cut-tg"><span class="gl">PPAP式</span><span>真似できる</span><span>フック</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G08</span><div><div class="cut-ttl">シンクロ謝罪群舞</div><div class="cut-dsc">隊列で全員が同角度のお辞儀をビートでキメる（Rhythm Nation式）。1秒目から動く完璧ループ。俯瞰マスゲーム。</div><div class="cut-tg"><span class="gl">シンクロ群舞</span><span class="b">ループ</span><span>俯瞰</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G09</span><div><div class="cut-ttl">謝罪ウェーブ（スタジアム）</div><div class="cut-dsc">観客が順に立ち上がって会釈する「お辞儀ウェーブ」。人文字ならぬ群衆スケールの非言語スペクタクル。</div><div class="cut-tg"><span class="gl">群衆スケール</span><span>非言語</span><span>俯瞰</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G10</span><div><div class="cut-ttl">謝罪ドミノ世界一周</div><div class="cut-dsc">お辞儀が人→人→国境→大陸を越え、地球を一周して戻ってくる。スケールの不条理（チープ合成）。</div><div class="cut-tg"><span class="gl">スケール不条理</span><span class="gd">チープ合成</span><span>二郎的振り切り</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G11</span><div><div class="cut-ttl">ヴェイパーウェイヴ謝罪天国</div><div class="cut-dsc">大理石像＋ヤシ＋グリッド地平に一人、無音で延々お辞儀。レトロフューチャー＝世界共通言語×無駄の美学。</div><div class="cut-tg"><span class="gl">レトロ世界語</span><span class="gd">ヴェイパー</span><span>無駄の美学</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G12</span><div><div class="cut-ttl">万国・非言語「謝罪講座」</div><div class="cut-dsc">言葉なし、矢印とピクトグラムだけで"正しい謝り方"を教える教則VHS。Mr Bean×レトロ×非言語。</div><div class="cut-tg"><span class="gl">ピクト非言語</span><span class="gd">教則VHS</span><span>Mr Bean式</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G13</span><div><div class="cut-ttl">各国版・気まずいエレベーター</div><div class="cut-dsc">多国籍が乗り合わせ全員が譲り合うが、会釈の所作だけで意味が伝わる。言語の壁を逆手に取る。</div><div class="cut-tg"><span class="gl">多国籍あるある</span><span>非言語</span><span>気まずさ</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G14</span><div><div class="cut-ttl">スローモー菓子折り西部劇</div><div class="cut-dsc">2人が菓子折りを差し出し合うのを決闘風スローで。Beat It式の謝罪バトル。緊張と緩和。</div><div class="cut-tg"><span class="gl">決闘フォーマット</span><span>スロー</span><span>緊張と緩和</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G15</span><div><div class="cut-ttl">満員エレベーター圧縮お辞儀</div><div class="cut-dsc">全員がお辞儀した瞬間、物理的にギュッと潰れる身体ギャグ。Mr Bean的な極端化。</div><div class="cut-tg"><span class="gl">物理ギャグ</span><span>身体</span><span>群衆</span></div></div></div>
+        <div class="cut" data-cat="global" onclick="copyCut(this)"><span class="cut-no">G16</span><div><div class="cut-ttl">AIロボに謝罪を教える</div><div class="cut-dsc">ヘタウマなロボが会釈を真似、だんだん過剰になり壊れる。AI時代にあえてムダ（Issyの核）×非言語。</div><div class="cut-tg"><span class="gl">AIネタ</span><span>非言語</span><span>ヘタウマ</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== ボツ箱 ===== -->
+    <section id="bin-section" class="binsec" style="display:none">
+      <div class="cat-h"><span class="ic">🗑️</span><h2>ボツ箱</h2><span class="cnt"><span id="bin-count">0</span> 件</span></div>
+      <div class="grid" id="bin-grid"></div>
+      <div class="hint">カードの <b>✕</b> でここへ送られグレーアウトされる。<b>↩</b> で元のカテゴリへ戻す。状態はこの端末に記憶される。</div>
+    </section>
+
     <div class="foot">
-      <span>SUMIMASEN — Cut Ideas 100 (Claude案・確定前)</span>
-      <span>Last Updated: 2026年6月7日 20:22 JST</span>
+      <span>SUMIMASEN — Cut Ideas 100 + GLOBAL 16 (Claude案・確定前)</span>
+      <span>Last Updated: 2026年6月7日 21:44 JST</span>
       <span>← <a href="creative-brain-sumimasen.html" style="color:var(--accent-purple)">SUMIMASEN プロジェクト</a></span>
     </div>
   </div>
 
   <div id="toast"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     function showToast(msg){ var t=document.getElementById('toast'); t.textContent=msg||'コピーしました'; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1700); }
     function copyCut(el){
@@ -316,6 +374,139 @@
       });
       window.scrollTo({top:0,behavior:'smooth'});
     }
+
+    /* ===== ボツ箱（reject/restore + localStorage 永続化）===== */
+    var BIN_KEY = 'sumimasen-cuts-rejected-v1';
+
+    function saveBin(){
+      var nos = [];
+      document.querySelectorAll('#bin-grid .cut').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
+      try { localStorage.setItem(BIN_KEY, JSON.stringify(nos)); } catch(e){}
+    }
+
+    function updateBin(){
+      var grid = document.getElementById('bin-grid');
+      var n = grid.querySelectorAll('.cut').length;
+      document.getElementById('bin-count').textContent = n;
+      document.getElementById('bin-section').style.display = n ? '' : 'none';
+    }
+
+    function sortGrid(grid){
+      var items = Array.prototype.slice.call(grid.querySelectorAll('.cut'));
+      items.sort(function(a,b){ return a.getAttribute('data-no').localeCompare(b.getAttribute('data-no'), undefined, {numeric:true}); });
+      items.forEach(function(it){ grid.appendChild(it); });
+    }
+
+    function rejectCut(cut){
+      cut.classList.add('rejected');
+      cut.querySelector('.cut-x').textContent = '↩';
+      cut.querySelector('.cut-x').title = '元に戻す';
+      document.getElementById('bin-grid').appendChild(cut);
+    }
+
+    function restoreCut(cut){
+      cut.classList.remove('rejected');
+      cut.querySelector('.cut-x').textContent = '✕';
+      cut.querySelector('.cut-x').title = 'ボツにする';
+      var cat = cut.getAttribute('data-cat');
+      var grid = document.querySelector('section.cat[data-cat="'+cat+'"] .grid');
+      if (grid){ grid.appendChild(cut); sortGrid(grid); }
+    }
+
+    function toggleBin(ev, btn){
+      ev.stopPropagation();
+      var cut = btn.closest('.cut');
+      if (cut.classList.contains('rejected')) { restoreCut(cut); }
+      else { rejectCut(cut); }
+      updateBin();
+      saveBin();              // ローカル（端末内バックアップ）
+      cloudSave(currentBinNos()); // クラウド（全端末で共有）
+    }
+
+    function currentBinNos(){
+      var nos = [];
+      document.querySelectorAll('#bin-grid .cut').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
+      return nos;
+    }
+
+    // 番号配列を画面へ反映する（冪等・保存はしない）。クラウド取得とリアルタイム反映の共通入口。
+    function applyRejected(nos){
+      nos = (nos || []).map(String);
+      document.querySelectorAll('#bin-grid .cut').forEach(function(cut){
+        if (nos.indexOf(cut.getAttribute('data-no')) === -1) restoreCut(cut);
+      });
+      nos.forEach(function(no){
+        var cut = document.querySelector('.cut[data-no="'+no+'"]');
+        if (!cut) return;
+        if (!cut.classList.contains('rejected')) rejectCut(cut);
+        else document.getElementById('bin-grid').appendChild(cut); // 記録順に整列
+      });
+      updateBin();
+    }
+
+    function injectButtons(){
+      document.querySelectorAll('.cut').forEach(function(cut){
+        var noEl = cut.querySelector('.cut-no');
+        if (!noEl) return;
+        cut.setAttribute('data-no', noEl.textContent.trim());
+        if (!cut.querySelector('.cut-x')){
+          var b = document.createElement('button');
+          b.className = 'cut-x';
+          b.type = 'button';
+          b.textContent = '✕';
+          b.title = 'ボツにする';
+          b.setAttribute('aria-label', 'ボツにする');
+          b.onclick = function(ev){ toggleBin(ev, b); };
+          cut.appendChild(b);
+        }
+      });
+    }
+
+    /* ===== クラウド同期（Supabase・全端末で共有）===== */
+    var SUPA_URL = 'https://ckeggepkwhcjuqgknbeh.supabase.co';
+    var SUPA_KEY = 'sb_publishable_nu0247UULLfpIFstpQIF8w_agXCg1i0'; // 公開キー（露出前提・RLSで保護）
+    var sb = null;
+    try { if (window.supabase) sb = window.supabase.createClient(SUPA_URL, SUPA_KEY); } catch(e){}
+
+    function cloudSave(nos){
+      if (!sb) return;
+      sb.from('sumimasen_cut_bin')
+        .upsert({ id:'main', rejected:nos, updated_at:new Date().toISOString() })
+        .then(function(){}, function(){});
+    }
+    function cloudLoad(){
+      if (!sb) return Promise.resolve(null);
+      return sb.from('sumimasen_cut_bin').select('rejected').eq('id','main').single()
+        .then(function(r){ return (r && !r.error && r.data) ? (r.data.rejected || []) : null; })
+        .catch(function(){ return null; });
+    }
+    function cloudSubscribe(){
+      if (!sb) return;
+      sb.channel('bin-main')
+        .on('postgres_changes',
+            { event:'*', schema:'public', table:'sumimasen_cut_bin', filter:'id=eq.main' },
+            function(payload){
+              if (payload && payload.new && payload.new.rejected){
+                applyRejected(payload.new.rejected); // 他端末の変更を即反映
+                saveBin();                            // ローカルミラーも更新
+              }
+            })
+        .subscribe();
+    }
+
+    (function initBin(){
+      injectButtons();
+      // 1) まずローカル保存で即描画（オフラインでも動く）
+      var local = [];
+      try { local = JSON.parse(localStorage.getItem(BIN_KEY) || '[]'); } catch(e){}
+      applyRejected(local);
+      // 2) クラウドを正として取得・上書き（取得できたらローカルにもミラー）
+      cloudLoad().then(function(cloud){
+        if (cloud){ applyRejected(cloud); saveBin(); }
+      });
+      // 3) 他端末の変更をリアルタイム購読
+      cloudSubscribe();
+    })();
   </script>
 </body>
 </html>
