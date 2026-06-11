@@ -337,8 +337,7 @@ function render(d){
   const risks=d.crossCuttingRisks.map(r=>`<li>${esc(r)}</li>`).join('');
   const gaps=d.openGaps.map(g=>`<li>${esc(g)}</li>`).join('');
   const ex=d.executiveSummary;
-  const kpiStrip=d.kpis?`<div class="kpi-strip">${d.kpis.map(k=>`<div class="ks-item ${k.tone||''}"><span class="ks-v">${esc(k.value)}</span><span class="ks-l">${esc(k.label)}</span><span class="ks-u">${esc(k.unit||'')}</span></div>`).join('')}</div>`:''
-  const exec=ex?`<div class="exhead2">${esc(ex.headline)}</div>${kpiStrip}<div class="execgrid">${ex.points.map(p=>`<div class="excard ex-${p.tone||'now'}"><div class="bar"></div><div class="body"><span class="lb">${esc(p.label)}</span><div class="tx">${esc(p.text)}</div></div></div>`).join('')}</div><div class="exasof">現状認識日: ${esc(ex.asOf)}</div>`:'';
+  const exec=ex?`<div class="exhead2">${esc(ex.headline)}</div><div class="execgrid">${ex.points.map(p=>`<div class="excard ex-${p.tone||'now'}"><div class="bar"></div><div class="body"><span class="lb">${esc(p.label)}</span><div class="tx">${esc(p.text)}</div></div></div>`).join('')}</div><div class="exasof">現状認識日: ${esc(ex.asOf)}</div>`:'';
   const rv=d.revenuePlan;
   let rev='';
   if(rv){
