@@ -329,7 +329,7 @@ function render(d){
     const pmRows=pm.rows.map((r,i)=>{
       const cells=pm.criteria.map(c=>{const v=r.s[c.k];const un=(r.unknown||[]).indexOf(c.k)>=0;return `<td class="pms v${v}${un?' un':''}">${v}${un?'<span class="q">?</span>':''}</td>`;}).join('');
       const nm=r.detailUrl?`<a href="${esc(r.detailUrl)}">${esc(r.name)}</a>`:esc(r.name);
-      return `<tr class="${i<3?'top3':''}"><td class="pmr">${i+1}</td><td class="pmn">${nm}<span class="pmstage">${esc(r.stage)}</span>${r.type?`<span class="pmtype pmtype-${r.type==='既存'?'ex':'new'}">${esc(r.type)}</span>`:''}</td>${cells}<td class="pmt"><b>${r.total}</b><div class="bar"><i style="width:${r.total}%"></i></div></td><td class="pmnote">${esc(r.note)}</td></tr>`;
+      return `<tr class="${i<3?'top3':''}"><td class="pmr">${i+1}</td><td class="pmn">${nm}${r.type?`<span class="pmtype pmtype-${r.type==='既存'?'ex':'new'}">${esc(r.type)}</span>`:''}</td>${cells}<td class="pmt"><b>${r.total}</b><div class="bar"><i style="width:${r.total}%"></i></div></td><td class="pmnote">${esc(r.note)}</td></tr>`;
     }).join('');
     pmHTML=`<div class="pm-wrap"><table class="pm-table"><thead><tr><th>#</th><th>企業</th>${th}<th>合計</th><th>根拠メモ</th></tr></thead><tbody>${pmRows}</tbody></table></div><p class="pm-disc">${esc(pm.disclaimer)}</p>`;
     pmLegend=`<p class="sec-note">基準と重み: ${pm.criteria.map(c=>esc(c.label)+c.w).join(' / ')}（100点満点・各1〜5点）。<b>一番ポイントが高いところから当たる</b>。</p>`;
