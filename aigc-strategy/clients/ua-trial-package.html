@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-06-15T11:12:00+09:00">
+<meta name="robots" content="noindex, nofollow">
+<title>ユナイテッドアローズ — AIGCトライアルパッケージ案｜Firework社内</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lockbox .em{font-size:2.2rem;margin-bottom:10px}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px}
+.lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
+.lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
+.lockbox .err{color:var(--danger);font-size:.8rem;min-height:1.2em;margin-top:14px}
+.lockbox .note{color:#aab;font-size:.68rem;margin-top:16px}
+#app{display:none;max-width:960px;margin:0 auto;padding:0 0 60px}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%);color:#fff;padding:24px 32px 26px}
+header .back{display:inline-block;color:#cdd3e0;font-size:.74rem;text-decoration:none;margin-bottom:14px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;transition:background .15s}
+header .back:hover{background:rgba(255,255,255,.12)}
+header .cat-tag{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.06em}
+header h1{font-size:1.6rem;font-weight:900;margin:6px 0 8px}
+header .headline{color:#dfe4ee;font-size:.86rem;max-width:780px;margin-top:4px;line-height:1.6}
+.wrap{padding:0 32px}
+.sec-h{font-size:1.02rem;font-weight:900;margin:28px 0 12px;padding-left:12px;border-left:4px solid var(--accent)}
+.sumbox{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:10px;padding:16px 18px;font-size:.86rem;line-height:1.85}
+.note2{font-size:.8rem;color:#444;line-height:1.8;margin-top:10px;background:#f2f4f8;border-radius:8px;padding:12px 16px}
+.cap{font-size:.72rem;color:var(--muted);margin-top:8px}
+.pkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.pkg{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;border-top:4px solid var(--navy)}
+.pkg-scale{border-top-color:var(--accent)}
+.pkg-tier{font-size:.7rem;font-weight:900;color:var(--muted);letter-spacing:.08em}
+.pkg-label{font-size:.92rem;font-weight:700;margin:2px 0 8px}
+.pkg-vol{font-size:1.55rem;font-weight:900;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.1}
+.pkg-scale .pkg-vol{color:var(--accent)}
+.pkg-per{font-size:.78rem;font-weight:700;color:#333;margin:4px 0 8px}
+.pkg-desc{font-size:.76rem;color:var(--muted);line-height:1.6}
+.track-in{font-size:.8rem;font-weight:700;color:var(--navy);background:#eef1f6;border-radius:8px;padding:8px 14px;margin-bottom:12px}
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:14px}
+.chain-step{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;position:relative;border-left:3px solid var(--teal)}
+.chain-n{position:absolute;top:10px;right:12px;font-size:1.2rem;font-weight:900;color:#d8ecea}
+.chain-h{font-size:.84rem;font-weight:900;margin-bottom:4px;padding-right:20px}
+.chain-t{font-size:.74rem;color:#444;line-height:1.6}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.phase{background:#fafbfc;border:1px solid var(--border);border-radius:10px;padding:14px 16px;border-top:3px solid var(--navy)}
+.phase-h{font-size:.86rem;font-weight:900;margin-bottom:5px}
+.phase-t{font-size:.76rem;color:#444;line-height:1.65}
+.phase-out{font-size:.72rem;color:var(--navy);background:#eef1f6;border-radius:6px;padding:6px 10px;margin-top:8px;font-weight:700}
+.track-hook{font-size:.74rem;color:var(--muted);margin-top:10px;padding-left:14px;border-left:2px dashed var(--accent);line-height:1.6}
+.bsteps{display:grid;grid-template-columns:1fr;gap:10px}
+.bstep{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;border-left:3px solid var(--accent)}
+.bstep-h{font-size:.88rem;font-weight:900;margin-bottom:5px}
+.bstep-t{font-size:.78rem;color:#444;line-height:1.7}
+.nalist{list-style:none;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:6px 8px;margin-top:6px}
+.nalist li{padding:10px 12px 10px 30px;position:relative;font-size:.82rem;border-bottom:1px solid #f0f0f0;line-height:1.6}
+.nalist li:last-child{border-bottom:none}
+.nalist li:before{content:"▶";position:absolute;left:11px;color:var(--teal);font-size:.66rem;top:13px}
+.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:#f2f4f8;border-radius:8px}
+footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
+.conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+</style>
+</head>
+<body>
+<div id="lock">
+  <div class="lockbox">
+    <div class="em">🎬</div>
+    <h1>AIGCトライアルパッケージ案</h1>
+    <p>Firework 社内限定（@fireworkhq.com）<br>Googleアカウントでログインしてください</p>
+    <div class="gwrap"><div id="gbtn"></div></div>
+    <div class="err" id="err"></div>
+    <div class="note">CONFIDENTIAL — 社外秘。本ページは暗号化されており、許可されたアカウントのみ閲覧できます。</div>
+  </div>
+</div>
+<div id="app"></div>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+const CLIENT_ID='1001667206230-ljl0oogq5vmgia28sk37bo3restv23gc.apps.googleusercontent.com';
+const PP="fw-aigc-2026";
+const PAYLOAD={"v":1,"iters":200000,"salt":"6D3ZkQ8h3VBr5TG+zRNBnQ==","iv":"k5APF6QNOnxGpXLj","ct":"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"};
+async function decrypt(pass){
+  const enc=new TextEncoder();
+  const salt=Uint8Array.from(atob(PAYLOAD.salt),c=>c.charCodeAt(0));
+  const iv=Uint8Array.from(atob(PAYLOAD.iv),c=>c.charCodeAt(0));
+  const ct=Uint8Array.from(atob(PAYLOAD.ct),c=>c.charCodeAt(0));
+  const baseKey=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:PAYLOAD.iters,hash:'SHA-256'},baseKey,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function _jwt(t){try{const p=t.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(p))));}catch(e){return null;}}
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(c){
+  const pkgs=(c.packages||[]).map(p=>`<div class="pkg ${p.tier==='量産'?'pkg-scale':'pkg-trial'}"><div class="pkg-tier">${esc(p.tier)}</div><div class="pkg-label">${esc(p.label)}</div><div class="pkg-vol">${esc(p.vol)}</div><div class="pkg-per">${esc(p.per)}</div><div class="pkg-desc">${esc(p.desc)}</div></div>`).join('');
+  const chain=((c.trackA&&c.trackA.chain)||[]).map((s,i)=>`<div class="chain-step"><div class="chain-n">${i+1}</div><div class="chain-h">${esc(s.h)}</div><div class="chain-t">${esc(s.t)}</div></div>`).join('');
+  const phasesA=((c.trackA&&c.trackA.phases)||[]).map(p=>`<div class="phase"><div class="phase-h">${esc(p.h)}</div><div class="phase-t">${esc(p.t)}</div>${p.out?`<div class="phase-out">OUT: ${esc(p.out)}</div>`:''}</div>`).join('');
+  const stepsB=((c.trackB&&c.trackB.steps)||[]).map(s=>`<div class="bstep"><div class="bstep-h">${esc(s.h)}</div><div class="bstep-t">${esc(s.t)}</div></div>`).join('');
+  const nas=(c.nextActions||[]).map(n=>`<li>${esc(n)}</li>`).join('');
+  document.getElementById('app').innerHTML=`
+  <header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>
+    <div class="cat-tag">${esc(c.client)}｜AIGCトライアルパッケージ</div>
+    <h1>${esc(c.title)}</h1>
+    <div class="headline">${esc(c.subtitle)}</div>
+  </header>
+  <div class="wrap">
+    <div class="sec-h">共通の前提・ゴール</div>
+    <div class="sumbox">${esc(c.premise)}</div>
+    <div class="note2">${esc(c.strategicMeaning)}</div>
+    <div class="sec-h">トライアル → 量産｜想定パッケージ</div>
+    <div class="pkgs">${pkgs}</div>
+    <p class="cap">${esc(c.packagesNote)}</p>
+    <div class="sec-h">Track A／ライブ起点 — ${esc(c.trackA.subtitle)}</div>
+    <div class="track-in">入り口：${esc(c.trackA.entry)}</div>
+    <div class="chain">${chain}</div>
+    <div class="phases">${phasesA}</div>
+    <div class="track-hook">この先（拡張フック）：${esc(c.trackA.hook)}</div>
+    <div class="sec-h">Track B／生成のみ — ${esc(c.trackB.subtitle)}</div>
+    <div class="track-in">入り口：${esc(c.trackB.entry)}</div>
+    <div class="bsteps">${stepsB}</div>
+    <div class="track-hook">この先（拡張フック）：${esc(c.trackB.hook)}</div>
+    <div class="sec-h">2トラック共通の背骨 ＆ Next Action</div>
+    <div class="sumbox">${esc(c.backbone)}</div>
+    <ul class="nalist">${nas}</ul>
+    <div class="src">出典: ${(c.sources||[]).map(esc).join(' ／ ')}　／　最終更新: ${esc(c.lastUpdate||'')}</div>
+  </div>
+  <footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGCトライアルパッケージ案　最終更新 ${esc(c.lastUpdate||'')} JST</footer>`;
+}
+const SS_KEY='aigc_cred';
+function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
+function tryToken(credential,fromCache){
+  return (async()=>{
+    const info=_jwt(credential);
+    const now=Math.floor(Date.now()/1000);
+    const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
+    const ok=info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now);
+    if(!ok){try{sessionStorage.removeItem(SS_KEY);}catch(_){}
+      if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
+      return false;}
+    try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
+    catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
+  })();
+}
+function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
+function initGoogle(){
+  if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
+  google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
+  google.accounts.id.prompt();
+}
+window.onload=function(){
+  let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
+  if(cached){document.getElementById('err').textContent='読み込み中…';tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});}
+  else{initGoogle();}
+};
+</script>
+</body>
+</html>
