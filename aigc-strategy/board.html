@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-16T14:33:31+09:00">
+<meta name="last-modified" content="2026-06-16T14:42:30+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
@@ -108,6 +108,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;pad
 .pm-cap.cap-lost{background:#8a8f98}
 .pdate{display:block;font-size:.62rem;color:var(--muted);margin-top:3px;font-weight:700}
 .pm-cnt{font-size:.64rem;font-weight:700;background:rgba(255,255,255,.25);border-radius:20px;padding:1px 9px}
+.pm-goal{font-size:.66rem;font-weight:800;color:#fff;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.55);border-radius:20px;padding:2px 10px;letter-spacing:.01em}
 .pm-table th.pmc .pmw{display:block;color:var(--accent);font-weight:900}
 .pm-table td{padding:7px 6px;border-bottom:1px solid #f0f1f4;text-align:center;vertical-align:middle}
 .pm-table tr:last-child td{border-bottom:none}
@@ -461,7 +462,7 @@ function render(d){
     const rest=pm.rows.filter(r=>!used.has(r));
     const t3=rest.filter(r=>r.type==='既存');
     const t4=rest.filter(r=>r.type!=='既存');
-    pmHTML=mkTable('① 先方検討中・POC','cap-adv',t1)+mkTable('② 商談進行中（アポ確定）','cap-adv2',t2)+mkTable('③ 既存クライアント','cap-ex',t3)+mkTable('④ 新規クライアント','cap-new',t4)+mkTable('⑤ 失注・保留','cap-lost',t5)+`<p class="pm-disc">${esc(pm.disclaimer)}</p>`;
+    pmHTML=mkTable('① 先方検討中・POC','cap-adv',t1)+mkTable('② 商談進行中（アポ確定）<span class="pm-goal">※6月中にPipeline10件創出！</span>','cap-adv2',t2)+mkTable('③ 既存クライアント','cap-ex',t3)+mkTable('④ 新規クライアント','cap-new',t4)+mkTable('⑤ 失注・保留','cap-lost',t5)+`<p class="pm-disc">${esc(pm.disclaimer)}</p>`;
     pmLegend=`<p class="sec-note">基準と重み: ${pm.criteria.filter(c=>!c.pending).map(c=>esc(c.label)+c.w).join(' / ')}（100点満点・各1〜5点）。<b>提案ステータス別に ①先方検討中→②商談進行中→③既存→④新規→⑤失注・保留 でテーブル分割</b>。各表内は優先カテゴリ（アパレル/ペット/家電/リテール・メーカー）上位・同カテゴリ内はスコア降順。IVS契約の既存32社は7基準未採点（合計空欄・ステータス=提案前）。担当=営（SF Account Owner）/顧（CSM）。</p>`;
   }
   const bk=d.benchmarks;
