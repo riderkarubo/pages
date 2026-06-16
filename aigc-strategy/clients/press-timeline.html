@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-06-16T13:04:47+09:00">
+<meta name="robots" content="noindex, nofollow">
+<title>プレスリリース 進行タイムライン｜Firework社内</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📁</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lockbox .em{font-size:2.2rem;margin-bottom:10px}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px}
+.lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
+.lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
+.lockbox .err{color:var(--danger);font-size:.8rem;min-height:1.2em;margin-top:14px}
+.lockbox .note{color:#aab;font-size:.68rem;margin-top:16px}
+#app{display:none;max-width:920px;margin:0 auto;padding:0 0 60px}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%);color:#fff;padding:24px 32px 26px}
+header .back{display:inline-block;color:#cdd3e0;font-size:.74rem;text-decoration:none;margin-bottom:14px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;transition:background .15s}
+header .back:hover{background:rgba(255,255,255,.12)}
+header .cat-tag{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header h1{font-size:1.6rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header .headline{color:#dfe4ee;font-size:.92rem;max-width:760px;margin-top:4px;line-height:1.6}
+.wrap{padding:0 32px}
+.sumbox{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin-top:22px;font-size:.86rem;line-height:1.8}
+.sec-h{font-size:1.02rem;font-weight:900;margin:28px 0 12px;padding-left:12px;border-left:4px solid var(--navy)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.tbl th{background:#f2f4f8;text-align:left;font-size:.72rem;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border)}
+.tbl td{padding:10px 12px;border-bottom:1px solid #f0f1f4;font-size:.8rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .nm{font-weight:700;width:32%}
+.tbl .nt{color:var(--muted);font-size:.76rem}
+.tbl .st{display:inline-block;background:#eef1f6;color:var(--navy);border-radius:6px;padding:2px 9px;font-size:.72rem;white-space:nowrap}
+.nalist,.rklist{list-style:none;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:6px 8px}
+.nalist li,.rklist li{padding:10px 12px 10px 30px;position:relative;font-size:.82rem;border-bottom:1px solid #f0f0f0;line-height:1.6}
+.nalist li:last-child,.rklist li:last-child{border-bottom:none}
+.nalist li:before{content:"▶";position:absolute;left:11px;color:var(--teal);font-size:.66rem;top:13px}
+.rklist li:before{content:"⚠";position:absolute;left:10px;color:var(--warn);top:11px}
+.nalist .na-o{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}
+.owners .chip{display:inline-block;background:#eef1f6;border-radius:20px;padding:4px 14px;font-size:.78rem;margin:0 6px 6px 0;font-weight:700;color:var(--navy)}
+.stat{font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.stat.進行中{background:#e6f4f1;color:var(--active)}.stat.停滞{background:#fdf0db;color:#b9791a}.stat.先方検討中{background:#fdf0db;color:#b9791a}.stat.保留{background:#eef0f3;color:var(--hold)}.stat.完了{background:#e8eef7;color:var(--check)}.stat.検討中{background:#e9edf6;color:var(--navy)}.stat.未着手{background:#f0f0f0;color:#999}
+.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:#f2f4f8;border-radius:8px}
+footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
+.conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+/* press-timeline */
+header .pub{margin-top:12px;display:inline-block;background:rgba(250,0,109,.18);border:1px solid rgba(250,0,109,.5);color:#ffd0e4;font-weight:700;font-size:.8rem;padding:5px 14px;border-radius:20px}
+.ms-row{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin-top:4px}
+.ms-item{flex:1;min-width:150px;background:var(--card);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:10px;padding:12px 14px;text-align:center}
+.ms-item.done{border-top-color:var(--check);opacity:.85}
+.ms-date{font-weight:900;font-size:.92rem;color:var(--navy)}
+.ms-label{font-size:.74rem;color:var(--ink);margin:6px 0 8px;line-height:1.4}
+.ms-arrow{display:flex;align-items:center;color:var(--accent);font-weight:900;padding:0 6px;font-size:1.1rem}
+.parties{display:flex;gap:12px;flex-wrap:wrap}
+.party{flex:1;min-width:200px;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:10px;padding:12px 14px}
+.pt-role{font-size:.7rem;color:var(--muted);font-weight:700}
+.pt-name{font-size:.95rem;font-weight:900;margin:3px 0 4px}
+.pt-note{font-size:.76rem;color:var(--muted);line-height:1.5}
+.phase{margin-bottom:22px}
+.phase-h{display:flex;align-items:center;gap:10px;font-size:1rem;font-weight:900;margin:18px 0 10px;flex-wrap:wrap}
+.ph-id{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;background:var(--ink);color:#fff;border-radius:50%;font-size:.82rem;padding:0 4px}
+.ph-period{font-size:.74rem;font-weight:700;color:var(--muted);background:#eef1f6;border-radius:20px;padding:3px 12px}
+.ttbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.ttbl th{background:#f2f4f8;text-align:left;font-size:.7rem;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border)}
+.ttbl td{padding:10px 12px;border-bottom:1px solid #f0f1f4;font-size:.79rem;vertical-align:top}
+.ttbl tr:last-child td{border-bottom:none}
+.ttbl .tk{font-weight:700;width:34%}
+.ttbl .ow{width:14%;color:var(--navy);font-weight:700;font-size:.76rem}
+.ttbl .du{width:14%;color:var(--muted);font-size:.76rem;white-space:nowrap}
+.ttbl .nt{color:var(--muted);font-size:.74rem}
+.ttbl tr.mile{background:#fff6fa}
+.ttbl tr.mile .tk{color:var(--accent)}
+@media(max-width:640px){.ms-arrow{display:none}.ttbl .nt{display:none}}
+</style>
+</head>
+<body>
+<div id="lock">
+  <div class="lockbox">
+    <div class="em">📁</div>
+    <h1>プレスリリース 進行タイムライン</h1>
+    <p>Firework 社内限定（@fireworkhq.com）<br>Googleアカウントでログインしてください</p>
+    <div class="gwrap"><div id="gbtn"></div></div>
+    <div class="err" id="err"></div>
+    <div class="note">CONFIDENTIAL — 社外秘。本ページは暗号化されており、許可されたアカウントのみ閲覧できます。</div>
+  </div>
+</div>
+<div id="app"></div>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+const CLIENT_ID='1001667206230-ljl0oogq5vmgia28sk37bo3restv23gc.apps.googleusercontent.com';
+const PP="fw-aigc-2026";
+const PAYLOAD={"v":1,"iters":200000,"salt":"VzO0Y+aVMFRNkc4SxJoYBQ==","iv":"7Q6crMBjw6+fBIXn","ct":"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"};
+async function decrypt(pass){
+  const enc=new TextEncoder();
+  const salt=Uint8Array.from(atob(PAYLOAD.salt),c=>c.charCodeAt(0));
+  const iv=Uint8Array.from(atob(PAYLOAD.iv),c=>c.charCodeAt(0));
+  const ct=Uint8Array.from(atob(PAYLOAD.ct),c=>c.charCodeAt(0));
+  const baseKey=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:PAYLOAD.iters,hash:'SHA-256'},baseKey,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function _jwt(t){try{const p=t.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(p))));}catch(e){return null;}}
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(c){
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[x];});};
+  var ms=(c.milestones||[]).map(function(m){
+    return '<div class="ms-item '+(m.status==='完了'?'done':'')+'"><div class="ms-date">'+esc(m.date)+'</div><div class="ms-label">'+esc(m.label)+'</div><span class="stat '+(m.status||'')+'">'+esc(m.status)+'</span></div>';
+  }).join('<div class="ms-arrow">→</div>');
+  var phases=(c.phases||[]).map(function(p){
+    var rows=(p.tasks||[]).map(function(t){
+      return '<tr class="'+(t.milestone?'mile':'')+'"><td class="tk">'+(t.milestone?'🚩 ':'')+esc(t.name)+'</td><td class="ow">'+esc(t.owner||'')+'</td><td class="du">'+esc(t.due||'')+'</td><td><span class="stat '+(t.status||'')+'">'+esc(t.status||'')+'</span></td><td class="nt">'+esc(t.note||'')+'</td></tr>';
+    }).join('');
+    return '<div class="phase"><div class="phase-h"><span class="ph-id">'+esc(p.id)+'</span>'+esc(p.label)+'<span class="ph-period">'+esc(p.period||'')+'</span></div><table class="ttbl"><thead><tr><th>タスク</th><th>担当</th><th>期限（仮）</th><th>状況</th><th>メモ</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  }).join('');
+  var parties=(c.parties||[]).map(function(p){
+    return '<div class="party"><div class="pt-role">'+esc(p.role)+'</div><div class="pt-name">'+esc(p.name)+'</div><div class="pt-note">'+esc(p.note||'')+'</div></div>';
+  }).join('');
+  var adv=(c.advisory||[]).map(function(a){return '<li>'+esc(a)+'</li>';}).join('')||'<li>—</li>';
+  document.getElementById('app').innerHTML=
+    '<header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>'+
+    '<div class="cat-tag">プレスリリース進行管理</div>'+
+    '<h1>プレスリリース 進行タイムライン</h1>'+
+    '<div class="headline">'+esc(c.headline)+'</div>'+
+    '<div class="pub">🎯 公開目標：'+esc(c.pubTarget)+'</div></header>'+
+    '<div class="wrap">'+
+    '<div class="sec-h">主要マイルストーン</div><div class="ms-row">'+ms+'</div>'+
+    '<div class="sec-h">関係者</div><div class="parties">'+parties+'</div>'+
+    '<div class="sec-h">フェーズ別タスク</div>'+phases+
+    '<div class="sec-h">軍師の進言・リスク</div><ul class="rklist">'+adv+'</ul>'+
+    '<div class="src">日付はすべて逆算の仮置き（公開日確定後に実日付へ置換）。最終更新: '+esc(c.lastUpdate||'')+' JST</div>'+
+    '</div>'+
+    '<footer><span class="conf">CONFIDENTIAL — 社外秘</span>プレスリリース進行タイムライン　最終更新 '+esc(c.lastUpdate||'')+' JST</footer>';
+}
+const SS_KEY='aigc_cred';
+function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
+function tryToken(credential,fromCache){
+  return (async()=>{
+    const info=_jwt(credential);
+    const now=Math.floor(Date.now()/1000);
+    const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
+    const ok=info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now);
+    if(!ok){try{sessionStorage.removeItem(SS_KEY);}catch(_){}
+      if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
+      return false;}
+    try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
+    catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
+  })();
+}
+function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
+function initGoogle(){
+  if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
+  google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
+  google.accounts.id.prompt();
+}
+window.onload=function(){
+  let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
+  if(cached){document.getElementById('err').textContent='読み込み中…';tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});}
+  else{initGoogle();}
+};
+</script>
+</body>
+</html>

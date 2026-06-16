@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-15T11:08:00+09:00">
+<meta name="last-modified" content="2026-06-16T13:07:09+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
@@ -348,6 +348,9 @@ body{padding-left:220px}
 .tb-card .tb-n{position:absolute;top:12px;right:14px;font-size:1.4rem;font-weight:900;color:#f0d3e0;line-height:1}
 .tb-card .tb-h{font-size:.92rem;font-weight:900;color:var(--ink);margin-bottom:6px;padding-right:24px}
 .tb-card .tb-t{font-size:.76rem;color:#444;line-height:1.65}
+.pr-timeline-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,#FA006D,#c4005a);color:#fff;text-decoration:none;font-weight:900;font-size:.95rem;padding:16px 22px;border-radius:12px;margin:22px 0 4px;box-shadow:0 6px 20px rgba(250,0,109,.28);transition:transform .15s,box-shadow .15s}
+.pr-timeline-link:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(250,0,109,.36)}
+.pr-timeline-link .arr{font-size:1.3rem;font-weight:900}
 </style>
 </head>
 <body>
@@ -523,6 +526,7 @@ function render(d){
   <header><div class="eyebrow">Firework 社内限定 — AIGC事業</div><h1>AIGC事業 進捗ボード</h1>
   <div class="goal">${esc(d.projectGoal)}</div><div class="ts">最終更新: ${esc(d.generatedAt)} JST　／　全データは議事録・候補リスト・各案件フォルダ・PL/SF台帳から生成（静的・閲覧専用）</div></header>
   <div class="wrap">
+  <a class="pr-timeline-link" href="clients/press-timeline.html">📋 プレスリリース進行タイムライン・タスク管理へ<span class="arr">→</span></a>
   <div class="section-title" id="sec-exec">エグゼクティブサマリ</div>${exec}
   ${rev}
   ${tbHTML}
