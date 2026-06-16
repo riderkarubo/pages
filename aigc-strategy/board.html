@@ -301,7 +301,10 @@ body{padding-left:220px}
 .ap-name a:hover{text-decoration:underline}
 .ap-owner{font-size:.72rem;color:#0d7270;font-weight:700;margin-top:2px}
 .ap-note{font-size:.7rem;color:#666;margin-top:5px;line-height:1.4}
-.pm-lost td{opacity:.55}
+.pm-table tr.pm-lost{background:#f0f0f0}
+.pm-lost td{color:#aaa!important;background:#f0f0f0!important}
+.pm-lost .ps,.pm-lost .cattag,.pm-lost b,.pm-lost .bar i{opacity:.4}
+.pm-lost .pmn a{color:#bbb;text-decoration:line-through}
 .pmown{font-size:.75rem;color:#555;white-space:nowrap;padding:4px 8px}
 .pm-table th.pmc-pend{background:#fbeef4;color:#b85b8a}
 .pm-table th.pmc-pend .pmw{display:block;color:#b85b8a;font-weight:900;font-size:.6rem}
@@ -425,7 +428,7 @@ function render(d){
       return `<tr class="${isLost?'pm-lost':''}${r.isIVS?' pm-ivs':''}"><td class="pmn">${nm}${r.type?`<span class="pmtype pmtype-${r.type==='既存'?'ex':'new'}">${esc(r.type)}</span>`:''}</td><td>${ps}</td><td class="pmcat">${cat}</td><td class="pmown">${ownCell(r)}</td><td class="pmt">${tot}</td>${cells}<td class="pmnote">${esc(r.note||'')}</td></tr>`;
     };
     const headRow=`<thead><tr><th>企業</th><th>ステータス</th><th>カテゴリ</th><th>担当(営/顧)</th><th>合計</th>${th}<th>進捗・提案状況</th></tr></thead>`;
-    const sortRows=rows=>[...rows].sort((a,b)=>{const ca=a.catRank||9,cb=b.catRank||9;if(ca!==cb)return ca-cb;const ta=a.total==null?-1:a.total,tb=b.total==null?-1:b.total;if(ta!==tb)return tb-ta;return (a.name||'').localeCompare(b.name||'');});
+    const sortRows=rows=>[...rows].sort((a,b)=>{const la=a.propStatus==='失注'?1:0,lb=b.propStatus==='失注'?1:0;if(la!==lb)return la-lb;const ca=a.catRank||9,cb=b.catRank||9;if(ca!==cb)return ca-cb;const ta=a.total==null?-1:a.total,tb=b.total==null?-1:b.total;if(ta!==tb)return tb-ta;return (a.name||'').localeCompare(b.name||'');});
     const mkTable=(cap,cls,rows)=>rows.length?`<div class="pm-block"><div class="pm-cap ${cls}">${cap}<span class="pm-cnt">${rows.length}社</span></div><div class="pm-wrap"><table class="pm-table">${headRow}<tbody>${sortRows(rows).map(mkRow).join('')}</tbody></table></div></div>`:'';
     const t1=pm.rows.filter(r=>r.propStatus==='先方検討中');
     const t2=pm.rows.filter(r=>r.propStatus==='アポ確定');
