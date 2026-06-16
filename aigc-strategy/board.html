@@ -106,9 +106,6 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;pad
 .pm-cap.cap-new{background:#1B998B}
 .pm-cap.cap-adv2{background:#b9791a}
 .pm-cap.cap-lost{background:#8a8f98}
-.pm-cap.cap-rc{background:linear-gradient(90deg,#0b7285,#0F3460)}
-.rc-section{border:2px solid #0b7285;border-radius:12px;padding:13px 13px 3px;margin:0 0 24px;background:#f2fafb}
-.rc-head{font-size:.92rem;font-weight:900;color:#0b7285;margin:0 0 12px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .rc-chip{display:inline-block;margin-left:4px;font-size:.72rem;vertical-align:middle;opacity:.85}
 .pdate{display:block;font-size:.62rem;color:var(--muted);margin-top:3px;font-weight:700}
 .pm-cnt{font-size:.64rem;font-weight:700;background:rgba(255,255,255,.25);border-radius:20px;padding:1px 9px}
@@ -314,6 +311,8 @@ body{padding-left:220px}
 .pm-table th.pmc-pend{background:#fbeef4;color:#b85b8a}
 .pm-table th.pmc-pend .pmw{display:block;color:#b85b8a;font-weight:900;font-size:.6rem}
 .pm-table td.pms.un{color:#c7ccd6}
+.pm-table th.pmc-rc{background:#eaf6f8;color:#0b7285}
+.pm-table td.pms.rc-on{color:#0b7285;font-weight:800;font-size:.62rem;white-space:nowrap}
 .stat.提案済み{background:#e8eef7;color:#0F3460}
 .pricing-card{margin-top:14px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,#fff,#fff6fa);border:1px solid #f3c6da;border-left:4px solid var(--accent);border-radius:12px;padding:14px 20px}
 .pricing-card .pc-h{font-size:.78rem;font-weight:900;color:var(--navy)}
@@ -445,10 +444,10 @@ function render(d){
   const pm=d.priorityMatrix;
   let pmHTML='',pmLegend='';
   if(pm){
-    const th=pm.criteria.map(c=>c.pending?`<th class="pmc pmc-pend" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">確認中</span></th>`:`<th class="pmc" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">${c.w}</span></th>`).join('');
+    const th=pm.criteria.map(c=>c.label==='リテールコネクト'?`<th class="pmc pmc-rc" title="リテールコネクト関連の小売/メーカー区分">${esc(c.label)}</th>`:c.pending?`<th class="pmc pmc-pend" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">確認中</span></th>`:`<th class="pmc" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">${c.w}</span></th>`).join('');
     const ownCell=r=>{const sa=(r.sales&&r.sales!=='—')?`<span class="ow-s"><i>営</i>${esc(r.sales)}</span>`:'<span class="ow-s ow-none"><i>営</i>未割当</span>';const cl=(r.cl&&r.cl!=='—')?`<span class="ow-c"><i>顧</i>${esc(r.cl)}</span>`:'';return sa+cl;};
     const mkRow=r=>{
-      const cells=pm.criteria.map(c=>{if(c.pending)return '<td class="pms un">—</td>';const v=r.s&&r.s[c.k];if(v==null)return '<td class="pms blank">·</td>';const un=(r.unknown||[]).indexOf(c.k)>=0;return `<td class="pms v${v}${un?' un':''}">${v}${un?'<span class="q">?</span>':''}</td>`;}).join('');
+      const cells=pm.criteria.map(c=>{if(c.label==='リテールコネクト'){if(r.retailConnect==='retail')return '<td class="pms rc-on" title="リテールコネクト：リテール">🔗小売</td>';if(r.retailConnect==='brand')return '<td class="pms rc-on" title="リテールコネクト：ブランド/メーカー">🔗ﾒｰｶｰ</td>';return '<td class="pms un">—</td>';}if(c.pending)return '<td class="pms un">—</td>';const v=r.s&&r.s[c.k];if(v==null)return '<td class="pms blank">·</td>';const un=(r.unknown||[]).indexOf(c.k)>=0;return `<td class="pms v${v}${un?' un':''}">${v}${un?'<span class="q">?</span>':''}</td>`;}).join('');
       const nm=r.detailUrl?`<a href="${esc(r.detailUrl)}">${esc(r.name)}</a>`:esc(r.name);
       const ps=r.propStatus?`<span class="ps ps-${esc(r.propStatus)}">${esc(r.propStatus)}</span>${r.propDate?`<span class="pdate">提案 ${esc(r.propDate)}</span>`:''}`:'<span class="ps ps-不明">—</span>';
       const cat=`<span class="cattag cr${r.catRank||9}">${esc(r.category||'—')}</span>`;
@@ -459,8 +458,6 @@ function render(d){
     const headRow=`<thead><tr><th>企業</th><th>ステータス</th><th>カテゴリ</th><th>担当(営/顧)</th><th>合計</th>${th}<th>進捗・提案状況</th></tr></thead>`;
     const sortRows=rows=>[...rows].sort((a,b)=>{const la=a.propStatus==='失注'?1:0,lb=b.propStatus==='失注'?1:0;if(la!==lb)return la-lb;const ca=a.catRank||9,cb=b.catRank||9;if(ca!==cb)return ca-cb;const ta=a.total==null?-1:a.total,tb=b.total==null?-1:b.total;if(ta!==tb)return tb-ta;return (a.name||'').localeCompare(b.name||'');});
     const mkTable=(cap,cls,rows)=>rows.length?`<div class="pm-block"><div class="pm-cap ${cls}">${cap}<span class="pm-cnt">${rows.length}社</span></div><div class="pm-wrap"><table class="pm-table">${headRow}<tbody>${sortRows(rows).map(mkRow).join('')}</tbody></table></div></div>`:'';
-    const rcR=pm.rows.filter(r=>r.retailConnect==='retail');const rcB=pm.rows.filter(r=>r.retailConnect==='brand');const rcN=rcR.length+rcB.length;
-    const rcHTML=rcN?`<div class="rc-section"><div class="rc-head">🔗 リテールコネクト関連（提案アタック最優先・${rcN}社）</div>`+mkTable('🔗 リテールコネクト ▸ リテール','cap-rc',rcR)+mkTable('🔗 リテールコネクト ▸ ブランド（メーカー）','cap-rc',rcB)+`</div>`:'';
     const t1=pm.rows.filter(r=>r.propStatus==='先方検討中');
     const t2=pm.rows.filter(r=>r.propStatus==='アポ確定');
     const t5=pm.rows.filter(r=>r.propStatus==='失注'||r.propStatus==='保留');
@@ -468,8 +465,8 @@ function render(d){
     const rest=pm.rows.filter(r=>!used.has(r));
     const t3=rest.filter(r=>r.type==='既存');
     const t4=rest.filter(r=>r.type!=='既存');
-    pmHTML=rcHTML+mkTable('① 先方検討中・POC','cap-adv',t1)+mkTable('② 商談進行中（アポ確定）<span class="pm-goal">※6月中にPipeline10件創出！</span>','cap-adv2',t2)+mkTable('③ 既存クライアント','cap-ex',t3)+mkTable('④ 新規クライアント','cap-new',t4)+mkTable('⑤ 失注・保留','cap-lost',t5)+`<p class="pm-disc">${esc(pm.disclaimer)}</p>`;
-    pmLegend=`<p class="sec-note"><b>🔗 リテールコネクト関連企業を最上段に「最優先アタック枠」として集約（リテール/ブランド別・各表内はアパレル/スポーツ等の優先カテゴリ上位）。各ステータス表にも🔗付きで再掲。</b> 基準と重み: ${pm.criteria.filter(c=>!c.pending).map(c=>esc(c.label)+c.w).join(' / ')}（100点満点・各1〜5点）。<b>提案ステータス別に ①先方検討中→②商談進行中→③既存→④新規→⑤失注・保留 でテーブル分割</b>。各表内は優先カテゴリ（アパレル/ペット/家電/リテール・メーカー）上位・同カテゴリ内はスコア降順。IVS契約の既存32社は7基準未採点（合計空欄・ステータス=提案前）。担当=営（SF Account Owner）/顧（CSM）。</p>`;
+    pmHTML=mkTable('① 先方検討中・POC','cap-adv',t1)+mkTable('② 商談進行中（アポ確定）<span class="pm-goal">※6月中にPipeline10件創出！</span>','cap-adv2',t2)+mkTable('③ 既存クライアント','cap-ex',t3)+mkTable('④ 新規クライアント','cap-new',t4)+mkTable('⑤ 失注・保留','cap-lost',t5)+`<p class="pm-disc">${esc(pm.disclaimer)}</p>`;
+    pmLegend=`<p class="sec-note"><b>🔗 リテールコネクト関連は各ステータス表内の「リテールコネクト」列で小売/メーカー区分を表示（専用枠は廃止し既存テーブルに統合）。</b> 基準と重み: ${pm.criteria.filter(c=>!c.pending).map(c=>esc(c.label)+c.w).join(' / ')}（100点満点・各1〜5点）。<b>提案ステータス別に ①先方検討中→②商談進行中→③既存→④新規→⑤失注・保留 でテーブル分割</b>。各表内は優先カテゴリ（アパレル/ペット/家電/リテール・メーカー）上位・同カテゴリ内はスコア降順。IVS契約の既存32社は7基準未採点（合計空欄・ステータス=提案前）。担当=営（SF Account Owner）/顧（CSM）。</p>`;
   }
   const bk=d.benchmarks;
   const bmkHTML=bk?`<div class="bmk"><div class="bmk-h">営業武器（ベンチマーク実績・ピッチの型）</div><div class="bmk-pitch">${esc(bk.pitch)}</div><div class="bmk-grid">${bk.items.map(b=>`<div class="bmk-card"><div class="bn">${esc(b.name)}</div><div class="bs">${esc(b.stat)}</div><div class="bu">${esc(b.use)}</div>${b.detailUrl?`<a class="bmk-link" href="${esc(b.detailUrl)}">進捗トラッカーを開く →</a>`:''}${(b.links||[]).map(l=>`<a class="bmk-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div>`).join('')}</div></div>`:'';
