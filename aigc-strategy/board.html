@@ -315,6 +315,23 @@ body{padding-left:220px}
 .pricing-card .pc-v{font-size:1.8rem;font-weight:900;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
 .pricing-card .pc-per{font-size:.78rem;color:#444;margin-left:8px}
 .pricing-card .pc-note{font-size:.7rem;color:var(--muted);flex:1;min-width:220px;line-height:1.5}
+.rich-aigc-section{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px 24px;margin-bottom:24px}
+.rich-aigc-badge{display:inline-block;background:#f3e8ff;color:#7c3aed;font-size:.68rem;font-weight:900;padding:2px 10px;border-radius:20px;margin-bottom:12px;letter-spacing:.04em}
+.rich-aigc-concept{font-size:.92rem;line-height:1.75;color:#333;margin-bottom:16px}
+.rich-aigc-concept strong{color:var(--navy)}
+.rich-patterns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.rp-card{flex:1 1 180px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px}
+.rp-card h4{font-size:.82rem;font-weight:900;color:var(--navy);margin:0 0 6px}
+.rp-card .rp-result{font-size:.75rem;color:var(--accent);font-weight:700;margin-bottom:4px}
+.rp-card .rp-aigc{font-size:.68rem;color:#0d7270;font-weight:700}
+.rp-card .rp-desc{font-size:.7rem;color:#555;line-height:1.45;margin-top:4px}
+.rich-aigc-effect{display:flex;gap:16px;flex-wrap:wrap;background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #a7f3d0;border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.rae-item{text-align:center;flex:1 1 80px}
+.rae-val{font-size:1.4rem;font-weight:900;color:#059669;line-height:1}
+.rae-lbl{font-size:.65rem;color:#065f46;margin-top:2px}
+.rich-aigc-doc-link{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;text-decoration:none;color:var(--navy);font-size:.8rem;font-weight:700;transition:background .15s}
+.rich-aigc-doc-link:hover{background:#dbeafe}
+.rich-aigc-doc-link .rdl-icon{font-size:1.1rem}
 .bulk-wrap{margin-top:16px;overflow-x:auto}
 .bulk-h{font-size:.82rem;font-weight:900;color:var(--navy);margin-bottom:8px}
 .bulk-table{width:100%;border-collapse:collapse;font-size:.78rem;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;min-width:560px}
@@ -499,6 +516,7 @@ function render(d){
     <a href="#sec-tasks"><span class="num">10</span>横断タスク・イネーブラ</a>
     ${hasNA?'<a href="#sec-na"><span class="num">11</span>ネクストアクション</a>':''}
     <a href="#sec-june"><span class="num">${hasNA?'12':'11'}</span>6月商談リスト</a>
+    <a href="#sec-rich"><span class="num">${hasNA?'13':'12'}</span>将来構想：リッチAIGC</a>
     <div class="foot">CONFIDENTIAL 社外秘<br>${esc(d.generatedAt)} 時点</div>
   </nav>`;
   document.getElementById('app').innerHTML=`${nav}
@@ -523,6 +541,46 @@ function render(d){
   ${naSection}
 
   ${juneSection}
+  <div class="section-title" id="sec-rich">将来構想：リッチAIGC（ハイブリッドモデル）</div>
+  <div class="rich-aigc-section">
+    <div class="rich-aigc-badge">🔮 将来構想 — 検討中</div>
+    <div class="rich-aigc-concept">
+      <strong>リッチAIGC</strong> = <strong>AI生成 × 人力編集</strong>（テロップ追加・カット編集）のハイブリッドモデル。<br>
+      純粋なAIGCに「人の手による磨き」を加えることで、PSクオリティに近い動画を低コストで量産する次世代フォーマット。<br>
+      実写PSで確立した3つの<strong>勝ちクリエイティブパターン</strong>（ランキング型・30秒プレゼン型・エビデンス型）を<br>
+      AIGCテンプレートとして再現し、月40〜50本体制を実現する。
+    </div>
+    <div class="rich-patterns">
+      <div class="rp-card">
+        <h4>① ランキング型</h4>
+        <div class="rp-result">¥2,164,852 / 265件</div>
+        <div class="rp-aigc">AIGC適用度 ⭐⭐⭐ 超高い</div>
+        <div class="rp-desc">「プロおすすめTOP3」形式。フック→ランキング→CTA の22秒黄金構造。5月売上の31%を単独で獲得。</div>
+      </div>
+      <div class="rp-card">
+        <h4>② 30秒プレゼン型</h4>
+        <div class="rp-result">3年連続 安定売上</div>
+        <div class="rp-aigc">AIGC適用度 ⭐⭐⭐ 超高い</div>
+        <div class="rp-desc">開発担当者がこだわりを30秒で説明。季節性ゼロで通年安定。テンプレ化で色違い・機能違いを量産。</div>
+      </div>
+      <div class="rp-card">
+        <h4>③ エビデンス型</h4>
+        <div class="rp-result">¥714,559 / 単価¥31,067</div>
+        <div class="rp-aigc">AIGC適用度 ⭐⭐ 高い</div>
+        <div class="rp-desc">「防水検証」等の機能実験動画。異常に高い客単価。梅雨・夏などの機能需要ピーク前1ヶ月に投入。</div>
+      </div>
+    </div>
+    <div class="rich-aigc-effect">
+      <div class="rae-item"><div class="rae-val">2-3×</div><div class="rae-lbl">クリエイティブ量拡大</div></div>
+      <div class="rae-item"><div class="rae-val">40-50本</div><div class="rae-lbl">月間生産目標（現在15-20本）</div></div>
+      <div class="rae-item"><div class="rae-val">+163%</div><div class="rae-lbl">5月PS実績（前年比）</div></div>
+      <div class="rae-item"><div class="rae-val">¥5.43M</div><div class="rae-lbl">5月PS売上</div></div>
+    </div>
+    <a class="rich-aigc-doc-link" href="https://docs.google.com/document/d/1q_9t0aDj-QLiqqE1izlOKe2QlfuDvUqS/edit" target="_blank" rel="noopener">
+      <span class="rdl-icon">📄</span>
+      勝ちクリエイティブ言語化 &amp; AIGC活用ガイド（詳細ドキュメント） →
+    </a>
+  </div>
   </div>
   <footer><div class="conf">CONFIDENTIAL — 社外秘</div><br>AIGC事業 進捗ボード　最終更新 ${esc(d.generatedAt)} JST<br>数値の正は実データ(PL/SF台帳・CSV)。本ボードは生成時点のスナップショット。</footer>`;
   initSpy();
