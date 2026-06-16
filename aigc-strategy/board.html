@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-16T13:07:09+09:00">
+<meta name="last-modified" content="2026-06-16T13:55:23+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
@@ -351,6 +351,10 @@ body{padding-left:220px}
 .pr-timeline-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,#FA006D,#c4005a);color:#fff;text-decoration:none;font-weight:900;font-size:.95rem;padding:16px 22px;border-radius:12px;margin:22px 0 4px;box-shadow:0 6px 20px rgba(250,0,109,.28);transition:transform .15s,box-shadow .15s}
 .pr-timeline-link:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(250,0,109,.36)}
 .pr-timeline-link .arr{font-size:1.3rem;font-weight:900}
+.cl-learnings-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,#1B998B,#0F3460);color:#fff;text-decoration:none;font-weight:900;font-size:.95rem;padding:16px 22px;border-radius:12px;margin:22px 0 6px;box-shadow:0 6px 20px rgba(15,52,96,.28);transition:transform .15s,box-shadow .15s}
+.cl-learnings-link:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,52,96,.36)}
+.cl-learnings-link .cl-sub{display:block;font-size:.72rem;font-weight:600;opacity:.9;margin-top:3px}
+.cl-learnings-link .arr{font-size:1.3rem;font-weight:900}
 </style>
 </head>
 <body>
@@ -536,6 +540,7 @@ function render(d){
   <div class="section-title" id="sec-pm">提案アタックリスト（企業リスト・どこから当たるか）${wipTag('pm')}</div>
   ${pmLegend}
   ${pmHTML}
+  <a class="cl-learnings-link" href="clients/aigc-creative-learnings.html"><span>🎬 AIGC制作ナレッジ（躓き×勝ち筋）へ<span class="cl-sub">現場レビューから抽出・カテゴリ×クリエイティブ別の実戦ナレッジ</span></span><span class="arr">→</span></a>
   <div class="section-title" id="sec-cat">優先カテゴリ・営業武器（何を持って当たるか）</div><div class="cats">${cats}</div>${bmkHTML}${pricingHTML}${bulkHTML}
   <div class="section-title" id="sec-clients">クライアント別ステータス（コア${clientAreas.filter(a=>!a.isNew).length}社＋国内新規${clientAreas.filter(a=>a.isNew).length}社）</div><div class="areas">${clientCards}</div>
     <div class="section-title" id="sec-projects">直近プロジェクト・案件進捗</div>
