@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="last-modified" content="2026-06-16T23:49:26+09:00">
+<title>衣装コレクション｜衣装リスト</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👗</text></svg>">
+<meta name="description" content="個人の衣装・かつら・サングラスなど全15点を画像種別ごとに整理した衣装リスト。">
+<meta property="og:title" content="衣装コレクション｜衣装リスト">
+<meta property="og:description" content="個人の衣装・かつら・サングラスなど全15点を画像種別ごとに整理した衣装リスト。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/costume/">
+<meta property="og:image" content="https://riderkarubo.github.io/pages/costume/img/%E5%92%8C%E8%A3%85_01_%E9%9D%92%E9%B6%B4%E6%9F%84%E7%BE%BD%E7%B9%94.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="衣装コレクション｜衣装リスト">
+<meta name="twitter:description" content="個人の衣装・かつら・サングラスなど全15点を画像種別ごとに整理した衣装リスト。">
+<meta name="twitter:image" content="https://riderkarubo.github.io/pages/costume/img/%E5%92%8C%E8%A3%85_01_%E9%9D%92%E9%B6%B4%E6%9F%84%E7%BE%BD%E7%B9%94.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#131419; --bg2:#191b22; --card:#20222c; --line:#2b2e3a;
+  --tx:#f1eee7; --tx2:#9c9ea8; --tx3:#8e919b;
+  --accent:#e0a86b;
+  --radius:16px; --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:"Noto Sans JP",system-ui,-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+
+/* ---- Hero ---- */
+.hero{position:relative;padding:54px 0 30px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(900px 360px at 12% -10%, rgba(224,168,107,.16), transparent 60%),
+    radial-gradient(720px 320px at 96% 0%, rgba(199,125,255,.12), transparent 62%);}
+.hero .wrap{position:relative;z-index:1}
+.kicker{font-size:12px;letter-spacing:.28em;color:var(--accent);font-weight:700;text-transform:uppercase}
+.hero h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(30px,7vw,52px);letter-spacing:.02em;margin:10px 0 8px;line-height:1.15}
+.hero p.sub{color:var(--tx2);font-size:14.5px;max-width:640px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:12.5px;color:var(--tx2)}
+.meta b{color:var(--tx);font-weight:700}
+.meta .pill{display:inline-flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:5px 13px}
+.meta .pill .dotbig{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+/* ---- Sticky controls ---- */
+.controls{position:sticky;top:0;z-index:30;background:rgba(19,20,25,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding:12px 0}
+.controls .wrap{display:flex;flex-direction:column;gap:11px}
+.search{position:relative}
+.search input{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;
+  color:var(--tx);font-size:14.5px;padding:11px 14px 11px 40px;font-family:inherit;outline:none;transition:border-color .15s}
+.search input:focus{border-color:var(--accent)}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.5}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;-ms-overflow-style:none;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 26px),transparent);
+  mask-image:linear-gradient(90deg,#000 calc(100% - 26px),transparent)}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  background:var(--bg2);border:1px solid var(--line);border-radius:999px;color:var(--tx2);
+  font-family:inherit;font-size:13px;font-weight:600;padding:7px 14px;white-space:nowrap;transition:all .15s}
+.chip:hover{color:var(--tx);border-color:#3b3f4d}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip .c{font-size:11px;color:var(--tx3);font-weight:700}
+.chip.active{background:var(--tx);color:#16171c;border-color:var(--tx)}
+.chip.active .c{color:#16171c}
+.chip .led{width:8px;height:8px;border-radius:50%;background:var(--c,var(--accent))}
+.result-count{font-size:11.5px;color:var(--tx2);font-weight:600;padding:1px 2px}
+
+/* ---- Sections ---- */
+main{padding:26px 0 40px}
+.sec{margin:0 0 36px}
+.sec-h{display:flex;align-items:center;gap:11px;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sec-emoji{font-size:21px;line-height:1}
+.sec-h h2{font-size:17.5px;font-weight:700;letter-spacing:.01em}
+.sec-h .blurb{color:var(--tx3);font-size:12px;font-weight:500;margin-left:2px}
+.sec-ct{margin-left:auto;font-size:12px;color:var(--tx2);background:var(--bg2);border:1px solid var(--line);
+  border-radius:999px;padding:3px 11px;font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:13px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:16px}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}}
+
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;cursor:pointer;transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s,box-shadow .22s}
+.card:hover{transform:translateY(-5px);border-color:rgba(224,168,107,.5);box-shadow:0 16px 34px rgba(0,0,0,.45)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-color:transparent}
+.card .ph{position:relative;aspect-ratio:1/1;background:#f4f2ee;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph img{transform:scale(1.06)}
+.card .ph::after{content:"";position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 -30px 40px -34px rgba(15,16,20,.55), inset 0 0 0 1px rgba(0,0,0,.05)}
+.card .badge{position:absolute;top:9px;right:9px;background:rgba(20,21,26,.86);color:#ffd27a;
+  border:1px solid rgba(255,210,122,.4);font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;backdrop-filter:blur(4px);z-index:2}
+.card .num{position:absolute;top:9px;left:9px;background:rgba(20,21,26,.7);color:#e7e7ea;
+  font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.04em;backdrop-filter:blur(4px);z-index:2}
+.card .body{padding:11px 12px 13px}
+.card .nm{font-weight:700;font-size:13.5px;line-height:1.4;letter-spacing:.01em}
+.card .ds{font-size:11.5px;color:var(--tx2);line-height:1.5;margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .tag{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-size:11px;color:var(--tx3);font-weight:600}
+.card .tag .dot{width:7px;height:7px;border-radius:50%}
+
+#empty{display:none;text-align:center;color:var(--tx2);padding:60px 0;font-size:14px}
+
+/* ---- Lightbox ---- */
+.lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  background:rgba(8,8,11,.93);backdrop-filter:blur(8px);
+  padding:max(20px,env(safe-area-inset-top)) 20px max(20px,env(safe-area-inset-bottom))}
+.lb.open{display:flex}
+.lb .inner{position:relative;max-width:560px;width:100%;animation:pop .25s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.lb img{width:100%;height:auto;max-height:80vh;object-fit:contain;border-radius:14px;background:#f4f2ee;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .cap{margin-top:14px;text-align:center}
+.lb .cap .nm{font-size:17px;font-weight:700}
+.lb .cap .ds{font-size:13px;color:var(--tx2);margin-top:5px}
+.lb .cap .tag{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-size:12px;color:var(--tx2);font-weight:600}
+.lb .cap .tag .dot{width:8px;height:8px;border-radius:50%}
+.lb .cap .tag .warn{color:#ffd27a}
+.lb .close{position:absolute;top:-50px;right:0;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:var(--bg2);color:var(--tx);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(25,27,34,.85);color:var(--tx);font-size:21px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .15s}
+.lb .nav:hover{background:var(--accent);color:#16171c;border-color:var(--accent)}
+.lb .close:focus-visible,.lb .nav:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lb .nav.prev{left:-60px}
+.lb .nav.next{right:-60px}
+@media(max-width:680px){
+  .lb .close{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px}
+  .lb .nav{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);transform:none;
+    background:rgba(25,27,34,.92)}
+  .lb .nav.prev{left:calc(50% - 60px);right:auto}
+  .lb .nav.next{right:calc(50% - 60px);left:auto}
+}
+
+/* ---- Footer ---- */
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--tx3);font-size:12px;text-align:center}
+footer b{color:var(--tx2)}
+
+/* ---- Print ---- */
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important}
+  @page{size:A4;margin:12mm}
+  .controls,.lb,.search,.chips{display:none !important}
+  .card{page-break-inside:avoid;break-inside:avoid}
+  .sec{page-break-inside:auto}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap"><div class="kicker">Costume Wardrobe</div><h1>衣装コレクション</h1><p class="sub">個人の衣装・かつら・サングラスなど全15点を画像種別ごとに整理した衣装リスト。カードをタップで拡大、上部の検索・カテゴリで絞り込めます。</p><div class="meta"><span class="pill"><span class="dotbig"></span>全 <b>15</b> 点</span><span class="pill">カテゴリ <b>6</b> 種</span><span class="pill">最終更新 <b>2026年6月16日 23:49</b></span></div></div></header>
+<div class="controls" role="search"><div class="wrap"><div class="search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input id="search" type="search" placeholder="名前・特徴で検索（例: 黒、サングラス、羽織）" autocomplete="off" aria-label="衣装を検索"></div><div class="chips" role="group" aria-label="カテゴリで絞り込み"><button class="chip active" data-cat="all">すべて <span class="c">15</span></button><button class="chip" data-cat="wig" style="--c:#b49fd6"><span class="led" style="background:#b49fd6"></span>👑 ウィッグ <span class="c">4</span></button><button class="chip" data-cat="headgear" style="--c:#8fb8c9"><span class="led" style="background:#8fb8c9"></span>🧢 ヘッドギア・キャップ <span class="c">2</span></button><button class="chip" data-cat="sunglass" style="--c:#cdb877"><span class="led" style="background:#cdb877"></span>🕶️ サングラス <span class="c">3</span></button><button class="chip" data-cat="glasses" style="--c:#9bb087"><span class="led" style="background:#9bb087"></span>👓 メガネ <span class="c">1</span></button><button class="chip" data-cat="tops" style="--c:#d09a6f"><span class="led" style="background:#d09a6f"></span>🧥 トップス・アウター <span class="c">4</span></button><button class="chip" data-cat="wasou" style="--c:#cf9aa9"><span class="led" style="background:#cf9aa9"></span>👘 和装・羽織 <span class="c">1</span></button></div><span class="result-count" id="resultCount" style="display:none"></span></div></div>
+<main><div class="wrap"><section class="sec" id="sec-wig" data-cat="wig"><div class="sec-h"><span class="sec-emoji" aria-hidden="true">👑</span><h2>ウィッグ</h2><span class="blurb">かつら一式</span><span class="sec-ct">4点</span></div><div class="grid"><article class="card" data-cat="wig" data-name="黒・ショートウィッグ" data-desc="ナチュラルな黒髪ショート（マッシュ系）。" role="button" tabindex="0" aria-label="黒・ショートウィッグ を拡大" onclick="openLb(0)" onkeydown="cardKey(event,0)"><div class="ph"><img loading="lazy" src="img/%E3%82%A6%E3%82%A3%E3%83%83%E3%82%B0_01_%E9%BB%92%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88.webp" alt="黒・ショートウィッグ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">01</span></div><div class="body"><div class="nm">黒・ショートウィッグ</div><div class="ds">ナチュラルな黒髪ショート（マッシュ系）。</div><div class="tag"><span class="dot" style="background:#b49fd6"></span>ウィッグ</div></div></article><article class="card" data-cat="wig" data-name="黒・アフロウィッグ" data-desc="ボリューム大の黒アフロ。インパクト変装向け。" role="button" tabindex="0" aria-label="黒・アフロウィッグ を拡大" onclick="openLb(1)" onkeydown="cardKey(event,1)"><div class="ph"><img loading="lazy" src="img/%E3%82%A6%E3%82%A3%E3%83%83%E3%82%B0_02_%E9%BB%92%E3%82%A2%E3%83%95%E3%83%AD.webp" alt="黒・アフロウィッグ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">02</span></div><div class="body"><div class="nm">黒・アフロウィッグ</div><div class="ds">ボリューム大の黒アフロ。インパクト変装向け。</div><div class="tag"><span class="dot" style="background:#b49fd6"></span>ウィッグ</div></div></article><article class="card" data-cat="wig" data-name="白／シルバーウィッグ" data-desc="白〜シルバーのワイルドロング。老人・幻想系キャラに。" role="button" tabindex="0" aria-label="白／シルバーウィッグ を拡大" onclick="openLb(2)" onkeydown="cardKey(event,2)"><div class="ph"><img loading="lazy" src="img/%E3%82%A6%E3%82%A3%E3%83%83%E3%82%B0_03_%E7%99%BD%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC.webp" alt="白／シルバーウィッグ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">03</span></div><div class="body"><div class="nm">白／シルバーウィッグ</div><div class="ds">白〜シルバーのワイルドロング。老人・幻想系キャラに。</div><div class="tag"><span class="dot" style="background:#b49fd6"></span>ウィッグ</div></div></article><article class="card" data-cat="wig" data-name="黒・カーリーウィッグ" data-desc="黒の強めカール（パンチ／チリ毛系）。" role="button" tabindex="0" aria-label="黒・カーリーウィッグ を拡大" onclick="openLb(3)" onkeydown="cardKey(event,3)"><div class="ph"><img loading="lazy" src="img/%E3%82%A6%E3%82%A3%E3%83%83%E3%82%B0_04_%E9%BB%92%E3%82%AB%E3%83%BC%E3%83%AA%E3%83%BC.webp" alt="黒・カーリーウィッグ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">04</span></div><div class="body"><div class="nm">黒・カーリーウィッグ</div><div class="ds">黒の強めカール（パンチ／チリ毛系）。</div><div class="tag"><span class="dot" style="background:#b49fd6"></span>ウィッグ</div></div></article></div></section><section class="sec" id="sec-headgear" data-cat="headgear"><div class="sec-h"><span class="sec-emoji" aria-hidden="true">🧢</span><h2>ヘッドギア・キャップ</h2><span class="blurb">バルドキャップ・ウィッグネット</span><span class="sec-ct">2点</span></div><div class="grid"><article class="card" data-cat="headgear" data-name="バルドキャップ（肌色）" data-desc="スキンヘッド表現用の肌色キャップ。" role="button" tabindex="0" aria-label="バルドキャップ（肌色） を拡大" onclick="openLb(4)" onkeydown="cardKey(event,4)"><div class="ph"><img loading="lazy" src="img/%E3%83%98%E3%83%83%E3%83%89%E3%82%AE%E3%82%A2_01_%E3%83%90%E3%83%AB%E3%83%89%E3%82%AD%E3%83%A3%E3%83%83%E3%83%97%E8%82%8C%E8%89%B2.webp" alt="バルドキャップ（肌色）" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">01</span><span class="badge">種別 要確認</span></div><div class="body"><div class="nm">バルドキャップ（肌色）</div><div class="ds">スキンヘッド表現用の肌色キャップ。</div><div class="tag"><span class="dot" style="background:#8fb8c9"></span>ヘッドギア・キャップ</div></div></article><article class="card" data-cat="headgear" data-name="ウィッグキャップ（黒）" data-desc="ウィッグ装着前の下地ネット。" role="button" tabindex="0" aria-label="ウィッグキャップ（黒） を拡大" onclick="openLb(5)" onkeydown="cardKey(event,5)"><div class="ph"><img loading="lazy" src="img/%E3%83%98%E3%83%83%E3%83%89%E3%82%AE%E3%82%A2_02_%E3%82%A6%E3%82%A3%E3%83%83%E3%82%B0%E3%82%AD%E3%83%A3%E3%83%83%E3%83%97%E9%BB%92.webp" alt="ウィッグキャップ（黒）" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">02</span><span class="badge">種別 要確認</span></div><div class="body"><div class="nm">ウィッグキャップ（黒）</div><div class="ds">ウィッグ装着前の下地ネット。</div><div class="tag"><span class="dot" style="background:#8fb8c9"></span>ヘッドギア・キャップ</div></div></article></div></section><section class="sec" id="sec-sunglass" data-cat="sunglass"><div class="sec-h"><span class="sec-emoji" aria-hidden="true">🕶️</span><h2>サングラス</h2><span class="blurb">アイウェア（色付き）</span><span class="sec-ct">3点</span></div><div class="grid"><article class="card" data-cat="sunglass" data-name="白フレーム・楕円サングラス" data-desc="白フレーム×黒レンズのオーバル（クラウト系）。" role="button" tabindex="0" aria-label="白フレーム・楕円サングラス を拡大" onclick="openLb(6)" onkeydown="cardKey(event,6)"><div class="ph"><img loading="lazy" src="img/%E3%82%B5%E3%83%B3%E3%82%B0%E3%83%A9%E3%82%B9_01_%E7%99%BD%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E6%A5%95%E5%86%86.webp" alt="白フレーム・楕円サングラス" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">01</span></div><div class="body"><div class="nm">白フレーム・楕円サングラス</div><div class="ds">白フレーム×黒レンズのオーバル（クラウト系）。</div><div class="tag"><span class="dot" style="background:#cdb877"></span>サングラス</div></div></article><article class="card" data-cat="sunglass" data-name="シルバー・ティアドロップ" data-desc="シルバーフレームのティアドロップ／スクエア系。" role="button" tabindex="0" aria-label="シルバー・ティアドロップ を拡大" onclick="openLb(7)" onkeydown="cardKey(event,7)"><div class="ph"><img loading="lazy" src="img/%E3%82%B5%E3%83%B3%E3%82%B0%E3%83%A9%E3%82%B9_02_%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC%E3%83%86%E3%82%A3%E3%82%A2%E3%83%89%E3%83%AD%E3%83%83%E3%83%97.webp" alt="シルバー・ティアドロップ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">02</span></div><div class="body"><div class="nm">シルバー・ティアドロップ</div><div class="ds">シルバーフレームのティアドロップ／スクエア系。</div><div class="tag"><span class="dot" style="background:#cdb877"></span>サングラス</div></div></article><article class="card" data-cat="sunglass" data-name="黒・ウェリントン" data-desc="オーソドックスな黒ウェリントン。万能型。" role="button" tabindex="0" aria-label="黒・ウェリントン を拡大" onclick="openLb(8)" onkeydown="cardKey(event,8)"><div class="ph"><img loading="lazy" src="img/%E3%82%B5%E3%83%B3%E3%82%B0%E3%83%A9%E3%82%B9_03_%E9%BB%92%E3%82%A6%E3%82%A7%E3%83%AA%E3%83%B3%E3%83%88%E3%83%B3.webp" alt="黒・ウェリントン" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">03</span></div><div class="body"><div class="nm">黒・ウェリントン</div><div class="ds">オーソドックスな黒ウェリントン。万能型。</div><div class="tag"><span class="dot" style="background:#cdb877"></span>サングラス</div></div></article></div></section><section class="sec" id="sec-glasses" data-cat="glasses"><div class="sec-h"><span class="sec-emoji" aria-hidden="true">👓</span><h2>メガネ</h2><span class="blurb">アイウェア（クリア）</span><span class="sec-ct">1点</span></div><div class="grid"><article class="card" data-cat="glasses" data-name="クリア×黒 ハーフリムメガネ" data-desc="クリア×黒のアンダーリム（ハーフリム）メガネ。" role="button" tabindex="0" aria-label="クリア×黒 ハーフリムメガネ を拡大" onclick="openLb(9)" onkeydown="cardKey(event,9)"><div class="ph"><img loading="lazy" src="img/%E3%83%A1%E3%82%AC%E3%83%8D_01_%E3%82%AF%E3%83%AA%E3%82%A2%E9%BB%92%E3%83%8F%E3%83%BC%E3%83%95%E3%83%AA%E3%83%A0.webp" alt="クリア×黒 ハーフリムメガネ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">01</span></div><div class="body"><div class="nm">クリア×黒 ハーフリムメガネ</div><div class="ds">クリア×黒のアンダーリム（ハーフリム）メガネ。</div><div class="tag"><span class="dot" style="background:#9bb087"></span>メガネ</div></div></article></div></section><section class="sec" id="sec-tops" data-cat="tops"><div class="sec-h"><span class="sec-emoji" aria-hidden="true">🧥</span><h2>トップス・アウター</h2><span class="blurb">上衣・羽織もの</span><span class="sec-ct">4点</span></div><div class="grid"><article class="card" data-cat="tops" data-name="赤・テーラードジャケット" data-desc="ウエストシェイプの赤ジャケット。" role="button" tabindex="0" aria-label="赤・テーラードジャケット を拡大" onclick="openLb(10)" onkeydown="cardKey(event,10)"><div class="ph"><img loading="lazy" src="img/%E3%83%88%E3%83%83%E3%83%97%E3%82%B9_01_%E8%B5%A4%E3%83%86%E3%83%BC%E3%83%A9%E3%83%BC%E3%83%89%E3%82%B8%E3%83%A3%E3%82%B1%E3%83%83%E3%83%88.webp" alt="赤・テーラードジャケット" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">01</span></div><div class="body"><div class="nm">赤・テーラードジャケット</div><div class="ds">ウエストシェイプの赤ジャケット。</div><div class="tag"><span class="dot" style="background:#d09a6f"></span>トップス・アウター</div></div></article><article class="card" data-cat="tops" data-name="抽象柄・半袖シャツ" data-desc="黒×ベージュの抽象ペイント柄オープンカラー。" role="button" tabindex="0" aria-label="抽象柄・半袖シャツ を拡大" onclick="openLb(11)" onkeydown="cardKey(event,11)"><div class="ph"><img loading="lazy" src="img/%E3%83%88%E3%83%83%E3%83%97%E3%82%B9_02_%E6%8A%BD%E8%B1%A1%E6%9F%84%E5%8D%8A%E8%A2%96%E3%82%B7%E3%83%A3%E3%83%84.webp" alt="抽象柄・半袖シャツ" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">02</span></div><div class="body"><div class="nm">抽象柄・半袖シャツ</div><div class="ds">黒×ベージュの抽象ペイント柄オープンカラー。</div><div class="tag"><span class="dot" style="background:#d09a6f"></span>トップス・アウター</div></div></article><article class="card" data-cat="tops" data-name="黒・レザージャケット" data-desc="ライダース系の黒レザージャケット。" role="button" tabindex="0" aria-label="黒・レザージャケット を拡大" onclick="openLb(12)" onkeydown="cardKey(event,12)"><div class="ph"><img loading="lazy" src="img/%E3%83%88%E3%83%83%E3%83%97%E3%82%B9_03_%E9%BB%92%E3%83%AC%E3%82%B6%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B1%E3%83%83%E3%83%88.webp" alt="黒・レザージャケット" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">03</span></div><div class="body"><div class="nm">黒・レザージャケット</div><div class="ds">ライダース系の黒レザージャケット。</div><div class="tag"><span class="dot" style="background:#d09a6f"></span>トップス・アウター</div></div></article><article class="card" data-cat="tops" data-name="グレー・フーディー" data-desc="チャコールグレーのプルオーバーパーカー。" role="button" tabindex="0" aria-label="グレー・フーディー を拡大" onclick="openLb(13)" onkeydown="cardKey(event,13)"><div class="ph"><img loading="lazy" src="img/%E3%83%88%E3%83%83%E3%83%97%E3%82%B9_04_%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%95%E3%83%BC%E3%83%87%E3%82%A3%E3%83%BC.webp" alt="グレー・フーディー" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">04</span></div><div class="body"><div class="nm">グレー・フーディー</div><div class="ds">チャコールグレーのプルオーバーパーカー。</div><div class="tag"><span class="dot" style="background:#d09a6f"></span>トップス・アウター</div></div></article></div></section><section class="sec" id="sec-wasou" data-cat="wasou"><div class="sec-h"><span class="sec-emoji" aria-hidden="true">👘</span><h2>和装・羽織</h2><span class="blurb">和風アイテム</span><span class="sec-ct">1点</span></div><div class="grid"><article class="card" data-cat="wasou" data-name="青・鶴柄羽織" data-desc="青地に白い鶴を散らした和柄の羽織（法被風）。" role="button" tabindex="0" aria-label="青・鶴柄羽織 を拡大" onclick="openLb(14)" onkeydown="cardKey(event,14)"><div class="ph"><img loading="lazy" src="img/%E5%92%8C%E8%A3%85_01_%E9%9D%92%E9%B6%B4%E6%9F%84%E7%BE%BD%E7%B9%94.webp" alt="青・鶴柄羽織" onerror="this.style.opacity=.25;this.alt='画像なし'"><span class="num">01</span></div><div class="body"><div class="nm">青・鶴柄羽織</div><div class="ds">青地に白い鶴を散らした和柄の羽織（法被風）。</div><div class="tag"><span class="dot" style="background:#cf9aa9"></span>和装・羽織</div></div></article></div></section><div id="empty">該当する衣装が見つかりませんでした。</div></div></main>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbNm"><div class="inner"><button class="close" id="lbClose" onclick="closeLb()" aria-label="閉じる">✕</button><button class="nav prev" onclick="navLb(-1)" aria-label="前の衣装">‹</button><button class="nav next" onclick="navLb(1)" aria-label="次の衣装">›</button><img id="lbImg" src="" alt="拡大画像"><div class="cap"><div class="nm" id="lbNm"></div><div class="ds" id="lbDs"></div><div class="tag" id="lbTag"></div></div></div></div>
+<footer><div class="wrap">全 <b>15</b> 点 ／ 6 カテゴリ ・ Last Updated: <b>2026年6月16日 23:49</b> JST</div></footer>
+<script>
+const DATA = [{"file": "ウィッグ_01_黒ショート.webp", "name": "黒・ショートウィッグ", "desc": "ナチュラルな黒髪ショート（マッシュ系）。", "cat": "ウィッグ", "color": "#b49fd6", "note": ""}, {"file": "ウィッグ_02_黒アフロ.webp", "name": "黒・アフロウィッグ", "desc": "ボリューム大の黒アフロ。インパクト変装向け。", "cat": "ウィッグ", "color": "#b49fd6", "note": ""}, {"file": "ウィッグ_03_白シルバー.webp", "name": "白／シルバーウィッグ", "desc": "白〜シルバーのワイルドロング。老人・幻想系キャラに。", "cat": "ウィッグ", "color": "#b49fd6", "note": ""}, {"file": "ウィッグ_04_黒カーリー.webp", "name": "黒・カーリーウィッグ", "desc": "黒の強めカール（パンチ／チリ毛系）。", "cat": "ウィッグ", "color": "#b49fd6", "note": ""}, {"file": "ヘッドギア_01_バルドキャップ肌色.webp", "name": "バルドキャップ（肌色）", "desc": "スキンヘッド表現用の肌色キャップ。", "cat": "ヘッドギア・キャップ", "color": "#8fb8c9", "note": "種別 要確認"}, {"file": "ヘッドギア_02_ウィッグキャップ黒.webp", "name": "ウィッグキャップ（黒）", "desc": "ウィッグ装着前の下地ネット。", "cat": "ヘッドギア・キャップ", "color": "#8fb8c9", "note": "種別 要確認"}, {"file": "サングラス_01_白フレーム楕円.webp", "name": "白フレーム・楕円サングラス", "desc": "白フレーム×黒レンズのオーバル（クラウト系）。", "cat": "サングラス", "color": "#cdb877", "note": ""}, {"file": "サングラス_02_シルバーティアドロップ.webp", "name": "シルバー・ティアドロップ", "desc": "シルバーフレームのティアドロップ／スクエア系。", "cat": "サングラス", "color": "#cdb877", "note": ""}, {"file": "サングラス_03_黒ウェリントン.webp", "name": "黒・ウェリントン", "desc": "オーソドックスな黒ウェリントン。万能型。", "cat": "サングラス", "color": "#cdb877", "note": ""}, {"file": "メガネ_01_クリア黒ハーフリム.webp", "name": "クリア×黒 ハーフリムメガネ", "desc": "クリア×黒のアンダーリム（ハーフリム）メガネ。", "cat": "メガネ", "color": "#9bb087", "note": ""}, {"file": "トップス_01_赤テーラードジャケット.webp", "name": "赤・テーラードジャケット", "desc": "ウエストシェイプの赤ジャケット。", "cat": "トップス・アウター", "color": "#d09a6f", "note": ""}, {"file": "トップス_02_抽象柄半袖シャツ.webp", "name": "抽象柄・半袖シャツ", "desc": "黒×ベージュの抽象ペイント柄オープンカラー。", "cat": "トップス・アウター", "color": "#d09a6f", "note": ""}, {"file": "トップス_03_黒レザージャケット.webp", "name": "黒・レザージャケット", "desc": "ライダース系の黒レザージャケット。", "cat": "トップス・アウター", "color": "#d09a6f", "note": ""}, {"file": "トップス_04_グレーフーディー.webp", "name": "グレー・フーディー", "desc": "チャコールグレーのプルオーバーパーカー。", "cat": "トップス・アウター", "color": "#d09a6f", "note": ""}, {"file": "和装_01_青鶴柄羽織.webp", "name": "青・鶴柄羽織", "desc": "青地に白い鶴を散らした和柄の羽織（法被風）。", "cat": "和装・羽織", "color": "#cf9aa9", "note": ""}];
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),
+  lbNm=document.getElementById('lbNm'),lbDs=document.getElementById('lbDs'),lbTag=document.getElementById('lbTag');
+const bgEls=[...document.querySelectorAll('header,.controls,main,footer')];
+let cur=0,lastFocus=null;
+
+function visibleIdx(){
+  return [...document.querySelectorAll('.card')]
+    .map((c,i)=>({i,vis:c.style.display!=='none'})).filter(o=>o.vis).map(o=>o.i);
+}
+function cardKey(e,i){
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(i);}
+}
+function openLb(i){
+  cur=i;lastFocus=document.activeElement;renderLb();
+  lb.classList.add('open');document.body.style.overflow='hidden';
+  bgEls.forEach(el=>el.setAttribute('aria-hidden','true'));
+  setTimeout(()=>document.getElementById('lbClose').focus(),0);
+}
+function renderLb(){
+  const d=DATA[cur];
+  lbImg.src='img/'+encodeURIComponent(d.file);lbImg.alt=d.name;
+  lbNm.textContent=d.name;lbDs.textContent=d.desc;
+  lbTag.textContent='';
+  const dot=document.createElement('span');dot.className='dot';dot.style.background=d.color;
+  lbTag.appendChild(dot);lbTag.appendChild(document.createTextNode(d.cat));
+  if(d.note){const w=document.createElement('span');w.className='warn';w.textContent=' · '+d.note;lbTag.appendChild(w);}
+}
+function closeLb(){
+  lb.classList.remove('open');document.body.style.overflow='';
+  bgEls.forEach(el=>el.removeAttribute('aria-hidden'));
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+function navLb(dir){
+  const vis=visibleIdx();if(!vis.length)return;
+  let p=vis.indexOf(cur);if(p===-1)p=0;
+  cur=vis[(p+dir+vis.length)%vis.length];renderLb();
+}
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape'){closeLb();return;}
+  if(e.key==='ArrowRight'){navLb(1);return;}
+  if(e.key==='ArrowLeft'){navLb(-1);return;}
+  if(e.key==='Tab'){ // フォーカストラップ
+    const f=[...lb.querySelectorAll('button')];if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+});
+
+const chips=[...document.querySelectorAll('.chip')],search=document.getElementById('search');
+const rc=document.getElementById('resultCount');
+let curCat='all';
+function applyFilter(){
+  const q=search.value.trim().toLowerCase();
+  document.querySelectorAll('.sec').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okCat=curCat==='all'||c.dataset.cat===curCat;
+      const okQ=!q||c.dataset.name.toLowerCase().includes(q)||c.dataset.desc.toLowerCase().includes(q);
+      const vis=okCat&&okQ;c.style.display=vis?'':'none';if(vis)shown++;
+    });
+    sec.style.display=shown?'':'none';
+  });
+  const all=document.querySelectorAll('.card').length;
+  const total=[...document.querySelectorAll('.card')].filter(c=>c.style.display!=='none').length;
+  document.getElementById('empty').style.display=total?'none':'block';
+  const filtered=(curCat!=='all'||q);
+  rc.textContent=filtered?('表示中 '+total+' / '+all+' 点'):'';
+  rc.style.display=filtered?'inline-block':'none';
+}
+chips.forEach(ch=>ch.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('active'));
+  ch.classList.add('active');curCat=ch.dataset.cat;applyFilter();}));
+search.addEventListener('input',applyFilter);
+</script>
+</body>
+</html>
