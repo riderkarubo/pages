@@ -116,7 +116,10 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;pad
 .pm-table tr.top3{background:#fff8fb}
 .pm-table .pmr{font-weight:900;color:var(--muted)}
 .pm-table tr.top3 .pmr{color:var(--accent)}
-.pm-table .pmn{text-align:left;font-weight:700;white-space:nowrap}
+.pm-table .pmn{text-align:left;font-weight:700;white-space:nowrap;position:sticky;left:0;z-index:2;background:#fff}
+.pm-table tr.top3 td.pmn{background:#fff8fb}
+.pm-table tr.pm-ivs td.pmn{background:#fcfdff}
+.pm-table thead th:first-child{position:sticky;left:0;z-index:4;background:#f2f4f8}
 .pm-table .pmn a{color:var(--ink);text-decoration:underline;text-decoration-color:#f3a8c8}
 .pm-table .pmn .pmstage{display:block;font-weight:400;font-size:.62rem;color:var(--muted)}
 .pm-table .pmn .pmtype{display:inline-block;font-size:.6rem;padding:1px 5px;border-radius:3px;margin-top:2px;font-weight:700;vertical-align:middle}
@@ -444,18 +447,20 @@ function render(d){
   const pm=d.priorityMatrix;
   let pmHTML='',pmLegend='';
   if(pm){
-    const th=pm.criteria.map(c=>c.label==='リテールコネクト'?`<th class="pmc pmc-rc" title="リテールコネクト関連の小売/メーカー区分">${esc(c.label)}</th>`:c.pending?`<th class="pmc pmc-pend" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">確認中</span></th>`:`<th class="pmc" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">${c.w}</span></th>`).join('');
+    const rcHead='<th class="pmc-rc" title="リテールコネクト関連の小売/メーカー区分">リテールコネクト</th>';
+    const rcCell=r=>r.retailConnect==='retail'?'<td class="pms rc-on" title="リテールコネクト：リテール">🔗小売</td>':r.retailConnect==='brand'?'<td class="pms rc-on" title="リテールコネクト：ブランド/メーカー">🔗ﾒｰｶｰ</td>':'<td class="pms un">—</td>';
+    const th=pm.criteria.filter(c=>c.label!=='リテールコネクト').map(c=>c.pending?`<th class="pmc pmc-pend" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">確認中</span></th>`:`<th class="pmc" title="${esc(c.desc)}">${esc(c.label)}<span class="pmw">${c.w}</span></th>`).join('');
     const ownCell=r=>{const sa=(r.sales&&r.sales!=='—')?`<span class="ow-s"><i>営</i>${esc(r.sales)}</span>`:'<span class="ow-s ow-none"><i>営</i>未割当</span>';const cl=(r.cl&&r.cl!=='—')?`<span class="ow-c"><i>顧</i>${esc(r.cl)}</span>`:'';return sa+cl;};
     const mkRow=r=>{
-      const cells=pm.criteria.map(c=>{if(c.label==='リテールコネクト'){if(r.retailConnect==='retail')return '<td class="pms rc-on" title="リテールコネクト：リテール">🔗小売</td>';if(r.retailConnect==='brand')return '<td class="pms rc-on" title="リテールコネクト：ブランド/メーカー">🔗ﾒｰｶｰ</td>';return '<td class="pms un">—</td>';}if(c.pending)return '<td class="pms un">—</td>';const v=r.s&&r.s[c.k];if(v==null)return '<td class="pms blank">·</td>';const un=(r.unknown||[]).indexOf(c.k)>=0;return `<td class="pms v${v}${un?' un':''}">${v}${un?'<span class="q">?</span>':''}</td>`;}).join('');
+      const cells=pm.criteria.filter(c=>c.label!=='リテールコネクト').map(c=>{if(c.pending)return '<td class="pms un">—</td>';const v=r.s&&r.s[c.k];if(v==null)return '<td class="pms blank">·</td>';const un=(r.unknown||[]).indexOf(c.k)>=0;return `<td class="pms v${v}${un?' un':''}">${v}${un?'<span class="q">?</span>':''}</td>`;}).join('');
       const nm=r.detailUrl?`<a href="${esc(r.detailUrl)}">${esc(r.name)}</a>`:esc(r.name);
       const ps=r.propStatus?`<span class="ps ps-${esc(r.propStatus)}">${esc(r.propStatus)}</span>${r.propDate?`<span class="pdate">提案 ${esc(r.propDate)}</span>`:''}`:'<span class="ps ps-不明">—</span>';
       const cat=`<span class="cattag cr${r.catRank||9}">${esc(r.category||'—')}</span>`;
       const tot=(r.total!=null)?`<b>${r.total}</b><div class="bar"><i style="width:${r.total}%"></i></div>`:'<span class="pt-na">—</span>';
       const isLost=r.propStatus==='失注';
-      return `<tr class="${isLost?'pm-lost':''}${r.isIVS?' pm-ivs':''}"><td class="pmn">${nm}${r.retailConnect?'<span class="rc-chip" title="リテールコネクト関連">🔗</span>':''}${r.type?`<span class="pmtype pmtype-${r.type==='既存'?'ex':'new'}">${esc(r.type)}</span>`:''}</td><td>${ps}</td><td class="pmcat">${cat}</td><td class="pmown">${ownCell(r)}</td><td class="pmt">${tot}</td>${cells}<td class="pmnote">${esc(r.note||'')}</td></tr>`;
+      return `<tr class="${isLost?'pm-lost':''}${r.isIVS?' pm-ivs':''}"><td class="pmn">${nm}${r.retailConnect?'<span class="rc-chip" title="リテールコネクト関連">🔗</span>':''}${r.type?`<span class="pmtype pmtype-${r.type==='既存'?'ex':'new'}">${esc(r.type)}</span>`:''}</td><td>${ps}</td><td class="pmcat">${cat}</td>${rcCell(r)}<td class="pmown">${ownCell(r)}</td><td class="pmt">${tot}</td>${cells}<td class="pmnote">${esc(r.note||'')}</td></tr>`;
     };
-    const headRow=`<thead><tr><th>企業</th><th>ステータス</th><th>カテゴリ</th><th>担当(営/顧)</th><th>合計</th>${th}<th>進捗・提案状況</th></tr></thead>`;
+    const headRow=`<thead><tr><th>企業</th><th>ステータス</th><th>カテゴリ</th>${rcHead}<th>担当(営/顧)</th><th>合計</th>${th}<th>進捗・提案状況</th></tr></thead>`;
     const sortRows=rows=>[...rows].sort((a,b)=>{const la=a.propStatus==='失注'?1:0,lb=b.propStatus==='失注'?1:0;if(la!==lb)return la-lb;const ca=a.catRank||9,cb=b.catRank||9;if(ca!==cb)return ca-cb;const ta=a.total==null?-1:a.total,tb=b.total==null?-1:b.total;if(ta!==tb)return tb-ta;return (a.name||'').localeCompare(b.name||'');});
     const mkTable=(cap,cls,rows)=>rows.length?`<div class="pm-block"><div class="pm-cap ${cls}">${cap}<span class="pm-cnt">${rows.length}社</span></div><div class="pm-wrap"><table class="pm-table">${headRow}<tbody>${sortRows(rows).map(mkRow).join('')}</tbody></table></div></div>`:'';
     const t1=pm.rows.filter(r=>r.propStatus==='先方検討中');
