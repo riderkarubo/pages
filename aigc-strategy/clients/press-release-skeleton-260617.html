@@ -5,7 +5,7 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-17T12:47:44+09:00">
+<meta name="last-modified" content="2026-06-17T14:34:15+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGCサービス正式発表 リリース骨子（たたき）｜Firework社内</title>
 <style>
@@ -170,22 +170,6 @@
     display:inline-block;
   }
 
-  /* Issy 采配 badge */
-  .verdict{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:var(--soft-pink);
-    border:1.5px solid var(--accent);
-    color:var(--accent);
-    font-weight:700;
-    font-size:12.5px;
-    padding:5px 12px;
-    border-radius:20px;
-    margin-bottom:14px;
-  }
-  .verdict::before{content:"🟦";}
-
   /* Title option cards */
   .titles{display:grid;gap:12px;margin:14px 0 8px;}
   .title-card{
@@ -263,6 +247,41 @@
   }
   .v-card .desc{font-size:12.5px;color:#3a4150;line-height:1.6;}
 
+  /* AIGC capture frames (NEW §6.5) */
+  .captures{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin:14px 0 8px;
+  }
+  .capture-frame{
+    background:#fafbfd;
+    border:2px dashed var(--accent);
+    border-radius:10px;
+    aspect-ratio:9/16;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:14px;
+    font-size:11.5px;
+    color:var(--muted);
+    position:relative;
+    overflow:hidden;
+  }
+  .capture-frame::before{
+    content:"📹";
+    position:absolute;
+    top:8px;
+    left:8px;
+    font-size:14px;
+    opacity:.5;
+  }
+  .capture-frame .cap-label{font-weight:700;color:var(--ink);font-size:12px;margin-bottom:4px;}
+  .capture-frame .cap-cat{font-size:10.5px;color:var(--accent);}
+  .capture-note{font-size:11.5px;color:var(--muted);margin-top:8px;text-align:right;}
+  @media(max-width:720px){.captures{grid-template-columns:repeat(2,1fr);}}
+
   /* Level boxes for §7 */
   .levels{display:grid;gap:12px;margin:14px 0 8px;}
   .level{
@@ -322,6 +341,30 @@
     font-weight:600;
   }
 
+  /* Footnote markers */
+  .fn{
+    display:inline-block;
+    font-size:9.5px;
+    font-weight:700;
+    color:var(--accent);
+    vertical-align:super;
+    padding:0 2px;
+    cursor:help;
+  }
+  .footnotes{
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    font-size:11.5px;
+    color:#3a4150;
+  }
+  .footnotes h4{font-size:12px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+  .footnotes ol{margin-left:20px;line-height:1.7;}
+  .footnotes ol li{margin-bottom:6px;}
+  .footnotes a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent);}
+  .footnotes a:hover{border-bottom-style:solid;}
+  .footnotes code{background:#f1f2f7;padding:1px 5px;border-radius:3px;font-size:10.5px;}
+
   /* Common boxes */
   .note{
     border-left:4px solid var(--teal);
@@ -343,6 +386,13 @@
   .warn b{color:var(--bad);}
   .warn ul{margin:8px 0 0 18px;}
   .warn li{margin-bottom:5px;}
+
+  /* Diff highlight (差別化注入箇所) */
+  .diff{
+    background:linear-gradient(transparent 65%, rgba(250,0,109,.18) 65%);
+    font-weight:700;
+    padding:0 2px;
+  }
 
   /* Tables */
   table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;}
@@ -390,6 +440,7 @@
     font-size:11.5px;
     font-weight:700;
   }
+  .chip.new{background:var(--accent);color:#fff;}
 
   /* Task callout */
   .task{
@@ -409,12 +460,6 @@
     gap:8px;
   }
   .task .t-head::before{content:"📌";}
-
-  /* Verdict matrix */
-  .v-matrix{margin:14px 0 8px;}
-  .v-matrix table{font-size:12.5px;}
-  .v-matrix .done{color:var(--good);font-weight:800;}
-  .v-matrix .open{color:var(--warn);font-weight:800;}
 
   /* Footer */
   footer{
@@ -447,111 +492,90 @@
 
   <!-- COVER -->
   <div class="cover">
-    <span class="tag">社内資料｜骨子（たたき）｜Issyチェック用</span>
+    <span class="tag">社内資料｜骨子（たたき）</span>
     <h1>AIGCサービス正式発表<br>リリース骨子（たたき）</h1>
     <div class="sub">
-      Firework Japan による「海外で実証済みのAIGC動画コマース」を日本市場へ正式提供するプレスリリースの構成案（骨子）。<br>
-      本HTMLは貴殿チェック用。OK後に雛形HTML（aigc-press-release-template_260616.html）へドラフト流し込みへ進む。
+      Firework Japan による <span class="diff">「海外で実証済みのAI動画コマース統合ソリューション」</span> を日本市場へ正式提供するプレスリリースの構成案（骨子）。<br>
+      本骨子は OK 後に雛形HTML（aigc-press-release-template_260616.html）へドラフト流し込みへ進む。
     </div>
     <div class="cover-meta">
-      <span>作成: <b>2026年6月17日 11:10 JST</b></span>
-      <span>最終更新: <b>2026年6月17日 12:47 JST</b></span>
+      <span>最終更新: <b>2026年6月17日 14:34 JST</b></span>
       <span>配信予定: <b>7月上旬（仮置き）</b></span>
-      <span>追跡: <b>Task #1（社名出し許可取得）</b></span>
+      <span>追跡: <b>Task #1（社名出し許可） / Task #2（差分整理）</b></span>
     </div>
   </div>
 
   <!-- TOC -->
   <div class="toc">
     <div class="toc-title">目次</div>
-    <div class="toc-item"><a href="#s0"><div class="toc-num">0</div><span>盤面整理 ／ Issy采配反映マトリクス</span></a></div>
-    <div class="toc-item"><a href="#s1"><div class="toc-num">1</div><span>タイトル案（A/B/C 全部並列）</span></a></div>
-    <div class="toc-item"><a href="#s2"><div class="toc-num">2</div><span>サブタイトル（3案併記）</span></a></div>
+    <div class="toc-item"><a href="#s1"><div class="toc-num">1</div><span>タイトル案（A/B/C 3案併記・差別化注入）</span></a></div>
+    <div class="toc-item"><a href="#s2"><div class="toc-num">2</div><span>サブタイトル（3案連動）</span></a></div>
     <div class="toc-item"><a href="#s3"><div class="toc-num">3</div><span>配信日時（仮置き）</span></a></div>
     <div class="toc-item"><a href="#s4"><div class="toc-num">4</div><span>メインビジュアル（3案全部）</span></a></div>
-    <div class="toc-item"><a href="#s5"><div class="toc-num">5</div><span>本リリースの背景と解決する課題</span></a></div>
-    <div class="toc-item"><a href="#s6"><div class="toc-num">6</div><span>AIGC動画制作サービスの特長（3項目）</span></a></div>
-    <div class="toc-item"><a href="#s7"><div class="toc-num">7</div><span>海外実装で確認された成果（3段階全部）</span></a></div>
-    <div class="toc-item"><a href="#s8"><div class="toc-num">8</div><span>コメント（田島さん＋パートナー仮置き）</span></a></div>
-    <div class="toc-item"><a href="#s9"><div class="toc-num">9</div><span>Fireworkについて（定型）</span></a></div>
-    <div class="toc-item"><a href="#s10"><div class="toc-num">10</div><span>会社概要・お問い合わせ（定型）</span></a></div>
-    <div class="toc-item"><a href="#s11"><div class="toc-num">11</div><span>キーワード／後段／軍師の進言</span></a></div>
+    <div class="toc-item"><a href="#s5"><div class="toc-num">5</div><span>本リリースの背景と解決する課題（AI蓄積訴求）</span></a></div>
+    <div class="toc-item"><a href="#s6"><div class="toc-num">6</div><span>AI動画コマースサービスの特長（日本ローカライズ）</span></a></div>
+    <div class="toc-item"><a href="#s6b"><div class="toc-num">7</div><span>AIGC 動画制作 実物サンプル（静止画キャプチャ）</span></a></div>
+    <div class="toc-item"><a href="#s7"><div class="toc-num">8</div><span>海外実装で確認された成果（3段階・出典付）</span></a></div>
+    <div class="toc-item"><a href="#s8"><div class="toc-num">9</div><span>コメント（田島さん＋パートナー仮置き）</span></a></div>
+    <div class="toc-item"><a href="#s9"><div class="toc-num">10</div><span>Fireworkについて（定型）</span></a></div>
+    <div class="toc-item"><a href="#s10"><div class="toc-num">11</div><span>会社概要・お問い合わせ（定型）</span></a></div>
+    <div class="toc-item"><a href="#s11"><div class="toc-num">12</div><span>キーワード／後段／軍師の進言</span></a></div>
   </div>
-
-  <!-- ====== §0 盤面整理 ====== -->
-  <section id="s0">
-    <div class="s-head"><span class="chap">§0</span><h2>盤面整理 ／ Issy采配反映マトリクス</h2></div>
-    <div class="s-lead">本書 = <b>骨子（構成案）</b>。実本文ではなく「どの章に何を入れるか」の地図。流れ: 本書 → 貴殿チェック → OK → 雛形HTMLへドラフト流し込み → Kazuki-san修正ラリー → Akiko-san連携 → 公開（7月上旬・仮）</div>
-
-    <h3>Issy采配 6点 反映マトリクス</h3>
-    <div class="v-matrix">
-      <table>
-        <thead>
-          <tr><th style="width:30px;">#</th><th style="width:240px;">論点</th><th style="width:120px;">Issy采配</th><th>反映状況</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>タイトル</td><td>ぜんぶいれて</td><td><span class="done">✅</span> §1にA/B/C案を3案並列で載せ・§2サブタイトルも3案分併記</td></tr>
-          <tr><td>2</td><td>海外事例の社名出し許可</td><td>あとでタスク化</td><td><span class="done">✅</span> Task #1 化済（Yifan経由でグローバル承認・期限 6/26 Kazuki-san OK まで）</td></tr>
-          <tr><td>3</td><td>数字レベル①②③</td><td>ぜんぶ選択肢いれて</td><td><span class="done">✅</span> §7に固有名詞／カテゴリ匿名／数値のみの3段階全部ベタ載せ</td></tr>
-          <tr><td>4</td><td>メインビジュアル</td><td>ぜんぶ案いれて</td><td><span class="done">✅</span> §4に(a)海外PDP合成／(b)フロー図／(c)タイポの3案全部・優先順位 a→b→c</td></tr>
-          <tr><td>5</td><td>パートナーって？</td><td>定義要</td><td><span class="done">✅</span> §8で定義明記＋仮置きドラフト150〜200字を追加</td></tr>
-          <tr><td>6</td><td>配信日</td><td>かりおきで</td><td><span class="done">✅</span> §3に「YYYY年7月XX日 10:00」仮置き・Akiko-san連携で確定</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="task">
-      <div class="t-head">Task #1（追跡中）</div>
-      海外事例の社名出し許可を取得（adidas／Guess／その他）。Yifan経由でグローバル承認 → 各社CSM／AEに先方確認を打診。Kazuki-sanへ並走共有。期限の目安 = リリース公開（7月上旬・仮）の逆算で6/26頃のKazuki-san OKまでに最低レベル①の方針を確定。
-    </div>
-  </section>
 
   <!-- ====== §1 タイトル ====== -->
   <section id="s1">
-    <div class="s-head"><span class="chap">§1</span><h2>タイトル案 — A/B/C 3案ぜんぶ並列</h2></div>
-    <div class="verdict">Issy采配: 3案ぜんぶ載せて Kazuki-san ラリーで選択</div>
+    <div class="s-head"><span class="chap">§1</span><h2>タイトル案 — A/B/C 3案併記・差別化注入</h2></div>
+    <div class="s-lead">他社AIGCサービスは「動画を生成して終わり」が大半。Fireworkの決定的な差＝<span class="diff">動画コマース基盤への一気通貫実装</span>を各案に注入。本文採用は A案・B/C案は <code>&lt;!-- alt-title --&gt;</code> で残し Kazuki-san ラリーで差替可。</div>
 
     <div class="titles">
       <div class="title-card">
-        <span class="label">A案 — 両軸併記をストレートに</span>
-        <div class="main">Firework Japan、海外で実証済みの「AIGC動画コマース」を日本市場で正式提供開始</div>
-        <div class="sub">― adidas／Guess など世界の小売・ブランドで成果を上げた生成AI動画制作サービスを国内展開 ―</div>
-        <div class="sub-lead"><b>A案連動サブ:</b> 海外で実装された1,000本規模のAIGC動画制作モデルを、日本のECブランド・小売向けに本格展開。商品ページ動画の「量産ボトルネック」をAIで解消し、PDPの視聴・回遊・購入を引き上げる。</div>
+        <span class="label">A案 — 両軸併記＋差別化</span>
+        <div class="main">Firework Japan、海外で実証済みの「<span class="diff">AI動画コマース統合ソリューション</span>」を日本市場で正式提供開始</div>
+        <div class="sub">― 世界37カ国の動画コマース基盤と生成AIを融合し、PDP動画の量産から実装・効果計測までを一気通貫で提供 ―</div>
+        <div class="sub-lead"><b>A案連動サブ:</b> 海外で実装された <span class="diff">1,000本規模のAI動画コマースモデル</span> を、日本のECブランド・小売向けに本格展開。商品ページ動画の「量産ボトルネック」をAIで解消し、PDPの視聴・回遊・購入を引き上げる。</div>
       </div>
 
       <div class="title-card">
-        <span class="label">B案 — 成果数値を前面</span>
-        <div class="main">Firework Japan、生成AI動画でPDP視聴2倍・CTR+58%を実証 ― AIGC動画制作サービスを日本で正式提供開始</div>
-        <div class="sub">― 海外1,000本超の実装実績を活かし、国内ECブランド向けに本格提供 ―</div>
-        <div class="sub-lead"><b>B案連動サブ:</b> 海外グループでの実測でPDPの商品カードCTR+58%・視聴完了率+45〜50%を確認。adidas／Guessなど世界の小売・ブランドで実装してきたAIGC動画制作サービスを日本市場で正式提供開始。</div>
+        <span class="label">B案 — 成果数値前面＋差別化</span>
+        <div class="main">Firework Japan、生成AI動画で <span class="diff">商品カードCTR+58%・PDP視聴2倍</span> を実証 ― AI動画コマースサービスを日本で正式提供開始</div>
+        <div class="sub">― 6年以上の動画コマース実装ノウハウとAIGCを融合し、国内ECブランドのPDP体験を再定義 ―</div>
+        <div class="sub-lead"><b>B案連動サブ:</b> 海外グループでの実測でPDPの商品カードCTR+58%・視聴完了率+45〜50%を確認。<span class="diff">「動画を生成して終わり」ではなく、PDP実装・効果計測まで一気通貫</span>のAI動画コマースサービスを日本市場で正式提供開始。</div>
       </div>
 
       <div class="title-card">
-        <span class="label">C案 — 市場・ペインから</span>
-        <div class="main">「商品ページに動画を載せたいが、量産できない」をAIで解く ― Firework Japan、AIGC動画制作サービスを正式提供開始</div>
-        <div class="sub">― 海外37カ国の動画コマース基盤を持つFireworkが、生成AIによる量産モデルを国内展開 ―</div>
-        <div class="sub-lead"><b>C案連動サブ:</b> SKUごとの撮影・編集コストで動画化が進まない国内ECブランド向けに、Fireworkが商品画像起点のハイブリッドAIフロー（商品画像→AIモデル着用静止画→AIGC動画→PDP実装）で「量産と品質の両立」を提供開始。</div>
+        <span class="label">C案 — 市場ペイン＋差別化</span>
+        <div class="main">「商品ページに動画を載せたいが、量産できない」をFireworkのAIで解く ― <span class="diff">AI動画コマースサービス</span>日本正式提供開始</div>
+        <div class="sub">― 単なるAI動画生成ではない、PDP実装まで一気通貫の<span class="diff">「動画コマース×AI」</span>を国内展開 ―</div>
+        <div class="sub-lead"><b>C案連動サブ:</b> SKUごとの撮影・編集コストで動画化が進まない国内ECブランド向けに、Fireworkが <span class="diff">商品画像起点のハイブリッドAIフロー</span>（商品画像→AIモデル着用静止画→AIGC動画→PDP実装）で「量産と品質の両立」を提供開始。</div>
       </div>
     </div>
 
     <div class="note">
       <b>軍師の所感（参考・最終采配は貴殿＋Kazuki-san）:</b>
-      A案 = 両軸併記の指示に最も素直。
-      B案 = 数値訴求が強く先方広報の目を引く。
-      C案 = ストーリー型で Kazuki-san の好みに合う可能性。
+      A案 = 両軸併記＋差別化が最も整っている。
+      B案 = 数値訴求＋ノウハウ蓄積を匂わせ、メディア注目度高。
+      C案 = ペインから入って自然と「動画コマース×AI」へ着地、ストーリー型。
+    </div>
+
+    <div class="footnotes">
+      <h4>出典（差別化根拠の社内資料）</h4>
+      <ol>
+        <li>New Era AIGC提案スライド <code>143TjtfXcpmT16gQgjb7Vwo0LDOyhImwgKfhtV8PZzMY</code>: 動画アセットの多面活用（PDP/SNS/AI接客）・AIGC大量生成→多媒体配信→データ計測→本制作示唆のサイクル</li>
+        <li>アルペンAIGC提案スライド <code>16_kTk8Pu5gxeKfrHApRASCqq17DhePV7pt8YGnCl3iQ</code>: Fireworkの強み — 顔・衣装の一貫性／モデルライブラリ多様性／イメージクローリング／エンタープライズ品質</li>
+        <li>マンチェスAIGC提案スライド <code>1HWagGAlAj3dbuKSpAyFRIKbvpNbs2WEKdV0CsXWSP9I</code>: 静止画CXの限界解消／模倣困難なストレスフリーCX</li>
+      </ol>
     </div>
   </section>
 
   <!-- ====== §2 サブタイトル ====== -->
   <section id="s2">
-    <div class="s-head"><span class="chap">§2</span><h2>サブタイトル（リード）— 3案併記</h2></div>
+    <div class="s-head"><span class="chap">§2</span><h2>サブタイトル（リード）— 3案連動</h2></div>
     <div class="s-lead">タイトル A/B/C それぞれに対応するサブを §1 各カード内に併記済（上記参照）。雛形HTMLには A案サブを本文・B/C案サブをコメントで併記。</div>
   </section>
 
   <!-- ====== §3 配信日時 ====== -->
   <section id="s3">
     <div class="s-head"><span class="chap">§3</span><h2>配信日時 — 仮置き</h2></div>
-    <div class="verdict">Issy采配: 仮置きで進める</div>
     <div class="body-text">
       <p><b>YYYY年7月XX日 10:00</b>（仮置き）</p>
       <p style="color:var(--muted);font-size:12.5px;">Akiko-san 連携で確定。PRTIMES 慣習で 10:00／11:00／15:00 が標準枠。</p>
@@ -561,14 +585,13 @@
   <!-- ====== §4 メインビジュアル ====== -->
   <section id="s4">
     <div class="s-head"><span class="chap">§4</span><h2>メインビジュアル（16:9）— 3案ぜんぶ載せる</h2></div>
-    <div class="verdict">Issy采配: 3案ぜんぶ載せる（優先順位 a → b → c）</div>
 
     <div class="visuals">
       <div class="v-card priority-1">
         <span class="v-rank">第一希望</span>
         <h4>(a) 海外実装事例 PDPカット合成</h4>
         <div class="meta">許可ブロッカーあり ／ 訴求力◎</div>
-        <div class="desc">adidas SEA／adidas India／Guess India のhomepage採用カットをコラージュ。<b>要先方許可（Task #1連動）</b></div>
+        <div class="desc">adidas社 SEA／adidas社 India／Guess社 India のhomepage採用カットをコラージュ。<b>要先方許可（Task #1連動）</b></div>
       </div>
       <div class="v-card priority-2">
         <span class="v-rank">第二希望</span>
@@ -592,42 +615,98 @@
   <!-- ====== §5 背景・課題 ====== -->
   <section id="s5">
     <div class="s-head"><span class="chap">§5</span><h2>■ 本リリースの背景と解決する課題</h2></div>
-    <div class="s-lead">3段落構成・各60〜100字。</div>
+    <div class="s-lead">3段落→4段落構成（AI蓄積訴求③＋差別化①注入）</div>
 
     <h3>① EC市場の動画ニーズ拡大</h3>
-    <div class="body-text"><p>PDP動画は閲覧→購入のコンバージョンを押し上げる重要要素となっており、Fireworkが世界37カ国・1,000以上のブランドで提供してきた動画コマース基盤でもその効果は実証されている。</p></div>
+    <div class="body-text"><p>PDP動画は閲覧→購入のコンバージョンを押し上げる重要要素となっており、Fireworkが世界37カ国・1,000以上のブランドで提供してきた動画コマース基盤でもその効果は実証されている<span class="fn">[1]</span>。</p></div>
 
     <h3>② 量産ボトルネック</h3>
     <div class="body-text"><p>一方、国内ECでは「商品ページに動画を載せたいが、SKUごとの撮影コスト・編集工数がボトルネックとなり、量産できない」という構造的課題が長く存在してきた。1社あたり数百〜数千SKUを抱えるアパレル・家電・コスメ・ベビー領域で特に顕著。</p></div>
 
-    <h3>③ 本サービスの位置づけ</h3>
-    <div class="body-text"><p>Firework Japan は、海外グループで先行的に開発・実装してきた<b>生成AIによる動画制作モデル（AIGC）</b>を国内向けに正式提供する。商品画像・既存素材を起点に、AIモデル着用静止画→動画化のハイブリッドフローで、量産と品質を両立させる。</p></div>
+    <h3>③ Fireworkが続けてきたAI×動画ソリューションの蓄積【新規】</h3>
+    <div class="body-text"><p>Fireworkは2020年の Shoppable Video 提供開始以来、<span class="diff">Live配信・1to1 Video Chat（2020）・Long Video（2022）・Video Showroom（2024）・AI Video Assistant（2024）</span> と、AI×動画コマースのソリューションを継続的に拡張してきた<span class="fn">[1]</span>。<span class="diff">「動画コマースをAIで強化する」分野で6年以上の実装実績</span>と、世界37カ国・1,000以上のブランドへの導入ノウハウを蓄積している。本サービスはこの延長線上に位置する。</p></div>
+
+    <h3>④ 本サービスの位置づけ ― 「AI動画生成」ではなく「AI動画コマース」【差別化注入】</h3>
+    <div class="body-text"><p>他社の生成AI動画サービスの多くが「動画を作って終わり」にとどまる中、Firework Japan が提供するAIGCは、<span class="diff">海外グループで先行的に開発・実装してきた生成AIによる動画制作モデル</span>を、自社の動画コマース基盤と統合した形で提供する。商品画像・既存素材を起点に、AIモデル着用静止画→動画化の<span class="diff">ハイブリッドフロー</span>で量産と品質を両立し、生成後の PDP 埋め込み・効果計測までを一気通貫で運用できる点が、市場に出回る単発のAI動画生成サービスとの<span class="diff">決定的な差</span>となる。</p></div>
+
+    <div class="footnotes">
+      <h4>出典</h4>
+      <ol>
+        <li>Firework サービス沿革 — New Era 向け提案スライド <code>143TjtfXcpmT16gQgjb7Vwo0LDOyhImwgKfhtV8PZzMY</code> 内「サービスの沿革」より（SHOPPABLE VIDEO 2020 ／1to1 VIDEO CHAT 2020 ／LONG VIDEO 2022 ／VIDEO SHOWROOM 2024 ／AI VIDEO ASSISTANT 2024）。社外公開ページ: <a href="https://firework.com/jp" target="_blank">firework.com/jp</a></li>
+      </ol>
+    </div>
   </section>
 
   <!-- ====== §6 特長 ====== -->
   <section id="s6">
-    <div class="s-head"><span class="chap">§6</span><h2>■ AIGC動画制作サービスの特長（3項目）</h2></div>
+    <div class="s-head"><span class="chap">§6</span><h2>■ AI動画コマースサービスの特長（3項目）</h2></div>
+    <div class="s-lead">CSV由来3スライド（New Era / マンチェス / アルペン）から訴求集約④ ＋ 日本トンマナ⑤ ＋ 差別化①</div>
 
-    <ul class="clean">
-      <li><b>【特長1】PDP実装まで一気通貫</b> — 単なる動画生成にとどまらず、Fireworkの動画コマース基盤と連携し、生成した動画をそのままECサイトのPDPに埋め込み・効果計測まで提供。</li>
-      <li><b>【特長2】商品画像起点のハイブリッド制作</b> — ゼロからの生成ではなく、実商品画像→AIモデル着用静止画→AIGC動画化のフローにより、ブランドが求める商品ディテールを保ちながら量産。</li>
-      <li><b>【特長3】グローバル品質基準で量産</b> — 海外グループで37カ国・複数業種に展開してきたAIGC制作プロセスを国内に持ち込み、グローバル水準の制作品質と量産速度を提供。</li>
-    </ul>
+    <h3>【特長1】PDP実装・効果計測まで一気通貫の「AI動画コマース」</h3>
+    <div class="body-text"><p>単なる動画生成にとどまらず、Fireworkの動画コマース基盤と連携し、生成した動画をそのままECサイトのPDPに埋め込み、視聴・CTR・購入までを計測。<span class="diff">海外グループでは動画接触者の合計CV率が非接触者比 3.8倍、PV数/セッション 1.8倍、ページ滞在時間 1.7倍を確認</span><span class="fn">[2]</span>。AI接客エージェント・切り抜き動画・Live配信素材といった他のFireworkソリューションとも横断的に連携する。</p></div>
+
+    <h3>【特長2】商品画像起点のハイブリッド制作 ― 顔・衣装ディテールの一貫性</h3>
+    <div class="body-text"><p>ゼロからの生成ではなく、<span class="diff">実商品画像→AIモデル着用静止画→AIGC動画化</span> のフローにより、ブランドが求める商品ディテールを保ちながら量産。Fireworkの高度な入力処理により、<span class="diff">モデルの顔・ヘアスタイル・メイク・衣装ディテールが動画全体で破綻せず一貫性を保つ</span><span class="fn">[3]</span>。複雑なテクスチャや生地質感など、競合の生成AIサービスが苦手とする領域の安定再現が決定的な差。</p></div>
+
+    <h3>【特長3】日本の顧客ニーズ・トンマナ・世界観に合わせた量産【日本ローカライズ】</h3>
+    <div class="body-text"><p>モデルライブラリは性別・人種・肌のトーン・体型・年齢など多様な選択肢を持ち、<span class="diff">日本市場のターゲット顧客と合うモデルでの制作</span>が可能<span class="fn">[3]</span>。背景はスタジオ・ストリート（国内・海外）・ライフスタイルシーン等から選択でき、<span class="diff">ブランドごとのトンマナ・世界観に合わせたカスタム</span>が可能。日本のEC消費者が求める<span class="diff">「商品理解の解像度」と「ブランド世界観の一貫性」</span>を、スピード・量・コスト効率を犠牲にせず両立する。</p></div>
+
+    <div class="footnotes">
+      <h4>出典</h4>
+      <ol start="2">
+        <li>Firework 導入企業視聴者 vs 非視聴者の社内実測 — マンチェスAIGC提案スライド <code>1HWagGAlAj3dbuKSpAyFRIKbvpNbs2WEKdV0CsXWSP9I</code> 内「事例: Fireworkの導入後6ヶ月での効果」より。CV率 約3.8倍 / PV数/セッション 約1.8倍 / 直帰率 約1/4 / 滞在時間 約1.7倍。<b>※外部公開時は「複数社平均」「Firework導入企業」等の表現に統一・Kazuki-san 判断</b></li>
+        <li>AIGC モデル一貫性・カスタム性 — アルペンAIGC提案スライド <code>16_kTk8Pu5gxeKfrHApRASCqq17DhePV7pt8YGnCl3iQ</code> 内「Fireworkの強み: 品質・一貫性・多様性」より。モデルライブラリ／カスタム環境設定／顔の再現性／衣装ディテール一貫性／イメージクローリング機能</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ====== §6b キャプチャ枠（新規）====== -->
+  <section id="s6b">
+    <div class="s-head"><span class="chap">§6b</span><h2>■ AIGC 動画制作 実物サンプル（静止画キャプチャ）</h2></div>
+    <div class="s-lead">⑧ AIGC静止画キャプチャの差替枠。本文の特長と数値成果の中間に配置（読者の関心が最高潮の地点）</div>
+
+    <div class="captures">
+      <div class="capture-frame">
+        <div>
+          <div class="cap-label">Apparel</div>
+          <div class="cap-cat">モデル着用静止画 → 動画化</div>
+        </div>
+      </div>
+      <div class="capture-frame">
+        <div>
+          <div class="cap-label">Shoes</div>
+          <div class="cap-cat">商品画像 → 多角度動画</div>
+        </div>
+      </div>
+      <div class="capture-frame">
+        <div>
+          <div class="cap-label">Beauty</div>
+          <div class="cap-cat">スタジオVTO背景</div>
+        </div>
+      </div>
+      <div class="capture-frame">
+        <div>
+          <div class="cap-label">Home / Interior</div>
+          <div class="cap-cat">ライフスタイルVTO</div>
+        </div>
+      </div>
+    </div>
+    <p class="capture-note">※ 実際のAIGC動画から静止画フレームをサンプリング（最終差替）。カテゴリ4分類は New Era 提案スライド「スタジオ／ストリート（海外/国内）」＋ アルペンスライド「Apparel / Shoes」 + ビューティー・ライフスタイル領域へ拡張</p>
   </section>
 
   <!-- ====== §7 数字 ====== -->
   <section id="s7">
-    <div class="s-head"><span class="chap">§7</span><h2>■ 海外実装で確認された成果 — 3段階ぜんぶベタ載せ</h2></div>
-    <div class="verdict">Issy采配: 3段階ぜんぶベタで載せる。後で判断（Task #1 進捗で公開ライン確定）</div>
+    <div class="s-head"><span class="chap">§7</span><h2>■ 海外実装で確認された成果 — 3段階＋出典明記＋敬称対応</h2></div>
+    <div class="s-lead">Task #1 の許可進捗で公開ライン確定。全数字に出典脚注。社名は本文情報伝達部「<span class="diff">◯◯社</span>」で統一（敬称ルール）</div>
 
     <div class="levels">
       <div class="level l1">
         <h4>レベル① <span class="level-tag">許可取得・固有名詞OK</span></h4>
-        <div class="level-note">Task #1 で先方許可が取れた場合の最厚版。許可レイヤー2: 社名・成果の言及許可</div>
+        <div class="level-note">Task #1 で先方許可が取れた場合の最厚版</div>
         <ul>
-          <li><b>adidas（東南アジア）</b>: AIGC制作モデルの本格採用（年間 ¥XX,XXX,XXX 規模）</li>
-          <li><b>adidas（インド）</b>: AIGCにより約1,000本超の PDP 動画を量産</li>
-          <li><b>Guess（インド）</b>: ホームページのメインビジュアル枠に AIGC 動画を採用</li>
+          <li><b>adidas社（東南アジア）</b>: AIGC制作モデルの本格採用（年間 ¥XX,XXX,XXX 規模）<span class="fn">[4]</span></li>
+          <li><b>adidas社（インド）</b>: AIGCにより約1,000本超のPDP動画を量産<span class="fn">[4]</span></li>
+          <li><b>Guess社（インド）</b>: ホームページのメインビジュアル枠にAIGC動画を採用<span class="fn">[5]</span></li>
         </ul>
       </div>
 
@@ -643,9 +722,9 @@
 
       <div class="level l3">
         <h4>レベル③ <span class="level-tag">数値のみ・最終フォールバック</span></h4>
-        <div class="level-note">DSW 実測 ◎・社内資料正本に裏付け・最悪これだけでも公開可能</div>
+        <div class="level-note">DSW 実測◎・社内資料正本に裏付け・最悪これだけでも公開可能</div>
         <ul style="margin-bottom:8px;">
-          <li>海外グループでの <b>AIGC動画 vs 従来動画</b> PDP実測比較（複数案件の平均値）:</li>
+          <li>海外グループでの <b>AIGC動画 vs 従来動画</b> PDP実測比較（複数案件の平均値）<span class="fn">[6]</span>:</li>
         </ul>
         <div class="metric-row">
           <div class="metric"><div class="v">+58%</div><div class="l">商品カードCTR</div></div>
@@ -657,12 +736,21 @@
     </div>
 
     <div class="warn">
-      <b>🚫 不採用数字（先祖返り防止・社内資料 `_機密_グローバルAIGC効果_260615/` の判定通り）</b>
+      <b>🚫 不採用数字（先祖返り防止・社内資料 <code>_機密_グローバルAIGC効果_260615/</code> の判定通り）</b>
       <ul>
         <li><b>Anta「23.6倍」</b>: Vincent が誤りと明言・外部使用不可</li>
         <li><b>Deepseek「+35%」</b>: 外部AI生成の数値・一次未確認</li>
         <li><b>Simon Pearce／Naturium</b>: 動画コマース全般の数値で AIGC 固有でない</li>
       </ul>
+    </div>
+
+    <div class="footnotes">
+      <h4>出典</h4>
+      <ol start="4">
+        <li>adidas社（SEA / India）AIGC実装実績 — 社内資料『グローバルAIGC効果まとめ』<code>AIGC_戦略/_機密_グローバルAIGC効果_260615/グローバルAIGC効果まとめ_260615.html</code>（社外非公開）／ Yifan Monthly Creative Sync 議事録 <code>02_仕事/01_AIGC/GlobalOps/議事録/</code>。<b>外部リリース時は社名出し許可必須（Task #1 で追跡中）</b></li>
+        <li>Guess社（India）ホームページ AIGC 採用 — 同社内資料 Ch.3「営業武器」セクション。<b>外部リリース時は社名出し許可必須</b></li>
+        <li>DSW（Designer Shoe Warehouse社・米国大手靴EC）AIGC vs 非AIGC PDP実測 — Yifan Monthly Creative Sync の DSW Pilot 報告 <code>02_仕事/01_AIGC/GlobalOps/議事録/20260603_Monthly_Creative_Sync_w_Yifan.md</code>。社内資料『グローバルAIGC効果まとめ』Ch.0「最強の営業武器」に集約。<b>公開時の表現候補</b>: ① 「Designer Shoe Warehouse社（米国・大手靴EC）における AIGC動画 vs 従来動画の社内実測」／ ② 「海外グループでの AIGC動画 vs 従来動画 PDP実測（複数案件の平均値）」のどちらかを Kazuki-san 判断で選択。DSW 社名出し可否は Yifan へ要確認（Task #1 に併合可）</li>
+      </ol>
     </div>
   </section>
 
@@ -672,11 +760,10 @@
 
     <div class="speaker">【Firework Japan株式会社 カントリーマネージャー：田島 一樹】</div>
     <blockquote>
-      動画コマースは、商品理解と購買体験の双方を押し上げる強力な手段ですが、SKUごとの撮影・編集コストが量産のボトルネックとなり、その効果を最大化できていないブランドが多いのが現状です。Firework Japan は、海外グループで adidas や Guess をはじめとする小売・ブランドと共に開発・実装してきた AIGC 動画制作モデルを、日本市場向けに正式提供開始いたします。商品画像を起点としたハイブリッド制作フローと、私たち自身が運営する動画コマース基盤への一気通貫実装により、量産と品質を両立し、日本のEC事業者の動画コマース活用を新たな段階へと押し上げてまいります。
+      動画コマースは、商品理解と購買体験の双方を押し上げる強力な手段ですが、SKUごとの撮影・編集コストが量産のボトルネックとなり、その効果を最大化できていないブランドが多いのが現状です。Firework Japan は、海外グループで <b>adidas社や Guess社</b> をはじめとする小売・ブランドと共に開発・実装してきた AIGC 動画制作モデルを、日本市場向けに正式提供開始いたします。商品画像を起点としたハイブリッド制作フローと、私たち自身が運営する動画コマース基盤への一気通貫実装により、<span class="diff">「単に動画を作って終わり」ではない</span>量産と品質の両立を実現し、日本のEC事業者の動画コマース活用を新たな段階へと押し上げてまいります。
     </blockquote>
 
     <div class="speaker" style="border-left-color:var(--warn);">【パートナー企業 役職：氏名】（仮置き・構造確保）</div>
-    <div class="verdict" style="background:#fff8f3;border-color:var(--warn);color:var(--warn);">Issy采配: 仮置きで進める</div>
 
     <div class="task">
       <div class="t-head">「パートナー」の定義</div>
@@ -685,18 +772,25 @@
 
     <h3>本件のパートナー候補（Task #1 と連動）</h3>
     <ul class="clean">
-      <li><b>第一候補:</b> adidas（東南アジアまたはインド）役職者 → グローバル本社経由で Yifan 依頼</li>
-      <li><b>第二候補:</b> Guess India 役職者 → 同上</li>
-      <li><b>第三候補:</b> その他 DSW 計測協力企業（Molly Jewelry 等）</li>
+      <li><b>第一候補:</b> adidas社（東南アジアまたはインド）役職者 → グローバル本社経由で Yifan 依頼</li>
+      <li><b>第二候補:</b> Guess社 India 役職者 → 同上</li>
+      <li><b>第三候補:</b> その他 DSW 計測協力企業（Molly Jewelry社 等）</li>
     </ul>
 
     <h3>仮置きパートナーコメントドラフト（150〜200字）</h3>
     <blockquote class="partner">
-      【パートナー企業名】では、商品ページにおける動画体験の強化が、お客様の購買意思決定を支援する上で極めて重要だと考えてきました。Firework の AIGC 制作モデルにより、これまで撮影・編集コストの制約で実現できなかった規模で商品動画を量産し、PDP の体験品質を継続的に高めることが可能になりました。日本市場への展開を機に、グローバルでの取り組みがさらに広がることを期待しています。
+      【〇〇社】では、商品ページにおける動画体験の強化が、お客様の購買意思決定を支援する上で極めて重要だと考えてきました。Firework の AIGC 制作モデルにより、これまで撮影・編集コストの制約で実現できなかった規模で商品動画を量産し、PDP の体験品質を継続的に高めることが可能になりました。日本市場への展開を機に、グローバルでの取り組みがさらに広がることを期待しています。
     </blockquote>
 
     <div class="note">
-      <b>雛形HTMLでの扱い:</b> blockquote 構造を残し、許可取得タイミングで差し込み or 削除のいずれにも対応できるようコメントアウト付きで埋める。
+      <b>敬称ルール（⑦反映）:</b> 本文情報伝達部の他社名は <b>「社」付け</b>（adidas社／Guess社）で統一。コメント引用枠の語尾は丁寧表現を維持。プレスリリースは客観文ゆえ「様」付けは客観性を損なうため避ける（PRTIMES 慣習）<span class="fn">[7]</span>。
+    </div>
+
+    <div class="footnotes">
+      <h4>出典</h4>
+      <ol start="7">
+        <li>プレスリリース他社名表記慣習 — <a href="https://prtimes.jp/magazine/service-name-abbreviation/" target="_blank">PR TIMES MAGAZINE「サービス名・ブランド名発信の略称機能」</a> ／ <a href="https://www.itmedia.co.jp/business/articles/2105/22/news017.html" target="_blank">ITmedia「会社名に『様』付けは誤り？ マナー講師に聞いてみた」</a> ／ <a href="https://kyodonewsprwire.jp/corp/shioj/4507/" target="_blank">共同通信PRワイヤー「連名プレスリリースの書き方」</a></li>
+      </ol>
     </div>
   </section>
 
@@ -733,14 +827,18 @@
   <section id="s11">
     <div class="s-head"><span class="chap">§11</span><h2>キーワード／リリース後の段／軍師の進言</h2></div>
 
-    <h3>PRTIMES タグ（5つ）</h3>
+    <h3>PRTIMES タグ（8つ・Issy 確定 260617）</h3>
     <div class="chips">
       <span class="chip">AIGC</span>
       <span class="chip">生成AI</span>
-      <span class="chip">動画コマース</span>
       <span class="chip">AI動画制作</span>
+      <span class="chip">動画コマース</span>
+      <span class="chip new">リテールテック</span>
+      <span class="chip new">DX</span>
+      <span class="chip new">EC・リテールテック</span>
       <span class="chip">EC・PDP動画</span>
     </div>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:8px;">追加3タグ（リテールテック／DX／EC・リテールテック）でITメディア・小売業界誌・経営層向けメディアでの拾い上げを拡張。</p>
 
     <h3>リリース後の段（参考・骨子の範囲外）</h3>
     <ul class="clean">
@@ -769,11 +867,11 @@
         <span>Firework Japan ／ 社内資料 ／ Issy チェック用</span>
       </div>
       <div>
-        作成: <b>2026年6月17日 11:10 JST</b><br>
-        最終更新: <b>2026年6月17日 12:47 JST</b>
+        最終更新: <b>2026年6月17日 14:34 JST</b>
       </div>
       <div>
         正本 MD: <b>リリース骨子_たたき_260617.md</b><br>
+        差分案 MD: <b>差分案_第2ラウンド_260617.md</b><br>
         雛形 HTML: <b>aigc-press-release-template_260616.html</b>
       </div>
     </div>
