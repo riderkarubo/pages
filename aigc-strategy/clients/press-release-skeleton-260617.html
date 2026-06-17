@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script src="../../mccm-proposal/auth.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-06-17T12:47:44+09:00">
+<meta name="robots" content="noindex, nofollow">
+<title>AIGCサービス正式発表 リリース骨子（たたき）｜Firework社内</title>
+<style>
+  :root{
+    --ink:#1A1A2E;
+    --accent:#FA006D;
+    --teal:#1B998B;
+    --navy:#0F3460;
+    --bg:#f4f5f8;
+    --card:#ffffff;
+    --line:#e6e8ef;
+    --muted:#6c727f;
+    --good:#1B998B;
+    --warn:#d98a00;
+    --bad:#c0334e;
+    --soft-pink:#fff5f9;
+    --soft-blue:#eef1fb;
+    --soft-green:#e8f5f1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Arial,sans-serif;
+    background:var(--bg);
+    color:#1f2330;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:1080px;margin:0 auto;padding:0 18px 80px;}
+
+  /* COVER */
+  .cover{
+    background:linear-gradient(135deg,#1A1A2E 0%,#241a3a 55%,#0F3460 100%);
+    color:#fff;
+    border-radius:0 0 18px 18px;
+    padding:46px 40px 38px;
+    margin-bottom:26px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::after{
+    content:"";
+    position:absolute;
+    right:-60px;
+    top:-60px;
+    width:260px;
+    height:260px;
+    background:radial-gradient(circle,rgba(250,0,109,.35),transparent 70%);
+  }
+  .cover .tag{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.06em;
+    padding:4px 12px;
+    border-radius:30px;
+    margin-bottom:14px;
+  }
+  .cover h1{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:.01em;
+    margin-bottom:8px;
+    line-height:1.3;
+  }
+  .cover .sub{
+    font-size:14.5px;
+    color:#cdd2e6;
+    max-width:840px;
+    line-height:1.8;
+  }
+  .cover-meta{
+    margin-top:18px;
+    font-size:12px;
+    color:#aeb4d0;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .cover-meta b{color:#fff;font-weight:600;}
+
+  /* TOC */
+  .toc{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px 24px;
+    margin-bottom:26px;
+    box-shadow:0 1px 3px rgba(20,20,40,.04);
+  }
+  .toc-title{
+    font-size:17px;
+    font-weight:800;
+    color:var(--ink);
+    border-bottom:2px solid var(--accent);
+    padding-bottom:8px;
+    margin-bottom:12px;
+  }
+  .toc-item a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#28303f;
+    padding:5px 6px;
+    border-radius:6px;
+    font-size:13.5px;
+  }
+  .toc-item a:hover{background:#f1f2f7;}
+  .toc-num{
+    flex:0 0 26px;
+    width:26px;
+    height:26px;
+    background:var(--ink);
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:700;
+  }
+
+  /* SECTION */
+  section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:26px 30px;
+    margin-bottom:22px;
+    box-shadow:0 1px 3px rgba(20,20,40,.04);
+  }
+  .s-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .s-head .chap{
+    background:var(--ink);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:6px;
+    white-space:nowrap;
+  }
+  .s-head h2{font-size:20px;font-weight:800;color:var(--ink);}
+  .s-lead{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+
+  h3{
+    font-size:15.5px;
+    font-weight:800;
+    color:var(--navy);
+    margin:22px 0 12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  h3::before{
+    content:"";
+    width:8px;
+    height:8px;
+    background:var(--accent);
+    border-radius:2px;
+    display:inline-block;
+  }
+
+  /* Issy 采配 badge */
+  .verdict{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--soft-pink);
+    border:1.5px solid var(--accent);
+    color:var(--accent);
+    font-weight:700;
+    font-size:12.5px;
+    padding:5px 12px;
+    border-radius:20px;
+    margin-bottom:14px;
+  }
+  .verdict::before{content:"🟦";}
+
+  /* Title option cards */
+  .titles{display:grid;gap:12px;margin:14px 0 8px;}
+  .title-card{
+    background:#fafbfd;
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent);
+    border-radius:10px;
+    padding:16px 18px;
+  }
+  .title-card .label{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 10px;
+    border-radius:14px;
+    margin-bottom:8px;
+  }
+  .title-card .main{
+    font-size:16px;
+    font-weight:800;
+    color:var(--ink);
+    line-height:1.5;
+    margin-bottom:4px;
+  }
+  .title-card .sub{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .title-card .sub-lead{
+    font-size:13px;
+    color:#3a4150;
+    line-height:1.7;
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed var(--line);
+  }
+
+  /* Visual option cards */
+  .visuals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 8px;}
+  .v-card{
+    background:#fafbfd;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    position:relative;
+  }
+  .v-card.priority-1{border-top:4px solid var(--accent);}
+  .v-card.priority-2{border-top:4px solid var(--navy);}
+  .v-card.priority-3{border-top:4px solid var(--muted);}
+  .v-card .v-rank{
+    position:absolute;
+    top:-10px;
+    right:12px;
+    background:#fff;
+    border:1.5px solid var(--accent);
+    color:var(--accent);
+    font-size:10px;
+    font-weight:800;
+    padding:2px 8px;
+    border-radius:12px;
+  }
+  .v-card h4{
+    font-size:13.5px;
+    font-weight:800;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .v-card .meta{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .v-card .desc{font-size:12.5px;color:#3a4150;line-height:1.6;}
+
+  /* Level boxes for §7 */
+  .levels{display:grid;gap:12px;margin:14px 0 8px;}
+  .level{
+    background:#fafbfd;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+  }
+  .level.l1{border-left:4px solid var(--good);}
+  .level.l2{border-left:4px solid var(--warn);}
+  .level.l3{border-left:4px solid var(--muted);}
+  .level h4{
+    font-size:14.5px;
+    font-weight:800;
+    color:var(--ink);
+    margin-bottom:4px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .level .level-tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 8px;
+    border-radius:12px;
+  }
+  .l1 .level-tag{background:#e3f5f0;color:#0f7a64;}
+  .l2 .level-tag{background:#fff3da;color:#9a6500;}
+  .l3 .level-tag{background:#eef1fb;color:#2f4ba8;}
+  .level .level-note{font-size:11.5px;color:var(--muted);margin-bottom:10px;}
+  .level ul{margin:6px 0 0 18px;font-size:13px;}
+  .level ul li{margin-bottom:5px;}
+  .metric-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:8px;
+  }
+  .metric{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:10px 8px;
+    text-align:center;
+  }
+  .metric .v{
+    font-size:20px;
+    font-weight:800;
+    color:var(--accent);
+    line-height:1.15;
+  }
+  .metric .l{
+    font-size:10.5px;
+    color:#3a4150;
+    margin-top:3px;
+    font-weight:600;
+  }
+
+  /* Common boxes */
+  .note{
+    border-left:4px solid var(--teal);
+    background:var(--soft-green);
+    border-radius:0 8px 8px 0;
+    padding:12px 16px;
+    font-size:13px;
+    margin:14px 0;
+    color:#234;
+  }
+  .warn{
+    border-left:4px solid var(--bad);
+    background:#fdf2f4;
+    border-radius:0 8px 8px 0;
+    padding:14px 18px;
+    font-size:13px;
+    margin:14px 0;
+  }
+  .warn b{color:var(--bad);}
+  .warn ul{margin:8px 0 0 18px;}
+  .warn li{margin-bottom:5px;}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f6f7fb;color:var(--ink);font-weight:700;font-size:12.5px;}
+  tr:last-child td{border-bottom:none;}
+
+  /* Comment block */
+  blockquote{
+    background:#fafbfd;
+    border-left:4px solid var(--ink);
+    border-radius:0 8px 8px 0;
+    padding:14px 18px;
+    font-size:13.5px;
+    color:#28303f;
+    line-height:1.8;
+    margin:10px 0;
+  }
+  blockquote.partner{border-left-color:var(--warn);background:#fffaf0;}
+
+  .speaker{
+    font-size:13.5px;
+    font-weight:800;
+    color:var(--ink);
+    margin:14px 0 6px;
+    padding:4px 0 4px 12px;
+    border-left:5px solid var(--accent);
+  }
+
+  /* Body content */
+  .body-text{font-size:13.5px;line-height:1.85;color:#28303f;}
+  .body-text p{margin-bottom:10px;}
+  ul.clean{margin:6px 0 6px 20px;font-size:13.5px;line-height:1.85;}
+  ul.clean li{margin-bottom:6px;}
+  ol.clean{margin:6px 0 6px 22px;font-size:13.5px;line-height:1.85;}
+  ol.clean li{margin-bottom:6px;}
+
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+  .chip{
+    background:var(--soft-pink);
+    border:1px solid var(--accent);
+    color:var(--accent);
+    border-radius:20px;
+    padding:3px 12px;
+    font-size:11.5px;
+    font-weight:700;
+  }
+
+  /* Task callout */
+  .task{
+    background:#fff8f3;
+    border:1.5px solid var(--warn);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    font-size:13px;
+  }
+  .task .t-head{
+    font-weight:800;
+    color:var(--warn);
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .task .t-head::before{content:"📌";}
+
+  /* Verdict matrix */
+  .v-matrix{margin:14px 0 8px;}
+  .v-matrix table{font-size:12.5px;}
+  .v-matrix .done{color:var(--good);font-weight:800;}
+  .v-matrix .open{color:var(--warn);font-weight:800;}
+
+  /* Footer */
+  footer{
+    margin-top:26px;
+    padding:20px 24px;
+    background:var(--ink);
+    color:#cdd2e6;
+    border-radius:12px;
+    font-size:12px;
+  }
+  footer b{color:#fff;}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+
+  /* responsive */
+  @media(max-width:780px){
+    .visuals{grid-template-columns:1fr;}
+    .metric-row{grid-template-columns:repeat(2,1fr);}
+    .cover h1{font-size:22px;}
+    section{padding:22px 20px;}
+  }
+  @media print{
+    body{background:#fff;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    section{box-shadow:none;page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <span class="tag">社内資料｜骨子（たたき）｜Issyチェック用</span>
+    <h1>AIGCサービス正式発表<br>リリース骨子（たたき）</h1>
+    <div class="sub">
+      Firework Japan による「海外で実証済みのAIGC動画コマース」を日本市場へ正式提供するプレスリリースの構成案（骨子）。<br>
+      本HTMLは貴殿チェック用。OK後に雛形HTML（aigc-press-release-template_260616.html）へドラフト流し込みへ進む。
+    </div>
+    <div class="cover-meta">
+      <span>作成: <b>2026年6月17日 11:10 JST</b></span>
+      <span>最終更新: <b>2026年6月17日 12:47 JST</b></span>
+      <span>配信予定: <b>7月上旬（仮置き）</b></span>
+      <span>追跡: <b>Task #1（社名出し許可取得）</b></span>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">目次</div>
+    <div class="toc-item"><a href="#s0"><div class="toc-num">0</div><span>盤面整理 ／ Issy采配反映マトリクス</span></a></div>
+    <div class="toc-item"><a href="#s1"><div class="toc-num">1</div><span>タイトル案（A/B/C 全部並列）</span></a></div>
+    <div class="toc-item"><a href="#s2"><div class="toc-num">2</div><span>サブタイトル（3案併記）</span></a></div>
+    <div class="toc-item"><a href="#s3"><div class="toc-num">3</div><span>配信日時（仮置き）</span></a></div>
+    <div class="toc-item"><a href="#s4"><div class="toc-num">4</div><span>メインビジュアル（3案全部）</span></a></div>
+    <div class="toc-item"><a href="#s5"><div class="toc-num">5</div><span>本リリースの背景と解決する課題</span></a></div>
+    <div class="toc-item"><a href="#s6"><div class="toc-num">6</div><span>AIGC動画制作サービスの特長（3項目）</span></a></div>
+    <div class="toc-item"><a href="#s7"><div class="toc-num">7</div><span>海外実装で確認された成果（3段階全部）</span></a></div>
+    <div class="toc-item"><a href="#s8"><div class="toc-num">8</div><span>コメント（田島さん＋パートナー仮置き）</span></a></div>
+    <div class="toc-item"><a href="#s9"><div class="toc-num">9</div><span>Fireworkについて（定型）</span></a></div>
+    <div class="toc-item"><a href="#s10"><div class="toc-num">10</div><span>会社概要・お問い合わせ（定型）</span></a></div>
+    <div class="toc-item"><a href="#s11"><div class="toc-num">11</div><span>キーワード／後段／軍師の進言</span></a></div>
+  </div>
+
+  <!-- ====== §0 盤面整理 ====== -->
+  <section id="s0">
+    <div class="s-head"><span class="chap">§0</span><h2>盤面整理 ／ Issy采配反映マトリクス</h2></div>
+    <div class="s-lead">本書 = <b>骨子（構成案）</b>。実本文ではなく「どの章に何を入れるか」の地図。流れ: 本書 → 貴殿チェック → OK → 雛形HTMLへドラフト流し込み → Kazuki-san修正ラリー → Akiko-san連携 → 公開（7月上旬・仮）</div>
+
+    <h3>Issy采配 6点 反映マトリクス</h3>
+    <div class="v-matrix">
+      <table>
+        <thead>
+          <tr><th style="width:30px;">#</th><th style="width:240px;">論点</th><th style="width:120px;">Issy采配</th><th>反映状況</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>タイトル</td><td>ぜんぶいれて</td><td><span class="done">✅</span> §1にA/B/C案を3案並列で載せ・§2サブタイトルも3案分併記</td></tr>
+          <tr><td>2</td><td>海外事例の社名出し許可</td><td>あとでタスク化</td><td><span class="done">✅</span> Task #1 化済（Yifan経由でグローバル承認・期限 6/26 Kazuki-san OK まで）</td></tr>
+          <tr><td>3</td><td>数字レベル①②③</td><td>ぜんぶ選択肢いれて</td><td><span class="done">✅</span> §7に固有名詞／カテゴリ匿名／数値のみの3段階全部ベタ載せ</td></tr>
+          <tr><td>4</td><td>メインビジュアル</td><td>ぜんぶ案いれて</td><td><span class="done">✅</span> §4に(a)海外PDP合成／(b)フロー図／(c)タイポの3案全部・優先順位 a→b→c</td></tr>
+          <tr><td>5</td><td>パートナーって？</td><td>定義要</td><td><span class="done">✅</span> §8で定義明記＋仮置きドラフト150〜200字を追加</td></tr>
+          <tr><td>6</td><td>配信日</td><td>かりおきで</td><td><span class="done">✅</span> §3に「YYYY年7月XX日 10:00」仮置き・Akiko-san連携で確定</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="task">
+      <div class="t-head">Task #1（追跡中）</div>
+      海外事例の社名出し許可を取得（adidas／Guess／その他）。Yifan経由でグローバル承認 → 各社CSM／AEに先方確認を打診。Kazuki-sanへ並走共有。期限の目安 = リリース公開（7月上旬・仮）の逆算で6/26頃のKazuki-san OKまでに最低レベル①の方針を確定。
+    </div>
+  </section>
+
+  <!-- ====== §1 タイトル ====== -->
+  <section id="s1">
+    <div class="s-head"><span class="chap">§1</span><h2>タイトル案 — A/B/C 3案ぜんぶ並列</h2></div>
+    <div class="verdict">Issy采配: 3案ぜんぶ載せて Kazuki-san ラリーで選択</div>
+
+    <div class="titles">
+      <div class="title-card">
+        <span class="label">A案 — 両軸併記をストレートに</span>
+        <div class="main">Firework Japan、海外で実証済みの「AIGC動画コマース」を日本市場で正式提供開始</div>
+        <div class="sub">― adidas／Guess など世界の小売・ブランドで成果を上げた生成AI動画制作サービスを国内展開 ―</div>
+        <div class="sub-lead"><b>A案連動サブ:</b> 海外で実装された1,000本規模のAIGC動画制作モデルを、日本のECブランド・小売向けに本格展開。商品ページ動画の「量産ボトルネック」をAIで解消し、PDPの視聴・回遊・購入を引き上げる。</div>
+      </div>
+
+      <div class="title-card">
+        <span class="label">B案 — 成果数値を前面</span>
+        <div class="main">Firework Japan、生成AI動画でPDP視聴2倍・CTR+58%を実証 ― AIGC動画制作サービスを日本で正式提供開始</div>
+        <div class="sub">― 海外1,000本超の実装実績を活かし、国内ECブランド向けに本格提供 ―</div>
+        <div class="sub-lead"><b>B案連動サブ:</b> 海外グループでの実測でPDPの商品カードCTR+58%・視聴完了率+45〜50%を確認。adidas／Guessなど世界の小売・ブランドで実装してきたAIGC動画制作サービスを日本市場で正式提供開始。</div>
+      </div>
+
+      <div class="title-card">
+        <span class="label">C案 — 市場・ペインから</span>
+        <div class="main">「商品ページに動画を載せたいが、量産できない」をAIで解く ― Firework Japan、AIGC動画制作サービスを正式提供開始</div>
+        <div class="sub">― 海外37カ国の動画コマース基盤を持つFireworkが、生成AIによる量産モデルを国内展開 ―</div>
+        <div class="sub-lead"><b>C案連動サブ:</b> SKUごとの撮影・編集コストで動画化が進まない国内ECブランド向けに、Fireworkが商品画像起点のハイブリッドAIフロー（商品画像→AIモデル着用静止画→AIGC動画→PDP実装）で「量産と品質の両立」を提供開始。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>軍師の所感（参考・最終采配は貴殿＋Kazuki-san）:</b>
+      A案 = 両軸併記の指示に最も素直。
+      B案 = 数値訴求が強く先方広報の目を引く。
+      C案 = ストーリー型で Kazuki-san の好みに合う可能性。
+    </div>
+  </section>
+
+  <!-- ====== §2 サブタイトル ====== -->
+  <section id="s2">
+    <div class="s-head"><span class="chap">§2</span><h2>サブタイトル（リード）— 3案併記</h2></div>
+    <div class="s-lead">タイトル A/B/C それぞれに対応するサブを §1 各カード内に併記済（上記参照）。雛形HTMLには A案サブを本文・B/C案サブをコメントで併記。</div>
+  </section>
+
+  <!-- ====== §3 配信日時 ====== -->
+  <section id="s3">
+    <div class="s-head"><span class="chap">§3</span><h2>配信日時 — 仮置き</h2></div>
+    <div class="verdict">Issy采配: 仮置きで進める</div>
+    <div class="body-text">
+      <p><b>YYYY年7月XX日 10:00</b>（仮置き）</p>
+      <p style="color:var(--muted);font-size:12.5px;">Akiko-san 連携で確定。PRTIMES 慣習で 10:00／11:00／15:00 が標準枠。</p>
+    </div>
+  </section>
+
+  <!-- ====== §4 メインビジュアル ====== -->
+  <section id="s4">
+    <div class="s-head"><span class="chap">§4</span><h2>メインビジュアル（16:9）— 3案ぜんぶ載せる</h2></div>
+    <div class="verdict">Issy采配: 3案ぜんぶ載せる（優先順位 a → b → c）</div>
+
+    <div class="visuals">
+      <div class="v-card priority-1">
+        <span class="v-rank">第一希望</span>
+        <h4>(a) 海外実装事例 PDPカット合成</h4>
+        <div class="meta">許可ブロッカーあり ／ 訴求力◎</div>
+        <div class="desc">adidas SEA／adidas India／Guess India のhomepage採用カットをコラージュ。<b>要先方許可（Task #1連動）</b></div>
+      </div>
+      <div class="v-card priority-2">
+        <span class="v-rank">第二希望</span>
+        <h4>(b) ハイブリッド制作フロー図</h4>
+        <div class="meta">許可不要 ／ 構造を一目で示せる○</div>
+        <div class="desc">「商品画像 → AIモデル着用静止画 → AIGC動画 → PDP実装」の4ステップ。自社制作・たたき着工時の安全牌。</div>
+      </div>
+      <div class="v-card priority-3">
+        <span class="v-rank">第三希望</span>
+        <h4>(c) サービスロゴ＋キーメッセージ</h4>
+        <div class="meta">許可不要 ／ 訴求力は劣るが外しは無い</div>
+        <div class="desc">ブランディング重視型のタイポグラフィ。抽象度高め。</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>運用方針:</b> Kazuki-san ラリーで (a)→(b)→(c) の優先順位で確定。雛形HTMLにはまず (b) を埋め、(a) 許可確定時に差し替え。
+    </div>
+  </section>
+
+  <!-- ====== §5 背景・課題 ====== -->
+  <section id="s5">
+    <div class="s-head"><span class="chap">§5</span><h2>■ 本リリースの背景と解決する課題</h2></div>
+    <div class="s-lead">3段落構成・各60〜100字。</div>
+
+    <h3>① EC市場の動画ニーズ拡大</h3>
+    <div class="body-text"><p>PDP動画は閲覧→購入のコンバージョンを押し上げる重要要素となっており、Fireworkが世界37カ国・1,000以上のブランドで提供してきた動画コマース基盤でもその効果は実証されている。</p></div>
+
+    <h3>② 量産ボトルネック</h3>
+    <div class="body-text"><p>一方、国内ECでは「商品ページに動画を載せたいが、SKUごとの撮影コスト・編集工数がボトルネックとなり、量産できない」という構造的課題が長く存在してきた。1社あたり数百〜数千SKUを抱えるアパレル・家電・コスメ・ベビー領域で特に顕著。</p></div>
+
+    <h3>③ 本サービスの位置づけ</h3>
+    <div class="body-text"><p>Firework Japan は、海外グループで先行的に開発・実装してきた<b>生成AIによる動画制作モデル（AIGC）</b>を国内向けに正式提供する。商品画像・既存素材を起点に、AIモデル着用静止画→動画化のハイブリッドフローで、量産と品質を両立させる。</p></div>
+  </section>
+
+  <!-- ====== §6 特長 ====== -->
+  <section id="s6">
+    <div class="s-head"><span class="chap">§6</span><h2>■ AIGC動画制作サービスの特長（3項目）</h2></div>
+
+    <ul class="clean">
+      <li><b>【特長1】PDP実装まで一気通貫</b> — 単なる動画生成にとどまらず、Fireworkの動画コマース基盤と連携し、生成した動画をそのままECサイトのPDPに埋め込み・効果計測まで提供。</li>
+      <li><b>【特長2】商品画像起点のハイブリッド制作</b> — ゼロからの生成ではなく、実商品画像→AIモデル着用静止画→AIGC動画化のフローにより、ブランドが求める商品ディテールを保ちながら量産。</li>
+      <li><b>【特長3】グローバル品質基準で量産</b> — 海外グループで37カ国・複数業種に展開してきたAIGC制作プロセスを国内に持ち込み、グローバル水準の制作品質と量産速度を提供。</li>
+    </ul>
+  </section>
+
+  <!-- ====== §7 数字 ====== -->
+  <section id="s7">
+    <div class="s-head"><span class="chap">§7</span><h2>■ 海外実装で確認された成果 — 3段階ぜんぶベタ載せ</h2></div>
+    <div class="verdict">Issy采配: 3段階ぜんぶベタで載せる。後で判断（Task #1 進捗で公開ライン確定）</div>
+
+    <div class="levels">
+      <div class="level l1">
+        <h4>レベル① <span class="level-tag">許可取得・固有名詞OK</span></h4>
+        <div class="level-note">Task #1 で先方許可が取れた場合の最厚版。許可レイヤー2: 社名・成果の言及許可</div>
+        <ul>
+          <li><b>adidas（東南アジア）</b>: AIGC制作モデルの本格採用（年間 ¥XX,XXX,XXX 規模）</li>
+          <li><b>adidas（インド）</b>: AIGCにより約1,000本超の PDP 動画を量産</li>
+          <li><b>Guess（インド）</b>: ホームページのメインビジュアル枠に AIGC 動画を採用</li>
+        </ul>
+      </div>
+
+      <div class="level l2">
+        <h4>レベル② <span class="level-tag">許可待ち・カテゴリ＋成果のみ</span></h4>
+        <div class="level-note">社名出しNGだが内容に触れて良い場合の中厚版</div>
+        <ul>
+          <li>大手スポーツアパレル（東南アジア）で AIGC 制作モデルが本格採用</li>
+          <li>大手アパレル（インド）で AIGC による1,000本超の PDP 動画を量産</li>
+          <li>大手アパレル（インド）のホームページメインビジュアル枠に AIGC 動画を採用</li>
+        </ul>
+      </div>
+
+      <div class="level l3">
+        <h4>レベル③ <span class="level-tag">数値のみ・最終フォールバック</span></h4>
+        <div class="level-note">DSW 実測 ◎・社内資料正本に裏付け・最悪これだけでも公開可能</div>
+        <ul style="margin-bottom:8px;">
+          <li>海外グループでの <b>AIGC動画 vs 従来動画</b> PDP実測比較（複数案件の平均値）:</li>
+        </ul>
+        <div class="metric-row">
+          <div class="metric"><div class="v">+58%</div><div class="l">商品カードCTR</div></div>
+          <div class="metric"><div class="v">+60%</div><div class="l">視聴到達率</div></div>
+          <div class="metric"><div class="v">+45〜50%</div><div class="l">視聴完了率</div></div>
+          <div class="metric"><div class="v">約2倍</div><div class="l">エンゲージメント視聴</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <b>🚫 不採用数字（先祖返り防止・社内資料 `_機密_グローバルAIGC効果_260615/` の判定通り）</b>
+      <ul>
+        <li><b>Anta「23.6倍」</b>: Vincent が誤りと明言・外部使用不可</li>
+        <li><b>Deepseek「+35%」</b>: 外部AI生成の数値・一次未確認</li>
+        <li><b>Simon Pearce／Naturium</b>: 動画コマース全般の数値で AIGC 固有でない</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== §8 コメント ====== -->
+  <section id="s8">
+    <div class="s-head"><span class="chap">§8</span><h2>■ 本サービス提供開始に関するコメント</h2></div>
+
+    <div class="speaker">【Firework Japan株式会社 カントリーマネージャー：田島 一樹】</div>
+    <blockquote>
+      動画コマースは、商品理解と購買体験の双方を押し上げる強力な手段ですが、SKUごとの撮影・編集コストが量産のボトルネックとなり、その効果を最大化できていないブランドが多いのが現状です。Firework Japan は、海外グループで adidas や Guess をはじめとする小売・ブランドと共に開発・実装してきた AIGC 動画制作モデルを、日本市場向けに正式提供開始いたします。商品画像を起点としたハイブリッド制作フローと、私たち自身が運営する動画コマース基盤への一気通貫実装により、量産と品質を両立し、日本のEC事業者の動画コマース活用を新たな段階へと押し上げてまいります。
+    </blockquote>
+
+    <div class="speaker" style="border-left-color:var(--warn);">【パートナー企業 役職：氏名】（仮置き・構造確保）</div>
+    <div class="verdict" style="background:#fff8f3;border-color:var(--warn);color:var(--warn);">Issy采配: 仮置きで進める</div>
+
+    <div class="task">
+      <div class="t-head">「パートナー」の定義</div>
+      本リリースで事例として登場する<b>海外クライアント</b>のうち、コメント承諾を取れた1社の役職者。Firework 慣習として「事例企業＋自社カントリーマネージャー」の2名コメント体制が標準。
+    </div>
+
+    <h3>本件のパートナー候補（Task #1 と連動）</h3>
+    <ul class="clean">
+      <li><b>第一候補:</b> adidas（東南アジアまたはインド）役職者 → グローバル本社経由で Yifan 依頼</li>
+      <li><b>第二候補:</b> Guess India 役職者 → 同上</li>
+      <li><b>第三候補:</b> その他 DSW 計測協力企業（Molly Jewelry 等）</li>
+    </ul>
+
+    <h3>仮置きパートナーコメントドラフト（150〜200字）</h3>
+    <blockquote class="partner">
+      【パートナー企業名】では、商品ページにおける動画体験の強化が、お客様の購買意思決定を支援する上で極めて重要だと考えてきました。Firework の AIGC 制作モデルにより、これまで撮影・編集コストの制約で実現できなかった規模で商品動画を量産し、PDP の体験品質を継続的に高めることが可能になりました。日本市場への展開を機に、グローバルでの取り組みがさらに広がることを期待しています。
+    </blockquote>
+
+    <div class="note">
+      <b>雛形HTMLでの扱い:</b> blockquote 構造を残し、許可取得タイミングで差し込み or 削除のいずれにも対応できるようコメントアウト付きで埋める。
+    </div>
+  </section>
+
+  <!-- ====== §9 Fireworkについて ====== -->
+  <section id="s9">
+    <div class="s-head"><span class="chap">§9</span><h2>■ Fireworkについて — 定型文（プレイブック準拠）</h2></div>
+    <blockquote>
+      Fireworkは、世界37カ国で1,000以上のブランドや小売業者に導入されている動画コマースプラットフォームです。縦型ショート動画やライブ配信、そして最先端のAI技術をWebサイトに統合することで、顧客体験の向上とビジネスの成長を支援しています。
+    </blockquote>
+  </section>
+
+  <!-- ====== §10 会社概要・お問い合わせ ====== -->
+  <section id="s10">
+    <div class="s-head"><span class="chap">§10</span><h2>【会社概要】／【本件に関するお問い合わせ先】 — 定型</h2></div>
+
+    <h3>会社概要</h3>
+    <table>
+      <tr><th style="width:140px;">項目</th><th>値</th></tr>
+      <tr><td>会社名</td><td>Firework Japan株式会社</td></tr>
+      <tr><td>所在地</td><td>東京都品川区東五反田2-5-9 CIRCLES with 島津山 7F</td></tr>
+      <tr><td>代表者</td><td>Country Manager 田島 一樹</td></tr>
+      <tr><td>URL</td><td><a href="https://firework.com/jp" target="_blank">https://firework.com/jp</a></td></tr>
+    </table>
+
+    <h3>お問い合わせ先</h3>
+    <blockquote>
+      Firework Japan株式会社 広報担当<br>
+      E-mail: jp_business@fireworkhq.com<br>
+      <span style="font-size:12px;color:var(--muted);">※記載されている会社名、製品名、サービス名は各社の商標または登録商標です。</span>
+    </blockquote>
+  </section>
+
+  <!-- ====== §11 キーワード／後段／軍師の進言 ====== -->
+  <section id="s11">
+    <div class="s-head"><span class="chap">§11</span><h2>キーワード／リリース後の段／軍師の進言</h2></div>
+
+    <h3>PRTIMES タグ（5つ）</h3>
+    <div class="chips">
+      <span class="chip">AIGC</span>
+      <span class="chip">生成AI</span>
+      <span class="chip">動画コマース</span>
+      <span class="chip">AI動画制作</span>
+      <span class="chip">EC・PDP動画</span>
+    </div>
+
+    <h3>リリース後の段（参考・骨子の範囲外）</h3>
+    <ul class="clean">
+      <li>Akiko-san（配信実務）連携 → PRTIMES 入稿</li>
+      <li>公開後: SNS・LinkedIn・社内 Slack で拡散</li>
+      <li>後追いリリース候補: 日本企業の導入事例（許可取得次第・別リリース化）</li>
+    </ul>
+
+    <h3>軍師の進言 — 次の一手</h3>
+    <div class="body-text">
+      <p>骨子は固まり、雛形 HTML とプレイブックも揃っております。<b>雛形 HTML へのドラフト流し込み</b>に進むのが盤面の理にかなっておりますが、貴殿の流儀である「<b>骨子チェック → OK → ドラフト作成</b>」（前セッション方針）に従えば、<b>ここで一旦止まり骨子の貴殿チェックを待つ</b>のが正道にございます。</p>
+      <p>打つ手は二つございます:</p>
+      <ol class="clean">
+        <li><b>(A)</b> ここで止まり貴殿の骨子チェックを待つ（前セッション方針に忠実・安全）</li>
+        <li><b>(B)</b> このまま雛形 HTML へのドラフト流し込みに進む（時間的優位・本日たたき期日に間に合う）</li>
+      </ol>
+      <p>貴殿の采配はいかに。</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="row">
+      <div>
+        <b>AIGC リリース骨子（たたき）</b><br>
+        <span>Firework Japan ／ 社内資料 ／ Issy チェック用</span>
+      </div>
+      <div>
+        作成: <b>2026年6月17日 11:10 JST</b><br>
+        最終更新: <b>2026年6月17日 12:47 JST</b>
+      </div>
+      <div>
+        正本 MD: <b>リリース骨子_たたき_260617.md</b><br>
+        雛形 HTML: <b>aigc-press-release-template_260616.html</b>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
