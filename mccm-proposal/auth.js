@@ -19,6 +19,8 @@
     TOKEN_KEY: 'firework_sso_token',
     TOKEN_EXPIRY_KEY: 'firework_sso_token_expiry',
     TOKEN_TTL_MS: 8 * 60 * 60 * 1000, // 8時間
+    AUTO_SELECT: true,            // AIGCボード方式: One Tap で無音ログイン
+    HD: 'fireworkhq.com',         // Googleアカウント選択画面を fireworkhq.com に絞る
   };
 
   const STYLES = `
@@ -154,7 +156,8 @@
       google.accounts.id.initialize({
         client_id: CONFIG.CLIENT_ID,
         callback: handleCredentialResponse,
-        auto_select: false,
+        hd: CONFIG.HD,
+        auto_select: false, // ボタン押下時の手動ログインゆえ auto_select は無効
       });
       google.accounts.id.prompt(function (notification) {
         if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
@@ -162,9 +165,32 @@
           const tokenClient = google.accounts.oauth2.initTokenClient({
             client_id: CONFIG.CLIENT_ID,
             scope: 'email profile',
+            hd: CONFIG.HD,
             callback: handleTokenResponse,
           });
           tokenClient.requestAccessToken();
+        }
+      });
+    });
+  }
+
+  // AIGCボード方式: ページ読み込み時に auto_select で無音ログインを試行
+  function tryAutoSelect() {
+    loadGoogleApi(function () {
+      google.accounts.id.initialize({
+        client_id: CONFIG.CLIENT_ID,
+        callback: handleCredentialResponse,
+        hd: CONFIG.HD,
+        auto_select: CONFIG.AUTO_SELECT,
+      });
+      google.accounts.id.prompt(function (notification) {
+        // auto_select が成功しない場合のみオーバーレイを表示
+        if (
+          notification.isNotDisplayed() ||
+          notification.isSkippedMoment() ||
+          notification.isDismissedMoment()
+        ) {
+          showOverlay();
         }
       });
     });
@@ -245,10 +271,12 @@
 
       injectStyles();
 
+      // まずは AIGCボード方式の auto_select で無音ログインを試み、
+      // 失敗時のみオーバーレイを表示する（手動ボタン押下フロー）
       if (document.body) {
-        showOverlay();
+        tryAutoSelect();
       } else {
-        document.addEventListener('DOMContentLoaded', showOverlay);
+        document.addEventListener('DOMContentLoaded', tryAutoSelect);
       }
     },
 
