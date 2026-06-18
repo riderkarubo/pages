@@ -567,7 +567,7 @@ function render(d){
     pmHTML=mkTable('① 先方検討中・POC','cap-adv',t1)+mkTable('② 商談進行中（アポ確定）<span class="pm-goal">※6月中にPipeline10件創出！</span>','cap-adv2',t2)+mkTable('③ 既存クライアント','cap-ex',t3)+mkTable('④ 新規クライアント','cap-new',t4)+mkTable('⑤ 失注・保留','cap-lost',t5)+`<p class="pm-disc">${esc(pm.disclaimer)}</p>`+srcHTML;
     const _fSales=[...new Set(pm.rows.map(r=>r.sales||'').filter(Boolean))].sort();
     pmFilterBar='<div class="pm-filter-bar"><span class="fl-lbl">担当：</span><button class="pm-flt active" onclick="filterPM(this,\'all\')">全員</button>'+_fSales.map(s=>'<button class="pm-flt" onclick="filterPM(this,\''+s+'\')">'+esc(s)+'</button>').join('')+'</div>';
-    pmLegend=`<p class="sec-note"><b>📊 採点改訂（260618）：</b> 7基準スコア（数値）を廃止し<b>ランク（S/A/B/C/不明）と業種適性（◎○△✗/不明）</b>に統一しました。旧「AIGCスコア表」28社は ③既存／④新規 に統合済み。<b>業種・SKU規模・EC基盤</b>はリサーチで判明したものに <span class="src-star">※</span> を付与（<b>※マークをマウスホバー</b>で出典URLがポップアップ／ページ最下部にも一覧チップあり）。それ以外は <b>不明</b> 表示。<b>担当=営（SF Account Owner）/顧（CSM）</b>。🔗リテールコネクトは小売/メーカー区分。計${pm.rows.length}社。</p>`;
+    pmLegend='';
   }
   const bk=d.benchmarks;
   const bmkHTML=bk?`<div class="bmk"><div class="bmk-h">営業武器（ベンチマーク実績・ピッチの型）</div><div class="bmk-pitch">${esc(bk.pitch)}</div><div class="bmk-grid">${bk.items.map(b=>`<div class="bmk-card"><div class="bn">${esc(b.name)}</div><div class="bs">${esc(b.stat)}</div><div class="bu">${esc(b.use)}</div>${b.detailUrl?`<a class="bmk-link" href="${esc(b.detailUrl)}">進捗トラッカーを開く →</a>`:''}${(b.links||[]).map(l=>`<a class="bmk-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div>`).join('')}</div></div>`:'';
