@@ -673,11 +673,39 @@ function tryToken(credential,fromCache){
   })();
 }
 function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
+function _oauthFallback(){
+  try{
+    const tc=google.accounts.oauth2.initTokenClient({
+      client_id:CLIENT_ID,
+      scope:'openid email profile',
+      hd:'fireworkhq.com',
+      callback:function(tr){
+        if(tr.error){document.getElementById('err').textContent='ログインに失敗しました（'+tr.error+'）';return;}
+        document.getElementById('err').textContent='認証中…';
+        fetch('https://www.googleapis.com/oauth2/v3/userinfo',{headers:{Authorization:'Bearer '+tr.access_token}})
+          .then(function(r){return r.json();})
+          .then(function(info){
+            if(!info||!info.email||!/@fireworkhq\.com$/.test(info.email)){
+              document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';return;
+            }
+            document.getElementById('err').textContent='読み込み中…';
+            decrypt(PP).then(function(d){showData(d);}).catch(function(e){document.getElementById('err').textContent='データの復号に失敗しました';});
+          })
+          .catch(function(e){document.getElementById('err').textContent='ログイン情報の取得に失敗しました';});
+      }
+    });
+    tc.requestAccessToken();
+  }catch(e){document.getElementById('err').textContent='ログイン経路の初期化に失敗しました';}
+}
 function initGoogle(){
   if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
-  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:false});
   google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
-  google.accounts.id.prompt();
+  google.accounts.id.prompt(function(notif){
+    if(notif&&(notif.isNotDisplayed&&notif.isNotDisplayed()||notif.isSkippedMoment&&notif.isSkippedMoment()||notif.isDismissedMoment&&notif.isDismissedMoment())){
+      _oauthFallback();
+    }
+  });
 }
 window.onload=function(){
   let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
