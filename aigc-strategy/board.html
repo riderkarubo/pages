@@ -463,24 +463,30 @@ function render(d){
   const pipe=d.pipeline.map(p=>`<div class="pstage"><h3>${esc(p.stage)}</h3><div class="note">${esc(p.note)}</div></div>`).join('');
   const cats=d.categoryFocus.map(c=>`<div class="cat"><div class="top"><h3>${esc(c.category)}</h3><span class="badge ${c.tone}">${esc(c.badge)}</span></div><div class="leads">${c.leads.map(l=>`<span class="chip">${esc(l)}</span>`).join('')}</div><div class="desc">${esc(c.status)}</div></div>`).join('');
   const card=a=>{
-    const items=a.items.map(i=>`<li class="itm"><span class="nm">${esc(i.name)}</span><span class="st">${esc(i.status)}</span>${i.note?`<span class="nt">${esc(i.note)}</span>`:''}</li>`).join('');
-    const nas=a.nextActions.length?a.nextActions.map(n=>`<li class="na">${esc(n.action)} <span class="o">${esc(n.owner||'')}${n.due&&n.due!=='—'?' / '+esc(n.due):''}</span></li>`).join(''):'<li class="na" style="color:#aaa">—</li>';
-    const rks=a.risks.map(r=>`<li class="rk">${esc(r)}</li>`).join('');
+    const _items=Array.isArray(a.items)?a.items:[];
+    const _na=Array.isArray(a.nextActions)?a.nextActions:[];
+    const _risks=Array.isArray(a.risks)?a.risks:[];
+    const _sources=Array.isArray(a.sources)?a.sources:[];
+    const items=_items.map(i=>typeof i==='string'?`<li class="itm"><span class="nm">${esc(i)}</span></li>`:`<li class="itm"><span class="nm">${esc(i.name)}</span><span class="st">${esc(i.status)}</span>${i.note?`<span class="nt">${esc(i.note)}</span>`:''}</li>`).join('');
+    const nas=_na.length?_na.map(n=>`<li class="na">${esc(n.action)} <span class="o">${esc(n.owner||'')}${n.due&&n.due!=='—'?' / '+esc(n.due):''}</span></li>`).join(''):'<li class="na" style="color:#aaa">—</li>';
+    const rks=_risks.map(r=>`<li class="rk">${esc(r)}</li>`).join('');
+    const _summary=a.summary||a.note||'';
     return `<div class="acard"><div class="ah"><span class="sdot s-${esc(a.status)}"></span><div><div class="cat-tag">${esc(a.category)}</div><h3>${esc(a.area)}</h3></div><span class="stat ${esc(a.status)}">${esc(a.status)}</span></div>
-    <div class="ab"><div class="head">${esc(a.headline)}</div><div class="sum">${esc(a.summary)}</div>
+    <div class="ab"><div class="head">${esc(a.headline||'')}</div><div class="sum">${esc(_summary)}</div>
     <details><summary>詳細を開く（項目・タスク・アクション・リスク）</summary>
     <div class="sub">項目・タスク</div><ul>${items}</ul>
     <div class="sub">ネクストアクション</div><ul>${nas}</ul>
     <div class="sub">リスク</div><ul>${rks}</ul>
-    <div class="src">出典: ${a.sources.map(esc).join(' / ')}　最終更新: ${esc(a.lastUpdate)}</div>
+    <div class="src">出典: ${_sources.map(esc).join(' / ')}　最終更新: ${esc(a.lastUpdate||'')}</div>
     </details>${a.detailUrl?`<a class="detail-btn" href="${esc(a.detailUrl)}">この案件の詳細ページを開く →</a>`:""}${a.trialUrl?`<a class="trial-btn" href="${esc(a.trialUrl)}">${esc(a.trialLabel||'トライアルパッケージ案')} →</a>`:""}</div></div>`;};
   const clientAreas=d.areas.filter(a=>a.group==='client');
   const taskAreas=d.areas.filter(a=>a.group==='task');
   const clientCards=clientAreas.map(card).join('');
   const taskCards=taskAreas.map(card).join('');
   const projHTML=clientAreas.concat(d.deals||[]).map(a=>{
-    const its=a.items.slice(0,3).map(i=>`<li><span class="pj-nm">${esc(i.name)}</span><span class="pj-st">${esc(i.status)}</span></li>`).join('');
-    const more=a.items.length>3?`<li style="border:none;color:#aab;font-size:.7rem">ほか ${a.items.length-3} 件 → 詳細ページ参照</li>`:'';
+    const _items=Array.isArray(a.items)?a.items:[];
+    const its=_items.slice(0,3).map(i=>typeof i==='string'?`<li><span class="pj-nm">${esc(i)}</span></li>`:`<li><span class="pj-nm">${esc(i.name)}</span><span class="pj-st">${esc(i.status)}</span></li>`).join('');
+    const more=_items.length>3?`<li style="border:none;color:#aab;font-size:.7rem">ほか ${_items.length-3} 件 → 詳細ページ参照</li>`:'';
     const na=(a.nextActions&&a.nextActions.length)?`<div class="pj-na">直近: ${esc(a.nextActions[0].action)}<span class="pj-o">${esc(a.nextActions[0].owner||'')}${(a.nextActions[0].due&&a.nextActions[0].due!=='—')?' / '+esc(a.nextActions[0].due):''}</span></div>`:'';
     const link=a.detailUrl?`<a class="detail-btn" href="${esc(a.detailUrl)}">詳細ページを開く →</a>`:'';
     return `<div class="projcard"><div class="pj-head"><h3>${esc(a.area)}</h3><span class="stat ${esc(a.status)}">${esc(a.status)}</span></div><div class="pj-sub">${esc(a.category)}</div><ul class="pj-list">${its}${more}</ul>${na}${link}</div>`;
