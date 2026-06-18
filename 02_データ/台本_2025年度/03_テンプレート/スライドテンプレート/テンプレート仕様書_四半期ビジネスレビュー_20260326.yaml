@@ -1,0 +1,9055 @@
+metadata:
+  source_file: 株式会社MCCマネジメント御中_四半期ビジネスレビュー_20260122.pptx
+  generated_date: '2026-03-26'
+  total_slides: 46
+  total_images: 83
+  slide_size:
+    width_emu: 9144000
+    height_emu: 5143500
+    width_cm: 25.4
+    height_cm: 14.29
+    aspect_ratio: '16:9'
+theme_colors:
+  scheme_name: Default
+  colors:
+    dk1: '#000000'
+    lt1: '#FFFFFF'
+    dk2: '#158158'
+    lt2: '#F3F3F3'
+    accent1: '#058DC7'
+    accent2: '#50B432'
+    accent3: '#ED561B'
+    accent4: '#EDEF00'
+    accent5: '#24CBE5'
+    accent6: '#64E572'
+    hlink: '#2200CC'
+    folHlink: '#551A8B'
+  mapping_reference:
+    dk1: Dark 1 (テキスト/見出し等)
+    lt1: Light 1 (背景/白文字)
+    dk2: Dark 2 (アクセント緑/主要ブランドカラー)
+    lt2: Light 2 (セクション背景/薄灰)
+    accent1: Accent 1 (青系)
+    accent2: Accent 2 (緑系)
+    accent3: Accent 3 (オレンジ系)
+    accent4: Accent 4 (黄色系)
+    accent5: Accent 5 (シアン系)
+    accent6: Accent 6 (ライトグリーン系)
+  custom_colors_used:
+    teal_accent: '#20A8A7'
+    pink_accent: '#FE177A'
+    pink_light: '#F5CBCC'
+    gray_medium: '#999999'
+fonts:
+  theme_fonts:
+    major_latin: Arial
+    major_ea: Arial
+    minor_latin: Arial
+    minor_ea: Arial
+  actually_used:
+    primary: Noto Sans JP
+    secondary:
+    - Noto Sans
+    - Noto Sans Medium
+    - Roboto
+  size_inventory_pt:
+  - 6.1
+  - 6.9
+  - 7.0
+  - 8.0
+  - 9.0
+  - 9.4
+  - 10.0
+  - 10.7
+  - 11.0
+  - 12.0
+  - 12.3
+  - 13.0
+  - 13.7
+  - 16.0
+  - 17.0
+  - 20.0
+  - 22.0
+  common_patterns:
+    slide_title:
+      font: inherited (Arial)
+      size_pt: 14
+      bold: false
+      color: '#000000'
+    section_subtitle:
+      font: inherited
+      size_pt: 16
+      bold: true
+      color: inherited
+    body_text:
+      font: Noto Sans JP
+      size_pt: 11
+      bold: false
+      color_theme: DARK_2
+    body_text_bold:
+      font: Noto Sans JP
+      size_pt: 11
+      bold: true
+      color_theme: DARK_2
+    card_title:
+      font: inherited
+      size_pt: 13
+      bold: true
+      color: inherited
+    small_label:
+      font: Noto Sans JP
+      size_pt:
+      - 6.1
+      - 6.9
+      - 7.0
+      bold: false
+    medium_label:
+      font: Noto Sans JP
+      size_pt:
+      - 9.4
+      - 10.7
+      bold: false
+    large_heading:
+      font: inherited
+      size_pt: 22
+      bold: false
+    page_number:
+      font: inherited
+      size_pt: inherited
+  master_default_text:
+    alignment: left
+    line_spacing: 100%
+    space_before_pt: 0
+    space_after_pt: 0
+    default_size_pt: 14
+    default_color: '#000000'
+    default_font: Arial
+layouts:
+  cover:
+    layout_name: CUSTOM_1_1
+    used_on_slides:
+    - 1
+    background:
+      scheme: dk1
+      hex: '#000000'
+      desc: 黒背景（表紙用）
+    placeholders:
+      title:
+        idx: 0
+        position:
+          left_emu: 548650
+          top_emu: 2146875
+          left_cm: 1.52
+          top_cm: 5.96
+        size:
+          width_emu: 3949800
+          height_emu: 771000
+          width_cm: 10.97
+          height_cm: 2.14
+    decorative_elements:
+    - type: image
+      desc: 右側背景画像
+      left_emu: 1355600
+      top_emu: 0
+      width_emu: 7788300
+      height_emu: 5143500
+    - type: auto_shape
+      desc: 暗転オーバーレイ
+      left_emu: -125
+      top_emu: -225
+      width_emu: 9174600
+      height_emu: 5140500
+    - type: auto_shape
+      desc: グラデーションマスク
+      left_emu: 3451
+      top_emu: -2100
+      width_emu: 5140800
+      height_emu: 5147700
+    - type: image
+      desc: Fireworkロゴ
+      left_emu: 548650
+      top_emu: 1785250
+      width_emu: 1384475
+      height_emu: 289875
+  section_divider:
+    layout_name: TITLE_ONLY_1_1_1_1
+    used_on_slides:
+    - 3
+    - 7
+    background:
+      scheme: lt2
+      hex: '#F3F3F3'
+      desc: 薄灰背景（セクション区切り）
+    placeholders:
+      title:
+        idx: 0
+        position:
+          left_emu: 548650
+          top_emu: 2146875
+          left_cm: 1.52
+          top_cm: 5.96
+        size:
+          width_emu: 3949800
+          height_emu: 771000
+          width_cm: 10.97
+          height_cm: 2.14
+    decorative_elements:
+    - type: image
+      desc: 右側背景画像
+      left_emu: 4906750
+      top_emu: 0
+      width_emu: 4237249
+      height_emu: 5143501
+    - type: image
+      desc: 装飾円形画像
+      left_emu: 6350675
+      top_emu: 857875
+      width_emu: 1930199
+      height_emu: 3433801
+    - type: image
+      desc: パターンオーバーレイ
+      left_emu: 4629150
+      top_emu: 604600
+      width_emu: 4391025
+      height_emu: 4538901
+    - type: image
+      desc: ロゴ（右下）
+      left_emu: 7759525
+      top_emu: 4850925
+      width_emu: 1384475
+      height_emu: 289875
+  section_divider_2:
+    layout_name: TITLE_ONLY_1_1_1_1_1_1_1_1_1
+    used_on_slides:
+    - 18
+    - 32
+    background:
+      scheme: lt2
+      hex: '#F3F3F3'
+      desc: 薄灰背景（セクション区切り2）
+  end_divider:
+    layout_name: TITLE_ONLY_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1
+    used_on_slides:
+    - 12
+    - 46
+    background:
+      scheme: dk1
+      hex: '#000000'
+      desc: 黒背景（エンドスライド）
+  agenda:
+    layout_name: TITLE_AND_BODY_2
+    used_on_slides:
+    - 2
+    background:
+      scheme: lt1 (master)
+      hex: '#FFFFFF'
+      desc: 白背景（アジェンダ）
+    placeholders:
+      title:
+        idx: 0
+        position:
+          left_emu: 311700
+          top_emu: 261075
+        size:
+          width_emu: 8520600
+          height_emu: 572700
+      body:
+        idx: 1
+        position:
+          left_emu: 311700
+          top_emu: 1087688
+        size:
+          width_emu: 8520600
+          height_emu: 3416400
+      page_number:
+        idx: 12
+        position:
+          left_emu: 4299000
+          top_emu: 4970550
+        size:
+          width_emu: 546000
+          height_emu: 107700
+  content:
+    layout_name: TITLE_AND_BODY_2_1
+    used_on_slides:
+    - 4
+    - 5
+    - 6
+    - 8
+    - 9
+    - 10
+    - 11
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
+    - 33
+    - 34
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+    - 44
+    - 45
+    background:
+      scheme: lt1 (master)
+      hex: '#FFFFFF'
+      desc: 白背景（コンテンツ）
+    placeholders:
+      title:
+        idx: 0
+        position:
+          left_emu: 311700
+          top_emu: 261075
+          left_cm: 0.87
+          top_cm: 0.73
+        size:
+          width_emu: 8520600
+          height_emu: 572700
+          width_cm: 23.67
+          height_cm: 1.59
+      subtitle:
+        idx: 1
+        position:
+          left_emu: 311700
+          top_emu: 960875
+          left_cm: 0.87
+          top_cm: 2.67
+        size:
+          width_emu: 8520600
+          height_emu: 431100
+          width_cm: 23.67
+          height_cm: 1.2
+      page_number:
+        idx: 12
+        position:
+          left_emu: 4299000
+          top_emu: 4970550
+          left_cm: 11.94
+          top_cm: 13.81
+        size:
+          width_emu: 546000
+          height_emu: 107700
+          width_cm: 1.52
+          height_cm: 0.3
+      section_label:
+        idx: 3
+        position:
+          left_emu: 0
+          top_emu: 0
+        size:
+          width_emu: 2603100
+          height_emu: 220500
+          width_cm: 7.23
+          height_cm: 0.61
+        desc: 左上のセクションラベル
+common_elements:
+  page_number:
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+    size:
+      width_emu: 546000
+      height_emu: 107700
+    text_format: Page {n}
+  section_label:
+    position:
+      left_emu: 0
+      top_emu: 0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+    desc: 左上セクション名帯
+  title_bar:
+    position:
+      left_emu: 311700
+      top_emu: 261075
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+slides:
+- slide_number: 1
+  layout: CUSTOM_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;354;p52
+    type: 14
+    position:
+      left_emu: 548650
+      top_emu: 2146875
+      left_cm: 1.52
+      top_cm: 5.96
+    size:
+      width_emu: 5396100
+      height_emu: 1027500
+      width_cm: 14.99
+      height_cm: 2.85
+    text_runs:
+    - text: 株式会社MCCマネジメント御中
+    - text: Firework 四半期ビジネスレビュー
+- slide_number: 2
+  layout: TITLE_AND_BODY_2
+  shape_count: 3
+  elements:
+  - name: Google Shape;359;p53
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 1087688
+      left_cm: 0.87
+      top_cm: 3.02
+    size:
+      width_emu: 8520600
+      height_emu: 3416400
+      width_cm: 23.67
+      height_cm: 9.49
+    text_runs:
+    - text: これまでの振り返り
+      size_pt: 22.0
+    - text: 今後の取り組みついて
+      size_pt: 22.0
+  - name: Google Shape;360;p53
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;361;p53
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: アジェンダ
+- slide_number: 3
+  layout: TITLE_ONLY_1_1_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;366;p54
+    type: 14
+    position:
+      left_emu: 548650
+      top_emu: 2146875
+      left_cm: 1.52
+      top_cm: 5.96
+    size:
+      width_emu: 3949800
+      height_emu: 771000
+      width_cm: 10.97
+      height_cm: 2.14
+    text_runs:
+    - text: 四半期振り返り
+- slide_number: 4
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 24
+  elements:
+  - name: Google Shape;371;p55
+    type: 14
+    position:
+      left_emu: 52675
+      top_emu: 3114150
+      left_cm: 0.15
+      top_cm: 8.65
+    size:
+      width_emu: 2971800
+      height_emu: 1964100
+      width_cm: 8.26
+      height_cm: 5.46
+    text_runs:
+    - text: 視聴数推移
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;372;p55
+    type: 14
+    position:
+      left_emu: 3110800
+      top_emu: 3114150
+      left_cm: 8.64
+      top_cm: 8.65
+    size:
+      width_emu: 2971800
+      height_emu: 1964100
+      width_cm: 8.26
+      height_cm: 5.46
+    text_runs:
+    - text: メディアメニュー開発と実施
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;373;p55
+    type: 14
+    position:
+      left_emu: 6148675
+      top_emu: 3114150
+      left_cm: 17.08
+      top_cm: 8.65
+    size:
+      width_emu: 2971800
+      height_emu: 1964100
+      width_cm: 8.26
+      height_cm: 5.46
+    text_runs:
+    - text: 配信体制の強化
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;374;p55
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 960875
+      left_cm: 0.87
+      top_cm: 2.67
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+    text_runs:
+    - text: 貴社事業戦略との整合性
+      bold: true
+  - name: Google Shape;375;p55
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;376;p55
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 事業戦略上の位置付けと現状報告：LTV最大化に向けた基盤構築
+  - name: Google Shape;377;p55
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+    text_runs:
+    - text: エグゼクティブサマリー
+  - name: Google Shape;378;p55
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 2697520
+      left_cm: 0.87
+      top_cm: 7.49
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+    text_runs:
+    - text: 取組ステータス
+      size_pt: 16.0
+      bold: true
+  - name: Google Shape;379;p55
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 1513940
+      left_cm: 0.87
+      top_cm: 4.21
+    size:
+      width_emu: 2386800
+      height_emu: 1063200
+      width_cm: 6.63
+      height_cm: 2.95
+    text_runs:
+    - text: MCCグループ経営目標
+      size_pt: 13.0
+      bold: true
+    - text: アジアNo.1のドラッグストア売上高1.3兆円
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;380;p55
+    type: 1
+    position:
+      left_emu: 2847650
+      top_emu: 1666925
+      left_cm: 7.91
+      top_cm: 4.63
+    size:
+      width_emu: 546000
+      height_emu: 745500
+      width_cm: 1.52
+      height_cm: 2.07
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#20A8A7'
+    outline:
+      stroke: false
+  - name: Google Shape;381;p55
+    type: 1
+    position:
+      left_emu: 3565625
+      top_emu: 1493650
+      left_cm: 9.9
+      top_cm: 4.15
+    size:
+      width_emu: 2217024
+      height_emu: 1063152
+      width_cm: 6.16
+      height_cm: 2.95
+    geometry: cloud
+    fill:
+      type: none
+    outline:
+      width_emu: 9525
+      color_hex: '#20A8A7'
+  - name: Google Shape;382;p55
+    type: 14
+    position:
+      left_emu: 3525825
+      top_emu: 1636528
+      left_cm: 9.79
+      top_cm: 4.55
+    size:
+      width_emu: 2386800
+      height_emu: 788400
+      width_cm: 6.63
+      height_cm: 2.19
+    text_runs:
+    - text: プラットフォームビジネス
+      bold: true
+    - text: お客様の
+      bold: true
+    - text: LTV最大化
+      bold: true
+  - name: Google Shape;383;p55
+    type: 1
+    position:
+      left_emu: 6402813
+      top_emu: 1258513
+      left_cm: 17.79
+      top_cm: 3.5
+    size:
+      width_emu: 768325
+      height_emu: 1521750
+      width_cm: 2.13
+      height_cm: 4.23
+    geometry: flowChartOffpageConnector
+    fill:
+      type: none
+    outline:
+      width_emu: 28575
+      color_hex: '#20A8A7'
+  - name: Google Shape;384;p55
+    type: 14
+    position:
+      left_emu: 6218663
+      top_emu: 1656815
+      left_cm: 17.27
+      top_cm: 4.6
+    size:
+      width_emu: 1349400
+      height_emu: 788400
+      width_cm: 3.75
+      height_cm: 2.19
+    text_runs:
+    - text: 店舗(99%)とEC(1%)のデータを繋ぐ架け橋
+      size_pt: 12.0
+      bold: true
+  - name: Google Shape;385;p55
+    type: 9
+    position:
+      left_emu: 5780700
+      top_emu: 2019388
+      left_cm: 16.06
+      top_cm: 5.61
+    size:
+      width_emu: 245400
+      height_emu: 5700
+      width_cm: 0.68
+      height_cm: 0.02
+  - name: Google Shape;386;p55
+    type: 14
+    position:
+      left_emu: 7527575
+      top_emu: 1483505
+      left_cm: 20.91
+      top_cm: 4.12
+    size:
+      width_emu: 1495500
+      height_emu: 1063200
+      width_cm: 4.15
+      height_cm: 2.95
+    text_runs:
+    - text: リテールメディア / Firework
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;387;p55
+    type: 13
+    position:
+      left_emu: 3297150
+      top_emu: 3577110
+      left_cm: 9.16
+      top_cm: 9.94
+    size:
+      width_emu: 728100
+      height_emu: 1297800
+      width_cm: 2.02
+      height_cm: 3.6
+    image_content_type: image/png
+  - name: Google Shape;388;p55
+    type: 19
+    position:
+      left_emu: 4205500
+      top_emu: 3587625
+      left_cm: 11.68
+      top_cm: 9.97
+    size:
+      width_emu: 3000000
+      height_emu: 3000000
+      width_cm: 8.33
+      height_cm: 8.33
+  - name: Google Shape;389;p55
+    type: 13
+    position:
+      left_emu: 6540521
+      top_emu: 3629210
+      left_cm: 18.17
+      top_cm: 10.08
+    size:
+      width_emu: 728100
+      height_emu: 1295700
+      width_cm: 2.02
+      height_cm: 3.6
+    image_content_type: image/png
+  - name: Google Shape;390;p55
+    type: 13
+    position:
+      left_emu: 7906780
+      top_emu: 3588775
+      left_cm: 21.96
+      top_cm: 9.97
+    size:
+      width_emu: 973695
+      height_emu: 1295699
+      width_cm: 2.7
+      height_cm: 3.6
+    image_content_type: image/png
+  - name: Google Shape;391;p55
+    type: 17
+    position:
+      left_emu: 6316725
+      top_emu: 3362825
+      left_cm: 17.55
+      top_cm: 9.34
+    size:
+      width_emu: 1231200
+      height_emu: 220500
+      width_cm: 3.42
+      height_cm: 0.61
+    fill:
+      type: none
+    text_runs:
+    - text: 新メンバー加入
+      font: Noto Sans JP
+      size_pt: 11.0
+      color:
+        theme: DARK_2
+  - name: Google Shape;392;p55
+    type: 17
+    position:
+      left_emu: 7606000
+      top_emu: 3362825
+      left_cm: 21.13
+      top_cm: 9.34
+    size:
+      width_emu: 1521900
+      height_emu: 220500
+      width_cm: 4.23
+      height_cm: 0.61
+    fill:
+      type: none
+    text_runs:
+    - text: 内製化に向けた勉強会
+      font: Noto Sans JP
+      size_pt: 11.0
+      color:
+        theme: DARK_2
+  - name: Google Shape;393;p55
+    type: 13
+    position:
+      left_emu: 245650
+      top_emu: 3423325
+      left_cm: 0.68
+      top_cm: 9.51
+    size:
+      width_emu: 2660799
+      height_emu: 1642267
+      width_cm: 7.39
+      height_cm: 4.56
+    image_content_type: image/png
+  - name: Google Shape;394;p55
+    type: 17
+    position:
+      left_emu: 1015250
+      top_emu: 3198275
+      left_cm: 2.82
+      top_cm: 8.88
+    size:
+      width_emu: 1967400
+      height_emu: 271200
+      width_cm: 5.46
+      height_cm: 0.75
+    fill:
+      type: none
+    text_runs:
+    - text: ベースライン5,000~7,000名を
+      font: Noto Sans JP
+      size_pt: 11.0
+      color:
+        theme: DARK_2
+    - text: 安定推移
+      font: Noto Sans JP
+      size_pt: 11.0
+      color:
+        theme: DARK_2
+- slide_number: 5
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 23
+  elements:
+  - name: Google Shape;399;p56
+    type: 14
+    position:
+      left_emu: 116800
+      top_emu: 1512600
+      left_cm: 0.32
+      top_cm: 4.2
+    size:
+      width_emu: 1674600
+      height_emu: 3458100
+      width_cm: 4.65
+      height_cm: 9.61
+    text_runs:
+    - text: 実験系演出
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;400;p56
+    type: 14
+    position:
+      left_emu: 1879044
+      top_emu: 1512600
+      left_cm: 5.22
+      top_cm: 4.2
+    size:
+      width_emu: 1674600
+      height_emu: 3458100
+      width_cm: 4.65
+      height_cm: 9.61
+    text_runs:
+    - text: トライアル商品
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;401;p56
+    type: 14
+    position:
+      left_emu: 3636354
+      top_emu: 1512600
+      left_cm: 10.1
+      top_cm: 4.2
+    size:
+      width_emu: 1674600
+      height_emu: 3458100
+      width_cm: 4.65
+      height_cm: 9.61
+    text_runs:
+    - text: 等身大ゲスト起用
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;402;p56
+    type: 14
+    position:
+      left_emu: 71025
+      top_emu: 960875
+      left_cm: 0.2
+      top_cm: 2.67
+    size:
+      width_emu: 5251500
+      height_emu: 431100
+      width_cm: 14.59
+      height_cm: 1.2
+    text_runs:
+    - text: 協賛枠販売につながる勝ち筋
+      bold: true
+  - name: Google Shape;403;p56
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;404;p56
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 勝ち筋の特定：エンゲージメントと購買を加速させる要因
+  - name: Google Shape;405;p56
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+    text_runs:
+    - text: エグゼクティブサマリー
+  - name: Google Shape;406;p56
+    type: 13
+    position:
+      left_emu: 342760
+      top_emu: 1937495
+      left_cm: 0.95
+      top_cm: 5.38
+    size:
+      width_emu: 1243550
+      height_emu: 1617383
+      width_cm: 3.45
+      height_cm: 4.49
+    image_content_type: image/png
+  - name: Google Shape;407;p56
+    type: 17
+    position:
+      left_emu: 189165
+      top_emu: 3884740
+      left_cm: 0.53
+      top_cm: 10.79
+    size:
+      width_emu: 1530600
+      height_emu: 909000
+      width_cm: 4.25
+      height_cm: 2.52
+    fill:
+      type: none
+    text_runs:
+    - text: サーモカメラ
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_2
+    - text: 等の視覚的実験系演出が購買意欲を喚起
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;408;p56
+    type: 13
+    position:
+      left_emu: 2720366
+      top_emu: 2224066
+      left_cm: 7.56
+      top_cm: 6.18
+    size:
+      width_emu: 813475
+      height_emu: 1185310
+      width_cm: 2.26
+      height_cm: 3.29
+    image_content_type: image/png
+  - name: Google Shape;409;p56
+    type: 13
+    position:
+      left_emu: 1908253
+      top_emu: 2239223
+      left_cm: 5.3
+      top_cm: 6.22
+    size:
+      width_emu: 723149
+      height_emu: 1154993
+      width_cm: 2.01
+      height_cm: 3.21
+    image_content_type: image/png
+  - name: Google Shape;410;p56
+    type: 17
+    position:
+      left_emu: 1941765
+      top_emu: 3905030
+      left_cm: 5.39
+      top_cm: 10.85
+    size:
+      width_emu: 1611900
+      height_emu: 909000
+      width_cm: 4.48
+      height_cm: 2.52
+    fill:
+      type: none
+    text_runs:
+    - text: トライアル商品が比較期間に対して約434%成長。 セットで紹介がアクションにつながる。
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;411;p56
+    type: 17
+    position:
+      left_emu: 3684220
+      top_emu: 3905030
+      left_cm: 10.23
+      top_cm: 10.85
+    size:
+      width_emu: 1611900
+      height_emu: 909000
+      width_cm: 4.48
+      height_cm: 2.52
+    fill:
+      type: none
+    text_runs:
+    - text: 消費者目線でお悩みをもつゲストによる商品レビューは商品購買につながりやすい。
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;412;p56
+    type: 13
+    position:
+      left_emu: 3932715
+      top_emu: 1876580
+      left_cm: 10.92
+      top_cm: 5.21
+    size:
+      width_emu: 1087450
+      height_emu: 1805874
+      width_cm: 3.02
+      height_cm: 5.02
+    image_content_type: image/png
+  - name: Google Shape;413;p56
+    type: 14
+    position:
+      left_emu: 5265200
+      top_emu: 960875
+      left_cm: 14.63
+      top_cm: 2.67
+    size:
+      width_emu: 3867300
+      height_emu: 431100
+      width_cm: 10.74
+      height_cm: 1.2
+    text_runs:
+    - text: フォーマットの最適化
+      bold: true
+  - name: Google Shape;414;p56
+    type: 19
+    position:
+      left_emu: 5393650
+      top_emu: 1512600
+      left_cm: 14.98
+      top_cm: 4.2
+    size:
+      width_emu: 3000000
+      height_emu: 3000000
+      width_cm: 8.33
+      height_cm: 8.33
+  - name: Google Shape;415;p56
+    type: 14
+    position:
+      left_emu: 5393650
+      top_emu: 3500025
+      left_cm: 14.98
+      top_cm: 9.72
+    size:
+      width_emu: 3633000
+      height_emu: 1430700
+      width_cm: 10.09
+      height_cm: 3.97
+    text_runs:
+    - text: LIPSの既存メニューとの連携
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;416;p56
+    type: 17
+    position:
+      left_emu: 5469825
+      top_emu: 3918505
+      left_cm: 15.19
+      top_cm: 10.88
+    size:
+      width_emu: 1611900
+      height_emu: 393000
+      width_cm: 4.48
+      height_cm: 1.09
+    fill:
+      type: solid
+      hex: '#999999'
+    text_runs:
+    - text: インフルエンサー体験会
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;417;p56
+    type: 17
+    position:
+      left_emu: 5469825
+      top_emu: 4410880
+      left_cm: 15.19
+      top_cm: 12.25
+    size:
+      width_emu: 1611900
+      height_emu: 393000
+      width_cm: 4.48
+      height_cm: 1.09
+    fill:
+      type: solid
+      hex: '#999999'
+    text_runs:
+    - text: LIPSベスコス連動協賛
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;418;p56
+    type: 17
+    position:
+      left_emu: 7318915
+      top_emu: 3918505
+      left_cm: 20.33
+      top_cm: 10.88
+    size:
+      width_emu: 1611900
+      height_emu: 393000
+      width_cm: 4.48
+      height_cm: 1.09
+    fill:
+      type: solid
+      hex: '#F5CBCC'
+    text_runs:
+    - text: オンライン座談会配信
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;419;p56
+    type: 17
+    position:
+      left_emu: 7329060
+      top_emu: 4410880
+      left_cm: 20.36
+      top_cm: 12.25
+    size:
+      width_emu: 1611900
+      height_emu: 393000
+      width_cm: 4.48
+      height_cm: 1.09
+    fill:
+      type: solid
+      hex: '#F5CBCC'
+    text_runs:
+    - text: LIPSベスコス特集
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;420;p56
+    type: 1
+    position:
+      left_emu: 7084621
+      top_emu: 3984551
+      left_cm: 19.68
+      top_cm: 11.07
+    size:
+      width_emu: 254700
+      height_emu: 311400
+      width_cm: 0.71
+      height_cm: 0.86
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#FE177A'
+    outline:
+      stroke: false
+  - name: Google Shape;421;p56
+    type: 1
+    position:
+      left_emu: 7084621
+      top_emu: 4451896
+      left_cm: 19.68
+      top_cm: 12.37
+    size:
+      width_emu: 254700
+      height_emu: 311400
+      width_cm: 0.71
+      height_cm: 0.86
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#FE177A'
+    outline:
+      stroke: false
+- slide_number: 6
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 14
+  elements:
+  - name: Google Shape;426;p57
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;427;p57
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 今後の
+    - text: ライブコマース
+    - text: 成長施策
+  - name: Google Shape;428;p57
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+    text_runs:
+    - text: エグゼクティブサマリー
+  - name: Google Shape;429;p57
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 960875
+      left_cm: 0.87
+      top_cm: 2.67
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+    text_runs:
+    - text: 今後の成長に向けた論点
+      bold: true
+  - name: Google Shape;430;p57
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 2789675
+      left_cm: 0.87
+      top_cm: 7.75
+    size:
+      width_emu: 8520600
+      height_emu: 563100
+      width_cm: 23.67
+      height_cm: 1.56
+    text_runs:
+    - text: 案件獲得施策
+      bold: true
+  - name: Google Shape;431;p57
+    type: 14
+    position:
+      left_emu: 111435
+      top_emu: 3601575
+      left_cm: 0.31
+      top_cm: 10.0
+    size:
+      width_emu: 2689800
+      height_emu: 1254000
+      width_cm: 7.47
+      height_cm: 3.48
+    text_runs:
+    - text: ・ライブ+クーポンパック
+      size_pt: 13.0
+      bold: true
+    - text: ・ライブ+リタゲ広告パック
+      size_pt: 13.0
+      bold: true
+    - text: 既存メニューとのパッケージ化
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;432;p57
+    type: 14
+    position:
+      left_emu: 111435
+      top_emu: 3316225
+      left_cm: 0.31
+      top_cm: 9.21
+    size:
+      width_emu: 2689800
+      height_emu: 289500
+      width_cm: 7.47
+      height_cm: 0.8
+    text_runs:
+    - text: 商品メニュー開発
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;433;p57
+    type: 14
+    position:
+      left_emu: 3245056
+      top_emu: 3601575
+      left_cm: 9.01
+      top_cm: 10.0
+    size:
+      width_emu: 2689800
+      height_emu: 1254000
+      width_cm: 7.47
+      height_cm: 3.48
+    text_runs:
+    - text: ・キャンペーン
+      size_pt: 13.0
+      bold: true
+    - text: や
+      size_pt: 13.0
+      bold: true
+    - text: プレゼント連動
+      size_pt: 13.0
+      bold: true
+    - text: ・ミッションポイント連携
+      size_pt: 13.0
+      bold: true
+    - text: ・企業間コラボ配信
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;434;p57
+    type: 14
+    position:
+      left_emu: 3245056
+      top_emu: 3316225
+      left_cm: 9.01
+      top_cm: 9.21
+    size:
+      width_emu: 2689800
+      height_emu: 289500
+      width_cm: 7.47
+      height_cm: 0.8
+    text_runs:
+    - text: 視聴者獲得施策
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;435;p57
+    type: 14
+    position:
+      left_emu: 6402260
+      top_emu: 3601575
+      left_cm: 17.78
+      top_cm: 10.0
+    size:
+      width_emu: 2689800
+      height_emu: 1254000
+      width_cm: 7.47
+      height_cm: 3.48
+    text_runs:
+    - text: ・成功事例ケーススタディ
+      size_pt: 13.0
+      bold: true
+    - text: ・配信後詳細レポート
+      size_pt: 13.0
+      bold: true
+  - name: Google Shape;436;p57
+    type: 14
+    position:
+      left_emu: 6402260
+      top_emu: 3316225
+      left_cm: 17.78
+      top_cm: 9.21
+    size:
+      width_emu: 2689800
+      height_emu: 289500
+      width_cm: 7.47
+      height_cm: 0.8
+    text_runs:
+    - text: メディア価値可視化
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;437;p57
+    type: 1
+    position:
+      left_emu: 2853495
+      top_emu: 3904254
+      left_cm: 7.93
+      top_cm: 10.85
+    size:
+      width_emu: 365100
+      height_emu: 563100
+      width_cm: 1.01
+      height_cm: 1.56
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#20A8A7'
+    outline:
+      stroke: false
+  - name: Google Shape;438;p57
+    type: 1
+    position:
+      left_emu: 5997791
+      top_emu: 3918571
+      left_cm: 16.66
+      top_cm: 10.88
+    size:
+      width_emu: 365100
+      height_emu: 563100
+      width_cm: 1.01
+      height_cm: 1.56
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#20A8A7'
+    outline:
+      stroke: false
+  - name: Google Shape;439;p57
+    type: 14
+    position:
+      left_emu: 111425
+      top_emu: 1391775
+      left_cm: 0.31
+      top_cm: 3.87
+    size:
+      width_emu: 8980500
+      height_emu: 1254000
+      width_cm: 24.95
+      height_cm: 3.48
+    text_runs:
+    - text: ・既存
+      size_pt: 13.0
+      bold: true
+    - text: メニュー
+      size_pt: 13.0
+      bold: true
+    - text: と組み合わせることで、提案の幅・導入ハードルをさらに下げられる
+      size_pt: 13.0
+      bold: true
+    - text: ・視聴者規模・エンゲージメントを、より戦略的に拡大していける
+      size_pt: 13.0
+      bold: true
+    - text: 可能性がある
+      size_pt: 13.0
+      bold: true
+    - text: ・ライブコマースの成果を、第三者にも伝わる形で言語化・可視化する余地がある
+      size_pt: 13.0
+      bold: true
+- slide_number: 7
+  layout: TITLE_ONLY_1_1_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;444;p58
+    type: 14
+    position:
+      left_emu: 548650
+      top_emu: 2146875
+      left_cm: 1.52
+      top_cm: 5.96
+    size:
+      width_emu: 3949800
+      height_emu: 771000
+      width_cm: 10.97
+      height_cm: 2.14
+    text_runs:
+    - text: 今後の取り組みついて
+- slide_number: 8
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 18
+  elements:
+  - name: Google Shape;449;p59
+    type: 1
+    position:
+      left_emu: 3830325
+      top_emu: 1209250
+      left_cm: 10.64
+      top_cm: 3.36
+    size:
+      width_emu: 1620000
+      height_emu: 626100
+      width_cm: 4.5
+      height_cm: 1.74
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      stroke: false
+  - name: Google Shape;450;p59
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;451;p59
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: Fireworkがマツココ様と共に作りたい未来像
+  - name: Google Shape;452;p59
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;453;p59
+    type: 13
+    position:
+      left_emu: 3223726
+      top_emu: 2292475
+      left_cm: 8.95
+      top_cm: 6.37
+    size:
+      width_emu: 2833200
+      height_emu: 1498800
+      width_cm: 7.87
+      height_cm: 4.16
+    image_content_type: image/png
+  - name: Google Shape;454;p59
+    type: 13
+    position:
+      left_emu: 304813
+      top_emu: 2053738
+      left_cm: 0.85
+      top_cm: 5.7
+    size:
+      width_emu: 1993470
+      height_emu: 1737525
+      width_cm: 5.54
+      height_cm: 4.83
+    image_content_type: image/png
+  - name: Google Shape;455;p59
+    type: 13
+    position:
+      left_emu: 6699550
+      top_emu: 2019511
+      left_cm: 18.61
+      top_cm: 5.61
+    size:
+      width_emu: 1956497
+      height_emu: 1806000
+      width_cm: 5.43
+      height_cm: 5.02
+    image_content_type: image/png
+  - name: Google Shape;456;p59
+    type: 1
+    position:
+      left_emu: 5700338
+      top_emu: 3013175
+      left_cm: 15.83
+      top_cm: 8.37
+    size:
+      width_emu: 1314000
+      height_emu: 217200
+      width_cm: 3.65
+      height_cm: 0.6
+    geometry: triangle
+    fill:
+      type: scheme
+      ref: accent1
+    outline:
+      stroke: false
+  - name: Google Shape;457;p59
+    type: 1
+    position:
+      left_emu: 2074500
+      top_emu: 3013175
+      left_cm: 5.76
+      top_cm: 8.37
+    size:
+      width_emu: 1314000
+      height_emu: 217200
+      width_cm: 3.65
+      height_cm: 0.6
+    geometry: triangle
+    fill:
+      type: scheme
+      ref: accent1
+    outline:
+      stroke: false
+  - name: Google Shape;458;p59
+    type: 13
+    position:
+      left_emu: 4013594
+      top_emu: 1287634
+      left_cm: 11.15
+      top_cm: 3.58
+    size:
+      width_emu: 459169
+      height_emu: 469552
+      width_cm: 1.28
+      height_cm: 1.3
+    image_content_type: image/png
+  - name: Google Shape;459;p59
+    type: 13
+    position:
+      left_emu: 4808000
+      top_emu: 1292825
+      left_cm: 13.36
+      top_cm: 3.59
+    size:
+      width_emu: 459169
+      height_emu: 459169
+      width_cm: 1.28
+      height_cm: 1.28
+    image_content_type: image/png
+  - name: Google Shape;460;p59
+    type: 1
+    position:
+      left_emu: 4472768
+      top_emu: 1354797
+      left_cm: 12.42
+      top_cm: 3.76
+    size:
+      width_emu: 335100
+      height_emu: 335100
+      width_cm: 0.93
+      height_cm: 0.93
+    geometry: mathMultiply
+    fill:
+      type: scheme
+      ref: accent1
+    outline:
+      stroke: false
+  - name: Google Shape;461;p59
+    type: 1
+    position:
+      left_emu: 2827425
+      top_emu: 3778775
+      left_cm: 7.85
+      top_cm: 10.5
+    size:
+      width_emu: 3625800
+      height_emu: 801600
+      width_cm: 10.07
+      height_cm: 2.23
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: マツココらしい顧客体験を提供する
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: ACCENT_2
+    - text: 次世代プラットフォームへの進化
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: ACCENT_2
+  - name: Google Shape;462;p59
+    type: 1
+    position:
+      left_emu: -18000
+      top_emu: 3859750
+      left_cm: -0.05
+      top_cm: 10.72
+    size:
+      width_emu: 2858100
+      height_emu: 801600
+      width_cm: 7.94
+      height_cm: 2.23
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: '"人の体温"を感じる接客体験を'
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_2
+    - text: 店舗でもオンラインでもアプリでも
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;463;p59
+    type: 1
+    position:
+      left_emu: 6248750
+      top_emu: 3859750
+      left_cm: 17.36
+      top_cm: 10.72
+    size:
+      width_emu: 2858100
+      height_emu: 801600
+      width_cm: 7.94
+      height_cm: 2.23
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: '"安売り"ではなく"価値"で'
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_2
+    - text: メーカー・ブランドから選ばれ続ける
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;464;p59
+    type: 1
+    position:
+      left_emu: 4427575
+      top_emu: 1895475
+      left_cm: 12.3
+      top_cm: 5.27
+    size:
+      width_emu: 400800
+      height_emu: 469500
+      width_cm: 1.11
+      height_cm: 1.3
+    geometry: downArrow
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      width_emu: 19050
+      color_scheme: lt1
+  - name: Google Shape;465;p59
+    type: 17
+    position:
+      left_emu: 323250
+      top_emu: 1689900
+      left_cm: 0.9
+      top_cm: 4.69
+    size:
+      width_emu: 1956600
+      height_emu: 384900
+      width_cm: 5.43
+      height_cm: 1.07
+    fill:
+      type: none
+    text_runs:
+    - text: 消費者・生活者
+      font: Noto Sans JP
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: DARK_2
+  - name: Google Shape;466;p59
+    type: 17
+    position:
+      left_emu: 6634700
+      top_emu: 1689900
+      left_cm: 18.43
+      top_cm: 4.69
+    size:
+      width_emu: 2086200
+      height_emu: 384900
+      width_cm: 5.79
+      height_cm: 1.07
+    fill:
+      type: none
+    text_runs:
+    - text: メーカー・ブランド企業
+      font: Noto Sans JP
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: DARK_2
+- slide_number: 9
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 23
+  elements:
+  - name: Google Shape;471;p60
+    type: 13
+    position:
+      left_emu: 4620317
+      top_emu: 1659350
+      left_cm: 12.83
+      top_cm: 4.61
+    size:
+      width_emu: 4480200
+      height_emu: 2369700
+      width_cm: 12.45
+      height_cm: 6.58
+    image_content_type: image/png
+  - name: Google Shape;472;p60
+    type: 1
+    position:
+      left_emu: 5176540
+      top_emu: 2393503
+      left_cm: 14.38
+      top_cm: 6.65
+    size:
+      width_emu: 3567600
+      height_emu: 1053300
+      width_cm: 9.91
+      height_cm: 2.93
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      stroke: false
+  - name: Google Shape;473;p60
+    type: 1
+    position:
+      left_emu: 6579825
+      top_emu: 2442800
+      left_cm: 18.28
+      top_cm: 6.79
+    size:
+      width_emu: 2164500
+      height_emu: 386100
+      width_cm: 6.01
+      height_cm: 1.07
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 9525
+      color_hex: '#DDD4D1'
+  - name: Google Shape;474;p60
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;475;p60
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: マーケティングプラットフォームの進化
+  - name: Google Shape;476;p60
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;477;p60
+    type: 13
+    position:
+      left_emu: 43475
+      top_emu: 1659350
+      left_cm: 0.12
+      top_cm: 4.61
+    size:
+      width_emu: 4480200
+      height_emu: 2369700
+      width_cm: 12.45
+      height_cm: 6.58
+    image_content_type: image/png
+  - name: Google Shape;478;p60
+    type: 13
+    position:
+      left_emu: 5259688
+      top_emu: 2562049
+      left_cm: 14.61
+      top_cm: 7.12
+    size:
+      width_emu: 438567
+      height_emu: 318600
+      width_cm: 1.22
+      height_cm: 0.89
+    image_content_type: image/png
+  - name: Google Shape;479;p60
+    type: 17
+    position:
+      left_emu: 5116425
+      top_emu: 2331150
+      left_cm: 14.21
+      top_cm: 6.48
+    size:
+      width_emu: 632700
+      height_emu: 318600
+      width_cm: 1.76
+      height_cm: 0.89
+    fill:
+      type: none
+    text_runs:
+    - text: 口コミ
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+  - name: Google Shape;480;p60
+    type: 1
+    position:
+      left_emu: 5189200
+      top_emu: 2986950
+      left_cm: 14.41
+      top_cm: 8.3
+    size:
+      width_emu: 923100
+      height_emu: 220500
+      width_cm: 2.56
+      height_cm: 0.61
+    geometry: chevron
+    fill:
+      type: solid
+      hex: '#20A9A8'
+    outline:
+      stroke: false
+    text_runs:
+    - text: D2C
+      font: Noto Sans JP
+      size_pt: 7.0
+      color:
+        theme: LIGHT_1
+    - text: ブランド
+      font: Noto Sans JP
+      size_pt: 7.0
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;481;p60
+    type: 13
+    position:
+      left_emu: 5431471
+      top_emu: 3313758
+      left_cm: 15.09
+      top_cm: 9.2
+    size:
+      width_emu: 438551
+      height_emu: 309994
+      width_cm: 1.22
+      height_cm: 0.86
+    image_content_type: image/png
+  - name: Google Shape;482;p60
+    type: 17
+    position:
+      left_emu: 5028255
+      top_emu: 3128200
+      left_cm: 13.97
+      top_cm: 8.69
+    size:
+      width_emu: 1245000
+      height_emu: 318600
+      width_cm: 3.46
+      height_cm: 0.89
+    fill:
+      type: none
+    text_runs:
+    - text: マツココ独自動画
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+  - name: Google Shape;483;p60
+    type: 13
+    position:
+      left_emu: 7736900
+      top_emu: 2382814
+      left_cm: 21.49
+      top_cm: 6.62
+    size:
+      width_emu: 438550
+      height_emu: 438550
+      width_cm: 1.22
+      height_cm: 1.22
+    image_content_type: image/png
+  - name: Google Shape;484;p60
+    type: 17
+    position:
+      left_emu: 6579826
+      top_emu: 2442788
+      left_cm: 18.28
+      top_cm: 6.79
+    size:
+      width_emu: 1245000
+      height_emu: 424800
+      width_cm: 3.46
+      height_cm: 1.18
+    fill:
+      type: none
+    text_runs:
+    - text: IDと連携して
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+    - text: 動画＋AIによる接客
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+  - name: Google Shape;485;p60
+    type: 13
+    position:
+      left_emu: 5629626
+      top_emu: 2511024
+      left_cm: 15.64
+      top_cm: 6.98
+    size:
+      width_emu: 546000
+      height_emu: 385954
+      width_cm: 1.52
+      height_cm: 1.07
+    image_content_type: image/png
+  - name: Google Shape;486;p60
+    type: 17
+    position:
+      left_emu: 5522527
+      top_emu: 2285466
+      left_cm: 15.34
+      top_cm: 6.35
+    size:
+      width_emu: 760200
+      height_emu: 424800
+      width_cm: 2.11
+      height_cm: 1.18
+    fill:
+      type: none
+    text_runs:
+    - text: マツココ
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+    - text: 独自動画
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+  - name: Google Shape;487;p60
+    type: 13
+    position:
+      left_emu: 8232600
+      top_emu: 2525585
+      left_cm: 22.87
+      top_cm: 7.02
+    size:
+      width_emu: 311208
+      height_emu: 220500
+      width_cm: 0.86
+      height_cm: 0.61
+    image_content_type: image/png
+  - name: Google Shape;488;p60
+    type: 13
+    position:
+      left_emu: 6333525
+      top_emu: 2986950
+      left_cm: 17.59
+      top_cm: 8.3
+    size:
+      width_emu: 246300
+      height_emu: 438600
+      width_cm: 0.68
+      height_cm: 1.22
+    image_content_type: image/png
+  - name: Google Shape;489;p60
+    type: 17
+    position:
+      left_emu: 5995126
+      top_emu: 2759938
+      left_cm: 16.65
+      top_cm: 7.67
+    size:
+      width_emu: 923100
+      height_emu: 318600
+      width_cm: 2.56
+      height_cm: 0.89
+    fill:
+      type: none
+    text_runs:
+    - text: ライブ配信
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+  - name: Google Shape;490;p60
+    type: 9
+    position:
+      left_emu: 6579825
+      top_emu: 2821350
+      left_cm: 18.28
+      top_cm: 7.84
+    size:
+      width_emu: 1376400
+      height_emu: 384900
+      width_cm: 3.82
+      height_cm: 1.07
+  - name: Google Shape;491;p60
+    type: 17
+    position:
+      left_emu: 7124001
+      top_emu: 2884800
+      left_cm: 19.79
+      top_cm: 8.01
+    size:
+      width_emu: 923100
+      height_emu: 424800
+      width_cm: 2.56
+      height_cm: 1.18
+    fill:
+      type: none
+    text_runs:
+    - text: 顧客の声を
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+    - text: フィードバック
+      font: Noto Sans JP
+      size_pt: 6.9
+      color:
+        theme: DARK_2
+  - name: Google Shape;492;p60
+    type: 1
+    position:
+      left_emu: 653100
+      top_emu: 930963
+      left_cm: 1.81
+      top_cm: 2.59
+    size:
+      width_emu: 7837800
+      height_emu: 707700
+      width_cm: 21.77
+      height_cm: 1.97
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: マーケティングプラットフォームを
+      font: Noto Sans JP
+    - text: マツココらしい顧客体験を提供する次世代のプラットフォームへ進化
+      font: Noto Sans JP
+  - name: Google Shape;493;p60
+    type: 1
+    position:
+      left_emu: 3594000
+      top_emu: 4161975
+      left_cm: 9.98
+      top_cm: 11.56
+    size:
+      width_emu: 1956000
+      height_emu: 517800
+      width_cm: 5.43
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+- slide_number: 10
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 54
+  elements:
+  - name: Google Shape;498;p61
+    type: 1
+    position:
+      left_emu: 6371975
+      top_emu: 1049100
+      left_cm: 17.7
+      top_cm: 2.91
+    size:
+      width_emu: 2562600
+      height_emu: 3045300
+      width_cm: 7.12
+      height_cm: 8.46
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      width_emu: 14625
+      color_scheme: accent1
+  - name: Google Shape;499;p61
+    type: 1
+    position:
+      left_emu: 262075
+      top_emu: 1049100
+      left_cm: 0.73
+      top_cm: 2.91
+    size:
+      width_emu: 2562600
+      height_emu: 3045300
+      width_cm: 7.12
+      height_cm: 8.46
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      width_emu: 14625
+      color_scheme: accent1
+  - name: Google Shape;500;p61
+    type: 1
+    position:
+      left_emu: 2980725
+      top_emu: 1049100
+      left_cm: 8.28
+      top_cm: 2.91
+    size:
+      width_emu: 3251100
+      height_emu: 3045300
+      width_cm: 9.03
+      height_cm: 8.46
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      width_emu: 14625
+      color_scheme: accent1
+  - name: Google Shape;501;p61
+    type: 13
+    position:
+      left_emu: 7708577
+      top_emu: 2317034
+      left_cm: 21.41
+      top_cm: 6.44
+    size:
+      width_emu: 966312
+      height_emu: 548281
+      width_cm: 2.68
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;502;p61
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;503;p61
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: マツココの独自コンテンツを自社サイトだけでなく、幅広く利用
+  - name: Google Shape;504;p61
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;505;p61
+    type: 13
+    position:
+      left_emu: 5441173
+      top_emu: 1850598
+      left_cm: 15.11
+      top_cm: 5.14
+    size:
+      width_emu: 678900
+      height_emu: 1471200
+      width_cm: 1.89
+      height_cm: 4.09
+    image_content_type: image/png
+  - name: Google Shape;506;p61
+    type: 13
+    position:
+      left_emu: 3170287
+      top_emu: 1738571
+      left_cm: 8.81
+      top_cm: 4.83
+    size:
+      width_emu: 429300
+      height_emu: 930600
+      width_cm: 1.19
+      height_cm: 2.58
+    image_content_type: image/png
+  - name: Google Shape;507;p61
+    type: 13
+    position:
+      left_emu: 3170287
+      top_emu: 2783569
+      left_cm: 8.81
+      top_cm: 7.73
+    size:
+      width_emu: 429300
+      height_emu: 930300
+      width_cm: 1.19
+      height_cm: 2.58
+    image_content_type: image/png
+  - name: Google Shape;508;p61
+    type: 1
+    position:
+      left_emu: 3216486
+      top_emu: 1547720
+      left_cm: 8.93
+      top_cm: 4.3
+    size:
+      width_emu: 336900
+      height_emu: 169200
+      width_cm: 0.94
+      height_cm: 0.47
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: App
+      font: Noto Sans JP
+      size_pt: 6.1
+      bold: true
+  - name: Google Shape;509;p61
+    type: 1
+    position:
+      left_emu: 3216486
+      top_emu: 3742051
+      left_cm: 8.93
+      top_cm: 10.39
+    size:
+      width_emu: 336900
+      height_emu: 169200
+      width_cm: 0.94
+      height_cm: 0.47
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: Web
+      font: Noto Sans JP
+      size_pt: 6.1
+      bold: true
+  - name: Google Shape;510;p61
+    type: 13
+    position:
+      left_emu: 5479781
+      top_emu: 3340104
+      left_cm: 15.22
+      top_cm: 9.28
+    size:
+      width_emu: 232756
+      height_emu: 232756
+      width_cm: 0.65
+      height_cm: 0.65
+    image_content_type: image/png
+  - name: Google Shape;511;p61
+    type: 1
+    position:
+      left_emu: 5720638
+      top_emu: 3371830
+      left_cm: 15.89
+      top_cm: 9.37
+    size:
+      width_emu: 336900
+      height_emu: 169200
+      width_cm: 0.94
+      height_cm: 0.47
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: LIPS
+      font: Noto Sans JP
+      size_pt: 6.1
+      bold: true
+  - name: Google Shape;512;p61
+    type: 1
+    position:
+      left_emu: 3746375
+      top_emu: 1468900
+      left_cm: 10.41
+      top_cm: 4.08
+    size:
+      width_emu: 1548000
+      height_emu: 232800
+      width_cm: 4.3
+      height_cm: 0.65
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      width_emu: 18800
+      color_scheme: lt1
+    text_runs:
+    - text: マツココオリジナル動画
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;513;p61
+    type: 13
+    position:
+      left_emu: 6989592
+      top_emu: 2432712
+      left_cm: 19.42
+      top_cm: 6.76
+    size:
+      width_emu: 948529
+      height_emu: 517803
+      width_cm: 2.63
+      height_cm: 1.44
+    image_content_type: image/png
+  - name: Google Shape;514;p61
+    type: 1
+    position:
+      left_emu: 7627438
+      top_emu: 1790250
+      left_cm: 21.19
+      top_cm: 4.97
+    size:
+      width_emu: 1343700
+      height_emu: 418800
+      width_cm: 3.73
+      height_cm: 1.16
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: 店舗の
+      font: Noto Sans JP
+      size_pt: 9.4
+    - text: メディア
+      font: Noto Sans JP
+      size_pt: 9.4
+    - text: 価値の向上
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;515;p61
+    type: 13
+    position:
+      left_emu: 3808122
+      top_emu: 1938655
+      left_cm: 10.58
+      top_cm: 5.39
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;516;p61
+    type: 13
+    position:
+      left_emu: 4624647
+      top_emu: 1938643
+      left_cm: 12.85
+      top_cm: 5.39
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;517;p61
+    type: 1
+    position:
+      left_emu: 3697100
+      top_emu: 1792150
+      left_cm: 10.27
+      top_cm: 4.98
+    size:
+      width_emu: 1689900
+      height_emu: 517800
+      width_cm: 4.69
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+  - name: Google Shape;518;p61
+    type: 1
+    position:
+      left_emu: 3615750
+      top_emu: 3055050
+      left_cm: 10.04
+      top_cm: 8.49
+    size:
+      width_emu: 1689900
+      height_emu: 517800
+      width_cm: 4.69
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+  - name: Google Shape;519;p61
+    type: 13
+    position:
+      left_emu: 4164478
+      top_emu: 3317066
+      left_cm: 11.57
+      top_cm: 9.21
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;520;p61
+    type: 13
+    position:
+      left_emu: 4675153
+      top_emu: 3200934
+      left_cm: 12.99
+      top_cm: 8.89
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;521;p61
+    type: 13
+    position:
+      left_emu: 4224160
+      top_emu: 1635309
+      left_cm: 11.73
+      top_cm: 4.54
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;522;p61
+    type: 13
+    position:
+      left_emu: 3709974
+      top_emu: 3130670
+      left_cm: 10.31
+      top_cm: 8.7
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;523;p61
+    type: 1
+    position:
+      left_emu: 3677850
+      top_emu: 3783850
+      left_cm: 10.22
+      top_cm: 10.51
+    size:
+      width_emu: 1548000
+      height_emu: 232800
+      width_cm: 4.3
+      height_cm: 0.65
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      width_emu: 18800
+      color_scheme: lt1
+    text_runs:
+    - text: LIPSオリジナル動画
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;524;p61
+    type: 1
+    position:
+      left_emu: 630475
+      top_emu: 1118950
+      left_cm: 1.75
+      top_cm: 3.11
+    size:
+      width_emu: 1825800
+      height_emu: 259500
+      width_cm: 5.07
+      height_cm: 0.72
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: メーカー・ブランド
+      font: Noto Sans JP
+      size_pt: 10.7
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;525;p61
+    type: 1
+    position:
+      left_emu: 1282150
+      top_emu: 1792150
+      left_cm: 3.56
+      top_cm: 4.98
+    size:
+      width_emu: 1689900
+      height_emu: 517800
+      width_cm: 4.69
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+  - name: Google Shape;526;p61
+    type: 1
+    position:
+      left_emu: 1363500
+      top_emu: 3055050
+      left_cm: 3.79
+      top_cm: 8.49
+    size:
+      width_emu: 1689900
+      height_emu: 517800
+      width_cm: 4.69
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+  - name: Google Shape;527;p61
+    type: 13
+    position:
+      left_emu: 1368522
+      top_emu: 1938655
+      left_cm: 3.8
+      top_cm: 5.39
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;528;p61
+    type: 13
+    position:
+      left_emu: 2185047
+      top_emu: 1938643
+      left_cm: 6.07
+      top_cm: 5.39
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;529;p61
+    type: 13
+    position:
+      left_emu: 1784560
+      top_emu: 1635309
+      left_cm: 4.96
+      top_cm: 4.54
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;530;p61
+    type: 1
+    position:
+      left_emu: 1299000
+      top_emu: 1468900
+      left_cm: 3.61
+      top_cm: 4.08
+    size:
+      width_emu: 1479600
+      height_emu: 232800
+      width_cm: 4.11
+      height_cm: 0.65
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      width_emu: 18800
+      color_scheme: lt1
+    text_runs:
+    - text: マツココ&LIPS
+      font: Noto Sans JP
+      size_pt: 9.4
+    - text: オリジナル動画
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;531;p61
+    type: 1
+    position:
+      left_emu: 1452050
+      top_emu: 3064825
+      left_cm: 4.03
+      top_cm: 8.51
+    size:
+      width_emu: 1305300
+      height_emu: 367800
+      width_cm: 3.63
+      height_cm: 1.02
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: コンテンツ利用
+      font: Noto Sans JP
+      size_pt: 9.4
+    - text: 支払い
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;532;p61
+    type: 1
+    position:
+      left_emu: 6231675
+      top_emu: 3015000
+      left_cm: 17.31
+      top_cm: 8.38
+    size:
+      width_emu: 1689900
+      height_emu: 517800
+      width_cm: 4.69
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+  - name: Google Shape;533;p61
+    type: 1
+    position:
+      left_emu: 6356700
+      top_emu: 1792150
+      left_cm: 17.66
+      top_cm: 4.98
+    size:
+      width_emu: 1689900
+      height_emu: 517800
+      width_cm: 4.69
+      height_cm: 1.44
+    geometry: curvedDownArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 9525
+      color_scheme: lt1
+  - name: Google Shape;534;p61
+    type: 1
+    position:
+      left_emu: 3463575
+      top_emu: 1118950
+      left_cm: 9.62
+      top_cm: 3.11
+    size:
+      width_emu: 2285400
+      height_emu: 259500
+      width_cm: 6.35
+      height_cm: 0.72
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: オンラインメディア（Web,APP）
+      font: Noto Sans JP
+      size_pt: 10.7
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;535;p61
+    type: 1
+    position:
+      left_emu: 6897575
+      top_emu: 1118950
+      left_cm: 19.16
+      top_cm: 3.11
+    size:
+      width_emu: 1567500
+      height_emu: 259500
+      width_cm: 4.35
+      height_cm: 0.72
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 店舗
+      font: Noto Sans JP
+      size_pt: 10.7
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;536;p61
+    type: 13
+    position:
+      left_emu: 6529172
+      top_emu: 1938655
+      left_cm: 18.14
+      top_cm: 5.39
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;537;p61
+    type: 13
+    position:
+      left_emu: 7345697
+      top_emu: 1938643
+      left_cm: 20.4
+      top_cm: 5.39
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;538;p61
+    type: 13
+    position:
+      left_emu: 6945210
+      top_emu: 1635309
+      left_cm: 19.29
+      top_cm: 4.54
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;539;p61
+    type: 1
+    position:
+      left_emu: 6461775
+      top_emu: 3624500
+      left_cm: 17.95
+      top_cm: 10.07
+    size:
+      width_emu: 1689900
+      height_emu: 232800
+      width_cm: 4.69
+      height_cm: 0.65
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: 顧客の声のフィードバック
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;540;p61
+    type: 1
+    position:
+      left_emu: 7586113
+      top_emu: 3025800
+      left_cm: 21.07
+      top_cm: 8.4
+    size:
+      width_emu: 1343700
+      height_emu: 418800
+      width_cm: 3.73
+      height_cm: 1.16
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: 動画とAIを活用した
+      font: Noto Sans JP
+      size_pt: 9.4
+    - text: 店舗接客体験の向上
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;541;p61
+    type: 1
+    position:
+      left_emu: 6356700
+      top_emu: 1468900
+      left_cm: 17.66
+      top_cm: 4.08
+    size:
+      width_emu: 1548000
+      height_emu: 232800
+      width_cm: 4.3
+      height_cm: 0.65
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: マツココ&LIPS
+      font: Noto Sans JP
+      size_pt: 9.4
+    - text: オリジナル動画
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;542;p61
+    type: 13
+    position:
+      left_emu: 364425
+      top_emu: 2076912
+      left_cm: 1.01
+      top_cm: 5.77
+    size:
+      width_emu: 780000
+      height_emu: 253920
+      width_cm: 2.17
+      height_cm: 0.71
+    image_content_type: image/png
+  - name: Google Shape;543;p61
+    type: 13
+    position:
+      left_emu: 458200
+      top_emu: 2454864
+      left_cm: 1.27
+      top_cm: 6.82
+    size:
+      width_emu: 592450
+      height_emu: 338734
+      width_cm: 1.65
+      height_cm: 0.94
+    image_content_type: image/png
+  - name: Google Shape;544;p61
+    type: 13
+    position:
+      left_emu: 280161
+      top_emu: 2917625
+      left_cm: 0.78
+      top_cm: 8.1
+    size:
+      width_emu: 948526
+      height_emu: 239992
+      width_cm: 2.63
+      height_cm: 0.67
+    image_content_type: image/png
+  - name: Google Shape;545;p61
+    type: 13
+    position:
+      left_emu: 1368522
+      top_emu: 3448118
+      left_cm: 3.8
+      top_cm: 9.58
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;546;p61
+    type: 13
+    position:
+      left_emu: 2185047
+      top_emu: 3448105
+      left_cm: 6.07
+      top_cm: 9.58
+    size:
+      width_emu: 592437
+      height_emu: 418770
+      width_cm: 1.65
+      height_cm: 1.16
+    image_content_type: image/png
+  - name: Google Shape;547;p61
+    type: 1
+    position:
+      left_emu: 1299000
+      top_emu: 3783850
+      left_cm: 3.61
+      top_cm: 10.51
+    size:
+      width_emu: 1479600
+      height_emu: 232800
+      width_cm: 4.11
+      height_cm: 0.65
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      width_emu: 18800
+      color_scheme: lt1
+    text_runs:
+    - text: ブランド制作動画
+      font: Noto Sans JP
+      size_pt: 9.4
+  - name: Google Shape;548;p61
+    type: 1
+    position:
+      left_emu: 2980725
+      top_emu: 4348575
+      left_cm: 8.28
+      top_cm: 12.08
+    size:
+      width_emu: 5953800
+      height_emu: 367800
+      width_cm: 16.54
+      height_cm: 1.02
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      width_emu: 14625
+      color_scheme: dk2
+    text_runs:
+    - text: IDと連動したAI Agentが、対話と動画を活用して顧客個別の悩みをサポート
+      font: Noto Sans JP
+      size_pt: 10.7
+  - name: Google Shape;549;p61
+    type: 13
+    position:
+      left_emu: 3170275
+      top_emu: 4317824
+      left_cm: 8.81
+      top_cm: 11.99
+    size:
+      width_emu: 429300
+      height_emu: 429300
+      width_cm: 1.19
+      height_cm: 1.19
+    image_content_type: image/png
+  - name: Google Shape;550;p61
+    type: 1
+    position:
+      left_emu: 4067225
+      top_emu: 4167631
+      left_cm: 11.3
+      top_cm: 11.58
+    size:
+      width_emu: 906300
+      height_emu: 107700
+      width_cm: 2.52
+      height_cm: 0.3
+    geometry: triangle
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+  - name: Google Shape;551;p61
+    type: 1
+    position:
+      left_emu: 7228175
+      top_emu: 4167631
+      left_cm: 20.08
+      top_cm: 11.58
+    size:
+      width_emu: 906300
+      height_emu: 107700
+      width_cm: 2.52
+      height_cm: 0.3
+    geometry: triangle
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+- slide_number: 11
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 20
+  elements:
+  - name: Google Shape;556;p62
+    type: 1
+    position:
+      left_emu: 2362350
+      top_emu: 2524762
+      left_cm: 6.56
+      top_cm: 7.01
+    size:
+      width_emu: 4419300
+      height_emu: 1095600
+      width_cm: 12.28
+      height_cm: 3.04
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 19050
+      color_scheme: lt1
+  - name: Google Shape;557;p62
+    type: 14
+    position:
+      left_emu: 1991250
+      top_emu: 960875
+      left_cm: 5.53
+      top_cm: 2.67
+    size:
+      width_emu: 6006300
+      height_emu: 431100
+      width_cm: 16.68
+      height_cm: 1.2
+    text_runs:
+    - text: 店舗スタッフのライブコマースに対する関心・認知がバラバラ
+  - name: Google Shape;558;p62
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;559;p62
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 店舗を巻き込んだ施策
+  - name: Google Shape;560;p62
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;561;p62
+    type: 13
+    position:
+      left_emu: 4934723
+      top_emu: 2590575
+      left_cm: 13.71
+      top_cm: 7.2
+    size:
+      width_emu: 1691622
+      height_emu: 959837
+      width_cm: 4.7
+      height_cm: 2.67
+    image_content_type: image/png
+  - name: Google Shape;562;p62
+    type: 14
+    position:
+      left_emu: 1032150
+      top_emu: 960875
+      left_cm: 2.87
+      top_cm: 2.67
+    size:
+      width_emu: 959100
+      height_emu: 431100
+      width_cm: 2.66
+      height_cm: 1.2
+    text_runs:
+    - text: 課題
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;563;p62
+    type: 13
+    position:
+      left_emu: 2488984
+      top_emu: 2589727
+      left_cm: 6.91
+      top_cm: 7.19
+    size:
+      width_emu: 1758257
+      height_emu: 959835
+      width_cm: 4.88
+      height_cm: 2.67
+    image_content_type: image/png
+  - name: Google Shape;564;p62
+    type: 1
+    position:
+      left_emu: 4283697
+      top_emu: 2817404
+      left_cm: 11.9
+      top_cm: 7.83
+    size:
+      width_emu: 576600
+      height_emu: 576600
+      width_cm: 1.6
+      height_cm: 1.6
+    geometry: mathMultiply
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+  - name: Google Shape;565;p62
+    type: 14
+    position:
+      left_emu: 2488975
+      top_emu: 4133250
+      left_cm: 6.91
+      top_cm: 11.48
+    size:
+      width_emu: 6006300
+      height_emu: 256200
+      width_cm: 16.68
+      height_cm: 0.71
+    text_runs:
+    - text: ライブ視聴は商品知識の向上に繋がり、接客の質が向上し店舗の売上もインパクトを出せる可能性が
+      size_pt: 9.0
+  - name: Google Shape;566;p62
+    type: 14
+    position:
+      left_emu: 1083261
+      top_emu: 4133250
+      left_cm: 3.01
+      top_cm: 11.48
+    size:
+      width_emu: 1405500
+      height_emu: 256200
+      width_cm: 3.9
+      height_cm: 0.71
+    text_runs:
+    - text: 商品知識の向上
+      size_pt: 9.0
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;567;p62
+    type: 14
+    position:
+      left_emu: 2488976
+      top_emu: 3736788
+      left_cm: 6.91
+      top_cm: 10.38
+    size:
+      width_emu: 6006300
+      height_emu: 256200
+      width_cm: 16.68
+      height_cm: 0.71
+    text_runs:
+    - text: 出演者から、出演動画を売り場で流してほしいとの要望があり、モチベーション向上に繋がると考えられる
+      size_pt: 9.0
+  - name: Google Shape;568;p62
+    type: 14
+    position:
+      left_emu: 1083249
+      top_emu: 3736788
+      left_cm: 3.01
+      top_cm: 10.38
+    size:
+      width_emu: 1405500
+      height_emu: 256200
+      width_cm: 3.9
+      height_cm: 0.71
+    text_runs:
+    - text: 録画ライブの店舗再生
+      size_pt: 9.0
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;569;p62
+    type: 14
+    position:
+      left_emu: 2488975
+      top_emu: 4502175
+      left_cm: 6.91
+      top_cm: 12.51
+    size:
+      width_emu: 6006300
+      height_emu: 256200
+      width_cm: 16.68
+      height_cm: 0.71
+    text_runs:
+    - text: 各店舗のスタッフに出演してもらうことで当事者意識が芽生え、他のスタッフの関心も高まる可能性も
+      size_pt: 9.0
+  - name: Google Shape;570;p62
+    type: 14
+    position:
+      left_emu: 1083261
+      top_emu: 4502175
+      left_cm: 3.01
+      top_cm: 12.51
+    size:
+      width_emu: 1405500
+      height_emu: 256200
+      width_cm: 3.9
+      height_cm: 0.71
+    text_runs:
+    - text: 出張ライブ形式
+      size_pt: 9.0
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;571;p62
+    type: 14
+    position:
+      left_emu: 230742
+      top_emu: 3676724
+      left_cm: 0.64
+      top_cm: 10.21
+    size:
+      width_emu: 913268
+      height_emu: 257678
+      width_cm: 2.54
+      height_cm: 0.72
+    text_runs:
+    - text: アクション
+      size_pt: 9.0
+      color:
+        theme: ACCENT_2
+  - name: Google Shape;572;p62
+    type: 14
+    position:
+      left_emu: 230742
+      top_emu: 4033061
+      left_cm: 0.64
+      top_cm: 11.2
+    size:
+      width_emu: 913268
+      height_emu: 257678
+      width_cm: 2.54
+      height_cm: 0.72
+    text_runs:
+    - text: 期待効果
+      size_pt: 9.0
+      color:
+        theme: ACCENT_2
+  - name: Google Shape;573;p62
+    type: 14
+    position:
+      left_emu: 230742
+      top_emu: 4388711
+      left_cm: 0.64
+      top_cm: 12.19
+    size:
+      width_emu: 913268
+      height_emu: 257678
+      width_cm: 2.54
+      height_cm: 0.72
+    text_runs:
+    - text: 追加アイデア
+      size_pt: 9.0
+      color:
+        theme: ACCENT_2
+  - name: Google Shape;574;p62
+    type: 13
+    position:
+      left_emu: 3644850
+      top_emu: 1521386
+      left_cm: 10.12
+      top_cm: 4.23
+    size:
+      width_emu: 1854300
+      height_emu: 650774
+      width_cm: 5.15
+      height_cm: 1.81
+    image_content_type: image/png
+  - name: Google Shape;575;p62
+    type: 1
+    position:
+      left_emu: 3652350
+      top_emu: 2254725
+      left_cm: 10.15
+      top_cm: 6.26
+    size:
+      width_emu: 1839300
+      height_emu: 153600
+      width_cm: 5.11
+      height_cm: 0.43
+    geometry: triangle
+    fill:
+      type: solid
+      hex: '#FFE599'
+    outline:
+      width_emu: 19050
+      color_hex: '#FFE402'
+- slide_number: 12
+  layout: TITLE_ONLY_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;580;p63
+    type: 14
+    position:
+      left_emu: 548650
+      top_emu: 2146875
+      left_cm: 1.52
+      top_cm: 5.96
+    size:
+      width_emu: 3949800
+      height_emu: 771000
+      width_cm: 10.97
+      height_cm: 2.14
+    text_runs:
+    - text: Appendix
+- slide_number: 13
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 4
+  elements:
+  - name: Google Shape;585;p64
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;586;p64
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: グループ理念・ビジョン・スローガン・経営目標
+  - name: Google Shape;587;p64
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;588;p64
+    type: 13
+    position:
+      left_emu: 1335125
+      top_emu: 898650
+      left_cm: 3.71
+      top_cm: 2.5
+    size:
+      width_emu: 6473739
+      height_emu: 4179601
+      width_cm: 17.98
+      height_cm: 11.61
+    image_content_type: image/png
+- slide_number: 14
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 25
+  elements:
+  - name: Google Shape;593;p65
+    type: 9
+    position:
+      left_emu: 4443475
+      top_emu: 1584213
+      left_cm: 12.34
+      top_cm: 4.4
+    size:
+      width_emu: 16200
+      height_emu: 3151500
+      width_cm: 0.04
+      height_cm: 8.75
+  - name: Google Shape;594;p65
+    type: 1
+    position:
+      left_emu: 1307275
+      top_emu: 3545775
+      left_cm: 3.63
+      top_cm: 9.85
+    size:
+      width_emu: 2922300
+      height_emu: 1334700
+      width_cm: 8.12
+      height_cm: 3.71
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      stroke: false
+    text_runs:
+    - text: 主な取り組みとKPI
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;595;p65
+    type: 1
+    position:
+      left_emu: 796950
+      top_emu: 2061713
+      left_cm: 2.21
+      top_cm: 5.73
+    size:
+      width_emu: 2252700
+      height_emu: 1334700
+      width_cm: 6.26
+      height_cm: 3.71
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      stroke: false
+  - name: Google Shape;596;p65
+    type: 14
+    position:
+      left_emu: 75675
+      top_emu: 960875
+      left_cm: 0.21
+      top_cm: 2.67
+    size:
+      width_emu: 7648500
+      height_emu: 388500
+      width_cm: 21.25
+      height_cm: 1.08
+    text_runs:
+    - text: '2031'
+      size_pt: 12.0
+    - text: 年目標：
+      size_pt: 12.0
+    - text: アジアNo1のドラッグストア
+      size_pt: 12.0
+      color:
+        theme: LIGHT_1
+    - text: となり、美と健康の分野でのリーディングポジションを確立する
+      size_pt: 12.0
+  - name: Google Shape;597;p65
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;598;p65
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 現在Fireworkがご一緒させていただいている取り組みの整理
+  - name: Google Shape;599;p65
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;600;p65
+    type: 1
+    position:
+      left_emu: 894600
+      top_emu: 2385413
+      left_cm: 2.48
+      top_cm: 6.63
+    size:
+      width_emu: 2057400
+      height_emu: 431100
+      width_cm: 5.71
+      height_cm: 1.2
+    geometry: rect
+    fill:
+      type: solid
+      hex: '#20A8A7'
+    outline:
+      stroke: false
+    text_runs:
+    - text: 当社ならではの
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: LIGHT_1
+    - text: プラットフォームビジネス
+      font: Noto Sans JP
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: の強化
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;601;p65
+    type: 1
+    position:
+      left_emu: 796950
+      top_emu: 2061713
+      left_cm: 2.21
+      top_cm: 5.73
+    size:
+      width_emu: 2252700
+      height_emu: 323700
+      width_cm: 6.26
+      height_cm: 0.9
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: 差別化戦略
+      font: Noto Sans JP
+      size_pt: 12.0
+      color:
+        rgb: 20A8A7
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;602;p65
+    type: 1
+    position:
+      left_emu: 796950
+      top_emu: 2857438
+      left_cm: 2.21
+      top_cm: 7.94
+    size:
+      width_emu: 2252700
+      height_emu: 431100
+      width_cm: 6.26
+      height_cm: 1.2
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: 新たな価値・サービスの提供
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: 小売ビジネス領域からの拡張
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: アジアにおけるプレゼンス向上
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+  - name: Google Shape;603;p65
+    type: 1
+    position:
+      left_emu: 401175
+      top_emu: 1481275
+      left_cm: 1.11
+      top_cm: 4.11
+    size:
+      width_emu: 2757300
+      height_emu: 431100
+      width_cm: 7.66
+      height_cm: 1.2
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      stroke: false
+    text_runs:
+    - text: 基本的な考え方
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: 「
+      font: Noto Sans JP
+      color:
+        theme: DARK_1
+    - text: 価値を共創し分かち合う
+      font: Noto Sans JP
+      color:
+        rgb: 20A8A7
+        theme: NOT_THEME_COLOR
+    - text: 」
+      font: Noto Sans JP
+      color:
+        theme: DARK_1
+  - name: Google Shape;604;p65
+    type: 1
+    position:
+      left_emu: 1307275
+      top_emu: 3797300
+      left_cm: 3.63
+      top_cm: 10.55
+    size:
+      width_emu: 2252700
+      height_emu: 431100
+      width_cm: 6.26
+      height_cm: 1.2
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: KPI:グループ会員数 4,500万人
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: 　・顧客体験の創出によるLTVの向上
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+  - name: Google Shape;605;p65
+    type: 1
+    position:
+      left_emu: 1307275
+      top_emu: 4321925
+      left_cm: 3.63
+      top_cm: 12.01
+    size:
+      width_emu: 2922300
+      height_emu: 431100
+      width_cm: 8.12
+      height_cm: 1.2
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: 'KPI:'
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: ヘルス＆ビューティー売上高構成比 75.0%
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: KPI:PB商品売上高構成比 15%以上
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: 　・
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+    - text: 美と健康の分野でPB・共創商品の拡大
+      font: Noto Sans JP
+      size_pt: 9.0
+      color:
+        theme: DARK_1
+  - name: Google Shape;606;p65
+    type: 1
+    position:
+      left_emu: 562375
+      top_emu: 1816575
+      left_cm: 1.56
+      top_cm: 5.05
+    size:
+      width_emu: 149700
+      height_emu: 149700
+      width_cm: 0.42
+      height_cm: 0.42
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      stroke: false
+  - name: Google Shape;607;p65
+    type: 1
+    position:
+      left_emu: 705300
+      top_emu: 2654201
+      left_cm: 1.96
+      top_cm: 7.37
+    size:
+      width_emu: 149700
+      height_emu: 149700
+      width_cm: 0.42
+      height_cm: 0.42
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      stroke: false
+  - name: Google Shape;608;p65
+    type: 1
+    position:
+      left_emu: 1268209
+      top_emu: 4138275
+      left_cm: 3.52
+      top_cm: 11.5
+    size:
+      width_emu: 149700
+      height_emu: 149700
+      width_cm: 0.42
+      height_cm: 0.42
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      stroke: false
+  - name: Google Shape;609;p65
+    type: 9
+    position:
+      left_emu: 289825
+      top_emu: 2313675
+      left_cm: 0.81
+      top_cm: 6.43
+    size:
+      width_emu: 762900
+      height_emu: 68100
+      width_cm: 2.12
+      height_cm: 0.19
+  - name: Google Shape;610;p65
+    type: 9
+    position:
+      left_emu: 841620
+      top_emu: 3786749
+      left_cm: 2.34
+      top_cm: 10.52
+    size:
+      width_emu: 721200
+      height_emu: 131700
+      width_cm: 2.0
+      height_cm: 0.37
+  - name: Google Shape;611;p65
+    type: 1
+    position:
+      left_emu: 1061520
+      top_emu: 3342299
+      left_cm: 2.95
+      top_cm: 9.28
+    size:
+      width_emu: 149700
+      height_emu: 149700
+      width_cm: 0.42
+      height_cm: 0.42
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      stroke: false
+  - name: Google Shape;612;p65
+    type: 1
+    position:
+      left_emu: 205900
+      top_emu: 1281050
+      left_cm: 0.57
+      top_cm: 3.56
+    size:
+      width_emu: 149700
+      height_emu: 149700
+      width_cm: 0.42
+      height_cm: 0.42
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      stroke: false
+  - name: Google Shape;613;p65
+    type: 1
+    position:
+      left_emu: 389875
+      top_emu: 1621975
+      left_cm: 1.08
+      top_cm: 4.51
+    size:
+      width_emu: 149700
+      height_emu: 149700
+      width_cm: 0.42
+      height_cm: 0.42
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      stroke: false
+  - name: Google Shape;614;p65
+    type: 9
+    position:
+      left_emu: 202300
+      top_emu: 1509200
+      left_cm: 0.56
+      top_cm: 4.19
+    size:
+      width_emu: 266100
+      height_emu: 109200
+      width_cm: 0.74
+      height_cm: 0.3
+  - name: Google Shape;615;p65
+    type: 1
+    position:
+      left_emu: 3622663
+      top_emu: 3003162
+      left_cm: 10.06
+      top_cm: 8.34
+    size:
+      width_emu: 1750500
+      height_emu: 248100
+      width_cm: 4.86
+      height_cm: 0.69
+    geometry: triangle
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+  - name: Google Shape;616;p65
+    type: 6
+    position:
+      left_emu: 4804178
+      top_emu: 1912383
+      left_cm: 13.34
+      top_cm: 5.31
+    size:
+      width_emu: 4258971
+      height_emu: 2859020
+      width_cm: 11.83
+      height_cm: 7.94
+  - name: Google Shape;649;p65
+    type: 14
+    position:
+      left_emu: 5663900
+      top_emu: 1539325
+      left_cm: 15.73
+      top_cm: 4.28
+    size:
+      width_emu: 2539500
+      height_emu: 315000
+      width_cm: 7.05
+      height_cm: 0.88
+    text_runs:
+    - text: お客様のLTV最大化
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: 20A8A7
+        theme: NOT_THEME_COLOR
+    - text: を図る
+      size_pt: 12.0
+      bold: true
+- slide_number: 15
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 4
+  elements:
+  - name: Google Shape;654;p66
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;655;p66
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: マーケティングプラットフォーム
+  - name: Google Shape;656;p66
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;657;p66
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+- slide_number: 16
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 5
+  elements:
+  - name: Google Shape;662;p67
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;663;p67
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中経より
+  - name: Google Shape;664;p67
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;665;p67
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+  - name: Google Shape;666;p67
+    type: 1
+    position:
+      left_emu: 3238725
+      top_emu: 2148300
+      left_cm: 9.0
+      top_cm: 5.97
+    size:
+      width_emu: 846900
+      height_emu: 846900
+      width_cm: 2.35
+      height_cm: 2.35
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 38100
+      color_scheme: accent2
+- slide_number: 17
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 14
+  elements:
+  - name: Google Shape;671;p68
+    type: 1
+    position:
+      left_emu: 6303425
+      top_emu: 1956125
+      left_cm: 17.51
+      top_cm: 5.43
+    size:
+      width_emu: 220500
+      height_emu: 220500
+      width_cm: 0.61
+      height_cm: 0.61
+    geometry: ellipse
+    fill:
+      type: none
+    outline:
+      width_emu: 9525
+      color_scheme: dk2
+  - name: Google Shape;672;p68
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4865150
+      left_cm: 11.94
+      top_cm: 13.51
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;673;p68
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: グループ経営目標達成に向けた成長ストーリー
+  - name: Google Shape;674;p68
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;675;p68
+    type: 14
+    position:
+      left_emu: 6209675
+      top_emu: 1484225
+      left_cm: 17.25
+      top_cm: 4.12
+    size:
+      width_emu: 2709600
+      height_emu: 692400
+      width_cm: 7.53
+      height_cm: 1.92
+    text_runs:
+    - text: MCCとFireworkならではのデータを活用し、B2B領域を成長を支援
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: 20A8A7
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;676;p68
+    type: 14
+    position:
+      left_emu: 2129325
+      top_emu: 940425
+      left_cm: 5.91
+      top_cm: 2.61
+    size:
+      width_emu: 2539500
+      height_emu: 315000
+      width_cm: 7.05
+      height_cm: 0.88
+    text_runs:
+    - text: お客様のLTV最大化
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: 20A8A7
+        theme: NOT_THEME_COLOR
+    - text: を図る
+      size_pt: 12.0
+      bold: true
+  - name: Google Shape;677;p68
+    type: 6
+    position:
+      left_emu: 709650
+      top_emu: 1362075
+      left_cm: 1.97
+      top_cm: 3.78
+    size:
+      width_emu: 5378847
+      height_emu: 3610786
+      width_cm: 14.94
+      height_cm: 10.03
+  - name: Google Shape;710;p68
+    type: 13
+    position:
+      left_emu: 4357175
+      top_emu: 4591938
+      left_cm: 12.1
+      top_cm: 12.76
+    size:
+      width_emu: 546000
+      height_emu: 244500
+      width_cm: 1.52
+      height_cm: 0.68
+    image_content_type: image/png
+  - name: Google Shape;711;p68
+    type: 14
+    position:
+      left_emu: 6855325
+      top_emu: 2331300
+      left_cm: 19.04
+      top_cm: 6.48
+    size:
+      width_emu: 2064000
+      height_emu: 480900
+      width_cm: 5.73
+      height_cm: 1.34
+    text_runs:
+    - text: ❶ 商品メニュー開発
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: ACCENT_3
+  - name: Google Shape;712;p68
+    type: 14
+    position:
+      left_emu: 6855325
+      top_emu: 2966875
+      left_cm: 19.04
+      top_cm: 8.24
+    size:
+      width_emu: 2064000
+      height_emu: 480900
+      width_cm: 5.73
+      height_cm: 1.34
+    text_runs:
+    - text: ❷ 視聴者獲得施策
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: ACCENT_3
+  - name: Google Shape;713;p68
+    type: 14
+    position:
+      left_emu: 6855325
+      top_emu: 3602450
+      left_cm: 19.04
+      top_cm: 10.01
+    size:
+      width_emu: 2064000
+      height_emu: 480900
+      width_cm: 5.73
+      height_cm: 1.34
+    text_runs:
+    - text: ❸ 価値証明の強化
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: ACCENT_3
+  - name: Google Shape;714;p68
+    type: 9
+    position:
+      left_emu: 6436925
+      top_emu: 2153375
+      left_cm: 17.88
+      top_cm: 5.98
+    size:
+      width_emu: 395100
+      height_emu: 441600
+      width_cm: 1.1
+      height_cm: 1.23
+  - name: Google Shape;715;p68
+    type: 9
+    position:
+      left_emu: 6119075
+      top_emu: 2471225
+      left_cm: 17.0
+      top_cm: 6.86
+    size:
+      width_emu: 1030800
+      height_emu: 441600
+      width_cm: 2.86
+      height_cm: 1.23
+  - name: Google Shape;716;p68
+    type: 9
+    position:
+      left_emu: 5801375
+      top_emu: 2788925
+      left_cm: 16.11
+      top_cm: 7.75
+    size:
+      width_emu: 1666200
+      height_emu: 441600
+      width_cm: 4.63
+      height_cm: 1.23
+- slide_number: 18
+  layout: TITLE_ONLY_1_1_1_1_1_1_1_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;721;p69
+    type: 14
+    position:
+      left_emu: 396250
+      top_emu: 2178975
+      left_cm: 1.1
+      top_cm: 6.05
+    size:
+      width_emu: 3856500
+      height_emu: 785700
+      width_cm: 10.71
+      height_cm: 2.18
+    text_runs:
+    - text: これまでの振り返り
+- slide_number: 19
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 5
+  elements:
+  - name: Google Shape;726;p70
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;727;p70
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中経より
+  - name: Google Shape;728;p70
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;729;p70
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+  - name: Google Shape;730;p70
+    type: 1
+    position:
+      left_emu: 3238725
+      top_emu: 2148300
+      left_cm: 9.0
+      top_cm: 5.97
+    size:
+      width_emu: 846900
+      height_emu: 846900
+      width_cm: 2.35
+      height_cm: 2.35
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 38100
+      color_scheme: accent2
+- slide_number: 20
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 15
+  elements:
+  - name: Google Shape;735;p71
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;736;p71
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 戦略方針と取組進捗
+  - name: Google Shape;737;p71
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;738;p71
+    type: 17
+    position:
+      left_emu: 1891034
+      top_emu: 1243739
+      left_cm: 5.25
+      top_cm: 3.45
+    size:
+      width_emu: 4672200
+      height_emu: 660300
+      width_cm: 12.98
+      height_cm: 1.83
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: 1社協賛型ライブの拡大
+      font: Noto Sans
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ブランド横断型ライブのメニュー開発と実施
+      font: Noto Sans
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;739;p71
+    type: 17
+    position:
+      left_emu: 180159
+      top_emu: 1243739
+      left_cm: 0.5
+      top_cm: 3.45
+    size:
+      width_emu: 1613100
+      height_emu: 660300
+      width_cm: 4.48
+      height_cm: 1.83
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: リテールメディア
+      font: Noto Sans
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;740;p71
+    type: 17
+    position:
+      left_emu: 1891028
+      top_emu: 1990870
+      left_cm: 5.25
+      top_cm: 5.53
+    size:
+      width_emu: 4672200
+      height_emu: 2024100
+      width_cm: 12.98
+      height_cm: 5.62
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: 視聴者数向上
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ゲストキャスティング（芸能人・インフルエンサー）
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: LIPSコラボ
+      font: Noto Sans Medium
+      size_pt: 11.0
+      color:
+        theme: DARK_1
+    - text: 新規流入施策
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: SNSサイマル配信
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ライブLP導線の改修・
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: プッシュ通知
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: エンゲージメント・購入実績の向上
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 視聴者データを活かした精緻な分析
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 分析に基づく企画・商品選定
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;741;p71
+    type: 17
+    position:
+      left_emu: 180150
+      top_emu: 1990870
+      left_cm: 0.5
+      top_cm: 5.53
+    size:
+      width_emu: 1613100
+      height_emu: 2024100
+      width_cm: 4.48
+      height_cm: 5.62
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: ライブ配信の
+      font: Noto Sans
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+    - text: 価値向上
+      font: Noto Sans
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;742;p71
+    type: 17
+    position:
+      left_emu: 1891026
+      top_emu: 4119942
+      left_cm: 5.25
+      top_cm: 11.44
+    size:
+      width_emu: 4672200
+      height_emu: 988200
+      width_cm: 12.98
+      height_cm: 2.75
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: 出演者の増員
+      font: Noto Sans
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 第2期出演者オーディション開催
+      font: Noto Sans Medium
+      size_pt: 13.0
+      color:
+        theme: DARK_1
+    - text: 配信運営の内製化
+      font: Noto Sans
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 配信内容のコンパクト化
+      font: Noto Sans
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;743;p71
+    type: 17
+    position:
+      left_emu: 180150
+      top_emu: 4120070
+      left_cm: 0.5
+      top_cm: 11.44
+    size:
+      width_emu: 1613100
+      height_emu: 988200
+      width_cm: 4.48
+      height_cm: 2.75
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: 配信体制の強化
+      font: Noto Sans
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;744;p71
+    type: 17
+    position:
+      left_emu: 6694650
+      top_emu: 1243739
+      left_cm: 18.6
+      top_cm: 3.45
+    size:
+      width_emu: 2269200
+      height_emu: 660300
+      width_cm: 6.3
+      height_cm: 1.83
+    fill:
+      type: solid
+      hex: '#FFF2CC'
+    text_runs:
+    - text: ▼1社協賛型
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: の継続実施
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ▼横断型
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: のメニュー開発と実施
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;745;p71
+    type: 17
+    position:
+      left_emu: 6694649
+      top_emu: 4120070
+      left_cm: 18.6
+      top_cm: 11.44
+    size:
+      width_emu: 2269200
+      height_emu: 988200
+      width_cm: 6.3
+      height_cm: 2.75
+    fill:
+      type: solid
+      hex: '#FFF2CC'
+    text_runs:
+    - text: ▼新メンバー3名加入
+      font: Noto Sans
+      size_pt: 10.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ▼内製化レクチャー会の実施
+      font: Noto Sans
+      size_pt: 10.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ▼台本ページのスリム化
+      font: Noto Sans
+      size_pt: 10.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;746;p71
+    type: 17
+    position:
+      left_emu: 6694649
+      top_emu: 1990870
+      left_cm: 18.6
+      top_cm: 5.53
+    size:
+      width_emu: 2269200
+      height_emu: 2024100
+      width_cm: 6.3
+      height_cm: 5.62
+    fill:
+      type: solid
+      hex: '#FFF2CC'
+    text_runs:
+    - text: ▼インフルエンサー施策
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ・LIPS連動メニューの実施
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ▼流入施策
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ・ターゲティングしたプッシュ通知
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ・通知タイミングを検証
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ・店内放送で配信告知
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ▼エンゲージメント
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ・会員属性も含めた分析
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: ・アプリ会員のリピーターモニタリング
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 　定義
+      font: Noto Sans
+      size_pt: 9.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;747;p71
+    type: 17
+    position:
+      left_emu: 1891026
+      top_emu: 913401
+      left_cm: 5.25
+      top_cm: 2.54
+    size:
+      width_emu: 4672200
+      height_emu: 273600
+      width_cm: 12.98
+      height_cm: 0.76
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: 戦略方針
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;748;p71
+    type: 17
+    position:
+      left_emu: 180150
+      top_emu: 913401
+      left_cm: 0.5
+      top_cm: 2.54
+    size:
+      width_emu: 1613100
+      height_emu: 273600
+      width_cm: 4.48
+      height_cm: 0.76
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: トピック
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;749;p71
+    type: 17
+    position:
+      left_emu: 6694647
+      top_emu: 913401
+      left_cm: 18.6
+      top_cm: 2.54
+    size:
+      width_emu: 2269200
+      height_emu: 273600
+      width_cm: 6.3
+      height_cm: 0.76
+    fill:
+      type: solid
+      hex: '#FFF2CC'
+    text_runs:
+    - text: 取組進捗
+      font: Noto Sans
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+- slide_number: 21
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 8
+  elements:
+  - name: Google Shape;754;p72
+    type: 13
+    position:
+      left_emu: 133500
+      top_emu: 1453825
+      left_cm: 0.37
+      top_cm: 4.04
+    size:
+      width_emu: 5488374
+      height_emu: 3624425
+      width_cm: 15.25
+      height_cm: 10.07
+    image_content_type: image/png
+  - name: Google Shape;755;p72
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;756;p72
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 戦略方針と取組進捗
+  - name: Google Shape;757;p72
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;758;p72
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 960875
+      left_cm: 0.87
+      top_cm: 2.67
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+    text_runs:
+    - text: 視聴人数は
+    - text: ベースライン
+    - text: 各回5,000人〜7,000人を
+    - text: 安定
+    - text: 推移
+  - name: Google Shape;759;p72
+    type: 14
+    position:
+      left_emu: 1518275
+      top_emu: 4716124
+      left_cm: 4.22
+      top_cm: 13.1
+    size:
+      width_emu: 2550000
+      height_emu: 393000
+      width_cm: 7.08
+      height_cm: 1.09
+    text_runs:
+    - text: ライブ視聴者数
+      font: Noto Sans
+      size_pt: 16.0
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;760;p72
+    type: 19
+    position:
+      left_emu: 6397845
+      top_emu: 904156
+      left_cm: 17.77
+      top_cm: 2.51
+    size:
+      width_emu: 3000000
+      height_emu: 3000000
+      width_cm: 8.33
+      height_cm: 8.33
+  - name: Google Shape;761;p72
+    type: 1
+    position:
+      left_emu: 5832450
+      top_emu: 4375800
+      left_cm: 16.2
+      top_cm: 12.15
+    size:
+      width_emu: 3311700
+      height_emu: 767700
+      width_cm: 9.2
+      height_cm: 2.13
+    geometry: wedgeRectCallout
+    fill:
+      type: solid
+      hex: '#FFFFFF'
+    outline:
+      stroke: false
+    text_runs:
+    - text: '参考 '
+      font: Noto Sans
+    - text: 他社さま実績：
+      font: Noto Sans
+    - text: ・
+      font: Noto Sans
+    - text: コスメ
+      font: Noto Sans
+    - text: ブランド
+      font: Noto Sans
+    - text: A社
+      font: Noto Sans
+    - text: 平均
+      font: Noto Sans
+    - text: 1,500
+      font: Noto Sans
+    - text: 人
+      font: Noto Sans
+    - text: ・小売企業B
+      font: Noto Sans
+    - text: 社
+      font: Noto Sans
+    - text: 平均
+      font: Noto Sans
+    - text: 4,000
+      font: Noto Sans
+    - text: 人
+      font: Noto Sans
+- slide_number: 22
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 6
+  elements:
+  - name: Google Shape;766;p73
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;767;p73
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 リテールメディア開発
+  - name: Google Shape;768;p73
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;769;p73
+    type: 14
+    position:
+      left_emu: 374350
+      top_emu: 966050
+      left_cm: 1.04
+      top_cm: 2.68
+    size:
+      width_emu: 8580000
+      height_emu: 393000
+      width_cm: 23.83
+      height_cm: 1.09
+    text_runs:
+    - text: 1社協賛型ライブを24回、複数社
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 横断型
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: ライブを
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: '3'
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 回
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 実施
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;770;p73
+    type: 13
+    position:
+      left_emu: 3701400
+      top_emu: 1674349
+      left_cm: 10.28
+      top_cm: 4.65
+    size:
+      width_emu: 4743776
+      height_emu: 2660600
+      width_cm: 13.18
+      height_cm: 7.39
+    image_content_type: image/png
+  - name: Google Shape;771;p73
+    type: 13
+    position:
+      left_emu: 1136338
+      top_emu: 1416312
+      left_cm: 3.16
+      top_cm: 3.93
+    size:
+      width_emu: 1860600
+      height_emu: 3315600
+      width_cm: 5.17
+      height_cm: 9.21
+    image_content_type: image/png
+- slide_number: 23
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 16
+  elements:
+  - name: Google Shape;776;p74
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;777;p74
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 リテールメディア開発
+    - text: ：協賛枠販売につながる勝ち筋
+  - name: Google Shape;778;p74
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;779;p74
+    type: 17
+    position:
+      left_emu: 311700
+      top_emu: 1129600
+      left_cm: 0.87
+      top_cm: 3.14
+    size:
+      width_emu: 2603100
+      height_emu: 572700
+      width_cm: 7.23
+      height_cm: 1.59
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: 　　　実験系演出
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;780;p74
+    type: 13
+    position:
+      left_emu: 613075
+      top_emu: 1185700
+      left_cm: 1.7
+      top_cm: 3.29
+    size:
+      width_emu: 460500
+      height_emu: 460500
+      width_cm: 1.28
+      height_cm: 1.28
+    image_content_type: image/png
+  - name: Google Shape;781;p74
+    type: 17
+    position:
+      left_emu: 3270450
+      top_emu: 1129600
+      left_cm: 9.08
+      top_cm: 3.14
+    size:
+      width_emu: 2603100
+      height_emu: 572700
+      width_cm: 7.23
+      height_cm: 1.59
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: 　　トライアル商品
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;782;p74
+    type: 17
+    position:
+      left_emu: 6229200
+      top_emu: 1129600
+      left_cm: 17.3
+      top_cm: 3.14
+    size:
+      width_emu: 2603100
+      height_emu: 572700
+      width_cm: 7.23
+      height_cm: 1.59
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: 等身大ゲストの起用
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;783;p74
+    type: 13
+    position:
+      left_emu: 3421138
+      top_emu: 1185700
+      left_cm: 9.5
+      top_cm: 3.29
+    size:
+      width_emu: 460500
+      height_emu: 460500
+      width_cm: 1.28
+      height_cm: 1.28
+    image_content_type: image/png
+  - name: Google Shape;784;p74
+    type: 13
+    position:
+      left_emu: 6330625
+      top_emu: 1185700
+      left_cm: 17.59
+      top_cm: 3.29
+    size:
+      width_emu: 460500
+      height_emu: 460500
+      width_cm: 1.28
+      height_cm: 1.28
+    image_content_type: image/png
+  - name: Google Shape;785;p74
+    type: 13
+    position:
+      left_emu: 946030
+      top_emu: 1827225
+      left_cm: 2.63
+      top_cm: 5.08
+    size:
+      width_emu: 1334440
+      height_emu: 1735626
+      width_cm: 3.71
+      height_cm: 4.82
+    image_content_type: image/png
+  - name: Google Shape;786;p74
+    type: 17
+    position:
+      left_emu: 311700
+      top_emu: 3687775
+      left_cm: 0.87
+      top_cm: 10.24
+    size:
+      width_emu: 2603100
+      height_emu: 1127100
+      width_cm: 7.23
+      height_cm: 3.13
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: サーモカメラによるジェルの冷凍実演商品が購買率トップを記録。
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 視覚的な驚きを伴う実験系演出が、視聴者の購買意欲を直接的に高める
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: ACCENT_3
+    - text: ことを実証
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;787;p74
+    type: 13
+    position:
+      left_emu: 4577813
+      top_emu: 1850925
+      left_cm: 12.72
+      top_cm: 5.14
+    size:
+      width_emu: 1158600
+      height_emu: 1688200
+      width_cm: 3.22
+      height_cm: 4.69
+    image_content_type: image/png
+  - name: Google Shape;788;p74
+    type: 17
+    position:
+      left_emu: 3270450
+      top_emu: 3687775
+      left_cm: 9.08
+      top_cm: 10.24
+    size:
+      width_emu: 2603100
+      height_emu: 1127100
+      width_cm: 7.23
+      height_cm: 3.13
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: エイトザタラソではトライアル商品が比較期間
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 'に対して約434%成長。 '
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: トライアル商品があるものは必ずセットで紹介
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: ACCENT_3
+    - text: する。
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;789;p74
+    type: 13
+    position:
+      left_emu: 6987025
+      top_emu: 1792100
+      left_cm: 19.41
+      top_cm: 4.98
+    size:
+      width_emu: 1087450
+      height_emu: 1805874
+      width_cm: 3.02
+      height_cm: 5.02
+    image_content_type: image/png
+  - name: Google Shape;790;p74
+    type: 17
+    position:
+      left_emu: 6229200
+      top_emu: 3687775
+      left_cm: 17.3
+      top_cm: 10.24
+    size:
+      width_emu: 2603100
+      height_emu: 1127100
+      width_cm: 7.23
+      height_cm: 3.13
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: 商品解説できるメーカーゲスト以外にも
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 消費者目線でお悩みをもつゲストによる商品レビュー
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: ACCENT_3
+    - text: は商品購買につながりやすい。
+      font: Noto Sans JP
+      size_pt: 11.0
+      bold: true
+      color:
+        theme: DARK_1
+  - name: Google Shape;791;p74
+    type: 13
+    position:
+      left_emu: 3421151
+      top_emu: 1872513
+      left_cm: 9.5
+      top_cm: 5.2
+    size:
+      width_emu: 1029958
+      height_emu: 1645025
+      width_cm: 2.86
+      height_cm: 4.57
+    image_content_type: image/png
+- slide_number: 24
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 8
+  elements:
+  - name: Google Shape;796;p75
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;797;p75
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 リテールメディア開発：
+    - text: 1社協賛 vs ブランド横断型
+  - name: Google Shape;798;p75
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;799;p75
+    type: 17
+    position:
+      left_emu: 0
+      top_emu: 4723000
+      left_cm: 0.0
+      top_cm: 13.12
+    size:
+      width_emu: 7036200
+      height_emu: 307800
+      width_cm: 19.55
+      height_cm: 0.85
+    fill:
+      type: none
+    text_runs:
+    - text: ※ブランド横断型の分析対象は1件のみと比較データがまだ乏しいため、データがまとまり次第分析実施
+      font: Noto Sans JP
+      size_pt: 8.0
+      color:
+        theme: DARK_1
+  - name: Google Shape;800;p75
+    type: 19
+    position:
+      left_emu: 952500
+      top_emu: 1040025
+      left_cm: 2.65
+      top_cm: 2.89
+    size:
+      width_emu: 3000000
+      height_emu: 3000000
+      width_cm: 8.33
+      height_cm: 8.33
+  - name: Google Shape;801;p75
+    type: 13
+    position:
+      left_emu: 1843950
+      top_emu: 1975475
+      left_cm: 5.12
+      top_cm: 5.49
+    size:
+      width_emu: 307800
+      height_emu: 307800
+      width_cm: 0.85
+      height_cm: 0.85
+    image_content_type: image/png
+  - name: Google Shape;802;p75
+    type: 13
+    position:
+      left_emu: 1843950
+      top_emu: 2624488
+      left_cm: 5.12
+      top_cm: 7.29
+    size:
+      width_emu: 307800
+      height_emu: 307800
+      width_cm: 0.85
+      height_cm: 0.85
+    image_content_type: image/png
+  - name: Google Shape;803;p75
+    type: 13
+    position:
+      left_emu: 1843950
+      top_emu: 3385675
+      left_cm: 5.12
+      top_cm: 9.4
+    size:
+      width_emu: 307800
+      height_emu: 307800
+      width_cm: 0.85
+      height_cm: 0.85
+    image_content_type: image/png
+- slide_number: 25
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 16
+  elements:
+  - name: Google Shape;808;p76
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;809;p76
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 リテールメディア開発：LIPS
+    - text: 協賛
+  - name: Google Shape;810;p76
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;811;p76
+    type: 14
+    position:
+      left_emu: 366250
+      top_emu: 973588
+      left_cm: 1.02
+      top_cm: 2.7
+    size:
+      width_emu: 8580000
+      height_emu: 393000
+      width_cm: 23.83
+      height_cm: 1.09
+    text_runs:
+    - text: LIPSが実施してきたメニューを転用し協賛メニューを強化
+      size_pt: 17.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;812;p76
+    type: 13
+    position:
+      left_emu: 751259
+      top_emu: 1957750
+      left_cm: 2.09
+      top_cm: 5.44
+    size:
+      width_emu: 1889482
+      height_emu: 1068775
+      width_cm: 5.25
+      height_cm: 2.97
+    image_content_type: image/png
+  - name: Google Shape;813;p76
+    type: 17
+    position:
+      left_emu: 4493225
+      top_emu: 1506400
+      left_cm: 12.48
+      top_cm: 4.18
+    size:
+      width_emu: 2603100
+      height_emu: 393000
+      width_cm: 7.23
+      height_cm: 1.09
+    fill:
+      type: scheme
+      ref: accent3
+    text_runs:
+    - text: オンライン
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+    - text: 座談会
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+    - text: 配信
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;814;p76
+    type: 17
+    position:
+      left_emu: 4493225
+      top_emu: 1899413
+      left_cm: 12.48
+      top_cm: 5.28
+    size:
+      width_emu: 2603100
+      height_emu: 1127100
+      width_cm: 7.23
+      height_cm: 3.13
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: LIPSインフルエンサー数名が
+      font: Noto Sans JP
+      size_pt: 12.0
+    - text: 座談会っぽく商品をレビュー
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+    - text: 。「商品紹介感」をなくし消費者目線の
+      font: Noto Sans JP
+      size_pt: 12.0
+    - text: リアル感
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: ACCENT_3
+    - text: で購買意欲を促進
+      font: Noto Sans JP
+      size_pt: 12.0
+  - name: Google Shape;815;p76
+    type: 13
+    position:
+      left_emu: 976924
+      top_emu: 3793247
+      left_cm: 2.71
+      top_cm: 10.54
+    size:
+      width_emu: 1438139
+      height_emu: 1068775
+      width_cm: 3.99
+      height_cm: 2.97
+    image_content_type: image/png
+  - name: Google Shape;816;p76
+    type: 1
+    position:
+      left_emu: 3462775
+      top_emu: 2153074
+      left_cm: 9.62
+      top_cm: 5.98
+    size:
+      width_emu: 546000
+      height_emu: 619800
+      width_cm: 1.52
+      height_cm: 1.72
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#DDD4D1'
+    outline:
+      stroke: false
+  - name: Google Shape;817;p76
+    type: 17
+    position:
+      left_emu: 4493225
+      top_emu: 3308375
+      left_cm: 12.48
+      top_cm: 9.19
+    size:
+      width_emu: 2603100
+      height_emu: 393000
+      width_cm: 7.23
+      height_cm: 1.09
+    fill:
+      type: scheme
+      ref: accent3
+    text_runs:
+    - text: LIPSベスコス特集
+      font: Noto Sans JP
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;818;p76
+    type: 17
+    position:
+      left_emu: 4493225
+      top_emu: 3701388
+      left_cm: 12.48
+      top_cm: 10.28
+    size:
+      width_emu: 2603100
+      height_emu: 1127100
+      width_cm: 7.23
+      height_cm: 3.13
+    fill:
+      type: solid
+      hex: '#F3F3F3'
+    text_runs:
+    - text: LIPSインフルエンサーが半期ごとや受賞カテゴリごとにベスコスを紹介しつつ
+      font: Noto Sans JP
+      size_pt: 12.0
+      color:
+        theme: DARK_1
+    - text: 協賛企業の商品を深堀り
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: DARK_1
+    - text: していく。
+      font: Noto Sans JP
+      size_pt: 12.0
+      color:
+        theme: DARK_1
+  - name: Google Shape;819;p76
+    type: 17
+    position:
+      left_emu: 550925
+      top_emu: 1506400
+      left_cm: 1.53
+      top_cm: 4.18
+    size:
+      width_emu: 2290200
+      height_emu: 393000
+      width_cm: 6.36
+      height_cm: 1.09
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: インフルエンサー体験会
+      font: Noto Sans JP
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;820;p76
+    type: 1
+    position:
+      left_emu: 3462775
+      top_emu: 3842524
+      left_cm: 9.62
+      top_cm: 10.67
+    size:
+      width_emu: 546000
+      height_emu: 619800
+      width_cm: 1.52
+      height_cm: 1.72
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#DDD4D1'
+    outline:
+      stroke: false
+  - name: Google Shape;821;p76
+    type: 13
+    position:
+      left_emu: 7504975
+      top_emu: 1495899
+      left_cm: 20.85
+      top_cm: 4.16
+    size:
+      width_emu: 1013355
+      height_emu: 1530624
+      width_cm: 2.81
+      height_cm: 4.25
+    image_content_type: image/png
+  - name: Google Shape;822;p76
+    type: 17
+    position:
+      left_emu: 550925
+      top_emu: 3308375
+      left_cm: 1.53
+      top_cm: 9.19
+    size:
+      width_emu: 2290200
+      height_emu: 393000
+      width_cm: 6.36
+      height_cm: 1.09
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: LIPSベスコス連動協賛
+      font: Noto Sans JP
+      bold: true
+      color:
+        rgb: FFFFFF
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;823;p76
+    type: 13
+    position:
+      left_emu: 7427825
+      top_emu: 3308375
+      left_cm: 20.63
+      top_cm: 9.19
+    size:
+      width_emu: 1167649
+      height_emu: 1490401
+      width_cm: 3.24
+      height_cm: 4.14
+    image_content_type: image/png
+- slide_number: 26
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 2
+  elements:
+  - name: Google Shape;828;p77
+    type: 13
+    position:
+      left_emu: 1358900
+      top_emu: 1132701
+      left_cm: 3.77
+      top_cm: 3.15
+    size:
+      width_emu: 6426199
+      height_emu: 3614725
+      width_cm: 17.85
+      height_cm: 10.04
+    image_content_type: image/png
+  - name: Google Shape;829;p77
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 【参考】LIPS協賛メニュー
+- slide_number: 27
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 2
+  elements:
+  - name: Google Shape;834;p78
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 【参考】LIPS協賛メニュー
+  - name: Google Shape;835;p78
+    type: 13
+    position:
+      left_emu: 1270000
+      top_emu: 981075
+      left_cm: 3.53
+      top_cm: 2.73
+    size:
+      width_emu: 6604001
+      height_emu: 3714750
+      width_cm: 18.34
+      height_cm: 10.32
+    image_content_type: image/png
+- slide_number: 28
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 2
+  elements:
+  - name: Google Shape;840;p79
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 【参考】LIPS協賛メニュー
+  - name: Google Shape;841;p79
+    type: 13
+    position:
+      left_emu: 1397000
+      top_emu: 1005225
+      left_cm: 3.88
+      top_cm: 2.79
+    size:
+      width_emu: 6629400
+      height_emu: 3729050
+      width_cm: 18.41
+      height_cm: 10.36
+    image_content_type: image/png
+- slide_number: 29
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 14
+  elements:
+  - name: Google Shape;846;p80
+    type: 1
+    position:
+      left_emu: 2761650
+      top_emu: 1729475
+      left_cm: 7.67
+      top_cm: 4.8
+    size:
+      width_emu: 2980800
+      height_emu: 1744500
+      width_cm: 8.28
+      height_cm: 4.85
+    geometry: wedgeRoundRectCallout
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      width_emu: 9525
+      color_scheme: dk2
+  - name: Google Shape;847;p80
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;848;p80
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 ライブ配信の価値向上
+  - name: Google Shape;849;p80
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;850;p80
+    type: 14
+    position:
+      left_emu: 87175
+      top_emu: 1079688
+      left_cm: 0.24
+      top_cm: 3.0
+    size:
+      width_emu: 2550000
+      height_emu: 393000
+      width_cm: 7.08
+      height_cm: 1.09
+    text_runs:
+    - text: ゲストキャスティング
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: LIPSコラボ配信
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;851;p80
+    type: 14
+    position:
+      left_emu: 2761662
+      top_emu: 1079688
+      left_cm: 7.67
+      top_cm: 3.0
+    size:
+      width_emu: 3072600
+      height_emu: 393000
+      width_cm: 8.54
+      height_cm: 1.09
+    text_runs:
+    - text: 流入施策
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 店内放送実施予定
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;852;p80
+    type: 14
+    position:
+      left_emu: 5969549
+      top_emu: 1079688
+      left_cm: 16.58
+      top_cm: 3.0
+    size:
+      width_emu: 3072600
+      height_emu: 393000
+      width_cm: 8.54
+      height_cm: 1.09
+    text_runs:
+    - text: エンゲージメント
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 会員属性を含めた配信分析
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;853;p80
+    type: 13
+    position:
+      left_emu: 5865624
+      top_emu: 1628850
+      left_cm: 16.29
+      top_cm: 4.52
+    size:
+      width_emu: 2438089
+      height_emu: 1692258
+      width_cm: 6.77
+      height_cm: 4.7
+    image_content_type: image/png
+  - name: Google Shape;854;p80
+    type: 13
+    position:
+      left_emu: 6439205
+      top_emu: 2532394
+      left_cm: 17.89
+      top_cm: 7.03
+    size:
+      width_emu: 2438088
+      height_emu: 1368701
+      width_cm: 6.77
+      height_cm: 3.8
+    image_content_type: image/png
+  - name: Google Shape;855;p80
+    type: 13
+    position:
+      left_emu: 6642191
+      top_emu: 3681475
+      left_cm: 18.45
+      top_cm: 10.23
+    size:
+      width_emu: 2463106
+      height_emu: 1368700
+      width_cm: 6.84
+      height_cm: 3.8
+    image_content_type: image/png
+  - name: Google Shape;856;p80
+    type: 13
+    position:
+      left_emu: 2947551
+      top_emu: 1783512
+      left_cm: 8.19
+      top_cm: 4.95
+    size:
+      width_emu: 2638249
+      height_emu: 1609700
+      width_cm: 7.33
+      height_cm: 4.47
+    image_content_type: image/png
+  - name: Google Shape;857;p80
+    type: 13
+    position:
+      left_emu: 461925
+      top_emu: 1574898
+      left_cm: 1.28
+      top_cm: 4.37
+    size:
+      width_emu: 1860575
+      height_emu: 3254337
+      width_cm: 5.17
+      height_cm: 9.04
+    image_content_type: image/png
+  - name: Google Shape;858;p80
+    type: 13
+    position:
+      left_emu: 3752997
+      top_emu: 3851868
+      left_cm: 10.42
+      top_cm: 10.7
+    size:
+      width_emu: 546000
+      height_emu: 512982
+      width_cm: 1.52
+      height_cm: 1.42
+    image_content_type: image/png
+  - name: Google Shape;859;p80
+    type: 13
+    position:
+      left_emu: 3104750
+      top_emu: 3851885
+      left_cm: 8.62
+      top_cm: 10.7
+    size:
+      width_emu: 546000
+      height_emu: 512975
+      width_cm: 1.52
+      height_cm: 1.42
+    image_content_type: image/png
+- slide_number: 30
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 11
+  elements:
+  - name: Google Shape;864;p81
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;865;p81
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 配信体制の強化
+  - name: Google Shape;866;p81
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;867;p81
+    type: 14
+    position:
+      left_emu: 87175
+      top_emu: 1010975
+      left_cm: 0.24
+      top_cm: 2.81
+    size:
+      width_emu: 2550000
+      height_emu: 393000
+      width_cm: 7.08
+      height_cm: 1.09
+    text_runs:
+    - text: 新メンバー3名
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 加入後初出演！
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;868;p81
+    type: 13
+    position:
+      left_emu: 466625
+      top_emu: 1581075
+      left_cm: 1.3
+      top_cm: 4.39
+    size:
+      width_emu: 1906500
+      height_emu: 3393300
+      width_cm: 5.3
+      height_cm: 9.43
+    image_content_type: image/png
+  - name: Google Shape;869;p81
+    type: 14
+    position:
+      left_emu: 2921549
+      top_emu: 1010975
+      left_cm: 8.12
+      top_cm: 2.81
+    size:
+      width_emu: 3072600
+      height_emu: 393000
+      width_cm: 8.54
+      height_cm: 1.09
+    text_runs:
+    - text: 配信内容のコンパクト化
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;870;p81
+    type: 17
+    position:
+      left_emu: 3001329
+      top_emu: 3847820
+      left_cm: 8.34
+      top_cm: 10.69
+    size:
+      width_emu: 2967600
+      height_emu: 838800
+      width_cm: 8.24
+      height_cm: 2.33
+    fill:
+      type: scheme
+      ref: lt2
+    text_runs:
+    - text: 11月配信回 平均
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        theme: DARK_1
+    - text: '台本ページ数 '
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        theme: DARK_1
+    - text: 26P
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        rgb: FF408C
+        theme: NOT_THEME_COLOR
+    - text: '配信時間 '
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        theme: ACCENT_4
+    - text: 65分
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        rgb: FF408C
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;871;p81
+    type: 17
+    position:
+      left_emu: 3001329
+      top_emu: 1658854
+      left_cm: 8.34
+      top_cm: 4.61
+    size:
+      width_emu: 2967600
+      height_emu: 838800
+      width_cm: 8.24
+      height_cm: 2.33
+    fill:
+      type: solid
+      hex: '#666666'
+    text_runs:
+    - text: 8月配信回 平均
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: 台本ページ数 32P
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: 配信時間 81分
+      font: Noto Sans
+      size_pt: 13.7
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;872;p81
+    type: 1
+    position:
+      left_emu: 3987181
+      top_emu: 2929897
+      left_cm: 11.08
+      top_cm: 8.14
+    size:
+      width_emu: 913800
+      height_emu: 597300
+      width_cm: 2.54
+      height_cm: 1.66
+    geometry: rightArrow
+    fill:
+      type: scheme
+      ref: accent4
+    outline:
+      stroke: false
+  - name: Google Shape;873;p81
+    type: 13
+    position:
+      left_emu: 6289536
+      top_emu: 1581075
+      left_cm: 17.47
+      top_cm: 4.39
+    size:
+      width_emu: 2550069
+      height_emu: 3393448
+      width_cm: 7.08
+      height_cm: 9.43
+    image_content_type: image/png
+  - name: Google Shape;874;p81
+    type: 14
+    position:
+      left_emu: 5962062
+      top_emu: 1010975
+      left_cm: 16.56
+      top_cm: 2.81
+    size:
+      width_emu: 3072600
+      height_emu: 393000
+      width_cm: 8.54
+      height_cm: 1.09
+    text_runs:
+    - text: 内製化に向けた
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: レクチャー会の実施
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+- slide_number: 31
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 6
+  elements:
+  - name: Google Shape;879;p82
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;880;p82
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 取組進捗 配信体制の強化
+  - name: Google Shape;881;p82
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;882;p82
+    type: 19
+    position:
+      left_emu: 165222
+      top_emu: 1786803
+      left_cm: 0.46
+      top_cm: 4.96
+    size:
+      width_emu: 3000000
+      height_emu: 3000000
+      width_cm: 8.33
+      height_cm: 8.33
+  - name: Google Shape;883;p82
+    type: 1
+    position:
+      left_emu: 3843200
+      top_emu: 3278700
+      left_cm: 10.68
+      top_cm: 9.11
+    size:
+      width_emu: 4493700
+      height_emu: 1056300
+      width_cm: 12.48
+      height_cm: 2.93
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      width_emu: 28575
+      color_scheme: accent3
+  - name: Google Shape;884;p82
+    type: 14
+    position:
+      left_emu: 87175
+      top_emu: 1010975
+      left_cm: 0.24
+      top_cm: 2.81
+    size:
+      width_emu: 8520600
+      height_emu: 393000
+      width_cm: 23.67
+      height_cm: 1.09
+    text_runs:
+    - text: 内製化に向けたサポート
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+    - text: 完全内製で実施する配信回数を増やし、2026年10月までに以下を自走できる体制をつくる
+      font: Noto Sans
+      size_pt: 16.0
+      bold: true
+      color:
+        rgb: '434343'
+        theme: NOT_THEME_COLOR
+- slide_number: 32
+  layout: TITLE_ONLY_1_1_1_1_1_1_1_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;889;p83
+    type: 14
+    position:
+      left_emu: 396250
+      top_emu: 2178975
+      left_cm: 1.1
+      top_cm: 6.05
+    size:
+      width_emu: 3856500
+      height_emu: 785700
+      width_cm: 10.71
+      height_cm: 2.18
+    text_runs:
+    - text: 今後のご提案
+- slide_number: 33
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 7
+  elements:
+  - name: Google Shape;894;p84
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 960875
+      left_cm: 0.87
+      top_cm: 2.67
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+  - name: Google Shape;895;p84
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 3756539
+      left_cm: 0.87
+      top_cm: 10.43
+    size:
+      width_emu: 8520600
+      height_emu: 982200
+      width_cm: 23.67
+      height_cm: 2.73
+    text_runs:
+    - text: Live Commerce
+  - name: Google Shape;896;p84
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;897;p84
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+  - name: Google Shape;898;p84
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;899;p84
+    type: 14
+    position:
+      left_emu: 2495500
+      top_emu: 2774329
+      left_cm: 6.93
+      top_cm: 7.71
+    size:
+      width_emu: 6336900
+      height_emu: 982200
+      width_cm: 17.6
+      height_cm: 2.73
+    text_runs:
+    - text: LIPS統合 （マツキヨ&LIPSへSDK実装→Live Commerce追加）
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;900;p84
+    type: 14
+    position:
+      left_emu: 5100350
+      top_emu: 1792150
+      left_cm: 14.17
+      top_cm: 4.98
+    size:
+      width_emu: 3732000
+      height_emu: 982200
+      width_cm: 10.37
+      height_cm: 2.73
+    text_runs:
+    - text: メディア化（店舗 / アプリ）
+- slide_number: 34
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 7
+  elements:
+  - name: Google Shape;905;p85
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 960875
+      left_cm: 0.87
+      top_cm: 2.67
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+  - name: Google Shape;906;p85
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;907;p85
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+  - name: Google Shape;908;p85
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;909;p85
+    type: 14
+    position:
+      left_emu: 2495500
+      top_emu: 2774329
+      left_cm: 6.93
+      top_cm: 7.71
+    size:
+      width_emu: 6336900
+      height_emu: 982200
+      width_cm: 17.6
+      height_cm: 2.73
+    text_runs:
+    - text: LIPS統合 （マツキヨ&LIPSへSDK実装→Live Commerce追加）
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;910;p85
+    type: 14
+    position:
+      left_emu: 5100350
+      top_emu: 1792150
+      left_cm: 14.17
+      top_cm: 4.98
+    size:
+      width_emu: 3732000
+      height_emu: 982200
+      width_cm: 10.37
+      height_cm: 2.73
+    text_runs:
+    - text: メディア化（店舗 / アプリ）
+  - name: Google Shape;911;p85
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 3756539
+      left_cm: 0.87
+      top_cm: 10.43
+    size:
+      width_emu: 8520600
+      height_emu: 982200
+      width_cm: 23.67
+      height_cm: 2.73
+    text_runs:
+    - text: Live Commerce
+      size_pt: 20.0
+      bold: true
+      color:
+        theme: ACCENT_2
+- slide_number: 35
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 4
+  elements:
+  - name: Google Shape;916;p86
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;917;p86
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: ライブコマースによる売上アップ短期施策
+  - name: Google Shape;918;p86
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;919;p86
+    type: 19
+    position:
+      left_emu: 666975
+      top_emu: 1296613
+      left_cm: 1.85
+      top_cm: 3.6
+    size:
+      width_emu: 3000000
+      height_emu: 3000000
+      width_cm: 8.33
+      height_cm: 8.33
+- slide_number: 36
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 7
+  elements:
+  - name: Google Shape;924;p87
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;925;p87
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 【
+    - text: 短期施策
+    - text: １】商品メニュー開発
+  - name: Google Shape;926;p87
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;927;p87
+    type: 1
+    position:
+      left_emu: 311700
+      top_emu: 1150025
+      left_cm: 0.87
+      top_cm: 3.19
+    size:
+      width_emu: 4071300
+      height_emu: 463500
+      width_cm: 11.31
+      height_cm: 1.29
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 既存メニューとのパッケージ化
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;928;p87
+    type: 1
+    position:
+      left_emu: 4761000
+      top_emu: 1150025
+      left_cm: 13.22
+      top_cm: 3.19
+    size:
+      width_emu: 4071300
+      height_emu: 463500
+      width_cm: 11.31
+      height_cm: 1.29
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: コラボ型メニュー
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;929;p87
+    type: 1
+    position:
+      left_emu: 311700
+      top_emu: 1613525
+      left_cm: 0.87
+      top_cm: 4.48
+    size:
+      width_emu: 4071300
+      height_emu: 3002400
+      width_cm: 11.31
+      height_cm: 8.34
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 「協賛配信 + SNS連動パック」
+      font: Roboto
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: ライブ配信 + 切り抜き動画制作 + SNS投稿セット
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: メーカー側のSNS活用ニーズに応える
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 「協賛配信 + クーポン施策パック」
+      font: Roboto
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 配信限定クーポン発行 + 効果測定レポート付き
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: CVまで追える価値を提供
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 「協賛配信 + リタゲ広告パック」
+      font: Roboto
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 視聴者データを活用した広告配信との連携
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 配信後のフォローアップまで一貫提供
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;930;p87
+    type: 1
+    position:
+      left_emu: 4761000
+      top_emu: 1613525
+      left_cm: 13.22
+      top_cm: 4.48
+    size:
+      width_emu: 4071300
+      height_emu: 3002400
+      width_cm: 11.31
+      height_cm: 8.34
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 企業コラボ配信
+      font: Roboto
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 複数メーカー合同配信でインプレッション最大化
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 1社あたりのコスト負担軽減
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: LIPSコラボメニュー拡張
+      font: Roboto
+      size_pt: 12.0
+      bold: true
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 既存の成功事例を横展開
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: インフルエンサー × メーカー × プラットフォームの3者連携
+      font: Roboto
+      size_pt: 12.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+- slide_number: 37
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 12
+  elements:
+  - name: Google Shape;935;p88
+    type: 1
+    position:
+      left_emu: 771750
+      top_emu: 3523075
+      left_cm: 2.14
+      top_cm: 9.79
+    size:
+      width_emu: 1059600
+      height_emu: 911700
+      width_cm: 2.94
+      height_cm: 2.53
+    geometry: bentUpArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+  - name: Google Shape;936;p88
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;937;p88
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 【
+    - text: 短期施策
+    - text: ２】視聴者獲得施策
+  - name: Google Shape;938;p88
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;939;p88
+    type: 1
+    position:
+      left_emu: 311700
+      top_emu: 1150025
+      left_cm: 0.87
+      top_cm: 3.19
+    size:
+      width_emu: 3875700
+      height_emu: 463500
+      width_cm: 10.77
+      height_cm: 1.29
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 新規視聴者向け
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;940;p88
+    type: 1
+    position:
+      left_emu: 4956589
+      top_emu: 1150025
+      left_cm: 13.77
+      top_cm: 3.19
+    size:
+      width_emu: 3875700
+      height_emu: 463500
+      width_cm: 10.77
+      height_cm: 1.29
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 既存視聴者（リピーター向け）
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;941;p88
+    type: 1
+    position:
+      left_emu: 311700
+      top_emu: 1613525
+      left_cm: 0.87
+      top_cm: 4.48
+    size:
+      width_emu: 3875700
+      height_emu: 1821300
+      width_cm: 10.77
+      height_cm: 5.06
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 企業コラボ配信による相互送客
+      font: Noto Sans JP
+      size_pt: 16.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: キャンペーン・プレゼント企画との連動
+      font: Noto Sans JP
+      size_pt: 16.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 広告出稿によるライブ告知強化
+      font: Noto Sans JP
+      size_pt: 16.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;942;p88
+    type: 1
+    position:
+      left_emu: 4956589
+      top_emu: 1613525
+      left_cm: 13.77
+      top_cm: 4.48
+    size:
+      width_emu: 3875700
+      height_emu: 1821300
+      width_cm: 10.77
+      height_cm: 5.06
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 会員限定先行視聴・特典
+      font: Noto Sans JP
+      size_pt: 16.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: ポイント・ロイヤリティプログラム連携
+      font: Noto Sans JP
+      size_pt: 16.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 定期配信スケジュールの確立
+      font: Noto Sans JP
+      size_pt: 16.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;943;p88
+    type: 1
+    position:
+      left_emu: 3293800
+      top_emu: 3964600
+      left_cm: 9.15
+      top_cm: 11.01
+    size:
+      width_emu: 4033800
+      height_emu: 850200
+      width_cm: 11.21
+      height_cm: 2.36
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: マツココAppでもライブ配信を実施
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: 店舗サイネージでの配信
+      font: Noto Sans JP
+      size_pt: 13.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 店舗スタッフを活用したコンテンツ
+      font: Noto Sans JP
+      size_pt: 13.0
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;944;p88
+    type: 1
+    position:
+      left_emu: 1628800
+      top_emu: 3964600
+      left_cm: 4.52
+      top_cm: 11.01
+    size:
+      width_emu: 1665000
+      height_emu: 850200
+      width_cm: 4.62
+      height_cm: 2.36
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 配信面の拡大
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;945;p88
+    type: 1
+    position:
+      left_emu: 4174650
+      top_emu: 2126822
+      left_cm: 11.6
+      top_cm: 5.91
+    size:
+      width_emu: 794700
+      height_emu: 794700
+      width_cm: 2.21
+      height_cm: 2.21
+    geometry: mathMultiply
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+  - name: Google Shape;946;p88
+    type: 1
+    position:
+      left_emu: 7327525
+      top_emu: 3523075
+      left_cm: 20.35
+      top_cm: 9.79
+    size:
+      width_emu: 1059600
+      height_emu: 911700
+      width_cm: 2.94
+      height_cm: 2.53
+    geometry: bentUpArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+- slide_number: 38
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 11
+  elements:
+  - name: Google Shape;951;p89
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;952;p89
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 【
+    - text: 短期施策
+    - text: ３】価値証明・インサイト提示
+  - name: Google Shape;953;p89
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;954;p89
+    type: 1
+    position:
+      left_emu: 4761000
+      top_emu: 1150025
+      left_cm: 13.22
+      top_cm: 3.19
+    size:
+      width_emu: 4071300
+      height_emu: 463500
+      width_cm: 11.31
+      height_cm: 1.29
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 価格妥当性の証明
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;955;p89
+    type: 1
+    position:
+      left_emu: 247675
+      top_emu: 1150025
+      left_cm: 0.69
+      top_cm: 3.19
+    size:
+      width_emu: 4071300
+      height_emu: 463500
+      width_cm: 11.31
+      height_cm: 1.29
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 効果の可視化
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;956;p89
+    type: 1
+    position:
+      left_emu: 4761000
+      top_emu: 1613525
+      left_cm: 13.22
+      top_cm: 4.48
+    size:
+      width_emu: 4071300
+      height_emu: 1278900
+      width_cm: 11.31
+      height_cm: 3.55
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 競合他社との比較表作成
+      font: Noto Sans JP
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: CPM・CPA・CVR等の指標で優位性を可視化
+      font: Noto Sans JP
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;957;p89
+    type: 1
+    position:
+      left_emu: 247675
+      top_emu: 1613525
+      left_cm: 0.69
+      top_cm: 4.48
+    size:
+      width_emu: 4071300
+      height_emu: 1278900
+      width_cm: 11.31
+      height_cm: 3.55
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 配信ごとのレポートフォーマット標準化
+      font: Noto Sans JP
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 協賛メーカー向けダッシュボード提供
+      font: Noto Sans JP
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+    - text: 成功事例のケーススタディ蓄積
+      font: Noto Sans JP
+      bold: true
+      color:
+        rgb: '303030'
+        theme: NOT_THEME_COLOR
+  - name: Google Shape;958;p89
+    type: 1
+    position:
+      left_emu: 1546300
+      top_emu: 3004300
+      left_cm: 4.3
+      top_cm: 8.35
+    size:
+      width_emu: 5298000
+      height_emu: 794700
+      width_cm: 14.72
+      height_cm: 2.21
+    geometry: rect
+    fill:
+      type: scheme
+      ref: accent3
+    outline:
+      stroke: false
+    text_runs:
+    - text: Firework事例記事もしくは、提携メディアを活用し
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: MCCMのライブコマース利用事例・成功事例を発信
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;959;p89
+    type: 1
+    position:
+      left_emu: 1008150
+      top_emu: 2785175
+      left_cm: 2.8
+      top_cm: 7.74
+    size:
+      width_emu: 697200
+      height_emu: 911700
+      width_cm: 1.94
+      height_cm: 2.53
+    geometry: bentUpArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+  - name: Google Shape;960;p89
+    type: 1
+    position:
+      left_emu: 1546300
+      top_emu: 3882738
+      left_cm: 4.3
+      top_cm: 10.79
+    size:
+      width_emu: 5298000
+      height_emu: 794700
+      width_cm: 14.72
+      height_cm: 2.21
+    geometry: rect
+    fill:
+      type: scheme
+      ref: accent3
+    outline:
+      stroke: false
+    text_runs:
+    - text: 配信後のレポートを商材として販売する
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: 分析内容を増やして提供する
+      font: Noto Sans JP
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;961;p89
+    type: 1
+    position:
+      left_emu: 859650
+      top_emu: 3519450
+      left_cm: 2.39
+      top_cm: 9.78
+    size:
+      width_emu: 994200
+      height_emu: 911700
+      width_cm: 2.76
+      height_cm: 2.53
+    geometry: bentUpArrow
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+- slide_number: 39
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 7
+  elements:
+  - name: Google Shape;966;p90
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 960875
+      left_cm: 0.87
+      top_cm: 2.67
+    size:
+      width_emu: 8520600
+      height_emu: 431100
+      width_cm: 23.67
+      height_cm: 1.2
+  - name: Google Shape;967;p90
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 3756539
+      left_cm: 0.87
+      top_cm: 10.43
+    size:
+      width_emu: 8520600
+      height_emu: 982200
+      width_cm: 23.67
+      height_cm: 2.73
+    text_runs:
+    - text: Live Commerce
+  - name: Google Shape;968;p90
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;969;p90
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中長期の施策について
+  - name: Google Shape;970;p90
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;971;p90
+    type: 14
+    position:
+      left_emu: 5100350
+      top_emu: 1792150
+      left_cm: 14.17
+      top_cm: 4.98
+    size:
+      width_emu: 3732000
+      height_emu: 982200
+      width_cm: 10.37
+      height_cm: 2.73
+    text_runs:
+    - text: メディア化（店舗 / アプリ）
+      size_pt: 20.0
+      bold: true
+  - name: Google Shape;972;p90
+    type: 14
+    position:
+      left_emu: 2495500
+      top_emu: 2774329
+      left_cm: 6.93
+      top_cm: 7.71
+    size:
+      width_emu: 6336900
+      height_emu: 982200
+      width_cm: 17.6
+      height_cm: 2.73
+    text_runs:
+    - text: LIPS
+      size_pt: 20.0
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: 統合
+      size_pt: 20.0
+      bold: true
+      color:
+        theme: LIGHT_1
+    - text: （マツキヨ&LIPSへSDK実装→Live Commerce追加）
+      size_pt: 20.0
+      bold: true
+      color:
+        theme: LIGHT_1
+- slide_number: 40
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 5
+  elements:
+  - name: Google Shape;977;p91
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;978;p91
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中経より
+  - name: Google Shape;979;p91
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;980;p91
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+  - name: Google Shape;981;p91
+    type: 1
+    position:
+      left_emu: 3133537
+      top_emu: 2620939
+      left_cm: 8.7
+      top_cm: 7.28
+    size:
+      width_emu: 2732631
+      height_emu: 847022
+      width_cm: 7.59
+      height_cm: 2.35
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 38100
+      color_scheme: accent2
+- slide_number: 41
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 18
+  elements:
+  - name: Google Shape;986;p92
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;987;p92
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: マツココアプリへSDKの実装
+  - name: Google Shape;988;p92
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;989;p92
+    type: 13
+    position:
+      left_emu: 311689
+      top_emu: 1673700
+      left_cm: 0.87
+      top_cm: 4.65
+    size:
+      width_emu: 1284300
+      height_emu: 2783400
+      width_cm: 3.57
+      height_cm: 7.73
+    image_content_type: image/png
+  - name: Google Shape;990;p92
+    type: 13
+    position:
+      left_emu: 3923764
+      top_emu: 1673700
+      left_cm: 10.9
+      top_cm: 4.65
+    size:
+      width_emu: 1284300
+      height_emu: 2783400
+      width_cm: 3.57
+      height_cm: 7.73
+    image_content_type: image/png
+  - name: Google Shape;991;p92
+    type: 13
+    position:
+      left_emu: 5974139
+      top_emu: 1674775
+      left_cm: 16.59
+      top_cm: 4.65
+    size:
+      width_emu: 1284300
+      height_emu: 2783400
+      width_cm: 3.57
+      height_cm: 7.73
+    image_content_type: image/gif
+  - name: Google Shape;992;p92
+    type: 13
+    position:
+      left_emu: 3923763
+      top_emu: 3405325
+      left_cm: 10.9
+      top_cm: 9.46
+    size:
+      width_emu: 1284300
+      height_emu: 759275
+      width_cm: 3.57
+      height_cm: 2.11
+    image_content_type: image/gif
+  - name: Google Shape;993;p92
+    type: 1
+    position:
+      left_emu: 311700
+      top_emu: 1054775
+      left_cm: 0.87
+      top_cm: 2.93
+    size:
+      width_emu: 2661000
+      height_emu: 399000
+      width_cm: 7.39
+      height_cm: 1.11
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 現状
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;994;p92
+    type: 1
+    position:
+      left_emu: 3891830
+      top_emu: 1054775
+      left_cm: 10.81
+      top_cm: 2.93
+    size:
+      width_emu: 5049000
+      height_emu: 399000
+      width_cm: 14.03
+      height_cm: 1.11
+    geometry: rect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      stroke: false
+    text_runs:
+    - text: アプリ×Firework
+      font: Noto Sans JP
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;995;p92
+    type: 9
+    position:
+      left_emu: 3472888
+      top_emu: 1169050
+      left_cm: 9.65
+      top_cm: 3.25
+    size:
+      width_emu: 8100
+      height_emu: 3453600
+      width_cm: 0.02
+      height_cm: 9.59
+  - name: Google Shape;996;p92
+    type: 1
+    position:
+      left_emu: 1723475
+      top_emu: 1846875
+      left_cm: 4.79
+      top_cm: 5.13
+    size:
+      width_emu: 1284300
+      height_emu: 318300
+      width_cm: 3.57
+      height_cm: 0.88
+    geometry: rect
+    fill:
+      type: scheme
+      ref: accent1
+    outline:
+      stroke: false
+    text_runs:
+    - text: 主な活用用途
+      font: Noto Sans JP
+  - name: Google Shape;997;p92
+    type: 1
+    position:
+      left_emu: 1723475
+      top_emu: 2151350
+      left_cm: 4.79
+      top_cm: 5.98
+    size:
+      width_emu: 1284300
+      height_emu: 527400
+      width_cm: 3.57
+      height_cm: 1.47
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: クーポン獲得
+      font: Noto Sans JP
+      size_pt: 12.0
+    - text: ポイント蓄積
+      font: Noto Sans JP
+      size_pt: 12.0
+  - name: Google Shape;998;p92
+    type: 1
+    position:
+      left_emu: 7593600
+      top_emu: 1846875
+      left_cm: 21.09
+      top_cm: 5.13
+    size:
+      width_emu: 1284300
+      height_emu: 318300
+      width_cm: 3.57
+      height_cm: 0.88
+    geometry: rect
+    fill:
+      type: scheme
+      ref: accent1
+    outline:
+      stroke: false
+    text_runs:
+    - text: 主な活用用途
+      font: Noto Sans JP
+  - name: Google Shape;999;p92
+    type: 1
+    position:
+      left_emu: 7593600
+      top_emu: 3637208
+      left_cm: 21.09
+      top_cm: 10.1
+    size:
+      width_emu: 1284300
+      height_emu: 527400
+      width_cm: 3.57
+      height_cm: 1.47
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: クーポン獲得
+      font: Noto Sans JP
+      size_pt: 12.0
+    - text: ポイント蓄積
+      font: Noto Sans JP
+      size_pt: 12.0
+  - name: Google Shape;1000;p92
+    type: 1
+    position:
+      left_emu: 7593600
+      top_emu: 2151353
+      left_cm: 21.09
+      top_cm: 5.98
+    size:
+      width_emu: 1284300
+      height_emu: 992700
+      width_cm: 3.57
+      height_cm: 2.76
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      stroke: false
+    text_runs:
+    - text: 「美しさと健やかさを、もっと楽しく、身近に」感じられる
+      font: Noto Sans JP
+      size_pt: 12.0
+    - text: メディア
+      font: Noto Sans JP
+      size_pt: 12.0
+      bold: true
+      color:
+        theme: ACCENT_2
+  - name: Google Shape;1001;p92
+    type: 1
+    position:
+      left_emu: 8005950
+      top_emu: 3177650
+      left_cm: 22.24
+      top_cm: 8.83
+    size:
+      width_emu: 459600
+      height_emu: 459600
+      width_cm: 1.28
+      height_cm: 1.28
+    geometry: mathPlus
+    fill:
+      type: solid
+      hex: '#B7B7B7'
+    outline:
+      stroke: false
+  - name: Google Shape;1002;p92
+    type: 1
+    position:
+      left_emu: 5307575
+      top_emu: 2473388
+      left_cm: 14.74
+      top_cm: 6.87
+    size:
+      width_emu: 546000
+      height_emu: 391800
+      width_cm: 1.52
+      height_cm: 1.09
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#B7B7B7'
+    outline:
+      stroke: false
+  - name: Google Shape;1003;p92
+    type: 1
+    position:
+      left_emu: 5307575
+      top_emu: 3267763
+      left_cm: 14.74
+      top_cm: 9.08
+    size:
+      width_emu: 546000
+      height_emu: 391800
+      width_cm: 1.52
+      height_cm: 1.09
+    geometry: rightArrow
+    fill:
+      type: solid
+      hex: '#B7B7B7'
+    outline:
+      stroke: false
+- slide_number: 42
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 5
+  elements:
+  - name: Google Shape;1008;p93
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;1009;p93
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中経より
+  - name: Google Shape;1010;p93
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;1011;p93
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+  - name: Google Shape;1012;p93
+    type: 1
+    position:
+      left_emu: 3147250
+      top_emu: 2197437
+      left_cm: 8.74
+      top_cm: 6.1
+    size:
+      width_emu: 2732700
+      height_emu: 846900
+      width_cm: 7.59
+      height_cm: 2.35
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 38100
+      color_scheme: accent2
+- slide_number: 43
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 5
+  elements:
+  - name: Google Shape;1017;p94
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;1018;p94
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中経より
+  - name: Google Shape;1019;p94
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;1020;p94
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+  - name: Google Shape;1021;p94
+    type: 1
+    position:
+      left_emu: 1566300
+      top_emu: 1659226
+      left_cm: 4.35
+      top_cm: 4.61
+    size:
+      width_emu: 2732700
+      height_emu: 2514000
+      width_cm: 7.59
+      height_cm: 6.98
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 38100
+      color_scheme: accent2
+- slide_number: 44
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 30
+  elements:
+  - name: Google Shape;1026;p95
+    type: 1
+    position:
+      left_emu: 702950
+      top_emu: 1009425
+      left_cm: 1.95
+      top_cm: 2.8
+    size:
+      width_emu: 7943700
+      height_emu: 3156600
+      width_cm: 22.07
+      height_cm: 8.77
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: lt1
+    outline:
+      width_emu: 19050
+      color_scheme: accent1
+  - name: Google Shape;1027;p95
+    type: 13
+    position:
+      left_emu: 7105625
+      top_emu: 2294128
+      left_cm: 19.74
+      top_cm: 6.37
+    size:
+      width_emu: 1258656
+      height_emu: 714156
+      width_cm: 3.5
+      height_cm: 1.98
+    image_content_type: image/png
+  - name: Google Shape;1028;p95
+    type: 13
+    position:
+      left_emu: 1902819
+      top_emu: 1413496
+      left_cm: 5.29
+      top_cm: 3.93
+    size:
+      width_emu: 2774200
+      height_emu: 2729990
+      width_cm: 7.71
+      height_cm: 7.58
+    image_content_type: image/png
+  - name: Google Shape;1029;p95
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;1030;p95
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: LIPSコンテンツをMCCでフル活用
+  - name: Google Shape;1031;p95
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;1032;p95
+    type: 13
+    position:
+      left_emu: 4567001
+      top_emu: 1625348
+      left_cm: 12.69
+      top_cm: 4.51
+    size:
+      width_emu: 1016100
+      height_emu: 2202000
+      width_cm: 2.82
+      height_cm: 6.12
+    image_content_type: image/png
+  - name: Google Shape;1033;p95
+    type: 13
+    position:
+      left_emu: 1609106
+      top_emu: 1479440
+      left_cm: 4.47
+      top_cm: 4.11
+    size:
+      width_emu: 559200
+      height_emu: 1212000
+      width_cm: 1.55
+      height_cm: 3.37
+    image_content_type: image/png
+  - name: Google Shape;1034;p95
+    type: 13
+    position:
+      left_emu: 1609106
+      top_emu: 2840588
+      left_cm: 4.47
+      top_cm: 7.89
+    size:
+      width_emu: 559200
+      height_emu: 1211700
+      width_cm: 1.55
+      height_cm: 3.37
+    image_content_type: image/png
+  - name: Google Shape;1035;p95
+    type: 13
+    position:
+      left_emu: 2272817
+      top_emu: 1951391
+      left_cm: 6.31
+      top_cm: 5.42
+    size:
+      width_emu: 771671
+      height_emu: 545464
+      width_cm: 2.14
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;1036;p95
+    type: 13
+    position:
+      left_emu: 3281866
+      top_emu: 2120626
+      left_cm: 9.12
+      top_cm: 5.89
+    size:
+      width_emu: 771671
+      height_emu: 545464
+      width_cm: 2.14
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;1037;p95
+    type: 13
+    position:
+      left_emu: 3281866
+      top_emu: 1575172
+      left_cm: 9.12
+      top_cm: 4.38
+    size:
+      width_emu: 771671
+      height_emu: 545464
+      width_cm: 2.14
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;1038;p95
+    type: 13
+    position:
+      left_emu: 2315991
+      top_emu: 3065961
+      left_cm: 6.43
+      top_cm: 8.52
+    size:
+      width_emu: 771671
+      height_emu: 545464
+      width_cm: 2.14
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;1039;p95
+    type: 13
+    position:
+      left_emu: 3368215
+      top_emu: 3506839
+      left_cm: 9.36
+      top_cm: 9.74
+    size:
+      width_emu: 771671
+      height_emu: 545464
+      width_cm: 2.14
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;1040;p95
+    type: 13
+    position:
+      left_emu: 3281866
+      top_emu: 2961386
+      left_cm: 9.12
+      top_cm: 8.23
+    size:
+      width_emu: 771671
+      height_emu: 545464
+      width_cm: 2.14
+      height_cm: 1.52
+    image_content_type: image/png
+  - name: Google Shape;1041;p95
+    type: 1
+    position:
+      left_emu: 1234700
+      top_emu: 2828895
+      left_cm: 3.43
+      top_cm: 7.86
+    size:
+      width_emu: 374400
+      height_emu: 370800
+      width_cm: 1.04
+      height_cm: 1.03
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      width_emu: 19600
+      color_scheme: lt1
+    text_runs:
+    - text: '2'
+      font: Noto Sans JP
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;1042;p95
+    type: 1
+    position:
+      left_emu: 1234700
+      top_emu: 1492939
+      left_cm: 3.43
+      top_cm: 4.15
+    size:
+      width_emu: 374400
+      height_emu: 370800
+      width_cm: 1.04
+      height_cm: 1.03
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      width_emu: 19600
+      color_scheme: lt1
+    text_runs:
+    - text: '1'
+      font: Noto Sans JP
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;1043;p95
+    type: 1
+    position:
+      left_emu: 4299005
+      top_emu: 1575175
+      left_cm: 11.94
+      top_cm: 4.38
+    size:
+      width_emu: 374400
+      height_emu: 370800
+      width_cm: 1.04
+      height_cm: 1.03
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      width_emu: 19600
+      color_scheme: lt1
+    text_runs:
+    - text: '3'
+      font: Noto Sans JP
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;1044;p95
+    type: 1
+    position:
+      left_emu: 6287433
+      top_emu: 2120628
+      left_cm: 17.47
+      top_cm: 5.89
+    size:
+      width_emu: 374400
+      height_emu: 370800
+      width_cm: 1.04
+      height_cm: 1.03
+    geometry: roundRect
+    fill:
+      type: scheme
+      ref: dk2
+    outline:
+      width_emu: 19600
+      color_scheme: lt1
+    text_runs:
+    - text: '4'
+      font: Noto Sans JP
+      size_pt: 13.0
+      bold: true
+      color:
+        theme: LIGHT_1
+  - name: Google Shape;1045;p95
+    type: 1
+    position:
+      left_emu: 311700
+      top_emu: 4320650
+      left_cm: 0.87
+      top_cm: 12.0
+    size:
+      width_emu: 4035000
+      height_emu: 495300
+      width_cm: 11.21
+      height_cm: 1.38
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 24500
+      color_scheme: lt1
+    text_runs:
+    - text: '[1] AppへSDK実装'
+      font: Noto Sans JP
+      size_pt: 12.3
+    - text: '[2] Webサイトも含めLIPSコンテンツを活用'
+      font: Noto Sans JP
+      size_pt: 12.3
+  - name: Google Shape;1046;p95
+    type: 1
+    position:
+      left_emu: 4709872
+      top_emu: 4320650
+      left_cm: 13.08
+      top_cm: 12.0
+    size:
+      width_emu: 4035000
+      height_emu: 495300
+      width_cm: 11.21
+      height_cm: 1.38
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 24500
+      color_scheme: lt1
+    text_runs:
+    - text: '[3] LIPSでMCCライブの切り抜き動画の活用'
+      font: Noto Sans JP
+      size_pt: 12.3
+    - text: '[4] 店舗で”MCC x LIPS”のコンテンツを活用'
+      font: Noto Sans JP
+      size_pt: 12.3
+  - name: Google Shape;1047;p95
+    type: 9
+    position:
+      left_emu: 5919813
+      top_emu: 1328488
+      left_cm: 16.44
+      top_cm: 3.69
+    size:
+      width_emu: 3600
+      height_emu: 2645400
+      width_cm: 0.01
+      height_cm: 7.35
+  - name: Google Shape;1048;p95
+    type: 1
+    position:
+      left_emu: 1122250
+      top_emu: 1975200
+      left_cm: 3.12
+      top_cm: 5.49
+    size:
+      width_emu: 438900
+      height_emu: 220500
+      width_cm: 1.22
+      height_cm: 0.61
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: App
+      font: Noto Sans JP
+      size_pt: 8.0
+      bold: true
+  - name: Google Shape;1049;p95
+    type: 1
+    position:
+      left_emu: 1122250
+      top_emu: 3337125
+      left_cm: 3.12
+      top_cm: 9.27
+    size:
+      width_emu: 438900
+      height_emu: 220500
+      width_cm: 1.22
+      height_cm: 0.61
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: Web
+      font: Noto Sans JP
+      size_pt: 8.0
+      bold: true
+  - name: Google Shape;1050;p95
+    type: 13
+    position:
+      left_emu: 4698725
+      top_emu: 3827338
+      left_cm: 13.05
+      top_cm: 10.63
+    size:
+      width_emu: 303174
+      height_emu: 303174
+      width_cm: 0.84
+      height_cm: 0.84
+    image_content_type: image/png
+  - name: Google Shape;1051;p95
+    type: 1
+    position:
+      left_emu: 5012450
+      top_emu: 3868663
+      left_cm: 13.92
+      top_cm: 10.75
+    size:
+      width_emu: 438900
+      height_emu: 220500
+      width_cm: 1.22
+      height_cm: 0.61
+    geometry: rect
+    fill:
+      type: none
+    outline:
+      stroke: false
+    text_runs:
+    - text: LIPS
+      font: Noto Sans JP
+      size_pt: 8.0
+      bold: true
+  - name: Google Shape;1052;p95
+    type: 1
+    position:
+      left_emu: 1020275
+      top_emu: 1088725
+      left_cm: 2.83
+      top_cm: 3.02
+    size:
+      width_emu: 4539300
+      height_emu: 303300
+      width_cm: 12.61
+      height_cm: 0.84
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 24500
+      color_scheme: lt1
+    text_runs:
+    - text: MCCとLIPSのコンテンツが流通されているメディア
+      font: Noto Sans JP
+      size_pt: 12.3
+  - name: Google Shape;1053;p95
+    type: 1
+    position:
+      left_emu: 6184425
+      top_emu: 1088725
+      left_cm: 17.18
+      top_cm: 3.02
+    size:
+      width_emu: 2201100
+      height_emu: 684600
+      width_cm: 6.11
+      height_cm: 1.9
+    geometry: rect
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 24500
+      color_scheme: lt1
+    text_runs:
+    - text: インプレッションの最大化
+      font: Noto Sans JP
+      size_pt: 12.3
+    - text: によるメディア価値の向上
+      font: Noto Sans JP
+      size_pt: 12.3
+  - name: Google Shape;1054;p95
+    type: 1
+    position:
+      left_emu: 5222013
+      top_emu: 2532850
+      left_cm: 14.51
+      top_cm: 7.04
+    size:
+      width_emu: 1426500
+      height_emu: 387000
+      width_cm: 3.96
+      height_cm: 1.07
+    geometry: triangle
+    fill:
+      type: scheme
+      ref: lt2
+    outline:
+      width_emu: 38100
+      color_scheme: lt1
+  - name: Google Shape;1055;p95
+    type: 13
+    position:
+      left_emu: 6447831
+      top_emu: 2709756
+      left_cm: 17.91
+      top_cm: 7.53
+    size:
+      width_emu: 1235494
+      height_emu: 674457
+      width_cm: 3.43
+      height_cm: 1.87
+    image_content_type: image/png
+- slide_number: 45
+  layout: TITLE_AND_BODY_2_1
+  shape_count: 5
+  elements:
+  - name: Google Shape;1060;p96
+    type: 14
+    position:
+      left_emu: 4299000
+      top_emu: 4970550
+      left_cm: 11.94
+      top_cm: 13.81
+    size:
+      width_emu: 546000
+      height_emu: 107700
+      width_cm: 1.52
+      height_cm: 0.3
+    text_runs:
+    - text: 'Page  '
+  - name: Google Shape;1061;p96
+    type: 14
+    position:
+      left_emu: 311700
+      top_emu: 261075
+      left_cm: 0.87
+      top_cm: 0.73
+    size:
+      width_emu: 8520600
+      height_emu: 572700
+      width_cm: 23.67
+      height_cm: 1.59
+    text_runs:
+    - text: 中経より
+  - name: Google Shape;1062;p96
+    type: 14
+    position:
+      left_emu: 0
+      top_emu: 0
+      left_cm: 0.0
+      top_cm: 0.0
+    size:
+      width_emu: 2603100
+      height_emu: 220500
+      width_cm: 7.23
+      height_cm: 0.61
+  - name: Google Shape;1063;p96
+    type: 13
+    position:
+      left_emu: 969802
+      top_emu: 972700
+      left_cm: 2.69
+      top_cm: 2.7
+    size:
+      width_emu: 7087567
+      height_emu: 3749562
+      width_cm: 19.69
+      height_cm: 10.42
+    image_content_type: image/png
+  - name: Google Shape;1064;p96
+    type: 1
+    position:
+      left_emu: 821350
+      top_emu: 1269875
+      left_cm: 2.28
+      top_cm: 3.53
+    size:
+      width_emu: 7236000
+      height_emu: 3240300
+      width_cm: 20.1
+      height_cm: 9.0
+    geometry: roundRect
+    fill:
+      type: none
+    outline:
+      width_emu: 38100
+      color_scheme: accent2
+- slide_number: 46
+  layout: TITLE_ONLY_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1
+  shape_count: 1
+  elements:
+  - name: Google Shape;1069;p97
+    type: 14
+    position:
+      left_emu: 548650
+      top_emu: 2146875
+      left_cm: 1.52
+      top_cm: 5.96
+    size:
+      width_emu: 3949800
+      height_emu: 771000
+      width_cm: 10.97
+      height_cm: 2.14
+    text_runs:
+    - text: Thank you

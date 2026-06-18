@@ -1,0 +1,298 @@
+
+========== P2 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (   24,   19)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            アジェンダ↵
+  [ 2] SHAPE    (   34,  122)   651x  211 fill=TEXT_BOX       NONE [PH:NONE#None]               2025年度施策振り返り↵国内外における他リテール企業のビジネストレンド↵ライブ配信は大きなデジタル接客の傘の一つに↵様々な収益化チャンス↵…
+
+========== P3 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (   24,   19)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            アジェンダ↵
+  [ 2] SHAPE    (   34,  122)   651x  211 fill=TEXT_BOX       NONE [PH:NONE#None]               2025年度施策振り返り↵国内外における他リテール企業のビジネストレンド↵ライブ配信は大きなデジタル接客の傘の一つに↵様々な収益化チャンス↵…
+
+========== P4 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (   40,   83)   644x  291 fill=RECTANGLE      #FFFCF3 [PH:NONE#None]            ↵
+  [ 1] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 2] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               マツココライブの変遷↵
+  [ 3] GROUP    (   30,   90)   665x  278 fill=                                                 GROUP n=28
+  [ 4] IMAGE    (  575,  243)    90x  119 fill=                                                 IMAGE alt=
+
+========== P5 (layout=タイトルと本文 2 1 (g3d9bf21aad5_13_0)) ==========
+  [ 0] SHAPE    (    0,   15)   720x   53 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 2] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 3] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 4] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 5] SHAPE    (   24,   19)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            数字でみるマツココライブ実績（2024〜2025年度）↵
+  [ 6] GROUP    (   19,  112)   341x  113 fill=                                                 GROUP n=2
+  [ 7] SHAPE    (   38,  123)   306x   18 fill=TEXT_BOX       #000000 [PH:NONE#None]            累計視聴（ライブ＋アーカイブ）↵
+  [ 8] SHAPE    (   38,  142)   188x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            200万人超↵
+  [ 9] SHAPE    (   38,  194)   306x   15 fill=TEXT_BOX       #000000 [PH:NONE#None]            2024年度 578,567人 ＋ 2025年度 1,440,000人↵
+  [10] GROUP    (  360,  112)   341x  113 fill=                                                 GROUP n=2
+  [11] SHAPE    (  379,  123)   306x   18 fill=TEXT_BOX       #000000 [PH:NONE#None]            累計 協賛売上↵
+  [12] SHAPE    (  379,  142)   188x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            2,935万円↵
+  [13] SHAPE    (  379,  194)   306x   15 fill=TEXT_BOX       #000000 [PH:NONE#None]            2024年度 1,432万円 ＋ 2025年度 1,487万円↵
+  [14] GROUP    (   19,  224)   341x  113 fill=                                                 GROUP n=2
+  [15] SHAPE    (   38,  236)   306x   18 fill=TEXT_BOX       #000000 [PH:NONE#None]            配信回数(2024〜2025年度 累計)↵
+  [16] SHAPE    (   38,  254)   188x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            91回↵
+  [17] SHAPE    (   38,  307)   306x   15 fill=TEXT_BOX       #000000 [PH:NONE#None]            2024年度開始〜2025年度までの累計配信数↵
+  [18] GROUP    (  360,  224)   341x  113 fill=                                                 GROUP n=2
+  [19] SHAPE    (  379,  236)   306x   18 fill=TEXT_BOX       #000000 [PH:NONE#None]            平均視聴者数↵
+  [20] SHAPE    (  379,  254)   188x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            4,650人/回↵
+  [21] SHAPE    (  377,  307)   306x   15 fill=TEXT_BOX       #000000 [PH:NONE#None]            2024年度 3,043人→2025年度 5,854人↵
+
+========== P6 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               年度別 協賛実績の推移（MCCM様よりご提供）↵
+  [ 2] TABLE    (   24,  121)   ?  x  ?   fill=                                                 TABLE 3x4
+
+========== P7 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               マツココライブにおける「7つの資産」↵
+  [ 2] SHAPE    (   25,  120)   671x   34 fill=TEXT_BOX       NONE [PH:NONE#None]               ↵
+  [ 3] SHAPE    (   24,  126)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [ 4] SHAPE    (   24,  138)     3x   30 fill=RECTANGLE      #E94560 [PH:NONE#None]            ↵
+  [ 5] SHAPE    (   34,  126)   150x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 01↵視聴者資産↵累計 約144万人↵アーカイブが3.3倍に拡張↵
+  [ 6] SHAPE    (  193,  126)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [ 7] SHAPE    (  193,  138)     3x   30 fill=RECTANGLE      #F59E0B [PH:NONE#None]            ↵
+  [ 8] SHAPE    (  203,  130)   140x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 02↵コンテンツ資産↵91回↵配信後もアーカイブとして蓄積↵
+  [ 9] SHAPE    (  362,  126)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [10] SHAPE    (  362,  138)     3x   30 fill=RECTANGLE      #1B998B [PH:NONE#None]            ↵
+  [11] SHAPE    (  372,  119)   140x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 03↵メーカー関係資産↵約19社 / 累計44回↵月4〜5回 広告販売体制↵
+  [12] SHAPE    (  109,  255)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [13] SHAPE    (  109,  267)     3x   30 fill=RECTANGLE      #8B5CF6 [PH:NONE#None]            ↵
+  [14] SHAPE    (  119,  255)   140x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 05↵ノウハウ資産↵内製化レクチャー↵全5回↵2026年1月〜5月実施↵
+  [15] SHAPE    (  278,  255)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [16] SHAPE    (  278,  267)     3x   30 fill=RECTANGLE      #EAB308 [PH:NONE#None]            ↵
+  [17] SHAPE    (  294,  252)   140x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 06↵出演者資産↵計10名↵第2期3名追加↵
+  [18] SHAPE    (  446,  255)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [19] SHAPE    (  446,  267)     3x   30 fill=RECTANGLE      #06B6D4 [PH:NONE#None]            ↵
+  [20] SHAPE    (  457,  250)   140x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 07↵パートナー資産↵LIPSコラボ↵リテールメディアの↵メニュー強化↵
+  [21] SHAPE    (  530,  126)   161x  120 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [22] SHAPE    (  530,  138)     3x   30 fill=RECTANGLE      #0F3460 [PH:NONE#None]            ↵
+  [23] SHAPE    (  541,  119)   140x  120 fill=TEXT_BOX       NONE [PH:NONE#None]               資産 04↵データ資産↵CDP上に蓄積中↵視聴者ID×会員ID 突合↵
+  [24] SHAPE    (  -23,   82)   767x   32 fill=TEXT_BOX       NONE [PH:NONE#None]                2年間で積み上げた「7つの資産」が、毎週協賛配信が成立するリテールメディアへと成長させることができた ↵
+
+========== P8 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               2025年度の振り返り↵
+  [ 2] SHAPE    (   25,  102)   330x  130 fill=RECTANGLE      #FFF5F7 [PH:NONE#None]            ↵
+  [ 3] SHAPE    (   25,  102)     4x  130 fill=RECTANGLE      #E94560 [PH:NONE#None]            ↵
+  [ 4] SHAPE    (   39,  110)   312x   22 fill=TEXT_BOX       NONE [PH:NONE#None]               🎯 Highlight↵
+  [ 5] SHAPE    (   39,  140)    46x   14 fill=RECTANGLE      #FFE0EC [PH:NONE#None]            効率性↵
+  [ 6] SHAPE    (   86,  138)   263x   16 fill=TEXT_BOX       NONE [PH:NONE#None]               3名体制で毎週配信を実施↵
+  [ 7] SHAPE    (   39,  185)    57x   14 fill=RECTANGLE      #FFF3CD [PH:NONE#None]            実施頻度↵
+  [ 8] SHAPE    (   95,  183)   254x   16 fill=TEXT_BOX       NONE [PH:NONE#None]               協賛配信を毎週受注↵
+  [ 9] SHAPE    (   39,  205)   306x   14 fill=TEXT_BOX       NONE [PH:NONE#None]               リテール業界でもトップクラスの実施頻度↵
+  [10] SHAPE    (  366,  102)   330x  130 fill=RECTANGLE      #F0F4FF [PH:NONE#None]            ↵
+  [11] SHAPE    (  366,  102)     4x  130 fill=RECTANGLE      #0F3460 [PH:NONE#None]            ↵
+  [12] SHAPE    (  380,  110)   312x   22 fill=TEXT_BOX       NONE [PH:NONE#None]               ⚠️ Lowlight↵
+  [13] SHAPE    (  380,  138)   306x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               視聴者数・コメント率は順調に成長する一方、↵平均視聴分数・商品CTR は伸び悩み↵
+  [14] SHAPE    (   25,  244)   671x  110 fill=RECTANGLE      #F0FAF8 [PH:NONE#None]            ↵
+  [15] SHAPE    (   25,  244)     4x  110 fill=RECTANGLE      #1B998B [PH:NONE#None]            ↵
+  [16] SHAPE    (   39,  252)   653x   22 fill=TEXT_BOX       NONE [PH:NONE#None]               💡 学び↵
+  [17] SHAPE    (   43,  282)   653x   64 fill=TEXT_BOX       NONE [PH:NONE#None]               平均視聴分数・商品CTR が伸び悩み。これまで企画・施策で改善を試みてきたが、ここから抜本的な底上げは難しい。↵→ 熱量の高いリピーター・フ…
+  [18] SHAPE    (   39,  160)   306x   14 fill=TEXT_BOX       NONE [PH:NONE#None]               他社は5〜7名体制が多い中、高効率でまわる体制を構築できている↵
+
+========== P9 (layout=タイトルと本文 2 1 (g3dac200da0b_6_0)) ==========
+  [ 0] SHAPE    (   -1,   17)   723x   52 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,   62)   720x    1 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 2] SHAPE    (   25,   76)   671x   34 fill=TEXT_BOX       NONE [PH:NONE#None]               ↵
+  [ 3] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 4] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 5] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 6] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 7] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               2025年度の振り返り↵
+  [ 8] GROUP    (   25,  102)   329x  131 fill=                                                 GROUP n=2
+  [ 9] GROUP    (  367,  102)   329x  131 fill=                                                 GROUP n=2
+  [10] SHAPE    (   39,  110)   312x   22 fill=TEXT_BOX       #000000 [PH:NONE#None]            🎯 Highlight↵
+  [11] GROUP    (   25,  246)   671x  113 fill=                                                 GROUP n=2
+  [12] SHAPE    (   39,  139)    39x   17 fill=RECTANGLE      #FFE0EC [PH:NONE#None]            効率性↵
+  [13] SHAPE    (   84,  139)   263x   16 fill=TEXT_BOX       #000000 [PH:NONE#None]            3名体制で毎週配信を実施↵
+  [14] SHAPE    (   39,  184)    48x   17 fill=RECTANGLE      #FFF3CD [PH:NONE#None]            実施頻度↵
+  [15] SHAPE    (   93,  184)   254x   16 fill=TEXT_BOX       #000000 [PH:NONE#None]            協賛配信を毎週受注↵
+  [16] SHAPE    (   39,  202)   306x   18 fill=TEXT_BOX       #000000 [PH:NONE#None]            リテール業界でもトップクラスの実施頻度↵
+  [17] SHAPE    (  380,  110)   312x   22 fill=TEXT_BOX       #000000 [PH:NONE#None]            ⚠️ Lowlight↵
+  [18] SHAPE    (  380,  139)   306x   75 fill=TEXT_BOX       #000000 [PH:NONE#None]            視聴者数・コメント率は順調に成長する一方、↵平均視聴分数・商品CTR は伸び悩み↵
+  [19] SHAPE    (   39,  254)   653x   22 fill=TEXT_BOX       #000000 [PH:NONE#None]            💡 学び↵
+  [20] SHAPE    (   46,  281)   653x   75 fill=TEXT_BOX       #000000 [PH:NONE#None]            平均視聴分数・商品CTR が伸び悩み。これまで企画・施策で改善を試みてきたが、ここから抜本的な底上げは難しい。↵→ 熱量の高いリピーター・フ…
+  [21] SHAPE    (   39,  158)   306x   18 fill=TEXT_BOX       #000000 [PH:NONE#None]            他社は5〜7名体制が多い中、高効率でまわる体制を構築↵
+
+========== P10 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               競合調査：配信数値比較（2026.1-3配信実施分）↵
+  [ 2] SHAPE    (   35,   80)   651x   24 fill=TEXT_BOX       NONE [PH:NONE#None]               視聴者数は業界2位の高水準。一方でエンゲージメント指標で競合と大差がついている状況↵
+  [ 3] SHAPE    (  608,  148)   104x   33 fill=RECTANGLE      #434343 [PH:NONE#None]            コスメ配信の方が全体↵平均よりも数値が高い↵
+  [ 4] IMAGE    (  117,  110)   486x  267 fill=                                                 IMAGE alt=
+  [ 5] SHAPE    (  117,  145)   486x   75 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+
+========== P11 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               競合調査：リピーター比率↵
+  [ 2] SHAPE    (   34,   86)   651x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               競合4社のデータを分析すると、リピーター比率が高い配信ほど↵全体の視聴分数・CTR・コメント率がすべて高いという相関がみられた↵
+  [ 3] IMAGE    (   72,  143)   575x  232 fill=                                                 IMAGE alt=
+  [ 4] SHAPE    (  237,  143)   106x  230 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+
+========== P12 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               競合調査：各社の運用開始時期・配信頻度↵
+  [ 2] SHAPE    (   34,   95)   651x   40 fill=TEXT_BOX       NONE [PH:NONE#None]               他社は運用年数が比較的長く 長い年月をかけてファンを獲得↵結果、視聴者のエンゲージメントを積み上げることができている↵
+  [ 3] IMAGE    (   29,  156)   662x  186 fill=                                                 IMAGE alt=
+  [ 4] SHAPE    (  382,  156)    79x  156 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+
+========== P13 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               競合比較：他社の強み↵
+  [ 2] SHAPE    (   34,   91)   651x   24 fill=TEXT_BOX       NONE [PH:NONE#None]               他社は「フォロワーが多い出演者の起用」と「自分ごと化しやすい構成」で視聴者を捕まえている↵
+  [ 3] TABLE    (   35,  129)   ?  x  ?   fill=                                                 TABLE 5x2
+
+========== P14 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               競合調査からみえたマツココライブ4つの課題↵
+  [ 2] SHAPE    (   16,  142)   332x   77 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [ 3] SHAPE    (   16,  217)   332x    1 fill=RECTANGLE      #E5E7EB [PH:NONE#None]            ↵
+  [ 4] SHAPE    (   16,  142)     3x   77 fill=RECTANGLE      #1B998B [PH:NONE#None]            ↵
+  [ 5] SHAPE    (   29,  151)   318x   20 fill=RECTANGLE      NONE [PH:NONE#None]               ❶ 商品カテゴリがバラバラで再訪動機が弱い↵
+  [ 6] SHAPE    (   29,  170)   318x   44 fill=RECTANGLE      NONE [PH:NONE#None]               数値：平均視聴3.1分（60分の約5%） 原因： 配信ごとに商品ジャンルが変わり、視聴者が「次に何が見られるか」を予想できない。↵
+  [ 7] SHAPE    (  362,  142)   332x   77 fill=ROUND_RECTANGLE #FCE7F3 [PH:NONE#None]           ↵
+  [ 8] SHAPE    (  362,  217)   332x    1 fill=RECTANGLE      #E5E7EB [PH:NONE#None]            ↵
+  [ 9] SHAPE    (  362,  142)     3x   77 fill=RECTANGLE      #FA006D [PH:NONE#None]            ↵
+  [10] SHAPE    (  374,  151)   318x   20 fill=RECTANGLE      NONE [PH:NONE#None]               ❷ リピーター不在↵
+  [11] SHAPE    (  374,  170)   318x   30 fill=RECTANGLE      NONE [PH:NONE#None]               数値：リピーター比率5.0%（業界最下位・首位の1/10） 原因：「戻り客を作る」思想が配信設計に組み込まれていない。↵
+  [12] SHAPE    (   16,  249)   332x   77 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [13] SHAPE    (   16,  249)     3x   77 fill=RECTANGLE      #E07A5F [PH:NONE#None]            ↵
+  [14] SHAPE    (   29,  258)   318x   20 fill=RECTANGLE      NONE [PH:NONE#None]               ❸ 熱量のある視聴者の不在↵
+  [15] SHAPE    (   29,  277)   318x   44 fill=RECTANGLE      NONE [PH:NONE#None]               数値：コメント率0.8%（A社33.4%の約1/40） 原因： 個人インフルエンサー型・固定BA型のいずれに該当せず、"推し"を持てない。↵
+  [16] SHAPE    (  362,  249)   332x   77 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [17] SHAPE    (  362,  249)     3x   77 fill=RECTANGLE      #6366F1 [PH:NONE#None]            ↵
+  [18] SHAPE    (  374,  258)   318x   20 fill=RECTANGLE      NONE [PH:NONE#None]               ❹ 購買動機の浅さ（自分ごと化できていない）↵
+  [19] SHAPE    (  374,  277)   318x   30 fill=RECTANGLE      NONE [PH:NONE#None]               数値：商品CTR 1.0%（A社29.4%・C社11.7%の1/12〜1/30） 原因：商品紹介止まりで「なぜ自分に必要か」が伝わっていない…
+  [20] SHAPE    (  362,  114)   118x   28 fill=TEXT_BOX       THEME:ACCENT3 [PH:NONE#None]      最重点ポイント↵
+
+========== P15 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               マツココライブのリピーター比率について↵
+  [ 2] SHAPE    (   34,  101)   651x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               2025年度と比較して直近3か月のリピーター比率は上昇傾向にあり↵「ポテンシャル領域」としても注目すべき指標となる↵
+  [ 3] TABLE    (   25,  170)   ?  x  ?   fill=                                                 TABLE 3x4
+  [ 4] SHAPE    (   25,  293)   671x   16 fill=TEXT_BOX       NONE [PH:NONE#None]               ※ 2025年度（n=47）と直近2026.1-3（n=10）の比較↵
+
+========== P41 (layout=タイトルと本文 2 1 (g3d9bf21aad5_85_0)) ==========
+  [ 0] SHAPE    (   -1,   17)   723x   52 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,   62)   720x    1 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 2] SHAPE    (   25,   76)   671x   34 fill=TEXT_BOX       NONE [PH:NONE#None]               ↵
+  [ 3] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 4] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 5] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 6] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 7] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               2.	ライブ配信施策の方向性と考え方↵
+  [ 8] SHAPE    (   34,   98)   651x   30 fill=TEXT_BOX       #000000 [PH:NONE#None]            協賛配信 受注目標： 年間48件・売上2,400万円↵
+  [ 9] GROUP    (   30,  158)   660x  180 fill=                                                 GROUP n=6
+  [10] SHAPE    (   30,  349)   651x   30 fill=TEXT_BOX       #000000 [PH:NONE#None]            進捗：14件 655万円（4/30時点）↵
+
+========== P42 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               2026年度 ライブ配信目標↵
+  [ 2] TABLE    (   58,  110)   ?  x  ?   fill=                                                 TABLE 5x4
+  [ 3] SHAPE    (  288,  288)   375x   16 fill=TEXT_BOX       NONE [PH:NONE#None]               ※ 直近3ヶ月平均=2026.1-3。視聴者数は最大値、CTR・コメント率は中央値ベース。↵
+
+========== P43 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               マイルストーン②：リピーター数値（追加提案）↵
+  [ 2] SHAPE    (   34,  101)   651x   24 fill=TEXT_BOX       NONE [PH:NONE#None]               全体数値を底上げするレバーとして リピーター3指標を追加提案いたします↵
+  [ 3] GROUP    (  252,  150)   216x  199 fill=                                                 GROUP n=10
+  [ 4] GROUP    (  480,  150)   216x  199 fill=                                                 GROUP n=10
+  [ 5] GROUP    (   24,  150)   216x  199 fill=                                                 GROUP n=10
+  [ 6] SHAPE    (  260,  355)   201x   17 fill=TEXT_BOX       NONE [PH:NONE#None]               ※4/28回で初の視聴者限定クーポン配布実施↵
+
+========== P44 (layout=タイトルと本文 2 1 (g3e69ffd0bda_7_0)) ==========
+  [ 0] SHAPE    (   -1,   17)   723x   52 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,   62)   720x    1 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 2] SHAPE    (   25,   76)   671x   34 fill=TEXT_BOX       NONE [PH:NONE#None]               ↵
+  [ 3] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 4] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 5] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 6] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 7] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            リピーターを増やす3つの戦略↵
+  [ 8] SHAPE    (   25,   79)   671x   34 fill=TEXT_BOX       #000000 [PH:NONE#None]            視聴者が "また観たくなる理由"をつくる↵
+  [ 9] SHAPE    (   25,  128)   215x  210 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [10] SHAPE    (   25,  128)   215x   45 fill=ROUND_RECTANGLE #E94560 [PH:NONE#None]           ↵
+  [11] SHAPE    (   25,  158)   215x   15 fill=RECTANGLE      #E94560 [PH:NONE#None]            ↵
+  [12] SHAPE    (   32,  128)   200x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               ①「推し」でまた観たくなる↵
+  [13] SHAPE    (   36,  188)   193x   68 fill=TEXT_BOX       NONE [PH:NONE#None]               出演者をきっかけにライブを観に来てもらう。↵
+  [14] SHAPE    (  252,  128)   215x  210 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [15] SHAPE    (  252,  128)   215x   45 fill=ROUND_RECTANGLE #C07000 [PH:NONE#None]           ↵
+  [16] SHAPE    (  252,  158)   215x   15 fill=RECTANGLE      #C07000 [PH:NONE#None]            ↵
+  [17] SHAPE    (  260,  128)   200x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               ②「おトク」でまた観たくなる↵
+  [18] SHAPE    (  263,  188)   193x   68 fill=TEXT_BOX       NONE [PH:NONE#None]               顧客情報と連携できている強みを活かし、視聴をポイント・限定特典がもらえる場にする。↵
+  [19] SHAPE    (  479,  128)   215x  210 fill=ROUND_RECTANGLE #FFFFFF [PH:NONE#None]           ↵
+  [20] SHAPE    (  479,  128)   215x   45 fill=ROUND_RECTANGLE #1B998B [PH:NONE#None]           ↵
+  [21] SHAPE    (  479,  158)   215x   15 fill=RECTANGLE      #1B998B [PH:NONE#None]            ↵
+  [22] SHAPE    (  487,  128)   200x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               ③「いつもの」でまた観たくなる↵
+  [23] SHAPE    (  490,  188)   193x   68 fill=TEXT_BOX       NONE [PH:NONE#None]               コスメに特化することで、視聴者が「毎週コスメの最新情報・新商品が↵知れる」と分かる構造にする。↵
+  [24] IMAGE    (   98,  256)    68x   68 fill=                                                 IMAGE alt=
+  [25] IMAGE    (  326,  256)    68x   68 fill=                                                 IMAGE alt=
+  [26] IMAGE    (  553,  253)    68x   68 fill=                                                 IMAGE alt=
+  [27] SHAPE    (   24,  345)   671x   34 fill=TEXT_BOX       #000000 [PH:NONE#None]            ※具体的なアクション・施策は月例分科会などでディスカッションさせていただけますと幸いです。↵
+
+========== P45 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   18)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               年度別 視聴者数推移↵
+  [ 2] TABLE    (   36,  150)   ?  x  ?   fill=                                                 TABLE 5x4
+  [ 3] SHAPE    (   34,   99)   651x   24 fill=TEXT_BOX       NONE [PH:NONE#None]               ライブ視聴者は5倍へ拡大。アーカイブを加えた年間1,440,000人接触↵
+
+========== P46 (layout=タイトルと本文 2 1 (g3d9bf21aad5_50_0)) ==========
+  [ 0] SHAPE    (   -1,   17)   723x   52 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,   62)   720x    1 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 2] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 3] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 4] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 5] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 6] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            協賛配信の現状課題：プラン（MCCM様よりご提供）↵
+  [ 7] GROUP    (   30,  124)   323x  195 fill=                                                 GROUP n=4
+  [ 8] GROUP    (  368,  124)   323x  195 fill=                                                 GROUP n=4
+  [ 9] SHAPE    (   45,  165)   293x   38 fill=TEXT_BOX       #000000 [PH:NONE#None]            提供価値に対する価格が適切か不明↵
+  [10] SHAPE    (   45,  214)   293x   77 fill=TEXT_BOX       #000000 [PH:NONE#None]            ● 1社協賛50万円の価格設定↵A社の15分プラン（45万円）と同水準の価格で、60分配信＋データ連動を提供。↵→ 市場価格との大きな乖離が…
+  [11] SHAPE    (  382,  165)   293x   38 fill=TEXT_BOX       #000000 [PH:NONE#None]            貴社の他メニューと比較して粗利率が低い（69.3%）↵
+  [12] SHAPE    (  382,  214)   293x  104 fill=TEXT_BOX       #000000 [PH:NONE#None]            ● 他メニューとの比較（粗利率）↵ショート動画：83.3%↵Xフォロリポ：81.6%↵制作外注費（台本・ディレクション・KV制作等）がかかっ…
+
+========== P47 (layout=タイトルと本文 2 1 (g3d9bf21aad5_57_0)) ==========
+  [ 0] SHAPE    (   -1,   17)   723x   52 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,   62)   720x    1 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 2] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 3] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 4] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 5] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 6] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            協賛配信の現状課題：体制↵
+  [ 7] GROUP    (   30,  135)   323x  190 fill=                                                 GROUP n=5
+  [ 8] GROUP    (  368,  135)   323x  190 fill=                                                 GROUP n=5
+
+========== P48 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               参考：他社の協賛配信プラン費用↵
+  [ 2] TABLE    (   60,  119)   ?  x  ?   fill=                                                 TABLE 4x3
+  [ 3] SHAPE    (   25,  294)   671x   16 fill=TEXT_BOX       NONE [PH:NONE#None]               ※ アットコスメ社価格は公開しているセールス資料のメニュー価格参照（2026年4月時点）。↵
+  [ 4] SHAPE    (   25,  322)   671x   22 fill=TEXT_BOX       NONE [PH:NONE#None]               → 60分配信・データ連動・平均5,000人視聴という提供価値に対して、現行50万円は競合比較で割安↵
+
+========== P49 (layout=TITLE_AND_BODY_2_1) ==========
+  [ 0] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 1] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       NONE [PH:NONE#None]               協賛配信の体制改善案：レギュレーション設定↵
+  [ 2] SHAPE    (   35,   95)   651x   24 fill=TEXT_BOX       NONE [PH:NONE#None]               配信ごとの商品変更・追加・修正の無制限受け入れにレギュレーションを設ける↵
+  [ 3] TABLE    (   74,  149)   ?  x  ?   fill=                                                 TABLE 4x3
+  [ 4] SHAPE    (  321,  307)   368x   16 fill=TEXT_BOX       NONE [PH:NONE#None]               ※ ◯部分は貴社・Firework間で具体値を協議のうえ確定。↵
+  [ 5] SHAPE    (   25,  343)   671x   22 fill=TEXT_BOX       NONE [PH:NONE#None]               → 台本量・薬機法チェック工数が読めるようになり、月5回以上の並行受注でも管理が安定する↵
+
+========== P50 (layout=タイトルと本文 2 1 (g3d9bf21aad5_71_0)) ==========
+  [ 0] SHAPE    (   -1,   17)   723x   52 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 1] SHAPE    (    0,   62)   720x    1 fill=RECTANGLE      LINEAR_GRADIENT [PH:NONE#None]    ↵
+  [ 2] SHAPE    (   25,   76)   671x   34 fill=TEXT_BOX       NONE [PH:NONE#None]               ↵
+  [ 3] SHAPE    (    0,    0)   200x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 4] IMAGE    (  566,  373)   154x   32 fill=                                                 IMAGE alt=
+  [ 5] SHAPE    (    0,    0)   226x   17 fill=RECTANGLE      NONE [PH:NONE#None]               ↵
+  [ 6] SHAPE    (  338,  391)    43x    8 fill=TEXT_BOX       NONE [PH:SLIDE_NUMBER#0]          Page ↵
+  [ 7] SHAPE    (    9,   20)   671x   45 fill=TEXT_BOX       #000000 [PH:NONE#None]            協賛配信の体制改善案：薬事チェック体制の見直し↵
+  [ 8] SHAPE    (   34,   79)   651x   30 fill=TEXT_BOX       #000000 [PH:NONE#None]            薬事ルールの制定とAI活用で、薬機法チェック詰まりを構造的に解消する↵
+  [ 9] SHAPE    (  183,  145)   323x  109 fill=ROUND_RECTANGLE #FFF5F7 [PH:NONE#None]           ↵
+  [10] SHAPE    (  194,  152)   300x   23 fill=TEXT_BOX       #000000 [PH:NONE#None]            ライブ配信向け薬事ルールの制定↵
+  [11] SHAPE    (  194,  181)   300x   68 fill=TEXT_BOX       #000000 [PH:NONE#None]            ライブ配信に特化した判断基準・ルールを設ける。（参考：A社は法務の薬事CKを実施していない）↵社員インフルエンサー育成時には、薬事知識のイン…
+  [12] SHAPE    (  183,  273)   323x   75 fill=ROUND_RECTANGLE #FFF5F7 [PH:NONE#None]           ↵
+  [13] SHAPE    (  194,  280)   300x   23 fill=TEXT_BOX       #000000 [PH:NONE#None]            Google AIを活用した薬事CKフロー構築↵
+  [14] SHAPE    (  194,  303)   300x   38 fill=TEXT_BOX       #000000 [PH:NONE#None]            Fireworkから具体的なフローを別途ご提案。↵
