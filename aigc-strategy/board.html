@@ -669,7 +669,7 @@ function tryToken(credential,fromCache){
       if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
       return false;}
     try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
-    catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
+    catch(e){console.error('[aigc-board] decrypt/render error:',e);if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました（'+((e&&e.message)||e)+'）';}return false;}
   })();
 }
 function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
@@ -689,7 +689,7 @@ function _oauthFallback(){
               document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';return;
             }
             document.getElementById('err').textContent='読み込み中…';
-            decrypt(PP).then(function(d){showData(d);}).catch(function(e){document.getElementById('err').textContent='データの復号に失敗しました';});
+            decrypt(PP).then(function(d){try{showData(d);}catch(e){console.error('[aigc-board] render error:',e);document.getElementById('err').textContent='描画でエラー（'+((e&&e.message)||e)+'）';}}).catch(function(e){console.error('[aigc-board] decrypt error:',e);document.getElementById('err').textContent='データの復号に失敗しました（'+((e&&e.message)||e)+'）';});
           })
           .catch(function(e){document.getElementById('err').textContent='ログイン情報の取得に失敗しました';});
       }
