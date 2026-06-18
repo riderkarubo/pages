@@ -380,6 +380,19 @@ body{padding-left:220px}
 .cl-learnings-link:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,52,96,.36)}
 .cl-learnings-link .cl-sub{display:block;font-size:.72rem;font-weight:600;opacity:.9;margin-top:3px}
 .cl-learnings-link .arr{font-size:1.3rem;font-weight:900}
+/* === 260618 quick-links: 3リンクをトップにカード化 === */
+.quick-links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+.ql-card{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;font-weight:900;padding:18px 20px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s;min-height:84px}
+.ql-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.26)}
+.ql-card.ql-press{background:linear-gradient(135deg,#FA006D,#c4005a)}
+.ql-card.ql-price{background:linear-gradient(135deg,#0F3460,#1a1a2e)}
+.ql-card.ql-learn{background:linear-gradient(135deg,#1B998B,#0F3460)}
+.ql-card .ql-icon{font-size:1.9rem;line-height:1;flex-shrink:0}
+.ql-card .ql-body{flex:1;min-width:0}
+.ql-card .ql-h{font-size:.98rem;font-weight:900;letter-spacing:.02em;line-height:1.3}
+.ql-card .ql-sub{display:block;font-size:.7rem;font-weight:600;opacity:.92;margin-top:4px;line-height:1.45}
+.ql-card .ql-arr{font-size:1.3rem;font-weight:900;flex-shrink:0}
+@media(max-width:900px){.quick-links-grid{grid-template-columns:1fr;gap:10px}}
 
 /* === sa-block (スプシ採点アタックリスト) 260617追加 === */
 .sa-block{margin-bottom:24px;border:2px solid #fa006d;border-radius:10px;padding:14px;background:linear-gradient(180deg,#fff5f9 0%,#fff 60%)}
@@ -559,9 +572,15 @@ function render(d){
   const bk=d.benchmarks;
   const bmkHTML=bk?`<div class="bmk"><div class="bmk-h">営業武器（ベンチマーク実績・ピッチの型）</div><div class="bmk-pitch">${esc(bk.pitch)}</div><div class="bmk-grid">${bk.items.map(b=>`<div class="bmk-card"><div class="bn">${esc(b.name)}</div><div class="bs">${esc(b.stat)}</div><div class="bu">${esc(b.use)}</div>${b.detailUrl?`<a class="bmk-link" href="${esc(b.detailUrl)}">進捗トラッカーを開く →</a>`:''}${(b.links||[]).map(l=>`<a class="bmk-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div>`).join('')}</div></div>`:'';
   // 260618: pricing/bulkPricing は廃止 → clients/pricing.html へ切り出し（最新Yifanプライスリスト準拠）
+  // 260618 v2: 3リンク（プレスリリース・プライスリスト・AIGC制作ナレッジ）を上部に集約・カード化
   const pl=d.pricingLink;
-  const pricingHTML=pl?`<a class="price-btn" href="${esc(pl.href)}"><div class="pb-l"><div class="pb-title">${esc(pl.label)}</div><div class="pb-sub">${esc(pl.sub)}</div></div><div class="pb-r">${pl.badge?`<span class="pb-badge">${esc(pl.badge)}</span>`:''}<span class="pb-arrow">→</span></div></a>`:'';
+  const pricingHTML='';
   const bulkHTML='';
+  const quickLinksHTML=`<div class="quick-links-grid">
+    <a class="ql-card ql-press" href="clients/press-timeline.html"><div class="ql-icon">📋</div><div class="ql-body"><div class="ql-h">プレスリリース</div><div class="ql-sub">進行タイムライン・タスク管理</div></div><div class="ql-arr">→</div></a>
+    ${pl?`<a class="ql-card ql-price" href="${esc(pl.href)}"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">${esc(pl.label||'AIGCプライスリスト')}</div><div class="ql-sub">${esc(pl.sub||'動画・LIVE・画像の単価＆バルク割')}</div></div><div class="ql-arr">→</div></a>`:`<a class="ql-card ql-price" href="clients/pricing.html"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">AIGCプライスリスト</div><div class="ql-sub">動画・LIVE・画像の単価＆バルク割</div></div><div class="ql-arr">→</div></a>`}
+    <a class="ql-card ql-learn" href="clients/aigc-creative-learnings.html"><div class="ql-icon">🎬</div><div class="ql-body"><div class="ql-h">AIGC制作ナレッジ</div><div class="ql-sub">躓き×勝ち筋・現場レビュー</div></div><div class="ql-arr">→</div></a>
+  </div>`;
   const tb=d.thinkBig;
   const tbHTML=tb?`<div class="section-title" id="sec-thinkbig">${esc(tb.title)}</div><p class="tb-lead">${esc(tb.lead)}</p><div class="tb-grid">${tb.pillars.map((p,i)=>`<div class="tb-card"><div class="tb-n">${i+1}</div><div class="tb-h">${esc(p.h)}</div><div class="tb-t">${esc(p.t)}</div></div>`).join('')}</div>`:'';
   const tna=d.topNextActions.map(n=>`<tr><td><span class="pri ${esc(n.priority)}">${esc(n.priority)}</span></td><td>${esc(n.action)}</td><td>${esc(n.owner)}</td><td class="due-cell${/未設定|超過/.test(n.due||'')?' miss':''}">${esc(n.due)}</td><td>${esc(n.area)}</td></tr>`).join('');
@@ -621,7 +640,7 @@ function render(d){
   <header><div class="eyebrow">Firework 社内限定 — AIGC事業</div><h1>AIGC事業 進捗ボード</h1>
   <div class="goal">${esc(d.projectGoal)}</div><div class="ts">最終更新: ${esc(d.generatedAt)} JST　／　全データは議事録・候補リスト・各案件フォルダ・PL/SF台帳から生成（静的・閲覧専用）</div></header>
   <div class="wrap">
-  <a class="pr-timeline-link" href="clients/press-timeline.html">📋 プレスリリース進行タイムライン・タスク管理へ<span class="arr">→</span></a>
+  ${quickLinksHTML}
   <div class="section-title" id="sec-exec">エグゼクティブサマリ</div>${exec}
   ${rev}
   ${tbHTML}
@@ -632,8 +651,7 @@ function render(d){
   ${pmLegend}
   ${pmFilterBar}
   ${pmHTML}
-  <a class="cl-learnings-link" href="clients/aigc-creative-learnings.html"><span>🎬 AIGC制作ナレッジ（躓き×勝ち筋）へ<span class="cl-sub">現場レビューから抽出・カテゴリ×クリエイティブ別の実戦ナレッジ</span></span><span class="arr">→</span></a>
-  <div class="section-title" id="sec-cat">優先カテゴリ・営業武器（何を持って当たるか）</div><div class="cats">${cats}</div>${bmkHTML}${pricingHTML}${bulkHTML}
+  <div class="section-title" id="sec-cat">優先カテゴリ・営業武器（何を持って当たるか）</div><div class="cats">${cats}</div>${bmkHTML}
   <div class="section-title" id="sec-clients">クライアント別ステータス（コア${clientAreas.filter(a=>!a.isNew).length}社＋国内新規${clientAreas.filter(a=>a.isNew).length}社）</div>
   <div class="cl-link-panel"><div class="clp-head">各クライアントの詳細ステータス・直近プロジェクト</div><div class="clp-btns">${clientAreas.map(a=>'<a class="clp-btn" href="'+(a.detailUrl||'clients/aigc-client-status.html')+'">'+esc(a.title)+'</a>').join('')}</div><a class="clp-all" href="clients/aigc-client-status.html">全クライアント一覧・直近プロジェクト →</a><div class="clp-note">詳細ステータス・アクション・直近案件は一覧ページで確認してください</div></div>
   <div class="section-title" id="sec-tasks">横断タスク・イネーブラ（${taskAreas.length}件）</div><div class="task-stack">${taskCards}</div>
