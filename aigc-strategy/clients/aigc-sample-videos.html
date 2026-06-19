@@ -5,9 +5,20 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-19T11:37:11+09:00">
+<meta name="last-modified" content="2026-06-19T11:59:36+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>サンプル動画集｜Firework社内</title>
+<!-- ===== OGP / Slack unfurl ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="サンプル動画集｜Firework社内">
+<meta property="og:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）の2階層で整理。商談時の即時提示・ブリーフ作成の参照ソース。">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/aigc-sample-videos.html">
+<meta property="og:site_name" content="Firework社内 / AIGC事業">
+<meta property="og:locale" content="ja_JP">
+<!-- og:image は画像準備でき次第追記（1200x630推奨・絶対URL）。当面は text only unfurl -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="サンプル動画集｜Firework社内">
+<meta name="twitter:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1/Tier 2 別に整理。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎥</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <!-- Firework player runtime (business_id=g1W3Qj・AIGC営業武器用) -->
@@ -104,6 +115,38 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
 }
 .vsec-desc.empty{color:var(--muted);font-style:italic;font-size:.78rem}
 
+.tier-h{
+  font-size:1.05rem;
+  font-weight:900;
+  color:#fff;
+  background:linear-gradient(135deg,#1a1a2e,#2a1d4a 60%,#0F3460);
+  padding:11px 18px;
+  border-radius:10px;
+  margin:40px 0 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  letter-spacing:.05em;
+  box-shadow:0 4px 14px rgba(15,52,96,.18);
+}
+.tier-h:first-of-type{margin-top:28px}
+.tier-h .tier-badge{
+  background:var(--purple);
+  color:#fff;
+  font-weight:900;
+  font-size:.7rem;
+  padding:4px 10px;
+  border-radius:4px;
+  letter-spacing:.08em;
+}
+.tier-h .tier-note{
+  margin-left:auto;
+  font-size:.72rem;
+  font-weight:500;
+  color:#c4b5fd;
+  opacity:.92;
+}
+
 .vplayer{
   background:var(--card);
   border:1px solid var(--border);
@@ -152,7 +195,7 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <h1>🎥 サンプル動画集</h1>
     <div class="headline">
       <span class="conf">社外秘</span>
-      Fireworkプレーヤーで再生する営業武器サンプル。7カテゴリ別に整理し、商談時の即時提示・ブリーフ作成の参照ソースとして活用する。
+      Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）の2階層に整理し、商談時の即時提示・ブリーフ作成の参照ソースとして活用する。
     </div>
   </div>
 
@@ -163,8 +206,29 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       各セクションに Firework 埋め込みコードを差し込むとプレーヤーが再生されます。新規動画が増えた際はカテゴリ末尾に追記してください。
     </div>
 
+    <!-- ============== Tier 1 ============== -->
+    <div class="tier-h"><span class="tier-badge">TIER 1</span>パックショット系<span class="tier-note">商品単体を多アングルで魅せる</span></div>
+
+    <section class="vsec" id="cat-pdp-360">
+      <div class="vsec-h"><span class="num">1</span>商品ページ動画 / PDP動画 / 360度動画</div>
+      <p class="vsec-desc">動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
+      <div class="vplayer" data-slot="pdp-360">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="grid"
+          player_placement="bottom-right"
+          playlist="5ndNlQ"
+          title="Tier1 Sample（360°ポージング）"
+          style="--fw-title-font-weight: 700"
+        ></fw-embed-feed>
+      </div>
+    </section>
+
+    <!-- ============== Tier 2 ============== -->
+    <div class="tier-h"><span class="tier-badge">TIER 2</span>演出系<span class="tier-note">ライフスタイル・ブランド世界観の表現</span></div>
+
     <section class="vsec" id="cat-lifestyle-tryon">
-      <div class="vsec-h"><span class="num">1</span>ライフスタイルトライオン</div>
+      <div class="vsec-h"><span class="num">1</span>ライフスタイルトライオン（テキスト入りの服）</div>
       <p class="vsec-desc empty">（説明文：必要に応じて追記）</p>
       <div class="vplayer" data-slot="lifestyle-tryon">
         <fw-embed-feed
@@ -177,15 +241,17 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       </div>
     </section>
 
-    <section class="vsec" id="cat-text-apparel">
-      <div class="vsec-h"><span class="num">2</span>テキスト入りの服</div>
-      <p class="vsec-desc empty">（説明文：必要に応じて追記）</p>
-      <div class="vplayer" data-slot="text-apparel">
-        <div class="vplayer-placeholder">
-          <div class="em">📺</div>
-          <div class="ttl">Fireworkプレーヤー埋め込み待ち</div>
-          <div class="sub">この <code>&lt;div class="vplayer"&gt;</code> の中身を埋め込みコードで置き換えてください。</div>
-        </div>
+    <section class="vsec" id="cat-commercial">
+      <div class="vsec-h"><span class="num">2</span>コマーシャルスタイル</div>
+      <p class="vsec-desc">ブランドのディレクションに合わせて制作されるハイエンド動画。</p>
+      <div class="vplayer" data-slot="commercial">
+        <fw-embed-feed
+          channel="fw_aigc_lab"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="gOdq6V"
+          title="Tier2_Commercial"
+        ></fw-embed-feed>
       </div>
     </section>
 
@@ -203,17 +269,16 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       </div>
     </section>
 
-    <section class="vsec" id="cat-pdp-360">
-      <div class="vsec-h"><span class="num">4</span>商品ページ動画 / PDP動画 / 360度動画</div>
-      <p class="vsec-desc">動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
-      <div class="vplayer" data-slot="pdp-360">
+    <section class="vsec" id="cat-social">
+      <div class="vsec-h"><span class="num">4</span>ソーシャルビデオ</div>
+      <p class="vsec-desc">ソーシャル向け動画の作成（ソーシャルで人気のある他の動画を参考に）。</p>
+      <div class="vplayer" data-slot="social">
         <fw-embed-feed
           channel="aigc_jp"
-          mode="grid"
+          mode="row"
           player_placement="bottom-right"
-          playlist="5ndNlQ"
-          title="Tier1 Sample（360°ポージング）"
-          style="--fw-title-font-weight: 700"
+          playlist="vVO8xA"
+          title="Tier2_Social"
         ></fw-embed-feed>
       </div>
     </section>
@@ -232,39 +297,11 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       </div>
     </section>
 
-    <section class="vsec" id="cat-social">
-      <div class="vsec-h"><span class="num">6</span>ソーシャルビデオ</div>
-      <p class="vsec-desc">ソーシャル向け動画の作成（ソーシャルで人気のある他の動画を参考に）。</p>
-      <div class="vplayer" data-slot="social">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="vVO8xA"
-          title="Tier2_Social"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-commercial">
-      <div class="vsec-h"><span class="num">7</span>コマーシャルスタイル</div>
-      <p class="vsec-desc">ブランドのディレクションに合わせて制作されるハイエンド動画。</p>
-      <div class="vplayer" data-slot="commercial">
-        <fw-embed-feed
-          channel="fw_aigc_lab"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="gOdq6V"
-          title="Tier2_Commercial"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
   </div>
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年6月19日 10:53 JST ｜ Firework社内 / AIGC事業
+    最終更新: 2026年6月19日 11:54 JST ｜ Firework社内 / AIGC事業
   </footer>
 
 </div>
