@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script src="../../mccm-proposal/auth.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-06-19T11:45:00+09:00">
+<meta name="robots" content="noindex, nofollow">
+<title>サンプル動画 単体テスト｜Firework社内</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body{font-family:"Noto Sans JP",sans-serif;background:#f6f7f9;color:#1a1a2e;padding:24px;line-height:1.7}
+  .wrap{max-width:1080px;margin:0 auto}
+  h1{font-size:1.2rem;margin-bottom:8px}
+  .hint{font-size:.82rem;color:#6c757d;margin-bottom:20px;padding:10px 14px;background:#fff;border-radius:8px;border-left:4px solid #7c3aed}
+  hr{border:none;border-top:1px dashed #ccd;margin:32px 0}
+  .label{font-size:.86rem;font-weight:900;color:#7c3aed;margin-bottom:8px}
+</style>
+
+<!-- ★ Firework runtime（head 1度きり・Issy提供そのまま）★ -->
+<script async type="module" src="//asset.fwcdn3.com/js/module/fwn.js?business_id=g1W3Qj"></script>
+<script async nomodule src="//asset.fwcdn3.com/js/fwn.js?business_id=g1W3Qj"></script>
+</head>
+<body>
+<div class="wrap">
+  <h1>🧪 Firework埋め込み 単体テスト（Tier1 360°ポージング）</h1>
+  <p class="hint">
+    本ページは原因切り分け用。auth.js（SSO）あり／Issy提供コードを &lt;body&gt; 直下に直配置。<br>
+    A: ラッパ無し配置 ／ B: div ラッパ内配置 — の差を見る。
+  </p>
+
+  <hr>
+
+  <div class="label">A. body 直下にそのまま配置（ラッパ無し）</div>
+  <fw-embed-feed
+    channel="aigc_jp"
+    mode="grid"
+    player_placement="bottom-right"
+    playlist="5ndNlQ"
+    title="Tier1 Sample(360°ポージング）"
+    style="--fw-title-font-weight: 700"
+  ></fw-embed-feed>
+
+  <hr>
+
+  <div class="label">B. div ラッパありで配置（vplayer 相当を再現・padding/min-height入り）</div>
+  <div style="background:#fff;border:1px solid #e7e9ee;border-radius:12px;padding:16px;min-height:120px;">
+    <fw-embed-feed
+      channel="aigc_jp"
+      mode="grid"
+      player_placement="bottom-right"
+      playlist="5ndNlQ"
+      title="Tier1 Sample(360°ポージング） - ラッパ内"
+      style="--fw-title-font-weight: 700"
+    ></fw-embed-feed>
+  </div>
+
+  <hr>
+
+  <p class="hint">
+    ✅ A・B どちらも出る → 本番(aigc-sample-videos.html) でも見えるはず・他要因疑いへ<br>
+    ⚠️ A だけ出て B が出ない → vplayer ラッパの padding/min-height/縞模様CSS等の干渉<br>
+    ❌ A も B も出ない → auth.js 認証後の DOM 表示処理 or fwn.js ロードタイミング or Firework側
+  </p>
+</div>
+</body>
+</html>
