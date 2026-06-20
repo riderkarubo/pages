@@ -13,3 +13,10 @@
 _削除候補_*/
 _要確認_*/
 *.zip
+
+# ローカル動線リンク（PCごとの絶対パス差を避けるため追跡しない）
+# `~/.claude/rules/client-deploy-from-own-folder.md` 参照
+_deploy_*
+
+# ローカル運用警告ファイル（PUBLIC配信先にクライアント名平文が漏れるのを防ぐ）
+_DEPRECATED_*.md
