@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SUMIMASEN — カット案100（Claude案）</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-  <meta name="last-modified" content="2026-06-07T21:48:00+09:00">
+  <meta name="last-modified" content="2026-06-21T19:24:18+09:00">
   <meta name="description" content="SUMIMASEN動画のカット案100（Claudeのディープダイブ案・確定前）。謝罪の所作×懐かしのエッセンスを軸に8カテゴリで展開。Creative Brain 姉妹ページ。">
   <meta property="og:title" content="SUMIMASEN — カット案100（Claude案）">
   <meta property="og:description" content="SUMIMASEN動画のカット案100。謝罪の所作×懐かしのエッセンス（マイケル等）を軸にCBの美学でディープダイブ。確定前のたたき台。">
@@ -101,6 +101,27 @@
 
     .foot { margin-top:56px; padding-top:20px; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:8px 20px; }
 
+
+    /* ADOPT (採用) */
+    .cut-star { position:absolute; top:8px; right:38px; width:23px; height:23px; border-radius:7px; border:1px solid var(--border); background:#fff; color:var(--text-muted); font-size:13px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0.5; transition:all 0.15s; z-index:3; padding:0; }
+    .cut:hover .cut-star { opacity:1; }
+    .cut-star:hover { background:#FFC107; color:#fff; border-color:#FFC107; transform:scale(1.08); }
+    .cut.adopted { background:#E3F3EE; border-left:4px solid var(--accent-secondary); padding-left:12px; }
+    .cut.adopted .cut-no { background:var(--accent-secondary); }
+    .cut.adopted .cut-star { opacity:1; background:#FFC107; color:#fff; border-color:#FFC107; }
+    .cut.adopted .cut-star:hover { background:#E0A800; border-color:#E0A800; }
+    .cut.adopted::after { content:'⭐採用'; position:absolute; bottom:8px; right:10px; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; color:var(--accent-secondary); letter-spacing:0.08em; }
+
+    /* 新規セクション・カテゴリ別アクセント */
+    .cat[data-cat="moonwalk"] .cat-h { border-bottom-color:#7c5cff; }
+    .cat[data-cat="dogeza"] .cat-h { border-bottom-color:#E0005F; }
+    .cat[data-cat="umbrella"] .cat-h { border-bottom-color:#0079B8; }
+    .cat[data-cat="tegatana"] .cat-h { border-bottom-color:#8A6E22; }
+    .cut[data-cat="moonwalk"] .cut-no { background:linear-gradient(125deg,#7c5cff,#0079B8); }
+    .cut[data-cat="dogeza"] .cut-no { background:linear-gradient(125deg,#E0005F,#7c5cff); }
+    .cut[data-cat="umbrella"] .cut-no { background:linear-gradient(125deg,#0079B8,#008566); }
+    .cut[data-cat="tegatana"] .cut-no { background:linear-gradient(125deg,#8A6E22,#E0005F); }
+
     #toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px); background:#1A1A2E; color:#fff; padding:10px 20px; border-radius:8px; font-size:14px; opacity:0; pointer-events:none; transition:all 0.25s; z-index:999; }
     #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
@@ -130,8 +151,8 @@
   <div class="wrap">
     <div class="hero">
       <div class="eyebrow">CB / SUMIMASEN / Cut Ideas — Deep Dive</div>
-      <h1><span class="grad">カット案 100</span></h1>
-      <div class="sub">SUMIMASEN動画のカット案を、Creative Brainの美学を軸に100個まで深掘りした。芯は「<b>謝罪の所作（すみません）× 懐かしのエッセンス（マイケル筆頭）</b>」。気に入ったものをSUMIMASENページの正式カットへ昇格させる。</div>
+      <h1><span class="grad">カット案 500</span><span style="font-size:0.5em;color:var(--text-muted);margin-left:8px;">+16 GLOBAL</span></h1>
+      <div class="sub">SUMIMASEN動画のカット案を、Creative Brainの美学を軸に500個まで深掘りした。芯は「<b>謝罪の所作（すみません）× 懐かしのエッセンス（マイケル筆頭）</b>」。気に入ったものをSUMIMASENページの正式カットへ昇格させる。</div>
       <div class="hero-note">
         ⚠️ これは <b>Claudeのたたき台（まだ確定ではない）</b>。Issyの種（手刀ダッシュ / カラオケ闖入 / 別れ際 / ムーンウォーク）を起点に展開。カードをクリックでコピー。<b>採用・ボツ・改変</b>を指示してくれれば反映する。
       </div>
@@ -142,12 +163,13 @@
         <span class="chip">😏 緊張と緩和・ヘタウマ・自虐</span>
         <span class="chip">🕺 マイケル / 80-90s オマージュ</span>
         <span class="chip">🌐 海外でも刺さる（非言語・普遍）</span>
+        <span class="chip">🕺 ムーンウォーク／土下座スライド／傘揺らし／手刀（迷惑あるある追加）</span>
       </div>
     </div>
 
     <div class="filter-bar">
       <span class="filter-label">FILTER</span>
-      <button class="fbtn active" data-f="all" onclick="filt(this,'all')">すべて<span class="n">116</span></button>
+      <button class="fbtn active" data-f="all" onclick="filt(this,'all')">すべて<span class="n">516</span></button>
       <button class="fbtn" data-f="global" onclick="filt(this,'global')">🌐 海外でも刺さる<span class="n">16</span></button>
       <button class="fbtn" data-f="gesture" onclick="filt(this,'gesture')">謝罪の所作<span class="n">15</span></button>
       <button class="fbtn" data-f="situation" onclick="filt(this,'situation')">シチュ別すみません<span class="n">20</span></button>
@@ -157,6 +179,11 @@
       <button class="fbtn" data-f="chara" onclick="filt(this,'chara')">登場人物<span class="n">8</span></button>
       <button class="fbtn" data-f="dance" onclick="filt(this,'dance')">ダンス・振付<span class="n">8</span></button>
       <button class="fbtn" data-f="meta" onclick="filt(this,'meta')">メタ・オチ<span class="n">7</span></button>
+      <button class="fbtn" data-f="moonwalk" onclick="filt(this,'moonwalk')">🕺 ムーンウォーク<span class="n">100</span></button>
+      <button class="fbtn" data-f="dogeza" onclick="filt(this,'dogeza')">🙇‍♂️ 土下座スライド<span class="n">100</span></button>
+      <button class="fbtn" data-f="umbrella" onclick="filt(this,'umbrella')">☂️ 傘揺らし迷惑<span class="n">100</span></button>
+      <button class="fbtn" data-f="tegatana" onclick="filt(this,'tegatana')">✋ 手刀通過<span class="n">100</span></button>
+      <button class="fbtn" data-f="adopted" onclick="filt(this,'adopted')">⭐ 採用済み<span class="n" id="adopt-count">0</span></button>
     </div>
 
     <!-- ===== 1. 謝罪の所作・ジェスチャー図鑑 ===== -->
@@ -341,6 +368,435 @@
       </div>
     </section>
 
+
+    <!-- ===== ムーンウォーク通過・横切り 100景 ===== -->
+    <section class="cat" data-cat="moonwalk">
+      <div class="cat-h"><span class="ic">🕺</span><h2>ムーンウォーク通過・横切り 100景</h2><span class="cnt">101–200</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">101</span><div><div class="cut-ttl">通勤ラッシュ駅構内</div><div class="cut-dsc">朝の駅。改札に向かう人の波に逆らって、後ろ向きにスーッと滑っていく。</div><div class="cut-tg"><span class="b">通勤</span><span>逆走</span><span>群衆</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">102</span><div><div class="cut-ttl">改札逆走ムーンウォーク</div><div class="cut-dsc">ICカードをかざしたあと、後ろ向きにそのままホームへ抜けていく。改札ピンポン音。</div><div class="cut-tg"><span class="b">通勤</span><span>駅</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">103</span><div><div class="cut-ttl">エスカレーター後退</div><div class="cut-dsc">下りエスカレーターを後ろ向きで降りる。速度が二倍に。背後の人が困惑。</div><div class="cut-tg"><span class="b">駅</span><span class="gl">物理ギャグ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">104</span><div><div class="cut-ttl">満員電車ムーンウォーク降車</div><div class="cut-dsc">ぎゅうぎゅう詰めの車内から後ろ向きで滑り出る。乗客全員が会釈。</div><div class="cut-tg"><span class="b">電車</span><span>群衆</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">105</span><div><div class="cut-ttl">会議室退室マイケル</div><div class="cut-dsc">プレゼン後、上司に頭を下げながら後ろ向きに滑って退室。誰も追えない。</div><div class="cut-tg"><span>ビジネス</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">106</span><div><div class="cut-ttl">プレゼン演台後退</div><div class="cut-dsc">結論を言い切ってマイクを置き、そのままムーンウォークで舞台袖へ。</div><div class="cut-tg"><span>ビジネス</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">107</span><div><div class="cut-ttl">コンビニレジ撤退</div><div class="cut-dsc">釣り銭を受け取り「ありがとうございます」と言いながら後退してドアまで。</div><div class="cut-tg"><span class="b">コンビニ</span><span>店員</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">108</span><div><div class="cut-ttl">カフェ注文取消</div><div class="cut-dsc">注文してから「やっぱり…」と後ろ向きに滑ってカフェを出ていく。</div><div class="cut-tg"><span class="b">カフェ</span><span>優柔不断</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">109</span><div><div class="cut-ttl">エレベーター乗降ミス</div><div class="cut-dsc">降りる階を間違え、開いた瞬間ムーンウォークで戻る。閉ボタン連打。</div><div class="cut-tg"><span class="b">エレベーター</span><span>あるある</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">110</span><div><div class="cut-ttl">オフィス通路ペコペコ</div><div class="cut-dsc">同僚に会釈しながら後ろ向きに滑る。書類が手から落ちないバランス芸。</div><div class="cut-tg"><span>ビジネス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">111</span><div><div class="cut-ttl">社長室退出</div><div class="cut-dsc">社長の前で深々と頭を下げ、そのまま後退ムーンウォークで扉まで。</div><div class="cut-tg"><span>ビジネス</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">112</span><div><div class="cut-ttl">デスクから給湯室</div><div class="cut-dsc">キーボードから手を離して立ち上がり、後ろ向きで給湯室へ滑走。</div><div class="cut-tg"><span class="b">オフィス</span><span>休憩</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">113</span><div><div class="cut-ttl">商談退室マイケル</div><div class="cut-dsc">商談を終えて握手したあと、後ろ向きに会議室を出る。窓ガラスにぶつかる。</div><div class="cut-tg"><span>ビジネス</span><span>失敗</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">114</span><div><div class="cut-ttl">受付通過</div><div class="cut-dsc">受付嬢に会釈しつつ、後ろ向きで通過。受付嬢「今の何ですか…」</div><div class="cut-tg"><span>ビジネス</span><span>受付</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">115</span><div><div class="cut-ttl">廊下すれ違い</div><div class="cut-dsc">廊下で同僚とすれ違うとき、お互いがムーンウォークでフェイント譲り合い。</div><div class="cut-tg"><span class="b">オフィス</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">116</span><div><div class="cut-ttl">階段降り後退</div><div class="cut-dsc">階段を後ろ向きに滑り降りる。1段ごとに会釈。マイケルJ感。</div><div class="cut-tg"><span class="gd">MJ</span><span class="gl">身体</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">117</span><div><div class="cut-ttl">回転扉ミス</div><div class="cut-dsc">回転扉を後ろ向きで入ろうとして詰まる。チープなドアSE。</div><div class="cut-tg"><span class="gl">対物</span><span class="gl">物理ギャグ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">118</span><div><div class="cut-ttl">自販機の前を通過</div><div class="cut-dsc">自販機の前で立ち止まらず、後ろ向きに滑りながら缶を取って去る。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">119</span><div><div class="cut-ttl">ATM列を抜ける</div><div class="cut-dsc">ATMの長い行列の脇を、後ろ向きに会釈しながら通過。</div><div class="cut-tg"><span class="b">あるある</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">120</span><div><div class="cut-ttl">信号渡りマイケル</div><div class="cut-dsc">横断歩道を後ろ向きで渡る。歩行者信号が青のうちに完走。</div><div class="cut-tg"><span class="gd">MJ</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">121</span><div><div class="cut-ttl">バス停整列</div><div class="cut-dsc">バスを待つ列に後ろから滑り込む。前の人と目が合って会釈。</div><div class="cut-tg"><span class="b">通勤</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">122</span><div><div class="cut-ttl">コンビニコーヒー撤退</div><div class="cut-dsc">コーヒーを淹れ終えて、後ろ向きにレジへ向かう。一切こぼさない。</div><div class="cut-tg"><span class="b">コンビニ</span><span>バランス芸</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">123</span><div><div class="cut-ttl">図書館書架退場</div><div class="cut-dsc">本を取って、後ろ向きに静かにムーンウォークで書架を抜ける。</div><div class="cut-tg"><span>図書館</span><span>静かに</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">124</span><div><div class="cut-ttl">美術館退場</div><div class="cut-dsc">絵画の前で会釈しながら後ろ向きに滑って退場。警備員が困惑。</div><div class="cut-tg"><span>美術館</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">125</span><div><div class="cut-ttl">教会通路</div><div class="cut-dsc">教会のバージンロードをムーンウォークで後退。新郎新婦が固まる。</div><div class="cut-tg"><span>ナンセンス</span><span>結婚</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">126</span><div><div class="cut-ttl">土俵入りパロ</div><div class="cut-dsc">横綱の土俵入りを後ろ向きで行う。塩も後ろ向きで撒く。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>土俵</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">127</span><div><div class="cut-ttl">初詣の参道</div><div class="cut-dsc">初詣で混雑する参道を、後ろ向きで本殿へ向かう。参拝客に会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">128</span><div><div class="cut-ttl">ラーメン屋退店</div><div class="cut-dsc">「ごちそうさま」と言いながら後ろ向きで暖簾をくぐる。店主と目が合う。</div><div class="cut-tg"><span class="b">飲食</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">129</span><div><div class="cut-ttl">居酒屋御一同様</div><div class="cut-dsc">宴会のお開きで、全員が後ろ向きで一斉に店を出る。シンクロMW。</div><div class="cut-tg"><span class="b">飲食</span><span class="g">シンクロ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">130</span><div><div class="cut-ttl">カラオケ退室</div><div class="cut-dsc">歌い終わって部屋を出るとき、後ろ向きに滑ってドアを閉める。</div><div class="cut-tg"><span>カラオケ</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">131</span><div><div class="cut-ttl">クラブのフロア</div><div class="cut-dsc">DJブースから後退するDJ。フロアの全員が同じ動きで後退。</div><div class="cut-tg"><span class="g">クラブ</span><span class="g">シンクロ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">132</span><div><div class="cut-ttl">ライブ会場退場</div><div class="cut-dsc">アンコール後、ステージ上手から下手まで後ろ向きで歩いて消える。</div><div class="cut-tg"><span class="gd">MJ</span><span>ライブ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">133</span><div><div class="cut-ttl">ストリートライブ</div><div class="cut-dsc">演奏中にギターを背負って後ろ向きで観客の間を抜けて退場。</div><div class="cut-tg"><span>ライブ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">134</span><div><div class="cut-ttl">舞台挨拶後退</div><div class="cut-dsc">映画の舞台挨拶でお辞儀した後、舞台袖まで後ろ向きで滑る。</div><div class="cut-tg"><span>退場</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">135</span><div><div class="cut-ttl">路上駐車警官前</div><div class="cut-dsc">警官の前を、後ろ向きで会釈しながら通過。何か怪しい。</div><div class="cut-tg"><span>ナンセンス</span><span>警官</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">136</span><div><div class="cut-ttl">交番の前</div><div class="cut-dsc">交番の前を後ろ向きでスーッと通過。警官が二度見。</div><div class="cut-tg"><span>ナンセンス</span><span>警官</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">137</span><div><div class="cut-ttl">デパート催事場</div><div class="cut-dsc">試食コーナーの前を、後ろ向きに滑りながら串を取って去る。</div><div class="cut-tg"><span class="gl">対物</span><span>食</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">138</span><div><div class="cut-ttl">デパ地下</div><div class="cut-dsc">惣菜売場の対面販売の前を、後ろ向きに会釈しながら通過。</div><div class="cut-tg"><span class="b">デパート</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">139</span><div><div class="cut-ttl">百貨店化粧品売場</div><div class="cut-dsc">店員に呼び止められそうになり、後ろ向きでスッと逃げる。</div><div class="cut-tg"><span class="b">デパート</span><span>回避</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">140</span><div><div class="cut-ttl">試着室カーテン後退</div><div class="cut-dsc">試着室から出てきて、後ろ向きで店員の前を通る。値札がついたまま。</div><div class="cut-tg"><span>買い物</span><span>試着</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">141</span><div><div class="cut-ttl">郵便局窓口</div><div class="cut-dsc">順番を呼ばれて窓口へ。用が済んだら後ろ向きで列を抜ける。</div><div class="cut-tg"><span>お役所</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">142</span><div><div class="cut-ttl">市役所窓口</div><div class="cut-dsc">番号札を返却して、後ろ向きで自動ドアまで滑走。</div><div class="cut-tg"><span>お役所</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">143</span><div><div class="cut-ttl">病院受付</div><div class="cut-dsc">診察券を受け取って、後ろ向きで待合室の椅子まで滑る。</div><div class="cut-tg"><span>病院</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">144</span><div><div class="cut-ttl">病室退室</div><div class="cut-dsc">見舞いを終え、ベッドの患者に手を振りながら後ろ向きで退室。</div><div class="cut-tg"><span>病院</span><span>見舞い</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">145</span><div><div class="cut-ttl">学校廊下</div><div class="cut-dsc">授業に遅刻して、教室の窓越しに後ろ向きで滑って通過。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">146</span><div><div class="cut-ttl">職員室退出</div><div class="cut-dsc">怒られた生徒が「すみません」と言いながら後ろ向きに退室。</div><div class="cut-tg"><span class="b">学校</span><span>謝罪</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">147</span><div><div class="cut-ttl">校長室前</div><div class="cut-dsc">校長室の前を後ろ向きで通過。校長と目が合って即静止。</div><div class="cut-tg"><span class="b">学校</span><span>緊張と緩和</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">148</span><div><div class="cut-ttl">試験会場退室</div><div class="cut-dsc">試験を早く終えて、後ろ向きでムーンウォーク退室。試験官が顔を上げる。</div><div class="cut-tg"><span class="b">学校</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">149</span><div><div class="cut-ttl">塾の入口</div><div class="cut-dsc">塾の自動ドアを後ろ向きで通って入っていく。スリッパに履き替え忘れる。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">150</span><div><div class="cut-ttl">通学路ランドセル</div><div class="cut-dsc">ランドセルを背負って、後ろ向きで小学生軍団の中をスルッと抜ける。</div><div class="cut-tg"><span>子供</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">151</span><div><div class="cut-ttl">公園遊具横切り</div><div class="cut-dsc">ブランコや滑り台の前を後ろ向きで横切る。子供が真似し出す。</div><div class="cut-tg"><span>公園</span><span>子供</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">152</span><div><div class="cut-ttl">遊園地アトラクション列</div><div class="cut-dsc">アトラクションの行列の脇を、後ろ向きで前へ進む。係員が止める。</div><div class="cut-tg"><span>遊園地</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">153</span><div><div class="cut-ttl">動物園檻の前</div><div class="cut-dsc">ライオンの檻の前を後ろ向きで横切る。ライオンが目で追う。</div><div class="cut-tg"><span>動物園</span><span>動物</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">154</span><div><div class="cut-ttl">水族館トンネル</div><div class="cut-dsc">回遊魚のトンネル水槽を、後ろ向きで歩く。魚と同じ方向に進む。</div><div class="cut-tg"><span>水族館</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">155</span><div><div class="cut-ttl">博物館展示</div><div class="cut-dsc">恐竜の骨格標本の前を、後ろ向きで滑って通過。骨と目が合う錯覚。</div><div class="cut-tg"><span>博物館</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">156</span><div><div class="cut-ttl">空港搭乗ゲート</div><div class="cut-dsc">搭乗ゲートを後ろ向きで通過。客室乗務員が「行ってらっしゃい」と困惑。</div><div class="cut-tg"><span>空港</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">157</span><div><div class="cut-ttl">税関通過</div><div class="cut-dsc">税関で何も申告せず、後ろ向きで通り抜ける。係員が追いかける。</div><div class="cut-tg"><span>空港</span><span>逃走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">158</span><div><div class="cut-ttl">ホテルチェックアウト</div><div class="cut-dsc">鍵を返して、後ろ向きでロビーから玄関まで滑走。</div><div class="cut-tg"><span>ホテル</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">159</span><div><div class="cut-ttl">ホテルベルの前</div><div class="cut-dsc">フロントベルを鳴らしてから後ろ向きで2歩下がって待つ。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">160</span><div><div class="cut-ttl">結婚式入場</div><div class="cut-dsc">新郎新婦が後ろ向きでバージンロードを進入。神父が困惑。</div><div class="cut-tg"><span>結婚</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">161</span><div><div class="cut-ttl">葬式焼香退場</div><div class="cut-dsc">焼香を済ませて、後ろ向きで遺族の前から退場。深々とお辞儀しつつ。</div><div class="cut-tg"><span>葬式</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">162</span><div><div class="cut-ttl">結納の場</div><div class="cut-dsc">結納品を交換した後、両家とも後ろ向きで畳を退室。シンクロ。</div><div class="cut-tg"><span class="gd">和テイスト</span><span class="g">シンクロ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">163</span><div><div class="cut-ttl">茶室退室</div><div class="cut-dsc">茶室から「失礼します」と頭を下げ、後ろ向きで膝をついたまま退室。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">164</span><div><div class="cut-ttl">着物ですれ違い</div><div class="cut-dsc">和服の女性とすれ違うとき、後ろ向きに会釈してスーッと譲る。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">165</span><div><div class="cut-ttl">寿司屋カウンター退店</div><div class="cut-dsc">板前にお辞儀しながら後ろ向きでカウンター席を立つ。「お会計」を後ろ向きで言う。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">166</span><div><div class="cut-ttl">焼肉屋トング</div><div class="cut-dsc">トングを片手に肉を取り、後ろ向きでテーブルに戻る。煙を逃げる。</div><div class="cut-tg"><span class="b">飲食</span><span class="gl">身体</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">167</span><div><div class="cut-ttl">バーカウンター</div><div class="cut-dsc">カクテルを受け取って、後ろ向きでスツールに座る。バーテンダーが頷く。</div><div class="cut-tg"><span class="b">飲食</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">168</span><div><div class="cut-ttl">クラブVIP席</div><div class="cut-dsc">VIP席へ向かう途中、後ろ向きでフロアを横切る。シャンパンを溢さず。</div><div class="cut-tg"><span class="g">クラブ</span><span>バランス芸</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">169</span><div><div class="cut-ttl">公衆便所</div><div class="cut-dsc">個室の前で順番待ちの人に会釈し、後ろ向きで個室へ入る。ドアロック。</div><div class="cut-tg"><span>ナンセンス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">170</span><div><div class="cut-ttl">銭湯番台</div><div class="cut-dsc">番台にお金を払って、後ろ向きで脱衣所へ進む。タオル片手に。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">171</span><div><div class="cut-ttl">温泉露天風呂</div><div class="cut-dsc">湯船から後ろ向きに上がり、振り向かずに脱衣所まで滑る。</div><div class="cut-tg"><span>ナンセンス</span><span>温泉</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">172</span><div><div class="cut-ttl">コインランドリー</div><div class="cut-dsc">洗濯物を回収して、後ろ向きで店外まで滑走。カゴ満載。</div><div class="cut-tg"><span class="b">あるある</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">173</span><div><div class="cut-ttl">クリーニング受取</div><div class="cut-dsc">受け取ったスーツを肩にかけ、後ろ向きで店を出る。スーツがふわっと揺れる。</div><div class="cut-tg"><span class="b">あるある</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">174</span><div><div class="cut-ttl">交番道案内</div><div class="cut-dsc">道を聞いた後、警官にお礼しつつ後ろ向きで去る。地図を見ながら。</div><div class="cut-tg"><span>警官</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">175</span><div><div class="cut-ttl">運転免許試験場</div><div class="cut-dsc">教官の前で実技試験。スタート前に後ろ向きでパッセンジャー席へ移動。</div><div class="cut-tg"><span>お役所</span><span>失敗</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">176</span><div><div class="cut-ttl">運転免許更新</div><div class="cut-dsc">写真撮影後、後ろ向きで階段を降りる。次の人とぶつかる。</div><div class="cut-tg"><span>お役所</span><span>失敗</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">177</span><div><div class="cut-ttl">選挙投票所</div><div class="cut-dsc">投票用紙を投函した後、後ろ向きで会場を出る。係員に会釈。</div><div class="cut-tg"><span>お役所</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">178</span><div><div class="cut-ttl">ガソリンスタンド</div><div class="cut-dsc">給油後、後ろ向きで店員の前を通って車に戻る。財布を渡しながら。</div><div class="cut-tg"><span>運転</span><span>店員</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">179</span><div><div class="cut-ttl">コインパーキング</div><div class="cut-dsc">精算機からゲートまで、後ろ向きで走って戻る。ゲートが閉まる前に。</div><div class="cut-tg"><span>運転</span><span>焦り</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">180</span><div><div class="cut-ttl">ドライブスルー</div><div class="cut-dsc">車で後退しながら受け取り窓口に近づく。ハンバーガーを後ろ手で受け取る。</div><div class="cut-tg"><span class="b">飲食</span><span>運転</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">181</span><div><div class="cut-ttl">コインロッカー</div><div class="cut-dsc">荷物を入れて鍵を抜き、後ろ向きで改札方向へ滑走。</div><div class="cut-tg"><span class="b">駅</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">182</span><div><div class="cut-ttl">自動改札出口</div><div class="cut-dsc">切符を入れた後、後ろ向きでスーッとゲートを通る。係員と目が合う。</div><div class="cut-tg"><span class="b">駅</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">183</span><div><div class="cut-ttl">満員バス降車</div><div class="cut-dsc">降車口から後ろ向きで地面に降りる。会釈しながら振り返らず。</div><div class="cut-tg"><span class="b">通勤</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">184</span><div><div class="cut-ttl">タクシー乗車</div><div class="cut-dsc">タクシーに乗るとき、後ろ向きで滑り込む。運転手が二度見。</div><div class="cut-tg"><span>運転</span><span>乗車</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">185</span><div><div class="cut-ttl">タクシー降車</div><div class="cut-dsc">タクシーを降りるとき、後ろ向きでスーッと滑り出る。財布を運転手に。</div><div class="cut-tg"><span>運転</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">186</span><div><div class="cut-ttl">信号待ち</div><div class="cut-dsc">横断歩道の信号待ちで、後ろ向きで歩道の縁石を行ったり来たり。</div><div class="cut-tg"><span class="gd">MJ</span><span class="gl">身体</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">187</span><div><div class="cut-ttl">駅伝中継</div><div class="cut-dsc">ランナーが中継地点で襷を渡した後、後ろ向きでゴール方向へ走り去る。</div><div class="cut-tg"><span>スポーツ</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">188</span><div><div class="cut-ttl">マラソンスタート</div><div class="cut-dsc">号砲で全員が前へ走るのに、一人だけ後ろ向きで滑り続ける。</div><div class="cut-tg"><span>スポーツ</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">189</span><div><div class="cut-ttl">駅伝沿道応援</div><div class="cut-dsc">沿道で応援する人々の前を、後ろ向きで走り抜ける。応援する側も困惑。</div><div class="cut-tg"><span>スポーツ</span><span>沿道</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">190</span><div><div class="cut-ttl">競馬予想紙</div><div class="cut-dsc">競馬場のオッズ板の前を、後ろ向きで予想紙を読みながら通過。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">191</span><div><div class="cut-ttl">パチンコ店</div><div class="cut-dsc">パチンコ台の間を後ろ向きで滑る。当たり台を見つけてもスルー。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">192</span><div><div class="cut-ttl">古本屋立読み</div><div class="cut-dsc">棚の前で本を立ち読みしながら、後ろ向きで店内を一周。</div><div class="cut-tg"><span>古本</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">193</span><div><div class="cut-ttl">レコード店ディグ</div><div class="cut-dsc">レコード棚を一枚ずつめくりながら、後ろ向きでスーッと移動。MJ感全開。</div><div class="cut-tg"><span class="gd">MJ</span><span>レコード</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">194</span><div><div class="cut-ttl">楽器店試奏退場</div><div class="cut-dsc">ギターを試奏後、店員に会釈してそのまま後ろ向きで店外へ。</div><div class="cut-tg"><span>ナンセンス</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">195</span><div><div class="cut-ttl">ライブハウスソール</div><div class="cut-dsc">客同士が押し合いながら、後ろ向きで前方に進む奇妙なモッシュ。</div><div class="cut-tg"><span>ライブ</span><span>群衆</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">196</span><div><div class="cut-ttl">画材店ペン売場</div><div class="cut-dsc">ペンを物色しながら、後ろ向きで通路を行き来。同じ商品を3周見る。</div><div class="cut-tg"><span>優柔不断</span><span>ナンセンス</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">197</span><div><div class="cut-ttl">100均店内</div><div class="cut-dsc">100均の通路を、後ろ向きでカゴを引きずりながらゆっくり進む。</div><div class="cut-tg"><span class="b">あるある</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">198</span><div><div class="cut-ttl">無印良品</div><div class="cut-dsc">白い空間を、後ろ向きでミニマルに滑る。一切音を立てない。</div><div class="cut-tg"><span>ナンセンス</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">199</span><div><div class="cut-ttl">IKEA展示通路</div><div class="cut-dsc">矢印と逆方向に後ろ向きで進む。順路無視。</div><div class="cut-tg"><span>ナンセンス</span><span>逆走</span></div></div></div>
+        <div class="cut" data-cat="moonwalk" onclick="copyCut(this)"><span class="cut-no">200</span><div><div class="cut-ttl">家電量販店試遊</div><div class="cut-dsc">ゲーム機の試遊台から、後ろ向きで滑って次のコーナーへ移動。</div><div class="cut-tg"><span class="b">あるある</span><span>試遊</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 土下座スライディング 100景 ===== -->
+    <section class="cat" data-cat="dogeza">
+      <div class="cat-h"><span class="ic">🙇‍♂️</span><h2>土下座スライディング 100景</h2><span class="cnt">201–300</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">201</span><div><div class="cut-ttl">会議室入口</div><div class="cut-dsc">遅刻した会議室のドアを開けた瞬間、土下座スライディングで自席へ。</div><div class="cut-tg"><span>ビジネス</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">202</span><div><div class="cut-ttl">商談スタート</div><div class="cut-dsc">アポイント時間ギリギリ、ドアを開けて土下座のまま机までスライド。</div><div class="cut-tg"><span>ビジネス</span><span>商談</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">203</span><div><div class="cut-ttl">社長室土下座</div><div class="cut-dsc">社長室の長い絨毯を、土下座のまま滑って机に到達。報告書を頭上に。</div><div class="cut-tg"><span>ビジネス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">204</span><div><div class="cut-ttl">プレゼン場入場</div><div class="cut-dsc">プレゼン開始合図と同時に演台へ土下座スライディング。マイク前で頭を下げたまま。</div><div class="cut-tg"><span>ビジネス</span><span>プレゼン</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">205</span><div><div class="cut-ttl">クライアント控室</div><div class="cut-dsc">ホテルの控室にスーツで滑り込み、クライアントの前で頭を下げる。砂煙VFX。</div><div class="cut-tg"><span>ビジネス</span><span class="gd">VFX</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">206</span><div><div class="cut-ttl">結婚式遅刻</div><div class="cut-dsc">披露宴会場のドアを開け、土下座でメインテーブルまでスライディング。新郎泣く。</div><div class="cut-tg"><span>結婚</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">207</span><div><div class="cut-ttl">葬式遅刻</div><div class="cut-dsc">葬儀場の入口から、喪服のまま土下座スライディングで焼香台へ。</div><div class="cut-tg"><span>葬式</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">208</span><div><div class="cut-ttl">成人式遅刻</div><div class="cut-dsc">晴れ着のまま会場へ滑り込み、新成人の前で土下座スライディング。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">209</span><div><div class="cut-ttl">入学式遅刻</div><div class="cut-dsc">新入生が体育館の床を土下座スライディング、新入生の列の最後尾へ。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">210</span><div><div class="cut-ttl">卒業式遅刻</div><div class="cut-dsc">袴姿で卒業式会場へ土下座スライディング。校長の前で頭を下げる。</div><div class="cut-tg"><span class="b">学校</span><span class="gd">和テイスト</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">211</span><div><div class="cut-ttl">学校給食列</div><div class="cut-dsc">給食室の前の列の最後尾を抜かしてしまい、土下座で列の後ろへスライド。</div><div class="cut-tg"><span class="b">学校</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">212</span><div><div class="cut-ttl">修学旅行集合</div><div class="cut-dsc">集合時間に遅れ、バスの前で土下座スライディング。先生の足元で停止。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">213</span><div><div class="cut-ttl">駅員ホーム</div><div class="cut-dsc">電車に乗り遅れ、駅員の前で土下座スライディング。次の電車を待つ。</div><div class="cut-tg"><span class="b">駅</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">214</span><div><div class="cut-ttl">空港ゲート</div><div class="cut-dsc">搭乗ゲートが閉じる瞬間、土下座で滑り込む。CAが扉を開ける。</div><div class="cut-tg"><span>空港</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">215</span><div><div class="cut-ttl">国際線税関</div><div class="cut-dsc">申告漏れに気づいて、税関で土下座スライディング。免税枠を聞く。</div><div class="cut-tg"><span>空港</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">216</span><div><div class="cut-ttl">バス降車口</div><div class="cut-dsc">降りるバス停を過ぎて、運転手の前で土下座スライディング。次で降ろしてもらう。</div><div class="cut-tg"><span class="b">通勤</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">217</span><div><div class="cut-ttl">タクシー降車</div><div class="cut-dsc">渋滞でメーターが上がり、運転手の前で土下座スライディング。値切る。</div><div class="cut-tg"><span>運転</span><span>値切り</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">218</span><div><div class="cut-ttl">交番遺失届</div><div class="cut-dsc">免許証を落とし、交番の床で土下座スライディング。警官の足元で停止。</div><div class="cut-tg"><span>警官</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">219</span><div><div class="cut-ttl">市役所窓口</div><div class="cut-dsc">書類不備が判明し、窓口の係員の前で土下座スライディング。再提出依頼。</div><div class="cut-tg"><span>お役所</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">220</span><div><div class="cut-ttl">病院受付</div><div class="cut-dsc">予約時間を過ぎ、受付の前で土下座スライディング。診察を頼む。</div><div class="cut-tg"><span>病院</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">221</span><div><div class="cut-ttl">病室見舞い遅刻</div><div class="cut-dsc">病室のドアを開け、患者のベッドまで土下座スライディング。お見舞いの花を高く。</div><div class="cut-tg"><span>病院</span><span>見舞い</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">222</span><div><div class="cut-ttl">葬儀屋打合せ</div><div class="cut-dsc">葬儀の打合せに遅れ、住職の前で土下座スライディング。お経が始まる。</div><div class="cut-tg"><span>葬式</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">223</span><div><div class="cut-ttl">法事中座礼</div><div class="cut-dsc">法事で席を立つとき、住職の前で土下座スライディング退室。畳の上を滑走。</div><div class="cut-tg"><span>葬式</span><span class="gd">和テイスト</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">224</span><div><div class="cut-ttl">料亭座敷</div><div class="cut-dsc">料亭の長い廊下を、座布団を頭に乗せて土下座スライディング。仲居が驚く。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>料亭</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">225</span><div><div class="cut-ttl">茶室入室</div><div class="cut-dsc">茶室のにじり口から、土下座スライディングで座敷へ。茶人が困惑。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">226</span><div><div class="cut-ttl">能舞台登場</div><div class="cut-dsc">能の舞台へ土下座スライディングで登場。観客がどよめく。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">227</span><div><div class="cut-ttl">歌舞伎座花道</div><div class="cut-dsc">花道を土下座スライディングで本舞台へ。隈取りで眉が動く。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">228</span><div><div class="cut-ttl">相撲土俵入り</div><div class="cut-dsc">横綱が土俵入りで土下座スライディング。塩の代わりに体で土を撒く。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>土俵</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">229</span><div><div class="cut-ttl">剣道道場入場</div><div class="cut-dsc">道場の床を、剣道着で土下座スライディング。先生の前で正座に移行。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">230</span><div><div class="cut-ttl">柔道試合場</div><div class="cut-dsc">試合開始の礼を、土下座スライディングで畳を横断しながら行う。</div><div class="cut-tg"><span>スポーツ</span><span class="gd">和テイスト</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">231</span><div><div class="cut-ttl">空手道場</div><div class="cut-dsc">型の最後を土下座スライディングで決める。先生が拍手。</div><div class="cut-tg"><span>スポーツ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">232</span><div><div class="cut-ttl">野球グラウンド</div><div class="cut-dsc">ピッチャーマウンドへ土下座スライディングで登板。砂煙VFX。</div><div class="cut-tg"><span>スポーツ</span><span class="gd">VFX</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">233</span><div><div class="cut-ttl">サッカーゴール前</div><div class="cut-dsc">ゴールを決めた後、観客席へ土下座スライディングで感謝。</div><div class="cut-tg"><span>スポーツ</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">234</span><div><div class="cut-ttl">テニスコート</div><div class="cut-dsc">サーブの代わりに土下座スライディング。ラケットを頭の上に置く。</div><div class="cut-tg"><span>スポーツ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">235</span><div><div class="cut-ttl">ゴルフコース</div><div class="cut-dsc">グリーンへ土下座スライディング。ボールを頭で押し込む。</div><div class="cut-tg"><span>スポーツ</span><span>ナンセンス</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">236</span><div><div class="cut-ttl">ボウリングレーン</div><div class="cut-dsc">ガーターを出した後、レーンを土下座スライディング。ピンの前で謝罪。</div><div class="cut-tg"><span>スポーツ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">237</span><div><div class="cut-ttl">バッティングセンター</div><div class="cut-dsc">三振後、ケージから土下座スライディングで退場。次の人に頭を下げる。</div><div class="cut-tg"><span>スポーツ</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">238</span><div><div class="cut-ttl">プール初心者コース</div><div class="cut-dsc">プールサイドを土下座スライディング、そのまま水中へ。水しぶき。</div><div class="cut-tg"><span>プール</span><span class="gl">物理ギャグ</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">239</span><div><div class="cut-ttl">スキー場リフト降車</div><div class="cut-dsc">リフトを降りる瞬間、雪面に土下座スライディング。スキー板を頭上に。</div><div class="cut-tg"><span>スポーツ</span><span class="gl">物理ギャグ</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">240</span><div><div class="cut-ttl">スノボパーク</div><div class="cut-dsc">ジャンプの着地を土下座スライディングで決める。雪煙VFX。</div><div class="cut-tg"><span>スポーツ</span><span class="gd">VFX</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">241</span><div><div class="cut-ttl">カラオケ部屋</div><div class="cut-dsc">歌い終わってマイクを返し、店員の前で土下座スライディング。延長依頼。</div><div class="cut-tg"><span>カラオケ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">242</span><div><div class="cut-ttl">クラブVIP席</div><div class="cut-dsc">VIP席へクラブのフロアを土下座スライディングで通過。レーザー演出。</div><div class="cut-tg"><span class="g">クラブ</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">243</span><div><div class="cut-ttl">バーカウンター</div><div class="cut-dsc">カクテルを倒した瞬間、カウンター下を土下座スライディングで謝罪。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">244</span><div><div class="cut-ttl">ラーメン屋カウンター</div><div class="cut-dsc">ラーメンを溢して、店主の前へカウンター越しに土下座スライディング。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">245</span><div><div class="cut-ttl">回転寿司レーン</div><div class="cut-dsc">回転レーンを土下座スライディングで横断。寿司皿が頭の上を流れる。</div><div class="cut-tg"><span class="b">飲食</span><span>ナンセンス</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">246</span><div><div class="cut-ttl">焼肉屋網倒し</div><div class="cut-dsc">網をひっくり返し、煙の中を土下座スライディングで店主の前へ。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">247</span><div><div class="cut-ttl">居酒屋オーダーミス</div><div class="cut-dsc">頼んでないメニューが来て、店員の前で土下座スライディング。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">248</span><div><div class="cut-ttl">コンビニ温め忘れ</div><div class="cut-dsc">温めを忘れたお弁当を持って、店員の前で土下座スライディング。再温め依頼。</div><div class="cut-tg"><span class="b">コンビニ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">249</span><div><div class="cut-ttl">コンビニ年齢確認</div><div class="cut-dsc">酒を買おうとして年齢確認、運転免許証を出して土下座スライディング。</div><div class="cut-tg"><span class="b">コンビニ</span><span>ナンセンス</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">250</span><div><div class="cut-ttl">デパ地下試食</div><div class="cut-dsc">試食を3周して、店員の前で土下座スライディング。買って帰る。</div><div class="cut-tg"><span class="b">デパート</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">251</span><div><div class="cut-ttl">百貨店化粧品</div><div class="cut-dsc">化粧品サンプルを使いすぎて、店員の前で土下座スライディング。</div><div class="cut-tg"><span class="b">デパート</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">252</span><div><div class="cut-ttl">ホテルチェックイン</div><div class="cut-dsc">予約名間違いで、フロントの前で土下座スライディング。部屋を取り直す。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">253</span><div><div class="cut-ttl">ホテル朝食バイキング</div><div class="cut-dsc">皿を落とした音で皆が振り返り、土下座スライディングで料理長まで。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">254</span><div><div class="cut-ttl">空港カウンター</div><div class="cut-dsc">搭乗券を忘れ、カウンターまで土下座スライディング。再発行依頼。</div><div class="cut-tg"><span>空港</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">255</span><div><div class="cut-ttl">空港手荷物検査</div><div class="cut-dsc">ペットボトルが見つかり、検査員の前で土下座スライディング。</div><div class="cut-tg"><span>空港</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">256</span><div><div class="cut-ttl">駅自動改札</div><div class="cut-dsc">ICカード残高不足で、改札を土下座スライディング。係員に頭を下げる。</div><div class="cut-tg"><span class="b">駅</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">257</span><div><div class="cut-ttl">駅員室</div><div class="cut-dsc">駅員室に遺失物の問い合わせ、土下座スライディングで「すみません」。</div><div class="cut-tg"><span class="b">駅</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">258</span><div><div class="cut-ttl">交番道案内</div><div class="cut-dsc">道に迷って交番へ。警官の前で土下座スライディング、地図を頭上に。</div><div class="cut-tg"><span>警官</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">259</span><div><div class="cut-ttl">交通事故謝罪</div><div class="cut-dsc">車をぶつけてしまい、相手の前で土下座スライディング。保険会社の名刺。</div><div class="cut-tg"><span>運転</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">260</span><div><div class="cut-ttl">追突事故謝罪</div><div class="cut-dsc">追突した側が、信号待ちの相手の前で土下座スライディング。</div><div class="cut-tg"><span>運転</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">261</span><div><div class="cut-ttl">駐車場接触</div><div class="cut-dsc">駐車中に他の車に接触、ドライバーが戻る前に土下座スライディング待機。</div><div class="cut-tg"><span>運転</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">262</span><div><div class="cut-ttl">引越し梱包ミス</div><div class="cut-dsc">引越しの当日、荷物が間に合わず業者の前で土下座スライディング。</div><div class="cut-tg"><span class="b">あるある</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">263</span><div><div class="cut-ttl">宅配便受取</div><div class="cut-dsc">宅配便の不在票が溜まり、配達員に土下座スライディングで再配達依頼。</div><div class="cut-tg"><span class="b">あるある</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">264</span><div><div class="cut-ttl">ネット通販誤発注</div><div class="cut-dsc">通販で誤発注、配達員の前で土下座スライディング。返品を頼む。</div><div class="cut-tg"><span class="b">あるある</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">265</span><div><div class="cut-ttl">マンション管理人</div><div class="cut-dsc">ゴミの分別ミスで、管理人室の前で土下座スライディング。</div><div class="cut-tg"><span class="b">あるある</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">266</span><div><div class="cut-ttl">町内会会長宅</div><div class="cut-dsc">回覧板を回し忘れ、会長宅の玄関で土下座スライディング。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">267</span><div><div class="cut-ttl">PTA総会遅刻</div><div class="cut-dsc">PTA総会のドアを開け、母親たちの前で土下座スライディング。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">268</span><div><div class="cut-ttl">授業参観遅刻</div><div class="cut-dsc">授業中の教室に土下座スライディングで入場。担任が固まる。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">269</span><div><div class="cut-ttl">運動会PTAリレー</div><div class="cut-dsc">PTAリレーで転倒し、子供の前で土下座スライディング。</div><div class="cut-tg"><span class="b">学校</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">270</span><div><div class="cut-ttl">子供の発表会</div><div class="cut-dsc">我が子のピアノ発表会に遅刻、客席を土下座スライディング。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">271</span><div><div class="cut-ttl">入院手続</div><div class="cut-dsc">入院手続の窓口で書類不備、看護師の前で土下座スライディング。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">272</span><div><div class="cut-ttl">退院会計</div><div class="cut-dsc">退院時の会計で支払いミス、会計窓口で土下座スライディング。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">273</span><div><div class="cut-ttl">手術同意書</div><div class="cut-dsc">同意書を忘れた家族が、手術室の前で土下座スライディング。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">274</span><div><div class="cut-ttl">救急車到着遅延</div><div class="cut-dsc">救急隊員の到着が遅れ、患者の前で土下座スライディング。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">275</span><div><div class="cut-ttl">お見合いの席</div><div class="cut-dsc">お見合いの席で粗相、両家の前で土下座スライディング。</div><div class="cut-tg"><span>結婚</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">276</span><div><div class="cut-ttl">結納の床</div><div class="cut-dsc">結納で結納金を落とし、両家の前で土下座スライディング。</div><div class="cut-tg"><span>結婚</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">277</span><div><div class="cut-ttl">親への挨拶</div><div class="cut-dsc">結婚の挨拶で言葉に詰まり、相手の親の前で土下座スライディング。</div><div class="cut-tg"><span>結婚</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">278</span><div><div class="cut-ttl">プロポーズ失敗</div><div class="cut-dsc">プロポーズして断られ、その場で土下座スライディング。指輪を頭上に。</div><div class="cut-tg"><span>ナンセンス</span><span>プロポーズ</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">279</span><div><div class="cut-ttl">浮気バレ</div><div class="cut-dsc">浮気がバレ、リビングで妻の前で土下座スライディング。</div><div class="cut-tg"><span>ナンセンス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">280</span><div><div class="cut-ttl">離婚届提出</div><div class="cut-dsc">離婚届を提出するために、市役所窓口で土下座スライディング。</div><div class="cut-tg"><span>お役所</span><span>ナンセンス</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">281</span><div><div class="cut-ttl">親戚集まり遅刻</div><div class="cut-dsc">親戚一同の集まりに遅刻、玄関で土下座スライディング。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">282</span><div><div class="cut-ttl">お年玉お礼</div><div class="cut-dsc">お年玉をもらった後、親戚の叔父さんに土下座スライディングでお礼。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">283</span><div><div class="cut-ttl">初詣賽銭忘れ</div><div class="cut-dsc">賽銭を忘れて参拝、神主の前で土下座スライディング。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">284</span><div><div class="cut-ttl">墓参り忘れ物</div><div class="cut-dsc">線香を忘れ、お墓の前で土下座スライディング。先祖に謝罪。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">285</span><div><div class="cut-ttl">座禅会遅刻</div><div class="cut-dsc">座禅会のお堂に土下座スライディング、住職の前で正座に移行。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">286</span><div><div class="cut-ttl">写経教室遅刻</div><div class="cut-dsc">写経教室の畳の上を、土下座スライディング。筆を頭上に。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">287</span><div><div class="cut-ttl">茶道教室遅刻</div><div class="cut-dsc">茶道教室の畳を土下座スライディング、先生の前で正座。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">288</span><div><div class="cut-ttl">華道教室遅刻</div><div class="cut-dsc">華道教室で土下座スライディング、花器を頭上に持ったまま。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">289</span><div><div class="cut-ttl">習字教室</div><div class="cut-dsc">墨をこぼし、先生の前で土下座スライディング。半紙を頭上に。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">290</span><div><div class="cut-ttl">そろばん教室</div><div class="cut-dsc">計算ミスで、先生の前で土下座スライディング。そろばんを頭上に。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">291</span><div><div class="cut-ttl">塾の自習室</div><div class="cut-dsc">騒がしくして、塾長の前で土下座スライディング。再入室許可を頼む。</div><div class="cut-tg"><span class="b">学校</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">292</span><div><div class="cut-ttl">家庭教師遅刻</div><div class="cut-dsc">家庭教師が遅刻、生徒の家の玄関で土下座スライディング。</div><div class="cut-tg"><span class="b">学校</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">293</span><div><div class="cut-ttl">オンライン会議</div><div class="cut-dsc">Zoom接続失敗、画面に向かって土下座スライディング。カメラが顔を捉える。</div><div class="cut-tg"><span>ビジネス</span><span>リモート</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">294</span><div><div class="cut-ttl">テレワーク遅刻</div><div class="cut-dsc">在宅勤務で寝坊、自宅のPC前で土下座スライディング。</div><div class="cut-tg"><span>ビジネス</span><span>遅刻</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">295</span><div><div class="cut-ttl">リモート発表</div><div class="cut-dsc">リモートの発表会で資料失敗、画面越しに土下座スライディング。</div><div class="cut-tg"><span>ビジネス</span><span>リモート</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">296</span><div><div class="cut-ttl">SNS炎上</div><div class="cut-dsc">SNSで炎上、自分のアカウント画面の前で土下座スライディング動画投稿。</div><div class="cut-tg"><span>メタ</span><span>SNS</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">297</span><div><div class="cut-ttl">生配信トラブル</div><div class="cut-dsc">生配信中にトラブル、カメラの前で土下座スライディング。視聴者がギフト送る。</div><div class="cut-tg"><span>メタ</span><span>配信</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">298</span><div><div class="cut-ttl">YouTube収益化</div><div class="cut-dsc">規約違反で収益化停止、PC画面に向かって土下座スライディング。</div><div class="cut-tg"><span>メタ</span><span>配信</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">299</span><div><div class="cut-ttl">AI謝罪</div><div class="cut-dsc">AIに代わりに土下座スライディングさせる。チープ合成。</div><div class="cut-tg"><span>メタ</span><span>AI</span></div></div></div>
+        <div class="cut" data-cat="dogeza" onclick="copyCut(this)"><span class="cut-no">300</span><div><div class="cut-ttl">ロボット土下座</div><div class="cut-dsc">ヘタウマな二足歩行ロボットが土下座スライディング、転倒。</div><div class="cut-tg"><span>メタ</span><span>AI</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== ビニール傘 後ろ揺らし迷惑 100景 ===== -->
+    <section class="cat" data-cat="umbrella">
+      <div class="cat-h"><span class="ic">☂️</span><h2>ビニール傘 後ろ揺らし迷惑 100景</h2><span class="cnt">301–400</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">301</span><div><div class="cut-ttl">通勤満員ホーム</div><div class="cut-dsc">傘を後ろに振りながらホームを歩く。後ろの人に何度も当たる。</div><div class="cut-tg"><span class="b">通勤</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">302</span><div><div class="cut-ttl">改札通過</div><div class="cut-dsc">改札を通る瞬間、傘が後ろの人の顔に。本人は気づかず。</div><div class="cut-tg"><span class="b">通勤</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">303</span><div><div class="cut-ttl">駅階段下り</div><div class="cut-dsc">階段を降りながら傘を後ろに振り、後ろの人の脚に。</div><div class="cut-tg"><span class="b">通勤</span><span>階段</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">304</span><div><div class="cut-ttl">駅前広場</div><div class="cut-dsc">駅前の広場を歩く間、傘を後ろにブンブン振る。野鳥が一斉に飛び立つ。</div><div class="cut-tg"><span class="b">駅</span><span>ナンセンス</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">305</span><div><div class="cut-ttl">バス停整列</div><div class="cut-dsc">傘を振りながらバス停の列の最後尾へ。前の人に何度も当たる。</div><div class="cut-tg"><span class="b">通勤</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">306</span><div><div class="cut-ttl">商店街アーケード</div><div class="cut-dsc">アーケード街を歩きながら傘を後ろに揺らす。傘が屋根に当たる音。</div><div class="cut-tg"><span>商店街</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">307</span><div><div class="cut-ttl">コンビニ店内</div><div class="cut-dsc">コンビニの通路を傘を後ろに振りながら歩く。商品棚に当たる。</div><div class="cut-tg"><span class="b">コンビニ</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">308</span><div><div class="cut-ttl">スーパーカート</div><div class="cut-dsc">カートを押しながら傘を後ろに振る。他の客に当たり店員が注意。</div><div class="cut-tg"><span>買い物</span><span>カート</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">309</span><div><div class="cut-ttl">デパート売場</div><div class="cut-dsc">デパートの売場を傘を振りながら通過。マネキンに当たる。</div><div class="cut-tg"><span class="b">デパート</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">310</span><div><div class="cut-ttl">デパ地下惣菜</div><div class="cut-dsc">惣菜売場の前を傘を振って通過。試食のお皿が落ちる。</div><div class="cut-tg"><span class="b">デパート</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">311</span><div><div class="cut-ttl">オフィス通路</div><div class="cut-dsc">オフィスの通路を傘を後ろに振りながら歩く。コピー機に当たる。</div><div class="cut-tg"><span class="b">オフィス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">312</span><div><div class="cut-ttl">廊下すれ違い</div><div class="cut-dsc">オフィスの廊下ですれ違う人に傘が当たる。気づかず立ち去る。</div><div class="cut-tg"><span class="b">オフィス</span><span>無自覚</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">313</span><div><div class="cut-ttl">会議室入退室</div><div class="cut-dsc">会議室から退出時、傘が議長の頭に当たる。一同が固まる。</div><div class="cut-tg"><span>ビジネス</span><span>無自覚</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">314</span><div><div class="cut-ttl">社長室入室</div><div class="cut-dsc">社長室に入室時、傘が秘書の机に当たる。書類が散らばる。</div><div class="cut-tg"><span>ビジネス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">315</span><div><div class="cut-ttl">受付ロビー</div><div class="cut-dsc">受付ロビーを傘を後ろに振りながら通過。来客の前で振り回す。</div><div class="cut-tg"><span>ビジネス</span><span>無自覚</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">316</span><div><div class="cut-ttl">商談先訪問</div><div class="cut-dsc">商談先のオフィスを傘を振って入室。応接室の絵画に当たる。</div><div class="cut-tg"><span>ビジネス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">317</span><div><div class="cut-ttl">展示会場</div><div class="cut-dsc">展示ブースの間を傘を振って歩く。来場者全員が顔をかばう。</div><div class="cut-tg"><span>ビジネス</span><span>群衆</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">318</span><div><div class="cut-ttl">カフェ店内</div><div class="cut-dsc">カフェの椅子と椅子の間を傘を振って通過。コーヒーカップが揺れる。</div><div class="cut-tg"><span class="b">カフェ</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">319</span><div><div class="cut-ttl">カフェテラス</div><div class="cut-dsc">テラス席の客の頭の脇を傘が掠めて行く。誰も気づかない。</div><div class="cut-tg"><span class="b">カフェ</span><span>無自覚</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">320</span><div><div class="cut-ttl">ファミレス通路</div><div class="cut-dsc">ファミレスの通路を傘を振って通過。フェルメール水を運ぶ店員と衝突。</div><div class="cut-tg"><span class="b">飲食</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">321</span><div><div class="cut-ttl">回転寿司レーン横</div><div class="cut-dsc">回転レーン横の通路を傘を振って通過。寿司皿が転倒。</div><div class="cut-tg"><span class="b">飲食</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">322</span><div><div class="cut-ttl">ラーメン屋待合</div><div class="cut-dsc">ラーメン屋の待合椅子の前を傘を振って通過。客の足に当たる。</div><div class="cut-tg"><span class="b">飲食</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">323</span><div><div class="cut-ttl">焼肉屋通路</div><div class="cut-dsc">焼肉屋の通路を傘を振って通過。網にぶつけて煙が散る。</div><div class="cut-tg"><span class="b">飲食</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">324</span><div><div class="cut-ttl">居酒屋テーブル間</div><div class="cut-dsc">居酒屋のテーブル間を傘を振って通過。生ビールを倒す。</div><div class="cut-tg"><span class="b">飲食</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">325</span><div><div class="cut-ttl">バーカウンター</div><div class="cut-dsc">バーのスツールの間を傘を振って通過。バーテンが顔を伏せる。</div><div class="cut-tg"><span class="b">飲食</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">326</span><div><div class="cut-ttl">カラオケ廊下</div><div class="cut-dsc">カラオケ店の廊下を傘を振って通過。隣の部屋の客とすれ違いざま当たる。</div><div class="cut-tg"><span>カラオケ</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">327</span><div><div class="cut-ttl">クラブフロア</div><div class="cut-dsc">クラブのフロアを傘を振って通過。レーザーと傘がぶつかってピカピカ。</div><div class="cut-tg"><span class="g">クラブ</span><span>演出</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">328</span><div><div class="cut-ttl">ライブハウス通路</div><div class="cut-dsc">ライブハウスの通路を傘を振って通過。観客のドリンクが揺れる。</div><div class="cut-tg"><span>ライブ</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">329</span><div><div class="cut-ttl">映画館通路</div><div class="cut-dsc">上映中の映画館を傘を振って通過。スクリーンに影が映る。</div><div class="cut-tg"><span>映画</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">330</span><div><div class="cut-ttl">劇場ロビー</div><div class="cut-dsc">劇場のロビーを傘を振って歩く。VIPゲストに当たって警備員が動く。</div><div class="cut-tg"><span>劇場</span><span>VIP</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">331</span><div><div class="cut-ttl">美術館展示室</div><div class="cut-dsc">美術館の展示室を傘を振って通過。彫刻にぶつかって警報。</div><div class="cut-tg"><span>美術館</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">332</span><div><div class="cut-ttl">博物館展示</div><div class="cut-dsc">恐竜の骨格標本の前を傘を振って通過。骨が振動する。</div><div class="cut-tg"><span>博物館</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">333</span><div><div class="cut-ttl">水族館トンネル</div><div class="cut-dsc">水槽トンネルを傘を振って通過。魚が一斉に逃げる。</div><div class="cut-tg"><span>水族館</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">334</span><div><div class="cut-ttl">動物園檻前</div><div class="cut-dsc">動物の檻の前を傘を振って通過。動物が威嚇する。</div><div class="cut-tg"><span>動物園</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">335</span><div><div class="cut-ttl">公園遊歩道</div><div class="cut-dsc">公園の遊歩道を傘を振って歩く。ジョギング中のランナーに当たる。</div><div class="cut-tg"><span>公園</span><span>ジョギング</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">336</span><div><div class="cut-ttl">遊園地行列</div><div class="cut-dsc">アトラクションの行列を傘を振って後退。後ろの客に何度も当たる。</div><div class="cut-tg"><span>遊園地</span><span>行列</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">337</span><div><div class="cut-ttl">メリーゴーランド</div><div class="cut-dsc">メリーゴーランドの周りを傘を振って一周。馬の頭に当たる。</div><div class="cut-tg"><span>遊園地</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">338</span><div><div class="cut-ttl">お化け屋敷</div><div class="cut-dsc">お化け屋敷の中を傘を振って進む。お化け役の人に当たる。</div><div class="cut-tg"><span>遊園地</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">339</span><div><div class="cut-ttl">ジェットコースター列</div><div class="cut-dsc">ジェットコースターの行列を傘を振って進む。前の客の頭に当たる。</div><div class="cut-tg"><span>遊園地</span><span>行列</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">340</span><div><div class="cut-ttl">水族館魚案内</div><div class="cut-dsc">ガイドの説明中、傘を振ってガイドの背中に当たる。</div><div class="cut-tg"><span>水族館</span><span>無自覚</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">341</span><div><div class="cut-ttl">入学式式典</div><div class="cut-dsc">入学式の体育館を傘を振って入場。後ろの新入生に当たる。</div><div class="cut-tg"><span class="b">学校</span><span>式典</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">342</span><div><div class="cut-ttl">卒業式入場</div><div class="cut-dsc">卒業式の入場を傘を振りながら歩く。同級生の卒業証書が落ちる。</div><div class="cut-tg"><span class="b">学校</span><span>式典</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">343</span><div><div class="cut-ttl">授業中廊下</div><div class="cut-dsc">授業中の廊下を傘を振って通過。教室の窓ガラスに当たる。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">344</span><div><div class="cut-ttl">塾の入口</div><div class="cut-dsc">塾の入口を傘を振って通過。掲示板のチラシが散る。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">345</span><div><div class="cut-ttl">塾の自習室</div><div class="cut-dsc">塾の自習室を傘を振って通過。みんなのノートに当たる。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">346</span><div><div class="cut-ttl">家庭教師訪問</div><div class="cut-dsc">家庭教師が生徒の家に傘を振って入る。母親の手元のお茶が揺れる。</div><div class="cut-tg"><span class="b">学校</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">347</span><div><div class="cut-ttl">PTA総会会場</div><div class="cut-dsc">PTA総会の会場を傘を振って通過。母親たちのバッグに当たる。</div><div class="cut-tg"><span class="b">学校</span><span>PTA</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">348</span><div><div class="cut-ttl">運動会沿道</div><div class="cut-dsc">運動会の応援席沿道を傘を振って歩く。応援グッズに当たる。</div><div class="cut-tg"><span class="b">学校</span><span>応援</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">349</span><div><div class="cut-ttl">修学旅行</div><div class="cut-dsc">修学旅行のお土産物屋を傘を振って通過。陳列棚に当たる。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">350</span><div><div class="cut-ttl">林間学校</div><div class="cut-dsc">林間学校のテント間を傘を振って通過。テントの紐に当たる。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">351</span><div><div class="cut-ttl">臨海学校</div><div class="cut-dsc">臨海学校の浜辺を傘を振って歩く。砂の城に当たる。</div><div class="cut-tg"><span class="b">学校</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">352</span><div><div class="cut-ttl">教会通路</div><div class="cut-dsc">教会のバージンロードを傘を振って歩く。新郎新婦の頭に当たる。</div><div class="cut-tg"><span>結婚</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">353</span><div><div class="cut-ttl">葬式参列</div><div class="cut-dsc">葬式の参列席を傘を振って通過。香炉に当たって灰が舞う。</div><div class="cut-tg"><span>葬式</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">354</span><div><div class="cut-ttl">法事座敷</div><div class="cut-dsc">法事の座敷を傘を振って通過。膳の上の料理に当たる。</div><div class="cut-tg"><span>葬式</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">355</span><div><div class="cut-ttl">初詣参道</div><div class="cut-dsc">初詣の参道を傘を振って歩く。屋台のたこ焼きに当たる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>屋台</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">356</span><div><div class="cut-ttl">お祭り屋台</div><div class="cut-dsc">お祭りの屋台街を傘を振って通過。射的の的が倒れる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>屋台</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">357</span><div><div class="cut-ttl">盆踊り会場</div><div class="cut-dsc">盆踊りの輪を傘を振りながら歩く。踊り手の手に当たる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>祭り</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">358</span><div><div class="cut-ttl">花火大会人混み</div><div class="cut-dsc">花火大会の人混みを傘を振って歩く。前の見物客の頭に当たる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>人混み</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">359</span><div><div class="cut-ttl">花見の宴会</div><div class="cut-dsc">花見の宴会の真ん中を傘を振って通過。お酒のボトルに当たる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>宴会</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">360</span><div><div class="cut-ttl">豆まき神社</div><div class="cut-dsc">節分の豆まき会場を傘を振って通過。豆の山が崩れる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>祭り</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">361</span><div><div class="cut-ttl">豆まき家庭</div><div class="cut-dsc">家の中で豆まき、傘を振って鬼役を追い払う。家具に当たる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">362</span><div><div class="cut-ttl">ひな祭り</div><div class="cut-dsc">ひな飾りの前を傘を振って通過。お雛様が一段ずつ倒れる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">363</span><div><div class="cut-ttl">こどもの日</div><div class="cut-dsc">鯉のぼりの下を傘を振って歩く。鯉のぼりの紐に当たる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">364</span><div><div class="cut-ttl">七夕飾り</div><div class="cut-dsc">七夕の笹飾りの間を傘を振って通過。短冊が次々と落ちる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">365</span><div><div class="cut-ttl">お盆送り火</div><div class="cut-dsc">お盆の送り火の前を傘を振って通過。火の粉が舞う。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>火</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">366</span><div><div class="cut-ttl">クリスマスツリー</div><div class="cut-dsc">ショッピングモールのクリスマスツリーを傘を振って通過。オーナメントが落ちる。</div><div class="cut-tg"><span>クリスマス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">367</span><div><div class="cut-ttl">クリスマスマーケット</div><div class="cut-dsc">クリスマスマーケットの屋台を傘を振って通過。ホットワインが揺れる。</div><div class="cut-tg"><span>クリスマス</span><span>屋台</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">368</span><div><div class="cut-ttl">お正月飾り</div><div class="cut-dsc">お正月飾りの前を傘を振って通過。鏡餅が転がる。</div><div class="cut-tg"><span class="gd">和テイスト</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">369</span><div><div class="cut-ttl">駅伝沿道</div><div class="cut-dsc">駅伝の沿道を傘を振って歩く。応援の旗が次々と倒れる。</div><div class="cut-tg"><span>スポーツ</span><span>沿道</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">370</span><div><div class="cut-ttl">マラソン沿道</div><div class="cut-dsc">マラソンの沿道を傘を振って歩く。給水所のコップが倒れる。</div><div class="cut-tg"><span>スポーツ</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">371</span><div><div class="cut-ttl">サッカー観戦</div><div class="cut-dsc">サッカー観戦席の通路を傘を振って通過。隣の客のビールが揺れる。</div><div class="cut-tg"><span>スポーツ</span><span>観戦</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">372</span><div><div class="cut-ttl">野球観戦</div><div class="cut-dsc">野球観戦席の通路を傘を振って通過。応援のメガホンに当たる。</div><div class="cut-tg"><span>スポーツ</span><span>観戦</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">373</span><div><div class="cut-ttl">競馬場場立て</div><div class="cut-dsc">競馬場の入場ゲートを傘を振って通過。場立てに当たる。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">374</span><div><div class="cut-ttl">競輪場周回</div><div class="cut-dsc">競輪場のスタンドを傘を振って歩く。新聞を読む客の前で振る。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">375</span><div><div class="cut-ttl">競艇場屋台</div><div class="cut-dsc">競艇場の屋台街を傘を振って通過。串焼きの煙に当たる。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">376</span><div><div class="cut-ttl">パチンコ店内</div><div class="cut-dsc">パチンコ店の通路を傘を振って通過。台と台の間に当たる。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">377</span><div><div class="cut-ttl">スロット出玉</div><div class="cut-dsc">スロット店内を傘を振って歩く。出玉のメダルが弾け飛ぶ。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">378</span><div><div class="cut-ttl">古本屋立読み</div><div class="cut-dsc">古本屋の本棚の通路を傘を振って通過。立ち読み客の本が落ちる。</div><div class="cut-tg"><span>古本</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">379</span><div><div class="cut-ttl">書店新刊</div><div class="cut-dsc">書店の新刊コーナーを傘を振って通過。平積みの本が崩れる。</div><div class="cut-tg"><span>古本</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">380</span><div><div class="cut-ttl">100均通路</div><div class="cut-dsc">100均の通路を傘を振って通過。商品の山が崩れる。</div><div class="cut-tg"><span class="b">あるある</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">381</span><div><div class="cut-ttl">無印良品</div><div class="cut-dsc">無印の白い空間を傘を振って通過。商品が落ちる。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">382</span><div><div class="cut-ttl">IKEA動線</div><div class="cut-dsc">IKEAの動線を傘を振って通過。展示家具に当たる。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">383</span><div><div class="cut-ttl">ニトリ家具</div><div class="cut-dsc">ニトリの家具売場を傘を振って通過。ソファのクッションが落ちる。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">384</span><div><div class="cut-ttl">家電量販店</div><div class="cut-dsc">家電量販店の通路を傘を振って通過。テレビの画面に当たる。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">385</span><div><div class="cut-ttl">レコード店ディグ</div><div class="cut-dsc">レコード棚の前を傘を振って通過。新譜の山が崩れる。</div><div class="cut-tg"><span class="gd">MJ</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">386</span><div><div class="cut-ttl">楽器店試奏</div><div class="cut-dsc">楽器店の試奏コーナーを傘を振って通過。ギターのネックに当たる。</div><div class="cut-tg"><span>ナンセンス</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">387</span><div><div class="cut-ttl">ライブハウスソール</div><div class="cut-dsc">ライブのモッシュピット脇を傘を振って通過。観客に当たる。</div><div class="cut-tg"><span>ライブ</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">388</span><div><div class="cut-ttl">ジム筋トレ</div><div class="cut-dsc">ジムのマシンの間を傘を振って通過。トレーニング中の人に当たる。</div><div class="cut-tg"><span>スポーツ</span><span>ジム</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">389</span><div><div class="cut-ttl">ヨガ教室</div><div class="cut-dsc">ヨガ教室のマットの間を傘を振って通過。瞑想中の人に当たる。</div><div class="cut-tg"><span>スポーツ</span><span>ヨガ</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">390</span><div><div class="cut-ttl">プールサイド</div><div class="cut-dsc">プールサイドを傘を振って歩く。日陰のリクライニングに当たる。</div><div class="cut-tg"><span>プール</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">391</span><div><div class="cut-ttl">温泉廊下</div><div class="cut-dsc">温泉旅館の廊下を傘を振って歩く。提灯に当たる。</div><div class="cut-tg"><span>温泉</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">392</span><div><div class="cut-ttl">旅館仲居</div><div class="cut-dsc">旅館の長い廊下を傘を振って歩く。仲居の運ぶ膳に当たる。</div><div class="cut-tg"><span>温泉</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">393</span><div><div class="cut-ttl">カプセルホテル</div><div class="cut-dsc">カプセルホテルの通路を傘を振って歩く。カプセルの扉に当たる。</div><div class="cut-tg"><span>ホテル</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">394</span><div><div class="cut-ttl">バックパッカー宿</div><div class="cut-dsc">ドミトリーの通路を傘を振って歩く。寝てる旅人に当たる。</div><div class="cut-tg"><span class="g">海外</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">395</span><div><div class="cut-ttl">空港ロビー</div><div class="cut-dsc">空港のロビーを傘を振って歩く。スーツケースに当たる。</div><div class="cut-tg"><span>空港</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">396</span><div><div class="cut-ttl">空港免税店</div><div class="cut-dsc">免税店の通路を傘を振って歩く。香水の試供品が倒れる。</div><div class="cut-tg"><span>空港</span><span class="gl">対物</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">397</span><div><div class="cut-ttl">ホテルロビー</div><div class="cut-dsc">ホテルのロビーを傘を振って通過。ベルボーイが荷物を落とす。</div><div class="cut-tg"><span>ホテル</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">398</span><div><div class="cut-ttl">バンコク屋台</div><div class="cut-dsc">バンコクの夜市で傘を振って歩く。屋台の調理場に当たる。</div><div class="cut-tg"><span class="g">海外</span><span>屋台</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">399</span><div><div class="cut-ttl">ニューヨーク歩道</div><div class="cut-dsc">NYの混雑歩道を傘を振って歩く。タクシーの運ちゃんが警笛。</div><div class="cut-tg"><span class="g">海外</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="umbrella" onclick="copyCut(this)"><span class="cut-no">400</span><div><div class="cut-ttl">パリのカフェ</div><div class="cut-dsc">パリのテラスカフェの前を傘を振って歩く。サンドイッチに当たる。</div><div class="cut-tg"><span class="g">海外</span><span>カフェ</span></div></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 手刀ダッシュ・通過 100景 ===== -->
+    <section class="cat" data-cat="tegatana">
+      <div class="cat-h"><span class="ic">✋</span><h2>手刀ダッシュ・通過 100景</h2><span class="cnt">401–500</span></div>
+      <div class="grid">
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">401</span><div><div class="cut-ttl">通勤満員ホーム</div><div class="cut-dsc">ホームの人混みを手刀切りながら通過。「ちょっとごめん」連発。</div><div class="cut-tg"><span class="b">通勤</span><span>Issy種</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">402</span><div><div class="cut-ttl">改札通過</div><div class="cut-dsc">改札を抜けるとき手刀を切りながら、駅員に「失礼」と一礼。</div><div class="cut-tg"><span class="b">通勤</span><span>駅</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">403</span><div><div class="cut-ttl">駅階段下り</div><div class="cut-dsc">階段を手刀切りながら駆け下りる。前の人の背中スレスレを通過。</div><div class="cut-tg"><span class="b">通勤</span><span>階段</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">404</span><div><div class="cut-ttl">満員電車内移動</div><div class="cut-dsc">満員電車の中を手刀を切りながら移動。「すみません」を繰り返す。</div><div class="cut-tg"><span class="b">通勤</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">405</span><div><div class="cut-ttl">バスの中通路</div><div class="cut-dsc">バスの中の通路を手刀切りながら奥へ。乗客の頭が次々と下がる。</div><div class="cut-tg"><span class="b">通勤</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">406</span><div><div class="cut-ttl">オフィス通路</div><div class="cut-dsc">オフィスの通路を手刀切りながら歩く。同僚に「ちょっと失礼」連発。</div><div class="cut-tg"><span class="b">オフィス</span><span>Issy種</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">407</span><div><div class="cut-ttl">会議室退出</div><div class="cut-dsc">会議の途中で席を立ち、手刀を切りながら退室。議長に会釈。</div><div class="cut-tg"><span>ビジネス</span><span>退場</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">408</span><div><div class="cut-ttl">商談入室</div><div class="cut-dsc">商談室に手刀切りながら入室。クライアントに会釈しながら席へ。</div><div class="cut-tg"><span>ビジネス</span><span>商談</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">409</span><div><div class="cut-ttl">社長室入退室</div><div class="cut-dsc">社長室に手刀切りながら入退室。秘書の机の前を二度通過。</div><div class="cut-tg"><span>ビジネス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">410</span><div><div class="cut-ttl">プレゼン会場移動</div><div class="cut-dsc">プレゼン会場で席を移動。手刀切りながら他の参加者の前を通過。</div><div class="cut-tg"><span>ビジネス</span><span>会議</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">411</span><div><div class="cut-ttl">受付ロビー</div><div class="cut-dsc">受付ロビーを手刀切りながら通過。来客が振り返る。</div><div class="cut-tg"><span>ビジネス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">412</span><div><div class="cut-ttl">廊下すれ違い</div><div class="cut-dsc">オフィスの廊下ですれ違うたびに手刀。お互い「ちょっと失礼」。</div><div class="cut-tg"><span class="b">オフィス</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">413</span><div><div class="cut-ttl">給湯室の前</div><div class="cut-dsc">給湯室の前を手刀切りながら通過。同僚のお茶を入れる手元を避ける。</div><div class="cut-tg"><span class="b">オフィス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">414</span><div><div class="cut-ttl">コピー機の前</div><div class="cut-dsc">コピー機の前を手刀切りながら通過。並んでいる同僚に会釈。</div><div class="cut-tg"><span class="b">オフィス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">415</span><div><div class="cut-ttl">トイレ列</div><div class="cut-dsc">オフィスのトイレ列を手刀切りながら最後尾へ。順番を守る。</div><div class="cut-tg"><span class="b">オフィス</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">416</span><div><div class="cut-ttl">コンビニ店内</div><div class="cut-dsc">コンビニの通路を手刀切りながら歩く。他の客の前を通るとき会釈。</div><div class="cut-tg"><span class="b">コンビニ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">417</span><div><div class="cut-ttl">コンビニレジ列</div><div class="cut-dsc">レジ列の最後尾に並ぶとき、手刀切りながら他の客の前を通過。</div><div class="cut-tg"><span class="b">コンビニ</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">418</span><div><div class="cut-ttl">スーパー売場</div><div class="cut-dsc">スーパーの売場を手刀切りながら歩く。カートを押す客の前を通過。</div><div class="cut-tg"><span>買い物</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">419</span><div><div class="cut-ttl">スーパーレジ列</div><div class="cut-dsc">レジ列に並ぶとき、手刀切りながら他の客の前を通過。</div><div class="cut-tg"><span>買い物</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">420</span><div><div class="cut-ttl">デパート売場</div><div class="cut-dsc">デパートの売場を手刀切りながら歩く。商品を見る客の前で会釈。</div><div class="cut-tg"><span class="b">デパート</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">421</span><div><div class="cut-ttl">デパ地下試食</div><div class="cut-dsc">試食コーナーの前を手刀切りながら通過。試食する客の前で会釈。</div><div class="cut-tg"><span class="b">デパート</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">422</span><div><div class="cut-ttl">百貨店化粧品</div><div class="cut-dsc">化粧品売場を手刀切りながら通過。店員の前で「失礼」。</div><div class="cut-tg"><span class="b">デパート</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">423</span><div><div class="cut-ttl">カフェ店内</div><div class="cut-dsc">カフェの椅子と椅子の間を手刀切りながら通過。客の前で会釈。</div><div class="cut-tg"><span class="b">カフェ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">424</span><div><div class="cut-ttl">ファミレス通路</div><div class="cut-dsc">ファミレスの通路を手刀切りながら奥のテーブルへ。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">425</span><div><div class="cut-ttl">回転寿司レーン横</div><div class="cut-dsc">回転レーン横を手刀切りながら通過。皿を取る客の前で会釈。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">426</span><div><div class="cut-ttl">ラーメン屋カウンター</div><div class="cut-dsc">ラーメン屋のカウンター席の間を手刀切りながら通過。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">427</span><div><div class="cut-ttl">焼肉屋通路</div><div class="cut-dsc">焼肉屋の通路を手刀切りながら通過。煙の中を会釈しながら。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">428</span><div><div class="cut-ttl">居酒屋テーブル間</div><div class="cut-dsc">居酒屋のテーブル間を手刀切りながら通過。乾杯中の客の前で会釈。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">429</span><div><div class="cut-ttl">バーカウンター</div><div class="cut-dsc">バーカウンターのスツール間を手刀切りながら通過。</div><div class="cut-tg"><span class="b">飲食</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">430</span><div><div class="cut-ttl">カラオケ廊下</div><div class="cut-dsc">カラオケ店の廊下を手刀切りながら通過。他の部屋の前で会釈。</div><div class="cut-tg"><span>カラオケ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">431</span><div><div class="cut-ttl">クラブフロア</div><div class="cut-dsc">クラブのフロアを手刀切りながら通過。踊る客の前で会釈。</div><div class="cut-tg"><span class="g">クラブ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">432</span><div><div class="cut-ttl">ライブハウス通路</div><div class="cut-dsc">ライブハウスの通路を手刀切りながら通過。観客の頭の脇を通る。</div><div class="cut-tg"><span>ライブ</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">433</span><div><div class="cut-ttl">映画館列</div><div class="cut-dsc">映画館の座席列を手刀切りながら通過。座っている人の脚の前で会釈。</div><div class="cut-tg"><span>映画</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">434</span><div><div class="cut-ttl">劇場通路</div><div class="cut-dsc">劇場の通路を手刀切りながら通過。観客の前で何度も会釈。</div><div class="cut-tg"><span>劇場</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">435</span><div><div class="cut-ttl">美術館展示室</div><div class="cut-dsc">美術館の展示室を手刀切りながら通過。鑑賞中の人の前で会釈。</div><div class="cut-tg"><span>美術館</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">436</span><div><div class="cut-ttl">博物館展示</div><div class="cut-dsc">博物館の展示の前を手刀切りながら通過。子供連れの前で会釈。</div><div class="cut-tg"><span>博物館</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">437</span><div><div class="cut-ttl">水族館トンネル</div><div class="cut-dsc">水族館のトンネル水槽を手刀切りながら通過。子供たちの前で会釈。</div><div class="cut-tg"><span>水族館</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">438</span><div><div class="cut-ttl">動物園檻前</div><div class="cut-dsc">動物園の檻の前を手刀切りながら通過。動物が反応して群がる。</div><div class="cut-tg"><span>動物園</span><span>動物</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">439</span><div><div class="cut-ttl">公園遊歩道</div><div class="cut-dsc">公園の遊歩道を手刀切りながら歩く。ベンチの人の前で会釈。</div><div class="cut-tg"><span>公園</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">440</span><div><div class="cut-ttl">遊園地行列</div><div class="cut-dsc">遊園地のアトラクション行列の脇を手刀切りながら通過。</div><div class="cut-tg"><span>遊園地</span><span>行列</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">441</span><div><div class="cut-ttl">入学式式典</div><div class="cut-dsc">入学式の体育館の通路を手刀切りながら入場。新入生の前で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>式典</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">442</span><div><div class="cut-ttl">卒業式入場</div><div class="cut-dsc">卒業式の入場で手刀切りながら歩く。卒業生に「ちょっと失礼」。</div><div class="cut-tg"><span class="b">学校</span><span>式典</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">443</span><div><div class="cut-ttl">授業中廊下</div><div class="cut-dsc">授業中の廊下を手刀切りながら通過。教室を覗き込む形で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>授業</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">444</span><div><div class="cut-ttl">職員室入退室</div><div class="cut-dsc">職員室を手刀切りながら入退室。先生の机の間を会釈。</div><div class="cut-tg"><span class="b">学校</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">445</span><div><div class="cut-ttl">校長室入室</div><div class="cut-dsc">校長室に手刀切りながら入室。校長の机の前で深々と会釈。</div><div class="cut-tg"><span class="b">学校</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">446</span><div><div class="cut-ttl">給食室の列</div><div class="cut-dsc">給食室の前の列を手刀切りながら最後尾へ。同級生の前で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>譲り合い</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">447</span><div><div class="cut-ttl">修学旅行集合</div><div class="cut-dsc">修学旅行のバス前で集合、手刀切りながら同級生の前を通過。</div><div class="cut-tg"><span class="b">学校</span><span>集合</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">448</span><div><div class="cut-ttl">林間学校テント</div><div class="cut-dsc">林間学校のテントの間を手刀切りながら通過。他のクラスのテントの前で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">449</span><div><div class="cut-ttl">運動会沿道</div><div class="cut-dsc">運動会の応援席の沿道を手刀切りながら通過。PTAの母親たちの前で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>PTA</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">450</span><div><div class="cut-ttl">塾の自習室</div><div class="cut-dsc">塾の自習室を手刀切りながら通過。勉強中の生徒の前で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">451</span><div><div class="cut-ttl">教会通路</div><div class="cut-dsc">教会のバージンロードを手刀切りながら歩く。新郎新婦の前で会釈。</div><div class="cut-tg"><span>結婚</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">452</span><div><div class="cut-ttl">披露宴会場</div><div class="cut-dsc">披露宴会場のテーブル間を手刀切りながら通過。料理を運ぶ給仕の前で会釈。</div><div class="cut-tg"><span>結婚</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">453</span><div><div class="cut-ttl">葬式参列</div><div class="cut-dsc">葬式の参列席を手刀切りながら通過。遺族の前で深く会釈。</div><div class="cut-tg"><span>葬式</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">454</span><div><div class="cut-ttl">法事座敷</div><div class="cut-dsc">法事の座敷を手刀切りながら通過。膳の前で会釈。</div><div class="cut-tg"><span>葬式</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">455</span><div><div class="cut-ttl">初詣参道</div><div class="cut-dsc">初詣の参道を手刀切りながら歩く。参拝客の前で「ちょっと失礼」。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>参道</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">456</span><div><div class="cut-ttl">お祭り屋台</div><div class="cut-dsc">お祭りの屋台街を手刀切りながら通過。屋台の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>祭り</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">457</span><div><div class="cut-ttl">花火大会人混み</div><div class="cut-dsc">花火大会の人混みを手刀切りながら通過。見物客の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>人混み</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">458</span><div><div class="cut-ttl">花見の宴会</div><div class="cut-dsc">花見の宴会の真ん中を手刀切りながら通過。酒盛り中の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>宴会</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">459</span><div><div class="cut-ttl">和室入退室</div><div class="cut-dsc">和室を手刀切りながら入退室。畳の縁を踏まないように。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">460</span><div><div class="cut-ttl">茶室にじり口</div><div class="cut-dsc">茶室のにじり口を手刀切りながらくぐる。茶人の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">461</span><div><div class="cut-ttl">料亭座敷廊下</div><div class="cut-dsc">料亭の長い廊下を手刀切りながら歩く。仲居の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">462</span><div><div class="cut-ttl">旅館長廊下</div><div class="cut-dsc">旅館の長廊下を手刀切りながら歩く。すれ違う宿泊客の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">463</span><div><div class="cut-ttl">温泉脱衣所</div><div class="cut-dsc">温泉の脱衣所を手刀切りながら歩く。タオルを巻いた客の前で会釈。</div><div class="cut-tg"><span>温泉</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">464</span><div><div class="cut-ttl">銭湯番台前</div><div class="cut-dsc">銭湯の番台前を手刀切りながら通過。番台の人に深く会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">465</span><div><div class="cut-ttl">空港ロビー</div><div class="cut-dsc">空港のロビーを手刀切りながら歩く。スーツケースを引く旅行客の前で会釈。</div><div class="cut-tg"><span>空港</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">466</span><div><div class="cut-ttl">空港免税店</div><div class="cut-dsc">免税店の通路を手刀切りながら歩く。店員の前で会釈。</div><div class="cut-tg"><span>空港</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">467</span><div><div class="cut-ttl">空港搭乗口</div><div class="cut-dsc">搭乗口前の混雑を手刀切りながら通過。並んでいる客の前で会釈。</div><div class="cut-tg"><span>空港</span><span>行列</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">468</span><div><div class="cut-ttl">国際線税関</div><div class="cut-dsc">税関の長い列を手刀切りながら通過。係員に「ちょっと失礼」。</div><div class="cut-tg"><span>空港</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">469</span><div><div class="cut-ttl">ホテルロビー</div><div class="cut-dsc">ホテルのロビーを手刀切りながら歩く。ベルボーイの前で会釈。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">470</span><div><div class="cut-ttl">ホテル朝食バイキング</div><div class="cut-dsc">朝食バイキングの列を手刀切りながら通過。皿を持つ客の前で会釈。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">471</span><div><div class="cut-ttl">ホテルエレベーター</div><div class="cut-dsc">ホテルのエレベーター内で他の客の前を手刀切りながら移動。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">472</span><div><div class="cut-ttl">ホテル廊下清掃</div><div class="cut-dsc">ホテルの廊下を手刀切りながら歩く。清掃中のメイドの前で会釈。</div><div class="cut-tg"><span>ホテル</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">473</span><div><div class="cut-ttl">展示会通路</div><div class="cut-dsc">展示会のブース間を手刀切りながら通過。来場者の前で会釈。</div><div class="cut-tg"><span>ビジネス</span><span>展示会</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">474</span><div><div class="cut-ttl">学会発表会場</div><div class="cut-dsc">学会の発表会場の通路を手刀切りながら通過。発表者の前で会釈。</div><div class="cut-tg"><span>学術</span><span>学会</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">475</span><div><div class="cut-ttl">セミナー会場</div><div class="cut-dsc">セミナー会場の通路を手刀切りながら通過。受講生の前で会釈。</div><div class="cut-tg"><span>ビジネス</span><span>セミナー</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">476</span><div><div class="cut-ttl">ワークショップ</div><div class="cut-dsc">ワークショップの会場を手刀切りながら歩く。参加者の前で会釈。</div><div class="cut-tg"><span>ビジネス</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">477</span><div><div class="cut-ttl">テレワーク自宅</div><div class="cut-dsc">在宅勤務中、家族の前を手刀切りながら通過。Web会議中の妻に会釈。</div><div class="cut-tg"><span>ビジネス</span><span>家</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">478</span><div><div class="cut-ttl">家族リビング</div><div class="cut-dsc">家族のリビングを手刀切りながら歩く。テレビを見ている家族の前で会釈。</div><div class="cut-tg"><span>家</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">479</span><div><div class="cut-ttl">親戚集まり</div><div class="cut-dsc">親戚の集まりを手刀切りながら通過。叔父叔母の前で会釈。</div><div class="cut-tg"><span>家</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">480</span><div><div class="cut-ttl">近所付き合い</div><div class="cut-dsc">近所の家を手刀切りながら通過。お隣さんの前で会釈。</div><div class="cut-tg"><span>家</span><span>近所</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">481</span><div><div class="cut-ttl">町内会会合</div><div class="cut-dsc">町内会の会合を手刀切りながら入退室。会長の前で会釈。</div><div class="cut-tg"><span class="gd">和テイスト</span><span>町内</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">482</span><div><div class="cut-ttl">PTA総会</div><div class="cut-dsc">PTA総会の会場を手刀切りながら通過。母親たちの前で会釈。</div><div class="cut-tg"><span class="b">学校</span><span>PTA</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">483</span><div><div class="cut-ttl">マンション管理人</div><div class="cut-dsc">マンションの管理人室の前を手刀切りながら通過。管理人の前で会釈。</div><div class="cut-tg"><span class="b">あるある</span><span>近所</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">484</span><div><div class="cut-ttl">マンション住人会</div><div class="cut-dsc">マンションの住人会を手刀切りながら退出。住人の前で会釈。</div><div class="cut-tg"><span class="b">あるある</span><span>近所</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">485</span><div><div class="cut-ttl">交番道案内</div><div class="cut-dsc">交番で道を聞いたあと、手刀切りながら退出。警官に会釈。</div><div class="cut-tg"><span>警官</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">486</span><div><div class="cut-ttl">市役所窓口</div><div class="cut-dsc">市役所の窓口の前を手刀切りながら通過。順番待ちの市民の前で会釈。</div><div class="cut-tg"><span>お役所</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">487</span><div><div class="cut-ttl">病院待合</div><div class="cut-dsc">病院の待合室を手刀切りながら通過。待っている患者の前で会釈。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">488</span><div><div class="cut-ttl">病院処方箋</div><div class="cut-dsc">病院の処方箋窓口を手刀切りながら通過。順番待ちの患者の前で会釈。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">489</span><div><div class="cut-ttl">薬局カウンター</div><div class="cut-dsc">薬局のカウンターを手刀切りながら通過。薬剤師の前で会釈。</div><div class="cut-tg"><span>病院</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">490</span><div><div class="cut-ttl">ジムマシン間</div><div class="cut-dsc">ジムのマシン間を手刀切りながら通過。トレーニング中の人の前で会釈。</div><div class="cut-tg"><span>スポーツ</span><span>ジム</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">491</span><div><div class="cut-ttl">ヨガ教室マット</div><div class="cut-dsc">ヨガ教室のマット間を手刀切りながら通過。瞑想中の人の前で会釈。</div><div class="cut-tg"><span>スポーツ</span><span>ヨガ</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">492</span><div><div class="cut-ttl">プールサイド</div><div class="cut-dsc">プールサイドを手刀切りながら歩く。日光浴中の人の前で会釈。</div><div class="cut-tg"><span>プール</span><span>過剰</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">493</span><div><div class="cut-ttl">スキー場リフト</div><div class="cut-dsc">スキー場のリフト乗り場を手刀切りながら通過。並ぶスキーヤーの前で会釈。</div><div class="cut-tg"><span>スポーツ</span><span>リフト</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">494</span><div><div class="cut-ttl">競馬場屋台</div><div class="cut-dsc">競馬場の屋台街を手刀切りながら通過。予想する客の前で会釈。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">495</span><div><div class="cut-ttl">パチンコ店内</div><div class="cut-dsc">パチンコ店の通路を手刀切りながら通過。台に座る客の前で会釈。</div><div class="cut-tg"><span>ナンセンス</span><span>ギャンブル</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">496</span><div><div class="cut-ttl">ニューヨーク歩道</div><div class="cut-dsc">NYのマンハッタンの歩道を手刀切りながら歩く。ヤンキーが二度見。</div><div class="cut-tg"><span class="g">海外</span><span class="gd">MJ</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">497</span><div><div class="cut-ttl">パリのカフェ</div><div class="cut-dsc">パリのテラスカフェの前を手刀切りながら通過。シャンソンが流れる。</div><div class="cut-tg"><span class="g">海外</span><span>カフェ</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">498</span><div><div class="cut-ttl">ロンドンバス</div><div class="cut-dsc">ロンドンのダブルデッカーの中を手刀切りながら通過。乗客の前で会釈。</div><div class="cut-tg"><span class="g">海外</span><span>迷惑</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">499</span><div><div class="cut-ttl">バンコク屋台</div><div class="cut-dsc">バンコクの夜市を手刀切りながら歩く。屋台の前で「ソーリー」。</div><div class="cut-tg"><span class="g">海外</span><span>屋台</span></div></div></div>
+        <div class="cut" data-cat="tegatana" onclick="copyCut(this)"><span class="cut-no">500</span><div><div class="cut-ttl">世界一周ループ</div><div class="cut-dsc">世界各都市を手刀切りながら駆け抜けるモンタージュ。地球儀が回る。</div><div class="cut-tg"><span class="g">海外</span><span class="g">ループ</span></div></div></div>
+      </div>
+    </section>
+
     <!-- ===== ボツ箱 ===== -->
     <section id="bin-section" class="binsec" style="display:none">
       <div class="cat-h"><span class="ic">🗑️</span><h2>ボツ箱</h2><span class="cnt"><span id="bin-count">0</span> 件</span></div>
@@ -349,8 +805,8 @@
     </section>
 
     <div class="foot">
-      <span>SUMIMASEN — Cut Ideas 100 + GLOBAL 16 (Claude案・確定前)</span>
-      <span>Last Updated: 2026年6月7日 21:48 JST</span>
+      <span>SUMIMASEN — Cut Ideas 500 + GLOBAL 16 (Claude案・確定前)</span>
+      <span>Last Updated: 2026年6月21日 19:24 JST</span>
       <span>← <a href="creative-brain-sumimasen.html" style="color:var(--accent-purple)">SUMIMASEN プロジェクト</a></span>
     </div>
   </div>
@@ -369,9 +825,22 @@
     function filt(btn,f){
       document.querySelectorAll('.fbtn').forEach(function(b){ b.classList.remove('active'); });
       btn.classList.add('active');
-      document.querySelectorAll('.cat').forEach(function(sec){
-        sec.style.display = (f==='all'||sec.getAttribute('data-cat')===f) ? '' : 'none';
-      });
+      if (f === 'adopted') {
+        // 採用済みだけを表示・他は全部隠す
+        document.querySelectorAll('.cat').forEach(function(sec){ sec.style.display = ''; });
+        document.querySelectorAll('.cut').forEach(function(c){
+          c.style.display = c.classList.contains('adopted') ? '' : 'none';
+        });
+        document.querySelectorAll('.cat').forEach(function(sec){
+          var any = Array.prototype.some.call(sec.querySelectorAll('.cut'), function(c){ return c.style.display !== 'none'; });
+          sec.style.display = any ? '' : 'none';
+        });
+      } else {
+        document.querySelectorAll('.cut').forEach(function(c){ c.style.display = ''; });
+        document.querySelectorAll('.cat').forEach(function(sec){
+          sec.style.display = (f==='all'||sec.getAttribute('data-cat')===f) ? '' : 'none';
+        });
+      }
       window.scrollTo({top:0,behavior:'smooth'});
     }
 
@@ -399,6 +868,7 @@
 
     function rejectCut(cut){
       cut.classList.add('rejected');
+      if (cut.classList.contains('adopted')) { cut.classList.remove('adopted'); saveAdopted(); }
       cut.querySelector('.cut-x').textContent = '↩';
       cut.querySelector('.cut-x').title = '元に戻す';
       document.getElementById('bin-grid').appendChild(cut);
@@ -444,6 +914,52 @@
       updateBin();
     }
 
+
+    /* ===== 採用ボタン（adopt + localStorage 永続化）===== */
+    var ADOPT_KEY = 'sumimasen-cuts-adopted-v1';
+
+    function loadAdopted(){
+      try { return JSON.parse(localStorage.getItem(ADOPT_KEY) || '[]'); } catch(e){ return []; }
+    }
+    function saveAdopted(){
+      var nos = [];
+      document.querySelectorAll('.cut.adopted').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
+      try { localStorage.setItem(ADOPT_KEY, JSON.stringify(nos)); } catch(e){}
+      updateAdoptCount();
+    }
+    function updateAdoptCount(){
+      var n = document.querySelectorAll('.cut.adopted').length;
+      var el = document.getElementById('adopt-count');
+      if (el) el.textContent = n;
+    }
+    function adoptCut(cut){
+      cut.classList.add('adopted');
+      // 採用とボツは排他（ボツ箱から戻す）
+      if (cut.classList.contains('rejected')) {
+        restoreCut(cut);
+        updateBin();
+        saveBin();
+        if (typeof cloudSave === 'function') cloudSave(currentBinNos());
+      }
+    }
+    function unadoptCut(cut){
+      cut.classList.remove('adopted');
+    }
+    function toggleAdopt(ev, btn){
+      ev.stopPropagation();
+      var cut = btn.closest('.cut');
+      if (cut.classList.contains('adopted')) unadoptCut(cut);
+      else adoptCut(cut);
+      saveAdopted();
+    }
+    function applyAdopted(nos){
+      nos = (nos || []).map(String);
+      document.querySelectorAll('.cut').forEach(function(cut){
+        if (nos.indexOf(cut.getAttribute('data-no')) !== -1) cut.classList.add('adopted');
+      });
+      updateAdoptCount();
+    }
+
     function injectButtons(){
       document.querySelectorAll('.cut').forEach(function(cut){
         var noEl = cut.querySelector('.cut-no');
@@ -458,6 +974,16 @@
           b.setAttribute('aria-label', 'ボツにする');
           b.onclick = function(ev){ toggleBin(ev, b); };
           cut.appendChild(b);
+        }
+        if (!cut.querySelector('.cut-star')){
+          var s = document.createElement('button');
+          s.className = 'cut-star';
+          s.type = 'button';
+          s.textContent = '⭐';
+          s.title = '採用する';
+          s.setAttribute('aria-label', '採用する');
+          s.onclick = function(ev){ toggleAdopt(ev, s); };
+          cut.appendChild(s);
         }
       });
     }
@@ -496,6 +1022,8 @@
 
     (function initBin(){
       injectButtons();
+      // 採用済みを復元
+      applyAdopted(loadAdopted());
       // 1) まずローカル保存で即描画（オフラインでも動く）
       var local = [];
       try { local = JSON.parse(localStorage.getItem(BIN_KEY) || '[]'); } catch(e){}
