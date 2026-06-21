@@ -887,7 +887,7 @@
       cut.querySelector('.cut-x').title = 'ボツにする';
       var cat = cut.getAttribute('data-cat');
       var grid = document.querySelector('section.cat[data-cat="'+cat+'"] .grid');
-      if (grid){ grid.appendChild(cut); sortGrid(grid); }
+      if (grid){ grid.appendChild(cut); if (typeof sortGridAdoptedFirst==='function') sortGridAdoptedFirst(grid); else sortGrid(grid); }
     }
 
     function toggleBin(ev, btn){
@@ -949,7 +949,7 @@
       });
     }
 
-    /* ===== 採用（⭐）= localStorage 永続化 ===== */
+    /* ===== 採用（⭐）= localStorage 永続化 + 上にソート ===== */
     var ADOPTED_KEY = 'sumimasen-cuts-adopted-v1';
     function saveAdopted(){
       var nos = [];
@@ -968,13 +968,35 @@
         if (nos.indexOf(no) >= 0) cut.classList.add('adopted');
         else cut.classList.remove('adopted');
       });
+      sortAllAdoptedFirst();
       updateAdoptedCount();
     }
     function toggleAdopt(ev, btn){
       ev.stopPropagation();
       var cut = btn.closest('.cut');
       cut.classList.toggle('adopted');
+      // セクション内で採用カードを上にソート
+      var section = cut.closest('section.cat');
+      if (section){
+        var grid = section.querySelector('.grid');
+        if (grid) sortGridAdoptedFirst(grid);
+      }
       saveAdopted();
+    }
+    // セクション内グリッドを「採用→未採用」「同じ採用状態の中は番号順」でソート
+    function sortGridAdoptedFirst(grid){
+      var items = Array.prototype.slice.call(grid.querySelectorAll(':scope > .cut'));
+      items.sort(function(a, b){
+        var aA = a.classList.contains('adopted') ? 0 : 1;
+        var bA = b.classList.contains('adopted') ? 0 : 1;
+        if (aA !== bA) return aA - bA;
+        return (a.getAttribute('data-no')||'').localeCompare(b.getAttribute('data-no')||'', undefined, {numeric:true});
+      });
+      items.forEach(function(it){ grid.appendChild(it); });
+    }
+    // 全カテゴリの .grid を一括ソート（ボツ箱 #bin-grid は除外）
+    function sortAllAdoptedFirst(){
+      document.querySelectorAll('section.cat > .grid').forEach(function(g){ sortGridAdoptedFirst(g); });
     }
 
     /* ===== クラウド同期（Supabase・全端末で共有）===== */
