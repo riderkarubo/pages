@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SUMIMASEN — カット案 411景（謝罪所作+アニメパロディ+迷惑あるある）</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-  <meta name="last-modified" content="2026-06-21T22:45:00+09:00">
+  <meta name="last-modified" content="2026-06-21T23:05:00+09:00">
   <meta name="description" content="SUMIMASEN動画のカット案 計411景（謝罪所作101＋アニメ&ドラマパロディ15＋迷惑あるある3シリーズ各98=294）。Creative Brain 姉妹ページ。⭐採用ボタンで色分け管理。">
   <meta property="og:title" content="SUMIMASEN — カット案 411景｜Creative Brain">
   <meta property="og:description" content="謝罪の所作×懐かしのエッセンス × 迷惑あるある4シリーズ400景。⭐採用ボタンで色分けして候補昇格。ボツ箱はクラウド同期。">
@@ -108,9 +108,24 @@
     .cut.rejected.adopted { background:#EFEDE7; border-color:var(--border); box-shadow:0 1px 3px rgba(0,0,0,0.10); }
     .cut.rejected.adopted .cut-ttl::after { display:none; }
 
+    /* COLLAPSE (セクション折り畳み) */
+    section.cat .cat-h { cursor:pointer; user-select:none; transition:background 0.15s; }
+    section.cat .cat-h:hover { background:rgba(124,92,255,0.05); }
+    section.cat .cat-h::before { content:'▼'; font-size:11px; color:var(--text-muted); margin-right:8px; display:inline-block; transition:transform 0.2s; vertical-align:middle; }
+    section.cat.collapsed .cat-h::before { transform:rotate(-90deg); }
+    section.cat.collapsed > .grid,
+    section.cat.collapsed > div[style*="background"] { display:none !important; }
+    section.cat.collapsed .cat-h { border-bottom-style:dashed; }
+    /* collapse-all/expand-all ボタン */
+    .collapse-bar { display:flex; gap:8px; margin:8px 0 14px; }
+    .collapse-bar button { font-size:12px; font-weight:600; background:#fff; border:1px solid var(--border); border-radius:999px; padding:5px 12px; cursor:pointer; color:var(--text-secondary); transition:all 0.15s; font-family:'IBM Plex Mono',monospace; letter-spacing:0.04em; }
+    .collapse-bar button:hover { border-color:var(--accent-purple); color:var(--accent-purple); }
+
     /* BIN section */
     .binsec { margin-top:46px; }
-    .binsec .cat-h { border-bottom-color:#B9B6AE; }
+    .binsec .cat-h { border-bottom-color:#B9B6AE; cursor:default !important; user-select:auto; }
+    .binsec .cat-h:hover { background:transparent; }
+    .binsec .cat-h::before { display:none; }
     .binsec .hint { margin-top:12px; font-size:13px; color:var(--text-muted); }
     .binsec .hint b { color:var(--text-secondary); }
 
@@ -177,6 +192,12 @@
       <button class="fbtn" data-f="tegatana" onclick="filt(this,'tegatana')">✋ 手刀ダッシュ<span class="n">98</span></button>
       <button class="fbtn" data-f="moonwalk" onclick="filt(this,'moonwalk')">🕺 ムーンウォーク通過<span class="n">98</span></button>
       <button class="fbtn" data-f="dogeza" onclick="filt(this,'dogeza')">🙇‍♂️ 土下座スライディング<span class="n">98</span></button>
+    </div>
+
+    <div class="collapse-bar">
+      <button type="button" onclick="collapseAll()">▶ 全セクションを折り畳む</button>
+      <button type="button" onclick="expandAll()">▼ 全セクションを展開</button>
+      <span style="font-size:11.5px;color:var(--text-muted);align-self:center;margin-left:6px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;">セクション見出しクリックで個別折り畳み・⌘Z/⌘⇧Zで取り消し/やり直し</span>
     </div>
 
     <!-- ===== 1. 謝罪の所作・ジェスチャー図鑑 ===== -->
@@ -706,7 +727,7 @@
 
     <div class="foot">
       <span>SUMIMASEN — Cut Ideas 411 (謝罪101 + アニメ&ドラマ15 + 迷惑294・Claude案・確定前)</span>
-      <span>Last Updated: 2026年6月21日 22:45 JST</span>
+      <span>Last Updated: 2026年6月21日 23:05 JST</span>
       <span>← <a href="creative-brain-sumimasen.html" style="color:var(--accent-purple)">SUMIMASEN プロジェクト</a></span>
     </div>
   </div>
@@ -787,11 +808,17 @@
     function toggleBin(ev, btn){
       ev.stopPropagation();
       var cut = btn.closest('.cut');
-      if (cut.classList.contains('rejected')) { restoreCut(cut); }
-      else { rejectCut(cut); }
+      var wasRejected = cut.classList.contains('rejected');
+      _applyRejectToggle(cut, !wasRejected);
+      pushAction({ type:'reject', no:cut.getAttribute('data-no'), newState: !wasRejected });
+    }
+    // reject/restore + 永続化を1関数に集約（toggleBin/undo/redoの共通入口）
+    function _applyRejectToggle(cut, makeRejected){
+      if (makeRejected) rejectCut(cut);
+      else restoreCut(cut);
       updateBin();
-      saveBin();              // ローカル（端末内バックアップ）
-      cloudSave(currentBinNos()); // クラウド（全端末で共有）
+      saveBin();
+      cloudSave(currentBinNos());
     }
 
     function currentBinNos(){
@@ -868,8 +895,14 @@
     function toggleAdopt(ev, btn){
       ev.stopPropagation();
       var cut = btn.closest('.cut');
-      cut.classList.toggle('adopted');
-      // セクション内で採用カードを上にソート
+      var wasAdopted = cut.classList.contains('adopted');
+      _applyAdoptToggle(cut, !wasAdopted);
+      pushAction({ type:'adopt', no:cut.getAttribute('data-no'), newState: !wasAdopted });
+    }
+    // adopt/unadopt + 永続化を1関数に集約（toggleAdopt/undo/redoの共通入口）
+    function _applyAdoptToggle(cut, makeAdopted){
+      if (makeAdopted) cut.classList.add('adopted');
+      else cut.classList.remove('adopted');
       var section = cut.closest('section.cat');
       if (section){
         var grid = section.querySelector('.grid');
@@ -891,6 +924,101 @@
     // 全カテゴリの .grid を一括ソート（ボツ箱 #bin-grid は除外）
     function sortAllAdoptedFirst(){
       document.querySelectorAll('section.cat > .grid').forEach(function(g){ sortGridAdoptedFirst(g); });
+    }
+
+    /* ===== Undo/Redo (⌘Z / ⌘⇧Z) ===== */
+    var UNDO_STACK = [];
+    var REDO_STACK = [];
+    var UNDO_MAX = 200;
+    function pushAction(action){
+      UNDO_STACK.push(action);
+      if (UNDO_STACK.length > UNDO_MAX) UNDO_STACK.shift();
+      REDO_STACK = []; // 新しい操作で redo は無効化
+    }
+    function applyActionState(action, makeNew){
+      var cut = document.querySelector('.cut[data-no="'+action.no+'"]');
+      if (!cut) return false;
+      if (action.type === 'adopt'){
+        _applyAdoptToggle(cut, makeNew);
+      } else if (action.type === 'reject'){
+        _applyRejectToggle(cut, makeNew);
+      }
+      return true;
+    }
+    function undo(){
+      if (!UNDO_STACK.length) { showToast('取り消す操作はありません'); return; }
+      var action = UNDO_STACK.pop();
+      if (applyActionState(action, !action.newState)){
+        REDO_STACK.push(action);
+        var label = action.type === 'adopt' ? (action.newState?'採用':'採用解除') : (action.newState?'ボツ':'ボツ解除');
+        showToast('↩ 取り消し: '+action.no+' の'+label);
+      }
+    }
+    function redoAction(){
+      if (!REDO_STACK.length) { showToast('やり直す操作はありません'); return; }
+      var action = REDO_STACK.pop();
+      if (applyActionState(action, action.newState)){
+        UNDO_STACK.push(action);
+        var label = action.type === 'adopt' ? (action.newState?'採用':'採用解除') : (action.newState?'ボツ':'ボツ解除');
+        showToast('↪ やり直し: '+action.no+' の'+label);
+      }
+    }
+    document.addEventListener('keydown', function(e){
+      // ⌘Z / Ctrl+Z = undo / ⌘⇧Z / Ctrl+Y = redo
+      var mod = e.metaKey || e.ctrlKey;
+      if (!mod) return;
+      var t = e.target;
+      // 入力欄ではブラウザ既定動作を尊重
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      var k = (e.key || '').toLowerCase();
+      if (k === 'z'){
+        e.preventDefault();
+        if (e.shiftKey) redoAction(); else undo();
+      } else if (k === 'y'){ // Ctrl+Y (Windows redo)
+        e.preventDefault();
+        redoAction();
+      }
+    });
+
+    /* ===== セクション折り畳み ===== */
+    var COLLAPSED_KEY = 'sumimasen-cuts-collapsed-v1';
+    function saveCollapsed(){
+      var cats = [];
+      document.querySelectorAll('section.cat.collapsed').forEach(function(s){ cats.push(s.getAttribute('data-cat')); });
+      try { localStorage.setItem(COLLAPSED_KEY, JSON.stringify(cats)); } catch(e){}
+    }
+    function applyCollapsed(){
+      var cats = [];
+      try { cats = JSON.parse(localStorage.getItem(COLLAPSED_KEY) || '[]'); } catch(e){}
+      cats.forEach(function(c){
+        var sec = document.querySelector('section.cat[data-cat="'+c+'"]');
+        if (sec) sec.classList.add('collapsed');
+      });
+    }
+    function toggleCollapse(sec){
+      sec.classList.toggle('collapsed');
+      saveCollapsed();
+    }
+    function collapseAll(){
+      document.querySelectorAll('section.cat').forEach(function(s){ s.classList.add('collapsed'); });
+      saveCollapsed();
+      showToast('全セクションを折り畳みました');
+    }
+    function expandAll(){
+      document.querySelectorAll('section.cat').forEach(function(s){ s.classList.remove('collapsed'); });
+      saveCollapsed();
+      showToast('全セクションを展開しました');
+    }
+    function initCollapseHandlers(){
+      document.querySelectorAll('section.cat > .cat-h').forEach(function(h){
+        // ボツ箱の cat-h は .binsec 内なので除外（CSSで cursor:default 済）
+        if (h.closest('.binsec')) return;
+        h.addEventListener('click', function(e){
+          // 内部のリンク・アンカーを誤クリックしないように
+          if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+          toggleCollapse(h.closest('section.cat'));
+        });
+      });
     }
 
     /* ===== クラウド同期（Supabase・全端末で共有）===== */
@@ -927,6 +1055,9 @@
 
     (function initBin(){
       injectButtons();
+      // セクション折り畳み状態を復元 + ハンドラ装着
+      applyCollapsed();
+      initCollapseHandlers();
       // 採用(⭐)はローカル専用・端末ローカル
       var adopted = [];
       try { adopted = JSON.parse(localStorage.getItem(ADOPTED_KEY) || '[]'); } catch(e){}
