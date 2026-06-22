@@ -20,3 +20,7 @@ _deploy_*
 
 # ローカル運用警告ファイル（PUBLIC配信先にクライアント名平文が漏れるのを防ぐ）
 _DEPRECATED_*.md
+
+# coordinator workspace cache
+.collaborator/
+**/.collaborator/
