@@ -1,6 +1,6 @@
 /**
  * PS_MCCM_新店舗OPEN_見積もりGAS_260624
- * 最終更新: 2026年6月24日 16:37（inspectSheet_v1 関数追加・手作業状態の恒久ダンプツール）
+ * 最終更新: 2026年6月24日 17:38（マスターGAS確定状態同期: プラン1¥670k/プラン2¥1,100k・4名体制・遠征費合算・配信後レポート/技術アシスタント/練習動画 恒久排除）
  * 制作パートナー: ディレクション=森田 / 技術=寺田さん / 回線=パンダスタジオ
  * マージン率: 基本45%（旅費・機材レンタルは実費＋15%）
  *
@@ -17,11 +17,13 @@
  *   - 交通費は「現地までの往復交通費」「現地宿泊費」と抽象化
  *   - 「フラッグシップ店OPEN」「POPUPスペース」「B1/2F」までは可
  *
- * 【プラン構成】
- *   プラン1: ミニマム（スマホ配信・2名体制）
- *   プラン2: リッチ（OBS配信・5名体制）
- *   共通: 現地遠征費（交通・宿泊・諸経費）
- *   オプション: 機材レンタル・追加カメラ・テロップ・切り抜き動画
+ * 【プラン構成（260624確定）】
+ *   プラン1: ミニマム（スマホ配信・2名体制）合計¥670,000 (FW粗利46.0%)
+ *     - 制作進行＆メインD(石島) / 台本作成(森田) / カメラマン兼現場AS(森田) / 機材コ(森田) / モバイル回線(パンダスタジオ) / 【ミニマム】合算行
+ *   プラン2: リッチ（OBS配信・1カメ・4名体制）合計¥1,100,000 (FW粗利45.9%)
+ *     - D(森田) / AD(森田/いしじま想定) / 台本(森田) / カメラマン(寺田さん) / OBSオペ(寺田さん) / 機材コ(寺田さん) / TVU(パンダスタジオ) / 機材運搬(寺田さん) / テロップ(寺田さん) / 【リッチ】合算行
+ *   合算行: 各プラン末尾に交通費(¥30k/名)+宿泊費(¥10k/名)=¥40k/名（実費通し）
+ *   オプション: リハ・キャスティング・切り抜き・音声・3カメ追加（売値別途）
  *
  * 【使い方】
  *   1. MCCM側で見積もり用スプレッドシートを開く
@@ -122,32 +124,32 @@ function addMccmFlagshipSheet() {
   var plan1Start = r;
 
   r = _writeDataRow(sh, r,
-    '制作進行（メインディレクター）',
-    true, 'SoftBank', '森田', 1, 250000, 0.10, 112200,
+    '制作進行＆メインディレクター',
+    true, 'SoftBank', '石島', 1, 150000, 0.10, 0,
     '※ 企画立案・進行管理・現地統括');
   r = _writeDataRow(sh, r,
     '台本作成',
-    true, 'SoftBank', '森田', 1, 123000, 0.10, 55000,
+    true, 'SoftBank', '森田', 1, 100000, 0.10, 55000,
     '※ お打ち合わせ1回含む / メーカー協賛社情報の組み込み');
   r = _writeDataRow(sh, r,
-    '現地ディレクション（配信オペレーター兼務）',
-    true, 'SoftBank', '寺田さん', 1, 98000, 0.10, 44000,
-    '※ 2名目。スマホ撮影・配信操作を兼務 / 配信管理は貴社側実施前提');
+    'カメラマン兼現場アシスタント',
+    true, 'SoftBank', '森田', 1, 120000, 0.10, 55000,
+    '※ 2名目。スマホ撮影・配信操作を兼務 / 配信管理とカンペ出し(必要であれば)は貴社側で対応想定');
   r = _writeDataRow(sh, r,
     '機材コーディネート・持ち込み費',
-    true, 'SoftBank', '寺田さん', 1, 123000, 0.10, 55000,
-    '※ リングライト・NEEWER照明2灯・ワイヤレスマイク4波・配信用iPhone1台');
+    true, 'SoftBank', '森田', 1, 60000, 0.10, 30000,
+    '※ リングライト・ワイヤレスマイク4波・配信用iPhone1台');
   r = _writeDataRow(sh, r,
-    'モバイル回線（ポケットWi-Fi・3日レンタル）',
-    true, 'SoftBank', 'パンダスタジオ', 1, 156000, 0.10, 70000,
-    '※ 現地ネット環境不可前提 / ポケットWi-Fi・TVUルーター');
+    'モバイル回線',
+    true, 'SoftBank', 'パンダスタジオ', 1, 160000, 0.10, 70000,
+    '※現地Wi-Fi、ネット回線使用できる前提 (使用できない場合はOBS同様ネットワーク機材費16万円が発生)');
   r = _writeDataRow(sh, r,
-    '配信後レポート',
-    true, 'SoftBank', '森田', 1, 98000, 0.10, 44000,
-    '※ 視聴データ・コメント分析・改善提案 / 配信管理は貴社側実施前提');
+    '【ミニマム】現地宿泊費＋交通費(2名分)',
+    true, 'SoftBank', '', 2, 40000, 0.10, 40000,
+    '※ 1名あたり 交通¥30,000(新幹線往復+心斎橋) + 宿泊¥10,000 = ¥40,000 / 2名×¥40,000=¥80,000');
 
   var plan1End = r - 1;
-  r = _writeTotalRow(sh, r, '■ プラン1 合計（遠征費除く）', plan1Start, plan1End, C.PLAN1_DATA, '#0D47A1');
+  r = _writeTotalRow(sh, r, '■ プラン1 合計(遠征費込み)', plan1Start, plan1End, C.PLAN1_DATA, '#0D47A1');
   var plan1TotalRow = r - 1;
   r = _writeMarginRow(sh, r, plan1TotalRow);
   r++;
@@ -155,93 +157,54 @@ function addMccmFlagshipSheet() {
   // ════════════════════════════════════════════
   // プラン2: リッチ（OBS配信・5名体制）
   // ════════════════════════════════════════════
-  r = _writeSectionHeader(sh, r, '▶ プラン2: リッチパターン（OBS配信・1カメ・5名体制）', C.PLAN2_BG, '#1B5E20');
+  r = _writeSectionHeader(sh, r, '▶ プラン2: リッチパターン（OBS配信・1カメ・4名体制）', C.PLAN2_BG, '#1B5E20');
   var plan2Start = r;
 
   r = _writeDataRow(sh, r,
     'ディレクター',
-    true, 'SoftBank', '森田', 1, 250000, 0.10, 112200,
+    true, 'SoftBank', '森田', 1, 150000, 0.10, 60000,
     '※ 企画統括・現地全体進行・MCCM/出演者/協賛社との調整');
   r = _writeDataRow(sh, r,
     'アシスタントディレクター',
-    true, 'SoftBank', '森田', 1, 98000, 0.10, 44000,
-    '※ Dの補佐・フロアディレクション・出演者対応');
+    true, 'SoftBank', '森田', 1, 100000, 0.10, 0,
+    '※ Dの補佐・フロアディレクション・出演者対応 (いしじま想定)');
   r = _writeDataRow(sh, r,
     '台本作成',
-    true, 'SoftBank', '森田', 1, 123000, 0.10, 55000,
+    true, 'SoftBank', '森田', 1, 100000, 0.10, 55000,
     '※ お打ち合わせ1回含む / メーカー協賛社情報の組み込み');
   r = _writeDataRow(sh, r,
     'カメラマン（1カメ体制）',
-    true, 'SoftBank', '寺田さん', 1, 98000, 0.10, 44000,
+    true, 'SoftBank', '寺田さん', 1, 100000, 0.10, 55000,
     '※ 1カメ体制 / 撮影オペレーション');
   r = _writeDataRow(sh, r,
     'OBSオペレーター',
-    true, 'SoftBank', '寺田さん', 1, 196000, 0.10, 88000,
+    true, 'SoftBank', '寺田さん', 1, 100000, 0.10, 55000,
     '※ OBS操作・テロップ出し・配信品質管理');
   r = _writeDataRow(sh, r,
-    '技術アシスタント',
-    true, 'SoftBank', '寺田さん', 1, 98000, 0.10, 44000,
-    '※ 機材セッティング補助・回線監視・現場テクニカルサポート');
-  r = _writeDataRow(sh, r,
     '機材コーディネート・持ち込み費',
-    true, 'SoftBank', '寺田さん', 1, 250000, 0.10, 112200,
-    '※ 一眼カメラ1台・NEEWER照明・ワイヤレスマイク・OBS機材一式・スイッチャー');
+    true, 'SoftBank', '寺田さん', 1, 150000, 0.10, 60000,
+    '※ 一眼カメラ1台・NEEWER照明・ワイヤレスマイク・OBS機材一式');
   r = _writeDataRow(sh, r,
     'TVUルーター（3日レンタル）',
-    true, 'SoftBank', 'パンダスタジオ', 1, '', 0.10, '',
-    '※ 現地有線LAN確保不可前提 / パンダスタジオ3日レンタル / 単価Issy確認待ち');
+    true, 'SoftBank', 'パンダスタジオ', 1, 160000, 0.10, '',
+    '※ 現地有線LAN確保不可前提 / パンダスタジオ3日レンタル / 原価は実費精算');
   r = _writeDataRow(sh, r,
-    '機材運搬費（現地搬送・前日入り）',
-    true, 'SoftBank', '寺田さん', 1, 98000, 0.10, 44000,
+    '機材運搬費（現地搬送・前日 or 当日宿泊）',
+    true, 'SoftBank', '寺田さん', 1, 30000, 0.10, 15000,
     '※ 機材一式の現地搬送 / 配信前日搬入・終了後撤収');
   r = _writeDataRow(sh, r,
     'テロップ制作（協賛社・商品情報）',
-    true, 'SoftBank', '寺田さん', 1, 123000, 0.10, 55000,
+    true, 'SoftBank', '寺田さん', 1, 50000, 0.10, 25000,
     '※ メーカー協賛社のロゴ・商品スペック・限定情報をテロップ化');
   r = _writeDataRow(sh, r,
-    '配信後レポート',
-    true, 'SoftBank', '森田', 1, 98000, 0.10, 44000,
-    '※ 視聴データ・コメント分析・協賛社向け実績レポート / 配信管理は貴社側実施前提');
+    '【リッチ】現地宿泊費＋交通費（4名分）',
+    true, 'SoftBank', '', 4, 40000, 0.10, 40000,
+    '※ 1名あたり 交通¥30,000(新幹線往復+心斎橋) + 宿泊¥10,000 = ¥40,000 / 4名×¥40,000=¥160,000');
 
   var plan2End = r - 1;
-  r = _writeTotalRow(sh, r, '■ プラン2 合計（遠征費除く）', plan2Start, plan2End, C.PLAN2_DATA, '#1B5E20');
+  r = _writeTotalRow(sh, r, '■ プラン2 合計(遠征費込み)', plan2Start, plan2End, C.PLAN2_DATA, '#1B5E20');
   var plan2TotalRow = r - 1;
   r = _writeMarginRow(sh, r, plan2TotalRow);
-  r++;
-
-  // ════════════════════════════════════════════
-  // 共通: 現地遠征費（プランごとに人数が変動）
-  // ════════════════════════════════════════════
-  r = _writeSectionHeader(sh, r, '▶ 現地遠征費（プラン別／実費＋諸経費）', C.TRAVEL_BG, '#B71C1C');
-  var travelStart = r;
-
-  r = _writeDataRow(sh, r,
-    '【ミニマム】現地までの往復交通費（2名分）',
-    true, 'SoftBank', '', 2, 38000, 0.10, 28000,
-    '※ 1名あたり実費¥28,000 IN想定 / マージン15%程度');
-  r = _writeDataRow(sh, r,
-    '【ミニマム】現地宿泊費（2名×1泊）',
-    true, 'SoftBank', '', 2, 20000, 0.10, 15000,
-    '※ 1名1泊¥15,000 IN想定 / 配信前日入り想定');
-  r = _writeDataRow(sh, r,
-    '【ミニマム】現地諸経費（タクシー・食事等）',
-    true, 'SoftBank', '', 1, 20000, 0.10, 15000,
-    '※ 概算実費 / 領収書ベース精算も可');
-  r = _writeDataRow(sh, r,
-    '【リッチ】現地までの往復交通費（5名分）',
-    true, 'SoftBank', '', 5, 38000, 0.10, 28000,
-    '※ 1名あたり実費¥28,000 IN想定 / マージン15%程度');
-  r = _writeDataRow(sh, r,
-    '【リッチ】現地宿泊費（5名×1泊）',
-    true, 'SoftBank', '', 5, 20000, 0.10, 15000,
-    '※ 1名1泊¥15,000 IN想定 / 配信前日入り想定');
-  r = _writeDataRow(sh, r,
-    '【リッチ】現地諸経費（タクシー・食事等）',
-    true, 'SoftBank', '', 1, 40000, 0.10, 30000,
-    '※ 概算実費 / 領収書ベース精算も可');
-
-  var travelEnd = r - 1;
-  r = _writeTotalRow(sh, r, '■ 遠征費 合計（ミニマム+リッチ 両方含む参考値）', travelStart, travelEnd, C.TRAVEL_DATA, '#B71C1C');
   r++;
 
   // ════════════════════════════════════════════
@@ -262,10 +225,6 @@ function addMccmFlagshipSheet() {
     '切り抜き動画制作（最大3本）',
     true, 'SoftBank', '寺田さん', 3, 49000, 0.10, 22000,
     '※ 配信アーカイブから縦型ショート / SNS・Firework埋込活用');
-  r = _writeDataRow(sh, r,
-    '練習動画制作（出演者向けトーク練習用）',
-    true, 'SoftBank', '森田', 1, 123000, 0.10, 55000,
-    '※ 配信前の出演者ウォームアップ動画');
   r = _writeDataRow(sh, r,
     '音声機材増設（ピンマイク3名以上）',
     true, 'SoftBank', '寺田さん', 1, 98000, 0.10, 44000,
@@ -589,25 +548,26 @@ function _applyFreezeAndFilters(sh, dataStartRow, lastRow) {
 }
 
 // ═════════════════════════════════════════════════════════
-// 部分パッチ関数 — 手作業修正済みのシートに対しピンポイント更新
+// 部分パッチ関数 v4 — 遠征費を各プラン末尾に「合算1行」で統合 / 4名化 / 練習動画削除
 // ═════════════════════════════════════════════════════════
 /**
- * Issyさんが手作業でタイトル変更・金額変更・行削除等を入れたシートに対し、
- * 全消去せず指定セルだけを差分更新する関数。
+ * v4 の変更内容（v3 をリプレース・冪等）:
+ *   ① 既存「▶ 現地遠征費」セクション・【ミニマム】/【リッチ】交通費・宿泊費 個別行・諸経費・▶ 遠征費合計 を全削除
+ *   ② オプション「練習動画制作（出演者向けトーク練習用）」を物理削除（全PS案件共通方針）
+ *   ③ プラン1合計の直前に【ミニマム】現地宿泊費＋交通費（2名分）を1行挿入
+ *      単価¥40,000(交通¥30,000+宿泊¥10,000)・原価¥40,000・数量2 → ¥80,000
+ *   ④ プラン2合計の直前に【リッチ】現地宿泊費＋交通費（4名分）を1行挿入
+ *      単価¥40,000・原価¥40,000・数量4（OBS4名体制） → ¥160,000
+ *   ⑤ idempotent部分: B列入力規則クリア / G列整数フォーマット
  *
  * 使い方:
- *   Apps Script エディタで関数 patchSheet_260624_v1 を選択 → ▶ 実行
+ *   Apps Script エディタで関数 patchSheet_260624_v4 を選択 → ▶ 実行
  *
- * 更新内容（2026-06-24 16:xx Issy指示反映）:
- *   - B10: 機材コーディネートの内容欄 — マイク「2波→4波」
- *   - B11: モバイル回線の内容欄 — 「ポケットWi-Fi・TVUルーター」へ書換
- *   - H11: 売値単価 ¥156,000（FW45%キープ・Partner10%適用：70000/0.45=155,556→切上）
- *   - O11: 原価単価IN ¥70,000（パンダスタジオ確定）
- *
- * 注意: シート上の他の手作業修正（タイトル・金額・削除行）は触らない。
- *       上記4セルのみ書き換え、他は全てそのまま保持。
+ * 注意:
+ *   - 行特定は内容ベース（A/B列のスキャン）で行うため、行番号が変化していても動作
+ *   - 削除は下から、挿入も下から（プラン2末尾→プラン1末尾の順）で行番号ズレを回避
  */
-function patchSheet_260624_v1() {
+function patchSheet_260624_v4() {
   var ss = SPREADSHEET_ID
     ? SpreadsheetApp.openById(SPREADSHEET_ID)
     : SpreadsheetApp.getActiveSpreadsheet();
@@ -616,33 +576,175 @@ function patchSheet_260624_v1() {
     throw new Error('シートが見つかりません: ' + SHEET_NAME);
   }
 
-  var FMT_YEN = '¥#,##0';
-  // [セル, 値, フォーマット(null可), ラベル]
-  var patches = [
-    ['B10', '※ リングライト・NEEWER照明2灯・ワイヤレスマイク4波・配信用iPhone1台', null,
-     'B10: 機材コーディネート 内容（マイク2波→4波）'],
-    ['B11', '※ 現地ネット環境不可前提 / ポケットWi-Fi・TVUルーター', null,
-     'B11: モバイル回線 内容（パンダスタジオ表記→ポケットWi-Fi・TVUルーター）'],
-    ['O11', 70000, FMT_YEN,
-     'O11: 原価単価IN ¥70,000（パンダスタジオ確定）'],
-    ['H11', 156000, FMT_YEN,
-     'H11: 売値単価 ¥156,000（FW45%キープ・Partner10%適用）'],
-  ];
+  var stamp = Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyy-MM-dd HH:mm:ss');
+  var log = ['=== patchSheet_260624_v4 @ ' + stamp + ' ==='];
 
-  var log = ['=== patchSheet_260624_v1 ==='];
-  patches.forEach(function(p) {
-    var cellA1 = p[0], val = p[1], fmt = p[2], label = p[3];
-    var range = sh.getRange(cellA1);
-    var before = range.getValue();
-    range.setValue(val);
-    if (fmt) range.setNumberFormat(fmt);
-    log.push('  ' + label);
-    log.push('    旧: ' + (before === '' ? '(空)' : before));
-    log.push('    新: ' + val);
+  // ─── ① B列入力規則クリア + G列整数フォーマット ───
+  sh.getRange('B7:B60').clearDataValidations();
+  sh.getRange('G6:G60').setNumberFormat('0');
+  log.push('① B列入力規則クリア / G列整数フォーマット');
+
+  // ─── ② 既存遠征費関連行・練習動画行 を下から物理削除 ───
+  var lastRow = sh.getLastRow();
+  var aCol = sh.getRange(1, 1, lastRow, 1).getValues();
+  var bCol = sh.getRange(1, 2, lastRow, 1).getValues();
+
+  var deleteTargets = [];
+  for (var i = lastRow - 1; i >= 0; i--) {
+    var a = String(aCol[i][0] || '');
+    var b = String(bCol[i][0] || '');
+    var shouldDelete = (
+      a.indexOf('【ミニマム】') >= 0 ||
+      a.indexOf('【リッチ】') >= 0 ||
+      a.indexOf('■ 遠征費') >= 0 ||
+      a.indexOf('現地諸経費') >= 0 ||
+      a.indexOf('練習動画') >= 0 ||
+      b.indexOf('▶ 現地遠征費') >= 0
+    );
+    if (shouldDelete) deleteTargets.push(i + 1);
+  }
+  deleteTargets.forEach(function(r) {
+    sh.getRange(r, 1, 1, 18).breakApart();
+    sh.deleteRow(r);
   });
+  log.push('② 削除: ' + deleteTargets.length + '行（遠征費残骸＋練習動画行）');
+
+  // ─── ③ プラン1/プラン2 合計行を再特定（削除後の最新行番号）───
+  lastRow = sh.getLastRow();
+  aCol = sh.getRange(1, 1, lastRow, 1).getValues();
+  var p1Total = -1, p2Total = -1;
+  for (var k = 0; k < lastRow; k++) {
+    var av = String(aCol[k][0]);
+    if (av.indexOf('■ プラン1') >= 0) p1Total = k + 1;
+    if (av.indexOf('■ プラン2') >= 0) p2Total = k + 1;
+  }
+  if (p1Total < 0 || p2Total < 0) {
+    throw new Error('プラン合計行が見つかりません (p1=' + p1Total + ' p2=' + p2Total + ')');
+  }
+  log.push('③ プラン1合計=行' + p1Total + ' / プラン2合計=行' + p2Total);
+
+  // ─── ④ プラン2合計の直前に【リッチ】合算行を挿入（下から先に処理） ───
+  sh.insertRowsBefore(p2Total, 1);
+  _patchInsertTravelRow_v4(sh, p2Total,
+    '【リッチ】現地宿泊費＋交通費（4名分）',
+    '※ 1名あたり 交通¥30,000(新幹線往復+心斎橋) + 宿泊¥10,000 = ¥40,000 / 4名×¥40,000=¥160,000',
+    4, 40000, 40000);
+  log.push('④ プラン2合計直前に【リッチ】合算行 挿入（4名×¥40,000=¥160,000）');
+
+  // ─── ⑤ プラン1合計の直前に【ミニマム】合算行を挿入 ───
+  sh.insertRowsBefore(p1Total, 1);
+  _patchInsertTravelRow_v4(sh, p1Total,
+    '【ミニマム】現地宿泊費＋交通費（2名分）',
+    '※ 1名あたり 交通¥30,000(新幹線往復+心斎橋) + 宿泊¥10,000 = ¥40,000 / 2名×¥40,000=¥80,000',
+    2, 40000, 40000);
+  log.push('⑤ プラン1合計直前に【ミニマム】合算行 挿入（2名×¥40,000=¥80,000）');
+
+  // ─── ⑥ 合算行挿入後、プラン1/プラン2合計行のSUMIF関数を再構築 ───
+  //    行追加で範囲が自動拡張されないため明示再構築（恒久ルール準拠）
+  //    feedback_gas_row_insert_must_update_formulas.md
+  lastRow = sh.getLastRow();
+  aCol = sh.getRange(1, 1, lastRow, 1).getValues();
+  bCol = sh.getRange(1, 2, lastRow, 1).getValues();
+
+  var plan1StartRow = -1, plan2StartRow = -1;
+  var newP1Total = -1, newP2Total = -1;
+  for (var n = 0; n < lastRow; n++) {
+    var aN = String(aCol[n][0]);
+    var bN = String(bCol[n][0]);
+    if (bN.indexOf('▶ プラン1') >= 0) plan1StartRow = n + 2;
+    if (bN.indexOf('▶ プラン2') >= 0) plan2StartRow = n + 2;
+    if (aN.indexOf('■ プラン1') >= 0) newP1Total = n + 1;
+    if (aN.indexOf('■ プラン2') >= 0) newP2Total = n + 1;
+  }
+
+  if (newP1Total > 0 && plan1StartRow > 0) {
+    _rebuildTotalRowFormula_v4(sh, newP1Total, plan1StartRow, newP1Total - 1);
+    sh.getRange(newP1Total, 1).setValue('■ プラン1 合計(遠征費込み)');
+  }
+  if (newP2Total > 0 && plan2StartRow > 0) {
+    _rebuildTotalRowFormula_v4(sh, newP2Total, plan2StartRow, newP2Total - 1);
+    sh.getRange(newP2Total, 1).setValue('■ プラン2 合計(遠征費込み)');
+  }
+  log.push('⑥ プラン1/2 合計のSUMIF再構築 + ラベル「遠征費込み」へ更新 (p1=行' + newP1Total + ' p2=行' + newP2Total + ')');
 
   SpreadsheetApp.flush();
   Logger.log(log.join('\n'));
+}
+
+/**
+ * v4 内部ヘルパー: 旅費合算行を r行目に書き込む（既に行は挿入済み前提）。
+ */
+function _patchInsertTravelRow_v4(sh, r, item, note, qty, unitPrice, costUnitIn) {
+  var FMT_YEN = '¥#,##0';
+  var FMT_INT = '0';
+
+  // A=項目
+  sh.getRange(r, 1).setValue(item).setBackground(C.INPUT).setFontSize(10).setFontWeight('bold');
+  // B=内容
+  sh.getRange(r, 2).setValue(note).setBackground(C.LIGHT_BG)
+    .setFontSize(9).setFontColor(C.GRAY_TXT).setWrap(true).setVerticalAlignment('top')
+    .clearDataValidations();
+  // C=Partner商流（チェックボックス・ON）
+  sh.getRange(r, 3).insertCheckboxes().setValue(true).setBackground(C.INPUT);
+  // D=Partner
+  sh.getRange(r, 4).setValue('SoftBank').setBackground(C.INPUT).setFontSize(9).setHorizontalAlignment('center');
+  // E=制作パートナー（旅費は空）
+  sh.getRange(r, 5).setValue('').setBackground(C.INPUT).setFontSize(9);
+  // F=グロス
+  sh.getRange(r, 6).setFormula('=IF(G' + r + '*H' + r + '=0,"",G' + r + '*H' + r + ')')
+    .setBackground(C.PINK_HL).setNumberFormat(FMT_YEN);
+  // G=数量
+  sh.getRange(r, 7).setValue(qty).setBackground(C.INPUT).setNumberFormat(FMT_INT).setHorizontalAlignment('center');
+  // H=単価
+  sh.getRange(r, 8).setValue(unitPrice).setBackground(C.INPUT).setNumberFormat(FMT_YEN);
+  // I=割引率
+  sh.getRange(r, 9).setValue('').setBackground(C.INPUT).setNumberFormat('0%').setHorizontalAlignment('center');
+  // J=割引ご価格
+  sh.getRange(r, 10).setFormula('=IF(F' + r + '="","",F' + r + '*(1-IF(I' + r + '="",0,I' + r + ')))')
+    .setBackground(C.FORMULA).setNumberFormat(FMT_YEN);
+  // K=Partnerマージン%
+  sh.getRange(r, 11).setValue(0.10).setBackground(C.INPUT).setNumberFormat('0%').setHorizontalAlignment('center');
+  // L=Partnerマージン
+  sh.getRange(r, 12).setFormula('=IF(J' + r + '="","",IF(K' + r + '="",0,J' + r + '*K' + r + '))')
+    .setBackground(C.FORMULA).setNumberFormat(FMT_YEN);
+  // M=FWマージン
+  sh.getRange(r, 13).setFormula('=IF(J' + r + '="","",J' + r + '-IF(L' + r + '="",0,L' + r + ')-IF(R' + r + '="",0,R' + r + '))')
+    .setBackground(C.FORMULA).setNumberFormat(FMT_YEN);
+  // N=FWマージン%
+  sh.getRange(r, 14).setFormula('=IF(OR(J' + r + '="",J' + r + '=0),"",M' + r + '/J' + r + ')')
+    .setBackground(C.FORMULA).setNumberFormat('0.0%').setHorizontalAlignment('center');
+  // O=原価単価IN
+  sh.getRange(r, 15).setValue(costUnitIn).setBackground(C.INPUT).setNumberFormat(FMT_YEN);
+  // P=原価単価EX
+  sh.getRange(r, 16).setFormula('=IF(O' + r + '="","",ROUND(O' + r + '/1.1))')
+    .setBackground(C.FORMULA).setNumberFormat(FMT_YEN);
+  // Q=原価合計EX
+  sh.getRange(r, 17).setFormula('=IF(G' + r + '*P' + r + '=0,"",G' + r + '*P' + r + ')')
+    .setBackground(C.FORMULA).setNumberFormat(FMT_YEN);
+  // R=原価合計IN
+  sh.getRange(r, 18).setFormula('=IF(G' + r + '*O' + r + '=0,"",G' + r + '*O' + r + ')')
+    .setBackground(C.TEAL_HL).setNumberFormat(FMT_YEN);
+
+  sh.setRowHeight(r, 28);
+}
+
+/**
+ * v4 内部ヘルパー: 合計行のSUMIF関数を再構築する。
+ * 行追加（合算行挿入等）で範囲が自動拡張されない問題を回避するため、
+ * dataStart〜dataEnd の範囲で明示的に書き直す。
+ * 参照: memory/feedback_gas_row_insert_must_update_formulas.md
+ */
+function _rebuildTotalRowFormula_v4(sh, totalRow, dataStart, dataEnd) {
+  var sumCols = { 6:'F', 10:'J', 12:'L', 13:'M', 17:'Q', 18:'R' };
+  Object.keys(sumCols).forEach(function(col) {
+    var letter = sumCols[col];
+    var colNum = parseInt(col);
+    sh.getRange(totalRow, colNum)
+      .setFormula('=IFERROR(SUMIF(A' + dataStart + ':A' + dataEnd + ',"<>"&"",' +
+                  letter + dataStart + ':' + letter + dataEnd + '),"—")');
+  });
+  sh.getRange(totalRow, 14)
+    .setFormula('=IF(OR(J' + totalRow + '="",J' + totalRow + '=0),"",M' + totalRow + '/J' + totalRow + ')');
 }
 
 // ═════════════════════════════════════════════════════════
@@ -716,3 +818,4 @@ function inspectSheet_v1() {
 
   Logger.log(log.join('\n'));
 }
+
