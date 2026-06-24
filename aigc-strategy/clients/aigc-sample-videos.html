@@ -5,7 +5,7 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-24T14:02:27+09:00">
+<meta name="last-modified" content="2026-06-24T14:16:47+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
@@ -111,9 +111,46 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
   font-size:.84rem;
   color:#3a3f50;
   line-height:1.7;
-  margin:0 0 14px 18px;
+  margin:0 0 10px 18px;
 }
 .vsec-desc.empty{color:var(--muted);font-style:italic;font-size:.78rem}
+
+.vsec-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 14px 18px;
+}
+.vsec-meta .chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:.74rem;
+  font-weight:500;
+  padding:4px 10px;
+  border-radius:6px;
+  background:#f2f4f8;
+  color:#3a3f50;
+  border:1px solid var(--border);
+}
+.vsec-meta .chip .lbl{
+  color:var(--muted);
+  font-weight:500;
+  font-size:.7rem;
+}
+.vsec-meta .chip.price{
+  background:#fdeaf1;
+  border-color:#fbcfdc;
+  color:var(--accent);
+  font-weight:700;
+}
+.vsec-meta .chip.price .lbl{color:#c91063}
+.vsec-meta .chip.custom{
+  background:linear-gradient(135deg,#fff7e6,#ffe9b8);
+  border-color:#ffd47a;
+  color:#7a4a00;
+  font-weight:700;
+}
 
 .tier-h{
   font-size:1.05rem;
@@ -210,8 +247,14 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <div class="tier-h"><span class="tier-badge">TIER 1</span>パックショット系<span class="tier-note">商品単体を多アングルで魅せる</span></div>
 
     <section class="vsec" id="cat-pdp-360">
-      <div class="vsec-h"><span class="num">1</span>商品ページ動画 / PDP動画 / 360度動画</div>
-      <p class="vsec-desc">動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
+      <div class="vsec-h"><span class="num">1</span>パックショットビデオ（360°ポージング）</div>
+      <p class="vsec-desc">商品ページ動画、PDP動画、360度動画。動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥16,000</span>
+        <span class="chip"><span class="lbl">30秒まで</span>N/A</span>
+        <span class="chip"><span class="lbl">修正回数</span>1</span>
+        <span class="chip"><span class="lbl">最小ロット</span>30</span>
+      </div>
       <div class="vplayer" data-slot="pdp-360">
         <fw-embed-feed
           channel="aigc_jp"
@@ -228,8 +271,14 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <div class="tier-h"><span class="tier-badge">TIER 2</span>演出系<span class="tier-note">ライフスタイル・ブランド世界観の表現</span></div>
 
     <section class="vsec" id="cat-lifestyle-tryon">
-      <div class="vsec-h"><span class="num">1</span>ライフスタイルトライオン（テキスト入りの服）</div>
-      <p class="vsec-desc empty">（説明文：必要に応じて追記）</p>
+      <div class="vsec-h"><span class="num">1</span>ライフスタイルトライオン</div>
+      <p class="vsec-desc">テキスト入りの服。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>2</span>
+        <span class="chip"><span class="lbl">最小ロット</span>20</span>
+      </div>
       <div class="vplayer" data-slot="lifestyle-tryon">
         <fw-embed-feed
           channel="fw_aigc_lab"
@@ -243,7 +292,13 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
 
     <section class="vsec" id="cat-digital-appliance">
       <div class="vsec-h"><span class="num">2</span>デジタル家電</div>
-      <p class="vsec-desc empty">（説明文：必要に応じて追記）</p>
+      <p class="vsec-desc">商品ページ動画、PDP動画、360度動画。動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>2</span>
+        <span class="chip"><span class="lbl">最小ロット</span>20</span>
+      </div>
       <div class="vplayer" data-slot="digital-appliance">
         <fw-embed-feed
           channel="aigc_jp"
@@ -258,6 +313,12 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-explainer">
       <div class="vsec-h"><span class="num">3</span>解説動画</div>
       <p class="vsec-desc">商品解説動画（機能ごとの紹介も可）またはその他のハウツー動画。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>2</span>
+        <span class="chip"><span class="lbl">最小ロット</span>20</span>
+      </div>
       <div class="vplayer" data-slot="explainer">
         <fw-embed-feed
           channel="aigc_jp"
@@ -272,6 +333,12 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-social">
       <div class="vsec-h"><span class="num">4</span>ソーシャルビデオ</div>
       <p class="vsec-desc">ソーシャル向け動画の作成（ソーシャルで人気のある他の動画を参考に）。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>2</span>
+        <span class="chip"><span class="lbl">最小ロット</span>20</span>
+      </div>
       <div class="vplayer" data-slot="social">
         <fw-embed-feed
           channel="aigc_jp"
@@ -286,6 +353,12 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-commercial">
       <div class="vsec-h"><span class="num">5</span>コマーシャルスタイル</div>
       <p class="vsec-desc">ブランドのディレクションに合わせて制作されるハイエンド動画。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>2</span>
+        <span class="chip"><span class="lbl">最小ロット</span>20</span>
+      </div>
       <div class="vplayer" data-slot="commercial">
         <fw-embed-feed
           channel="aigc_jp"
@@ -303,6 +376,12 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-tier3-social">
       <div class="vsec-h"><span class="num">1</span>ソーシャル動画（顧客がクリエイティブブリーフを提供）</div>
       <p class="vsec-desc">クリエイティブブリーフに基づくソーシャル向け動画。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥112,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>4</span>
+        <span class="chip"><span class="lbl">最小ロット</span>5</span>
+      </div>
       <div class="vplayer" data-slot="tier3-social">
         <fw-embed-feed
           channel="aigc_jp"
@@ -316,6 +395,12 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-tier3-ads">
       <div class="vsec-h"><span class="num">2</span>広告動画（顧客がクリエイティブブリーフを提供）</div>
       <p class="vsec-desc">コマーシャルスタイルの動画。必要に応じて複数フォーマットでの納品も可能。最高の結果を保証するための作業が可能な顧客獲得用広告動画。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥112,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>4</span>
+        <span class="chip"><span class="lbl">最小ロット</span>5</span>
+      </div>
       <div class="vplayer" data-slot="tier3-ads">
         <fw-embed-feed
           channel="aigc_jp"
@@ -330,6 +415,12 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-tier3-recipe">
       <div class="vsec-h"><span class="num">3</span>レシピコンテンツ</div>
       <p class="vsec-desc">レシピコンテンツに基づく動画作成。</p>
+      <div class="vsec-meta">
+        <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
+        <span class="chip price"><span class="lbl">30秒まで</span>¥112,000</span>
+        <span class="chip"><span class="lbl">修正回数</span>4</span>
+        <span class="chip"><span class="lbl">最小ロット</span>5</span>
+      </div>
       <div class="vplayer" data-slot="tier3-recipe">
         <fw-embed-feed
           channel="aigc_jp"
@@ -347,6 +438,10 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <section class="vsec" id="cat-content-over-30s">
       <div class="vsec-h"><span class="num">1</span>30秒以上のコンテンツ</div>
       <p class="vsec-desc">要件に基づくカスタム価格。</p>
+      <div class="vsec-meta">
+        <span class="chip custom"><span class="lbl">価格</span>カスタム見積もり</span>
+        <span class="chip"><span class="lbl">尺</span>30秒〜</span>
+      </div>
       <div class="vplayer" data-slot="content-over-30s">
         <fw-embed-feed
           channel="aigc_jp"
@@ -362,7 +457,7 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年6月24日 14:02 JST ｜ Firework社内 / AIGC事業
+    最終更新: 2026年6月24日 14:16 JST ｜ Firework社内 / AIGC事業
   </footer>
 
 </div>
