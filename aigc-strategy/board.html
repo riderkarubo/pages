@@ -174,6 +174,17 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;pad
 .detail-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--ink);color:#fff;text-decoration:none;font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:8px;transition:background .15s,transform .1s}
 .detail-btn:hover{background:var(--accent);transform:translateX(2px)}
 .acard .detail-btn{margin-top:10px;align-self:flex-start}
+/* === 熱量持って進められそう案件 CTA（追加 260624） === */
+.hot-accounts-cta{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#1a1a2e 0%,#2a1d4a 55%,#0F3460 100%);color:#fff;text-decoration:none;border-radius:14px;padding:16px 22px;margin:6px 0 18px;border:1px solid #2a1d4a;box-shadow:0 4px 20px rgba(250,0,109,.18);position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.hot-accounts-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(250,0,109,.28)}
+.hot-accounts-cta::after{content:"";position:absolute;right:-60px;top:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(250,0,109,.32),transparent 70%);pointer-events:none}
+.hot-accounts-cta .hac-icon{font-size:2rem;line-height:1;position:relative;z-index:1}
+.hot-accounts-cta .hac-body{flex:1;position:relative;z-index:1}
+.hot-accounts-cta .hac-h{font-size:1rem;font-weight:900;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hot-accounts-cta .hac-badge{font-size:.6rem;font-weight:800;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:2px 8px;border-radius:20px;letter-spacing:.04em}
+.hot-accounts-cta .hac-s{font-size:.74rem;color:#cdd3e0;margin-top:4px;line-height:1.6}
+.hot-accounts-cta .hac-arrow{font-size:1.2rem;color:var(--accent);font-weight:900;position:relative;z-index:1;transition:transform .15s}
+.hot-accounts-cta:hover .hac-arrow{transform:translateX(4px)}
 /* === 直近プロジェクト（クライアント別）セクション（追加 260610） === */
 .sec-note{font-size:.76rem;color:var(--muted);margin:-6px 0 14px;padding-left:12px}
 .projgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
@@ -663,6 +674,14 @@ function render(d){
   <div class="section-title" id="sec-road">${(d.roadmap&&d.roadmap.title)||'導入拡大ロードマップ'}</div>${roadHTML}
   <div class="section-title" id="sec-pipe">検証→販売 2ステージ パイプライン（各社がいまどこにいるか）</div>
   ${pipeNote}<div class="pipe">${pipe}</div>
+  <a class="hot-accounts-cta" href="hot-accounts-260624.html">
+    <div class="hac-icon">🔥</div>
+    <div class="hac-body">
+      <div class="hac-h">熱量持って進められそう案件 8社 <span class="hac-badge">DRAFT 第1稿</span></div>
+      <div class="hac-s">いしじまが熱量持って進めたい8社のディープリサーチ・推し商材・推しクリエイティブ案。セールス各位との作戦会議の叩き台</div>
+    </div>
+    <div class="hac-arrow">→</div>
+  </a>
   <div class="section-title" id="sec-pm">提案アタックリスト（企業リスト・どこから当たるか）${wipTag('pm')}</div>
   ${pmLegend}
   ${pmFilterBar}
@@ -766,7 +785,10 @@ function initGoogle(){
   google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
   google.accounts.id.prompt(function(notif){
     if(notif&&(notif.isNotDisplayed&&notif.isNotDisplayed()||notif.isSkippedMoment&&notif.isSkippedMoment()||notif.isDismissedMoment&&notif.isDismissedMoment())){
-      _oauthFallback();
+      // Issy指示(2026-06-24): Chrome右上のOne Tapのみで完結。OAuthポップアップ自動フォールバックは二重表示を生むため無効化。
+      // 緊急時は ?sso=manual で明示的に呼び出す。
+      console.warn('[aigc-board] One Tap not shown.');
+      if(location.search.indexOf('sso=manual')!==-1){_oauthFallback();}
     }
   });
 }
