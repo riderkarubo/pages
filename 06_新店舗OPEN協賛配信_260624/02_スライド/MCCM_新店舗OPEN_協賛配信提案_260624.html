@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="last-modified" content="2026-06-24T15:42:41+09:00">
+  <meta name="last-modified" content="2026-06-24T17:40:59+09:00">
   <title>MCCM 新店舗OPEN記念 現地ライブ配信ご提案｜スライドモック</title>
 
   <!-- OGP -->
@@ -435,6 +435,104 @@
     .crew-list .task { color: #555; flex: 1; }
 
 
+
+    /* ===== OBS Grade Comparison Table (CH.06) ===== */
+    .obs-grade-section {
+      margin-top: 14px;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      background: linear-gradient(135deg, #FAFBFE 0%, #F4F7FC 100%);
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    .obs-grade-title {
+      margin: 0 0 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .obs-grade-title::before {
+      content: '▸ ';
+      color: var(--accent);
+    }
+    .obs-grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      background: #fff;
+    }
+    .obs-grade-table thead th {
+      background: var(--navy);
+      color: #fff;
+      padding: 6px 8px;
+      font-weight: 700;
+      text-align: left;
+      font-size: 10.5px;
+      letter-spacing: 0.03em;
+    }
+    .obs-grade-table tbody th {
+      padding: 7px 8px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--dark);
+      background: #F8FAFD;
+      border-bottom: 1px solid #E8EEF7;
+      position: relative;
+    }
+    .obs-grade-table tbody td {
+      padding: 7px 8px;
+      border-bottom: 1px solid #E8EEF7;
+      vertical-align: middle;
+      line-height: 1.55;
+      color: #444;
+    }
+    .obs-grade-table tr.recommended {
+      background: linear-gradient(90deg, #FFF8F9 0%, #FFFFFF 100%);
+    }
+    .obs-grade-table tr.recommended th,
+    .obs-grade-table tr.recommended td {
+      background: #FFF6F8;
+    }
+    .obs-grade-table .grade-eco {
+      border-left: 3px solid #B0BEC5;
+    }
+    .obs-grade-table .grade-std {
+      border-left: 3px solid var(--accent);
+    }
+    .obs-grade-table .grade-prm {
+      border-left: 3px solid var(--navy);
+    }
+    .obs-grade-table .price-cell {
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .obs-grade-table .rec-badge {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      vertical-align: middle;
+    }
+    .obs-grade-note {
+      margin-top: 7px;
+      font-size: 9.5px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .obs-grade-note strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
     /* ===== Plan pattern grid (CH.03 ブレスト) ===== */
     .pp-grid {
       display: grid;
@@ -491,7 +589,7 @@
   <!-- ===== Toolbar ===== -->
   <div class="toolbar">
     <div class="toolbar-brand">MCCM <span class="accent">×</span> Firework ／ 新店舗OPEN記念 現地ライブ配信</div>
-    <div class="toolbar-meta">スライドモック v1.1 ／ Last Updated 2026年6月24日 15:42</div>
+    <div class="toolbar-meta">スライドモック v1.2 ／ Last Updated 2026年6月24日 17:40</div>
     <div class="toolbar-actions">
       <button id="btn-print" class="primary">🖨️ 印刷</button>
     </div>
@@ -771,24 +869,24 @@
     </div>
 
     <!-- ===== Slide 6: 2プラン比較 ===== -->
-    <div class="slide" id="sec-6" data-slide-num="6" data-slide-title="CH.04 2プラン提案">
-      <div class="slide-num-label">SLIDE 6 ／ CH.04 プラン比較</div>
+    <div class="slide" id="sec-6" data-slide-num="6" data-slide-title="CH.04 配信スタイル選択">
+      <div class="slide-num-label">SLIDE 6 ／ CH.04 配信スタイル選択</div>
       <div class="s-header">
         <div class="dot"></div>
         <div class="tag">CH. 04</div>
         <div class="sep"></div>
-        <div class="title">2プラン提案（ミニマム / リッチ）</div>
-        <div class="section-label">Section 4 · プラン比較</div>
+        <div class="title">配信スタイル選択 ─ スマホ配信 ／ OBS配信</div>
+        <div class="section-label">Section 4 · 配信スタイル</div>
       </div>
       <div class="s-body">
         <div class="conclusion">
-          コンパクトな<span class="accent">ミニマム</span>と、ブランド世界観を担保する<span class="green">リッチ</span>の2プランから選択可能
+          機動力の<span class="accent">スマホ配信</span>と、フラッグシップ品質の<span class="green">OBS配信</span>。POPUPの世界観を最大化するならOBS配信を推奨
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; height: calc(100% - 42px);">
           <div class="plan-card">
-            <div class="plan-head minim">プラン1 ／ ミニマム（スマホ配信・2名体制）</div>
+            <div class="plan-head minim">プラン1 ／ スマホ配信（2名・機動力重視）</div>
             <div class="plan-body">
-              <div class="plan-badge minim">CASUAL ／ 機動力重視</div>
+              <div class="plan-badge minim">CASUAL ／ 臨場感・回遊向き</div>
               <table class="spec-table" style="margin-top: 4px;">
                 <tr><th>機材</th><td>スマートフォン配信・リングライト・ワイヤレスマイク</td></tr>
                 <tr><th>カメラ</th><td>スマホ1台（手持ち回遊）</td></tr>
@@ -800,28 +898,28 @@
               </table>
               <div class="pricebox" style="margin-top: 10px;">
                 <div class="label">1配信あたり（遠征費別）</div>
-                <div class="value">¥692,000<span class="per">＋回線実費／回</span></div>
-                <div class="note">＋現地遠征費（2名分）約¥136,000＋モバイル回線実費 → トータル目安 約¥828,000＋回線実費／回</div>
+                <div class="value">¥670,000<span class="per">／回</span></div>
+                <div class="note">遠征費（2名分¥80,000）・モバイル回線¥160,000 を本体に内包 ／ 4プラン構成： 制作進行＆メインD・台本作成・カメラマン兼現場AS・機材コーディネート・モバイル回線</div>
               </div>
             </div>
           </div>
           <div class="plan-card">
-            <div class="plan-head rich">プラン2 ／ リッチ（OBS配信・5名体制）</div>
+            <div class="plan-head rich">プラン2 ／ OBS配信（5名・フラッグシップ品質）</div>
             <div class="plan-body">
-              <div class="plan-badge rich">PREMIUM ／ ブランド品質担保</div>
+              <div class="plan-badge rich">FLAGSHIP ／ 画質・テロップ・演出</div>
               <table class="spec-table" style="margin-top: 4px;">
-                <tr><th>機材</th><td><span class="em-navy">一眼カメラ1台</span>・照明・OBS・スイッチャー・テロップ機材</td></tr>
-                <tr><th>カメラ</th><td>1カメ体制／オプションで2カメ目追加可</td></tr>
-                <tr><th>体制</th><td><span class="em-navy">5名</span>（D + AD + カメラマン + OBSオペレーター + 技術アシスタント）</td></tr>
+                <tr><th>画質・質感</th><td><span class="em-navy">一眼カメラ＋OBS処理</span>でフラッグシップにふさわしい高解像度・色再現・質感</td></tr>
+                <tr><th>テロップ演出</th><td>協賛社ロゴ・商品スペック・限定価格・QRを<span class="em-navy">リアルタイム差し込み</span>。視聴者の理解と購買意欲を後押し</td></tr>
+                <tr><th>機材</th><td>一眼カメラ・照明・OBS・スイッチャー・テロップ機材一式</td></tr>
+                <tr><th>カメラ</th><td>1カメ標準／2カメ目追加でヨリ・商品アップを補強可</td></tr>
+                <tr><th>体制</th><td><span class="em-navy">4名</span>現場稼働（D + AD + カメラマン + OBSオペレーター）</td></tr>
                 <tr><th>回線</th><td>有線LAN前提（不可ならTVUルーター手配）</td></tr>
-                <tr><th>テロップ</th><td>協賛社情報・商品スペック・限定情報をリアルタイム挿入</td></tr>
                 <tr><th>含むもの</th><td>企画・台本・テロップ制作・配信ディレクション・配信後レポート</td></tr>
-                <tr><th>適した場面</th><td>ブランド世界観を担保したい・切り抜きを高品質で二次活用したい</td></tr>
               </table>
               <div class="pricebox rich" style="margin-top: 10px;">
                 <div class="label">1配信あたり（遠征費別）</div>
-                <div class="value">¥1,432,000<span class="per">＋TVU実費／回</span></div>
-                <div class="note">＋現地遠征費（5名分）約¥330,000＋TVU実費 → トータル目安 約¥1,762,000＋TVU実費／回</div>
+                <div class="value">¥1,100,000<span class="per">／回</span></div>
+                <div class="note">遠征費（4名分¥160,000）・TVUルーター¥160,000 を本体に内包 ／ 現場稼働4名（D・AD・カメラマン・OBSオペレーター）＋業務委託（台本・機材コ・運搬・テロップ）</div>
               </div>
             </div>
           </div>
@@ -851,18 +949,17 @@
           <div class="crew-list">
             <h4>ミニマム体制 ／ 2名</h4>
             <ul>
-              <li><span class="role">制作進行</span><span class="task">企画立案・進行管理・現地統括・配信メインカメラ操作</span></li>
-              <li><span class="role">現場サポート</span><span class="task">出演者アテンド・配信オペレーション補助・現場の細かな対応</span></li>
+              <li><span class="role">制作進行＆メインD</span><span class="task">石島｜企画立案・進行管理・現地統括</span></li>
+              <li><span class="role">カメラマン兼現場AS</span><span class="task">森田｜スマホ撮影・配信オペレーション補助・現場対応</span></li>
             </ul>
           </div>
           <div class="crew-list rich">
-            <h4>リッチ体制 ／ 5名</h4>
+            <h4>リッチ体制 ／ 4名</h4>
             <ul>
-              <li><span class="role">ディレクター</span><span class="task">企画統括・全体進行・MCCM・出演者・協賛社との調整</span></li>
-              <li><span class="role">アシスタントD</span><span class="task">フロアディレクション・進行管理・出演者対応</span></li>
-              <li><span class="role">カメラマン</span><span class="task">1カメ体制・撮影オペレーション</span></li>
-              <li><span class="role">OBSオペレーター</span><span class="task">OBS操作・カット切替・テロップ出し・配信品質管理</span></li>
-              <li><span class="role">技術アシスタント</span><span class="task">機材セッティング補助・回線監視・テクニカルサポート</span></li>
+              <li><span class="role">ディレクター</span><span class="task">森田｜企画統括・全体進行・MCCM・出演者・協賛社との調整</span></li>
+              <li><span class="role">アシスタントD</span><span class="task">いしじま｜フロアディレクション・進行管理・出演者対応</span></li>
+              <li><span class="role">カメラマン</span><span class="task">寺田さん｜1カメ体制・撮影オペレーション</span></li>
+              <li><span class="role">OBSオペレーター</span><span class="task">寺田さん｜OBS操作・カット切替・テロップ出し・配信品質管理</span></li>
             </ul>
           </div>
         </div>
@@ -922,66 +1019,102 @@
           <div class="card" style="border-top: 3px solid var(--accent);">
             <div class="plan-badge minim">PLAN 1 ／ ミニマム（スマホ配信・2名）</div>
             <table class="spec-table">
-              <tr><th>制作進行</th><td>¥250,000</td></tr>
-              <tr><th>台本作成</th><td>¥123,000</td></tr>
-              <tr><th>現地ディレクション</th><td>¥98,000</td></tr>
-              <tr><th>機材コーディネート</th><td>¥123,000</td></tr>
-              <tr><th>モバイル回線（3日）</th><td><span class="em">別途お見積もり</span></td></tr>
-              <tr><th>配信後レポート</th><td>¥98,000</td></tr>
-              <tr><th>配信費 小計</th><td><span class="em">¥692,000＋回線実費</span></td></tr>
+              <tr><th>制作進行＆メインD（石島）</th><td>¥150,000</td></tr>
+              <tr><th>台本作成</th><td>¥100,000</td></tr>
+              <tr><th>カメラマン兼現場AS</th><td>¥120,000</td></tr>
+              <tr><th>機材コーディネート</th><td>¥60,000</td></tr>
+              <tr><th>モバイル回線</th><td>¥160,000</td></tr>
+              <tr><th>【ミニマム】宿泊費＋交通費(2名)</th><td>¥80,000</td></tr>
+              <tr><th>配信費 合計</th><td><span class="em">¥670,000</span></td></tr>
             </table>
-            <div class="travel-box" style="margin-top: 10px;">
-              <h4>＋ 現地遠征費（2名分）</h4>
-              <div class="grid">
-                <div class="k">現地までの往復交通費</div><div class="v">¥76,000</div>
-                <div class="k">現地宿泊費（前日入り1泊）</div><div class="v">¥40,000</div>
-                <div class="k">現地諸経費</div><div class="v">¥20,000</div>
-                <div class="k">遠征費 小計</div><div class="v">¥136,000</div>
-              </div>
-            </div>
+            
           </div>
           <div class="card" style="border-top: 3px solid var(--navy);">
             <div class="plan-badge rich">PLAN 2 ／ リッチ（OBS配信・5名）</div>
             <table class="spec-table">
-              <tr><th>ディレクター</th><td>¥250,000</td></tr>
-              <tr><th>アシスタントディレクター</th><td>¥98,000</td></tr>
-              <tr><th>台本作成</th><td>¥123,000</td></tr>
-              <tr><th>カメラマン（1カメ）</th><td>¥98,000</td></tr>
-              <tr><th>OBSオペレーター</th><td>¥196,000</td></tr>
-              <tr><th>技術アシスタント</th><td>¥98,000</td></tr>
-              <tr><th>機材コーディネート</th><td>¥250,000</td></tr>
-              <tr><th>TVUルーター（3日）</th><td><span class="em-navy">別途お見積もり</span></td></tr>
-              <tr><th>機材運搬費</th><td>¥98,000</td></tr>
-              <tr><th>テロップ制作</th><td>¥123,000</td></tr>
-              <tr><th>配信後レポート</th><td>¥98,000</td></tr>
-              <tr><th>配信費 小計</th><td><span class="em-navy">¥1,432,000＋回線実費</span></td></tr>
+              <tr><th>ディレクター</th><td>¥150,000</td></tr>
+              <tr><th>アシスタントD（いしじま）</th><td>¥100,000</td></tr>
+              <tr><th>台本作成</th><td>¥100,000</td></tr>
+              <tr><th>カメラマン（1カメ）</th><td>¥100,000</td></tr>
+              <tr><th>OBSオペレーター</th><td>¥100,000</td></tr>
+              <tr><th>機材コーディネート</th><td>¥150,000</td></tr>
+              <tr><th>TVUルーター（3日）</th><td>¥160,000</td></tr>
+              <tr><th>機材運搬費</th><td>¥30,000</td></tr>
+              <tr><th>テロップ制作</th><td>¥50,000</td></tr>
+              <tr><th>【リッチ】宿泊費＋交通費(4名)</th><td>¥160,000</td></tr>
+              <tr><th>配信費 合計</th><td><span class="em-navy">¥1,100,000</span></td></tr>
             </table>
-            <div class="travel-box" style="margin-top: 10px; border-left-color: var(--navy); background: #f0f4fc; border-color: #c5cee0;">
-              <h4 style="color: var(--navy);">＋ 現地遠征費（5名分）</h4>
-              <div class="grid">
-                <div class="k">現地までの往復交通費</div><div class="v" style="color: var(--navy);">¥190,000</div>
-                <div class="k">現地宿泊費（前日入り1泊）</div><div class="v" style="color: var(--navy);">¥100,000</div>
-                <div class="k">現地諸経費</div><div class="v" style="color: var(--navy);">¥40,000</div>
-                <div class="k">遠征費 小計</div><div class="v" style="color: var(--navy);">¥330,000</div>
-              </div>
-            </div>
+            
           </div>
+        </div>
+        <div class="obs-grade-section">
+          <h3 class="obs-grade-title">OBS配信 ─ 3グレード選択可（カメラ台数・体制で価格調整）</h3>
+          <table class="obs-grade-table">
+            <thead>
+              <tr>
+                <th style="width:18%;">グレード</th>
+                <th>体制</th>
+                <th>カメラ</th>
+                <th>用途・場面</th>
+                <th style="width:18%;">配信費／回</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="grade-eco">エコノミー</th>
+                <td>3名（D + カメラマン + OBSオペレーター）</td>
+                <td>1カメ</td>
+                <td>コンパクトに画質確保。協賛社が少数・短尺の場合</td>
+                <td class="price-cell">¥820,000</td>
+              </tr>
+              <tr class="recommended">
+                <th class="grade-std">スタンダード<span class="rec-badge">推奨</span></th>
+                <td>4名（D + AD + カメラマン + OBSオペレーター）</td>
+                <td>2カメ（ヨリ・引き）</td>
+                <td>商品アップと回遊画を両立。多協賛・標準的なフラッグシップ訴求</td>
+                <td class="price-cell">¥1,120,000</td>
+              </tr>
+              <tr>
+                <th class="grade-prm">プレミアム</th>
+                <td>5名（D + AD + カメラマン×2 + OBSオペレーター + 技術AD）</td>
+                <td>3カメ（ヨリ・引き・回遊）</td>
+                <td>大型協賛・MCゲスト起用・本格的なブランド映像演出</td>
+                <td class="price-cell">¥1,432,000</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="obs-grade-note">※ 上表「プラン2 ／ リッチ（OBS配信・5名）」は<strong>プレミアムグレード</strong>に該当。スタンダード（推奨）への調整も可能です。</div>
         </div>
         <div class="option-grid">
           <div class="option-card">
             <h4>リハーサル日（前日テスト配信）</h4>
             <p>配信前日に現地でリハーサル。出演者の通し練習・機材確認・回線テストまで実施。</p>
-            <div class="price">価格：¥156,000／回</div>
+            <div class="price">価格：別途お見積もり</div>
           </div>
           <div class="option-card">
-            <h4>切り抜き動画（最大3本）</h4>
+            <h4>切り抜き動画（標準）</h4>
             <p>配信アーカイブから縦型ショート動画を切り出し。協賛社個別のSNS・LP素材に。</p>
-            <div class="price">価格：¥147,000（3本セット）</div>
+            <div class="price">価格：¥60,000／本</div>
+          </div>
+          <div class="option-card">
+            <h4>切り抜き動画（事前提案あり・厚め）</h4>
+            <p>事前構成提案＋演出強化版の切り抜き。協賛社のキー画作りに最適。</p>
+            <div class="price">価格：¥75,000／本</div>
+          </div>
+          <div class="option-card">
+            <h4>分析レポート＋改善提案</h4>
+            <p>配信後の視聴データを多角分析。次回施策の具体改善案までセット。</p>
+            <div class="price">価格：¥140,000／回</div>
           </div>
           <div class="option-card">
             <h4>2カメ目追加（ヨリ・固定）</h4>
             <p>商品アップ用の2カメ目を追加。1カメではカバーしきれないヨリ映像を補強。</p>
-            <div class="price">価格：¥123,000／回</div>
+            <div class="price">価格：別途お見積もり</div>
+          </div>
+          <div class="option-card">
+            <h4>テロップ演出強化</h4>
+            <p>協賛社ロゴ・限定価格・QR・コメント連動テロップなどリアルタイム演出を拡充。</p>
+            <div class="price">価格：別途お見積もり</div>
           </div>
         </div>
       </div>
@@ -1175,7 +1308,7 @@
       </div>
       <div class="s-footer">
         <div class="brand">Firework Japan株式会社</div>
-        <div>最終更新: 2026年6月24日 15:42</div>
+        <div>最終更新: 2026年6月24日 17:40</div>
       </div>
     </div>
 
