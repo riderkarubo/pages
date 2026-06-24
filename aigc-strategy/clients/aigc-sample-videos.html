@@ -5,20 +5,20 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-19T11:59:36+09:00">
+<meta name="last-modified" content="2026-06-24T14:02:27+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="サンプル動画集｜Firework社内">
-<meta property="og:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）の2階層で整理。商談時の即時提示・ブリーフ作成の参照ソース。">
+<meta property="og:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）／Tier 3（ブリーフ準拠）／エピソードコンテンツの4階層で整理。商談時の即時提示・ブリーフ作成の参照ソース。">
 <meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/aigc-sample-videos.html">
 <meta property="og:site_name" content="Firework社内 / AIGC事業">
 <meta property="og:locale" content="ja_JP">
 <!-- og:image は画像準備でき次第追記（1200x630推奨・絶対URL）。当面は text only unfurl -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="サンプル動画集｜Firework社内">
-<meta name="twitter:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1/Tier 2 別に整理。">
+<meta name="twitter:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1/2/3＋エピソードコンテンツの4階層で整理。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎥</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <!-- Firework player runtime (business_id=g1W3Qj・AIGC営業武器用) -->
@@ -195,7 +195,7 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     <h1>🎥 サンプル動画集</h1>
     <div class="headline">
       <span class="conf">社外秘</span>
-      Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）の2階層に整理し、商談時の即時提示・ブリーフ作成の参照ソースとして活用する。
+      Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）／Tier 3（ブリーフ準拠）／エピソードコンテンツの4階層に整理し、商談時の即時提示・ブリーフ作成の参照ソースとして活用する。
     </div>
   </div>
 
@@ -241,30 +241,30 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       </div>
     </section>
 
-    <section class="vsec" id="cat-commercial">
-      <div class="vsec-h"><span class="num">2</span>コマーシャルスタイル</div>
-      <p class="vsec-desc">ブランドのディレクションに合わせて制作されるハイエンド動画。</p>
-      <div class="vplayer" data-slot="commercial">
+    <section class="vsec" id="cat-digital-appliance">
+      <div class="vsec-h"><span class="num">2</span>デジタル家電</div>
+      <p class="vsec-desc empty">（説明文：必要に応じて追記）</p>
+      <div class="vplayer" data-slot="digital-appliance">
         <fw-embed-feed
-          channel="fw_aigc_lab"
+          channel="aigc_jp"
           mode="row"
           player_placement="bottom-right"
-          playlist="gOdq6V"
-          title="Tier2_Commercial"
+          playlist="oN1MNb"
+          title="Tie2_Digital Electronics"
         ></fw-embed-feed>
       </div>
     </section>
 
-    <section class="vsec" id="cat-digital-appliance">
-      <div class="vsec-h"><span class="num">3</span>デジタル家電</div>
-      <p class="vsec-desc empty">（説明文：必要に応じて追記）</p>
-      <div class="vplayer" data-slot="digital-appliance">
+    <section class="vsec" id="cat-explainer">
+      <div class="vsec-h"><span class="num">3</span>解説動画</div>
+      <p class="vsec-desc">商品解説動画（機能ごとの紹介も可）またはその他のハウツー動画。</p>
+      <div class="vplayer" data-slot="explainer">
         <fw-embed-feed
-          channel="fw_aigc_lab"
+          channel="aigc_jp"
           mode="row"
           player_placement="bottom-right"
-          playlist="o8NJ7K"
-          title="Tier2_Consumer Electronics"
+          playlist="oy8Rkx"
+          title="Tier2_Product explainer（商品解説）"
         ></fw-embed-feed>
       </div>
     </section>
@@ -283,16 +283,77 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       </div>
     </section>
 
-    <section class="vsec" id="cat-explainer">
-      <div class="vsec-h"><span class="num">5</span>解説動画</div>
-      <p class="vsec-desc">商品解説動画（機能ごとの紹介も可）またはその他のハウツー動画。</p>
-      <div class="vplayer" data-slot="explainer">
+    <section class="vsec" id="cat-commercial">
+      <div class="vsec-h"><span class="num">5</span>コマーシャルスタイル</div>
+      <p class="vsec-desc">ブランドのディレクションに合わせて制作されるハイエンド動画。</p>
+      <div class="vplayer" data-slot="commercial">
         <fw-embed-feed
           channel="aigc_jp"
           mode="row"
           player_placement="bottom-right"
-          playlist="oy8Rkx"
-          title="Tier2_Product explainer（商品解説）"
+          playlist="oQBZOQ"
+          title="Tier2_Commercial"
+        ></fw-embed-feed>
+      </div>
+    </section>
+
+    <!-- ============== Tier 3 ============== -->
+    <div class="tier-h"><span class="tier-badge">TIER 3</span>ブリーフ準拠系<span class="tier-note">顧客のクリエイティブブリーフに基づくハイエンド制作</span></div>
+
+    <section class="vsec" id="cat-tier3-social">
+      <div class="vsec-h"><span class="num">1</span>ソーシャル動画（顧客がクリエイティブブリーフを提供）</div>
+      <p class="vsec-desc">クリエイティブブリーフに基づくソーシャル向け動画。</p>
+      <div class="vplayer" data-slot="tier3-social">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="vZbZa2"
+        ></fw-embed-feed>
+      </div>
+    </section>
+
+    <section class="vsec" id="cat-tier3-ads">
+      <div class="vsec-h"><span class="num">2</span>広告動画（顧客がクリエイティブブリーフを提供）</div>
+      <p class="vsec-desc">コマーシャルスタイルの動画。必要に応じて複数フォーマットでの納品も可能。最高の結果を保証するための作業が可能な顧客獲得用広告動画。</p>
+      <div class="vplayer" data-slot="tier3-ads">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="gK4Dn1"
+          title="Tier3_Ads"
+        ></fw-embed-feed>
+      </div>
+    </section>
+
+    <section class="vsec" id="cat-tier3-recipe">
+      <div class="vsec-h"><span class="num">3</span>レシピコンテンツ</div>
+      <p class="vsec-desc">レシピコンテンツに基づく動画作成。</p>
+      <div class="vplayer" data-slot="tier3-recipe">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="5bJZ92"
+          title="Tier3_Recipe"
+        ></fw-embed-feed>
+      </div>
+    </section>
+
+    <!-- ============== Episodic Content ============== -->
+    <div class="tier-h"><span class="tier-badge">EPISODIC</span>エピソードコンテンツ<span class="tier-note">要件に基づくカスタム価格</span></div>
+
+    <section class="vsec" id="cat-content-over-30s">
+      <div class="vsec-h"><span class="num">1</span>30秒以上のコンテンツ</div>
+      <p class="vsec-desc">要件に基づくカスタム価格。</p>
+      <div class="vplayer" data-slot="content-over-30s">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="gkk7rB"
+          title="Tier3_Content over 30s"
         ></fw-embed-feed>
       </div>
     </section>
@@ -301,7 +362,7 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年6月19日 11:54 JST ｜ Firework社内 / AIGC事業
+    最終更新: 2026年6月24日 14:02 JST ｜ Firework社内 / AIGC事業
   </footer>
 
 </div>
