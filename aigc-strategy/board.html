@@ -674,6 +674,7 @@ function render(d){
   <div class="section-title" id="sec-road">${(d.roadmap&&d.roadmap.title)||'導入拡大ロードマップ'}</div>${roadHTML}
   <div class="section-title" id="sec-pipe">検証→販売 2ステージ パイプライン（各社がいまどこにいるか）</div>
   ${pipeNote}<div class="pipe">${pipe}</div>
+  <div class="section-title" id="sec-pm">提案アタックリスト（企業リスト・どこから当たるか）${wipTag('pm')}</div>
   <a class="hot-accounts-cta" href="hot-accounts-260624.html">
     <div class="hac-icon">🔥</div>
     <div class="hac-body">
@@ -682,7 +683,6 @@ function render(d){
     </div>
     <div class="hac-arrow">→</div>
   </a>
-  <div class="section-title" id="sec-pm">提案アタックリスト（企業リスト・どこから当たるか）${wipTag('pm')}</div>
   ${pmLegend}
   ${pmFilterBar}
   ${pmHTML}
