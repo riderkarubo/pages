@@ -412,6 +412,7 @@ body{padding-left:220px}
 .ql-card.ql-price{background:linear-gradient(135deg,#0F3460,#1a1a2e)}
 .ql-card.ql-learn{background:linear-gradient(135deg,#1B998B,#0F3460)}
 .ql-card.ql-sample{background:linear-gradient(135deg,#7c3aed,#4c1d95)}
+.ql-card.ql-archive{background:linear-gradient(135deg,#8b5e3c,#3b1f0e)}
 .ql-card .ql-icon{font-size:1.9rem;line-height:1;flex-shrink:0}
 .ql-card .ql-body{flex:1;min-width:0}
 .ql-card .ql-h{font-size:.98rem;font-weight:900;letter-spacing:.02em;line-height:1.3}
@@ -607,6 +608,7 @@ function render(d){
     ${pl?`<a class="ql-card ql-price" href="${esc(pl.href)}"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">${esc(pl.label||'AIGCプライスリスト')}</div><div class="ql-sub">${esc(pl.sub||'動画・LIVE・画像の単価＆バルク割')}</div></div><div class="ql-arr">→</div></a>`:`<a class="ql-card ql-price" href="clients/pricing.html"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">AIGCプライスリスト</div><div class="ql-sub">動画・LIVE・画像の単価＆バルク割</div></div><div class="ql-arr">→</div></a>`}
     <a class="ql-card ql-learn" href="clients/aigc-creative-learnings.html"><div class="ql-icon">🎬</div><div class="ql-body"><div class="ql-h">AIGC制作ナレッジ</div><div class="ql-sub">躓き×勝ち筋・現場レビュー</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-sample" href="clients/aigc-sample-videos.html"><div class="ql-icon">🎥</div><div class="ql-body"><div class="ql-h">サンプル動画集</div><div class="ql-sub">7カテゴリ別・営業武器ギャラリー</div></div><div class="ql-arr">→</div></a>
+    <a class="ql-card ql-archive" href="clients/aigc-feedback-archive.html"><div class="ql-icon">🗂️</div><div class="ql-body"><div class="ql-h">フィードバック・障壁アーカイブ</div><div class="ql-sub">保留/失注の理由を6カテゴリで横断管理</div></div><div class="ql-arr">→</div></a>
   </div>`;
   const tb=d.thinkBig;
   const tbHTML=tb?`<div class="section-title" id="sec-thinkbig">${esc(tb.title)}</div><p class="tb-lead">${esc(tb.lead)}</p><div class="tb-grid">${tb.pillars.map((p,i)=>`<div class="tb-card"><div class="tb-n">${i+1}</div><div class="tb-h">${esc(p.h)}</div><div class="tb-t">${esc(p.t)}</div></div>`).join('')}</div>`:'';
