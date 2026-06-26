@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-06-26T13:00:00+09:00">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ニトリ AIGC提案準備｜Firework社内">
+<meta property="og:description" content="6/26 社内MTGベースのニトリ提案準備（過去経緯・キーマン・Pilot 20本案・Tier設計）">
+<meta property="og:site_name" content="Firework AIGC Strategy">
+<title>ニトリ AIGC提案準備｜Firework社内</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛋️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lockbox .em{font-size:2.2rem;margin-bottom:10px}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px}
+.lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
+.lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
+.lockbox .err{color:var(--danger);font-size:.8rem;min-height:1.2em;margin-top:14px}
+.lockbox .note{color:#aab;font-size:.68rem;margin-top:16px}
+#app{display:none;max-width:980px;margin:0 auto;padding:0 0 60px}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%);color:#fff;padding:24px 32px 26px}
+header .back{display:inline-block;color:#cdd3e0;font-size:.74rem;text-decoration:none;margin-bottom:14px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;transition:background .15s}
+header .back:hover{background:rgba(255,255,255,.12)}
+header .cat-tag{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header h1{font-size:1.6rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header .headline{color:#dfe4ee;font-size:.92rem;max-width:780px;margin-top:4px;line-height:1.6}
+header .scope{margin-top:10px;font-size:.74rem;color:var(--muted);line-height:1.6}
+.wrap{padding:0 32px}
+.stats-row{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:140px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;border-left:4px solid var(--accent)}
+.stat-card .lbl{font-size:.7rem;color:var(--muted);font-weight:700;letter-spacing:.05em}
+.stat-card .num{font-size:1.7rem;font-weight:900;color:var(--ink);line-height:1.1;margin-top:4px}
+.stat-card .sub{font-size:.7rem;color:var(--muted);margin-top:2px}
+.sec-h{font-size:1.05rem;font-weight:900;margin:32px 0 14px;padding-left:12px;border-left:4px solid var(--navy)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.card-h{font-size:.96rem;font-weight:900;color:var(--ink);margin-bottom:8px}
+.card-sub{font-size:.74rem;color:var(--muted);margin-bottom:8px}
+.card-body{font-size:.82rem;line-height:1.7}
+.kv{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #f0f1f4;font-size:.78rem}
+.kv:last-child{border-bottom:none}
+.kv .k{flex:0 0 140px;color:var(--muted);font-weight:700}
+.kv .v{flex:1;color:var(--ink)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:.78rem;margin:6px 0}
+.tbl th{background:#f2f4f8;text-align:left;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border);font-size:.72rem}
+.tbl td{padding:9px 12px;border-bottom:1px solid #f0f1f4;vertical-align:top;line-height:1.55}
+.tbl tr:last-child td{border-bottom:none}
+.tier-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px;border-top:4px solid var(--navy)}
+.tier-card.t1{border-top-color:var(--accent)}
+.tier-card.t2{border-top-color:#7c3aed}
+.tier-card.t3{border-top-color:var(--teal)}
+.tier-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.tier-badge{background:#1a1a2e;color:#fff;padding:3px 12px;border-radius:20px;font-size:.7rem;font-weight:900;letter-spacing:.1em}
+.tier-name{font-size:1.06rem;font-weight:900;color:var(--ink)}
+.tier-price{margin-left:auto;background:#fdeaf1;color:var(--accent);font-weight:900;font-size:.92rem;padding:4px 14px;border-radius:20px}
+.tier-lead{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.55}
+.timeline-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;border-left:4px solid var(--navy)}
+.timeline-item.p0{border-left-color:var(--accent)}
+.timeline-item.p1{border-left-color:#f5a623}
+.timeline-item.p2{border-left-color:var(--teal)}
+.timeline-item.p3{border-left-color:var(--hold)}
+.timeline-item.unset{border-left-color:var(--hold);opacity:.85}
+.tl-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+.tl-pri{font-size:.66rem;font-weight:900;padding:3px 9px;border-radius:20px;background:var(--accent);color:#fff;letter-spacing:.05em}
+.tl-pri.p1{background:#f5a623}
+.tl-pri.p2{background:var(--teal)}
+.tl-pri.p3{background:var(--hold)}
+.tl-due{font-size:.7rem;font-weight:800;background:#1a1a2e;color:#fff;padding:3px 10px;border-radius:20px}
+.tl-due.unset{background:var(--warn)}
+.tl-due.done{background:var(--teal)}
+.tl-action{font-size:.82rem;font-weight:700;color:var(--ink);flex:1;min-width:200px}
+.tl-meta{font-size:.72rem;color:var(--muted);margin-top:5px;display:flex;gap:14px;flex-wrap:wrap}
+.tl-meta .mk{font-weight:700;color:var(--navy)}
+.story-box{background:#fff8fb;border:1px solid #fce0eb;border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:.78rem;line-height:1.65;color:var(--ink);margin-top:10px}
+.story-box .stx{font-weight:900;color:var(--accent);font-size:.7rem;letter-spacing:.05em;margin-right:6px}
+.warn-box{background:#fef3d8;border-left:3px solid var(--warn);border-radius:8px;padding:10px 14px;font-size:.78rem;line-height:1.65;margin-top:10px;color:#5a4400}
+.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:#f2f4f8;border-radius:8px}
+footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
+.conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+@media print{
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #lock{display:none!important}
+  #app{display:block!important;max-width:none}
+  .card,.tier-card,.timeline-item,.story-box{page-break-inside:avoid}
+}
+@media(max-width:640px){
+  .wrap{padding:0 18px}
+  header{padding:20px 18px 22px}
+  .kv .k{flex:0 0 100px}
+  .tier-price{margin-left:0}
+}
+</style>
+</head>
+<body>
+<div id="lock">
+  <div class="lockbox">
+    <div class="em">🛋️</div>
+    <h1>ニトリ AIGC提案準備</h1>
+    <p>Firework 社内限定（@fireworkhq.com）<br>Googleアカウントでログインしてください</p>
+    <div class="gwrap"><div id="gbtn"></div></div>
+    <div class="err" id="err"></div>
+    <div class="note">CONFIDENTIAL — 社外秘。本ページは暗号化されており、許可されたアカウントのみ閲覧できます。</div>
+  </div>
+</div>
+<div id="app"></div>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+const CLIENT_ID='1001667206230-ljl0oogq5vmgia28sk37bo3restv23gc.apps.googleusercontent.com';
+const PP="fw-aigc-2026";
+const PAYLOAD={"v":1,"iters":200000,"salt":"jwFH+JSNOhm0i/nrJkp8og==","iv":"nZqzdexzUz3ImNlf","ct":"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"};
+async function decrypt(pass){
+  const enc=new TextEncoder();
+  const salt=Uint8Array.from(atob(PAYLOAD.salt),c=>c.charCodeAt(0));
+  const iv=Uint8Array.from(atob(PAYLOAD.iv),c=>c.charCodeAt(0));
+  const ct=Uint8Array.from(atob(PAYLOAD.ct),c=>c.charCodeAt(0));
+  const baseKey=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:PAYLOAD.iters,hash:'SHA-256'},baseKey,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function _jwt(t){try{const p=t.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(p))));}catch(e){return null;}}
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(d){
+  const stats=`<div class="stats-row">
+    <div class="stat-card"><div class="lbl">ステータス</div><div class="num" style="font-size:1.05rem;margin-top:10px">${esc(d.status.propStatus)}</div><div class="sub">${esc(d.status.stage)}</div></div>
+    <div class="stat-card"><div class="lbl">最短アポ目標</div><div class="num" style="font-size:1.05rem;margin-top:10px">${esc(d.status.proposalDate)}</div><div class="sub">最優先</div></div>
+    <div class="stat-card"><div class="lbl">デモ準備</div><div class="num" style="font-size:1.05rem;margin-top:10px">${esc(d.status.demoReady)}</div><div class="sub">石島担当</div></div>
+    <div class="stat-card"><div class="lbl">SKUスケール</div><div class="num" style="font-size:1.05rem;margin-top:10px">数万SKU</div><div class="sub">大規模自社EC</div></div>
+  </div>`;
+  const stat=`<div class="card"><div class="card-h">📋 案件サマリ</div>
+    <div class="kv"><div class="k">担当</div><div class="v">${esc(d.status.sales)}</div></div>
+    <div class="kv"><div class="k">業界</div><div class="v">${esc(d.status.industry)}</div></div>
+    <div class="kv"><div class="k">SKU規模</div><div class="v">${esc(d.status.skuScale)}</div></div>
+    <div class="kv"><div class="k">propStatus</div><div class="v">${esc(d.status.propStatus)}</div></div>
+    <div class="kv"><div class="k">stage</div><div class="v">${esc(d.status.stage)}</div></div>
+  </div>`;
+  const hist=d.history.map(h=>`<tr><td><b>${esc(h.date)}</b></td><td>${esc(h.event)}</td><td>${esc(h.result)}</td></tr>`).join('');
+  const histTbl=`<div class="card"><div class="card-h">📜 過去経緯（時系列）</div>
+    <table class="tbl"><thead><tr><th>日付</th><th>出来事</th><th>結果</th></tr></thead><tbody>${hist}</tbody></table></div>`;
+  const km=d.keymen.map(k=>`<tr><td><b>${esc(k.name)}</b></td><td>${esc(k.role)}</td><td>${esc(k.note)}</td></tr>`).join('');
+  const kmTbl=`<div class="card"><div class="card-h">👤 キーマン</div>
+    <table class="tbl"><thead><tr><th>氏名</th><th>役割</th><th>メモ</th></tr></thead><tbody>${km}</tbody></table></div>`;
+  const hyp=d.hypotheses.map((h,i)=>`<div class="card"><div class="card-h">${i+1}. ${esc(h.t)}</div><div class="card-body">${esc(h.b)}</div></div>`).join('');
+  const pilotRows=d.pilot.items.map(p=>`<tr><td><b>${esc(p.cat)}</b></td><td>${p.sku}</td><td>${esc(p.type)}</td><td>${esc(p.note)}</td></tr>`).join('');
+  const pilotCard=`<div class="card"><div class="card-h">🚀 ${esc(d.pilot.title)}</div>
+    <table class="tbl"><thead><tr><th>カテゴリ</th><th>SKU</th><th>動画タイプ</th><th>備考</th></tr></thead><tbody>${pilotRows}</tbody></table></div>`;
+  const tiers=d.tierProposal.map((t,i)=>`<div class="tier-card t${i+1}"><div class="tier-head">
+    <span class="tier-badge">${esc(t.tier)}</span>
+    <span class="tier-name">${esc(t.name)}</span>
+    <span class="tier-price">${esc(t.price)}</span>
+  </div><div class="tier-lead">対象: ${esc(t.target)}　／　目安本数: ${esc(t.count)}</div></div>`).join('');
+  const risks=d.risks.map(r=>`<li style="margin-bottom:6px;font-size:.82rem;line-height:1.6">${esc(r)}</li>`).join('');
+  const na=d.nextActions.map(n=>{
+    const isUnset = (n.due||'').includes('未設定');
+    return `<div class="timeline-item ${isUnset?'unset':'p0'}"><div class="tl-head">
+      <span class="tl-pri">P0</span>
+      <span class="tl-action">${esc(n.task)}</span>
+      <span class="tl-due ${isUnset?'unset':''}">${esc(n.due)}</span>
+    </div><div class="tl-meta"><span><span class="mk">担当:</span> ${esc(n.dri)}</span></div></div>`;
+  }).join('');
+  document.getElementById('app').innerHTML=
+    `<header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>
+    <div class="cat-tag">ニトリ — 提案準備（議事録ベース）</div>
+    <h1>🛋️ ニトリ AIGC提案準備</h1>
+    <div class="headline">${esc(d.headline)}</div>
+    <div class="scope">${esc(d.scope)}</div></header>
+    <div class="wrap">${stats}
+    <div class="sec-h">📋 案件サマリ</div>${stat}
+    <div class="sec-h">📜 過去経緯</div>${histTbl}
+    <div class="sec-h">👤 キーマン</div>${kmTbl}
+    <div class="sec-h">💡 AIGCで解ける課題仮説</div>${hyp}
+    <div class="sec-h">🚀 Pilot提案案</div>${pilotCard}
+    <div class="sec-h">📐 Tier提案構造</div>${tiers}
+    <div class="sec-h">⚠️ リスク・留意点</div><div class="card"><ul style="padding-left:20px">${risks}</ul></div>
+    <div class="sec-h">📅 ネクストアクション（議事録から）</div>${na}
+    <div class="src">本ページは2026-06-26 Issy+KazさんMTG議事録ベース。最終更新: ${esc(d.asOf)} JST</div>
+    </div>
+    <footer><span class="conf">CONFIDENTIAL — 社外秘</span>ニトリ AIGC提案準備　最終更新 ${esc(d.asOf)} JST</footer>`;
+}
+const SS_KEY='aigc_cred';
+function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
+function tryToken(credential,fromCache){
+  return (async()=>{
+    const info=_jwt(credential);
+    const now=Math.floor(Date.now()/1000);
+    const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
+    const ok=info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now);
+    if(!ok){try{sessionStorage.removeItem(SS_KEY);}catch(_){}
+      if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
+      return false;}
+    try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
+    catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
+  })();
+}
+function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
+function initGoogle(){
+  if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
+  google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
+  google.accounts.id.prompt(function(n){if(n.isNotDisplayed()||n.isSkippedMoment()||n.isDismissedMoment()){console.warn('[FireworkSSO] One Tap not shown.');}});
+}
+window.onload=function(){
+  let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
+  if(cached){document.getElementById('err').textContent='読み込み中…';tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});}
+  else{initGoogle();}
+};
+</script>
+</body>
+</html>

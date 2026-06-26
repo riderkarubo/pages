@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-06-26T13:00:00+09:00">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIGC Tier設計たたき台｜Firework社内">
+<meta property="og:description" content="6/26 MTG議論ベースのTier1/2/3たたき台。6/30 Strategy確定予定">
+<meta property="og:site_name" content="Firework AIGC Strategy">
+<title>AIGC Tier設計たたき台｜Firework社内</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lockbox .em{font-size:2.2rem;margin-bottom:10px}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px}
+.lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
+.lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
+.lockbox .err{color:var(--danger);font-size:.8rem;min-height:1.2em;margin-top:14px}
+.lockbox .note{color:#aab;font-size:.68rem;margin-top:16px}
+#app{display:none;max-width:980px;margin:0 auto;padding:0 0 60px}
+header{background:linear-gradient(135deg,#7c1d6f 0%,#4c1d95 100%);color:#fff;padding:24px 32px 26px}
+header .back{display:inline-block;color:#cdd3e0;font-size:.74rem;text-decoration:none;margin-bottom:14px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;transition:background .15s}
+header .back:hover{background:rgba(255,255,255,.12)}
+header .cat-tag{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header h1{font-size:1.6rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header .headline{color:#dfe4ee;font-size:.92rem;max-width:780px;margin-top:4px;line-height:1.6}
+header .scope{margin-top:10px;font-size:.74rem;color:var(--muted);line-height:1.6}
+.wrap{padding:0 32px}
+.stats-row{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:140px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;border-left:4px solid var(--accent)}
+.stat-card .lbl{font-size:.7rem;color:var(--muted);font-weight:700;letter-spacing:.05em}
+.stat-card .num{font-size:1.7rem;font-weight:900;color:var(--ink);line-height:1.1;margin-top:4px}
+.stat-card .sub{font-size:.7rem;color:var(--muted);margin-top:2px}
+.sec-h{font-size:1.05rem;font-weight:900;margin:32px 0 14px;padding-left:12px;border-left:4px solid var(--navy)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.card-h{font-size:.96rem;font-weight:900;color:var(--ink);margin-bottom:8px}
+.card-sub{font-size:.74rem;color:var(--muted);margin-bottom:8px}
+.card-body{font-size:.82rem;line-height:1.7}
+.kv{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #f0f1f4;font-size:.78rem}
+.kv:last-child{border-bottom:none}
+.kv .k{flex:0 0 140px;color:var(--muted);font-weight:700}
+.kv .v{flex:1;color:var(--ink)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:.78rem;margin:6px 0}
+.tbl th{background:#f2f4f8;text-align:left;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border);font-size:.72rem}
+.tbl td{padding:9px 12px;border-bottom:1px solid #f0f1f4;vertical-align:top;line-height:1.55}
+.tbl tr:last-child td{border-bottom:none}
+.tier-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px;border-top:4px solid var(--navy)}
+.tier-card.t1{border-top-color:var(--accent)}
+.tier-card.t2{border-top-color:#7c3aed}
+.tier-card.t3{border-top-color:var(--teal)}
+.tier-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.tier-badge{background:#1a1a2e;color:#fff;padding:3px 12px;border-radius:20px;font-size:.7rem;font-weight:900;letter-spacing:.1em}
+.tier-name{font-size:1.06rem;font-weight:900;color:var(--ink)}
+.tier-price{margin-left:auto;background:#fdeaf1;color:var(--accent);font-weight:900;font-size:.92rem;padding:4px 14px;border-radius:20px}
+.tier-lead{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.55}
+.timeline-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;border-left:4px solid var(--navy)}
+.timeline-item.p0{border-left-color:var(--accent)}
+.timeline-item.p1{border-left-color:#f5a623}
+.timeline-item.p2{border-left-color:var(--teal)}
+.timeline-item.p3{border-left-color:var(--hold)}
+.timeline-item.unset{border-left-color:var(--hold);opacity:.85}
+.tl-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+.tl-pri{font-size:.66rem;font-weight:900;padding:3px 9px;border-radius:20px;background:var(--accent);color:#fff;letter-spacing:.05em}
+.tl-pri.p1{background:#f5a623}
+.tl-pri.p2{background:var(--teal)}
+.tl-pri.p3{background:var(--hold)}
+.tl-due{font-size:.7rem;font-weight:800;background:#1a1a2e;color:#fff;padding:3px 10px;border-radius:20px}
+.tl-due.unset{background:var(--warn)}
+.tl-due.done{background:var(--teal)}
+.tl-action{font-size:.82rem;font-weight:700;color:var(--ink);flex:1;min-width:200px}
+.tl-meta{font-size:.72rem;color:var(--muted);margin-top:5px;display:flex;gap:14px;flex-wrap:wrap}
+.tl-meta .mk{font-weight:700;color:var(--navy)}
+.story-box{background:#fff8fb;border:1px solid #fce0eb;border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:.78rem;line-height:1.65;color:var(--ink);margin-top:10px}
+.story-box .stx{font-weight:900;color:var(--accent);font-size:.7rem;letter-spacing:.05em;margin-right:6px}
+.warn-box{background:#fef3d8;border-left:3px solid var(--warn);border-radius:8px;padding:10px 14px;font-size:.78rem;line-height:1.65;margin-top:10px;color:#5a4400}
+.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:#f2f4f8;border-radius:8px}
+footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
+.conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+@media print{
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #lock{display:none!important}
+  #app{display:block!important;max-width:none}
+  .card,.tier-card,.timeline-item,.story-box{page-break-inside:avoid}
+}
+@media(max-width:640px){
+  .wrap{padding:0 18px}
+  header{padding:20px 18px 22px}
+  .kv .k{flex:0 0 100px}
+  .tier-price{margin-left:0}
+}
+</style>
+</head>
+<body>
+<div id="lock">
+  <div class="lockbox">
+    <div class="em">📐</div>
+    <h1>AIGC Tier設計たたき台</h1>
+    <p>Firework 社内限定（@fireworkhq.com）<br>Googleアカウントでログインしてください</p>
+    <div class="gwrap"><div id="gbtn"></div></div>
+    <div class="err" id="err"></div>
+    <div class="note">CONFIDENTIAL — 社外秘。本ページは暗号化されており、許可されたアカウントのみ閲覧できます。</div>
+  </div>
+</div>
+<div id="app"></div>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+const CLIENT_ID='1001667206230-ljl0oogq5vmgia28sk37bo3restv23gc.apps.googleusercontent.com';
+const PP="fw-aigc-2026";
+const PAYLOAD={"v":1,"iters":200000,"salt":"3mszzrRchEW/UQjDPmanoQ==","iv":"bgi/KYjk4Zh2h97N","ct":"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"};
+async function decrypt(pass){
+  const enc=new TextEncoder();
+  const salt=Uint8Array.from(atob(PAYLOAD.salt),c=>c.charCodeAt(0));
+  const iv=Uint8Array.from(atob(PAYLOAD.iv),c=>c.charCodeAt(0));
+  const ct=Uint8Array.from(atob(PAYLOAD.ct),c=>c.charCodeAt(0));
+  const baseKey=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:PAYLOAD.iters,hash:'SHA-256'},baseKey,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function _jwt(t){try{const p=t.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(p))));}catch(e){return null;}}
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(d){
+  const stats=`<div class="stats-row">
+    <div class="stat-card"><div class="lbl">Tier数</div><div class="num">3</div><div class="sub">設計</div></div>
+    <div class="stat-card"><div class="lbl">最低単価帯</div><div class="num" style="font-size:1.05rem;margin-top:10px">¥3,000-4,000</div><div class="sub">Tier 1</div></div>
+    <div class="stat-card"><div class="lbl">確定締切</div><div class="num" style="font-size:1.05rem;margin-top:10px">2026/06/30</div><div class="sub">Strategy</div></div>
+    <div class="stat-card"><div class="lbl">ステータス</div><div class="num" style="font-size:1.05rem;margin-top:10px">たたき台</div><div class="sub">DRAFT</div></div>
+  </div>`;
+  const tiers=d.tiers.map(t=>{
+    const pros=(t.pros||[]).map(p=>`<li style="margin-bottom:4px;font-size:.78rem;line-height:1.55;color:var(--teal)">✓ ${esc(p)}</li>`).join('');
+    const cons=(t.cons||[]).map(c=>`<li style="margin-bottom:4px;font-size:.78rem;line-height:1.55;color:var(--warn)">⚠ ${esc(c)}</li>`).join('');
+    return `<div class="tier-card ${esc(t.tone)}">
+      <div class="tier-head">
+        <span class="tier-badge">${esc(t.tier)}</span>
+        <span class="tier-name">${esc(t.name)}</span>
+        <span class="tier-price">${esc(t.priceRange)}</span>
+      </div>
+      <div class="tier-lead">${esc(t.target)}　／　目安本数: ${esc(t.count)}</div>
+      <div class="card-body" style="margin-top:10px;font-size:.8rem;line-height:1.65">${esc(t.quality)}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px">
+        <div><ul style="padding-left:18px;margin:0">${pros}</ul></div>
+        <div><ul style="padding-left:18px;margin:0">${cons}</ul></div>
+      </div>
+      <div class="kv" style="margin-top:8px"><div class="k">サンプル</div><div class="v"><a href="${esc(t.sample.match(/aigc-sample-videos\.html[^)]*/)[0])}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">${esc(t.sample)}</a></div></div>
+      <div class="kv"><div class="k">適用クライアント例</div><div class="v">${esc(t.clients)}</div></div>
+    </div>`;
+  }).join('');
+  const bundles=d.bundleStrategy.items.map(b=>`<div class="card"><div class="card-h">${esc(b.t)}</div><div class="card-body">${esc(b.b)}</div></div>`).join('');
+  const notice=d.draftNotice.map(n=>`<li style="margin-bottom:6px;font-size:.82rem;line-height:1.6">${esc(n)}</li>`).join('');
+  document.getElementById('app').innerHTML=
+    `<header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>
+    <div class="cat-tag">AIGC Tier設計 — たたき台（6/30確定）</div>
+    <h1>📐 AIGC Tier設計 たたき台</h1>
+    <div class="headline">${esc(d.headline)}</div>
+    <div class="scope">${esc(d.scope)}</div></header>
+    <div class="wrap">${stats}
+    <div class="sec-h">📐 Tier1 / Tier2 / Tier3 設計</div>${tiers}
+    <div class="sec-h">🎁 ${esc(d.bundleStrategy.title)}</div>${bundles}
+    <div class="sec-h">⚠️ たたき台ゆえの注意</div><div class="card"><ul style="padding-left:20px">${notice}</ul></div>
+    <div class="src">本ページは2026-06-26 Issy+KazさんMTG議事録ベース。Strategy 6/30確定後に最終版へ更新。最終更新: ${esc(d.asOf)} JST</div>
+    </div>
+    <footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGC Tier設計 たたき台　最終更新 ${esc(d.asOf)} JST</footer>`;
+}
+const SS_KEY='aigc_cred';
+function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
+function tryToken(credential,fromCache){
+  return (async()=>{
+    const info=_jwt(credential);
+    const now=Math.floor(Date.now()/1000);
+    const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
+    const ok=info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now);
+    if(!ok){try{sessionStorage.removeItem(SS_KEY);}catch(_){}
+      if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
+      return false;}
+    try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
+    catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
+  })();
+}
+function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
+function initGoogle(){
+  if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
+  google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
+  google.accounts.id.prompt(function(n){if(n.isNotDisplayed()||n.isSkippedMoment()||n.isDismissedMoment()){console.warn('[FireworkSSO] One Tap not shown.');}});
+}
+window.onload=function(){
+  let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
+  if(cached){document.getElementById('err').textContent='読み込み中…';tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});}
+  else{initGoogle();}
+};
+</script>
+</body>
+</html>
