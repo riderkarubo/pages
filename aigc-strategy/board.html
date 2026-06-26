@@ -416,6 +416,8 @@ body{padding-left:220px}
 .ql-card.ql-global{background:linear-gradient(135deg,#0ea5e9,#0c4a6e)}
 .ql-card.ql-timeline{background:linear-gradient(135deg,#0c4a6e,#0e7490)}
 .ql-card.ql-tier{background:linear-gradient(135deg,#7c1d6f,#4c1d95)}
+.ql-card.ql-calendar{background:linear-gradient(135deg,#1a1a2e,#0F3460)}
+.ql-card.ql-adshift{background:linear-gradient(135deg,#7c2d12,#451a03)}
 .ql-card .ql-icon{font-size:1.9rem;line-height:1;flex-shrink:0}
 .ql-card .ql-body{flex:1;min-width:0}
 .ql-card .ql-h{font-size:.98rem;font-weight:900;letter-spacing:.02em;line-height:1.3}
@@ -615,6 +617,8 @@ function render(d){
     <a class="ql-card ql-global" href="clients/aigc-global-live-sites.html"><div class="ql-icon">🌐</div><div class="ql-body"><div class="ql-h">グローバル Live サイト集</div><div class="ql-sub">DSW/Guess/Natural Life/Panasonic US ほか</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-timeline" href="clients/aigc-proposal-timeline.html"><div class="ql-icon">📅</div><div class="ql-body"><div class="ql-h">提案タイムライン</div><div class="ql-sub">議事録ネクストアクションの進捗管理</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-tier" href="clients/aigc-tier-pricing-draft.html"><div class="ql-icon">📐</div><div class="ql-body"><div class="ql-h">Tier設計たたき台</div><div class="ql-sub">Tier1/2/3 品質・単価レンジ</div></div><div class="ql-arr">→</div></a>
+    <a class="ql-card ql-calendar" href="clients/aigc-proposal-calendar.html"><div class="ql-icon">📆</div><div class="ql-body"><div class="ql-h">提案カレンダー & サンプル動画TL</div><div class="ql-sub">直近2週間の予定 + ニトリN+ 制作TL</div></div><div class="ql-arr">→</div></a>
+    <a class="ql-card ql-adshift" href="clients/aigc-ad-shift-strategy.html"><div class="ql-icon">📣</div><div class="ql-body"><div class="ql-h">広告領域シフト戦略</div><div class="ql-sub">代理店連携・リチカ差別化</div></div><div class="ql-arr">→</div></a>
   </div>`;
   const tb=d.thinkBig;
   const tbHTML=tb?`<div class="section-title" id="sec-thinkbig">${esc(tb.title)}</div><p class="tb-lead">${esc(tb.lead)}</p><div class="tb-grid">${tb.pillars.map((p,i)=>`<div class="tb-card"><div class="tb-n">${i+1}</div><div class="tb-h">${esc(p.h)}</div><div class="tb-t">${esc(p.t)}</div></div>`).join('')}</div>`:'';
