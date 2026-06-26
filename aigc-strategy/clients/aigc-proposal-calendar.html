@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="last-modified" content="2026-06-26T16:00:00+09:00"><meta name="robots" content="noindex, nofollow">
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="last-modified" content="2026-06-26T16:43:00+09:00"><meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website"><meta property="og:title" content="提案カレンダー & サンプル動画制作TL｜Firework社内"><meta property="og:description" content="提案カレンダー & サンプル動画制作TL"><meta property="og:site_name" content="Firework AIGC Strategy">
 <title>提案カレンダー & サンプル動画制作TL｜Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📆</text></svg>">
@@ -38,7 +38,7 @@ header .scope{margin-top:10px;font-size:.74rem;color:var(--muted);line-height:1.
 .kv .k{flex:0 0 140px;color:var(--muted);font-weight:700}
 .kv .v{flex:1;color:var(--ink)}
 /* calendar */
-.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;padding:4px;width:100%}
+.cal-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;padding:4px;width:100%}
 .cal-cell{background:var(--card);min-height:108px;padding:8px;border-radius:6px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
 .cal-cell.dow{background:#1a1a2e;color:#fff;min-height:auto;text-align:center;padding:6px;font-size:.66rem;font-weight:900;letter-spacing:.05em}
 .cal-cell.weekend{background:#f7f9fc}
@@ -128,28 +128,27 @@ function renderStatsRow(d){
   return '<div class="stats-row"><div class="stat-card"><div class="lbl">総タスク</div><div class="num">'+d.stats.total+'</div><div class="sub">件</div></div><div class="stat-card"><div class="lbl">P0最優先</div><div class="num">'+d.stats.p0+'</div><div class="sub">件</div></div><div class="stat-card"><div class="lbl">7/3まで</div><div class="num">'+d.stats.week1+'</div><div class="sub">件</div></div><div class="stat-card"><div class="lbl">期限未設定</div><div class="num">'+d.stats.unset+'</div><div class="sub">件</div></div></div>';
 }
 function render(d){
-  const dowLabels=['月','火','水','木','金','土','日'];
+  const dowLabels=['月','火','水','木','金'];
   const dowCells=dowLabels.map(l=>'<div class="cal-cell dow">'+l+'</div>').join('');
   const startDate=new Date(d.weekStart);
   const cells=[];
   for(let i=0;i<d.daysCount;i++){
     const cur=new Date(startDate);cur.setDate(cur.getDate()+i);
+    const dow=cur.getDay();
+    if(dow===0||dow===6)continue;
     const y=cur.getFullYear(),m=String(cur.getMonth()+1).padStart(2,'0'),dd=String(cur.getDate()).padStart(2,'0');
     const dateStr=y+'-'+m+'-'+dd;
-    const dow=cur.getDay();
-    const isWeekend=dow===0||dow===6;
     const isToday=dateStr===d.today;
     const events=d.events[dateStr]||[];
     const evHtml=events.map(e=>'<div class="cal-ev '+esc(e.type)+'">'+esc(e.label)+'</div>').join('');
-    const dateClass=dow===6?'sat':(dow===0?'sun':'');
-    cells.push('<div class="cal-cell '+(isWeekend?'weekend':'')+' '+(isToday?'today':'')+'"><div class="cal-date '+dateClass+'">'+(cur.getMonth()+1)+'/'+cur.getDate()+(isToday?' <span style="background:#FA006D;color:#fff;padding:1px 5px;border-radius:3px;font-size:.6rem">TODAY</span>':'')+'</div><div class="cal-events">'+evHtml+'</div></div>');
+    cells.push('<div class="cal-cell '+(isToday?'today':'')+'"><div class="cal-date">'+(cur.getMonth()+1)+'/'+cur.getDate()+(isToday?' <span style="background:#FA006D;color:#fff;padding:1px 5px;border-radius:3px;font-size:.6rem">TODAY</span>':'')+'</div><div class="cal-events">'+evHtml+'</div></div>');
   }
   const grid='<div class="cal-grid">'+dowCells+cells.join('')+'</div>';
   const legend='<div class="cal-legend">'+d.legend.map(l=>'<span><span class="dot '+esc(l.tone)+'"></span>'+esc(l.label)+'</span>').join('')+'</div>';
   document.getElementById('app').innerHTML=
     '<header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a><div class="cat-tag">提案カレンダー</div><h1>📆 AIGC提案カレンダー</h1></header>'+
     '<div class="wrap">'+
-    '<div class="sec-h">📆 3週間カレンダー（6/22 〜 7/12）</div>'+grid+legend+
+    '<div class="sec-h">📆 3週間カレンダー（平日のみ・6/22 〜 7/12）</div>'+grid+legend+
     '<div class="src">本ページはカレンダービュー専用。最終更新: '+esc(d.asOf)+' JST</div></div>'+
     '<footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGC提案カレンダー 最終更新 '+esc(d.asOf)+' JST</footer>';
 }
