@@ -184,22 +184,13 @@
         auto_select: CONFIG.AUTO_SELECT,
       });
       google.accounts.id.prompt(function (notification) {
-        // Issy指示(2026-06-24): Chrome右上のOne Tap UIのみで完結させる方針。
-        // フルスクリーン overlay の自動表示は「Chrome選択肢 + overlay」の二重表示を生むため無効化。
-        // 緊急時は ?sso=manual クエリで手動オーバーレイを呼び出す。
+        // auto_select が成功しない場合のみオーバーレイを表示
         if (
           notification.isNotDisplayed() ||
           notification.isSkippedMoment() ||
           notification.isDismissedMoment()
         ) {
-          console.warn('[FireworkSSO] One Tap not shown.', {
-            notDisplayed: notification.isNotDisplayed && notification.isNotDisplayed(),
-            skipped: notification.isSkippedMoment && notification.isSkippedMoment(),
-            dismissed: notification.isDismissedMoment && notification.isDismissedMoment(),
-          });
-          if (location.search.indexOf('sso=manual') !== -1) {
-            showOverlay();
-          }
+          showOverlay();
         }
       });
     });
