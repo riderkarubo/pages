@@ -230,8 +230,8 @@
       showError();
       return;
     }
-    sessionStorage.setItem(CONFIG.TOKEN_KEY, token);
-    sessionStorage.setItem(CONFIG.TOKEN_EXPIRY_KEY, String(expiry));
+    localStorage.setItem(CONFIG.TOKEN_KEY, token);
+    localStorage.setItem(CONFIG.TOKEN_EXPIRY_KEY, String(expiry));
     hideOverlay();
   }
 
@@ -245,8 +245,8 @@
   }
 
   function isAuthenticated() {
-    const token = sessionStorage.getItem(CONFIG.TOKEN_KEY);
-    const expiry = sessionStorage.getItem(CONFIG.TOKEN_EXPIRY_KEY);
+    const token = localStorage.getItem(CONFIG.TOKEN_KEY);
+    const expiry = localStorage.getItem(CONFIG.TOKEN_EXPIRY_KEY);
     if (!token || !expiry) return false;
     return Date.now() < parseInt(expiry, 10);
   }
@@ -289,8 +289,8 @@
      * ログアウト（セッションクリア）。
      */
     logout: function () {
-      sessionStorage.removeItem(CONFIG.TOKEN_KEY);
-      sessionStorage.removeItem(CONFIG.TOKEN_EXPIRY_KEY);
+      localStorage.removeItem(CONFIG.TOKEN_KEY);
+      localStorage.removeItem(CONFIG.TOKEN_EXPIRY_KEY);
       location.reload();
     },
   };
