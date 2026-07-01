@@ -5,7 +5,7 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-24T14:16:47+09:00">
+<meta name="last-modified" content="2026-07-01T10:28:06+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
@@ -85,6 +85,70 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
   color:var(--ink);
 }
 .intro .label{font-weight:900;color:var(--purple);margin-right:8px}
+
+.quick-links{
+  background:linear-gradient(135deg,#fff,#f0fbf9);
+  border:1px solid var(--border);
+  border-left:4px solid var(--teal);
+  border-radius:10px;
+  padding:14px 18px;
+  margin-top:14px;
+}
+.quick-links .ql-label{
+  font-weight:900;
+  color:var(--teal);
+  font-size:.8rem;
+  letter-spacing:.05em;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.quick-links .ql-label::before{
+  content:"🎯";
+  font-size:.9rem;
+}
+.quick-links .ql-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.quick-links .ql-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 14px;
+  background:#fff;
+  border:1px solid var(--teal);
+  color:var(--teal);
+  border-radius:20px;
+  font-size:.78rem;
+  font-weight:700;
+  text-decoration:none;
+  transition:all .18s;
+}
+.quick-links .ql-btn:hover{
+  background:var(--teal);
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(27,153,139,.28);
+}
+.quick-links .ql-btn::before{
+  content:"▶";
+  font-size:.65rem;
+  opacity:.7;
+}
+
+.tier-h.client-h{
+  background:linear-gradient(135deg,#0d3d38,#1B998B 60%,#2fb8a5);
+  box-shadow:0 4px 14px rgba(27,153,139,.22);
+}
+.tier-h.client-h .tier-badge{
+  background:#0d3d38;
+}
+.tier-h.client-h .tier-note{
+  color:#a7e5dc;
+}
 
 .vsec{margin-top:30px}
 .vsec-h{
@@ -242,6 +306,30 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       <span class="label">使い方</span>
       各セクションに Firework 埋め込みコードを差し込むとプレーヤーが再生されます。新規動画が増えた際はカテゴリ末尾に追記してください。
     </div>
+
+    <div class="quick-links">
+      <div class="ql-label">案件別サンプル動画集</div>
+      <div class="ql-buttons">
+        <a href="#client-united-arrows" class="ql-btn">United Arrows</a>
+      </div>
+    </div>
+
+    <!-- ============== 案件別サンプル集 ============== -->
+    <div class="tier-h client-h"><span class="tier-badge">CLIENT</span>案件別サンプル集<span class="tier-note">クライアント固有のサンプル・プレイリスト</span></div>
+
+    <section class="vsec" id="client-united-arrows">
+      <div class="vsec-h"><span class="num">1</span>United Arrows</div>
+      <p class="vsec-desc">United Arrows 向けに制作したAIGCサンプル。</p>
+      <div class="vplayer" data-slot="client-united-arrows">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="5zJErN"
+          title="United Arrows Sample"
+        ></fw-embed-feed>
+      </div>
+    </section>
 
     <!-- ============== Tier 1 ============== -->
     <div class="tier-h"><span class="tier-badge">TIER 1</span>パックショット系<span class="tier-note">商品単体を多アングルで魅せる</span></div>
@@ -457,7 +545,7 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年6月24日 14:16 JST ｜ Firework社内 / AIGC事業
+    最終更新: 2026年7月1日 10:28 JST ｜ Firework社内 / AIGC事業
   </footer>
 
 </div>
