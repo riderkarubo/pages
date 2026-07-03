@@ -674,7 +674,7 @@ function render(d){
   ${pmHTML}
   <div class="section-title" id="sec-cat">優先カテゴリ・営業武器（何を持って当たるか）</div><div class="cats">${cats}</div>${bmkHTML}
   <div class="section-title" id="sec-clients">クライアント別ステータス（コア${clientAreas.filter(a=>!a.isNew).length}社＋国内新規${clientAreas.filter(a=>a.isNew).length}社）</div>
-  <div class="cl-link-panel"><div class="clp-head">各クライアントの詳細ステータス・直近プロジェクト</div><div class="clp-btns">${clientAreas.map(a=>'<a class="clp-btn" href="'+(a.detailUrl||'clients/aigc-client-status.html')+'">'+esc(a.title)+'</a>').join('')}</div><a class="clp-all" href="clients/aigc-client-status.html">全クライアント一覧・直近プロジェクト →</a><div class="clp-note">詳細ステータス・アクション・直近案件は一覧ページで確認してください</div></div>
+  <div class="cl-link-panel"><div class="clp-head">各クライアントの詳細ステータス・直近プロジェクト</div><div class="clp-btns">${clientAreas.map(a=>a.detailUrl?('<a class="clp-btn" href="'+a.detailUrl+'">'+esc(a.title)+'</a>'):('<span class="clp-btn" style="opacity:.45;cursor:default" title="詳細ページ未作成">'+esc(a.title)+'</span>')).join('')}</div><div class="clp-note">詳細ページがある社はボタンから。薄表示の社は詳細ページ未作成（各エリアカードを参照）。全クライアント一覧ページは準備中</div></div>
   ${taskAreas.length?`<div class="section-title" id="sec-tasks">横断タスク・イネーブラ（${taskAreas.length}件）</div><div class="task-stack">${taskCards}</div>`:''}
   ${naSection}
 
