@@ -56,12 +56,13 @@ header .ts{color:#8b93a8;font-size:.72rem;margin-top:12px}
 .acard .ah{padding:14px 16px;display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid var(--border)}
 .sdot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0}
 .s-進行中{background:var(--active);box-shadow:0 0 7px var(--active)}.s-停滞{background:var(--warn)}.s-先方検討中{background:var(--warn)}.s-保留{background:var(--hold)}
-.s-完了{background:var(--check)}.s-検討中{background:var(--navy)}.s-未着手{background:var(--border)}
+.s-完了{background:var(--check)}.s-検討中{background:var(--navy)}.s-未着手{background:var(--border)}.s-アポ確定{background:#c20055;box-shadow:0 0 7px #c20055}
 .acard h3{font-size:.95rem;font-weight:900}
 .acard .cat-tag{font-size:.64rem;color:var(--muted);font-weight:700}
 .acard .stat{margin-left:auto;font-size:.66rem;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap;align-self:flex-start}
 .stat.進行中{background:#e6f4f1;color:var(--active)}.stat.停滞{background:#fdf0db;color:#b9791a}.stat.先方検討中{background:#fdf0db;color:#b9791a}.stat.保留{background:#eef0f3;color:var(--hold)}
-.stat.完了{background:#e8eef7;color:var(--check)}.stat.検討中{background:#e9edf6;color:var(--navy)}.stat.未着手{background:#f0f0f0;color:#999}
+.stat.完了{background:#e8eef7;color:var(--check)}.stat.検討中{background:#e9edf6;color:var(--navy)}.stat.未着手{background:#f0f0f0;color:#999}.stat.アポ確定{background:#ffd9e7;color:#c20055;font-weight:800}
+.client-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:14px}
 .acard .ab{padding:12px 16px}
 .acard .head{font-size:.84rem;font-weight:700;color:var(--accent);margin-bottom:6px}
 .acard .sum{font-size:.76rem;color:#444;line-height:1.6}
@@ -519,6 +520,7 @@ function togglePM(capEl,key){const block=capEl.closest('.pm-block');if(!block)re
 
 function render(d){
   const yfmt=n=>'¥'+Number(n||0).toLocaleString('en-US');
+  const foldOpen=k=>{try{return localStorage.getItem('aigcFold_'+k)==='1';}catch(e){return false;}};
   const kpis=d.kpis.map(k=>`<div class="kpi ${k.tone||''}"><div class="v">${esc(k.value)}</div><div class="l">${esc(k.label)}</div><div class="u">${esc(k.unit||'')}</div></div>`).join('');
   const pipe=d.pipeline.map(p=>`<div class="pstage"><h3>${esc(p.stage)}</h3><div class="note">${esc(p.note)}</div></div>`).join('');
   const cats=d.categoryFocus.map(c=>`<div class="cat"><div class="top"><h3>${esc(c.category)}</h3><span class="badge ${c.tone}">${esc(c.badge)}</span></div><div class="leads">${c.leads.map(l=>`<span class="chip">${esc(l)}</span>`).join('')}</div><div class="desc">${esc(c.status)}</div></div>`).join('');
@@ -531,9 +533,10 @@ function render(d){
     const nas=_na.length?_na.map(n=>`<li class="na">${esc(n.action)} <span class="o">${esc(n.owner||'')}${n.due&&n.due!=='—'?' / '+esc(n.due):''}</span></li>`).join(''):'<li class="na" style="color:#aaa">—</li>';
     const rks=_risks.map(r=>`<li class="rk">${esc(r)}</li>`).join('');
     const _summary=a.summary||a.note||'';
+    const dOpen=foldOpen('card:'+a.area);
     return `<div class="acard"><div class="ah"><span class="sdot s-${esc(a.status)}"></span><div><div class="cat-tag">${esc(a.category)}</div><h3>${esc(a.area)}</h3></div><span class="stat ${esc(a.status)}">${esc(a.status)}</span></div>
     <div class="ab"><div class="head">${esc(a.headline||'')}</div><div class="sum">${esc(_summary)}</div>
-    <details><summary>詳細を開く（項目・タスク・アクション・リスク）</summary>
+    <details${dOpen?' open':''} data-fold-key="card:${esc(a.area)}"><summary>詳細を開く（項目・タスク・アクション・リスク）</summary>
     <div class="sub">項目・タスク</div><ul>${items}</ul>
     <div class="sub">ネクストアクション</div><ul>${nas}</ul>
     <div class="sub">リスク</div><ul>${rks}</ul>
@@ -636,9 +639,9 @@ function render(d){
         <div class="rev-num warn"><div class="rl">受注積み上げ計画</div><div class="rv" style="font-size:1.15rem;line-height:2.1">精査中</div><div class="ru">社数×単価を詰めて確定次第反映</div></div>
       </div>
       <div class="rev-verdict">${esc(rv.verdict)}</div>
-      <details class="rev-coll"><summary class="rev-sub">① 目標から逆算した AIGC必要額（ウォーターフォール）<span class="rev-sub-amt">${yfmt(rv.aigcNeed)}</span></summary>
+      <details class="rev-coll"${foldOpen('rev:waterfall')?' open':''} data-fold-key="rev:waterfall"><summary class="rev-sub">① 目標から逆算した AIGC必要額（ウォーターフォール）<span class="rev-sub-amt">${yfmt(rv.aigcNeed)}</span></summary>
       <div class="rev-flow">${flow}</div></details>
-      <details class="rev-coll"><summary class="rev-sub">② リニューアル3社（年内獲得見込み）<span class="rev-sub-amt">${yfmt(rv.renewalTotal)}</span></summary>
+      <details class="rev-coll"${foldOpen('rev:renewal')?' open':''} data-fold-key="rev:renewal"><summary class="rev-sub">② リニューアル3社（年内獲得見込み）<span class="rev-sub-amt">${yfmt(rv.renewalTotal)}</span></summary>
       <table class="na-table rev-tbl"><thead><tr><th>クライアント</th><th>提案金額</th><th>区分</th><th>Close</th><th>内訳</th></tr></thead><tbody>${renRows}<tr class="rtot"><td>3社計</td><td class="ry">${yfmt(rv.renewalTotal)}</td><td colspan="3"></td></tr></tbody></table></details>
       <div class="rev-sub">③ 四半期 進軍タイムライン</div>
       <div class="rev-tl">${tl}</div>
@@ -679,7 +682,8 @@ function render(d){
   ${pmHTML}
   <div class="section-title" id="sec-cat">優先カテゴリ・営業武器（何を持って当たるか）</div><div class="cats">${cats}</div>${bmkHTML}
   <div class="section-title" id="sec-clients">クライアント別ステータス（コア${clientAreas.filter(a=>!a.isNew).length}社＋国内新規${clientAreas.filter(a=>a.isNew).length}社）</div>
-  <div class="cl-link-panel"><div class="clp-head">各クライアントの詳細ステータス・直近プロジェクト</div><div class="clp-btns">${clientAreas.map(a=>a.detailUrl?('<a class="clp-btn" href="'+a.detailUrl+'">'+esc(a.title)+'</a>'):('<span class="clp-btn" style="opacity:.45;cursor:default" title="詳細ページ未作成">'+esc(a.title)+'</span>')).join('')}</div><div class="clp-note">詳細ページがある社はボタンから。薄表示の社は詳細ページ未作成（各エリアカードを参照）。全クライアント一覧ページは準備中</div></div>
+  <div class="cl-link-panel"><div class="clp-head">各クライアントの詳細ステータス・直近プロジェクト</div><div class="clp-btns">${clientAreas.map(a=>a.detailUrl?('<a class="clp-btn" href="'+a.detailUrl+'">'+esc(a.area)+'</a>'):('<span class="clp-btn" style="opacity:.45;cursor:default" title="詳細ページ未作成">'+esc(a.area)+'</span>')).join('')}</div><div class="clp-note">詳細ページがある社はボタンから。薄表示の社は詳細ページ未作成（各エリアカードを参照）。全クライアント一覧ページは準備中</div></div>
+  <div class="client-stack">${clientCards}</div>
   ${taskAreas.length?`<div class="section-title" id="sec-tasks">横断タスク・イネーブラ（${taskAreas.length}件）</div><div class="task-stack">${taskCards}</div>`:''}
   ${naSection}
 
@@ -727,6 +731,14 @@ function render(d){
   </div>
   <footer><div class="conf">CONFIDENTIAL — 社外秘</div><br>AIGC事業 進捗ボード　最終更新 ${esc(d.generatedAt)} JST<br>数値の正は実データ(PL/SF台帳・CSV)。本ボードは生成時点のスナップショット。</footer>`;
   initSpy();
+  wireFoldToggles();
+}
+function wireFoldToggles(){
+  document.querySelectorAll('details[data-fold-key]').forEach(function(d){
+    d.addEventListener('toggle',function(){
+      try{localStorage.setItem('aigcFold_'+d.dataset.foldKey,d.open?'1':'0');}catch(e){}
+    });
+  });
 }
 const SS_KEY='aigc_cred';
 const SSO_TTL_MS=2592000000;/*30日=firework-sso-no-popup.md準拠の自前TTL*/
