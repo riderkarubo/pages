@@ -178,17 +178,18 @@ function render(d){
     <footer><span class="conf">CONFIDENTIAL — 社外秘</span>広告領域シフト戦略　最終更新 ${esc(d.asOf)} JST</footer>`;
 }
 const SS_KEY='aigc_cred';
+const SSO_TTL_MS=2592000000;/*30日=firework-sso-no-popup.md準拠の自前TTL*/
 function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
 function tryToken(credential,fromCache){
   return (async()=>{
     const info=_jwt(credential);
     const now=Math.floor(Date.now()/1000);
     const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
-    const ok=info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now);
-    if(!ok){try{sessionStorage.removeItem(SS_KEY);}catch(_){}
+    const ok=fromCache?!!(info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID):!!(info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now));
+    if(!ok){try{localStorage.removeItem(SS_KEY);localStorage.removeItem(SS_KEY+'_exp');}catch(_){}
       if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
       return false;}
-    try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
+    try{const d=await decrypt(PP);showData(d);try{localStorage.setItem(SS_KEY,credential);localStorage.setItem(SS_KEY+'_exp',String(Date.now()+SSO_TTL_MS));}catch(e){}return true;}
     catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
   })();
 }
@@ -200,7 +201,7 @@ function initGoogle(){
   google.accounts.id.prompt(function(n){if(n.isNotDisplayed()||n.isSkippedMoment()||n.isDismissedMoment()){console.warn('[FireworkSSO] One Tap not shown.');}});
 }
 window.onload=function(){
-  let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
+  let cached=null;try{const _e=localStorage.getItem(SS_KEY+'_exp');if(_e&&Date.now()<parseInt(_e,10)){cached=localStorage.getItem(SS_KEY);}else{localStorage.removeItem(SS_KEY);localStorage.removeItem(SS_KEY+'_exp');}}catch(e){}
   if(cached){document.getElementById('err').textContent='読み込み中…';tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});}
   else{initGoogle();}
 };

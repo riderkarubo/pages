@@ -595,7 +595,6 @@ function render(d){
   const pricingHTML='';
   const bulkHTML='';
   const quickLinksHTML=`<div class="quick-links-grid">
-    <a class="ql-card ql-press" href="clients/press-timeline.html"><div class="ql-icon">📋</div><div class="ql-body"><div class="ql-h">プレスリリース</div><div class="ql-sub">進行タイムライン・タスク管理</div></div><div class="ql-arr">→</div></a>
     ${pl?`<a class="ql-card ql-price" href="${esc(pl.href)}"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">${esc(pl.label||'AIGCプライスリスト')}</div><div class="ql-sub">${esc(pl.sub||'動画・LIVE・画像の単価＆バルク割')}</div></div><div class="ql-arr">→</div></a>`:`<a class="ql-card ql-price" href="clients/pricing.html"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">AIGCプライスリスト</div><div class="ql-sub">動画・LIVE・画像の単価＆バルク割</div></div><div class="ql-arr">→</div></a>`}
     <a class="ql-card ql-learn" href="clients/aigc-creative-learnings.html"><div class="ql-icon">🎬</div><div class="ql-body"><div class="ql-h">AIGC制作ナレッジ</div><div class="ql-sub">躓き×勝ち筋・現場レビュー</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-sample" href="clients/aigc-sample-videos.html"><div class="ql-icon">🎥</div><div class="ql-body"><div class="ql-h">サンプル動画集</div><div class="ql-sub">7カテゴリ別・営業武器ギャラリー</div></div><div class="ql-arr">→</div></a>
@@ -724,19 +723,20 @@ function render(d){
   initSpy();
 }
 const SS_KEY='aigc_cred';
+const SSO_TTL_MS=2592000000;/*30日=firework-sso-no-popup.md準拠の自前TTL*/
 function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
-// credential(GoogleのIDトークン・約1時間有効)をサーバー検証。成功時はsessionStorageに保持し、
-// 次回リロードはこのトークンで無音ログインを試みる(期限内は再ログイン不要)。
+// credential(GoogleのIDトークン)をドメイン検証。成功時はlocalStorageに保持し、
+// 自前TTL(30日・SSO_TTL_MS)以内はGoogle側の再検証をスキップして無音ログインする。
 function tryToken(credential,fromCache){
   return (async()=>{
     const info=_jwt(credential);
     const now=Math.floor(Date.now()/1000);
     const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
-    const ok=info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now);
-    if(!ok){try{sessionStorage.removeItem(SS_KEY);}catch(_){}
+    const ok=fromCache?!!(info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID):!!(info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now));
+    if(!ok){try{localStorage.removeItem(SS_KEY);localStorage.removeItem(SS_KEY+'_exp');}catch(_){}
       if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
       return false;}
-    try{const d=await decrypt(PP);showData(d);try{sessionStorage.setItem(SS_KEY,credential);}catch(e){}return true;}
+    try{const d=await decrypt(PP);showData(d);try{localStorage.setItem(SS_KEY,credential);localStorage.setItem(SS_KEY+'_exp',String(Date.now()+SSO_TTL_MS));}catch(e){}return true;}
     catch(e){console.error('[aigc-board] decrypt/render error:',e);if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました（'+((e&&e.message)||e)+'）';}return false;}
   })();
 }
@@ -767,16 +767,17 @@ function _oauthFallback(){
 }
 function initGoogle(){
   if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
-  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:false});
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
   google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
   google.accounts.id.prompt(function(notif){
     if(notif&&(notif.isNotDisplayed&&notif.isNotDisplayed()||notif.isSkippedMoment&&notif.isSkippedMoment()||notif.isDismissedMoment&&notif.isDismissedMoment())){
-      _oauthFallback();
+      console.warn('[FireworkSSO] One Tap not shown.');
+      if(location.search.indexOf('sso=manual')!==-1){_oauthFallback();}
     }
   });
 }
 window.onload=function(){
-  let cached=null;try{cached=sessionStorage.getItem(SS_KEY);}catch(e){}
+  let cached=null;try{const _e=localStorage.getItem(SS_KEY+'_exp');if(_e&&Date.now()<parseInt(_e,10)){cached=localStorage.getItem(SS_KEY);}else{localStorage.removeItem(SS_KEY);localStorage.removeItem(SS_KEY+'_exp');}}catch(e){}
   if(cached){
     document.getElementById('err').textContent='読み込み中…';
     tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});
