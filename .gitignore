@@ -20,3 +20,8 @@ _deploy_*
 
 # ローカル運用警告ファイル（PUBLIC配信先にクライアント名平文が漏れるのを防ぐ）
 _DEPRECATED_*.md
+
+# クライアント内部ドキュメント（PUBLIC配信先にクライアント固有情報が漏れるのを防ぐ・260705）
+CLAUDE.md
+_archive_handoff_*.md
+.collaborator/
