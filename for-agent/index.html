@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石島慎也 — 転職希望まとめ（エージェント向け）</title>
+<meta name="description" content="石島慎也の転職希望を1枚に整理した資料。興味キーワード、3路線ごとの希望案件イメージ、強み、NG領域、参考リンク。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF7F0;
+  --bg-card: #FFFFFF;
+  --bg-darker: #F2EDE0;
+  --ink: #1A1A1A;
+  --ink-soft: #555;
+  --ink-mute: #888;
+  --accent: #7C2D12;
+  --accent-soft: #B45309;
+  --accent-cool: #064E3B;
+  --accent-cool-bg: #ECFDF5;
+  --accent-warn: #991B1B;
+  --accent-warn-bg: #FEF2F2;
+  --line: #E5DFCF;
+  --line-soft: #EEE8D6;
+  --highlight: #FEF3C7;
+  --gold: #B8860B;
+  --shadow: 0 1px 2px rgba(60,40,20,0.05), 0 4px 12px rgba(60,40,20,0.04);
+  --shadow-hover: 0 4px 16px rgba(60,40,20,0.10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Noto Serif JP', serif; font-weight: 700; }
+.num { font-family: 'Inter', sans-serif; font-feature-settings: 'tnum'; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+.section:last-child { border-bottom: none; }
+
+/* Hero */
+.hero {
+  padding: 72px 0 48px;
+  background: linear-gradient(180deg, #FAF7F0 0%, #F4EFE2 100%);
+  border-bottom: 1px solid var(--line);
+}
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: clamp(30px, 4.5vw, 46px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.hero h1 .accent { color: var(--accent); }
+.tagline {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+.tagline strong { color: var(--ink); background: var(--highlight); padding: 0 4px; }
+
+/* Spec card */
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.spec-item {
+  padding: 18px 20px;
+  border-right: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.spec-item:last-child { border-right: none; }
+.spec-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.spec-val {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.spec-val .num { font-size: 17px; }
+.spec-val .sub { color: var(--ink-mute); font-size: 12px; display: block; margin-top: 2px; font-weight: 400; }
+
+/* Sections */
+.sec-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.sec-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.sec-lead {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+  max-width: 720px;
+  line-height: 1.85;
+}
+
+/* Tag rows */
+.tag-block { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 700px) { .tag-block { grid-template-columns: 1fr; } }
+
+.tag-col h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tag-col.go h3 { color: var(--accent-cool); }
+.tag-col.ng h3 { color: var(--accent-warn); }
+.tag-col h3::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.tag-col.go h3::before { background: var(--accent-cool); }
+.tag-col.ng h3::before { background: var(--accent-warn); }
+
+.tag-note {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+.tag-group { margin-top: 20px; }
+.tag-group:first-of-type { margin-top: 8px; }
+.tag-group-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-mute);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: none;
+}
+.tag-legend {
+  margin-top: 28px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.tag-legend-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.tag-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.tag-legend-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.dot-go { background: var(--accent-cool-bg); border: 1px solid #A7F3D0; }
+.dot-go-soft { background: #F0FDF4; border: 1px dashed #86EFAC; }
+.dot-ng { background: var(--accent-warn-bg); border: 1px solid #FECACA; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.tag.go { background: var(--accent-cool-bg); color: var(--accent-cool); border: 1px solid #A7F3D0; }
+.tag.go.soft { background: #F0FDF4; color: #166534; border: 1px dashed #86EFAC; font-weight: 400; }
+.tag.ng { background: var(--accent-warn-bg); color: var(--accent-warn); border: 1px solid #FECACA; }
+
+.tag-caption {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 4px;
+}
+
+/* Route cards */
+.routes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.route {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px 26px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.route:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+.route-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.route-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.route-lead {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.route-block {
+  border-top: 1px dashed var(--line);
+  padding-top: 16px;
+  margin-top: auto;
+}
+.route-block + .route-block { margin-top: 12px; }
+.route-block-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.route-example {
+  background: var(--bg-darker);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.route-example strong { color: var(--accent); font-weight: 700; }
+.route-example .why { display: block; color: var(--ink-soft); font-size: 12px; margin-top: 4px; }
+.route-want {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+.route-want li {
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 2px;
+  list-style: none;
+}
+.route-want li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Strengths */
+.strengths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.strength {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 22px 22px;
+  box-shadow: var(--shadow);
+}
+.strength-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--accent-soft);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.strength-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.strength-body {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+.strength-body .fact {
+  display: block;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Links */
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.link-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.link-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+.link-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-darker);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.link-body { flex: 1; min-width: 0; }
+.link-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.link-name {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Footer */
+footer {
+  padding: 32px 0 48px;
+  color: var(--ink-mute);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Print */
+@media print {
+  body { background: #FFFFFF; }
+  .hero { background: #FFFFFF; padding: 24px 0; }
+  .section { padding: 24px 0; page-break-inside: avoid; }
+  .route, .strength { break-inside: avoid; box-shadow: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">For My Recruiter — 2026</div>
+    <h1 class="serif">石島慎也の転職希望、<br><span class="accent">1枚に。</span></h1>
+    <p class="tagline">
+      <strong>番組制作・音楽・長尺動画</strong>を軸に、事業とクリエイティブを両輪で回すプロデューサー職を探しております。
+      本ページは、私が「どんな案件に反応するか／しないか」の判断軸を、そのままお渡しするための資料にございます。
+      案件選定の際にお役立てください。
+    </p>
+    <div class="spec">
+      <div class="spec-item">
+        <div class="spec-label">現職</div>
+        <div class="spec-val">Firework Japan
+          <span class="sub">Creative Team 事業責任者 / クリエイティブディレクター</span>
+        </div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">勤続 / キャリア</div>
+        <div class="spec-val"><span class="num">4.5</span>年
+          <span class="sub">映像制作キャリア通算 16年（2011〜）</span>
+        </div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">現年収</div>
+        <div class="spec-val"><span class="num">840</span>万円
+          <span class="sub">年2回改定</span>
+        </div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">希望年収</div>
+        <div class="spec-val"><span class="num">1,000</span>万円
+          <span class="sub">現職維持以上を基準</span>
+        </div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">勤務条件</div>
+        <div class="spec-val">東京都内 + リモート併用
+          <span class="sub">フルリモート専業は要相談</span>
+        </div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">転職の芯</div>
+        <div class="spec-val">エンタメ業界へ回帰
+          <span class="sub">番組制作・音楽・動画コマースが軸</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-eyebrow">Interests & Boundaries</div>
+    <h2 class="sec-title">興味のキーワード / お断りのキーワード</h2>
+    <p class="sec-lead">
+      案件をフィルタする最短の指標。緑タグは反応するキーワード、赤タグは反応しないキーワード。
+      「濃い緑」は私が明示で挙げたもの、「薄い緑」は文脈上フィットする隣接領域の私からの補足にございます。
+    </p>
+
+    <div class="tag-block">
+      <div class="tag-col go">
+        <h3>反応するキーワード</h3>
+        <p class="tag-note">これらの語が案件票にあれば、まず開いて読みます。4カテゴリに分けて記載。</p>
+
+        <div class="tag-group">
+          <div class="tag-group-label">A. 芯の6語 — 私が明示で挙げた語</div>
+          <div class="tags">
+            <span class="tag go">番組制作</span>
+            <span class="tag go">バラエティ</span>
+            <span class="tag go">音楽</span>
+            <span class="tag go">ゲーム</span>
+            <span class="tag go">長尺動画</span>
+            <span class="tag go">エンタメ×動画コマース</span>
+          </div>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-label">B. 職種・ロール — ポートフォリオ由来</div>
+          <div class="tags">
+            <span class="tag go soft">プロデューサー</span>
+            <span class="tag go soft">ディレクター</span>
+            <span class="tag go soft">クリエイティブディレクター</span>
+            <span class="tag go soft">総合演出</span>
+            <span class="tag go soft">チーフPD</span>
+            <span class="tag go soft">コンテンツプロデューサー</span>
+            <span class="tag go soft">IPプロデューサー</span>
+            <span class="tag go soft">事業責任者</span>
+            <span class="tag go soft">動画統括責任者</span>
+          </div>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-label">C. 領域・ジャンル — 16年の現場経験と親和</div>
+          <div class="tags">
+            <span class="tag go soft">TV番組(バラエティ・音楽)</span>
+            <span class="tag go soft">ライブ配信 / 生配信</span>
+            <span class="tag go soft">ライブコマース</span>
+            <span class="tag go soft">オーディション番組</span>
+            <span class="tag go soft">音楽IP×映像</span>
+            <span class="tag go soft">ゲーム番組 / eスポーツ配信</span>
+            <span class="tag go soft">YouTube公式チャンネル運用</span>
+            <span class="tag go soft">OTT / 配信プラットフォーム</span>
+            <span class="tag go soft">タレント / IP起用</span>
+            <span class="tag go soft">音楽レーベル・事務所</span>
+            <span class="tag go soft">大手ブランド動画</span>
+            <span class="tag go soft">メディア動画</span>
+            <span class="tag go soft">ハイブリッド番組(オフライン×配信)</span>
+          </div>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-label">D. 私の強みが刺さる場面 — 職務経歴書由来の語彙</div>
+          <div class="tags">
+            <span class="tag go soft">ゼロイチ立ち上げ</span>
+            <span class="tag go soft">事業P/L運営</span>
+            <span class="tag go soft">KPI / KGI設計</span>
+            <span class="tag go soft">数字を持つクリエイティブ</span>
+            <span class="tag go soft">複数案件並行運営</span>
+            <span class="tag go soft">大手クライアント運営</span>
+            <span class="tag go soft">タレント事務所折衝</span>
+            <span class="tag go soft">制作会社ネットワーク</span>
+            <span class="tag go soft">予実管理</span>
+            <span class="tag go soft">越境ポートフォリオ(TV / Web / 音楽 / コマース)</span>
+            <span class="tag go soft">生成AI業務導入</span>
+            <span class="tag go soft">AI×制作プロセス革新</span>
+            <span class="tag go soft">スケーラブルなPS設計</span>
+            <span class="tag go soft">内製化支援</span>
+            <span class="tag go soft">グローバル展開(英語B1-B2)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tag-col ng">
+        <h3>お断りのキーワード</h3>
+        <p class="tag-note">これらが主軸の案件は、まず開かずお戻しください。</p>
+        <div class="tags">
+          <span class="tag ng">Vtuber</span>
+          <span class="tag ng">アニメ</span>
+        </div>
+        <p class="tag-caption">↑ 私から明示で挙げた2語</p>
+
+        <div class="tag-legend">
+          <div class="tag-legend-title">凡例</div>
+          <div class="tag-legend-item"><span class="dot dot-go"></span><span>濃緑 = 私が明示で挙げた語</span></div>
+          <div class="tag-legend-item"><span class="dot dot-go-soft"></span><span>薄緑(ダッシュ枠) = ポートフォリオ / 職歴由来の親和領域</span></div>
+          <div class="tag-legend-item"><span class="dot dot-ng"></span><span>赤 = お断り</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-darker);">
+  <div class="wrap">
+    <div class="sec-eyebrow">Three Paths</div>
+    <h2 class="sec-title">やってみたい仕事の3路線</h2>
+    <p class="sec-lead">
+      私の希望は1つに絞れない代わり、3路線にきれいに畳めます。
+      石島さんから頂いた16社ご提案の中では、<strong>路線Bのマイベスト</strong>と<strong>路線Cの BMSG</strong>が響きました。
+      各路線に該当する案件を、これらの企業と同じ座標で探していただければ幸いにございます。
+    </p>
+
+    <div class="routes">
+
+      <div class="route">
+        <div class="route-num">ROUTE A</div>
+        <h3 class="route-title">番組制作 純度路線</h3>
+        <p class="route-lead">
+          転職動機の原点。「番組を作る現場に戻る」を最上位に置く路線。
+          事業責任者からディレクター/プロデューサー職への役職ダウンシフトも許容します（年収レンジは維持前提）。
+        </p>
+        <div class="route-block">
+          <div class="route-block-label">Past Reference</div>
+          <div class="route-example">
+            <strong>OPENREC</strong>（番組ディレクター・過去エージェント経由で検討）
+            <span class="why">DONUTS傘下・オフラインイベント×番組×IPへピボット中。「番組制作の修行として2〜3年」の座組なら受ける価値ありと判断済み。</span>
+          </div>
+        </div>
+        <div class="route-block">
+          <div class="route-block-label">この路線で欲しい案件</div>
+          <ul class="route-want">
+            <li>TV局 / OTT / 配信プラットフォームの番組プロデューサー・ディレクター</li>
+            <li>バラエティ・音楽・ゲームジャンルの番組企画制作</li>
+            <li>制作会社のリーダー / チーフPD（現場に近い座席）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="route">
+        <div class="route-num">ROUTE B</div>
+        <h3 class="route-title">強み転用 × 高年収路線</h3>
+        <p class="route-lead">
+          事業責任者経験とプロデュース経験を活かし、メディア/ブランドの動画部門を統括する路線。
+          年収を維持〜向上させながら、コンテンツと事業を両輪で回す座席。
+        </p>
+        <div class="route-block">
+          <div class="route-block-label">石島さんご提案で響いた企業</div>
+          <div class="route-example">
+            <strong>マイベスト</strong>（動画プロデューサー・TikTok/Instagram / インハウス動画）
+            <span class="why">メディア×動画プロデュースの座席。ランキング比較というコンテンツ設計に、演出と数字の両方を要求される点が既存強みと直結。</span>
+          </div>
+        </div>
+        <div class="route-block">
+          <div class="route-block-label">この路線で欲しい案件</div>
+          <ul class="route-want">
+            <li>メディア企業の動画統括プロデューサー / 責任者</li>
+            <li>大手ブランドの動画/コンテンツ事業開発</li>
+            <li>ライブコマース事業の統括（既存強み転用）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="route">
+        <div class="route-num">ROUTE C</div>
+        <h3 class="route-title">IP × ライブ 事業路線</h3>
+        <p class="route-lead">
+          音楽 / ゲームIPを軸に、映像・ライブ配信・イベントを統合するプロデュース路線。
+          「音楽」と「長尺動画」という指定キーワードが最も濃く重なる領域。
+        </p>
+        <div class="route-block">
+          <div class="route-block-label">石島さんご提案で響いた企業</div>
+          <div class="route-example">
+            <strong>BMSG</strong>（オープンポジション・SKY-HI率いる音楽レーベル）
+            <span class="why">音楽IPとオーディション番組（THE FIRST など）を長尺動画で束ねる作り方。私のプロデュース経験の全部が繋がる。</span>
+          </div>
+        </div>
+        <div class="route-block">
+          <div class="route-block-label">この路線で欲しい案件</div>
+          <ul class="route-want">
+            <li>音楽レーベル / 事務所のコンテンツプロデューサー</li>
+            <li>ゲーム会社のライブ配信 / eスポーツプロデュース（※アニメ / Vtuber軸は除く）</li>
+            <li>IP × 映像 × ライブの統合プロデュース</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-eyebrow">Strengths</div>
+    <h2 class="sec-title">私の強み — 5枚のカード</h2>
+    <p class="sec-lead">
+      ポートフォリオから、案件マッチングに使いやすい5点に絞り込みました。詳細はリンク先の Portfolio2026 にて。
+    </p>
+
+    <div class="strengths">
+      <div class="strength">
+        <div class="strength-num">01</div>
+        <div class="strength-title">映像制作 16年、4領域を越境</div>
+        <div class="strength-body">
+          TV → Web動画 → 音楽 → ライブコマースを渡り歩き、それぞれ現場・演出・数字管理を経験。
+          「1つの領域で深く」ではなく「越境の距離」が資産。
+          <span class="fact">キャリア通算 16年 / 6社</span>
+        </div>
+      </div>
+      <div class="strength">
+        <div class="strength-num">02</div>
+        <div class="strength-title">大手クライアント 9業界を並行運営</div>
+        <div class="strength-body">
+          ドラッグ / 飲食 / スポーツ / コスメ / 家電 / 生協 / アパレル / 電源 / 建設。
+          業界横断で「事業側の言葉と制作側の言葉」を同時に扱える。
+          <span class="fact">Firework にて 9業界の大手を同時進行</span>
+        </div>
+      </div>
+      <div class="strength">
+        <div class="strength-num">03</div>
+        <div class="strength-title">事業責任者として P/L を持てる</div>
+        <div class="strength-body">
+          2024年から Firework Creative Team を「制作受託」から「P/L 責任を持つ事業」に再定義。
+          クリエイティブ × Sales × 事業計画を統合するプレイングマネージャー経験。
+          <span class="fact">事業責任者 2年、Q単位で目標運営</span>
+        </div>
+      </div>
+      <div class="strength">
+        <div class="strength-num">04</div>
+        <div class="strength-title">ライブコマース領域のゼロイチ経験</div>
+        <div class="strength-body">
+          Candee LiveShop! 立ち上げ（月30〜60本 / 最大14名チーム）から、Firework での大手ブランド支援まで、
+          日本のライブコマース黎明期を最前線で経験。
+          <span class="fact">2016年〜、業界の第一世代プレイヤー</span>
+        </div>
+      </div>
+      <div class="strength">
+        <div class="strength-num">05</div>
+        <div class="strength-title">数字を持つクリエイティブ</div>
+        <div class="strength-body">
+          MCCM案件でライブ累計視聴 144万人 / 前年比 +62% / 協賛メーカー 19社を、2年でゼロから立ち上げ。
+          制作物ではなく成果で語れる。
+          <span class="fact">2024〜2025 の MCCM 案件実績</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-darker);">
+  <div class="wrap">
+    <div class="sec-eyebrow">References</div>
+    <h2 class="sec-title">補足資料 / リンク集</h2>
+    <p class="sec-lead">
+      さらに深掘りが必要な場合は、下記のリソースをご参照くださいませ。
+    </p>
+    <div class="links">
+      <a class="link-card" href="https://riderkarubo.github.io/portfolio2026/" target="_blank" rel="noopener">
+        <div class="link-icon">🎬</div>
+        <div class="link-body">
+          <div class="link-label">Portfolio</div>
+          <div class="link-name">Portfolio 2026（公開版）</div>
+        </div>
+      </a>
+      <a class="link-card" href="https://riderkarubo.github.io/portfolio2026-worksheet/" target="_blank" rel="noopener">
+        <div class="link-icon">📝</div>
+        <div class="link-body">
+          <div class="link-label">Detailed Worksheet</div>
+          <div class="link-name">Portfolio Worksheet（詳細版）</div>
+        </div>
+      </a>
+      <div class="link-card" style="cursor:default;">
+        <div class="link-icon">📄</div>
+        <div class="link-body">
+          <div class="link-label">職務経歴書 / 履歴書</div>
+          <div class="link-name">別途 PDF にてご共有</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Last Updated: 2026年7月5日 22:51 &nbsp;·&nbsp; For agent use only &nbsp;·&nbsp; 石島慎也
+  </div>
+</footer>
+
+</body>
+</html>
