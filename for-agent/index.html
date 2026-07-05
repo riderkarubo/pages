@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>石島慎也 — 転職希望まとめ（エージェント向け）</title>
-<meta name="description" content="石島慎也の転職希望を1枚に整理した資料。興味キーワード、3路線ごとの希望案件イメージ、強み、NG領域、参考リンク。">
+<title>石島慎也 — 転職にあたっての希望まとめ</title>
+<meta name="description" content="石島慎也の転職希望を1枚に整理した資料。関心領域・関心の方向・強み・参考リンク。">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,6 @@
   --line: #E5DFCF;
   --line-soft: #EEE8D6;
   --highlight: #FEF3C7;
-  --gold: #B8860B;
   --shadow: 0 1px 2px rgba(60,40,20,0.05), 0 4px 12px rgba(60,40,20,0.04);
   --shadow-hover: 0 4px 16px rgba(60,40,20,0.10);
 }
@@ -67,20 +66,19 @@ body {
   font-family: 'Noto Serif JP', serif;
   font-weight: 900;
   font-size: clamp(30px, 4.5vw, 46px);
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.01em;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   color: var(--ink);
 }
 .hero h1 .accent { color: var(--accent); }
 .tagline {
-  font-size: 17px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.9;
   color: var(--ink-soft);
   max-width: 760px;
   margin-bottom: 32px;
 }
-.tagline strong { color: var(--ink); background: var(--highlight); padding: 0 4px; }
 
 /* Spec card */
 .spec {
@@ -143,21 +141,20 @@ body {
   line-height: 1.85;
 }
 
-/* Tag rows */
-.tag-block { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-@media (max-width: 700px) { .tag-block { grid-template-columns: 1fr; } }
+/* Tag columns */
+.tag-block { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+@media (max-width: 780px) { .tag-block { grid-template-columns: 1fr; } }
 
 .tag-col h3 {
   font-family: 'Noto Serif JP', serif;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  color: var(--ink);
 }
-.tag-col.go h3 { color: var(--accent-cool); }
-.tag-col.ng h3 { color: var(--accent-warn); }
 .tag-col h3::before {
   content: '';
   width: 10px;
@@ -171,58 +168,22 @@ body {
 .tag-note {
   font-size: 13px;
   color: var(--ink-mute);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   line-height: 1.75;
 }
 
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-
 .tag-group { margin-top: 20px; }
-.tag-group:first-of-type { margin-top: 8px; }
+.tag-group:first-of-type { margin-top: 6px; }
 .tag-group-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--ink-mute);
-  font-weight: 600;
-  margin-bottom: 8px;
-  text-transform: none;
-}
-.tag-legend {
-  margin-top: 28px;
-  padding: 14px 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-}
-.tag-legend-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.tag-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 12px;
   color: var(--ink-soft);
-  line-height: 1.7;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
 }
-.tag-legend-item .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.dot-go { background: var(--accent-cool-bg); border: 1px solid #A7F3D0; }
-.dot-go-soft { background: #F0FDF4; border: 1px dashed #86EFAC; }
-.dot-ng { background: var(--accent-warn-bg); border: 1px solid #FECACA; }
 
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag {
   display: inline-flex;
   align-items: center;
@@ -233,16 +194,9 @@ body {
   line-height: 1.4;
 }
 .tag.go { background: var(--accent-cool-bg); color: var(--accent-cool); border: 1px solid #A7F3D0; }
-.tag.go.soft { background: #F0FDF4; color: #166534; border: 1px dashed #86EFAC; font-weight: 400; }
 .tag.ng { background: var(--accent-warn-bg); color: var(--accent-warn); border: 1px solid #FECACA; }
 
-.tag-caption {
-  font-size: 12px;
-  color: var(--ink-mute);
-  margin-top: 4px;
-}
-
-/* Route cards */
+/* Direction cards */
 .routes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -280,7 +234,7 @@ body {
   font-size: 14px;
   color: var(--ink-soft);
   margin-bottom: 20px;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .route-block {
@@ -361,7 +315,7 @@ body {
 .strength-body {
   font-size: 13px;
   color: var(--ink-soft);
-  line-height: 1.75;
+  line-height: 1.8;
 }
 .strength-body .fact {
   display: block;
@@ -445,12 +399,10 @@ footer {
 
 <header class="hero">
   <div class="wrap">
-    <div class="hero-eyebrow">For My Recruiter — 2026</div>
-    <h1 class="serif">石島慎也の転職希望、<br><span class="accent">1枚に。</span></h1>
+    <div class="hero-eyebrow">Career Preferences — 2026</div>
+    <h1 class="serif">石島 慎也<br><span class="accent">転職にあたっての希望まとめ</span></h1>
     <p class="tagline">
-      <strong>番組制作・音楽・長尺動画</strong>を軸に、事業とクリエイティブを両輪で回すプロデューサー職を探しております。
-      本ページは、私が「どんな案件に反応するか／しないか」の判断軸を、そのままお渡しするための資料にございます。
-      案件選定の際にお役立てください。
+      案件選定の一助となれば幸いです。関心のある領域、これまでの強み、条件面を1枚に整理いたしました。
     </p>
     <div class="spec">
       <div class="spec-item">
@@ -460,9 +412,9 @@ footer {
         </div>
       </div>
       <div class="spec-item">
-        <div class="spec-label">勤続 / キャリア</div>
-        <div class="spec-val"><span class="num">4.5</span>年
-          <span class="sub">映像制作キャリア通算 16年（2011〜）</span>
+        <div class="spec-label">キャリア</div>
+        <div class="spec-val">映像制作 <span class="num">16</span> 年
+          <span class="sub">2011〜 / 現職 4.5 年</span>
         </div>
       </div>
       <div class="spec-item">
@@ -474,7 +426,7 @@ footer {
       <div class="spec-item">
         <div class="spec-label">希望年収</div>
         <div class="spec-val"><span class="num">1,000</span>万円
-          <span class="sub">現職維持以上を基準</span>
+          <span class="sub">現職を上回る水準を希望</span>
         </div>
       </div>
       <div class="spec-item">
@@ -484,7 +436,7 @@ footer {
         </div>
       </div>
       <div class="spec-item">
-        <div class="spec-label">転職の芯</div>
+        <div class="spec-label">志向の芯</div>
         <div class="spec-val">エンタメ業界へ回帰
           <span class="sub">番組制作・音楽・動画コマースが軸</span>
         </div>
@@ -495,100 +447,91 @@ footer {
 
 <section class="section">
   <div class="wrap">
-    <div class="sec-eyebrow">Interests & Boundaries</div>
-    <h2 class="sec-title">興味のキーワード / お断りのキーワード</h2>
+    <div class="sec-eyebrow">Keywords</div>
+    <h2 class="sec-title">関心のある領域 / ご紹介をご遠慮いただきたい領域</h2>
     <p class="sec-lead">
-      案件をフィルタする最短の指標。緑タグは反応するキーワード、赤タグは反応しないキーワード。
-      「濃い緑」は私が明示で挙げたもの、「薄い緑」は文脈上フィットする隣接領域の私からの補足にございます。
+      関心の輪郭をキーワードで整理いたしました。4つの切り口に分けて記載しております。
     </p>
 
     <div class="tag-block">
       <div class="tag-col go">
-        <h3>反応するキーワード</h3>
-        <p class="tag-note">これらの語が案件票にあれば、まず開いて読みます。4カテゴリに分けて記載。</p>
+        <h3>関心のある領域</h3>
+        <p class="tag-note">これらの語彙が案件情報にあると強く関心を持ちます。</p>
 
         <div class="tag-group">
-          <div class="tag-group-label">A. 芯の6語 — 私が明示で挙げた語</div>
+          <div class="tag-group-label">関心のキーワード（軸）</div>
           <div class="tags">
             <span class="tag go">番組制作</span>
             <span class="tag go">バラエティ</span>
             <span class="tag go">音楽</span>
             <span class="tag go">ゲーム</span>
             <span class="tag go">長尺動画</span>
-            <span class="tag go">エンタメ×動画コマース</span>
+            <span class="tag go">エンタメ × 動画コマース</span>
           </div>
         </div>
 
         <div class="tag-group">
-          <div class="tag-group-label">B. 職種・ロール — ポートフォリオ由来</div>
+          <div class="tag-group-label">関心のある職種・ロール</div>
           <div class="tags">
-            <span class="tag go soft">プロデューサー</span>
-            <span class="tag go soft">ディレクター</span>
-            <span class="tag go soft">クリエイティブディレクター</span>
-            <span class="tag go soft">総合演出</span>
-            <span class="tag go soft">チーフPD</span>
-            <span class="tag go soft">コンテンツプロデューサー</span>
-            <span class="tag go soft">IPプロデューサー</span>
-            <span class="tag go soft">事業責任者</span>
-            <span class="tag go soft">動画統括責任者</span>
+            <span class="tag go">プロデューサー</span>
+            <span class="tag go">ディレクター</span>
+            <span class="tag go">クリエイティブディレクター</span>
+            <span class="tag go">総合演出</span>
+            <span class="tag go">チーフPD</span>
+            <span class="tag go">コンテンツプロデューサー</span>
+            <span class="tag go">IPプロデューサー</span>
+            <span class="tag go">事業責任者</span>
+            <span class="tag go">動画統括責任者</span>
           </div>
         </div>
 
         <div class="tag-group">
-          <div class="tag-group-label">C. 領域・ジャンル — 16年の現場経験と親和</div>
+          <div class="tag-group-label">関心のある領域・ジャンル</div>
           <div class="tags">
-            <span class="tag go soft">TV番組(バラエティ・音楽)</span>
-            <span class="tag go soft">ライブ配信 / 生配信</span>
-            <span class="tag go soft">ライブコマース</span>
-            <span class="tag go soft">オーディション番組</span>
-            <span class="tag go soft">音楽IP×映像</span>
-            <span class="tag go soft">ゲーム番組 / eスポーツ配信</span>
-            <span class="tag go soft">YouTube公式チャンネル運用</span>
-            <span class="tag go soft">OTT / 配信プラットフォーム</span>
-            <span class="tag go soft">タレント / IP起用</span>
-            <span class="tag go soft">音楽レーベル・事務所</span>
-            <span class="tag go soft">大手ブランド動画</span>
-            <span class="tag go soft">メディア動画</span>
-            <span class="tag go soft">ハイブリッド番組(オフライン×配信)</span>
+            <span class="tag go">TV番組（バラエティ・音楽）</span>
+            <span class="tag go">ライブ配信 / 生配信</span>
+            <span class="tag go">ライブコマース</span>
+            <span class="tag go">オーディション番組</span>
+            <span class="tag go">音楽IP × 映像</span>
+            <span class="tag go">ゲーム番組 / eスポーツ配信</span>
+            <span class="tag go">YouTube公式チャンネル運用</span>
+            <span class="tag go">OTT / 配信プラットフォーム</span>
+            <span class="tag go">タレント / IP起用</span>
+            <span class="tag go">音楽レーベル・事務所</span>
+            <span class="tag go">大手ブランド動画</span>
+            <span class="tag go">メディア動画</span>
+            <span class="tag go">ハイブリッド番組（オフライン × 配信）</span>
           </div>
         </div>
 
         <div class="tag-group">
-          <div class="tag-group-label">D. 私の強みが刺さる場面 — 職務経歴書由来の語彙</div>
+          <div class="tag-group-label">強みが活きる場面</div>
           <div class="tags">
-            <span class="tag go soft">ゼロイチ立ち上げ</span>
-            <span class="tag go soft">事業P/L運営</span>
-            <span class="tag go soft">KPI / KGI設計</span>
-            <span class="tag go soft">数字を持つクリエイティブ</span>
-            <span class="tag go soft">複数案件並行運営</span>
-            <span class="tag go soft">大手クライアント運営</span>
-            <span class="tag go soft">タレント事務所折衝</span>
-            <span class="tag go soft">制作会社ネットワーク</span>
-            <span class="tag go soft">予実管理</span>
-            <span class="tag go soft">越境ポートフォリオ(TV / Web / 音楽 / コマース)</span>
-            <span class="tag go soft">生成AI業務導入</span>
-            <span class="tag go soft">AI×制作プロセス革新</span>
-            <span class="tag go soft">スケーラブルなPS設計</span>
-            <span class="tag go soft">内製化支援</span>
-            <span class="tag go soft">グローバル展開(英語B1-B2)</span>
+            <span class="tag go">ゼロイチ立ち上げ</span>
+            <span class="tag go">事業 P/L 運営</span>
+            <span class="tag go">KPI / KGI 設計</span>
+            <span class="tag go">数字を持つクリエイティブ</span>
+            <span class="tag go">複数案件並行運営</span>
+            <span class="tag go">大手クライアント運営</span>
+            <span class="tag go">タレント事務所折衝</span>
+            <span class="tag go">制作会社ネットワーク</span>
+            <span class="tag go">予実管理</span>
+            <span class="tag go">越境ポートフォリオ（TV / Web / 音楽 / コマース）</span>
+            <span class="tag go">生成AI業務導入</span>
+            <span class="tag go">AI × 制作プロセス革新</span>
+            <span class="tag go">スケーラブルなサービス設計</span>
+            <span class="tag go">内製化支援</span>
+            <span class="tag go">グローバル展開（英語 B1-B2）</span>
           </div>
         </div>
       </div>
 
       <div class="tag-col ng">
-        <h3>お断りのキーワード</h3>
-        <p class="tag-note">これらが主軸の案件は、まず開かずお戻しください。</p>
+        <h3>ご紹介をご遠慮いただきたい領域</h3>
+        <p class="tag-note">これらが主軸となる案件は、私の関心の範囲外にございます。</p>
         <div class="tags">
           <span class="tag ng">Vtuber</span>
           <span class="tag ng">アニメ</span>
-        </div>
-        <p class="tag-caption">↑ 私から明示で挙げた2語</p>
-
-        <div class="tag-legend">
-          <div class="tag-legend-title">凡例</div>
-          <div class="tag-legend-item"><span class="dot dot-go"></span><span>濃緑 = 私が明示で挙げた語</span></div>
-          <div class="tag-legend-item"><span class="dot dot-go-soft"></span><span>薄緑(ダッシュ枠) = ポートフォリオ / 職歴由来の親和領域</span></div>
-          <div class="tag-legend-item"><span class="dot dot-ng"></span><span>赤 = お断り</span></div>
         </div>
       </div>
     </div>
@@ -597,32 +540,22 @@ footer {
 
 <section class="section" style="background: var(--bg-darker);">
   <div class="wrap">
-    <div class="sec-eyebrow">Three Paths</div>
-    <h2 class="sec-title">やってみたい仕事の3路線</h2>
+    <div class="sec-eyebrow">Three Directions</div>
+    <h2 class="sec-title">関心の3方向</h2>
     <p class="sec-lead">
-      私の希望は1つに絞れない代わり、3路線にきれいに畳めます。
-      石島さんから頂いた16社ご提案の中では、<strong>路線Bのマイベスト</strong>と<strong>路線Cの BMSG</strong>が響きました。
-      各路線に該当する案件を、これらの企業と同じ座標で探していただければ幸いにございます。
+      希望を1つに絞らず、3つの方向で整理しております。それぞれの方向に、ご提案いただいた中で関心を持った例を添えました。同種の座組でご紹介いただけますと幸いです。
     </p>
 
     <div class="routes">
 
       <div class="route">
-        <div class="route-num">ROUTE A</div>
-        <h3 class="route-title">番組制作 純度路線</h3>
+        <div class="route-num">DIRECTION 01</div>
+        <h3 class="route-title">番組制作への回帰</h3>
         <p class="route-lead">
-          転職動機の原点。「番組を作る現場に戻る」を最上位に置く路線。
-          事業責任者からディレクター/プロデューサー職への役職ダウンシフトも許容します（年収レンジは維持前提）。
+          「番組を作る現場に戻る」を最上位に置く方向。事業責任者から現場に近い座席への役割変更も、内容次第で前向きに検討いたします。
         </p>
         <div class="route-block">
-          <div class="route-block-label">Past Reference</div>
-          <div class="route-example">
-            <strong>OPENREC</strong>（番組ディレクター・過去エージェント経由で検討）
-            <span class="why">DONUTS傘下・オフラインイベント×番組×IPへピボット中。「番組制作の修行として2〜3年」の座組なら受ける価値ありと判断済み。</span>
-          </div>
-        </div>
-        <div class="route-block">
-          <div class="route-block-label">この路線で欲しい案件</div>
+          <div class="route-block-label">求めたい案件イメージ</div>
           <ul class="route-want">
             <li>TV局 / OTT / 配信プラットフォームの番組プロデューサー・ディレクター</li>
             <li>バラエティ・音楽・ゲームジャンルの番組企画制作</li>
@@ -632,48 +565,46 @@ footer {
       </div>
 
       <div class="route">
-        <div class="route-num">ROUTE B</div>
-        <h3 class="route-title">強み転用 × 高年収路線</h3>
+        <div class="route-num">DIRECTION 02</div>
+        <h3 class="route-title">強みを転用した動画統括</h3>
         <p class="route-lead">
-          事業責任者経験とプロデュース経験を活かし、メディア/ブランドの動画部門を統括する路線。
-          年収を維持〜向上させながら、コンテンツと事業を両輪で回す座席。
+          事業責任者経験とプロデュース経験を活かし、メディア・ブランドの動画部門を統括する方向。演出と事業数字の両立が求められる座席をイメージしております。
         </p>
         <div class="route-block">
-          <div class="route-block-label">石島さんご提案で響いた企業</div>
+          <div class="route-block-label">ご提案の中で関心を持った例</div>
           <div class="route-example">
-            <strong>マイベスト</strong>（動画プロデューサー・TikTok/Instagram / インハウス動画）
-            <span class="why">メディア×動画プロデュースの座席。ランキング比較というコンテンツ設計に、演出と数字の両方を要求される点が既存強みと直結。</span>
+            <strong>マイベスト</strong>（動画プロデューサー / TikTok・Instagram / インハウス動画）
+            <span class="why">メディアの動画部門を統括する座席。演出と事業数字の両立という点が既存の経験と重なります。</span>
           </div>
         </div>
         <div class="route-block">
-          <div class="route-block-label">この路線で欲しい案件</div>
+          <div class="route-block-label">求めたい案件イメージ</div>
           <ul class="route-want">
             <li>メディア企業の動画統括プロデューサー / 責任者</li>
-            <li>大手ブランドの動画/コンテンツ事業開発</li>
-            <li>ライブコマース事業の統括（既存強み転用）</li>
+            <li>大手ブランドの動画・コンテンツ事業開発</li>
+            <li>ライブコマース事業の統括（既存の強みを転用）</li>
           </ul>
         </div>
       </div>
 
       <div class="route">
-        <div class="route-num">ROUTE C</div>
-        <h3 class="route-title">IP × ライブ 事業路線</h3>
+        <div class="route-num">DIRECTION 03</div>
+        <h3 class="route-title">IP × ライブ の事業プロデュース</h3>
         <p class="route-lead">
-          音楽 / ゲームIPを軸に、映像・ライブ配信・イベントを統合するプロデュース路線。
-          「音楽」と「長尺動画」という指定キーワードが最も濃く重なる領域。
+          音楽・ゲームIPを軸に、映像・ライブ配信・イベントを統合するプロデュース方向。「音楽」と「長尺動画」というキーワードが最も濃く重なる領域です。
         </p>
         <div class="route-block">
-          <div class="route-block-label">石島さんご提案で響いた企業</div>
+          <div class="route-block-label">ご提案の中で関心を持った例</div>
           <div class="route-example">
-            <strong>BMSG</strong>（オープンポジション・SKY-HI率いる音楽レーベル）
-            <span class="why">音楽IPとオーディション番組（THE FIRST など）を長尺動画で束ねる作り方。私のプロデュース経験の全部が繋がる。</span>
+            <strong>BMSG</strong>(オープンポジション)
+            <span class="why">音楽IPと長尺コンテンツを軸に事業を組み上げる方向性。これまでの経験と親和性が高いと感じます。</span>
           </div>
         </div>
         <div class="route-block">
-          <div class="route-block-label">この路線で欲しい案件</div>
+          <div class="route-block-label">求めたい案件イメージ</div>
           <ul class="route-want">
             <li>音楽レーベル / 事務所のコンテンツプロデューサー</li>
-            <li>ゲーム会社のライブ配信 / eスポーツプロデュース（※アニメ / Vtuber軸は除く）</li>
+            <li>ゲーム会社のライブ配信 / eスポーツプロデュース</li>
             <li>IP × 映像 × ライブの統合プロデュース</li>
           </ul>
         </div>
@@ -686,9 +617,9 @@ footer {
 <section class="section">
   <div class="wrap">
     <div class="sec-eyebrow">Strengths</div>
-    <h2 class="sec-title">私の強み — 5枚のカード</h2>
+    <h2 class="sec-title">これまでの強み（5点）</h2>
     <p class="sec-lead">
-      ポートフォリオから、案件マッチングに使いやすい5点に絞り込みました。詳細はリンク先の Portfolio2026 にて。
+      案件マッチングにご活用いただきやすい5点に絞りました。詳細は下記の Portfolio 2026 をご参照ください。
     </p>
 
     <div class="strengths">
@@ -696,8 +627,7 @@ footer {
         <div class="strength-num">01</div>
         <div class="strength-title">映像制作 16年、4領域を越境</div>
         <div class="strength-body">
-          TV → Web動画 → 音楽 → ライブコマースを渡り歩き、それぞれ現場・演出・数字管理を経験。
-          「1つの領域で深く」ではなく「越境の距離」が資産。
+          TV → Web動画 → 音楽 → ライブコマースを渡り歩き、それぞれで現場・演出・数字管理を経験してまいりました。
           <span class="fact">キャリア通算 16年 / 6社</span>
         </div>
       </div>
@@ -705,8 +635,7 @@ footer {
         <div class="strength-num">02</div>
         <div class="strength-title">大手クライアント 9業界を並行運営</div>
         <div class="strength-body">
-          ドラッグ / 飲食 / スポーツ / コスメ / 家電 / 生協 / アパレル / 電源 / 建設。
-          業界横断で「事業側の言葉と制作側の言葉」を同時に扱える。
+          ドラッグ / 飲食 / スポーツ / コスメ / 家電 / 生協 / アパレル / 電源 / 建設。業界横断で事業側と制作側の両方の言葉を扱えます。
           <span class="fact">Firework にて 9業界の大手を同時進行</span>
         </div>
       </div>
@@ -714,8 +643,7 @@ footer {
         <div class="strength-num">03</div>
         <div class="strength-title">事業責任者として P/L を持てる</div>
         <div class="strength-body">
-          2024年から Firework Creative Team を「制作受託」から「P/L 責任を持つ事業」に再定義。
-          クリエイティブ × Sales × 事業計画を統合するプレイングマネージャー経験。
+          2024年から Firework Creative Team を「制作受託」から「P/L 責任を持つ事業」に再定義。クリエイティブ・Sales・事業計画を統合するプレイングマネージャー経験。
           <span class="fact">事業責任者 2年、Q単位で目標運営</span>
         </div>
       </div>
@@ -723,8 +651,7 @@ footer {
         <div class="strength-num">04</div>
         <div class="strength-title">ライブコマース領域のゼロイチ経験</div>
         <div class="strength-body">
-          Candee LiveShop! 立ち上げ（月30〜60本 / 最大14名チーム）から、Firework での大手ブランド支援まで、
-          日本のライブコマース黎明期を最前線で経験。
+          Candee LiveShop! 立ち上げ(月30〜60本 / 最大14名チーム)から、Firework での大手ブランド支援まで、日本のライブコマース黎明期を最前線で経験してまいりました。
           <span class="fact">2016年〜、業界の第一世代プレイヤー</span>
         </div>
       </div>
@@ -732,8 +659,7 @@ footer {
         <div class="strength-num">05</div>
         <div class="strength-title">数字を持つクリエイティブ</div>
         <div class="strength-body">
-          MCCM案件でライブ累計視聴 144万人 / 前年比 +62% / 協賛メーカー 19社を、2年でゼロから立ち上げ。
-          制作物ではなく成果で語れる。
+          MCCM案件でライブ累計視聴 144万人 / 前年比 +62% / 協賛メーカー 19社を、2年でゼロから立ち上げました。制作物ではなく成果で語れます。
           <span class="fact">2024〜2025 の MCCM 案件実績</span>
         </div>
       </div>
@@ -746,21 +672,21 @@ footer {
     <div class="sec-eyebrow">References</div>
     <h2 class="sec-title">補足資料 / リンク集</h2>
     <p class="sec-lead">
-      さらに深掘りが必要な場合は、下記のリソースをご参照くださいませ。
+      さらに詳細をご確認いただく場合は、下記のリソースをご参照くださいませ。
     </p>
     <div class="links">
       <a class="link-card" href="https://riderkarubo.github.io/portfolio2026/" target="_blank" rel="noopener">
         <div class="link-icon">🎬</div>
         <div class="link-body">
           <div class="link-label">Portfolio</div>
-          <div class="link-name">Portfolio 2026（公開版）</div>
+          <div class="link-name">Portfolio 2026</div>
         </div>
       </a>
       <a class="link-card" href="https://riderkarubo.github.io/portfolio2026-worksheet/" target="_blank" rel="noopener">
         <div class="link-icon">📝</div>
         <div class="link-body">
-          <div class="link-label">Detailed Worksheet</div>
-          <div class="link-name">Portfolio Worksheet（詳細版）</div>
+          <div class="link-label">Detail</div>
+          <div class="link-name">Portfolio Worksheet(詳細版)</div>
         </div>
       </a>
       <div class="link-card" style="cursor:default;">
@@ -776,7 +702,7 @@ footer {
 
 <footer>
   <div class="wrap">
-    Last Updated: 2026年7月5日 22:51 &nbsp;·&nbsp; For agent use only &nbsp;·&nbsp; 石島慎也
+    Last Updated: 2026年7月5日 23:03 &nbsp;·&nbsp; 石島 慎也
   </div>
 </footer>
 
