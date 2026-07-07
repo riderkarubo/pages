@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-07T13:00:26+09:00">
+<meta name="last-modified" content="2026-07-07T15:05:12+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード 🗡QUEST — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗡️</text></svg>"><text y='.9em' font-size='90'>📊</text></svg>">
@@ -546,6 +546,7 @@ function filterPM(btn,sales){document.querySelectorAll('.pm-flt').forEach(functi
 function pmCollapsed(key){try{return localStorage.getItem('pmCollapse_'+key)==='1';}catch(e){return false;}}
 function togglePM(capEl,key){const block=capEl.closest('.pm-block');if(!block)return;const collapsed=block.classList.toggle('collapsed');try{localStorage.setItem('pmCollapse_'+key,collapsed?'1':'0');}catch(e){}}
 
+function _lm(){try{var c=document.querySelector('meta[name="last-modified"]').content;var m=c.match(/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/);return m?m[1]+' '+m[2]:c;}catch(e){return'';}}
 function render(d){
   const yfmt=n=>'¥'+Number(n||0).toLocaleString('en-US');
   const foldOpen=k=>{try{return localStorage.getItem('aigcFold_'+k)==='1';}catch(e){return false;}};
@@ -699,7 +700,7 @@ function render(d){
   </nav>`;
   document.getElementById('app').innerHTML=`${nav}
   <header><div class="eyebrow">Firework 社内限定 — AIGC事業</div><h1>AIGC事業 進捗ボード</h1>
-  <div class="goal">${esc(d.projectGoal)}</div><div class="ts">最終更新: ${esc(d.generatedAt)} JST　／　全データは議事録・候補リスト・各案件フォルダ・PL/SF台帳から生成（静的・閲覧専用）</div></header>
+  <div class="goal">${esc(d.projectGoal)}</div><div class="ts">最終更新: ${_lm()} JST　／　全データは議事録・候補リスト・各案件フォルダ・PL/SF台帳から生成（静的・閲覧専用）</div></header>
   <div class="wrap">
   ${quickLinksHTML}
   <div class="section-title" id="sec-exec">エグゼクティブサマリ</div>${exec}
@@ -762,7 +763,7 @@ function render(d){
     </a>
   </div>
   </div>
-  <footer><div class="conf">CONFIDENTIAL — 社外秘</div><br>AIGC事業 進捗ボード　最終更新 ${esc(d.generatedAt)} JST<br>数値の正は実データ(PL/SF台帳・CSV)。本ボードは生成時点のスナップショット。</footer>`;
+  <footer><div class="conf">CONFIDENTIAL — 社外秘</div><br>AIGC事業 進捗ボード　最終更新 ${_lm()} JST<br>数値の正は実データ(PL/SF台帳・CSV)。本ボードは生成時点のスナップショット。</footer>`;
   initSpy();
   wireFoldToggles();
 }
