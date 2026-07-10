@@ -4,9 +4,16 @@
   <script src="../mccm-proposal/auth.js"></script>
   <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>FY26 Q3 OffSite Timer</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Q3 Timer">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="description" content="Firework Japan FY26 Q3 OffSite のタイムキープアプリ">
   <meta property="og:title" content="FY26 Q3 OffSite Timer">
   <meta property="og:description" content="Firework Japan FY26 Q3 OffSite のタイムキープアプリ">
@@ -17,8 +24,58 @@
   <meta name="twitter:description" content="Firework Japan FY26 Q3 OffSite のタイムキープアプリ">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    :root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    html, body {
+      overscroll-behavior-y: contain;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      padding-top: var(--safe-top);
+      padding-bottom: var(--safe-bottom);
+    }
+    /* ===== NOW BAR ===== */
+    .now-bar {
+      position: sticky;
+      top: var(--safe-top);
+      z-index: 40;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .now-bar-progress {
+      height: 6px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .now-bar-progress-fill {
+      height: 100%;
+      background: #ffffff;
+      transition: width 0.5s linear, background 0.4s;
+      border-radius: 999px;
+    }
+    .now-bar.state-safe    { background: linear-gradient(135deg, #16a34a, #22c55e); }
+    .now-bar.state-warn    { background: linear-gradient(135deg, #f59e0b, #fb923c); }
+    .now-bar.state-danger  { background: linear-gradient(135deg, #dc2626, #ef4444); }
+    .now-bar.state-over    { background: linear-gradient(135deg, #991b1b, #dc2626); animation: overpulse 1.2s ease-in-out infinite; }
+    .now-bar.state-idle    { background: linear-gradient(135deg, #475569, #64748b); }
+    @keyframes overpulse {
+      0%, 100% { box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4); }
+      50%      { box-shadow: 0 6px 34px rgba(220, 38, 38, 0.9); }
+    }
+    .now-countdown {
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+    }
+    .now-countdown.blink { animation: blink 1s ease-in-out infinite; }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.55; }
+    }
+    /* ===== SESSION CARD ===== */
     .session-card {
-      transition: all 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .session-card:hover {
       transform: translateX(4px);
@@ -28,346 +85,1048 @@
     }
     @keyframes pulse-border {
       0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
-      50% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+      50%      { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
     }
     .delay-btn {
-      min-width: 44px;
-      height: 44px;
+      min-width: 42px;
+      height: 42px;
       touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
       cursor: pointer;
       user-select: none;
+      -webkit-user-select: none;
+      font-variant-numeric: tabular-nums;
     }
-    button {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
+    .delay-btn:active { transform: scale(0.94); }
+    button { touch-action: manipulation; }
+    .edit-input {
+      width: 100%;
+      background: #fef3c7;
+      border: 2px solid #fbbf24;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-weight: 600;
     }
+    .edit-input.num {
+      width: 80px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    /* ===== FAB ===== */
+    .fab {
+      position: fixed;
+      right: 16px;
+      bottom: calc(16px + var(--safe-bottom));
+      z-index: 45;
+      background: #2563eb;
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+      display: none;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s;
+    }
+    .fab:active { transform: scale(0.96); }
+    .fab.visible { display: inline-flex; }
+    .fab .fab-dot {
+      width: 8px; height: 8px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
+      animation: dotBlink 1.2s ease-in-out infinite;
+    }
+    @keyframes dotBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(80px + var(--safe-bottom));
+      transform: translateX(-50%) translateY(20px);
+      z-index: 60;
+      background: #1f2937;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+      max-width: calc(100vw - 32px);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+    .toast .toast-action {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    /* ===== BOTTOM SHEET (history) ===== */
+    .sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 70;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .sheet-backdrop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .sheet {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 71;
+      background: #ffffff;
+      border-radius: 20px 20px 0 0;
+      padding: 12px 16px calc(16px + var(--safe-bottom));
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: 75vh;
+      overflow-y: auto;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
+    }
+    .sheet.show { transform: translateY(0); }
+    .sheet-handle {
+      width: 42px; height: 4px;
+      background: #d1d5db;
+      border-radius: 999px;
+      margin: 4px auto 12px;
+    }
+    /* ===== SIM BANNER ===== */
+    .sim-banner {
+      position: fixed;
+      top: calc(var(--safe-top) + 8px);
+      right: 8px;
+      z-index: 50;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid #fbbf24;
+      display: none;
+    }
+    .sim-banner.on { display: inline-block; }
+    /* ===== ICON BUTTON ===== */
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 16px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .icon-btn:active { transform: scale(0.92); background: #e5e7eb; }
+    .icon-btn:disabled { opacity: 0.35; }
+    .icon-btn.on { background: #dbeafe; color: #1d4ed8; }
+
+    .edit-mode-banner {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+    }
+    .edit-mode-banner.on { display: inline-block; }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
-  <div id="app" class="max-w-2xl mx-auto p-4 pb-24">
-    <!-- Header -->
-    <header class="bg-white rounded-xl shadow-lg p-4 mb-4 sticky top-2 z-10">
-      <div class="flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <div>
-            <h1 class="text-xl font-bold text-gray-800">Q3 OffSite Timer</h1>
-            <div class="text-xs text-gray-400">2026.07.17 (Fri)</div>
-          </div>
-          <button onclick="resetAllDelays()" class="text-xs px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg transition-colors">
-            リセット
-          </button>
+  <div class="sim-banner" id="sim-banner">⏳ SIM <span id="sim-time"></span></div>
+
+  <div id="app" class="max-w-2xl mx-auto px-3 pb-24 pt-2">
+
+    <!-- NOW BAR (Sticky top) -->
+    <div id="now-bar" class="now-bar state-idle rounded-2xl shadow-lg p-4 mb-3 text-white">
+      <div class="flex justify-between items-start gap-3">
+        <div class="min-w-0 flex-1">
+          <div class="text-xs uppercase tracking-widest opacity-80" id="now-label">Idle</div>
+          <div id="now-session-name" class="text-base font-bold truncate">--</div>
+          <div id="now-planned-range" class="text-xs opacity-80 mt-0.5">--</div>
         </div>
         <div class="text-right">
-          <div id="current-time" class="text-2xl font-mono font-bold text-blue-600"></div>
-          <div id="total-delay" class="text-lg font-bold text-red-500"></div>
+          <div id="now-countdown" class="now-countdown text-4xl font-extrabold leading-none">--:--</div>
+          <div id="now-countdown-label" class="text-xs opacity-80 mt-1">残り</div>
         </div>
       </div>
-      <div id="current-session-info" class="mt-3 p-3 bg-blue-50 rounded-lg hidden">
-        <div class="text-sm text-blue-600 font-medium">現在進行中</div>
-        <div id="current-session-title" class="text-lg font-bold text-blue-800"></div>
-        <div id="current-session-time" class="text-sm text-blue-600"></div>
+      <div class="now-bar-progress mt-3">
+        <div id="now-bar-progress-fill" class="now-bar-progress-fill" style="width:0%"></div>
+      </div>
+      <div id="now-actions" class="flex gap-2 mt-3">
+        <button id="btn-end-now" class="flex-1 bg-white text-blue-700 font-bold rounded-xl py-3 text-sm active:bg-blue-50">
+          ⏹ 今この瞬間に終了
+        </button>
+        <button id="btn-ext-5" class="px-3 bg-white/20 backdrop-blur text-white font-bold rounded-xl text-sm active:bg-white/30">
+          +5延長
+        </button>
+        <button id="btn-cut-5" class="px-3 bg-white/20 backdrop-blur text-white font-bold rounded-xl text-sm active:bg-white/30">
+          -5切上
+        </button>
+      </div>
+    </div>
+
+    <!-- Header (compact) -->
+    <header class="bg-white rounded-xl shadow p-3 mb-3">
+      <div class="flex justify-between items-center gap-2">
+        <div class="min-w-0 flex-1">
+          <div class="flex items-baseline gap-2">
+            <h1 class="text-base font-bold text-gray-800 truncate">Q3 OffSite Timer</h1>
+            <div class="text-[10px] text-gray-400 whitespace-nowrap">2026.07.17 (Fri)</div>
+          </div>
+          <div class="flex items-center gap-2 mt-0.5">
+            <div id="current-time" class="text-lg font-mono font-bold text-blue-600"></div>
+            <div id="total-delay" class="text-sm font-bold whitespace-nowrap"></div>
+            <span id="edit-mode-banner" class="edit-mode-banner">✎ 編集モード</span>
+          </div>
+        </div>
+        <div class="flex gap-1.5 shrink-0">
+          <button id="btn-undo" class="icon-btn" title="元に戻す" aria-label="元に戻す">↶</button>
+          <button id="btn-history" class="icon-btn" title="履歴" aria-label="履歴">🕒</button>
+          <button id="btn-share" class="icon-btn" title="共有" aria-label="Slack共有">📤</button>
+          <button id="btn-edit" class="icon-btn" title="編集モード" aria-label="編集">✎</button>
+          <button id="btn-reset" class="icon-btn" title="リセット" aria-label="リセット">↻</button>
+        </div>
       </div>
     </header>
 
     <!-- Schedule List -->
-    <div id="schedule-list" class="space-y-2">
-      <!-- Generated by JavaScript -->
+    <div id="schedule-list" class="space-y-2"></div>
+  </div>
+
+  <!-- FAB: Jump to Now -->
+  <button id="fab-jump" class="fab" aria-label="現在のセッションへ">
+    <span class="fab-dot"></span>
+    <span>Now</span>
+  </button>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span id="toast-msg">--</span>
+    <button id="toast-action" class="toast-action" hidden>元に戻す</button>
+  </div>
+
+  <!-- History Sheet -->
+  <div id="sheet-backdrop" class="sheet-backdrop"></div>
+  <div id="sheet" class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="flex justify-between items-center mb-2">
+      <div class="font-bold text-gray-800">操作履歴</div>
+      <button id="sheet-close" class="icon-btn">✕</button>
     </div>
+    <div id="history-list" class="text-sm text-gray-600 space-y-2">
+      <!-- entries -->
+    </div>
+    <div id="history-empty" class="text-center text-sm text-gray-400 py-8">まだ操作履歴はありません</div>
   </div>
 
   <script>
+    'use strict';
+
     // ========================================
-    // 初期スケジュールデータ（全セッション）
+    // 初期スケジュールデータ
     // ========================================
     const initialSchedule = [
-      { id: 1, time: "11:00", duration: 10, title: "Opening", detail: "開会", delay: 0 },
-      { id: 2, time: "11:10", duration: 60, title: "四半期振り返り＆次期戦略方針", detail: "Kazuki — Q2振り返り・Q3戦略方針の共有", delay: 0 },
-      { id: 3, time: "12:10", duration: 40, title: "昼休憩", detail: "ランチ休憩", delay: 0 },
-      { id: 4, time: "12:50", duration: 10, title: "Pre-Mortem進捗共有（Q2分）", detail: "Missy — Q2 Pre-Mortemで洗い出した課題の対応状況を確認", delay: 0 },
-      { id: 5, time: "13:00", duration: 70, title: "Revenue Growthワークショップ（前半）", detail: "Midori — なぜ新規・アップセルでARRを伸ばせないのかを発散", delay: 0 },
-      { id: 6, time: "14:10", duration: 20, title: "休憩＆AI整理", detail: "休憩", delay: 0 },
-      { id: 7, time: "14:30", duration: 60, title: "Revenue Growthワークショップ（後半）", detail: "Midori — 前半うけてアクションを整理", delay: 0 },
-      { id: 8, time: "15:30", duration: 10, title: "Short Break", detail: "休憩", delay: 0 },
-      { id: 9, time: "15:40", duration: 180, title: "AIGC戦略ワークショップ", detail: "Nobu — 業界別チームで実戦アウトプットを制作・発表", delay: 0 },
-      { id: 10, time: "18:40", duration: 5, title: "Closing", detail: "クロージング", delay: 0 },
-      { id: 11, time: "18:45", duration: 15, title: "移動＆片付け", detail: "🧹 片付け・撤収準備 → 懇親会場へ移動", delay: 0 },
-      { id: 12, time: "19:00", duration: 0, title: "懇親会", detail: "お疲れ様でした！", delay: 0 },
+      { id: 1,  time: "11:00", duration: 10,  title: "Opening", detail: "開会", delay: 0 },
+      { id: 2,  time: "11:10", duration: 60,  title: "四半期振り返り＆次期戦略方針", detail: "Kazuki — Q2振り返り・Q3戦略方針の共有", delay: 0 },
+      { id: 3,  time: "12:10", duration: 40,  title: "昼休憩", detail: "ランチ休憩", delay: 0 },
+      { id: 4,  time: "12:50", duration: 10,  title: "Pre-Mortem進捗共有（Q2分）", detail: "Missy — Q2 Pre-Mortemで洗い出した課題の対応状況を確認", delay: 0 },
+      { id: 5,  time: "13:00", duration: 70,  title: "Revenue Growthワークショップ（前半）", detail: "Midori — なぜ新規・アップセルでARRを伸ばせないのかを発散", delay: 0 },
+      { id: 6,  time: "14:10", duration: 20,  title: "休憩＆AI整理", detail: "休憩", delay: 0 },
+      { id: 7,  time: "14:30", duration: 60,  title: "Revenue Growthワークショップ（後半）", detail: "Midori — 前半うけてアクションを整理", delay: 0 },
+      { id: 8,  time: "15:30", duration: 10,  title: "Short Break", detail: "休憩", delay: 0 },
+      { id: 9,  time: "15:40", duration: 180, title: "AIGC戦略ワークショップ", detail: "Nobu — 業界別チームで実戦アウトプットを制作・発表", delay: 0 },
+      { id: 10, time: "18:40", duration: 5,   title: "Closing", detail: "クロージング", delay: 0 },
+      { id: 11, time: "18:45", duration: 15,  title: "移動＆片付け", detail: "🧹 片付け・撤収準備 → 懇親会場へ移動", delay: 0 },
+      { id: 12, time: "19:00", duration: 0,   title: "懇親会", detail: "お疲れ様でした！", delay: 0 },
     ];
 
-    // アプリケーション状態
+    // ========================================
+    // Storage keys
+    // ========================================
+    const K_DELAYS  = 'offsite-schedule-q3';         // BC: array of {id, delay}
+    const K_EDITS   = 'offsite-schedule-q3-edits';   // { [id]: { title?, duration? } }
+    const K_HISTORY = 'offsite-schedule-q3-history'; // array of {ts, id, delta, before, after, kind}
+
+    // ========================================
+    // State
+    // ========================================
     let schedule = JSON.parse(JSON.stringify(initialSchedule));
+    let edits    = {};
+    let history  = [];      // ordered undo stack
+    let editMode = false;
+    let lastToastState = null;  // for undo of reset
 
-    // LocalStorageから復元
-    const savedData = localStorage.getItem('offsite-schedule-q3');
-    if (savedData) {
-      try {
-        const parsed = JSON.parse(savedData);
-        // delayのみ復元
-        schedule = schedule.map(item => {
-          const saved = parsed.find(s => s.id === item.id);
-          return saved ? { ...item, delay: saved.delay } : item;
+    // Load
+    try {
+      const savedDelays = localStorage.getItem(K_DELAYS);
+      if (savedDelays) {
+        const parsed = JSON.parse(savedDelays);
+        schedule = schedule.map((item) => {
+          const saved = parsed.find((s) => s.id === item.id);
+          return saved ? { ...item, delay: saved.delay || 0 } : item;
         });
-      } catch (e) {
-        console.error('Failed to load saved data', e);
       }
+      const savedEdits = localStorage.getItem(K_EDITS);
+      if (savedEdits) edits = JSON.parse(savedEdits) || {};
+      const savedHistory = localStorage.getItem(K_HISTORY);
+      if (savedHistory) history = JSON.parse(savedHistory) || [];
+    } catch (e) {
+      console.error('State load error', e);
     }
+
+    // Apply edits into working schedule (title & duration)
+    function applyEdits() {
+      schedule = schedule.map((item) => {
+        const ed = edits[item.id];
+        if (!ed) return item;
+        return {
+          ...item,
+          title: ed.title != null ? ed.title : item.title,
+          duration: ed.duration != null ? ed.duration : item.duration,
+        };
+      });
+    }
+    applyEdits();
+
+    function saveDelays() {
+      localStorage.setItem(K_DELAYS, JSON.stringify(schedule.map((s) => ({ id: s.id, delay: s.delay }))));
+    }
+    function saveEdits()   { localStorage.setItem(K_EDITS,   JSON.stringify(edits)); }
+    function saveHistory() { localStorage.setItem(K_HISTORY, JSON.stringify(history.slice(-100))); }
 
     // ========================================
-    // ヘルパー関数
+    // Time simulation (?now=)
     // ========================================
-
-    // 時間文字列を分に変換 ("12:30" -> 750)
-    function timeToMinutes(timeStr) {
-      const [hours, minutes] = timeStr.split(':').map(Number);
-      return hours * 60 + minutes;
+    const urlParams = new URLSearchParams(location.search);
+    const simRaw = urlParams.get('now');
+    let clockOffset = 0;
+    if (simRaw) {
+      let s = simRaw;
+      // If HH:MM only, assume today JST
+      if (/^\d{1,2}:\d{2}$/.test(s)) {
+        const now = new Date();
+        const [hh, mm] = s.split(':').map(Number);
+        const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hh, mm, 0);
+        clockOffset = target.getTime() - Date.now();
+      } else {
+        if (!/[Zz]|[+-]\d\d:?\d\d$/.test(s)) s += '+09:00';
+        const d = new Date(s);
+        if (!isNaN(d.getTime())) clockOffset = d.getTime() - Date.now();
+      }
+      const banner = document.getElementById('sim-banner');
+      if (banner) banner.classList.add('on');
     }
-
-    // 分を時間文字列に変換 (750 -> "12:30")
-    function minutesToTime(totalMinutes) {
-      const hours = Math.floor(totalMinutes / 60);
-      const minutes = totalMinutes % 60;
-      return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-    }
-
-    // 現在時刻を取得（分単位）
+    function nowDate() { return new Date(Date.now() + clockOffset); }
     function getCurrentMinutes() {
-      const now = new Date();
-      return now.getHours() * 60 + now.getMinutes();
+      const n = nowDate();
+      return n.getHours() * 60 + n.getMinutes() + n.getSeconds() / 60;
     }
 
     // ========================================
-    // コア計算ロジック
+    // Time helpers
+    // ========================================
+    function timeToMinutes(timeStr) {
+      const [h, m] = timeStr.split(':').map(Number);
+      return h * 60 + m;
+    }
+    function minutesToTime(totalMinutes) {
+      const h = Math.floor(totalMinutes / 60);
+      const m = Math.floor(totalMinutes % 60);
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+    }
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function fmtMMSS(minutes) {
+      const totalSec = Math.max(0, Math.round(minutes * 60));
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      return pad(m) + ':' + pad(s);
+    }
+    function fmtHMS(minutes) {
+      const totalSec = Math.abs(Math.round(minutes * 60));
+      const h = Math.floor(totalSec / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
+      const s = totalSec % 60;
+      if (h > 0) return h + ':' + pad(m) + ':' + pad(s);
+      return pad(m) + ':' + pad(s);
+    }
+
+    // ========================================
+    // Core calculation
     // ========================================
     function calculateSchedule() {
       const baseMinutes = timeToMinutes(schedule[0].time);
-      let currentMinutes = baseMinutes;
-
-      return schedule.map((item, index) => {
+      let cursor = baseMinutes;
+      return schedule.map((item) => {
         const originalStart = timeToMinutes(item.time);
-        const actualStart = currentMinutes;
+        const actualStart = cursor;
         const actualEnd = actualStart + item.duration + item.delay;
-
-        // 次のアイテムの開始時間を更新
-        currentMinutes = actualEnd;
-
-        // 遅延計算（予定開始時刻との差分）
-        const startDiff = actualStart - originalStart;
-
+        cursor = actualEnd;
         return {
           ...item,
           originalTime: item.time,
           actualStartTime: minutesToTime(actualStart),
           actualEndTime: minutesToTime(actualEnd),
-          startDiff: startDiff,
-          isDelayed: item.delay > 0 || startDiff > 0
+          actualStartMin: actualStart,
+          actualEndMin: actualEnd,
+          startDiff: actualStart - originalStart,
         };
       });
     }
-
-    // 合計ディレイ計算
     function getTotalDelay() {
-      return schedule.reduce((sum, item) => sum + item.delay, 0);
+      return schedule.reduce((sum, s) => sum + (s.delay || 0), 0);
     }
-
-    // 現在進行中のセッションを取得
-    function getCurrentSession(calculated) {
-      const currentMinutes = getCurrentMinutes();
-
-      for (const session of calculated) {
-        const start = timeToMinutes(session.actualStartTime);
-        const end = timeToMinutes(session.actualEndTime);
-
-        if (currentMinutes >= start && currentMinutes < end) {
-          return session;
-        }
+    function getCurrentSession(calc) {
+      const m = getCurrentMinutes();
+      for (const s of calc) {
+        if (m >= s.actualStartMin && m < s.actualEndMin) return s;
+      }
+      return null;
+    }
+    function getNextSession(calc) {
+      const m = getCurrentMinutes();
+      for (const s of calc) {
+        if (s.actualStartMin > m) return s;
       }
       return null;
     }
 
     // ========================================
-    // UI更新関数
+    // History (undo stack) — only for delay changes
     // ========================================
-    function updateDelay(id, change) {
-      schedule = schedule.map(item => {
-        if (item.id === id) {
-          const newDelay = item.delay + change;
-          return { ...item, delay: newDelay };
-        }
-        return item;
-      });
-
-      // LocalStorageに保存
-      localStorage.setItem('offsite-schedule-q3', JSON.stringify(schedule.map(s => ({ id: s.id, delay: s.delay }))));
-
-      render();
+    function pushHistory(entry) {
+      history.push({ ...entry, ts: Date.now() + clockOffset });
+      saveHistory();
+      updateUndoButton();
+    }
+    function updateUndoButton() {
+      const canUndo = history.some((h) => h.kind === 'delay');
+      document.getElementById('btn-undo').disabled = !canUndo;
     }
 
+    // Apply a delay change and record it
+    function applyDelayChange(id, delta, opts = {}) {
+      if (!delta) return;
+      const target = schedule.find((s) => s.id === id);
+      if (!target) return;
+      const before = target.delay;
+      target.delay = before + delta;
+      saveDelays();
+      if (!opts.silent) {
+        pushHistory({ kind: 'delay', id, delta, before, after: target.delay });
+      }
+      if (!opts.skipRender) render();
+    }
+
+    function undoLast() {
+      // Find last delay entry
+      for (let i = history.length - 1; i >= 0; i--) {
+        if (history[i].kind === 'delay') {
+          const h = history[i];
+          const target = schedule.find((s) => s.id === h.id);
+          if (target) {
+            target.delay = h.before;
+            saveDelays();
+          }
+          history.splice(i, 1);
+          saveHistory();
+          render();
+          showToast(`セッション${h.id}の${h.delta > 0 ? '+' : ''}${h.delta}分を取り消し`);
+          return;
+        }
+      }
+      showToast('元に戻す操作がありません');
+    }
+
+    // ========================================
+    // Rendering
+    // ========================================
+    let lastCurrentId = null;
+
     function render() {
-      const calculated = calculateSchedule();
+      const calc = calculateSchedule();
       const totalDelay = getTotalDelay();
-      const currentSession = getCurrentSession(calculated);
+      const currentSession = getCurrentSession(calc);
+      const nextSession = getNextSession(calc);
       const currentMinutes = getCurrentMinutes();
 
-      // 合計ディレイ表示
+      // Total delay label
       const delayEl = document.getElementById('total-delay');
       if (totalDelay > 0) {
         delayEl.textContent = `🔺 ${totalDelay}分遅延`;
-        delayEl.className = 'text-lg font-bold text-red-500';
+        delayEl.className = 'text-sm font-bold text-red-500 whitespace-nowrap';
       } else if (totalDelay < 0) {
         delayEl.textContent = `🔽 ${Math.abs(totalDelay)}分前倒し`;
-        delayEl.className = 'text-lg font-bold text-blue-500';
+        delayEl.className = 'text-sm font-bold text-blue-500 whitespace-nowrap';
       } else {
         delayEl.textContent = '✅ 予定通り';
-        delayEl.className = 'text-lg font-bold text-green-500';
+        delayEl.className = 'text-sm font-bold text-green-500 whitespace-nowrap';
       }
 
-      // 現在進行中セッション
-      const currentInfo = document.getElementById('current-session-info');
-      const currentTitle = document.getElementById('current-session-title');
-      const currentTime = document.getElementById('current-session-time');
-
-      if (currentSession) {
-        currentInfo.classList.remove('hidden');
-        currentTitle.textContent = currentSession.title;
-        currentTime.textContent = `${currentSession.actualStartTime} - ${currentSession.actualEndTime}`;
-      } else {
-        currentInfo.classList.add('hidden');
-      }
-
-      // スケジュールリスト
+      // Schedule list
       const listEl = document.getElementById('schedule-list');
-      listEl.innerHTML = calculated.map((item, index) => {
+      listEl.innerHTML = calc.map((item) => {
         const isCurrent = currentSession && currentSession.id === item.id;
-        const isPast = timeToMinutes(item.actualEndTime) < currentMinutes;
-        const hasDelay = item.delay !== 0;
+        const isPast = item.actualEndMin <= currentMinutes;
         const isStartDelayed = item.startDiff > 0;
         const isStartEarly = item.startDiff < 0;
+        const isFuture = item.actualStartMin > currentMinutes;
+        const isAfterparty = item.duration === 0 && item.id === 12;
 
         let borderColor = 'border-blue-500';
         let bgColor = 'bg-white';
+        if (isPast) { borderColor = 'border-gray-300'; bgColor = 'bg-gray-50'; }
+        else if (isCurrent) { borderColor = 'border-blue-500'; bgColor = 'bg-blue-50'; }
+        else if (item.delay > 0) { borderColor = 'border-red-500'; }
+        else if (item.delay < 0) { borderColor = 'border-blue-500'; }
+        else if (isStartDelayed) { borderColor = 'border-orange-400'; }
+        else if (isStartEarly) { borderColor = 'border-blue-400'; }
 
-        if (isPast) {
-          borderColor = 'border-gray-300';
-          bgColor = 'bg-gray-50';
-        } else if (isCurrent) {
-          borderColor = 'border-blue-500';
-          bgColor = 'bg-blue-50';
-        } else if (item.delay > 0) {
-          borderColor = 'border-red-500';
-        } else if (item.delay < 0) {
-          borderColor = 'border-blue-500';
-        } else if (isStartDelayed) {
-          borderColor = 'border-orange-400';
-        } else if (isStartEarly) {
-          borderColor = 'border-blue-400';
-        }
+        const endLabel = isAfterparty ? '〜' : item.actualEndTime;
+        const editedTitle = edits[item.id] && edits[item.id].title != null;
+        const editedDuration = edits[item.id] && edits[item.id].duration != null;
+
+        const titleHtml = editMode
+          ? `<input class="edit-input" data-edit-title="${item.id}" value="${escapeHtml(item.title)}" />`
+          : `<div class="font-semibold text-gray-800 mt-1 ${editedTitle ? 'text-amber-600' : ''}">
+               ${editedTitle ? '<span class="text-[10px] bg-amber-100 text-amber-700 px-1 rounded mr-1">編集</span>' : ''}
+               ${escapeHtml(item.title)}
+             </div>`;
+        const durationHtml = editMode
+          ? `<label class="text-xs text-gray-500 flex items-center gap-1 mt-1">
+               所要時間 <input type="number" class="edit-input num" data-edit-duration="${item.id}" value="${item.duration}" min="0" step="1" /> 分
+             </label>`
+          : `<div class="text-xs text-gray-400 mt-1">
+               所要時間: ${item.duration}分 ${editedDuration ? '<span class="bg-amber-100 text-amber-700 px-1 rounded">編集</span>' : ''}
+             </div>`;
 
         return `
-          <div class="session-card border-l-4 ${borderColor} ${bgColor} rounded-r-lg p-4 shadow ${isCurrent ? 'current-session' : ''} ${isPast ? 'opacity-60' : ''}">
-            <div class="flex justify-between items-start gap-4">
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
+          <div class="session-card border-l-4 ${borderColor} ${bgColor} rounded-r-lg p-3 shadow ${isCurrent ? 'current-session' : ''} ${isPast ? 'opacity-60' : ''}"
+               data-session-id="${item.id}">
+            <div class="flex justify-between items-start gap-3">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center flex-wrap gap-2 mb-1">
                   <span class="text-lg font-bold ${isStartDelayed && !isPast ? 'text-red-600' : 'text-gray-800'}">
                     ${item.actualStartTime}
                   </span>
                   <span class="text-gray-400">→</span>
                   <span class="text-lg font-bold text-gray-600">
-                    ${item.actualEndTime}
+                    ${endLabel}
                   </span>
                   ${isStartDelayed && !isPast ? `<span class="text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded-full">+${item.startDiff}分</span>` : ''}
                   ${isStartEarly && !isPast ? `<span class="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">${item.startDiff}分</span>` : ''}
+                  ${isCurrent ? '<span class="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full font-bold">NOW</span>' : ''}
                 </div>
-                <div class="text-gray-500 text-sm line-through ${(isStartDelayed || isStartEarly) ? '' : 'hidden'}">
+                <div class="text-gray-500 text-xs line-through ${(isStartDelayed || isStartEarly) ? '' : 'hidden'}">
                   予定: ${item.originalTime}
                 </div>
-                <div class="font-semibold text-gray-800 mt-1">${item.title}</div>
-                <div class="text-sm text-gray-500">${item.detail}</div>
-                <div class="text-xs text-gray-400 mt-1">所要時間: ${item.duration}分</div>
+                ${titleHtml}
+                <div class="text-sm text-gray-500">${escapeHtml(item.detail)}</div>
+                ${durationHtml}
               </div>
-
-              <div class="flex flex-col items-center gap-1">
-                <div class="text-xs text-gray-500 mb-1">時間調整</div>
-                <div class="flex items-center gap-1">
-                  <button
-                    data-delay-id="${item.id}" data-delay-change="-1"
-                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-lg font-bold transition-colors"
-                  >-1</button>
-                  <span class="w-10 text-center font-bold text-lg ${item.delay > 0 ? 'text-red-600' : item.delay < 0 ? 'text-blue-600' : 'text-gray-400'}">
-                    ${item.delay > 0 ? '+' : ''}${item.delay}
+              ${isAfterparty ? '' : `
+                <div class="flex flex-col items-center gap-1 shrink-0">
+                  <div class="text-[10px] text-gray-500">時間調整</div>
+                  <div class="flex items-center gap-1">
+                    <button data-delay-id="${item.id}" data-delay-change="-10" class="delay-btn bg-gray-200 text-gray-500 rounded-lg font-bold text-xs px-2">-10</button>
+                    <button data-delay-id="${item.id}" data-delay-change="-5"  class="delay-btn bg-gray-200 text-gray-500 rounded-lg font-bold text-xs px-2">-5</button>
+                    <button data-delay-id="${item.id}" data-delay-change="-1"  class="delay-btn bg-gray-200 text-gray-600 rounded-lg font-bold text-xs px-2">-1</button>
+                  </div>
+                  <span class="text-center font-bold text-lg ${item.delay > 0 ? 'text-red-600' : item.delay < 0 ? 'text-blue-600' : 'text-gray-400'} font-mono">
+                    ${item.delay > 0 ? '+' : ''}${item.delay}分
                   </span>
-                  <button
-                    data-delay-id="${item.id}" data-delay-change="1"
-                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-gray-600 transition-colors"
-                  >+1</button>
+                  <div class="flex items-center gap-1">
+                    <button data-delay-id="${item.id}" data-delay-change="1"  class="delay-btn bg-gray-200 text-gray-600 rounded-lg font-bold text-xs px-2">+1</button>
+                    <button data-delay-id="${item.id}" data-delay-change="5"  class="delay-btn bg-gray-200 text-gray-500 rounded-lg font-bold text-xs px-2">+5</button>
+                    <button data-delay-id="${item.id}" data-delay-change="10" class="delay-btn bg-gray-200 text-gray-500 rounded-lg font-bold text-xs px-2">+10</button>
+                  </div>
                 </div>
-                <div class="flex gap-1 mt-1">
-                  <button
-                    data-delay-id="${item.id}" data-delay-change="-5"
-                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-500 rounded-lg font-bold transition-colors"
-                  >-5</button>
-                  <button
-                    data-delay-id="${item.id}" data-delay-change="5"
-                    class="delay-btn flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-lg font-bold text-gray-500 transition-colors"
-                  >+5</button>
-                </div>
-              </div>
+              `}
             </div>
           </div>
         `;
       }).join('');
+
+      // Auto-scroll on session change (not on every tick)
+      if (currentSession && currentSession.id !== lastCurrentId) {
+        const shouldScroll = lastCurrentId === null; // only on first render
+        lastCurrentId = currentSession.id;
+        if (shouldScroll) {
+          setTimeout(() => {
+            const el = listEl.querySelector(`[data-session-id="${currentSession.id}"]`);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 400);
+        }
+      }
+
+      // Update Now Bar (immediate)
+      updateNowBar(calc, currentSession, nextSession);
+      updateUndoButton();
     }
 
-    // 現在時刻更新
+    // ========================================
+    // NOW BAR (updates every tick)
+    // ========================================
+    function updateNowBar(calc, currentSession, nextSession) {
+      const bar = document.getElementById('now-bar');
+      const label = document.getElementById('now-label');
+      const name = document.getElementById('now-session-name');
+      const range = document.getElementById('now-planned-range');
+      const cd = document.getElementById('now-countdown');
+      const cdLabel = document.getElementById('now-countdown-label');
+      const fill = document.getElementById('now-bar-progress-fill');
+      const actions = document.getElementById('now-actions');
+
+      const currentMinutes = getCurrentMinutes();
+
+      // Clean previous classes
+      bar.classList.remove('state-safe', 'state-warn', 'state-danger', 'state-over', 'state-idle');
+      cd.classList.remove('blink');
+
+      if (currentSession) {
+        const remain = currentSession.actualEndMin - currentMinutes; // minutes
+        const total = currentSession.duration + currentSession.delay;
+        const elapsed = currentMinutes - currentSession.actualStartMin;
+        const pct = total > 0 ? Math.max(0, Math.min(100, (elapsed / total) * 100)) : 0;
+
+        label.textContent = '進行中';
+        name.textContent = currentSession.title;
+        range.textContent = `${currentSession.actualStartTime} → ${currentSession.actualEndTime} (${total}分)`;
+        fill.style.width = pct + '%';
+
+        if (remain < 0) {
+          bar.classList.add('state-over');
+          cd.classList.add('blink');
+          cd.textContent = '+' + fmtHMS(remain);
+          cdLabel.textContent = '超過';
+        } else if (remain <= 1) {
+          bar.classList.add('state-danger');
+          cd.textContent = fmtMMSS(remain);
+          cdLabel.textContent = '残り';
+        } else if (remain <= 3) {
+          bar.classList.add('state-warn');
+          cd.textContent = fmtMMSS(remain);
+          cdLabel.textContent = '残り';
+        } else {
+          bar.classList.add('state-safe');
+          cd.textContent = fmtMMSS(remain);
+          cdLabel.textContent = '残り';
+        }
+        actions.style.display = '';
+      } else if (nextSession) {
+        // Before day start or between sessions (rare)
+        const untilStart = nextSession.actualStartMin - currentMinutes;
+        bar.classList.add('state-idle');
+        label.textContent = nextSession === calc[0] ? '開始まで' : '次のセッションまで';
+        name.textContent = nextSession.title;
+        range.textContent = `${nextSession.actualStartTime} 開始`;
+        fill.style.width = '0%';
+        if (untilStart > 60) {
+          const h = Math.floor(untilStart / 60);
+          const m = Math.floor(untilStart % 60);
+          cd.textContent = `${h}:${pad(m)}`;
+        } else {
+          cd.textContent = fmtMMSS(untilStart);
+        }
+        cdLabel.textContent = '';
+        actions.style.display = 'none';
+      } else {
+        // After all sessions
+        bar.classList.add('state-idle');
+        label.textContent = '終了';
+        name.textContent = 'お疲れさまでした';
+        range.textContent = '';
+        fill.style.width = '100%';
+        cd.textContent = '--:--';
+        cdLabel.textContent = '';
+        actions.style.display = 'none';
+      }
+
+      // FAB visibility
+      const fab = document.getElementById('fab-jump');
+      if (currentSession) fab.classList.add('visible');
+      else fab.classList.remove('visible');
+    }
+
+    // ========================================
+    // Utils
+    // ========================================
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function vibrate(ms) {
+      if (navigator.vibrate) { try { navigator.vibrate(ms); } catch (e) {} }
+    }
+
+    // ========================================
+    // Toast
+    // ========================================
+    let toastTimer = 0;
+    let toastActionHandler = null;
+    function showToast(msg, opts = {}) {
+      const el = document.getElementById('toast');
+      const msgEl = document.getElementById('toast-msg');
+      const actionEl = document.getElementById('toast-action');
+      msgEl.textContent = msg;
+      if (opts.action) {
+        actionEl.hidden = false;
+        actionEl.textContent = opts.action.label || '元に戻す';
+        toastActionHandler = opts.action.handler;
+      } else {
+        actionEl.hidden = true;
+        toastActionHandler = null;
+      }
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        el.classList.remove('show');
+        toastActionHandler = null;
+      }, opts.duration || 3500);
+    }
+    document.getElementById('toast-action').addEventListener('click', () => {
+      if (toastActionHandler) toastActionHandler();
+      document.getElementById('toast').classList.remove('show');
+    });
+
+    // ========================================
+    // Clock
+    // ========================================
     function updateClock() {
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString('ja-JP', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
+      const now = nowDate();
+      const timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
       document.getElementById('current-time').textContent = timeStr;
+      if (simRaw) document.getElementById('sim-time').textContent = timeStr;
     }
 
-    // リセット機能
-    function resetAllDelays() {
-      if (confirm('全てのディレイをリセットしますか？')) {
-        schedule = JSON.parse(JSON.stringify(initialSchedule));
-        localStorage.removeItem('offsite-schedule-q3');
-        render();
+    // ========================================
+    // "Now finish" — record delay based on current time
+    // ========================================
+    function endNow() {
+      const calc = calculateSchedule();
+      const currentSession = getCurrentSession(calc);
+      if (!currentSession) { showToast('進行中のセッションがありません'); return; }
+      const currentMinutes = getCurrentMinutes();
+      const target = schedule.find((s) => s.id === currentSession.id);
+      if (!target) return;
+      const before = target.delay;
+      // delay = currentMinutes - actualStart - duration
+      const newDelay = Math.round(currentMinutes - currentSession.actualStartMin - target.duration);
+      const delta = newDelay - before;
+      target.delay = newDelay;
+      saveDelays();
+      pushHistory({ kind: 'delay', id: target.id, delta, before, after: newDelay });
+      render();
+      vibrate(30);
+      const sign = delta > 0 ? '+' : '';
+      showToast(`「${currentSession.title}」を今終了 (${sign}${delta}分)`);
+    }
+
+    // ========================================
+    // Slack share
+    // ========================================
+    function buildShareText() {
+      const calc = calculateSchedule();
+      const totalDelay = getTotalDelay();
+      const cur = getCurrentSession(calc);
+      const nxt = getNextSession(calc);
+      const now = nowDate();
+      const clock = pad(now.getHours()) + ':' + pad(now.getMinutes());
+      const lines = [];
+      lines.push('⏱ Q3 OffSite Timer — ' + clock);
+      if (cur) {
+        const remain = cur.actualEndMin - getCurrentMinutes();
+        lines.push(`【現在】${cur.title}`);
+        if (remain >= 0) lines.push(`  残り ${fmtMMSS(remain)} / ${cur.actualStartTime}〜${cur.actualEndTime}`);
+        else lines.push(`  ⚠ 超過 ${fmtHMS(remain)} / 予定終了 ${cur.actualEndTime}`);
+      } else if (nxt) {
+        lines.push(`【次】${nxt.title} (${nxt.actualStartTime}〜)`);
+      }
+      if (totalDelay > 0)      lines.push(`【全体】🔺 +${totalDelay}分遅延`);
+      else if (totalDelay < 0) lines.push(`【全体】🔽 ${Math.abs(totalDelay)}分前倒し`);
+      else                     lines.push('【全体】✅ 予定通り');
+      if (cur && nxt) lines.push(`【次】${nxt.title} (${nxt.actualStartTime}〜${nxt.actualEndTime})`);
+      lines.push('');
+      lines.push('https://riderkarubo.github.io/pages/q3-offsite-timer/');
+      return lines.join('\n');
+    }
+
+    async function shareSlack() {
+      const text = buildShareText();
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: 'Q3 OffSite Timer', text });
+          return;
+        }
+      } catch (e) {}
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('クリップボードにコピーしました');
+      } catch (e) {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); showToast('コピーしました'); }
+        catch (e2) { showToast('コピー失敗'); }
+        document.body.removeChild(ta);
       }
     }
 
-    // render抑制フラグ（ボタン操作直後の自動renderを防ぐ）
-    let lastInteraction = 0;
+    // ========================================
+    // Edit mode
+    // ========================================
+    function toggleEditMode() {
+      editMode = !editMode;
+      document.getElementById('btn-edit').classList.toggle('on', editMode);
+      document.getElementById('edit-mode-banner').classList.toggle('on', editMode);
+      render();
+      if (editMode) showToast('編集モード: タイトル/所要時間を修正できます');
+    }
 
-    // 初期化
+    function handleEditChange(id, field, value) {
+      const item = initialSchedule.find((x) => x.id === id);
+      if (!item) return;
+      edits[id] = edits[id] || {};
+      if (field === 'title') {
+        if (value.trim() === '' || value === item.title) {
+          delete edits[id].title;
+        } else {
+          edits[id].title = value;
+        }
+      } else if (field === 'duration') {
+        const num = parseInt(value, 10);
+        if (isNaN(num) || num < 0 || num === item.duration) {
+          delete edits[id].duration;
+        } else {
+          edits[id].duration = num;
+        }
+      }
+      if (Object.keys(edits[id]).length === 0) delete edits[id];
+      saveEdits();
+      applyEdits();
+      // preserve delays already in `schedule`
+      const delaysBefore = Object.fromEntries(schedule.map((s) => [s.id, s.delay]));
+      schedule = schedule.map((s) => ({ ...s, delay: delaysBefore[s.id] || 0 }));
+      render();
+    }
+
+    // ========================================
+    // Reset with toast+undo
+    // ========================================
+    function resetAllDelays() {
+      const snapshot = {
+        schedule: JSON.parse(JSON.stringify(schedule)),
+        history: JSON.parse(JSON.stringify(history)),
+      };
+      schedule = schedule.map((s) => ({ ...s, delay: 0 }));
+      history = [];
+      saveDelays(); saveHistory();
+      render();
+      showToast('全ディレイをリセットしました', {
+        action: {
+          label: '元に戻す',
+          handler: () => {
+            schedule = snapshot.schedule;
+            history = snapshot.history;
+            saveDelays(); saveHistory();
+            render();
+            showToast('リセットを取り消しました');
+          }
+        },
+        duration: 6000
+      });
+    }
+
+    // ========================================
+    // History sheet
+    // ========================================
+    function openHistorySheet() {
+      const list = document.getElementById('history-list');
+      const empty = document.getElementById('history-empty');
+      const entries = history.slice().reverse();
+      if (entries.length === 0) {
+        list.innerHTML = ''; empty.style.display = '';
+      } else {
+        empty.style.display = 'none';
+        list.innerHTML = entries.map((h) => {
+          const d = new Date(h.ts);
+          const clock = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+          const sess = schedule.find((s) => s.id === h.id);
+          const title = sess ? sess.title : `セッション${h.id}`;
+          const sign = h.delta > 0 ? '+' : '';
+          const color = h.delta > 0 ? 'text-red-600' : h.delta < 0 ? 'text-blue-600' : 'text-gray-600';
+          return `
+            <div class="border-b border-gray-100 pb-2">
+              <div class="flex justify-between items-baseline">
+                <div class="font-mono text-xs text-gray-400">${clock}</div>
+                <div class="font-bold ${color}">${sign}${h.delta}分</div>
+              </div>
+              <div class="text-sm text-gray-800 truncate">${escapeHtml(title)}</div>
+              <div class="text-[10px] text-gray-400">delay: ${h.before} → ${h.after}</div>
+            </div>
+          `;
+        }).join('');
+      }
+      document.getElementById('sheet-backdrop').classList.add('show');
+      document.getElementById('sheet').classList.add('show');
+    }
+    function closeHistorySheet() {
+      document.getElementById('sheet-backdrop').classList.remove('show');
+      document.getElementById('sheet').classList.remove('show');
+    }
+
+    // ========================================
+    // Long press for delay buttons
+    // ========================================
+    function attachLongPress(container) {
+      let activeBtn = null;
+      let holdTimer = 0;
+      let repeatTimer = 0;
+      let didLongPress = false;
+
+      function start(e) {
+        const btn = e.target.closest('[data-delay-id]');
+        if (!btn) return;
+        e.preventDefault();
+        activeBtn = btn;
+        didLongPress = false;
+        holdTimer = setTimeout(() => {
+          didLongPress = true;
+          vibrate(15);
+          repeatTimer = setInterval(() => {
+            const id = parseInt(btn.dataset.delayId, 10);
+            const change = parseInt(btn.dataset.delayChange, 10);
+            applyDelayChange(id, change);
+            vibrate(8);
+          }, 140);
+        }, 450);
+      }
+      function stop() {
+        clearTimeout(holdTimer);
+        clearInterval(repeatTimer);
+        holdTimer = 0; repeatTimer = 0;
+        activeBtn = null;
+      }
+      container.addEventListener('pointerdown', start);
+      container.addEventListener('pointerup', stop);
+      container.addEventListener('pointercancel', stop);
+      container.addEventListener('pointerleave', stop);
+
+      // Regular click (short tap): apply once
+      container.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-delay-id]');
+        if (!btn) return;
+        if (didLongPress) { didLongPress = false; return; }
+        e.preventDefault(); e.stopPropagation();
+        const id = parseInt(btn.dataset.delayId, 10);
+        const change = parseInt(btn.dataset.delayChange, 10);
+        vibrate(12);
+        applyDelayChange(id, change);
+      });
+    }
+
+    // ========================================
+    // Wire up
+    // ========================================
     document.addEventListener('DOMContentLoaded', () => {
       render();
       updateClock();
 
-      // イベント委譲: data-delay-id を持つボタンのクリック/タップを捕捉
-      document.getElementById('schedule-list').addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-delay-id]');
-        if (!btn) return;
-        e.preventDefault();
-        e.stopPropagation();
-        const id = parseInt(btn.dataset.delayId, 10);
-        const change = parseInt(btn.dataset.delayChange, 10);
-        lastInteraction = Date.now();
-        updateDelay(id, change);
+      // Delay buttons
+      const list = document.getElementById('schedule-list');
+      attachLongPress(list);
+
+      // Edit inputs — event delegation
+      list.addEventListener('change', (e) => {
+        const t = e.target;
+        if (t.matches('[data-edit-title]')) {
+          handleEditChange(parseInt(t.dataset.editTitle, 10), 'title', t.value);
+        } else if (t.matches('[data-edit-duration]')) {
+          handleEditChange(parseInt(t.dataset.editDuration, 10), 'duration', t.value);
+        }
       });
 
-      // 1秒ごとに時計更新
-      setInterval(updateClock, 1000);
+      // Header buttons
+      document.getElementById('btn-undo').addEventListener('click', () => { vibrate(10); undoLast(); });
+      document.getElementById('btn-history').addEventListener('click', () => { vibrate(10); openHistorySheet(); });
+      document.getElementById('btn-share').addEventListener('click', () => { vibrate(10); shareSlack(); });
+      document.getElementById('btn-edit').addEventListener('click', () => { vibrate(10); toggleEditMode(); });
+      document.getElementById('btn-reset').addEventListener('click', () => { vibrate(15); resetAllDelays(); });
 
-      // 30秒ごとにセッション状態更新（操作直後2秒は再描画をスキップ）
-      setInterval(() => {
-        if (Date.now() - lastInteraction > 2000) {
-          render();
+      // Now Bar actions
+      document.getElementById('btn-end-now').addEventListener('click', () => { vibrate(20); endNow(); });
+      document.getElementById('btn-ext-5').addEventListener('click', () => {
+        const cur = getCurrentSession(calculateSchedule());
+        if (!cur) return showToast('進行中のセッションがありません');
+        vibrate(15); applyDelayChange(cur.id, 5); showToast(`「${cur.title}」を +5分延長`);
+      });
+      document.getElementById('btn-cut-5').addEventListener('click', () => {
+        const cur = getCurrentSession(calculateSchedule());
+        if (!cur) return showToast('進行中のセッションがありません');
+        vibrate(15); applyDelayChange(cur.id, -5); showToast(`「${cur.title}」を -5分切上`);
+      });
+
+      // History sheet
+      document.getElementById('sheet-close').addEventListener('click', closeHistorySheet);
+      document.getElementById('sheet-backdrop').addEventListener('click', closeHistorySheet);
+
+      // FAB
+      document.getElementById('fab-jump').addEventListener('click', () => {
+        const calc = calculateSchedule();
+        const cur = getCurrentSession(calc);
+        if (cur) {
+          const el = list.querySelector(`[data-session-id="${cur.id}"]`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-      }, 30000);
+      });
+
+      // Tick — only updates lightweight parts every second
+      setInterval(() => {
+        updateClock();
+        const calc = calculateSchedule();
+        updateNowBar(calc, getCurrentSession(calc), getNextSession(calc));
+      }, 1000);
+
+      // Heavy re-render only every 15 seconds to reflect past/current transitions
+      setInterval(() => {
+        // Skip if user is editing an input
+        if (document.activeElement && document.activeElement.matches('input')) return;
+        render();
+      }, 15000);
     });
+
+    // ========================================
+    // Service worker registration
+    // ========================================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch((e) => console.warn('SW registration failed', e));
+      });
+    }
   </script>
 </body>
 </html>
