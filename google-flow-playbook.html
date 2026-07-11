@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google Flow AI動画制作マスタープレイブック</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-<meta name="last-modified" content="2026-07-11T23:46:00+09:00">
+<meta name="last-modified" content="2026-07-12T00:14:07+09:00">
 <meta name="description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
 <meta property="og:title" content="Google Flow AI動画制作マスタープレイブック">
 <meta property="og:description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
@@ -26,44 +26,70 @@
     --accent3: #18c29c;
     --soft: #f5f4fb;
     --code-bg: #f0eefb;
+    --sidebar-w: 268px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
+    margin: 0; background: #f7f6fb; color: var(--ink);
     font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
     line-height: 1.8; font-size: 15px; -webkit-font-smoothing: antialiased;
   }
-  .page { max-width: 940px; margin: 0 auto; padding: 0 18px 80px; }
-  /* cover */
+  a { color: inherit; }
+
+  /* ---- top cover ---- */
   .cover {
     background:
       radial-gradient(120% 140% at 80% -10%, rgba(124,92,255,.45), transparent 55%),
       radial-gradient(120% 130% at 0% 0%, rgba(255,77,157,.35), transparent 50%),
       linear-gradient(135deg, #15131f 0%, #0b0b13 100%);
-    color: #fff; margin: 0 -18px 0; padding: 64px 32px 56px; border-radius: 0 0 26px 26px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    color: #fff; padding: 48px 32px 40px;
   }
+  .cover-inner { max-width: 1320px; margin: 0 auto; }
   .cover .kicker { letter-spacing: .35em; font-size: 11px; color: #c9bfff; font-weight: 700; text-transform: uppercase; }
-  .cover h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.25; margin: 14px 0 12px; font-weight: 800; }
-  .cover .sub { color: #d7d3ee; font-size: 14px; max-width: 680px; }
-  .cover-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16); }
+  .cover h1 { font-size: clamp(24px, 3.6vw, 34px); line-height: 1.3; margin: 12px 0 10px; font-weight: 800; }
+  .cover .sub { color: #d7d3ee; font-size: 13.5px; max-width: 700px; }
+  .cover-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.16); }
   .cover-meta .label { font-size: 10px; letter-spacing: .12em; color: #9d95c9; text-transform: uppercase; }
   .cover-meta .value { font-size: 13px; color: #fff; font-weight: 600; margin-top: 3px; }
-  .badges { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
   .badge { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.12); color: #efeaff; border: 1px solid rgba(255,255,255,.18); }
+
+  /* ---- app shell: sidebar + main ---- */
+  .shell { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: var(--sidebar-w) 1fr; align-items: start; gap: 0; }
+  .sidebar {
+    position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto;
+    padding: 24px 14px 40px 24px; border-right: 1px solid #e6e4f0;
+    background: #fbfaff;
+  }
+  .sidebar-title { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin: 4px 0 10px; }
+  .nav-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #3a3a4a; padding: 7px 10px; border-radius: 9px; font-size: 13px; font-weight: 600; transition: background .15s, color .15s; margin-bottom: 2px; }
+  .nav-link:hover { background: var(--soft); }
+  .nav-link.active { background: linear-gradient(90deg, rgba(124,92,255,.14), rgba(124,92,255,.02)); color: var(--accent); }
+  .nav-num { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: #e9e6f7; color: #5a4bb0; font-size: 10.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .nav-link.active .nav-num { background: var(--accent); color: #fff; }
+  .nav-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); margin-left: 7px; }
+  .nav-link-alt { color: #4a4a58; }
+  .nav-divider { height: 1px; background: var(--line); margin: 12px 4px 12px; }
+  .sidebar-toggle { display: none; }
+
+  .main { padding: 28px 32px 90px; min-width: 0; }
+  .page-narrow { max-width: 860px; }
+
   /* card surface */
-  .card { background: var(--panel); border-radius: 16px; padding: 26px 28px; margin: 22px 0; box-shadow: 0 6px 24px rgba(20,16,50,.10); border: 1px solid var(--line); }
-  /* toc */
-  .toc-title { font-size: 19px; font-weight: 800; margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-  ol.toc { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 28px; }
+  .card { background: var(--panel); border-radius: 16px; padding: 26px 28px; margin: 0 0 22px; box-shadow: 0 6px 24px rgba(20,16,50,.08); border: 1px solid var(--line); }
+  .toc-title { font-size: 17px; font-weight: 800; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+  ol.toc { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 24px; }
   .toc-item { break-inside: avoid; margin-bottom: 4px; }
-  .toc-item a { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); padding: 7px 8px; border-radius: 9px; transition: background .15s; font-size: 13.5px; }
+  .toc-item a { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); padding: 6px 8px; border-radius: 9px; transition: background .15s; font-size: 13px; }
   .toc-item a:hover { background: var(--soft); }
-  .toc-num { flex-shrink: 0; width: 25px; height: 25px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .toc-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
   /* sections */
-  .section h2 { font-size: 21px; font-weight: 800; margin: 0 0 16px; line-height: 1.35; }
-  .section h2::before { content: ""; display: inline-block; width: 6px; height: 21px; background: linear-gradient(var(--accent), var(--accent2)); border-radius: 3px; margin-right: 11px; vertical-align: -3px; }
+  .section { scroll-margin-top: 18px; }
+  .section h2 { font-size: 20px; font-weight: 800; margin: 0 0 16px; line-height: 1.35; }
+  .section h2::before { content: ""; display: inline-block; width: 6px; height: 20px; background: linear-gradient(var(--accent), var(--accent2)); border-radius: 3px; margin-right: 11px; vertical-align: -3px; }
+  .body { max-width: 760px; }
   .body p { margin: 0 0 14px; }
   .body ul, .body ol { margin: 6px 0 16px; padding-left: 22px; }
   .body li { margin-bottom: 6px; }
@@ -74,6 +100,52 @@
   thead th { background: #2a2540; color: #fff; text-align: left; padding: 10px 12px; font-weight: 700; white-space: nowrap; }
   tbody td { padding: 9px 12px; border-top: 1px solid var(--line); vertical-align: top; }
   tbody tr:nth-child(even) { background: var(--soft); }
+
+  /* ---- visual extra blocks (Nano Banana / Agent cards / cost bars) ---- */
+  .viz-block { margin: 20px 0 8px; padding: 20px; background: linear-gradient(135deg, #faf9ff, #f3f6ff); border: 1px solid #e6e2f8; border-radius: 14px; }
+  .viz-label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 800; margin-bottom: 14px; }
+  .viz-cite { font-size: 11.5px; color: var(--muted); margin: 10px 0 0; }
+
+  .nb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .nb-card { background: #fff; border-radius: 12px; padding: 16px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+  .nb-card.nb-premium { border-color: #f0cfe0; background: linear-gradient(160deg, #fff, #fff6fb); }
+  .nb-card.nb-default { border-color: #c9e8de; background: linear-gradient(160deg, #fff, #f2fbf7); }
+  .nb-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .nb-name { font-weight: 800; font-size: 13.5px; }
+  .nb-badge { font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .nb-badge-speed { background: #eef1ff; color: #4a5bd6; }
+  .nb-badge-default { background: #e3f7ee; color: #16916a; }
+  .nb-badge-premium { background: #fde8f1; color: #c23a77; }
+  .nb-basis { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+  .nb-specs { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .nb-specs > div { display: flex; flex-direction: column; }
+  .nb-specs dt { font-size: 10.5px; color: var(--muted); font-weight: 700; }
+  .nb-specs dd { margin: 0; font-size: 12.5px; font-weight: 600; }
+  .nb-best { font-size: 12px; color: #3a3a48; background: var(--soft); border-radius: 8px; padding: 8px 10px; line-height: 1.6; }
+
+  .agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .agent-card { background: #fff; border-radius: 12px; padding: 18px; border: 1px solid var(--line); }
+  .agent-icon { font-size: 22px; margin-bottom: 6px; }
+  .agent-name { font-weight: 800; font-size: 14px; margin-bottom: 2px; }
+  .agent-tagline { font-size: 12px; color: var(--accent2); font-weight: 700; margin-bottom: 10px; }
+  .agent-what { font-size: 12.5px; color: #3a3a48; margin: 0 0 10px; line-height: 1.75; }
+  .agent-use { font-size: 12px; background: var(--soft); border-radius: 8px; padding: 8px 10px; line-height: 1.6; }
+  .agent-use-label { display: block; font-size: 10px; font-weight: 800; color: var(--accent3); margin-bottom: 3px; }
+
+  .cost-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cost-card { background: #fff; border-radius: 12px; padding: 16px 18px; border: 1px solid var(--line); }
+  .cost-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+  .cost-plan { font-weight: 800; font-size: 14px; }
+  .cost-credits { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+  .cbar-row { display: grid; grid-template-columns: 52px 1fr 68px; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .cbar-label { font-size: 11.5px; font-weight: 700; color: #3a3a48; }
+  .cbar-track { background: var(--soft); border-radius: 6px; height: 12px; overflow: hidden; }
+  .cbar-fill { height: 100%; border-radius: 6px; }
+  .cbar-lite { background: var(--accent3); }
+  .cbar-fast { background: var(--accent); }
+  .cbar-quality { background: var(--accent2); }
+  .cbar-val { font-size: 11px; color: var(--muted); text-align: right; white-space: nowrap; }
+
   /* tips */
   ol.tips { counter-reset: tip; list-style: none; padding: 0; margin: 0; }
   ol.tips li { position: relative; padding: 12px 14px 12px 46px; margin-bottom: 9px; background: var(--soft); border-radius: 11px; border-left: 3px solid var(--accent3); font-size: 14px; }
@@ -94,17 +166,37 @@
   /* pitfalls */
   table.pitfalls td.pit-p { width: 42%; color: #8a2b4d; font-weight: 600; }
   /* misc */
-  .note { background: linear-gradient(135deg, #fff6fb, #f4f1ff); border: 1px solid #ecd9f5; border-radius: 12px; padding: 16px 20px; margin: 22px 0; font-size: 13.5px; }
+  .note { background: linear-gradient(135deg, #fff6fb, #f4f1ff); border: 1px solid #ecd9f5; border-radius: 12px; padding: 16px 20px; margin: 0 0 22px; font-size: 13.5px; }
   .note b { color: var(--accent2); }
   footer { text-align: center; color: #7a7790; font-size: 12px; margin-top: 40px; }
-  .top-link { position: fixed; right: 18px; bottom: 18px; background: var(--accent); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; box-shadow: 0 6px 18px rgba(124,92,255,.5); opacity: .9; }
-  @media (max-width: 680px) { ol.toc { columns: 1; } .card { padding: 20px 18px; } }
+  .top-link { position: fixed; right: 18px; bottom: 18px; background: var(--accent); color: #fff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; box-shadow: 0 6px 18px rgba(124,92,255,.5); opacity: .9; z-index: 20; }
+
+  @media (max-width: 980px) {
+    .shell { grid-template-columns: 1fr; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; height: 100dvh; width: 82vw; max-width: 300px;
+      transform: translateX(-100%); transition: transform .25s ease; z-index: 40;
+      box-shadow: 8px 0 30px rgba(0,0,0,.2);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-toggle {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      position: fixed; left: 14px; bottom: 14px; z-index: 41;
+      background: #2a2540; color: #fff; border: 0; border-radius: 999px; padding: 11px 18px;
+      font-size: 13px; font-weight: 700; box-shadow: 0 6px 18px rgba(0,0,0,.3); cursor: pointer;
+    }
+    .scrim { display: none; position: fixed; inset: 0; background: rgba(10,8,20,.4); z-index: 39; }
+    .scrim.show { display: block; }
+    .main { padding: 20px 16px 90px; }
+    ol.toc { columns: 1; }
+    .nb-grid, .agent-grid, .cost-grid { grid-template-columns: 1fr; }
+  }
   @media print {
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
     @page { size: A4; margin: 12mm; }
     body { background: #fff; font-size: 11px; }
-    .top-link, .copy { display: none; }
-    .cover { border-radius: 0; box-shadow: none; }
+    .top-link, .copy, .sidebar, .sidebar-toggle, .scrim { display: none; }
+    .shell { display: block; }
     .card { box-shadow: none; page-break-inside: avoid; break-inside: avoid; }
     .section { page-break-inside: auto; }
     .tpl, ol.tips li, table tr { page-break-inside: avoid; break-inside: avoid; }
@@ -114,62 +206,72 @@
 </head>
 <body>
 <div class="cover">
-  <div class="kicker">AI Video Master Playbook</div>
-  <h1>Google Flow AI動画制作マスタープレイブック</h1>
-  <div class="sub">Veo搭載のGoogle Flowで、音楽MV・SNSショートを実戦で作り切るための完全ガイド（2026年6月時点・料金/仕様は公式で要確認）</div>
-  <div class="badges">
-    <span class="badge">Veo 3.1 世代</span>
-    <span class="badge">MV / SNSショート</span>
-    <span class="badge">7要素プロンプト設計</span>
-    <span class="badge">BPM→ショット同期</span>
-    <span class="badge">穴埋めテンプレ7種</span>
-    <span class="badge">エージェント機能(I/O 2026)</span>
-  </div>
-  <div class="cover-meta">
-    <div><div class="label">Tool</div><div class="value">Google Flow (labs.google)</div></div>
-    <div><div class="label">Last Updated</div><div class="value">2026年7月11日 23:46</div></div>
-    <div><div class="label">Prepared by</div><div class="value">軍師 (Claude) × Issy</div></div>
-    <div><div class="label">Status</div><div class="value">v1.2 / エージェント機能(I/O 2026)追記済</div></div>
+  <div class="cover-inner">
+    <div class="kicker">AI Video Master Playbook</div>
+    <h1>Google Flow AI動画制作マスタープレイブック</h1>
+    <div class="sub">Veo搭載のGoogle Flowで、音楽MV・SNSショートを実戦で作り切るための完全ガイド（2026年6月時点・料金/仕様は公式で要確認）</div>
+    <div class="badges">
+      <span class="badge">Veo 3.1 世代</span>
+      <span class="badge">MV / SNSショート</span>
+      <span class="badge">7要素プロンプト設計</span>
+      <span class="badge">BPM→ショット同期</span>
+      <span class="badge">穴埋めテンプレ7種</span>
+      <span class="badge">エージェント機能(I/O 2026)</span>
+    </div>
+    <div class="cover-meta">
+      <div><div class="label">Tool</div><div class="value">Google Flow (labs.google)</div></div>
+      <div><div class="label">Last Updated</div><div class="value">2026年7月12日 24:14</div></div>
+      <div><div class="label">Prepared by</div><div class="value">軍師 (Claude) × Issy</div></div>
+      <div><div class="label">Status</div><div class="value">v2 / サイドバーナビ＋モデル比較カード化</div></div>
+    </div>
   </div>
 </div>
 
-<div class="page">
+<div class="shell">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-title">目次</div>
+    <a href='#what-is-flow' class='nav-link' data-target='what-is-flow'><span class='nav-num'>1</span><span class='nav-label'>Google Flowとは・何ができるか</span></a><a href='#getting-started' class='nav-link' data-target='getting-started'><span class='nav-num'>2</span><span class='nav-label'>はじめの一歩（アカウント・プラン・画面）</span></a><a href='#three-modes' class='nav-link' data-target='three-modes'><span class='nav-num'>3</span><span class='nav-label'>3つの生成モードの使い分け</span></a><a href='#prompt-design' class='nav-link' data-target='prompt-design'><span class='nav-num'>4</span><span class='nav-label'>勝てるプロンプト設計（7要素＋ダイアログ作法）</span></a><a href='#consistency' class='nav-link' data-target='consistency'><span class='nav-num'>5</span><span class='nav-label'>一貫性を保つ（キャラ・世界観・スタイル・開始終了フレーム）</span></a><a href='#image-to-video' class='nav-link' data-target='image-to-video'><span class='nav-num'>6</span><span class='nav-label'>静止画→動画（image-to-video）を使いこなす</span></a><a href='#long-form' class='nav-link' data-target='long-form'><span class='nav-num'>7</span><span class='nav-label'>長尺化とつなぎ（Scenebuilder / Extend）</span></a><a href='#credits-pricing' class='nav-link' data-target='credits-pricing'><span class='nav-num'>8</span><span class='nav-label'>クレジット運用と料金（変動注意）</span></a><a href='#mv-workflow' class='nav-link' data-target='mv-workflow'><span class='nav-num'>9</span><span class='nav-label'>MV制作ワークフロー（BPM→セクション→ショット→同期）</span></a><a href='#failures' class='nav-link' data-target='failures'><span class='nav-num'>10</span><span class='nav-label'>よくある破綻と対処</span></a><a href='#iteration-loop' class='nav-link' data-target='iteration-loop'><span class='nav-num'>11</span><span class='nav-label'>反復改善のループ</span></a><a href='#agent-features' class='nav-link' data-target='agent-features'><span class='nav-num'>12</span><span class='nav-label'>エージェント機能（Flow Agent / Omni Flash / Flow Tools）</span></a><a href='#compositing' class='nav-link' data-target='compositing'><span class='nav-num'>13</span><span class='nav-label'>合成前提の書き出し（グリーンバック・アルファなし・Premiere Pro連携）</span></a>
+    
+<div class="nav-divider"></div>
+<a href="#tips" class="nav-link nav-link-alt" data-target="tips"><span class="nav-dot"></span><span class="nav-label">実戦Tips</span></a>
+<a href="#templates" class="nav-link nav-link-alt" data-target="templates"><span class="nav-dot"></span><span class="nav-label">穴埋めテンプレ</span></a>
+<a href="#glossary" class="nav-link nav-link-alt" data-target="glossary"><span class="nav-dot"></span><span class="nav-label">用語集</span></a>
+<a href="#pitfalls" class="nav-link nav-link-alt" data-target="pitfalls"><span class="nav-dot"></span><span class="nav-label">破綻と対処</span></a>
 
-  <div class="card">
-    <div class="toc-title">目次</div>
-    <ol class='toc'><li class='toc-item'><a href='#what-is-flow'><span class='toc-num'>1</span><span>Google Flowとは・何ができるか</span></a></li><li class='toc-item'><a href='#getting-started'><span class='toc-num'>2</span><span>はじめの一歩（アカウント・プラン・画面）</span></a></li><li class='toc-item'><a href='#three-modes'><span class='toc-num'>3</span><span>3つの生成モードの使い分け</span></a></li><li class='toc-item'><a href='#prompt-design'><span class='toc-num'>4</span><span>勝てるプロンプト設計（7要素＋ダイアログ作法）</span></a></li><li class='toc-item'><a href='#consistency'><span class='toc-num'>5</span><span>一貫性を保つ（キャラ・世界観・スタイル・開始終了フレーム）</span></a></li><li class='toc-item'><a href='#image-to-video'><span class='toc-num'>6</span><span>静止画→動画（image-to-video）を使いこなす</span></a></li><li class='toc-item'><a href='#long-form'><span class='toc-num'>7</span><span>長尺化とつなぎ（Scenebuilder / Extend）</span></a></li><li class='toc-item'><a href='#credits-pricing'><span class='toc-num'>8</span><span>クレジット運用と料金（変動注意）</span></a></li><li class='toc-item'><a href='#mv-workflow'><span class='toc-num'>9</span><span>MV制作ワークフロー（BPM→セクション→ショット→同期）</span></a></li><li class='toc-item'><a href='#failures'><span class='toc-num'>10</span><span>よくある破綻と対処</span></a></li><li class='toc-item'><a href='#iteration-loop'><span class='toc-num'>11</span><span>反復改善のループ</span></a></li><li class='toc-item'><a href='#agent-features'><span class='toc-num'>12</span><span>エージェント機能（Flow Agent / Omni Flash / Flow Tools）</span></a></li><li class='toc-item'><a href='#compositing'><span class='toc-num'>13</span><span>合成前提の書き出し（グリーンバック・アルファなし・Premiere Pro連携）</span></a></li></ol>
-    <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;font-size:12.5px;">
-      <a href="#tips" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ これだけは押さえるTips</a>
-      <a href="#templates" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ 穴埋めプロンプトテンプレ</a>
-      <a href="#glossary" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ 用語集</a>
-      <a href="#pitfalls" style="color:var(--accent);font-weight:700;text-decoration:none;">▸ 破綻と対処</a>
-    </div>
-  </div>
+  </nav>
 
-  <div class="note">
-    <b>使い方:</b> 1〜10章で全体像と作法を掴み、実戦では「<b>穴埋めテンプレ</b>」に被写体・場所・カメラ・光を流し込んで生成 → 「<b>破綻と対処</b>」で詰まりを解消 → 「<b>反復改善のループ</b>」でクレジットを節約しながら磨き込みます。料金・クレジット・モデル名は改定が速いので、購入前に必ず公式（support.google.com/labs）で再確認してください。
-  </div>
+  <div class="main">
+    <div class="page-narrow">
 
-  <div class="note" style="background:linear-gradient(135deg,#eefcf6,#eef4ff);border-color:#cfeede;">
-    <b style="color:var(--accent3);">実査メモ（2026年7月11日 WebSearch/WebFetchで一次情報を再確認）</b>
-    <div style="margin-top:8px;font-size:13px;line-height:1.85;">
-      <b>✓ 確証できた事実</b><br>
-      ・現行モデルは <b>Veo 3.1</b>（2025年10月初出 → 2026年1月に <b>4K出力</b>・縦型9:16ネイティブ・Ingredients強化）。<br>
-      ・<b>ネイティブ音声</b>（台詞・環境音・SFX・リップシンク）を1パスで生成 ＝ 本ガイドの音声4層設計は有効。<br>
-      ・品質ティアの公式名は <b>Veo 3.1 ／ Veo 3.1 Fast ／ Veo 3.1 Lite</b>（本ガイドの「Quality」＝標準のVeo 3.1）。<br>
-      ・<b>クレジットは翌月繰り越し不可・毎月1日リフレッシュ</b>。<br>
-      ・<b>月間クレジット付与数を公式確定</b>（support.google.com/flow/answer/16526234）：無料50/日・<b>Plus 200/月（新設）</b>・Pro 1,000/月・Ultra $100層 10,000/月・Ultra $200層 25,000/月。旧「両Ultra層12,500」の二次情報は誤りと判明。<br>
-      ・<b>可視『veo』透かしの免除条件を確認</b>：無料/Plus/Proは表示、Ultra（$100/$200両層）とGoogle AI Studio開発者ツールは免除。<br>
-      ・<b>Veo 3 / Veo 3 Fast API料金の値下げ発表（2025年9月8日付）</b>を確認：Fast $0.15/秒・Quality $0.40/秒（1080p対応・9:16縦型対応も同時発表）。本文の「2026年3月時点の代表値」という記載を発表日ベースに修正済み。<br>
-      <b style="color:var(--accent2);">⚠ 2026年6月8日の値下げ・提案前に要再確認</b><br>
-      ・<b>Google AI Plusが月¥1,200→¥725へ値下げ</b>、ストレージ200GB→400GBへ倍増。<br>
-      ・Ultra $100層は20TBストレージ・YouTube Premium付帯（公式発表）。<br>
-      <span style="color:var(--muted);font-size:12px;">出典: support.google.com/flow・blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/・developers.googleblog.com（Veo 3価格改定）。8秒上限/Scenebuilder等の機能名/SynthIDは今回未再検証＝本文記載のまま（公式で要確認）。</span>
-    </div>
-  </div>
+      <div class="note">
+        <b>使い方:</b> 左のナビで気になる章へ直接ジャンプできます。全体像を掴みたい時は上から通読、実戦では「<b>穴埋めテンプレ</b>」に被写体・場所・カメラ・光を流し込んで生成 → 「<b>破綻と対処</b>」で詰まりを解消 → 「<b>実戦Tips</b>」でクレジットを節約しながら磨き込みます。料金・クレジット・モデル名は改定が速いので、購入前に必ず公式（support.google.com/labs）で再確認してください。
+      </div>
 
-  <div class="card">
-    <section class='section' id='what-is-flow'><h2>1. Google Flowとは・何ができるか</h2><div class='body'><p>Google Flow（labs.google/fx/tools/flow）は、Google I/O 2025で発表されたAIフィルムメイキングツールです。映像生成エンジンVeo、画像生成（Nano Banana系/Imagen）、Geminiが1つの制作環境に統合されており、テキストや参照画像からシネマティックな動画クリップを生成し、それらを編集・連結して1本の映像に仕上げられます。Googleの発表では、提供開始から最初の5ヶ月で2.75億本以上の動画が生成されたとされています（時間経過で増える統計値）。</p>
+      <div class="note" style="background:linear-gradient(135deg,#eefcf6,#eef4ff);border-color:#cfeede;">
+        <b style="color:var(--accent3);">実査メモ（2026年7月11-12日 WebSearch/WebFetchで一次情報を再確認）</b>
+        <div style="margin-top:8px;font-size:13px;line-height:1.85;">
+          <b>✓ 確証できた事実</b><br>
+          ・現行モデルは <b>Veo 3.1</b>（2025年10月初出 → 2026年1月に <b>4K出力</b>・縦型9:16ネイティブ・Ingredients強化）。<br>
+          ・<b>ネイティブ音声</b>（台詞・環境音・SFX・リップシンク）を1パスで生成 ＝ 本ガイドの音声4層設計は有効。<br>
+          ・品質ティアの公式名は <b>Veo 3.1 ／ Veo 3.1 Fast ／ Veo 3.1 Lite</b>（本ガイドの「Quality」＝標準のVeo 3.1）。<br>
+          ・<b>クレジットは翌月繰り越し不可・毎月1日リフレッシュ</b>。<br>
+          ・<b>月間クレジット付与数を公式確定</b>（support.google.com/flow/answer/16526234）：無料50/日・<b>Plus 200/月（新設）</b>・Pro 1,000/月・Ultra $100層 10,000/月・Ultra $200層 25,000/月。旧「両Ultra層12,500」の二次情報は誤りと判明。<br>
+          ・<b>可視『veo』透かしの免除条件を確認</b>：無料/Plus/Proは表示、Ultra（$100/$200両層）とGoogle AI Studio開発者ツールは免除。<br>
+          ・<b>Nano Banana 2 / Pro / Lite の違いを確認</b>（getting-started章・下記比較カード参照）：2はGemini 3.1 Flashベースで速度・コスト重視、ProはGemini 3 Proベースで最高画質。二次情報ベースにつき数値は変動注意。<br>
+          <b style="color:var(--accent2);">⚠ 2026年6月8日の値下げ・提案前に要再確認</b><br>
+          ・<b>Google AI Plusが月¥1,200→¥725へ値下げ</b>、ストレージ200GB→400GBへ倍増。<br>
+          ・Ultra $100層は20TBストレージ・YouTube Premium付帯（公式発表）。<br>
+          <span style="color:var(--muted);font-size:12px;">出典: support.google.com/flow・blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/・developers.googleblog.com（Veo 3価格改定）・blog.google（Nano Banana 2）。8秒上限/Scenebuilder等の機能名/SynthIDは今回未再検証＝本文記載のまま（公式で要確認）。</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="toc-title">全体目次</div>
+        <ol class='toc'><li class='toc-item'><a href='#what-is-flow'><span class='toc-num'>1</span><span>Google Flowとは・何ができるか</span></a></li><li class='toc-item'><a href='#getting-started'><span class='toc-num'>2</span><span>はじめの一歩（アカウント・プラン・画面）</span></a></li><li class='toc-item'><a href='#three-modes'><span class='toc-num'>3</span><span>3つの生成モードの使い分け</span></a></li><li class='toc-item'><a href='#prompt-design'><span class='toc-num'>4</span><span>勝てるプロンプト設計（7要素＋ダイアログ作法）</span></a></li><li class='toc-item'><a href='#consistency'><span class='toc-num'>5</span><span>一貫性を保つ（キャラ・世界観・スタイル・開始終了フレーム）</span></a></li><li class='toc-item'><a href='#image-to-video'><span class='toc-num'>6</span><span>静止画→動画（image-to-video）を使いこなす</span></a></li><li class='toc-item'><a href='#long-form'><span class='toc-num'>7</span><span>長尺化とつなぎ（Scenebuilder / Extend）</span></a></li><li class='toc-item'><a href='#credits-pricing'><span class='toc-num'>8</span><span>クレジット運用と料金（変動注意）</span></a></li><li class='toc-item'><a href='#mv-workflow'><span class='toc-num'>9</span><span>MV制作ワークフロー（BPM→セクション→ショット→同期）</span></a></li><li class='toc-item'><a href='#failures'><span class='toc-num'>10</span><span>よくある破綻と対処</span></a></li><li class='toc-item'><a href='#iteration-loop'><span class='toc-num'>11</span><span>反復改善のループ</span></a></li><li class='toc-item'><a href='#agent-features'><span class='toc-num'>12</span><span>エージェント機能（Flow Agent / Omni Flash / Flow Tools）</span></a></li><li class='toc-item'><a href='#compositing'><span class='toc-num'>13</span><span>合成前提の書き出し（グリーンバック・アルファなし・Premiere Pro連携）</span></a></li></ol>
+      </div>
+
+      <div class="card">
+        <section class='section' id='what-is-flow'><h2>1. Google Flowとは・何ができるか</h2><div class='body'><p>Google Flow（labs.google/fx/tools/flow）は、Google I/O 2025で発表されたAIフィルムメイキングツールです。映像生成エンジンVeo、画像生成（Nano Banana系/Imagen）、Geminiが1つの制作環境に統合されており、テキストや参照画像からシネマティックな動画クリップを生成し、それらを編集・連結して1本の映像に仕上げられます。Googleの発表では、提供開始から最初の5ヶ月で2.75億本以上の動画が生成されたとされています（時間経過で増える統計値）。</p>
 <p>Flowが「単なるテキスト→動画ジェネレーター」と一線を画すのは、生成だけでなく<strong>ショットの連結（Scenebuilder）・延長（Extend）・参照画像による一貫性管理・カメラワーク制御</strong>まで一つのUIで回せる点です。MVやSNSショートのように「複数カットを統一されたトーンで積み上げる」用途に向いています。</p>
 <div class='tbl-wrap'><table><thead><tr><th>強み</th><th>内容</th></tr></thead><tbody><tr><td>ネイティブ音声</td><td>環境音・効果音・台詞（リップシンク付き）をプロンプトから同時生成</td></tr><tr><td>縦横両対応</td><td>16:9（横）と9:16（縦・2026年1月更新で追加）をネイティブ生成</td></tr><tr><td>一貫性管理</td><td>参照画像（Ingredients）で同一キャラ・小道具を複数ショットで維持</td></tr><tr><td>編集機能内蔵</td><td>クリップ連結・延長・カメラプリセット・フレーム保存をUI内で完結</td></tr><tr><td>映画言語に対応</td><td>dolly / crane / close-up 等のシネマトグラフィ用語を解釈</td></tr></tbody></table></div>
 <p><strong>できないこと・限界も先に把握しておくこと:</strong></p>
@@ -182,7 +284,53 @@
 <p><strong>最初に押さえる画面要素</strong></p>
 <ol><li><strong>プロンプトボックス＋Generateボタン</strong> — ここに記述して生成。</li><li><strong>モデル名のクリック切替</strong> — Veoの品質モード（後述のLite/Fast/Quality）や画像モデルを選ぶ。2026年時点のFlow既定画像モデルは『Nano Banana 2』（無料）で、Nano Banana ProはUltra既定（旧記載のNano Banana Pro/Imagen 4から更新済み・UIで都度確認）。</li><li><strong>preferences（設定）</strong> — アスペクト比（16:9 / 9:16）、生成尺（4/6/8秒）、出力本数を選択。</li><li><strong>モード切替ボタン</strong> — Text / Frames / Ingredients（3章で詳述）。</li><li><strong>Historyパネル</strong> — 過去の全バージョンと使用プロンプトが保存され、復元・再生成できる。</li></ol>
 <p><strong>最初の30分の進め方（推奨）</strong></p>
-<ul><li>無料の日次50クレジットでLiteモードを試し、UIとプロンプトの効き方を体感する。</li><li>「縦か横か」を最初に決める（9:16ショートなら最初から縦で構図を組む）。</li><li>いきなり本番は作らず、1ショットの被写体・カメラ・光の効き方を確かめてからプランに入る。</li></ul></div></section><section class='section' id='three-modes'><h2>3. 3つの生成モードの使い分け</h2><div class='body'><p>Flowには3つの生成モードがあります。MV制作では「決めカットはFrames、登場人物の統一はIngredients、ラフ探りはText」と役割分担するのが定石です。</p>
+<ul><li>無料の日次50クレジットでLiteモードを試し、UIとプロンプトの効き方を体感する。</li><li>「縦か横か」を最初に決める（9:16ショートなら最初から縦で構図を組む）。</li><li>いきなり本番は作らず、1ショットの被写体・カメラ・光の効き方を確かめてからプランに入る。</li></ul>
+<p><strong>Nano Banana 2 / Pro / Liteの違い（2026年時点・二次情報ベース要確認）</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>モデル</th><th>基盤</th><th>1K生成速度</th><th>4K生成速度</th><th>画質</th><th>Flowでの位置づけ</th><th>参考価格/枚</th></tr></thead><tbody><tr><td>Nano Banana 2</td><td>Gemini 3.1 Flash</td><td>約4〜6秒</td><td>約15〜30秒</td><td>Pro比で体感約95%（一般シーン）</td><td>Flow既定・全ユーザー無料（0クレジット）</td><td>約$0.067</td></tr><tr><td>Nano Banana Pro</td><td>Gemini 3 Pro</td><td>約10〜20秒</td><td>約30〜60秒</td><td>最高画質（テクスチャ・陰影・空間構成で優位）・指示への忠実度が最も高い</td><td>Ultra既定</td><td>約$0.134（2の約2倍）</td></tr><tr><td>Nano Banana Lite</td><td>—</td><td>3モデル中最速</td><td>—</td><td>ラフ探り向け</td><td>速度最優先の下位モデル</td><td>—</td></tr></tbody></table></div>
+<p>Nano Banana 2はProの高品質を保ちながら速度とコストを大きく削った位置づけで、Image Search Grounding（生成中にGoogle検索で実写の参照画像を取得する機能）とThinking Mode（Minimal/High/Dynamicの3段階）というProにはない機能も備えます。静止画材料を量産するラフ探りはNano Banana 2、キービジュアル級の1枚に妥協したくない決めカット素材はNano Banana Pro、という使い分けが実務的です（速度・価格は二次情報ベースのため、本番前に要再確認）。</p></div><div class='viz-block'><div class='viz-label'>Nano Banana 2 / Pro / Lite 早見比較</div><div class="nb-grid">
+        <div class="nb-card nb-speed">
+          <div class="nb-head">
+            <span class="nb-name">Nano Banana Lite</span>
+            <span class="nb-badge nb-badge-speed">最速</span>
+          </div>
+          <div class="nb-basis">軽量版</div>
+          <dl class="nb-specs">
+            <div><dt>速度</dt><dd>3モデル中最速</dd></div>
+            <div><dt>画質</dt><dd>ラフ探り向け</dd></div>
+            <div><dt>位置づけ</dt><dd>速度最優先</dd></div>
+            <div><dt>参考価格</dt><dd>—</dd></div>
+          </dl>
+          <div class="nb-best">構図・当たりを高速に量産して撒く</div>
+        </div>
+        <div class="nb-card nb-default">
+          <div class="nb-head">
+            <span class="nb-name">Nano Banana 2</span>
+            <span class="nb-badge nb-badge-default">既定・無料</span>
+          </div>
+          <div class="nb-basis">Gemini 3.1 Flash</div>
+          <dl class="nb-specs">
+            <div><dt>速度</dt><dd>1K:約4〜6秒 ／ 4K:約15〜30秒</dd></div>
+            <div><dt>画質</dt><dd>Pro比 約95%（一般シーン）</dd></div>
+            <div><dt>位置づけ</dt><dd>Flow既定・全ユーザー無料（0クレジット）</dd></div>
+            <div><dt>参考価格</dt><dd>約$0.067/枚</dd></div>
+          </dl>
+          <div class="nb-best">静止画材料の量産・ラフ探り・Image Search Grounding/Thinking Modeが要る時</div>
+        </div>
+        <div class="nb-card nb-premium">
+          <div class="nb-head">
+            <span class="nb-name">Nano Banana Pro</span>
+            <span class="nb-badge nb-badge-premium">最高画質</span>
+          </div>
+          <div class="nb-basis">Gemini 3 Pro</div>
+          <dl class="nb-specs">
+            <div><dt>速度</dt><dd>1K:約10〜20秒 ／ 4K:約30〜60秒</dd></div>
+            <div><dt>画質</dt><dd>最高画質・指示への忠実度が最も高い</dd></div>
+            <div><dt>位置づけ</dt><dd>Ultra既定</dd></div>
+            <div><dt>参考価格</dt><dd>約$0.134/枚（2の約2倍）</dd></div>
+          </dl>
+          <div class="nb-best">決めカット・キービジュアル級で画質を妥協したくない1枚</div>
+        </div></div>
+    <p class="viz-cite">出典: blog.google（Nano Banana 2発表）ほか複数の二次解説サイト。速度・価格は変動するため本番前に要再確認。</p></div></section><section class='section' id='three-modes'><h2>3. 3つの生成モードの使い分け</h2><div class='body'><p>Flowには3つの生成モードがあります。MV制作では「決めカットはFrames、登場人物の統一はIngredients、ラフ探りはText」と役割分担するのが定石です。</p>
 <div class='tbl-wrap'><table><thead><tr><th>モード</th><th>入力</th><th>得意なこと</th><th>MVでの使いどころ</th></tr></thead><tbody><tr><td>Text to Video</td><td>テキストのみ</td><td>構図・動きの方向性を素早く探る</td><td>コンセプト探索、抽象・環境ショット</td></tr><tr><td>Frames to Video</td><td>開始フレーム（＋任意で終了フレーム）画像</td><td>カメラワーク・トランジション制御</td><td>決めカット、入りと出を制御したいカット</td></tr><tr><td>Ingredients to Video</td><td>参照画像 最大3〜4枚</td><td>キャラ・小道具・スタイルの一貫性</td><td>同一人物が複数ショットに登場するMV</td></tr></tbody></table></div>
 <p><strong>Text to Video</strong> — プロンプトに「被写体・動作・環境・ライティング・スタイル」を詰め込む標準モード。4章のプロンプト設計がそのまま効きます。平均像になりやすいので、具体・多層記述が前提です。</p>
 <p><strong>Frames to Video</strong> — 開始フレームと終了フレームの2枚を与え、その間の遷移をテキストで記述してアニメーション化します（『+ Add start frame』『+ Add end frame』にドラッグ）。最初の1枚だけ与えて続きを生成することも可能。<strong>カメラアイコン</strong>からプリセット（Pan / Tilt / Dolly / Truck / Zoom 等）をプレビュー付きで選べるため、カメラワークを文章で書かずに指定できる「イージーモード」が使えます。より高度な制御はプロンプトにシネマトグラフィ用語を直接書く「プロモード」。</p>
@@ -244,7 +392,84 @@
 <p><strong>API直叩き（代替経路・参考）</strong><br>サブスクではなくAPI課金も可能で、API出力は可視透かしなし（SynthIDのみ）で商用に向きます。ただしFlow UIの編集機能（Scenebuilder等）は使えません。</p>
 <ul><li>Veo 3 Fast ≈ $0.15/秒（8秒で約$1.20・旧$0.40/秒から値下げ）</li><li>Veo 3 Quality(Standard) ≈ $0.40/秒（8秒で約$3.20・旧$0.75/秒から値下げ）</li><li>上記の新料金は2025年9月8日、Google Developers Blogで発表済み（1080p対応・9:16縦型対応も同時発表）。音声有無・4k・Liteモデルで変動するため公式pricingで再確認。</li></ul>
 <p><strong>運用の鉄則</strong></p>
-<ul><li>クレジットは翌月繰り越し不可・請求サイクル末で失効 → 月末に使い切る計画を。</li><li>無契約は1日50クレジット無料（繰り越し不可）。『月100クレジット』という記載は誤り。</li><li>Midjourney等にある『時間を犠牲にクレジット節約するRelaxed/無制限モード』はFlowに存在しない（Fast/Qualityの2モードのみ）。</li><li>高需要時は『Something Went Wrong』エラーや待ち時間が発生。Pro/Ultraは無料より優先されるが、Ultraの優位は大きなクレジットプールにある。</li></ul></div></section><section class='section' id='mv-workflow'><h2>9. MV制作ワークフロー（BPM→セクション→ショット→同期）</h2><div class='body'><p>AIは映像と楽曲を自動同期できません。<strong>1拍/1小節の秒数を先に計算し、それに合わせてクリップを切る</strong>のが手作業の肝です。各AIツールを『映画の各部門』に見立てて分業すると段取りが整理できます（コンセプトアート＝Midjourney/Imagen、撮影監督＝Veo/Flow、ポスプロ＝Topaz、編集＝DaVinci/CapCut）。</p>
+<ul><li>クレジットは翌月繰り越し不可・請求サイクル末で失効 → 月末に使い切る計画を。</li><li>無契約は1日50クレジット無料（繰り越し不可）。『月100クレジット』という記載は誤り。</li><li>Midjourney等にある『時間を犠牲にクレジット節約するRelaxed/無制限モード』はFlowに存在しない（Fast/Qualityの2モードのみ）。</li><li>高需要時は『Something Went Wrong』エラーや待ち時間が発生。Pro/Ultraは無料より優先されるが、Ultraの優位は大きなクレジットプールにある。</li></ul></div><div class='viz-block'><div class='viz-label'>プラン別・生成可能本数（相対比較）</div><div class="cost-grid">
+        <div class="cost-card">
+          <div class="cost-head"><span class="cost-plan">Plus</span><span class="cost-credits">月200クレジット</span></div>
+          
+            <div class="cbar-row">
+              <span class="cbar-label">Lite</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-lite" style="width:100%;"></div></div>
+              <span class="cbar-val">約20本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Fast</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-fast" style="width:50%;"></div></div>
+              <span class="cbar-val">約10本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Quality</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-quality" style="width:10%;"></div></div>
+              <span class="cbar-val">約2本</span>
+            </div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-head"><span class="cost-plan">Pro</span><span class="cost-credits">月1,000クレジット</span></div>
+          
+            <div class="cbar-row">
+              <span class="cbar-label">Lite</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-lite" style="width:100%;"></div></div>
+              <span class="cbar-val">約100本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Fast</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-fast" style="width:50%;"></div></div>
+              <span class="cbar-val">約50本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Quality</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-quality" style="width:10%;"></div></div>
+              <span class="cbar-val">約10本</span>
+            </div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-head"><span class="cost-plan">Ultra $100層</span><span class="cost-credits">月10,000クレジット</span></div>
+          
+            <div class="cbar-row">
+              <span class="cbar-label">Lite</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-lite" style="width:100%;"></div></div>
+              <span class="cbar-val">約2,000本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Fast</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-fast" style="width:50%;"></div></div>
+              <span class="cbar-val">約1,000本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Quality</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-quality" style="width:5%;"></div></div>
+              <span class="cbar-val">約100本</span>
+            </div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-head"><span class="cost-plan">Ultra $200層</span><span class="cost-credits">月25,000クレジット</span></div>
+          
+            <div class="cbar-row">
+              <span class="cbar-label">Lite</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-lite" style="width:100%;"></div></div>
+              <span class="cbar-val">約5,000本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Fast</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-fast" style="width:50%;"></div></div>
+              <span class="cbar-val">約2,500本</span>
+            </div>
+            <div class="cbar-row">
+              <span class="cbar-label">Quality</span>
+              <div class="cbar-track"><div class="cbar-fill cbar-quality" style="width:5%;"></div></div>
+              <span class="cbar-val">約250本</span>
+            </div>
+        </div></div>
+    <p class="viz-cite">Ultra割引単価（Lite5/Fast10）で計算。QualityはUltraでも割引なし(100クレジット)。 8秒1本あたりの生成本数換算。バーはプラン内での相対比較（プランをまたいだ絶対比較は本数ラベルを参照）。</p></div></section><section class='section' id='mv-workflow'><h2>9. MV制作ワークフロー（BPM→セクション→ショット→同期）</h2><div class='body'><p>AIは映像と楽曲を自動同期できません。<strong>1拍/1小節の秒数を先に計算し、それに合わせてクリップを切る</strong>のが手作業の肝です。各AIツールを『映画の各部門』に見立てて分業すると段取りが整理できます（コンセプトアート＝Midjourney/Imagen、撮影監督＝Veo/Flow、ポスプロ＝Topaz、編集＝DaVinci/CapCut）。</p>
 <p><strong>ステップ1: 楽曲確定 → BPMから小節グリッドを作る</strong><br>計算式: <code>1拍の秒数 = 60 ÷ BPM</code> ／ <code>1小節の秒数 =（60 ÷ BPM）× 拍数</code></p>
 <div class='tbl-wrap'><table><thead><tr><th>BPM（4/4）</th><th>1拍</th><th>1小節</th><th>8秒クリップ＝</th></tr></thead><tbody><tr><td>90</td><td>0.67秒</td><td>2.67秒</td><td>約3小節</td></tr><tr><td>100</td><td>0.60秒</td><td>2.40秒</td><td>約3.3小節</td></tr><tr><td>120</td><td>0.50秒</td><td>2.00秒</td><td>ちょうど4小節（16拍）</td></tr><tr><td>140</td><td>0.43秒</td><td>1.71秒</td><td>約4.7小節</td></tr></tbody></table></div>
 <p><strong>ステップ2: セクション分割 → 感情を1行で定義</strong><br>イントロ / Aメロ / Bメロ / サビ / 間奏 / Cメロ / アウトロに分け、各セクションの開始タイムコードと小節数を記録。各セクションに温度を1行で（例 Aメロ=静・内省、サビ=爆発・解放）。</p>
@@ -276,7 +501,35 @@
 <p><strong>実戦Tips（MV・SNSショート制作にどう効くか）</strong></p>
 <ul><li>二刀流を基本に。最終納品の決めカット・MVのハイライトは Veo 3.1 で4K/フォトリアリズムを取りに行き、SNSショート・絵コンテ検証・反復ラフ・キャラ連作は Omni Flash で会話編集して回す。</li><li>キャラ一貫性は Omni Flash の独壇場。連作・シリーズもので「前のカットと同一人物・同一声で」と会話指示する運用を標準化する。</li><li>編集プロンプトは具体的に。曖昧だと過剰編集で残したい要素まで変わる。「変える箇所」と「保持する箇所」を明示する。</li><li>声は確定素材を持ち込む前提で設計。Omni Flashは音声の差し替え・声のクローンは現状不可（意図的に非搭載）。SUMIMASENの <code>FIX_sumimasen260606.wav</code> のように、Fix音源を軸に映像を合わせる。</li><li>企画はAgentに壁打ちさせる。完成楽曲や商品コンセプトを伝え、台詞・筋立て・カット割りの叩きを出させる。過去プロジェクト履歴を覚えているので、積み上げ式の作品で文脈が効く。</li><li>バリエーションは絞って指示。「複数案出して」は便利だが、出しすぎると選別が地獄になる。3〜4案に絞る指示を添えるのが要。</li><li>毎回同じ加工は Flow Tools 化して資産にする。縦横変換・ブランド色/ロゴ固定・作風シェーダーを一度作り、チーム内（GIFTVOX・ATSURAELU等）で共有→リミックスして標準化する。</li><li>入口の無料試用は YouTube Shorts Remix/Create（18歳以上）。Flow本体で本制作する前の感触掴みに使える。</li></ul>
 <p><strong>注意・現状（2026-06時点）</strong></p>
-<ul><li>「正式版」だが実質ベータ品質と捉えるのが安全。公式は「全Flowユーザーにグローバル提供（限定プレビューやベータではない）」と謳うが、モデレーション精度・安定性は未成熟。本番納期前に必ず小規模テスト生成で通過率を確認すること。</li><li>生成失敗・過検閲の報告あり（誇張は割り引いて受け止める）。「10回中9回失敗（実質90%）」というユーザー証言が出回るが、これはX上の個人投稿1件が出所でGoogle公式統計ではない。ただし「99%まで進んでからの沈黙エラー」「年齢誤判定」「未成年が映る家族動画・着衣の人物までブロック」など過検閲の不満は複数実在する。人物・未成年・身体描写を含む企画は失敗率が跳ね上がるため、絵コンテ段階でNG要素を抜く設計にする。</li><li>失敗してもクレジットを消費する仕様（最重要コスト論点）。Flowは生成前審査ではなく「生成開始後にクラッシュ」させる設計のため、1%進行・出力ゼロでも約100クレジットが引かれる。失敗分は自動再付与される建前（反映に15〜30分）だが、返却遅延/未返却の苦情も併存（要確認）。</li><li>日本固有の制約: 追加AIクレジットの購入は「対応地域（日本を除く）」と公式明記。日本では月次クレジットを使い切っても買い増しできない。失敗時消費と相まって、日本での本番運用は「失敗でクレジットが溶ける→買い足せず月内に枯渇」のリスクあり。Ultra上位プランで潤沢に確保するか、必要量の1.3〜1.5倍のバッファを積む。</li><li>構造的批判: 「16通り生成しても作業は減らず移るだけ。ボトルネックは案を作ることでなく、どれを出すか決めること」。生成力は上がっても意思決定支援にはならない。決め打ちプロンプト＋少数精鋭生成のほうがクレジット効率が良い。</li><li>料金（2026年7月・公式support.google.com/flowで確定）: 無料=1日50クレジット（繰越なし）／AI Plus=月200クレジット（月額¥725・2026年6月8日に¥1,200から値下げ、ストレージ400GB）／AI Pro=月1,000クレジット（¥2,900・$19.99）／AI Ultra $100層=月10,000クレジット（ストレージ20TB・YouTube Premium付帯）／AI Ultra $200層=月25,000クレジット（旧$250から値下げ）。</li><li>開発者向け（要確認）: 公開API（Gemini API / Agent Platform API）は "coming weeks" 予定。2026年5月時点で確定日・公開model ID・価格・クォータ・APIドキュメントは未公開。当面Veo 3.1を安定ベースラインに、Omniは "watch item" 扱いが無難。</li><li>安全設計: 全生成動画にSynthIDウォーターマークを自動付与。音声/スピーチの差し替えはディープフェイク懸念で非搭載。アバター利用は本人の同意動画が必須。</li><li>iOS版Flow本体・Android版Flow Musicの正式提供時期は公式に明示なし（要確認）。</li></ul></div></section><section class='section' id='compositing'><h2>13. 合成前提の書き出し（グリーンバック・アルファなし・Premiere Pro連携）</h2><div class='body'><p>Flow（Veo）から<strong>ネイティブにアルファチャンネル付き動画を書き出すことはできません</strong>。SynthID埋め込み・標準コーデック出力という仕様上、常に不透過RGB動画として出力されます（Veo以外のAI動画生成モデルも軒並み同じ制約）。Premiere Proで合成する前提なら、以下2つの回避策を使い分けます。</p>
+<ul><li>「正式版」だが実質ベータ品質と捉えるのが安全。公式は「全Flowユーザーにグローバル提供（限定プレビューやベータではない）」と謳うが、モデレーション精度・安定性は未成熟。本番納期前に必ず小規模テスト生成で通過率を確認すること。</li><li>生成失敗・過検閲の報告あり（誇張は割り引いて受け止める）。「10回中9回失敗（実質90%）」というユーザー証言が出回るが、これはX上の個人投稿1件が出所でGoogle公式統計ではない。ただし「99%まで進んでからの沈黙エラー」「年齢誤判定」「未成年が映る家族動画・着衣の人物までブロック」など過検閲の不満は複数実在する。人物・未成年・身体描写を含む企画は失敗率が跳ね上がるため、絵コンテ段階でNG要素を抜く設計にする。</li><li>失敗してもクレジットを消費する仕様（最重要コスト論点）。Flowは生成前審査ではなく「生成開始後にクラッシュ」させる設計のため、1%進行・出力ゼロでも約100クレジットが引かれる。失敗分は自動再付与される建前（反映に15〜30分）だが、返却遅延/未返却の苦情も併存（要確認）。</li><li>日本固有の制約: 追加AIクレジットの購入は「対応地域（日本を除く）」と公式明記。日本では月次クレジットを使い切っても買い増しできない。失敗時消費と相まって、日本での本番運用は「失敗でクレジットが溶ける→買い足せず月内に枯渇」のリスクあり。Ultra上位プランで潤沢に確保するか、必要量の1.3〜1.5倍のバッファを積む。</li><li>構造的批判: 「16通り生成しても作業は減らず移るだけ。ボトルネックは案を作ることでなく、どれを出すか決めること」。生成力は上がっても意思決定支援にはならない。決め打ちプロンプト＋少数精鋭生成のほうがクレジット効率が良い。</li><li>料金（2026年7月・公式support.google.com/flowで確定）: 無料=1日50クレジット（繰越なし）／AI Plus=月200クレジット（月額¥725・2026年6月8日に¥1,200から値下げ、ストレージ400GB）／AI Pro=月1,000クレジット（¥2,900・$19.99）／AI Ultra $100層=月10,000クレジット（ストレージ20TB・YouTube Premium付帯）／AI Ultra $200層=月25,000クレジット（旧$250から値下げ）。</li><li>開発者向け（要確認）: 公開API（Gemini API / Agent Platform API）は "coming weeks" 予定。2026年5月時点で確定日・公開model ID・価格・クォータ・APIドキュメントは未公開。当面Veo 3.1を安定ベースラインに、Omniは "watch item" 扱いが無難。</li><li>安全設計: 全生成動画にSynthIDウォーターマークを自動付与。音声/スピーチの差し替えはディープフェイク懸念で非搭載。アバター利用は本人の同意動画が必須。</li><li>iOS版Flow本体・Android版Flow Musicの正式提供時期は公式に明示なし（要確認）。</li></ul></div><div class='viz-block'><div class='viz-label'>4本柱・早見カード</div><div class="agent-grid">
+        <div class="agent-card">
+          <div class="agent-icon">🧠</div>
+          <div class="agent-name">Flow Agent</div>
+          <div class="agent-tagline">記憶を持つ副操縦士</div>
+          <p class="agent-what">Geminiベースのエージェント。過去プロジェクトを記憶し、台詞の壁打ち・プロット提案・複数案同時生成・バッチ編集・アセット整理を自然言語で実行</p>
+          <div class="agent-use"><span class="agent-use-label">実戦での使いどころ</span>企画のブレストと、量産後の一括整理。連作もの（SUMIMASEN等）で文脈が積み上がる</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">🎬</div>
+          <div class="agent-name">Gemini Omni Flash</div>
+          <div class="agent-tagline">生成し直さずに直す編集モデル</div>
+          <p class="agent-what">テキスト・画像・音声・既存動画を同時入力できるマルチモーダルAI。「カメラを左へ」等の自然言語で部分編集でき、毎回ゼロから再生成しない</p>
+          <div class="agent-use"><span class="agent-use-label">実戦での使いどころ</span>ラフ詰め・反復編集・キャラ一貫性が要るシーン群。1ターン約10秒上限</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">🛠️</div>
+          <div class="agent-name">Flow Tools</div>
+          <div class="agent-tagline">自社専用ツールをノーコードで作る</div>
+          <p class="agent-what">自然言語の指示だけで「動画リサイザー」「カスタムシェーダー」等の再利用可能なツールを生成。共有・リミックス可能</p>
+          <div class="agent-use"><span class="agent-use-label">実戦での使いどころ</span>縦横変換・ブランド色/ロゴ固定など、毎回同じ加工を一度ツール化して横展開</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">🎵</div>
+          <div class="agent-name">Flow Music（Lyria 3 Pro）</div>
+          <div class="agent-tagline">曲の局所編集とAIカバー</div>
+          <p class="agent-what">曲の任意箇所をハイライトして局所編集（歌詞リライト・ビートドロップ作り替え）、メロディと構造を保ったままのAIカバー</p>
+          <div class="agent-use"><span class="agent-use-label">実戦での使いどころ</span>既存曲のlo-fi版/別スタイル版の量産、MV用の差し替え音源づくり</div>
+        </div></div></div></section><section class='section' id='compositing'><h2>13. 合成前提の書き出し（グリーンバック・アルファなし・Premiere Pro連携）</h2><div class='body'><p>Flow（Veo）から<strong>ネイティブにアルファチャンネル付き動画を書き出すことはできません</strong>。SynthID埋め込み・標準コーデック出力という仕様上、常に不透過RGB動画として出力されます（Veo以外のAI動画生成モデルも軒並み同じ制約）。Premiere Proで合成する前提なら、以下2つの回避策を使い分けます。</p>
 <p><strong>方式① グリーンバックをプロンプトで生成 → Ultra Keyで抜く</strong></p>
 <p>背景をグリーンバック指定で生成し、Premiere Pro側でクロマキー処理する方式です。</p>
 <p>```<br>EN: [被写体], [動作], against a solid, evenly lit green screen background, studio chroma key green (#00FF00), flat even lighting with no shadows on the backdrop, no color spill.<br>```</p>
@@ -287,17 +540,17 @@
 <div class='tbl-wrap'><table><thead><tr><th>手法</th><th>向くケース</th></tr></thead><tbody><tr><td>グリーンバック生成＋Ultra Key</td><td>被写体の輪郭がシンプル・動きが少ない（人物バストアップ等）</td></tr><tr><td>Object Mask（グリーンバック不要）</td><td>背景が複雑・被写体が動く・グリーンバックの抜き残りが気になる場合</td></tr><tr><td>サードパーティのAI背景除去（VideoBGRemover等）</td><td>上記2つで満足いく抜きが出ない時の最終手段</td></tr></tbody></table></div>
 <p><strong>ハイブリッド運用（実写グリーンバックとの併用）</strong></p>
 <p>自宅の実写グリーンバック環境がある場合、実写素材をFrames to Video / Ingredientsの参照画像として持ち込み、AI生成パートと実写パートを同一グリーンバック基調で揃えると、後工程の合成が楽になります。AI生成側にも「same green screen backdrop as reference」等でスタイルを揃える指示を添えると効果的です。</p></div></section>
-  </div>
+      </div>
 
-  <div class="card" id="tips">
-    <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">これだけは押さえる実戦Tips</h2>
-    <ol class='tips'><li>1クリップは最大8秒。長尺は最初から『Extendで延長／Scenebuilderで連結』を前提に設計する。</li><li>プロンプトは7要素（被写体・動作・環境・カメラ・光・質感・音声）を1文に多層で積む。曖昧な短文は退屈な平均像になる。</li><li>音声は4層（台詞・SFX・環境音・BGM）を必ず明示。未指定だと『観客の笑い声』が勝手に入る。</li><li>台詞は引用符+says形式（A woman says, "..."）。字幕が出たら no subtitles / no text を補足し、しつこければ繰り返す。</li><li>発話は約8秒以内に収める。詰め込むと早口・崩壊、少なすぎると無言になる。</li><li>一貫性は『キャラバイブル（テキスト逐語再掲）＋参照画像のロック（Ingredients）』の二本立て。片方だけでは破綻する。</li><li>1回の生成で『開始/終了フレーム』と『参照画像セット』は同時指定できない（排他制約）。設計で分岐を意識する。</li><li>カメラワークは英語、被写体・セリフ内容は日本語可。演出・光・質感は英語で書く方が安定（要確認/変動あり）。</li><li>MVは先にBPMから小節グリッドを作る（1小節=（60÷BPM）×拍数）。120BPM・4/4なら8秒=ちょうど4小節。</li><li>ショット尺で感情を作る。サビ=1小節以下の畳み掛け、Aメロ=2〜4小節の長回し。1ショットに主要ビート1つ。</li><li>楽曲との拍合わせはAIではできない。DaVinci Resolve 20のビート検出（Studio版限定）かCapCutのAuto Beat Syncで最終同期する。</li><li>クレジットは翌月繰り越し不可・月末失効。Liteで探り→ヒーローショットだけQuality、で予算を集中する。</li><li>全出力にSynthID（不可視・除去不可）が入る。商用はAI生成物の開示が前提。可視透かしを消したいならUltraかAPI経由。</li><li>料金・クレジット・モデル名は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/labs等）で再確認する。</li><li>破綻は『短く刻む・参照を固定する・光と物理を言葉で縛る』の3点予防が後処理より効く。完璧再生成より編集で隠す。</li><li>「思い通り」を狙うなら静止画→動画（image-to-video）。AIの仕事が『動きを足すだけ』に絞られ、被写体・構図・色・形が安定する。text-to-videoはアイデア探索、image-to-videoは精緻化、と役割分担する。</li><li>動かす前提の静止画は意図的にネガティブスペース（余白）を作る。動きの逃げ場＋終了フレームのテキスト/ロゴ用スペースになる。構図言語（rule of thirds / centered / leading lines）と前景・中景・背景の奥行きをプロンプトに書く。</li><li>モーション記述は『見た目』でなく『動き』を能動動詞で（突風が草を左→右へ）。動かす対象と静止対象を明示し、動きは1〜2種に絞る（多いとガタつく）。カメラ動作は被写体アクションと別の独立文で書く。</li><li>合成前提なら要注意: Flowはネイティブなアルファチャンネル出力に非対応。グリーンバック生成＋Ultra Keyで抜くか、Premiere Pro 26のObject Mask（グリーンバック不要）で切り抜く。AI生成グリーンバックは実写ほど均一でなく抜きにムラが出やすい点に注意。</li></ol>
-  </div>
+      <div class="card" id="tips">
+        <h2 style="font-size:20px;font-weight:800;margin:0 0 16px;">これだけは押さえる実戦Tips</h2>
+        <ol class='tips'><li>1クリップは最大8秒。長尺は最初から『Extendで延長／Scenebuilderで連結』を前提に設計する。</li><li>プロンプトは7要素（被写体・動作・環境・カメラ・光・質感・音声）を1文に多層で積む。曖昧な短文は退屈な平均像になる。</li><li>音声は4層（台詞・SFX・環境音・BGM）を必ず明示。未指定だと『観客の笑い声』が勝手に入る。</li><li>台詞は引用符+says形式（A woman says, "..."）。字幕が出たら no subtitles / no text を補足し、しつこければ繰り返す。</li><li>発話は約8秒以内に収める。詰め込むと早口・崩壊、少なすぎると無言になる。</li><li>一貫性は『キャラバイブル（テキスト逐語再掲）＋参照画像のロック（Ingredients）』の二本立て。片方だけでは破綻する。</li><li>1回の生成で『開始/終了フレーム』と『参照画像セット』は同時指定できない（排他制約）。設計で分岐を意識する。</li><li>カメラワークは英語、被写体・セリフ内容は日本語可。演出・光・質感は英語で書く方が安定（要確認/変動あり）。</li><li>MVは先にBPMから小節グリッドを作る（1小節=（60÷BPM）×拍数）。120BPM・4/4なら8秒=ちょうど4小節。</li><li>ショット尺で感情を作る。サビ=1小節以下の畳み掛け、Aメロ=2〜4小節の長回し。1ショットに主要ビート1つ。</li><li>楽曲との拍合わせはAIではできない。DaVinci Resolve 20のビート検出（Studio版限定）かCapCutのAuto Beat Syncで最終同期する。</li><li>クレジットは翌月繰り越し不可・月末失効。Liteで探り→ヒーローショットだけQuality、で予算を集中する。</li><li>全出力にSynthID（不可視・除去不可）が入る。商用はAI生成物の開示が前提。可視透かしを消したいならUltraかAPI経由。</li><li>料金・クレジット・モデル名は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/labs等）で再確認する。</li><li>破綻は『短く刻む・参照を固定する・光と物理を言葉で縛る』の3点予防が後処理より効く。完璧再生成より編集で隠す。</li><li>「思い通り」を狙うなら静止画→動画（image-to-video）。AIの仕事が『動きを足すだけ』に絞られ、被写体・構図・色・形が安定する。text-to-videoはアイデア探索、image-to-videoは精緻化、と役割分担する。</li><li>動かす前提の静止画は意図的にネガティブスペース（余白）を作る。動きの逃げ場＋終了フレームのテキスト/ロゴ用スペースになる。構図言語（rule of thirds / centered / leading lines）と前景・中景・背景の奥行きをプロンプトに書く。</li><li>モーション記述は『見た目』でなく『動き』を能動動詞で（突風が草を左→右へ）。動かす対象と静止対象を明示し、動きは1〜2種に絞る（多いとガタつく）。カメラ動作は被写体アクションと別の独立文で書く。</li><li>合成前提なら要注意: Flowはネイティブなアルファチャンネル出力に非対応。グリーンバック生成＋Ultra Keyで抜くか、Premiere Pro 26のObject Mask（グリーンバック不要）で切り抜く。AI生成グリーンバックは実写ほど均一でなく抜きにムラが出やすい点に注意。</li></ol>
+      </div>
 
-  <div class="card" id="templates">
-    <h2 style="font-size:21px;font-weight:800;margin:0 0 8px;">穴埋めプロンプトテンプレート</h2>
-    <p style="color:var(--muted);font-size:13px;margin:0 0 18px;">[　]を埋めて使う。カメラ・光・質感は英語、被写体・場所・セリフは日本語可。各テンプレ右上「コピー」でクリップボードへ。</p>
-    <div class='tpl'><div class='tpl-head'><span class='tpl-name'>MVシネマティック決めカット（横16:9）</span><button class='copy' data-copy='EN: [Camera move, e.g. slow dolly-in] [shot size, e.g. medium close-up] of [被写体の具体的描写], [動作], in [環境・時代], lit by [光源/時間帯]. [スタイル固定句, e.g. cinematic, cool blue tones, slightly grainy, shot on film]. Ambient noise: [環境音]. [SFX: 効果音]. [BGM: ジャンル・ムード].
+      <div class="card" id="templates">
+        <h2 style="font-size:20px;font-weight:800;margin:0 0 8px;">穴埋めプロンプトテンプレート</h2>
+        <p style="color:var(--muted);font-size:13px;margin:0 0 18px;">[　]を埋めて使う。カメラ・光・質感は英語、被写体・場所・セリフは日本語可。各テンプレ右上「コピー」でクリップボードへ。</p>
+        <div class='tpl'><div class='tpl-head'><span class='tpl-name'>MVシネマティック決めカット（横16:9）</span><button class='copy' data-copy='EN: [Camera move, e.g. slow dolly-in] [shot size, e.g. medium close-up] of [被写体の具体的描写], [動作], in [環境・時代], lit by [光源/時間帯]. [スタイル固定句, e.g. cinematic, cool blue tones, slightly grainy, shot on film]. Ambient noise: [環境音]. [SFX: 効果音]. [BGM: ジャンル・ムード].
 
 JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]／場所=[　]／温度=[内省/解放など]'>コピー</button></div><div class='tpl-when'>サビ頭・ラスサビなどヒーローショット。Qualityモードで本生成する決めカットに。</div><pre class='tpl-body'>EN: [Camera move, e.g. slow dolly-in] [shot size, e.g. medium close-up] of [被写体の具体的描写], [動作], in [環境・時代], lit by [光源/時間帯]. [スタイル固定句, e.g. cinematic, cool blue tones, slightly grainy, shot on film]. Ambient noise: [環境音]. [SFX: 効果音]. [BGM: ジャンル・ムード].
 
@@ -306,24 +559,28 @@ JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]�
 発音矯正が要る固有名詞は音素表記で（例 fofr → foh-fur）'>コピー</button></div><div class='tpl-when'>会話カット・歌唱以外のセリフ。発話は8秒以内、字幕暴発に注意。</div><pre class='tpl-body'>EN: [shot size] of [キャラバイブル逐語]. He/She [動作] and says, "[英語または短い日本語のセリフ]". [環境・光・スタイル]. Ambient noise: [環境音]. (no subtitles, no text)
 
 発音矯正が要る固有名詞は音素表記で（例 fofr → foh-fur）</pre></div><div class='tpl'><div class='tpl-head'><span class='tpl-name'>1生成内マルチショット（タイムスタンプ）</span><button class='copy' data-copy='EN: [00:00-00:03] [ショット1: 被写体・動作・カメラ]. SFX: [音]. [00:03-00:06] [ショット2: 変化]. [00:06-00:08] [ショット3: 結び]. Consistent [スタイル固定句] throughout the entire clip. [全体の音声: Ambient noise / BGM]'>コピー</button></div><div class='tpl-when'>1クリップで小さなシーケンスを作りたい時。短いビート単位で割る（効きは要検証）。</div><pre class='tpl-body'>EN: [00:00-00:03] [ショット1: 被写体・動作・カメラ]. SFX: [音]. [00:03-00:06] [ショット2: 変化]. [00:06-00:08] [ショット3: 結び]. Consistent [スタイル固定句] throughout the entire clip. [全体の音声: Ambient noise / BGM]</pre></div>
-  </div>
+      </div>
 
-  <div class="card" id="glossary">
-    <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">用語集</h2>
-    <dl class='glossary'><dt>Google Flow</dt><dd>Google I/O 2025で発表されたAIフィルムメイキングツール。Veo・画像モデル・Geminiを統合し、生成から連結・編集までを一つのUIで行う（labs.google/fx/tools/flow）。</dd><dt>Veo / Veo 3.1</dt><dd>Flow搭載の映像生成モデル。3.1は2025年10月初回・2026年1月に4K/縦型/Ingredients強化。ネイティブ音声・リップシンクに対応。</dd><dt>Text to Video</dt><dd>テキスト記述のみから動画を生成する標準モード。構図・動きの方向性を素早く探るのに向く。</dd><dt>Frames to Video</dt><dd>開始フレーム（＋任意で終了フレーム）の画像を与え、その間の遷移を生成するモード。カメラワーク制御が最も活きる。</dd><dt>Ingredients to Video</dt><dd>キャラ・物・スタイルの参照画像（最大3〜4枚）を渡し、複数ショット間で同一性を保つモード。一貫性の中核。</dd><dt>Scenebuilder</dt><dd>複数クリップを時系列タイムラインに並べて1本のシーンに構築するFlowの編集機能。順序入替・トリム・ダウンロードが可能。</dd><dt>Extend</dt><dd>既存クリップ末尾に続きを生成して尺を伸ばす機能。繰り返すと60秒以上化できるが、他の編集モードと併用不可・720p限定（要確認）。</dd><dt>Ingredients / 材料</dt><dd>Ingredients to Videoに渡す参照画像のこと。無地・切り抜き背景の被写体が最も効く。</dd><dt>キャラバイブル（identity anchor）</dt><dd>キャラの全特徴を記した再利用テキストブロック。毎プロンプトに逐語で再掲し、長期の見た目一貫性を保つ。</dd><dt>SynthID</dt><dd>全Veo出力に必ず埋め込まれる不可視の電子透かし。専用ツールでのみ検出可能で、どのプランでも除去不可。</dd><dt>可視ウォーターマーク（veo透かし）</dt><dd>Flow出力の右下に表示される半透明の『veo』テキスト。Pro以下は表示、Ultraは免除（要確認）。</dd><dt>Flowクレジット</dt><dd>Flowで生成するたびに消費する月次/日次の通貨。モデル別単価（Lite10/Fast20/Quality100、Ultraは割引）。翌月繰り越し不可。</dd><dt>Lite / Fast / Quality</dt><dd>Veo 3.1の品質ティア。公式の正式名称は <strong>Veo 3.1（最高品質・本ガイドの『Quality』）／Veo 3.1 Fast（標準）／Veo 3.1 Lite（最安・ラフ探り）</strong> の3層。速度・コストと品質のトレードオフ。本ガイドでは最上位を便宜上『Quality』と表記するが、UI上は単に『Veo 3.1』。</dd><dt>negative prompt</dt><dd>出力から除外したい要素を指定するパラメータ/補足。字幕除去（no subtitles）等に使う。Gemini APIでは negative_prompt。</dd><dt>Show Music Beats</dt><dd>DaVinci Resolve 20のAIビート検出機能。タイムラインに拍を表示しカットをスナップできる。Studio版限定。</dd><dt>Auto Beat Sync</dt><dd>CapCut内蔵の自動ビート検出。楽曲の拍をドットで表示し、カット/トランジションを拍に合わせる。SNSショート量産に有効。</dd><dt>スピードランプ（speed ramp）</dt><dd>クリップ速度を曲線的に変化させる演出。サビの加速・ブレイクの減速など緩急をつける。CapCutやResolveで適用。</dd><dt>timestamp prompting</dt><dd>1回の生成内で[00:00-00:02]...と時間区切りで複数ショットを記述する手法。短いビート単位で一貫性が上がる（一次ソース未確認・要検証）。</dd><dt>Flow Agent</dt><dd>Google I/O 2026で発表されたGeminiベースのエージェント機能。過去プロジェクトを記憶し、ブレスト・台詞壁打ち・プロット提案・複数バリエーション生成・バッチ編集・アセット整理を自然言語で計画実行する会話型クリエイティブパートナー。全Flowユーザーにグローバル提供。</dd><dt>Gemini Omni Flash</dt><dd>Flow向けの新動画生成・編集モデル。「Omni」ファミリー第一弾でテキスト/画像/音声/動画を同時入力できる世界モデル型。生成し直さず会話で部分編集でき、キャラの見た目と声をシーン横断で保持する。launch時は1ターン約10秒上限。</dd><dt>Flow Tools</dt><dd>自然言語の指示だけで動画リサイザーやカスタムシェーダー等の編集ツールをノーコード生成（vibe code）し、共有・リミックスできる機能。利用は全Flowユーザー無料、作成/共有はGoogle AIサブスクPlus以上が必要。</dd><dt>Veo 3.1</dt><dd>Flowの動画生成エンジン（高画質スペシャリスト）。native 4K・最高峰のフォトリアリズム・時間的一貫性・同期音声・精密なカメラ制御を備える公式の動画ベースライン。</dd><dt>Flow Music</dt><dd>Flowの音楽制作系機能。曲の任意箇所の局所編集（歌詞リライト/翻訳・ビートドロップ作り替え）やAIカバー（スタイル/歌詞変換）が可能。</dd><dt>Lyria 3 Pro</dt><dd>Flow Musicの音楽生成を担う新モデル。</dd><dt>Flow Music モバイル（逆ローリング）</dt><dd>モバイルアプリの提供順が逆方向であること。Flow本体はAndroid Beta先行・iOSが後、Flow MusicはiOS先行・Androidが後（両者とも片方OSは "coming soon"）。</dd><dt>image-to-video（静止画→動画）</dt><dd>1枚の静止画を起点に動きだけを生成する方式。被写体・構図・色・スタイルが画で確定するため、テキストのみ（text-to-video）より結果が安定し『イメージ通り』になりやすい。FlowではFrames to Video / Ingredients to Videoで実現する。</dd><dt>ネガティブスペース（余白）</dt><dd>被写体の周囲の空き領域。動かす前提の静止画では意図的に作ると動きの逃げ場になり、終了フレームのテキスト/ロゴ配置にも使える。プロンプトで <code>ample clean space for text</code> のように指示する。</dd><dt>Object Mask（Premiere Pro）</dt><dd>Premiere Pro 26.0（2026年5月）で追加された、オンデバイスAIが被写体を自動検出しトラッキング済みマスクを生成する機能。グリーンバックなしでもAI生成動画から被写体を切り抜ける。</dd><dt>Ultra Key</dt><dd>Premiere Pro標準のクロマキーエフェクト。緑/青背景を選択し、エッジの精製・色被り(スピル)除去を調整して被写体を切り抜く。</dd></dl>
-  </div>
+      <div class="card" id="glossary">
+        <h2 style="font-size:20px;font-weight:800;margin:0 0 16px;">用語集</h2>
+        <dl class='glossary'><dt>Google Flow</dt><dd>Google I/O 2025で発表されたAIフィルムメイキングツール。Veo・画像モデル・Geminiを統合し、生成から連結・編集までを一つのUIで行う（labs.google/fx/tools/flow）。</dd><dt>Veo / Veo 3.1</dt><dd>Flow搭載の映像生成モデル。3.1は2025年10月初回・2026年1月に4K/縦型/Ingredients強化。ネイティブ音声・リップシンクに対応。</dd><dt>Text to Video</dt><dd>テキスト記述のみから動画を生成する標準モード。構図・動きの方向性を素早く探るのに向く。</dd><dt>Frames to Video</dt><dd>開始フレーム（＋任意で終了フレーム）の画像を与え、その間の遷移を生成するモード。カメラワーク制御が最も活きる。</dd><dt>Ingredients to Video</dt><dd>キャラ・物・スタイルの参照画像（最大3〜4枚）を渡し、複数ショット間で同一性を保つモード。一貫性の中核。</dd><dt>Scenebuilder</dt><dd>複数クリップを時系列タイムラインに並べて1本のシーンに構築するFlowの編集機能。順序入替・トリム・ダウンロードが可能。</dd><dt>Extend</dt><dd>既存クリップ末尾に続きを生成して尺を伸ばす機能。繰り返すと60秒以上化できるが、他の編集モードと併用不可・720p限定（要確認）。</dd><dt>Ingredients / 材料</dt><dd>Ingredients to Videoに渡す参照画像のこと。無地・切り抜き背景の被写体が最も効く。</dd><dt>キャラバイブル（identity anchor）</dt><dd>キャラの全特徴を記した再利用テキストブロック。毎プロンプトに逐語で再掲し、長期の見た目一貫性を保つ。</dd><dt>SynthID</dt><dd>全Veo出力に必ず埋め込まれる不可視の電子透かし。専用ツールでのみ検出可能で、どのプランでも除去不可。</dd><dt>可視ウォーターマーク（veo透かし）</dt><dd>Flow出力の右下に表示される半透明の『veo』テキスト。Pro以下は表示、Ultraは免除（要確認）。</dd><dt>Flowクレジット</dt><dd>Flowで生成するたびに消費する月次/日次の通貨。モデル別単価（Lite10/Fast20/Quality100、Ultraは割引）。翌月繰り越し不可。</dd><dt>Lite / Fast / Quality</dt><dd>Veo 3.1の品質ティア。公式の正式名称は <strong>Veo 3.1（最高品質・本ガイドの『Quality』）／Veo 3.1 Fast（標準）／Veo 3.1 Lite（最安・ラフ探り）</strong> の3層。速度・コストと品質のトレードオフ。本ガイドでは最上位を便宜上『Quality』と表記するが、UI上は単に『Veo 3.1』。</dd><dt>negative prompt</dt><dd>出力から除外したい要素を指定するパラメータ/補足。字幕除去（no subtitles）等に使う。Gemini APIでは negative_prompt。</dd><dt>Show Music Beats</dt><dd>DaVinci Resolve 20のAIビート検出機能。タイムラインに拍を表示しカットをスナップできる。Studio版限定。</dd><dt>Auto Beat Sync</dt><dd>CapCut内蔵の自動ビート検出。楽曲の拍をドットで表示し、カット/トランジションを拍に合わせる。SNSショート量産に有効。</dd><dt>スピードランプ（speed ramp）</dt><dd>クリップ速度を曲線的に変化させる演出。サビの加速・ブレイクの減速など緩急をつける。CapCutやResolveで適用。</dd><dt>timestamp prompting</dt><dd>1回の生成内で[00:00-00:02]...と時間区切りで複数ショットを記述する手法。短いビート単位で一貫性が上がる（一次ソース未確認・要検証）。</dd><dt>Flow Agent</dt><dd>Google I/O 2026で発表されたGeminiベースのエージェント機能。過去プロジェクトを記憶し、ブレスト・台詞壁打ち・プロット提案・複数バリエーション生成・バッチ編集・アセット整理を自然言語で計画実行する会話型クリエイティブパートナー。全Flowユーザーにグローバル提供。</dd><dt>Gemini Omni Flash</dt><dd>Flow向けの新動画生成・編集モデル。「Omni」ファミリー第一弾でテキスト/画像/音声/動画を同時入力できる世界モデル型。生成し直さず会話で部分編集でき、キャラの見た目と声をシーン横断で保持する。launch時は1ターン約10秒上限。</dd><dt>Flow Tools</dt><dd>自然言語の指示だけで動画リサイザーやカスタムシェーダー等の編集ツールをノーコード生成（vibe code）し、共有・リミックスできる機能。利用は全Flowユーザー無料、作成/共有はGoogle AIサブスクPlus以上が必要。</dd><dt>Veo 3.1</dt><dd>Flowの動画生成エンジン（高画質スペシャリスト）。native 4K・最高峰のフォトリアリズム・時間的一貫性・同期音声・精密なカメラ制御を備える公式の動画ベースライン。</dd><dt>Flow Music</dt><dd>Flowの音楽制作系機能。曲の任意箇所の局所編集（歌詞リライト/翻訳・ビートドロップ作り替え）やAIカバー（スタイル/歌詞変換）が可能。</dd><dt>Lyria 3 Pro</dt><dd>Flow Musicの音楽生成を担う新モデル。</dd><dt>Flow Music モバイル（逆ローリング）</dt><dd>モバイルアプリの提供順が逆方向であること。Flow本体はAndroid Beta先行・iOSが後、Flow MusicはiOS先行・Androidが後（両者とも片方OSは "coming soon"）。</dd><dt>image-to-video（静止画→動画）</dt><dd>1枚の静止画を起点に動きだけを生成する方式。被写体・構図・色・スタイルが画で確定するため、テキストのみ（text-to-video）より結果が安定し『イメージ通り』になりやすい。FlowではFrames to Video / Ingredients to Videoで実現する。</dd><dt>ネガティブスペース（余白）</dt><dd>被写体の周囲の空き領域。動かす前提の静止画では意図的に作ると動きの逃げ場になり、終了フレームのテキスト/ロゴ配置にも使える。プロンプトで <code>ample clean space for text</code> のように指示する。</dd><dt>Object Mask（Premiere Pro）</dt><dd>Premiere Pro 26.0（2026年5月）で追加された、オンデバイスAIが被写体を自動検出しトラッキング済みマスクを生成する機能。グリーンバックなしでもAI生成動画から被写体を切り抜ける。</dd><dt>Ultra Key</dt><dd>Premiere Pro標準のクロマキーエフェクト。緑/青背景を選択し、エッジの精製・色被り(スピル)除去を調整して被写体を切り抜く。</dd></dl>
+      </div>
 
-  <div class="card" id="pitfalls">
-    <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">よくある破綻と対処（早見表）</h2>
-    <div class='tbl-wrap'><table class='pitfalls'><thead><tr><th>破綻パターン</th><th>対処</th></tr></thead><tbody><tr><td class='pit-p'>音声を指定せず生成したら『観客の笑い声（live studio audience）』が勝手に入る。</td><td class='pit-f'>期待する背景音を Ambient noise: で明示する。台詞・SFX・環境音・BGMの4層を毎回書く。</td></tr><tr><td class='pit-p'>台詞を入れたら画面に字幕（焼き込みテキスト）が暴発する。</td><td class='pit-f'>公式の引用符+says形式を使いつつ、補足/negativeで no subtitles・no text を入れる。しつこい場合は繰り返す。say this 等の表現は避ける。</td></tr><tr><td class='pit-p'>ショットごとにキャラの顔・服・世界観が変わり、MVとして成立しない。</td><td class='pit-f'>キャラバイブルを逐語で毎プロンプトに再掲し、OK済み参照画像をIngredientsでロックして全ショットに使い回す（テキスト＋画像の二本立て）。</td></tr><tr><td class='pit-p'>開始/終了フレームと参照画像を両方指定しようとして生成が意図通りにならない。</td><td class='pit-f'>1回の生成では『フレーム指定』か『参照画像セット』のどちらか一方のみ。設計時に分岐を決める（排他制約）。</td></tr><tr><td class='pit-p'>長めのクリップで露出・色が途中からふらつき、fever dream化する。</td><td class='pit-f'>3〜5秒の短いセグメントで生成し縫合。ライティングを明示固定し『Throughout the entire clip / ライティング変化なし』等の時間アンカーを入れ、後処理で全体に一貫カラーグレードをかける。</td></tr><tr><td class='pit-p'>手・指・顔がモーフィングして崩れる。</td><td class='pit-f'>参照画像で身元を固定し、カメラ移動と複雑なジェスチャを減らす。単純な手のポーズにする。崩れフレームは後処理の差し替え/カット編集で隠す。</td></tr><tr><td class='pit-p'>人物や物が地面から浮いて見える（物理の不自然さ）。</td><td class='pit-f'>重力・接地を言葉で縛る（『重い足音と地面への明確な衝撃』）。実世界動作を参照させ、後処理でスロー/フレーム補間を当てる。</td></tr><tr><td class='pit-p'>クレジットを再生成で一気に使い切り、月末に作れなくなる。</td><td class='pit-f'>1ショットの当て本数に上限を決める。Liteで方向性を固め、ヒーローショットだけQualityに回す。月クレジットは繰り越し不可なので月末計画を立てる。</td></tr><tr><td class='pit-p'>AI生成クリップを並べただけで楽曲とリズムが合わない。</td><td class='pit-f'>AIに自動同期はできない。先にBPMから小節グリッドを作り、編集ソフト（DaVinci Resolve 20のビート検出=Studio版限定／CapCut Auto Beat Sync）で拍にスナップする。</td></tr><tr><td class='pit-p'>古い料金/仕様/モデル名（$249、月100クレジット、Nano Banana Pro既定、Sora前提の比較）を信じて提案してしまう。</td><td class='pit-f'>料金・クレジット・モデル名・対応機能は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/flow・blog.google・ai.google.dev）で最新値を再確認する。 【2026-07-11実査】Google I/O 2026(2026年5月)でプラン構成が改定され、AI Ultraは$100(開発者向け新)／$200(従来$250から値下げ)の2層体制に。月間クレジット付与数は support.google.com/flow/answer/16526234 で確定済み(無料50/日・Plus200/月・Pro1,000/月・Ultra$100層10,000/月・Ultra$200層25,000/月)。以前あった「両Ultra層とも12,500」という二次情報は誤りと判明。また2026年6月8日にGoogle AI Plusが月¥1,200→¥725へ値下げ・ストレージ200GB→400GBへ倍増済み。</td></tr></tbody></table></div>
-  </div>
+      <div class="card" id="pitfalls">
+        <h2 style="font-size:20px;font-weight:800;margin:0 0 16px;">よくある破綻と対処（早見表）</h2>
+        <div class='tbl-wrap'><table class='pitfalls'><thead><tr><th>破綻パターン</th><th>対処</th></tr></thead><tbody><tr><td class='pit-p'>音声を指定せず生成したら『観客の笑い声（live studio audience）』が勝手に入る。</td><td class='pit-f'>期待する背景音を Ambient noise: で明示する。台詞・SFX・環境音・BGMの4層を毎回書く。</td></tr><tr><td class='pit-p'>台詞を入れたら画面に字幕（焼き込みテキスト）が暴発する。</td><td class='pit-f'>公式の引用符+says形式を使いつつ、補足/negativeで no subtitles・no text を入れる。しつこい場合は繰り返す。say this 等の表現は避ける。</td></tr><tr><td class='pit-p'>ショットごとにキャラの顔・服・世界観が変わり、MVとして成立しない。</td><td class='pit-f'>キャラバイブルを逐語で毎プロンプトに再掲し、OK済み参照画像をIngredientsでロックして全ショットに使い回す（テキスト＋画像の二本立て）。</td></tr><tr><td class='pit-p'>開始/終了フレームと参照画像を両方指定しようとして生成が意図通りにならない。</td><td class='pit-f'>1回の生成では『フレーム指定』か『参照画像セット』のどちらか一方のみ。設計時に分岐を決める（排他制約）。</td></tr><tr><td class='pit-p'>長めのクリップで露出・色が途中からふらつき、fever dream化する。</td><td class='pit-f'>3〜5秒の短いセグメントで生成し縫合。ライティングを明示固定し『Throughout the entire clip / ライティング変化なし』等の時間アンカーを入れ、後処理で全体に一貫カラーグレードをかける。</td></tr><tr><td class='pit-p'>手・指・顔がモーフィングして崩れる。</td><td class='pit-f'>参照画像で身元を固定し、カメラ移動と複雑なジェスチャを減らす。単純な手のポーズにする。崩れフレームは後処理の差し替え/カット編集で隠す。</td></tr><tr><td class='pit-p'>人物や物が地面から浮いて見える（物理の不自然さ）。</td><td class='pit-f'>重力・接地を言葉で縛る（『重い足音と地面への明確な衝撃』）。実世界動作を参照させ、後処理でスロー/フレーム補間を当てる。</td></tr><tr><td class='pit-p'>クレジットを再生成で一気に使い切り、月末に作れなくなる。</td><td class='pit-f'>1ショットの当て本数に上限を決める。Liteで方向性を固め、ヒーローショットだけQualityに回す。月クレジットは繰り越し不可なので月末計画を立てる。</td></tr><tr><td class='pit-p'>AI生成クリップを並べただけで楽曲とリズムが合わない。</td><td class='pit-f'>AIに自動同期はできない。先にBPMから小節グリッドを作り、編集ソフト（DaVinci Resolve 20のビート検出=Studio版限定／CapCut Auto Beat Sync）で拍にスナップする。</td></tr><tr><td class='pit-p'>古い料金/仕様/モデル名（$249、月100クレジット、Nano Banana Pro既定、Sora前提の比較）を信じて提案してしまう。</td><td class='pit-f'>料金・クレジット・モデル名・対応機能は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/flow・blog.google・ai.google.dev）で最新値を再確認する。 【2026-07-11実査】Google I/O 2026(2026年5月)でプラン構成が改定され、AI Ultraは$100(開発者向け新)／$200(従来$250から値下げ)の2層体制に。月間クレジット付与数は support.google.com/flow/answer/16526234 で確定済み(無料50/日・Plus200/月・Pro1,000/月・Ultra$100層10,000/月・Ultra$200層25,000/月)。以前あった「両Ultra層とも12,500」という二次情報は誤りと判明。また2026年6月8日にGoogle AI Plusが月¥1,200→¥725へ値下げ・ストレージ200GB→400GBへ倍増済み。</td></tr></tbody></table></div>
+      </div>
 
-  <footer>
-    Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年7月11日 23:46 JST<br>
-    出典: labs.google・blog.google・support.google.com/flow・ai.google.dev ほか（2026年7月時点・仕様/料金は変動）
-  </footer>
+      <footer>
+        Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年7月12日 24:14 JST<br>
+        出典: labs.google・blog.google・support.google.com/flow・ai.google.dev ほか（2026年7月時点・仕様/料金は変動）
+      </footer>
+    </div>
+  </div>
 </div>
 
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開く">☰ 目次</button>
+<div class="scrim" id="scrim"></div>
 <a href="#" class="top-link" aria-label="トップへ戻る">↑</a>
 
 <script>
@@ -335,6 +592,37 @@ JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]�
       });
     });
   });
+
+  // mobile sidebar toggle
+  (function(){
+    var sidebar = document.getElementById('sidebar');
+    var toggle = document.getElementById('sidebarToggle');
+    var scrim = document.getElementById('scrim');
+    function closeNav(){ sidebar.classList.remove('open'); scrim.classList.remove('show'); }
+    toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); scrim.classList.toggle('show'); });
+    scrim.addEventListener('click', closeNav);
+    sidebar.querySelectorAll('.nav-link').forEach(function(a){ a.addEventListener('click', closeNav); });
+  })();
+
+  // scroll-spy: highlight the nav link for the section currently in view
+  (function(){
+    var ids = ["what-is-flow", "getting-started", "three-modes", "prompt-design", "consistency", "image-to-video", "long-form", "credits-pricing", "mv-workflow", "failures", "iteration-loop", "agent-features", "compositing", "tips", "templates", "glossary", "pitfalls"];
+    var links = {};
+    document.querySelectorAll('.nav-link').forEach(function(a){ links[a.dataset.target] = a; });
+    var targets = ids.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    if (!('IntersectionObserver' in window) || targets.length === 0) return;
+    var current = null;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          if (current && links[current]) links[current].classList.remove('active');
+          current = entry.target.id;
+          if (links[current]) links[current].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+    targets.forEach(function(t){ io.observe(t); });
+  })();
 </script>
 </body>
 </html>
