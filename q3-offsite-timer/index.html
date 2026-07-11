@@ -842,7 +842,32 @@
       render();
       vibrate(30);
       const sign = delta > 0 ? '+' : '';
-      showToast(`「${currentSession.title}」を今終了 (${sign}${delta}分)`);
+      const targetId = target.id;
+      const targetTitle = currentSession.title;
+      // Toast + inline Undo (reset to on-time: delay=0)
+      showToast(`「${targetTitle}」を今終了 (${sign}${delta}分)`, {
+        action: {
+          label: '元に戻す',
+          handler: () => {
+            const t = schedule.find((s) => s.id === targetId);
+            if (!t) return;
+            t.delay = 0;
+            // Remove the matching endNow history entry (last one for this session with after=newDelay)
+            for (let i = history.length - 1; i >= 0; i--) {
+              if (history[i].kind === 'delay' && history[i].id === targetId && history[i].after === newDelay) {
+                history.splice(i, 1);
+                break;
+              }
+            }
+            saveDelays();
+            saveHistory();
+            render();
+            vibrate(10);
+            showToast(`「${targetTitle}」をオンタイム(±0分)に戻しました`);
+          }
+        },
+        duration: 6000
+      });
     }
 
     // ========================================
