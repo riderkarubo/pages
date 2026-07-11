@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google Flow AI動画制作マスタープレイブック</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
-<meta name="last-modified" content="2026-07-12T00:14:07+09:00">
+<meta name="last-modified" content="2026-07-12T00:21:22+09:00">
 <meta name="description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
 <meta property="og:title" content="Google Flow AI動画制作マスタープレイブック">
 <meta property="og:description" content="Veo搭載のGoogle Flowで音楽MV・SNSショートを作り切る実戦ガイド。3つの生成モード、7要素プロンプト設計、一貫性の保ち方、クレジット運用、BPMからのMV制作フロー、よくある破綻と対処、穴埋めテンプレ集。">
@@ -220,7 +220,7 @@
     </div>
     <div class="cover-meta">
       <div><div class="label">Tool</div><div class="value">Google Flow (labs.google)</div></div>
-      <div><div class="label">Last Updated</div><div class="value">2026年7月12日 24:14</div></div>
+      <div><div class="label">Last Updated</div><div class="value">2026年7月12日 24:21</div></div>
       <div><div class="label">Prepared by</div><div class="value">軍師 (Claude) × Issy</div></div>
       <div><div class="label">Status</div><div class="value">v2 / サイドバーナビ＋モデル比較カード化</div></div>
     </div>
@@ -539,7 +539,9 @@
 <p><strong>使い分けの目安</strong></p>
 <div class='tbl-wrap'><table><thead><tr><th>手法</th><th>向くケース</th></tr></thead><tbody><tr><td>グリーンバック生成＋Ultra Key</td><td>被写体の輪郭がシンプル・動きが少ない（人物バストアップ等）</td></tr><tr><td>Object Mask（グリーンバック不要）</td><td>背景が複雑・被写体が動く・グリーンバックの抜き残りが気になる場合</td></tr><tr><td>サードパーティのAI背景除去（VideoBGRemover等）</td><td>上記2つで満足いく抜きが出ない時の最終手段</td></tr></tbody></table></div>
 <p><strong>ハイブリッド運用（実写グリーンバックとの併用）</strong></p>
-<p>自宅の実写グリーンバック環境がある場合、実写素材をFrames to Video / Ingredientsの参照画像として持ち込み、AI生成パートと実写パートを同一グリーンバック基調で揃えると、後工程の合成が楽になります。AI生成側にも「same green screen backdrop as reference」等でスタイルを揃える指示を添えると効果的です。</p></div></section>
+<p>自宅の実写グリーンバック環境がある場合、実写素材をFrames to Video / Ingredientsの参照画像として持ち込み、AI生成パートと実写パートを同一グリーンバック基調で揃えると、後工程の合成が楽になります。AI生成側にも「same green screen backdrop as reference」等でスタイルを揃える指示を添えると効果的です。</p>
+<p><strong>静止画素材はNano Bananaで（姉妹プレイブック）</strong></p>
+<p>背景プレート・共演者・小道具など「動かない静止画素材」として合成したい場合は、Flowで動画として生成するより静止画生成AI（Nano Banana）の方が精度・コストの両面で有利なことが多い。特に<strong>透過PNG</strong>（アルファ抜き）が必要な小物・ロゴ素材は、Flow動画では原理的に作れないため必ずNano Banana側で作る。<br>→ 詳細は姉妹プレイブック <code>05_プライベート/AI画像制作/nano-banana-playbook.md</code>（スキル: <code>nano-banana-prompt</code>）を参照。White/Black差分マッティング法によるアルファ抜き・グリーンバック生成の具体的なプロンプトはそちらに集約している。</p></div></section>
       </div>
 
       <div class="card" id="tips">
@@ -572,7 +574,7 @@ JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]�
       </div>
 
       <footer>
-        Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年7月12日 24:14 JST<br>
+        Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年7月12日 24:21 JST<br>
         出典: labs.google・blog.google・support.google.com/flow・ai.google.dev ほか（2026年7月時点・仕様/料金は変動）
       </footer>
     </div>
