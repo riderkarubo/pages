@@ -127,7 +127,7 @@
   </div>
   <div class="cover-meta">
     <div><div class="label">Tool</div><div class="value">Google Flow (labs.google)</div></div>
-    <div><div class="label">Last Updated</div><div class="value">2026年6月7日 22:26</div></div>
+    <div><div class="label">Last Updated</div><div class="value">2026年7月11日 23:37</div></div>
     <div><div class="label">Prepared by</div><div class="value">軍師 (Claude) × Issy</div></div>
     <div><div class="label">Status</div><div class="value">v1.2 / エージェント機能(I/O 2026)追記済</div></div>
   </div>
@@ -151,18 +151,20 @@
   </div>
 
   <div class="note" style="background:linear-gradient(135deg,#eefcf6,#eef4ff);border-color:#cfeede;">
-    <b style="color:var(--accent3);">実査メモ（2026年6月6日 WebSearch/WebFetchで一次情報を確認）</b>
+    <b style="color:var(--accent3);">実査メモ（2026年7月11日 WebSearch/WebFetchで一次情報を再確認）</b>
     <div style="margin-top:8px;font-size:13px;line-height:1.85;">
       <b>✓ 確証できた事実</b><br>
       ・現行モデルは <b>Veo 3.1</b>（2025年10月初出 → 2026年1月に <b>4K出力</b>・縦型9:16ネイティブ・Ingredients強化）。<br>
       ・<b>ネイティブ音声</b>（台詞・環境音・SFX・リップシンク）を1パスで生成 ＝ 本ガイドの音声4層設計は有効。<br>
       ・品質ティアの公式名は <b>Veo 3.1 ／ Veo 3.1 Fast ／ Veo 3.1 Lite</b>（本ガイドの「Quality」＝標準のVeo 3.1）。<br>
       ・<b>クレジットは翌月繰り越し不可・毎月1日リフレッシュ</b>。<br>
-      <b style="color:var(--accent2);">⚠ I/O 2026（2026年5月）で構造が動いた・提案前に要再確認</b><br>
-      ・<b>AI Ultraが2層化</b>：$100/月（開発者向け新ティア）と $200/月（従来$250から値下げ）。「$249」は旧値。<br>
-      ・使用量が「<b>compute-used</b>」モデルへ移行。Flowは<b>追加クレジットのペイ・アズ・ユー・ゴー購入</b>が可能に。<br>
-      ・<b>月間クレジット付与数は情報源で食い違う</b>（両Ultra層 12,500/月 とする二次情報あり）。<b>第7章の本数表は提案前に <a href="https://one.google.com/about/google-ai-plans/" style="color:var(--accent);">one.google.com</a> で必ず実数を再確認</b>すること。<br>
-      <span style="color:var(--muted);font-size:12px;">出典: deepmind.google/models/veo・blog.google（I/O 2026 / Veo 3.1 Lite）・one.google.com。8秒上限/Scenebuilder等の機能名/SynthID/DaVinci Resolveのビート検出(Studio限定)は今回未再検証＝本文記載のまま（公式で要確認）。</span>
+      ・<b>月間クレジット付与数を公式確定</b>（support.google.com/flow/answer/16526234）：無料50/日・<b>Plus 200/月（新設）</b>・Pro 1,000/月・Ultra $100層 10,000/月・Ultra $200層 25,000/月。旧「両Ultra層12,500」の二次情報は誤りと判明。<br>
+      ・<b>可視『veo』透かしの免除条件を確認</b>：無料/Plus/Proは表示、Ultra（$100/$200両層）とGoogle AI Studio開発者ツールは免除。<br>
+      ・<b>Veo 3 / Veo 3 Fast API料金の値下げ発表（2025年9月8日付）</b>を確認：Fast $0.15/秒・Quality $0.40/秒（1080p対応・9:16縦型対応も同時発表）。本文の「2026年3月時点の代表値」という記載を発表日ベースに修正済み。<br>
+      <b style="color:var(--accent2);">⚠ 2026年6月8日の値下げ・提案前に要再確認</b><br>
+      ・<b>Google AI Plusが月¥1,200→¥725へ値下げ</b>、ストレージ200GB→400GBへ倍増。<br>
+      ・Ultra $100層は20TBストレージ・YouTube Premium付帯（公式発表）。<br>
+      <span style="color:var(--muted);font-size:12px;">出典: support.google.com/flow・blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/・developers.googleblog.com（Veo 3価格改定）。8秒上限/Scenebuilder等の機能名/SynthIDは今回未再検証＝本文記載のまま（公式で要確認）。</span>
     </div>
   </div>
 
@@ -173,9 +175,9 @@
 <p><strong>できないこと・限界も先に把握しておくこと:</strong></p>
 <ul><li>1クリップは最大8秒（4/6/8秒）。長尺は複数クリップの連結が前提。</li><li>楽曲との自動同期はできない（最終的な拍合わせは編集ソフトで手作業）。</li><li>手・指の精密動作、画面内テキスト、長い歌唱シーンは依然崩れやすい。</li><li>全出力に不可視透かしSynthIDが埋め込まれる（除去不可・AI生成物の開示が前提）。</li></ul>
 <p>Veoのバージョンは2025年10月15日にVeo 3.1が初回リリースされ、2026年1月13日に4K・縦型・Ingredients to Video強化の大型更新が入っています（複数ソースで日付一致）。本プレイブックはVeo 3.1世代を前提としますが、モデルは頻繁に更新されるため<strong>UI上の表記とできることは都度確認</strong>してください。</p></div></section><section class='section' id='getting-started'><h2>2. はじめの一歩（アカウント・プラン・画面）</h2><div class='body'><p>FlowはGoogleアカウントでログインするだけで開始できます（APIキー不要）。labs.google/fx/tools/flow にアクセスし、Google AIサブスクリプションのプランに応じたFlowクレジットを消費して生成します。</p>
-<p><strong>プラン構成（2026年6月時点・公式で要確認）</strong></p>
-<div class='tbl-wrap'><table><thead><tr><th>プラン</th><th>月額（日本）</th><th>月間Flowクレジット</th><th>位置づけ</th></tr></thead><tbody><tr><td>無契約（無料）</td><td>¥0</td><td>1日50クレジット（繰り越し不可）</td><td>UIの試用・お試し</td></tr><tr><td>Google AI Pro</td><td>¥2,900（米$19.99）</td><td>1,000クレジット/月</td><td>MV制作の入口</td></tr><tr><td>Google AI Ultra（下位）</td><td>¥14,500</td><td>10,000クレジット/月</td><td>本格量産</td></tr><tr><td>Google AI Ultra（上位）</td><td>¥32,000（米$200）</td><td>25,000クレジット/月</td><td>プロ用途・可視透かし免除</td></tr></tbody></table></div>
-<p>注: 米ドル最上位は2026年に$250→$200へ値下げ済み。$249/$250という表記は旧価格です。月間クレジットは<strong>翌月繰り越し不可・請求サイクル末で失効</strong>します（公式 support.google.com/labs 確認）。</p>
+<p><strong>プラン構成（2026年7月時点・公式 support.google.com/flow 確認済み）</strong></p>
+<div class='tbl-wrap'><table><thead><tr><th>プラン</th><th>月額（日本/米ドル）</th><th>月間Flowクレジット</th><th>位置づけ</th></tr></thead><tbody><tr><td>無契約（無料）</td><td>¥0</td><td>1日50クレジット（繰り越し不可）</td><td>UIの試用・お試し</td></tr><tr><td>Google AI Plus</td><td>¥725（2026年6月8日に¥1,200から値下げ）</td><td>200クレジット/月</td><td>軽い試作・少量制作</td></tr><tr><td>Google AI Pro</td><td>¥2,900（米$19.99）</td><td>1,000クレジット/月</td><td>MV制作の入口</td></tr><tr><td>Google AI Ultra（$100層・開発者向け新設）</td><td>米$100（日本円未確認）</td><td>10,000クレジット/月</td><td>本格量産</td></tr><tr><td>Google AI Ultra（$200層）</td><td>¥32,000（米$200・旧$250から値下げ）</td><td>25,000クレジット/月</td><td>プロ用途・可視透かし免除</td></tr></tbody></table></div>
+<p>注: 上表のクレジット数値は2026年7月、Google公式サポート（support.google.com/flow/answer/16526234）で確定済み。以前は「両Ultra層とも12,500」という二次情報の混乱があったが、公式ソースで10,000/25,000と確認済み。月間クレジットは<strong>翌月繰り越し不可・請求サイクル末で失効</strong>します。Google AI Plusプランはストレージ400GB付帯（2026年6月8日改定で200GBから倍増）。Ultra $100層は20TBストレージ・YouTube Premium付帯が公式発表済み。</p>
 <p>新規向けにProの無料プロモ（日本では年額大幅割引キャンペーン等）が存在しますが、内容は流動的です。学生無料特典は新規受付が各地域で順次終了済み（米は2026年4月30日締切、既存登録者も2026年6月30日まで・以降は学生割引$9.99/月）なので、現時点で当てにしないでください。</p>
 <p><strong>最初に押さえる画面要素</strong></p>
 <ol><li><strong>プロンプトボックス＋Generateボタン</strong> — ここに記述して生成。</li><li><strong>モデル名のクリック切替</strong> — Veoの品質モード（後述のLite/Fast/Quality）や画像モデルを選ぶ。2026年時点のFlow既定画像モデルは『Nano Banana 2』（無料）で、Nano Banana ProはUltra既定（旧記載のNano Banana Pro/Imagen 4から更新済み・UIで都度確認）。</li><li><strong>preferences（設定）</strong> — アスペクト比（16:9 / 9:16）、生成尺（4/6/8秒）、出力本数を選択。</li><li><strong>モード切替ボタン</strong> — Text / Frames / Ingredients（3章で詳述）。</li><li><strong>Historyパネル</strong> — 過去の全バージョンと使用プロンプトが保存され、復元・再生成できる。</li></ol>
@@ -235,12 +237,12 @@
 <p><strong>モデル別クレジット単価（8秒1本あたり・公式確定値）</strong></p>
 <div class='tbl-wrap'><table><thead><tr><th>モデル</th><th>非Ultra</th><th>Ultra</th><th>用途</th></tr></thead><tbody><tr><td>Veo 3.1 Lite</td><td>10</td><td>5</td><td>ラフ探り・量産・つなぎショット</td></tr><tr><td>Veo 3.1 Fast</td><td>20</td><td>10</td><td>標準制作</td></tr><tr><td>Veo 3.1 Quality</td><td>100</td><td>100（割引なし）</td><td>ヒーローショット・最終品質</td></tr></tbody></table></div>
 <p><strong>プラン別の生成可能本数（Ultra割引の有無で倍違う点に注意）</strong></p>
-<div class='tbl-wrap'><table><thead><tr><th>プラン</th><th>月クレジット</th><th>Lite</th><th>Fast</th><th>Quality</th></tr></thead><tbody><tr><td>Pro</td><td>1,000</td><td>約100本</td><td>約50本</td><td>約10本</td></tr><tr><td>Ultra上位</td><td>25,000</td><td>約5,000本</td><td>約2,500本</td><td>約250本</td></tr></tbody></table></div>
-<p>※ Ultraは割引単価（Lite5/Fast10）で計算するため本数が多い。QualityはUltraでも割引なしの100クレジットなので250本。非Ultra単価で割ると本数が半減するので換算時に注意。</p>
+<div class='tbl-wrap'><table><thead><tr><th>プラン</th><th>月クレジット</th><th>Lite</th><th>Fast</th><th>Quality</th></tr></thead><tbody><tr><td>Plus</td><td>200</td><td>約20本</td><td>約10本</td><td>約2本</td></tr><tr><td>Pro</td><td>1,000</td><td>約100本</td><td>約50本</td><td>約10本</td></tr><tr><td>Ultra $100層</td><td>10,000</td><td>約2,000本</td><td>約1,000本</td><td>約100本</td></tr><tr><td>Ultra $200層</td><td>25,000</td><td>約5,000本</td><td>約2,500本</td><td>約250本</td></tr></tbody></table></div>
+<p>※ Ultraは割引単価（Lite5/Fast10）で計算するため本数が多い。QualityはUltraでも割引なしの100クレジットなので、$200層で250本・$100層で100本。非Ultra単価で割ると本数が半減するので換算時に注意。</p>
 <p><strong>透かし（ウォーターマーク）</strong></p>
-<ul><li>可視『veo』透かし: 右下に表示。Pro以下は表示、Ultraは免除（解説記事ベース・要確認）。</li><li>SynthID（不可視）: 全ティアに必ず埋め込まれ、<strong>どのプランでも除去不可</strong>。AI生成物の開示が前提。</li></ul>
+<ul><li>可視『veo』透かし: 右下に表示。無料・Plus・Proは表示、Ultra（$100/$200両層）は免除、Google AI Studio開発者ツール経由も免除（2026年7月公式確認済み）。</li><li>SynthID（不可視）: 全ティアに必ず埋め込まれ、<strong>どのプランでも除去不可</strong>。AI生成物の開示が前提。</li></ul>
 <p><strong>API直叩き（代替経路・参考）</strong><br>サブスクではなくAPI課金も可能で、API出力は可視透かしなし（SynthIDのみ）で商用に向きます。ただしFlow UIの編集機能（Scenebuilder等）は使えません。</p>
-<ul><li>Veo 3.1 Fast ≈ $0.15/秒（8秒で約$1.20）</li><li>Veo 3.1 Quality(Standard) ≈ $0.40/秒（8秒で約$3.20）</li><li>価格は2026年3月時点の代表値。音声有無・4k・Liteで変動するため公式pricingで再確認。</li></ul>
+<ul><li>Veo 3 Fast ≈ $0.15/秒（8秒で約$1.20・旧$0.40/秒から値下げ）</li><li>Veo 3 Quality(Standard) ≈ $0.40/秒（8秒で約$3.20・旧$0.75/秒から値下げ）</li><li>上記の新料金は2025年9月8日、Google Developers Blogで発表済み（1080p対応・9:16縦型対応も同時発表）。音声有無・4k・Liteモデルで変動するため公式pricingで再確認。</li></ul>
 <p><strong>運用の鉄則</strong></p>
 <ul><li>クレジットは翌月繰り越し不可・請求サイクル末で失効 → 月末に使い切る計画を。</li><li>無契約は1日50クレジット無料（繰り越し不可）。『月100クレジット』という記載は誤り。</li><li>Midjourney等にある『時間を犠牲にクレジット節約するRelaxed/無制限モード』はFlowに存在しない（Fast/Qualityの2モードのみ）。</li><li>高需要時は『Something Went Wrong』エラーや待ち時間が発生。Pro/Ultraは無料より優先されるが、Ultraの優位は大きなクレジットプールにある。</li></ul></div></section><section class='section' id='mv-workflow'><h2>9. MV制作ワークフロー（BPM→セクション→ショット→同期）</h2><div class='body'><p>AIは映像と楽曲を自動同期できません。<strong>1拍/1小節の秒数を先に計算し、それに合わせてクリップを切る</strong>のが手作業の肝です。各AIツールを『映画の各部門』に見立てて分業すると段取りが整理できます（コンセプトアート＝Midjourney/Imagen、撮影監督＝Veo/Flow、ポスプロ＝Topaz、編集＝DaVinci/CapCut）。</p>
 <p><strong>ステップ1: 楽曲確定 → BPMから小節グリッドを作る</strong><br>計算式: <code>1拍の秒数 = 60 ÷ BPM</code> ／ <code>1小節の秒数 =（60 ÷ BPM）× 拍数</code></p>
@@ -274,7 +276,7 @@
 <p><strong>実戦Tips（MV・SNSショート制作にどう効くか）</strong></p>
 <ul><li>二刀流を基本に。最終納品の決めカット・MVのハイライトは Veo 3.1 で4K/フォトリアリズムを取りに行き、SNSショート・絵コンテ検証・反復ラフ・キャラ連作は Omni Flash で会話編集して回す。</li><li>キャラ一貫性は Omni Flash の独壇場。連作・シリーズもので「前のカットと同一人物・同一声で」と会話指示する運用を標準化する。</li><li>編集プロンプトは具体的に。曖昧だと過剰編集で残したい要素まで変わる。「変える箇所」と「保持する箇所」を明示する。</li><li>声は確定素材を持ち込む前提で設計。Omni Flashは音声の差し替え・声のクローンは現状不可（意図的に非搭載）。SUMIMASENの <code>FIX_sumimasen260606.wav</code> のように、Fix音源を軸に映像を合わせる。</li><li>企画はAgentに壁打ちさせる。完成楽曲や商品コンセプトを伝え、台詞・筋立て・カット割りの叩きを出させる。過去プロジェクト履歴を覚えているので、積み上げ式の作品で文脈が効く。</li><li>バリエーションは絞って指示。「複数案出して」は便利だが、出しすぎると選別が地獄になる。3〜4案に絞る指示を添えるのが要。</li><li>毎回同じ加工は Flow Tools 化して資産にする。縦横変換・ブランド色/ロゴ固定・作風シェーダーを一度作り、チーム内（GIFTVOX・ATSURAELU等）で共有→リミックスして標準化する。</li><li>入口の無料試用は YouTube Shorts Remix/Create（18歳以上）。Flow本体で本制作する前の感触掴みに使える。</li></ul>
 <p><strong>注意・現状（2026-06時点）</strong></p>
-<ul><li>「正式版」だが実質ベータ品質と捉えるのが安全。公式は「全Flowユーザーにグローバル提供（限定プレビューやベータではない）」と謳うが、モデレーション精度・安定性は未成熟。本番納期前に必ず小規模テスト生成で通過率を確認すること。</li><li>生成失敗・過検閲の報告あり（誇張は割り引いて受け止める）。「10回中9回失敗（実質90%）」というユーザー証言が出回るが、これはX上の個人投稿1件が出所でGoogle公式統計ではない。ただし「99%まで進んでからの沈黙エラー」「年齢誤判定」「未成年が映る家族動画・着衣の人物までブロック」など過検閲の不満は複数実在する。人物・未成年・身体描写を含む企画は失敗率が跳ね上がるため、絵コンテ段階でNG要素を抜く設計にする。</li><li>失敗してもクレジットを消費する仕様（最重要コスト論点）。Flowは生成前審査ではなく「生成開始後にクラッシュ」させる設計のため、1%進行・出力ゼロでも約100クレジットが引かれる。失敗分は自動再付与される建前（反映に15〜30分）だが、返却遅延/未返却の苦情も併存（要確認）。</li><li>日本固有の制約: 追加AIクレジットの購入は「対応地域（日本を除く）」と公式明記。日本では月次クレジットを使い切っても買い増しできない。失敗時消費と相まって、日本での本番運用は「失敗でクレジットが溶ける→買い足せず月内に枯渇」のリスクあり。Ultra上位プランで潤沢に確保するか、必要量の1.3〜1.5倍のバッファを積む。</li><li>構造的批判: 「16通り生成しても作業は減らず移るだけ。ボトルネックは案を作ることでなく、どれを出すか決めること」。生成力は上がっても意思決定支援にはならない。決め打ちプロンプト＋少数精鋭生成のほうがクレジット効率が良い。</li><li>料金（要確認）: 無料=1日50クレジット（繰越なし）／AI Plus=月200／AI Pro=月1,000／AI Ultra $100=月10,000／$200=月25,000。月額はAI Plus $5・Pro $20・Ultra $80との報告（ソースにより記述揺れ／Gemini app/Flow経由の最安はAI Plus月$7.99との別記述もあり）。具体額は実機で要確認。</li><li>開発者向け（要確認）: 公開API（Gemini API / Agent Platform API）は "coming weeks" 予定。2026年5月時点で確定日・公開model ID・価格・クォータ・APIドキュメントは未公開。当面Veo 3.1を安定ベースラインに、Omniは "watch item" 扱いが無難。</li><li>安全設計: 全生成動画にSynthIDウォーターマークを自動付与。音声/スピーチの差し替えはディープフェイク懸念で非搭載。アバター利用は本人の同意動画が必須。</li><li>iOS版Flow本体・Android版Flow Musicの正式提供時期は公式に明示なし（要確認）。</li></ul></div></section>
+<ul><li>「正式版」だが実質ベータ品質と捉えるのが安全。公式は「全Flowユーザーにグローバル提供（限定プレビューやベータではない）」と謳うが、モデレーション精度・安定性は未成熟。本番納期前に必ず小規模テスト生成で通過率を確認すること。</li><li>生成失敗・過検閲の報告あり（誇張は割り引いて受け止める）。「10回中9回失敗（実質90%）」というユーザー証言が出回るが、これはX上の個人投稿1件が出所でGoogle公式統計ではない。ただし「99%まで進んでからの沈黙エラー」「年齢誤判定」「未成年が映る家族動画・着衣の人物までブロック」など過検閲の不満は複数実在する。人物・未成年・身体描写を含む企画は失敗率が跳ね上がるため、絵コンテ段階でNG要素を抜く設計にする。</li><li>失敗してもクレジットを消費する仕様（最重要コスト論点）。Flowは生成前審査ではなく「生成開始後にクラッシュ」させる設計のため、1%進行・出力ゼロでも約100クレジットが引かれる。失敗分は自動再付与される建前（反映に15〜30分）だが、返却遅延/未返却の苦情も併存（要確認）。</li><li>日本固有の制約: 追加AIクレジットの購入は「対応地域（日本を除く）」と公式明記。日本では月次クレジットを使い切っても買い増しできない。失敗時消費と相まって、日本での本番運用は「失敗でクレジットが溶ける→買い足せず月内に枯渇」のリスクあり。Ultra上位プランで潤沢に確保するか、必要量の1.3〜1.5倍のバッファを積む。</li><li>構造的批判: 「16通り生成しても作業は減らず移るだけ。ボトルネックは案を作ることでなく、どれを出すか決めること」。生成力は上がっても意思決定支援にはならない。決め打ちプロンプト＋少数精鋭生成のほうがクレジット効率が良い。</li><li>料金（2026年7月・公式support.google.com/flowで確定）: 無料=1日50クレジット（繰越なし）／AI Plus=月200クレジット（月額¥725・2026年6月8日に¥1,200から値下げ、ストレージ400GB）／AI Pro=月1,000クレジット（¥2,900・$19.99）／AI Ultra $100層=月10,000クレジット（ストレージ20TB・YouTube Premium付帯）／AI Ultra $200層=月25,000クレジット（旧$250から値下げ）。</li><li>開発者向け（要確認）: 公開API（Gemini API / Agent Platform API）は "coming weeks" 予定。2026年5月時点で確定日・公開model ID・価格・クォータ・APIドキュメントは未公開。当面Veo 3.1を安定ベースラインに、Omniは "watch item" 扱いが無難。</li><li>安全設計: 全生成動画にSynthIDウォーターマークを自動付与。音声/スピーチの差し替えはディープフェイク懸念で非搭載。アバター利用は本人の同意動画が必須。</li><li>iOS版Flow本体・Android版Flow Musicの正式提供時期は公式に明示なし（要確認）。</li></ul></div></section>
   </div>
 
   <div class="card" id="tips">
@@ -303,12 +305,12 @@ JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]�
 
   <div class="card" id="pitfalls">
     <h2 style="font-size:21px;font-weight:800;margin:0 0 16px;">よくある破綻と対処（早見表）</h2>
-    <div class='tbl-wrap'><table class='pitfalls'><thead><tr><th>破綻パターン</th><th>対処</th></tr></thead><tbody><tr><td class='pit-p'>音声を指定せず生成したら『観客の笑い声（live studio audience）』が勝手に入る。</td><td class='pit-f'>期待する背景音を Ambient noise: で明示する。台詞・SFX・環境音・BGMの4層を毎回書く。</td></tr><tr><td class='pit-p'>台詞を入れたら画面に字幕（焼き込みテキスト）が暴発する。</td><td class='pit-f'>公式の引用符+says形式を使いつつ、補足/negativeで no subtitles・no text を入れる。しつこい場合は繰り返す。say this 等の表現は避ける。</td></tr><tr><td class='pit-p'>ショットごとにキャラの顔・服・世界観が変わり、MVとして成立しない。</td><td class='pit-f'>キャラバイブルを逐語で毎プロンプトに再掲し、OK済み参照画像をIngredientsでロックして全ショットに使い回す（テキスト＋画像の二本立て）。</td></tr><tr><td class='pit-p'>開始/終了フレームと参照画像を両方指定しようとして生成が意図通りにならない。</td><td class='pit-f'>1回の生成では『フレーム指定』か『参照画像セット』のどちらか一方のみ。設計時に分岐を決める（排他制約）。</td></tr><tr><td class='pit-p'>長めのクリップで露出・色が途中からふらつき、fever dream化する。</td><td class='pit-f'>3〜5秒の短いセグメントで生成し縫合。ライティングを明示固定し『Throughout the entire clip / ライティング変化なし』等の時間アンカーを入れ、後処理で全体に一貫カラーグレードをかける。</td></tr><tr><td class='pit-p'>手・指・顔がモーフィングして崩れる。</td><td class='pit-f'>参照画像で身元を固定し、カメラ移動と複雑なジェスチャを減らす。単純な手のポーズにする。崩れフレームは後処理の差し替え/カット編集で隠す。</td></tr><tr><td class='pit-p'>人物や物が地面から浮いて見える（物理の不自然さ）。</td><td class='pit-f'>重力・接地を言葉で縛る（『重い足音と地面への明確な衝撃』）。実世界動作を参照させ、後処理でスロー/フレーム補間を当てる。</td></tr><tr><td class='pit-p'>クレジットを再生成で一気に使い切り、月末に作れなくなる。</td><td class='pit-f'>1ショットの当て本数に上限を決める。Liteで方向性を固め、ヒーローショットだけQualityに回す。月クレジットは繰り越し不可なので月末計画を立てる。</td></tr><tr><td class='pit-p'>AI生成クリップを並べただけで楽曲とリズムが合わない。</td><td class='pit-f'>AIに自動同期はできない。先にBPMから小節グリッドを作り、編集ソフト（DaVinci Resolve 20のビート検出=Studio版限定／CapCut Auto Beat Sync）で拍にスナップする。</td></tr><tr><td class='pit-p'>古い料金/仕様/モデル名（$249、月100クレジット、Nano Banana Pro既定、Sora前提の比較）を信じて提案してしまう。</td><td class='pit-f'>料金・クレジット・モデル名・対応機能は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/labs・blog.google・ai.google.dev）で最新値を再確認する。 【2026-06-06実査】Google I/O 2026(2026年5月)でプラン構成が改定。AI Ultraは$100(開発者向け新)／$200(従来$250から値下げ)の2層、使用量は『compute-used』モデルへ移行、Flowはペイ・アズ・ユー・ゴーの追加クレジット購入が可能に。月間クレジット付与数は情報源により食い違う(両Ultra層12,500との二次情報あり)ため、本文の表の数値は提案前に one.google.com で必ず再確認。</td></tr></tbody></table></div>
+    <div class='tbl-wrap'><table class='pitfalls'><thead><tr><th>破綻パターン</th><th>対処</th></tr></thead><tbody><tr><td class='pit-p'>音声を指定せず生成したら『観客の笑い声（live studio audience）』が勝手に入る。</td><td class='pit-f'>期待する背景音を Ambient noise: で明示する。台詞・SFX・環境音・BGMの4層を毎回書く。</td></tr><tr><td class='pit-p'>台詞を入れたら画面に字幕（焼き込みテキスト）が暴発する。</td><td class='pit-f'>公式の引用符+says形式を使いつつ、補足/negativeで no subtitles・no text を入れる。しつこい場合は繰り返す。say this 等の表現は避ける。</td></tr><tr><td class='pit-p'>ショットごとにキャラの顔・服・世界観が変わり、MVとして成立しない。</td><td class='pit-f'>キャラバイブルを逐語で毎プロンプトに再掲し、OK済み参照画像をIngredientsでロックして全ショットに使い回す（テキスト＋画像の二本立て）。</td></tr><tr><td class='pit-p'>開始/終了フレームと参照画像を両方指定しようとして生成が意図通りにならない。</td><td class='pit-f'>1回の生成では『フレーム指定』か『参照画像セット』のどちらか一方のみ。設計時に分岐を決める（排他制約）。</td></tr><tr><td class='pit-p'>長めのクリップで露出・色が途中からふらつき、fever dream化する。</td><td class='pit-f'>3〜5秒の短いセグメントで生成し縫合。ライティングを明示固定し『Throughout the entire clip / ライティング変化なし』等の時間アンカーを入れ、後処理で全体に一貫カラーグレードをかける。</td></tr><tr><td class='pit-p'>手・指・顔がモーフィングして崩れる。</td><td class='pit-f'>参照画像で身元を固定し、カメラ移動と複雑なジェスチャを減らす。単純な手のポーズにする。崩れフレームは後処理の差し替え/カット編集で隠す。</td></tr><tr><td class='pit-p'>人物や物が地面から浮いて見える（物理の不自然さ）。</td><td class='pit-f'>重力・接地を言葉で縛る（『重い足音と地面への明確な衝撃』）。実世界動作を参照させ、後処理でスロー/フレーム補間を当てる。</td></tr><tr><td class='pit-p'>クレジットを再生成で一気に使い切り、月末に作れなくなる。</td><td class='pit-f'>1ショットの当て本数に上限を決める。Liteで方向性を固め、ヒーローショットだけQualityに回す。月クレジットは繰り越し不可なので月末計画を立てる。</td></tr><tr><td class='pit-p'>AI生成クリップを並べただけで楽曲とリズムが合わない。</td><td class='pit-f'>AIに自動同期はできない。先にBPMから小節グリッドを作り、編集ソフト（DaVinci Resolve 20のビート検出=Studio版限定／CapCut Auto Beat Sync）で拍にスナップする。</td></tr><tr><td class='pit-p'>古い料金/仕様/モデル名（$249、月100クレジット、Nano Banana Pro既定、Sora前提の比較）を信じて提案してしまう。</td><td class='pit-f'>料金・クレジット・モデル名・対応機能は頻繁に改定される。購入/提案の直前に必ず公式（support.google.com/flow・blog.google・ai.google.dev）で最新値を再確認する。 【2026-07-11実査】Google I/O 2026(2026年5月)でプラン構成が改定され、AI Ultraは$100(開発者向け新)／$200(従来$250から値下げ)の2層体制に。月間クレジット付与数は support.google.com/flow/answer/16526234 で確定済み(無料50/日・Plus200/月・Pro1,000/月・Ultra$100層10,000/月・Ultra$200層25,000/月)。以前あった「両Ultra層とも12,500」という二次情報は誤りと判明。また2026年6月8日にGoogle AI Plusが月¥1,200→¥725へ値下げ・ストレージ200GB→400GBへ倍増済み。</td></tr></tbody></table></div>
   </div>
 
   <footer>
-    Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年6月7日 22:26 JST<br>
-    出典: labs.google・blog.google・support.google.com/labs・ai.google.dev ほか（2026年6月時点・仕様/料金は変動）
+    Google Flow AI動画制作マスタープレイブック ／ Last Updated: 2026年7月11日 23:37 JST<br>
+    出典: labs.google・blog.google・support.google.com/flow・ai.google.dev ほか（2026年7月時点・仕様/料金は変動）
   </footer>
 </div>
 
