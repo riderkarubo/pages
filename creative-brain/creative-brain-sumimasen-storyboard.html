@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUMIMASEN — 撮影指示書（AI×実写ハイブリッド・コンテ）</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <meta name="last-modified" content="2026-07-12T00:05:00+09:00">
+  <meta name="description" content="SUMIMASEN動画の各カットを、AI生成パートと実写パートに切り分け、衣装・小道具・ロケ等の準備物までまとめた撮影指示書。全項目クリックで直接編集でき、変更はブラウザに自動保存される。汎用テンプレとして今後の動画プロジェクトにも複製利用する。">
+  <meta property="og:title" content="SUMIMASEN — 撮影指示書（AI×実写ハイブリッド・コンテ）">
+  <meta property="og:description" content="AI×実写ハイブリッドのカット撮影指示書。カットごとにAI生成範囲・実写範囲・準備物を明記。全項目編集可能。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain/SUMIMASEN/creative-brain-sumimasen-storyboard.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SUMIMASEN — 撮影指示書">
+  <meta name="twitter:description" content="AI×実写ハイブリッドのカット撮影指示書。全項目編集可能。">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-base: #E8E6DF;
+      --bg-card: #FFFFFF;
+      --accent-primary: #E0005F;
+      --accent-secondary: #008566;
+      --accent-gold: #8A6E22;
+      --accent-electric: #0079B8;
+      --accent-purple: #7c5cff;
+      --text-primary: #161616;
+      --text-secondary: #4E4E4E;
+      --text-muted: #8A8A86;
+      --border: #D6D3CB;
+      --ai-bg: #EAF4FB;
+      --ai-border: #0079B8;
+      --live-bg: #FBF3E4;
+      --live-border: #8A6E22;
+      --hybrid-bg: #F3EFFF;
+      --hybrid-border: #7c5cff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent-electric); }
+
+    /* ===== 編集可能フィールド共通 ===== */
+    [contenteditable="true"] {
+      outline: none;
+      border-radius: 4px;
+      transition: background 0.15s, box-shadow 0.15s;
+      cursor: text;
+      padding: 1px 3px;
+      margin: -1px -3px;
+    }
+    [contenteditable="true"]:hover {
+      background: rgba(224,0,95,0.06);
+    }
+    [contenteditable="true"]:focus {
+      background: rgba(224,0,95,0.09);
+      box-shadow: 0 0 0 2px rgba(224,0,95,0.28);
+    }
+    [contenteditable="true"]:empty::before {
+      content: attr(data-placeholder);
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .edit-badge {
+      display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 700;
+      color: var(--accent-primary); background: rgba(224,0,95,0.09); padding: 1px 6px; border-radius: 999px;
+      letter-spacing: 0.04em; vertical-align: middle; margin-left: 6px;
+    }
+    .save-toast {
+      position: fixed; bottom: 20px; right: 20px; z-index: 200;
+      background: var(--text-primary); color: #fff; font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 8px;
+      opacity: 0; transform: translateY(8px); transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+    }
+    .save-toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ===== TOPBAR ===== */
+    .topbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      padding: 12px 28px;
+    }
+    .topbar .crumb {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; color: var(--text-muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .topbar .links { margin-left: auto; display: flex; gap: 14px; align-items: center; }
+    .topbar .links a {
+      font-size: 13px; font-weight: 600; text-decoration: none; color: var(--text-secondary);
+    }
+    .topbar .print-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      background: var(--text-primary); color: #fff; border: none;
+      padding: 7px 14px; border-radius: 6px; cursor: pointer;
+    }
+    .topbar .print-btn:hover { background: var(--accent-primary); }
+    .topbar .reset-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+      background: none; color: var(--text-muted); border: 1px solid var(--border);
+      padding: 6px 12px; border-radius: 6px; cursor: pointer;
+    }
+    .topbar .reset-btn:hover { color: var(--accent-primary); border-color: var(--accent-primary); }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 980px; margin: 0 auto; padding: 40px 28px 8px;
+    }
+    .hero .kicker {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600;
+      color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .hero h1 { font-size: 30px; font-weight: 900; margin: 8px 0 10px; }
+    .hero p.lead { color: var(--text-secondary); font-size: 15px; max-width: 720px; }
+
+    .legend {
+      max-width: 980px; margin: 20px auto 0; padding: 0 28px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .legend .chip {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600;
+      padding: 5px 11px; border-radius: 999px; border: 1.5px solid;
+    }
+    .legend .chip.ai { color: var(--ai-border); border-color: var(--ai-border); background: var(--ai-bg); }
+    .legend .chip.live { color: var(--live-border); border-color: var(--live-border); background: var(--live-bg); }
+    .legend .chip.hybrid { color: var(--hybrid-border); border-color: var(--hybrid-border); background: var(--hybrid-bg); }
+    .legend .chip.edit { color: var(--accent-primary); border-color: var(--accent-primary); background: rgba(224,0,95,0.07); }
+
+    .template-note {
+      max-width: 980px; margin: 18px auto 0; padding: 14px 18px;
+      background: #fff; border: 1px dashed var(--border); border-radius: 10px;
+      font-size: 12.5px; color: var(--text-muted); line-height: 1.6;
+    }
+    .template-note strong { color: var(--text-secondary); }
+
+    /* ===== 共通スタイルブロック（撮影スタイル・衣装） ===== */
+    .style-blocks {
+      max-width: 980px; margin: 18px auto 0; padding: 0 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .style-card {
+      background: #fff; border-radius: 12px; padding: 16px 18px;
+      border: 1.5px solid var(--border);
+    }
+    .style-card .style-head {
+      font-size: 14px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+    }
+    .style-card .style-body {
+      font-size: 13px; color: var(--text-primary); line-height: 1.65; margin-bottom: 8px;
+    }
+    .style-card .style-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .style-card .style-links a {
+      font-size: 12px; font-weight: 600; text-decoration: none;
+    }
+    .costume-thumb {
+      display: block; width: 100%; max-width: 160px; border-radius: 8px; margin: 6px 0 10px;
+      border: 1px solid var(--border);
+    }
+
+    /* ===== MAIN ===== */
+    main { max-width: 980px; margin: 0 auto; padding: 28px 28px 80px; display: flex; flex-direction: column; gap: 22px; }
+
+    .cut-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 22px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .cut-head {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .cut-no {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 700;
+      color: #fff; background: var(--text-primary); padding: 3px 9px; border-radius: 5px;
+      letter-spacing: 0.05em;
+    }
+    .cut-title { font-size: 19px; font-weight: 900; flex: 1; min-width: 180px; }
+
+    .status-btn {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 700;
+      border-radius: 999px; padding: 5px 13px; cursor: pointer; border: 1.5px solid var(--border);
+      background: #F4F3EF; color: var(--text-muted); letter-spacing: 0.03em;
+    }
+    .status-btn[data-status="準備中"] { border-color: var(--accent-electric); color: var(--accent-electric); background: var(--ai-bg); }
+    .status-btn[data-status="撮影済み"] { border-color: var(--accent-secondary); color: var(--accent-secondary); background: #E7F5F0; }
+    .status-btn[data-status="編集済み"] { border-color: var(--accent-primary); color: var(--accent-primary); background: #FCE9F1; }
+
+    .cut-logline {
+      font-size: 14.5px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.75;
+    }
+
+    .beat-flow {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-muted);
+      background: #F7F6F2; border-radius: 8px; padding: 9px 12px; margin-bottom: 14px;
+      display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    }
+    .beat-flow .arrow { color: var(--border); }
+    .beat-flow span[contenteditable] { color: var(--text-primary); }
+
+    .part-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;
+    }
+    .part {
+      border-radius: 10px; padding: 13px 15px; border: 1.5px solid; min-height: 92px;
+    }
+    .part-ai { background: var(--ai-bg); border-color: var(--ai-border); }
+    .part-live { background: var(--live-bg); border-color: var(--live-border); border-style: dashed; }
+    .part h3 { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.01em; }
+    .part-ai h3 { color: var(--ai-border); }
+    .part-live h3 { color: var(--live-border); }
+    .part p { font-size: 13px; color: var(--text-primary); line-height: 1.65; min-height: 1.6em; }
+    .part .tool-tag {
+      display: inline-block; margin-top: 6px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; min-width: 24px;
+    }
+    .part-ai .tool-tag { background: rgba(0,121,184,0.12); color: var(--ai-border); }
+    .part-live .tool-tag { background: rgba(138,110,34,0.14); color: var(--live-border); }
+
+    .hybrid-link {
+      background: var(--hybrid-bg); border: 1.5px solid var(--hybrid-border); border-radius: 10px;
+      padding: 11px 15px; font-size: 13px; color: var(--text-primary); margin-bottom: 14px; line-height: 1.65;
+    }
+    .hybrid-link strong { color: var(--hybrid-border); }
+
+    .prep-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px;
+    }
+    .prep-item {
+      background: #FAFAF7; border: 1px solid var(--border); border-radius: 8px; padding: 9px 11px;
+    }
+    .prep-item .label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
+      color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px;
+    }
+    .prep-item .value { font-size: 12.5px; color: var(--text-primary); line-height: 1.55; }
+
+    .caution {
+      font-size: 12.5px; color: #9A4B00; background: #FFF4E6; border-left: 3px solid #E08A00;
+      padding: 9px 13px; border-radius: 0 8px 8px 0; line-height: 1.6;
+    }
+
+    .alt-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
+      color: #fff; background: var(--accent-purple); display: inline-block;
+      padding: 2px 9px; border-radius: 6px; margin: 12px 0 8px;
+    }
+    .alt-block:first-of-type .alt-label { margin-top: 0; }
+
+    footer {
+      max-width: 980px; margin: 0 auto; padding: 0 28px 60px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .part-grid { grid-template-columns: 1fr; }
+      .prep-grid { grid-template-columns: 1fr 1fr; }
+      .style-blocks { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 24px; }
+    }
+
+    @media print {
+      .topbar, .template-note, .legend, .edit-badge, .save-toast { display: none; }
+      body { background: #fff; }
+      main { padding: 0; gap: 14px; }
+      .cut-card { break-inside: avoid; page-break-inside: avoid; box-shadow: none; border: 1px solid #999; }
+      .hero { padding: 12px 0; }
+      .style-blocks { grid-template-columns: 1fr 1fr; }
+      a { color: inherit; text-decoration: none; }
+      @page { size: A4; margin: 14mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="crumb">SUMIMASEN / 撮影指示書</span>
+    <div class="links">
+      <a href="creative-brain-sumimasen.html">← プロジェクトハブ</a>
+      <a href="creative-brain-sumimasen-cuts.html">カット案411景</a>
+      <button class="reset-btn" onclick="if(confirm('編集内容をすべて初期状態に戻します。よろしいですか？')){localStorage.removeItem('sumimasen-storyboard-content');localStorage.removeItem('sumimasen-storyboard-status');location.reload();}">編集内容をリセット</button>
+      <button class="print-btn" onclick="window.print()">🖨 印刷</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Shooting Storyboard — AI × Live-Action Hybrid</div>
+    <h1>SUMIMASEN 撮影指示書</h1>
+    <p class="lead">411景のカット案から選ばれた「候補11カット」の撮影指示書。<strong>実写に映るのは主人公（Issy／サンプラザ中野）のみ。共演者・脇役はすべてAI生成</strong>。🎬実写パートは空欄にしてあるので、主人公単独のアクションを現場で記入する。<strong>全項目クリックで直接編集でき、変更は自動でブラウザに保存</strong>される（このPC・このブラウザ内のみ）。</p>
+  </div>
+
+  <div class="legend">
+    <span class="chip ai">🤖 AI生成パート（背景＋共演者）</span>
+    <span class="chip live">🎬 実写パート（主人公単独・空欄）</span>
+    <span class="chip hybrid">🔗 ハイブリッド接続</span>
+    <span class="chip edit">✏️ クリックで編集</span>
+  </div>
+
+  <div class="style-blocks">
+    <div class="style-card">
+      <div class="style-head">🏠 実写撮影スタイル（基本）</div>
+      <div class="style-body" contenteditable="true" data-field="shooting-style-desc" data-placeholder="実写撮影の基本スタイルを記入...">自宅でグリーンバック撮影。実写に映るのは主人公（Issy）単独のみ、共演者・背景はすべてAI生成して合成する。準備するもの：照明2灯・グリーンバック・三脚。</div>
+    </div>
+    <div class="style-card">
+      <div class="style-head">👔 今回の衣装</div>
+      <img class="costume-thumb" src="https://riderkarubo.github.io/pages/costume/img/コーデ_02_爆風スランプ_サンプラザ中野.webp" alt="爆風スランプ／サンプラザ中野の衣装">
+      <div class="style-body" contenteditable="true" data-field="costume-desc" data-placeholder="今回の衣装を記入...">爆風スランプ／サンプラザ中野（ツルッパゲかつら＋黒サングラス＋赤ジャケット）。主人公（実写）のみがこの衣装を着用。</div>
+      <div class="style-links">
+        <a href="https://riderkarubo.github.io/pages/costume/" target="_blank">→ 衣装コレクションで見る</a>
+        <a href="https://riderkarubo.github.io/pages/costume/img/コーデ_02_爆風スランプ_サンプラザ中野.webp" target="_blank">→ 画像を直接見る</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="template-note">
+    <strong>📋 このドキュメントは汎用テンプレート（2026-07-11 型確定）</strong> — 今後の動画プロジェクト（GLT/PLJシリーズ等）でも本ファイルを複製し、カード単位（<code>.cut-card</code>）を差し替えて再利用する。フィールド構成: ①カット番号/タイトル ②ワンライン概要 ③ビート分解 ④AI生成パート（背景＋共演者・使用ツール） ⑤実写パート（主人公単独・空欄で現場記入） ⑥ハイブリッド接続方法 ⑦準備物（キャスト=主人公のみ/衣装/小道具/ロケ） ⑧注意点 ⑨ステータス（クリックで巡回）。<strong>全フィールドが編集可能</strong>で、変更は<code>localStorage</code>に自動保存される（別ブラウザ・別端末には同期されない点に留意）。案が割れているカットは<span style="color:#7c5cff;font-weight:700;">紫の案A/案Bラベル</span>で併記する。
+  </div>
+
+  <main id="cutList">
+
+    <!-- CUT 01 -->
+    <article class="cut-card" id="cut-1">
+      <div class="cut-head">
+        <span class="cut-no">CUT 01</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut1-title">改札すれ違い手刀ダッシュ</h2>
+        <button class="status-btn" data-cut="1" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut1-logline">駅の改札前で名残惜しそうにいちゃつくカップルの間を、主人公が手刀を切りながら高速で横切る。横切られた瞬間、カップルは困惑した表情になる。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut1-beat1">① カップルが改札前でいちゃつく</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut1-beat2">② 主人公が手刀ダッシュで割って入る</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut1-beat3">③ カップル、困惑の表情でこちらを見る</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut1-ai-desc" data-placeholder="AI生成の内容を記入...">改札の雑踏背景（人の往来・案内表示等）＋カップル役2名をAI生成し、実写の主人公とグリーンバック合成。横切る瞬間の残像・スピードブラーもAIポスト加工で追加。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut1-ai-tool" data-placeholder="使用ツール">背景＋人物生成 + ポストエフェクト</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut1-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut1-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut1-hybrid">主人公のみグリーンバックで撮影 → AI生成の改札背景＋カップル役に合成 → 横切りカットのみポストでモーションブラー追加。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut1-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut1-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut1-props" data-placeholder="小道具を記入...">特になし</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut1-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut1-caution">⚠️ カップル役含め背景は全てAI生成。実写は主人公の手刀ダッシュ動作のみでOK。</div>
+    </article>
+
+    <!-- CUT 02 -->
+    <article class="cut-card" id="cut-2">
+      <div class="cut-head">
+        <span class="cut-no">CUT 02</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut2-title">カラオケボックス扉間違い</h2>
+        <button class="status-btn" data-cut="2" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut2-logline">カラオケボックスの通路で扉を開けると、中でいちゃつくカップルがいる。間違えたことに気づき、申し訳なさそうに後ずさりする。これを2回繰り返す。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut2-beat1">① 主人公が扉を開ける</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut2-beat2">② 中のカップルを見て固まる</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut2-beat3">③ 申し訳なさそうに後ずさり閉める</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut2-beat4">④ 別の扉で①〜③を再度（2回目）</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut2-ai-desc" data-placeholder="AI生成の内容を記入...">扉の中で「いちゃつくカップル」の映像をAI生成（1回目・2回目で異なるカップル像にすると飽きさせない）。カラオケルーム内装もAI生成で複数バリエーション作成可。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut2-ai-tool" data-placeholder="使用ツール">室内＋人物映像生成（差分2パターン）</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut2-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut2-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut2-hybrid">実写は主人公＋扉のみ（扉の中は写らない画角）。扉内カットにAI生成のカップル映像を差し込み、ジャンプカットで2回繰り返す。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut2-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut2-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut2-props">部屋番号プレート、扉の取っ手</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut2-location">自宅グリーンバック（照明2灯・三脚）＋扉パーツ</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut2-caution">⚠️ 扉の中はAI生成映像で代替。実写の扉と光の色温度を合わせること。</div>
+    </article>
+
+    <!-- CUT 03 -->
+    <article class="cut-card" id="cut-3">
+      <div class="cut-head">
+        <span class="cut-no">CUT 03</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut3-title">格闘ゲーム風 傘フリKO（スーファミ2Dドット格闘テイスト）</h2>
+        <button class="status-btn" data-cut="3" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut3-logline">通勤ラッシュの駅構内を歩きながら傘を振り、後ろの人に3連撃。体力ゲージが残り1/4まで減った相手が、ストリートファイター2風のスローモーションでやられて倒れる。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut3-beat1">① 主人公が傘を振りながら歩く</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut3-beat2">② 傘フリ3連撃が後ろの人にヒット</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut3-beat3">③ 体力ゲージ減少（1/4に）</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut3-beat4">④ スローモーションでKOやられ</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut3-ai-desc" data-placeholder="AI生成の内容を記入...">被害者役の人物、スーファミ風2Dドット絵の体力ゲージUI・「HIT」エフェクト・スパーク演出をAI生成し、実写の主人公動作に合成。8bit風SEも別途生成。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut3-ai-tool" data-placeholder="使用ツール">人物＋ドット絵UI生成 + オーバーレイ合成</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut3-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut3-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut3-hybrid">主人公の傘フリ動作のみグリーンバックで撮影 → AI生成の被害者役・体力ゲージ・HITエフェクト・「Round」風テロップを合成。KO瞬間だけ実写を等倍速からスローに切り替え。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut3-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut3-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut3-props">傘（先端を安全に養生）</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut3-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut3-caution">⚠️ 被害者役はAI生成のため接触事故の心配なし。主人公は空振りのタイミングで傘を振る「見せ技」として撮る。</div>
+    </article>
+
+    <!-- CUT 04 -->
+    <article class="cut-card" id="cut-4">
+      <div class="cut-head">
+        <span class="cut-no">CUT 04</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut4-title">銭湯 背中こすり上下運動</h2>
+        <button class="status-btn" data-cut="4" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut4-logline">銭湯で、他人の背中にこすりつけるように上下運動する。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut4-beat1">① 銭湯の洗い場</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut4-beat2">② 背中にこすりつけて上下運動</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut4-beat3">③ （相手のリアクションで〆）</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut4-ai-desc" data-placeholder="AI生成の内容を記入...">銭湯の背景（タイル・湯気・浴槽・桶）＋相手役の人物を丸ごとAI生成し、実写の主人公とグリーンバック合成。湯気エフェクトもAIポスト加工で追加。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut4-ai-tool" data-placeholder="使用ツール">背景＋人物生成 + 湯気エフェクト</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut4-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut4-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut4-hybrid">主人公のみグリーンバックで撮影 → AI生成の銭湯背景＋相手役に合成。全編AI生成（実写なし）も代替案として可。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut4-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut4-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut4-props">タオル、桶</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut4-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut4-caution">⚠️ 相手役含め背景は全てAI生成。表現も下品になりすぎないよう、コミカルな誇張演技に留める。</div>
+    </article>
+
+    <!-- CUT 05 -->
+    <article class="cut-card" id="cut-5">
+      <div class="cut-head">
+        <span class="cut-no">CUT 05</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut5-title">タクシー乗り込み割り込み</h2>
+        <button class="status-btn" data-cut="5" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut5-logline">タクシー乗り場に並んでいる人を押しのけて割り込み、先に乗車してしまう。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut5-beat1">① 客がタクシーに乗ろうとする</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut5-beat2">② 主人公が横から割り込み乗車</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut5-beat3">③ 取り残された客のリアクション</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut5-ai-desc" data-placeholder="AI生成の内容を記入...">タクシー・街並み背景＋被害者役の人物をAI生成し、実写の主人公とグリーンバック合成。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut5-ai-tool" data-placeholder="使用ツール">背景＋人物生成（車両込み）</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut5-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut5-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut5-hybrid">主人公の動作のみグリーンバックで撮影 → AI生成のタクシー乗り場背景＋被害者役に合成。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut5-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut5-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut5-props">荷物（キャリーバッグ等）</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut5-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut5-caution">⚠️ 被害者役・タクシー・車両は全てAI生成合成。</div>
+    </article>
+
+    <!-- CUT 06 -->
+    <article class="cut-card" id="cut-6">
+      <div class="cut-head">
+        <span class="cut-no">CUT 06</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut6-title">重要会議 横切り／Zoom映り込み（2案）</h2>
+        <button class="status-btn" data-cut="6" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut6-logline">案A: 重要会議中の机の上を手刀ダッシュ＋ムーンウォークで縦横無尽に横切る。案B: オンラインZoomで背景合成しているのに、後ろに（または猫のように）映り込んで横切る。</p>
+
+      <div class="alt-block">
+        <span class="alt-label">案A：会議室 手刀＋ムーンウォーク</span>
+        <div class="beat-flow">
+          <span contenteditable="true" data-field="cut6a-beat1">① 重要会議が進行中</span><span class="arrow">→</span>
+          <span contenteditable="true" data-field="cut6a-beat2">② 主人公が机の上に登場、手刀で横切る</span><span class="arrow">→</span>
+          <span contenteditable="true" data-field="cut6a-beat3">③ 机の上でムーンウォーク</span><span class="arrow">→</span>
+          <span contenteditable="true" data-field="cut6a-beat4">④ 出席者一同ドン引き</span>
+        </div>
+        <div class="part-grid">
+          <div class="part part-ai">
+            <h3>🤖 AI生成パート</h3>
+            <p contenteditable="true" data-field="cut6a-ai-desc" data-placeholder="AI生成の内容を記入...">会議室背景＋出席者役をAI生成し、実写の主人公（机上ムーンウォーク）とグリーンバック合成。</p>
+            <span class="tool-tag" contenteditable="true" data-field="cut6a-ai-tool" data-placeholder="使用ツール">背景＋人物生成</span>
+          </div>
+          <div class="part part-live">
+            <h3>🎬 実写パート</h3>
+            <p contenteditable="true" data-field="cut6a-live-desc" data-placeholder="実写内容をここに記入..."></p>
+            <span class="tool-tag" contenteditable="true" data-field="cut6a-live-tool" data-placeholder="撮影メモ"></span>
+          </div>
+        </div>
+        <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut6a-hybrid">主人公の机上ムーンウォークのみ自宅グリーンバックで撮影 → AI生成の会議室背景＋出席者役に合成。</span></div>
+      </div>
+
+      <div class="alt-block">
+        <span class="alt-label">案B：Zoom映り込み（デジタル要素が濃い）</span>
+        <div class="beat-flow">
+          <span contenteditable="true" data-field="cut6b-beat1">① Zoom会議中、背景合成（バーチャル背景）表示</span><span class="arrow">→</span>
+          <span contenteditable="true" data-field="cut6b-beat2">② 主人公が後ろに（または猫のように）映り込む</span><span class="arrow">→</span>
+          <span contenteditable="true" data-field="cut6b-beat3">③ 気づかず横切って消える</span>
+        </div>
+        <div class="part-grid">
+          <div class="part part-ai">
+            <h3>🤖 AI生成パート</h3>
+            <p contenteditable="true" data-field="cut6b-ai-desc" data-placeholder="AI生成の内容を記入...">Zoom UI（グリッド表示・参加者アイコン・ステータスバー）、他の参加者映像をAIで生成。バーチャル背景の合成ズレ（映り込みが不自然に浮くカット感）もAIで表現。</p>
+            <span class="tool-tag" contenteditable="true" data-field="cut6b-ai-tool" data-placeholder="使用ツール">UI＋人物生成 + バーチャル背景合成</span>
+          </div>
+          <div class="part part-live">
+            <h3>🎬 実写パート</h3>
+            <p contenteditable="true" data-field="cut6b-live-desc" data-placeholder="実写内容をここに記入..."></p>
+            <span class="tool-tag" contenteditable="true" data-field="cut6b-live-tool" data-placeholder="撮影メモ"></span>
+          </div>
+        </div>
+        <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut6b-hybrid">主人公の映り込み動作のみ自宅グリーンバックで撮影 → AI生成のZoom会議UI（他の参加者含む）に合成。</span></div>
+      </div>
+
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut6-cast">主人公1名のみ（実写・案A/B共通）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut6-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut6-props" data-placeholder="小道具を記入...">特になし</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut6-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut6-caution">⚠️ 出席者・Zoom参加者は全てAI生成。どちらの案を採用するか、着手前にIssy確認。</div>
+    </article>
+
+    <!-- CUT 07 -->
+    <article class="cut-card" id="cut-7">
+      <div class="cut-head">
+        <span class="cut-no">CUT 07</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut7-title">卒業証書 高速横切り</h2>
+        <button class="status-btn" data-cut="7" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut7-logline">卒業証書を受け取っている最中の壇上を、主人公が凄いスピードで横切る。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut7-beat1">① 校長役が証書を差し出す</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut7-beat2">② 主人公が高速で横切る</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut7-beat3">③ 卒業生・校長が呆然</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut7-ai-desc" data-placeholder="AI生成の内容を記入...">体育館背景＋校長役・卒業生役をAI生成し、実写の主人公とグリーンバック合成。横切りの残像・モーションブラーをポスト加工で追加。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut7-ai-tool" data-placeholder="使用ツール">背景＋人物生成 + スピード演出</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut7-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut7-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut7-hybrid">主人公の高速横切りのみ自宅グリーンバックで撮影 → AI生成の体育館背景＋校長役・卒業生役に合成、横切りカットのみポストでスピードブラーを強調。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut7-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut7-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut7-props">証書（筒＋模造紙で自作可）</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut7-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut7-caution">⚠️ 校長役・卒業生役含め背景は全てAI生成。全力疾走カットは足元の安全確保に注意。</div>
+    </article>
+
+    <!-- CUT 08 -->
+    <article class="cut-card" id="cut-8">
+      <div class="cut-head">
+        <span class="cut-no">CUT 08</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut8-title">エレベーター閉じるボタン16連打</h2>
+        <button class="status-btn" data-cut="8" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut8-logline">エレベーターホールで自分より前を歩く人がいて、そこに横入りする。そして「閉」ボタンを16連打しながら申し訳なさそうに「すみませぇーーん」。高橋名人の連射のように手首を押さえながら連打する。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut8-beat1">① 前の人が歩いてエレベーターへ向かう</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut8-beat2">② 主人公が横入り</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut8-beat3">③ 「閉」ボタン16連打（手首押さえ）</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut8-beat4">④ 「すみませぇーーん」と申し訳なさそうに</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut8-ai-desc" data-placeholder="AI生成の内容を記入...">エレベーターホール背景＋前を歩く人役をAI生成し、実写の主人公とグリーンバック合成。連打を強調するSEデザインとカウンター字幕をポストで追加。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut8-ai-tool" data-placeholder="使用ツール">背景＋人物生成 + SE/字幕ポスト加工</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut8-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut8-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut8-hybrid">主人公の連打動作のみ自宅グリーンバックで撮影 → AI生成のエレベーターホール背景＋前を歩く人役に合成。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut8-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut8-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut8-props" data-placeholder="小道具を記入...">特になし</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut8-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut8-caution">⚠️ 前を歩く人役含めエレベーター内装は全てAI生成。</div>
+    </article>
+
+    <!-- CUT 09 -->
+    <article class="cut-card" id="cut-9">
+      <div class="cut-head">
+        <span class="cut-no">CUT 09</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut9-title">AI謝罪 / 土下座スライディング謝罪（2案）</h2>
+        <button class="status-btn" data-cut="9" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut9-logline">案A: AIが（AIキャラクター/アバターとして）謝罪する。案B: 土下座スライディングで謝罪する。</p>
+
+      <div class="alt-block">
+        <span class="alt-label">案A：AIが謝罪する</span>
+        <div class="part-grid">
+          <div class="part part-ai">
+            <h3>🤖 AI生成パート</h3>
+            <p contenteditable="true" data-field="cut9a-ai-desc" data-placeholder="AI生成の内容を記入...">フルAI生成カット。AIアバター/AIキャラクターが謝罪ポーズ・お辞儀するアニメーションを丸ごと生成。「いかにもAI」なテカりや不自然さをあえて残すとメタ的なギャグになる。</p>
+            <span class="tool-tag" contenteditable="true" data-field="cut9a-ai-tool" data-placeholder="使用ツール">フルAI生成（Flow等）</span>
+          </div>
+          <div class="part part-live">
+            <h3>🎬 実写パート</h3>
+            <p contenteditable="true" data-field="cut9a-live-desc" data-placeholder="実写内容をここに記入..."></p>
+            <span class="tool-tag" contenteditable="true" data-field="cut9a-live-tool" data-placeholder="撮影メモ"></span>
+          </div>
+        </div>
+        <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut9a-hybrid">特別な合成は不要。AI生成映像単体、または他カットの中に一瞬挟み込む「差し込みカット」として使う。実写なし。</span></div>
+      </div>
+
+      <div class="alt-block">
+        <span class="alt-label">案B：土下座スライディング謝罪</span>
+        <div class="part-grid">
+          <div class="part part-ai">
+            <h3>🤖 AI生成パート</h3>
+            <p contenteditable="true" data-field="cut9b-ai-desc" data-placeholder="AI生成の内容を記入...">スライディングの摩擦火花・スピード線・床の擦れエフェクトをポスト加工で追加。</p>
+            <span class="tool-tag" contenteditable="true" data-field="cut9b-ai-tool" data-placeholder="使用ツール">エフェクトポスト加工</span>
+          </div>
+          <div class="part part-live">
+            <h3>🎬 実写パート</h3>
+            <p contenteditable="true" data-field="cut9b-live-desc" data-placeholder="実写内容をここに記入..."></p>
+            <span class="tool-tag" contenteditable="true" data-field="cut9b-live-tool" data-placeholder="撮影メモ"></span>
+          </div>
+        </div>
+        <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut9b-hybrid">主人公単独のスライディングを自宅グリーンバックで撮影＋軌跡ポストエフェクト。滑走面（フローリング/ビニールシート）の摩擦係数を事前テストしておく。</span></div>
+      </div>
+
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト（案B）</div><div class="value" contenteditable="true" data-field="cut9-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装（案B）</div><div class="value" contenteditable="true" data-field="cut9-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">安全装備（案B）</div><div class="value" contenteditable="true" data-field="cut9-safety">膝パッド、手袋、滑走用ソックス/シート</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut9-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut9-caution">⚠️ 土下座スライディングは膝・手首の怪我リスクが高い。本番前に低速でのリハーサル必須。どちらの案を採用するかIssy確認。両案採用も可。</div>
+    </article>
+
+    <!-- CUT 10 -->
+    <article class="cut-card" id="cut-10">
+      <div class="cut-head">
+        <span class="cut-no">CUT 10</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut10-title">トイレ待ち行列 スライディングごめんなさい</h2>
+        <button class="status-btn" data-cut="10" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut10-logline">大便待ちの行列に対して、主人公がスライディングで割り込みながら「ごめんなさい」。待っていた人が発狂して取り乱してしまう。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut10-beat1">① トイレ待ちの行列</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut10-beat2">② 主人公がスライディングで割り込み</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut10-beat3">③ 「ごめんなさい」</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut10-beat4">④ 待っていた人が取り乱すリアクション</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut10-ai-desc" data-placeholder="AI生成の内容を記入...">トイレ前廊下・行列の背景と、被害者役・行列エキストラをAI生成。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut10-ai-tool" data-placeholder="使用ツール">背景＋人物生成</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut10-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut10-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut10-hybrid">主人公のスライディング動作のみ自宅グリーンバックで撮影 → AI生成のトイレ前背景＋被害者役・行列に合成。表現がセンシティブなため、直接的な描写は避けリアクション芝居とテロップ/SEでコミカルに処理する。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut10-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut10-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut10-props" data-placeholder="小道具を記入...">特になし</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut10-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut10-caution">⚠️ 被害者役・行列は全てAI生成。排泄ネタは下品になりすぎないよう表現の線引きに注意。</div>
+    </article>
+
+    <!-- CUT 11 -->
+    <article class="cut-card" id="cut-11">
+      <div class="cut-head">
+        <span class="cut-no">CUT 11</span>
+        <h2 class="cut-title" contenteditable="true" data-field="cut11-title">串カツ二度漬け禁止 手刀阻止</h2>
+        <button class="status-btn" data-cut="11" data-status="未定">未定</button>
+      </div>
+      <p class="cut-logline" contenteditable="true" data-field="cut11-logline">串カツ屋のソース壺前で、客が二度漬けしようとする瞬間に主人公が手刀で割り込んで阻止する。客は何度も串カツを漬けようとし、その都度阻止される。</p>
+      <div class="beat-flow">
+        <span contenteditable="true" data-field="cut11-beat1">① 客が食べかけの串をソース壺に近づける</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut11-beat2">② 主人公が手刀で割り込み阻止</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut11-beat3">③ 客が諦めきれず何度も再挑戦</span><span class="arrow">→</span>
+        <span contenteditable="true" data-field="cut11-beat4">④ その都度阻止（繰り返しでリズムを作る）</span>
+      </div>
+      <div class="part-grid">
+        <div class="part part-ai">
+          <h3>🤖 AI生成パート</h3>
+          <p contenteditable="true" data-field="cut11-ai-desc" data-placeholder="AI生成の内容を記入...">串カツ屋カウンター背景＋客役をAI生成し、実写の主人公とグリーンバック合成。他の客・湯気で賑わいを強化。</p>
+          <span class="tool-tag" contenteditable="true" data-field="cut11-ai-tool" data-placeholder="使用ツール">背景＋人物生成</span>
+        </div>
+        <div class="part part-live">
+          <h3>🎬 実写パート</h3>
+          <p contenteditable="true" data-field="cut11-live-desc" data-placeholder="実写内容をここに記入..."></p>
+          <span class="tool-tag" contenteditable="true" data-field="cut11-live-tool" data-placeholder="撮影メモ"></span>
+        </div>
+      </div>
+      <div class="hybrid-link"><strong>🔗 接続方法：</strong> <span contenteditable="true" data-field="cut11-hybrid">主人公の手刀阻止動作のみ自宅グリーンバックで撮影 → AI生成の串カツ屋カウンター背景＋客役に合成。繰り返しのテンポ（阻止のタイミング）が笑いのキモなので、AI生成側の客の動きに主人公のタイミングを合わせる。</span></div>
+      <div class="prep-grid">
+        <div class="prep-item"><div class="label">キャスト</div><div class="value" contenteditable="true" data-field="cut11-cast">主人公1名のみ（実写）</div></div>
+        <div class="prep-item"><div class="label">衣装</div><div class="value" contenteditable="true" data-field="cut11-costume">サンプラザ中野（今回の衣装）</div></div>
+        <div class="prep-item"><div class="label">小道具</div><div class="value" contenteditable="true" data-field="cut11-props">串カツ（模造品可）、ソース壺、「二度漬け禁止」の札</div></div>
+        <div class="prep-item"><div class="label">ロケ/セット</div><div class="value" contenteditable="true" data-field="cut11-location">自宅グリーンバック（照明2灯・三脚）</div></div>
+      </div>
+      <div class="caution" contenteditable="true" data-field="cut11-caution">⚠️ 客役はAI生成。串カツ・ソース壺は模造品での代用を推奨（衛生面・繰り返し撮影での食材ロス回避）。</div>
+    </article>
+
+  </main>
+
+  <footer>
+    最終更新: 2026年7月12日 0:05 ／ SUMIMASEN プロジェクト ／ 汎用撮影指示書テンプレート v3（実写=主人公単独・共演者は全てAI生成）<br>
+    ✏️ すべての項目はクリックして直接編集できます。変更はこのブラウザに自動保存されます（他端末には同期されません）。
+  </footer>
+
+  <div class="save-toast" id="saveToast">保存しました</div>
+
+  <script>
+    // ===== ステータスボタン（未定→準備中→撮影済み→編集済み） =====
+    const STATUS_CYCLE = ['未定', '準備中', '撮影済み', '編集済み'];
+    const STATUS_KEY = 'sumimasen-storyboard-status';
+
+    function loadJSON(key) {
+      try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) { return {}; }
+    }
+    function saveJSON(key, data) {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+
+    const statusData = loadJSON(STATUS_KEY);
+    document.querySelectorAll('.status-btn').forEach(btn => {
+      const cutId = btn.dataset.cut;
+      const saved = statusData[cutId];
+      if (saved) {
+        btn.dataset.status = saved;
+        btn.textContent = saved;
+      }
+      btn.addEventListener('click', () => {
+        const current = btn.dataset.status;
+        const idx = STATUS_CYCLE.indexOf(current);
+        const next = STATUS_CYCLE[(idx + 1) % STATUS_CYCLE.length];
+        btn.dataset.status = next;
+        btn.textContent = next;
+        statusData[cutId] = next;
+        saveJSON(STATUS_KEY, statusData);
+      });
+    });
+
+    // ===== 全項目編集可能（contenteditable + localStorage自動保存） =====
+    const CONTENT_KEY = 'sumimasen-storyboard-content';
+    const contentData = loadJSON(CONTENT_KEY);
+    const toast = document.getElementById('saveToast');
+    let toastTimer = null;
+
+    function showToast() {
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1200);
+    }
+
+    let saveDebounce = null;
+    document.querySelectorAll('[data-field]').forEach(el => {
+      const key = el.dataset.field;
+      if (contentData[key] !== undefined) {
+        el.textContent = contentData[key];
+      }
+      el.addEventListener('input', () => {
+        contentData[key] = el.textContent;
+        clearTimeout(saveDebounce);
+        saveDebounce = setTimeout(() => {
+          saveJSON(CONTENT_KEY, contentData);
+          showToast();
+        }, 500);
+      });
+      el.addEventListener('blur', () => {
+        contentData[key] = el.textContent;
+        saveJSON(CONTENT_KEY, contentData);
+      });
+    });
+  </script>
+
+</body>
+</html>
