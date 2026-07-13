@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-07-13T11:54:07+09:00">
+<meta name="robots" content="noindex, nofollow">
+<title>AIGC案件詳細｜Firework社内</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📁</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lockbox .em{font-size:2.2rem;margin-bottom:10px}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px}
+.lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
+.lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
+.lockbox .err{color:var(--danger);font-size:.8rem;min-height:1.2em;margin-top:14px}
+.lockbox .note{color:#aab;font-size:.68rem;margin-top:16px}
+#app{display:none;max-width:920px;margin:0 auto;padding:0 0 60px}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%);color:#fff;padding:24px 32px 26px}
+header .back{display:inline-block;color:#cdd3e0;font-size:.74rem;text-decoration:none;margin-bottom:14px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;transition:background .15s}
+header .back:hover{background:rgba(255,255,255,.12)}
+header .cat-tag{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header h1{font-size:1.6rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header .headline{color:#dfe4ee;font-size:.92rem;max-width:760px;margin-top:4px;line-height:1.6}
+.wrap{padding:0 32px}
+.sumbox{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin-top:22px;font-size:.86rem;line-height:1.8}
+.sec-h{font-size:1.02rem;font-weight:900;margin:28px 0 12px;padding-left:12px;border-left:4px solid var(--navy)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.tbl th{background:#f2f4f8;text-align:left;font-size:.72rem;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border)}
+.tbl td{padding:10px 12px;border-bottom:1px solid #f0f1f4;font-size:.8rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .nm{font-weight:700;width:32%}
+.tbl .nt{color:var(--muted);font-size:.76rem}
+.tbl .st{display:inline-block;background:#eef1f6;color:var(--navy);border-radius:6px;padding:2px 9px;font-size:.72rem;white-space:nowrap}
+.tbl td.due.miss{color:#d63031;font-weight:700}
+.tstat{display:inline-block;border-radius:6px;padding:2px 10px;font-size:.7rem;font-weight:700;white-space:nowrap}
+.tstat.notdone{background:#fdecec;color:#d63031}
+.tstat.done{background:#e6f4f1;color:var(--active)}
+.tasknote{font-size:.72rem;color:var(--muted);margin:-4px 0 10px}
+.stat.候補{background:#e9edf6;color:var(--navy)}
+.nalist,.rklist{list-style:none;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:6px 8px}
+.nalist li,.rklist li{padding:10px 12px 10px 30px;position:relative;font-size:.82rem;border-bottom:1px solid #f0f0f0;line-height:1.6}
+.nalist li:last-child,.rklist li:last-child{border-bottom:none}
+.nalist li:before{content:"▶";position:absolute;left:11px;color:var(--teal);font-size:.66rem;top:13px}
+.rklist li:before{content:"⚠";position:absolute;left:10px;color:var(--warn);top:11px}
+.nalist .na-o{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}
+.owners .chip{display:inline-block;background:#eef1f6;border-radius:20px;padding:4px 14px;font-size:.78rem;margin:0 6px 6px 0;font-weight:700;color:var(--navy)}
+.stat{font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.stat.進行中{background:#e6f4f1;color:var(--active)}.stat.停滞{background:#fdf0db;color:#b9791a}.stat.先方検討中{background:#fdf0db;color:#b9791a}.stat.保留{background:#eef0f3;color:var(--hold)}.stat.完了{background:#e8eef7;color:var(--check)}.stat.検討中{background:#e9edf6;color:var(--navy)}.stat.未着手{background:#f0f0f0;color:#999}.stat.提案前{background:#eef0f3;color:#6c757d}
+.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:#f2f4f8;border-radius:8px}
+footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
+.conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+</style>
+</head>
+<body>
+<div id="lock">
+  <div class="lockbox">
+    <div class="em">📁</div>
+    <h1>AIGC案件詳細</h1>
+    <p>Firework 社内限定（@fireworkhq.com）<br>Googleアカウントでログインしてください</p>
+    <div class="gwrap"><div id="gbtn"></div></div>
+    <div class="err" id="err"></div>
+    <div class="note">CONFIDENTIAL — 社外秘。本ページは暗号化されており、許可されたアカウントのみ閲覧できます。</div>
+  </div>
+</div>
+<div id="app"></div>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+const CLIENT_ID='1001667206230-ljl0oogq5vmgia28sk37bo3restv23gc.apps.googleusercontent.com';
+const PP="fw-aigc-2026";
+const PAYLOAD={"v":1,"iters":200000,"salt":"hJSp7xkVcANcjrQqBfSGgw==","iv":"w5FfGzBFGY87dX1O","ct":"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"};
+async function decrypt(pass){
+  const enc=new TextEncoder();
+  const salt=Uint8Array.from(atob(PAYLOAD.salt),c=>c.charCodeAt(0));
+  const iv=Uint8Array.from(atob(PAYLOAD.iv),c=>c.charCodeAt(0));
+  const ct=Uint8Array.from(atob(PAYLOAD.ct),c=>c.charCodeAt(0));
+  const baseKey=await crypto.subtle.importKey('raw',enc.encode(pass),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:PAYLOAD.iters,hash:'SHA-256'},baseKey,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function _jwt(t){try{const p=t.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(p))));}catch(e){return null;}}
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(c){
+  const items=(c.items||[]).map(i=>`<tr><td class="nm">${esc(i.name)}</td><td><span class="st">${esc(i.status)}</span></td><td class="nt">${esc(i.note||'')}</td></tr>`).join('')||'<tr><td colspan="3" style="color:#aaa">—</td></tr>';
+  const tasks=(c.tasks||[]).map(t=>{const miss=/未設定/.test(t.due||'');return `<tr><td>${esc(t.task)}${t.note?`<div class="nt">${esc(t.note)}</div>`:''}</td><td style="white-space:nowrap">${esc(t.owner||'')}</td><td class="due${miss?' miss':''}" style="white-space:nowrap">${esc(t.due||'')}</td><td style="white-space:nowrap">${esc(t.eta||'—')}</td><td><span class="tstat ${t.status==='done'?'done':'notdone'}">${t.status==='done'?'done':'not done'}</span></td></tr>`;}).join('')||'<tr><td colspan="5" style="color:#aaa">—</td></tr>';
+  const nas=(c.nextActions||[]).map(n=>`<li><span class="na-a">${esc(n.action)}</span><span class="na-o">${esc(n.owner||'')}${n.due&&n.due!=='—'?' ／ '+esc(n.due):''}</span></li>`).join('')||'<li>—</li>';
+  const rks=(c.risks||[]).map(r=>`<li>${esc(r)}</li>`).join('')||'<li>—</li>';
+  const owners=(c.owners||[]).map(o=>`<span class="chip">${esc(o)}</span>`).join('')||'<span class="chip">—</span>';
+  const srcs=(c.sources||[]).map(esc).join(' ／ ')||'—';
+  document.getElementById('app').innerHTML=`
+  <header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>
+    <div class="cat-tag">${esc(c.category)}</div>
+    <h1>${esc(c.area)}<span class="stat ${esc(c.status)}">${esc(c.status)}</span></h1>
+    <div class="headline">${esc(c.headline)}</div>
+  </header>
+  <div class="wrap">
+    <div class="sumbox">${esc(c.summary)}</div>
+    <div class="sec-h">進捗管理（タスク・期限・ETA）</div>
+    <p class="tasknote">全タスク期限必須——⚠️未設定は赤＝担当者が期限を入れる（6/9方針）。状態は done / not done の2値。</p>
+    <table class="tbl"><thead><tr><th>タスク</th><th>担当</th><th>期限</th><th>ETA</th><th>状態</th></tr></thead><tbody>${tasks}</tbody></table>
+    <div class="sec-h">項目サマリ</div>
+    <table class="tbl"><thead><tr><th>項目</th><th>状況</th><th>メモ</th></tr></thead><tbody>${items}</tbody></table>
+    <div class="sec-h">ネクストアクション</div>
+    <ul class="nalist">${nas}</ul>
+    <div class="sec-h">リスク・懸念</div>
+    <ul class="rklist">${rks}</ul>
+    <div class="sec-h">担当</div>
+    <div class="owners">${owners}</div>
+    <div class="src">出典: ${srcs}　／　最終更新: ${esc(c.lastUpdate||'')}</div>
+  </div>
+  <footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGC事業 案件詳細　最終更新 ${esc(c.lastUpdate||'')} JST</footer>`;
+}
+const SS_KEY='aigc_cred';
+const SSO_TTL_MS=2592000000;/*30日=firework-sso-no-popup.md準拠の自前TTL*/
+function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
+function tryToken(credential,fromCache){
+  return (async()=>{
+    const info=_jwt(credential);
+    const now=Math.floor(Date.now()/1000);
+    const dom=info&&(info.hd||((info.email||'').split('@')[1])||'');
+    const ok=fromCache?!!(info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID):!!(info&&dom==='fireworkhq.com'&&info.aud===CLIENT_ID&&(!info.exp||info.exp>now));
+    if(!ok){try{localStorage.removeItem(SS_KEY);localStorage.removeItem(SS_KEY+'_exp');}catch(_){}
+      if(!fromCache){document.getElementById('err').textContent='アクセス権がありません（@fireworkhq.com のみ）';}
+      return false;}
+    try{const d=await decrypt(PP);showData(d);try{localStorage.setItem(SS_KEY,credential);localStorage.setItem(SS_KEY+'_exp',String(Date.now()+SSO_TTL_MS));}catch(e){}return true;}
+    catch(e){if(!fromCache){document.getElementById('err').textContent='データの復号に失敗しました';}return false;}
+  })();
+}
+function onCredential(resp){document.getElementById('err').textContent='認証中…';tryToken(resp.credential,false);}
+function initGoogle(){
+  if(!window.google||!google.accounts){document.getElementById('err').textContent='Googleログインを読み込めませんでした。再読み込みしてください';return;}
+  google.accounts.id.initialize({client_id:CLIENT_ID,callback:onCredential,hd:'fireworkhq.com',auto_select:true});
+  google.accounts.id.renderButton(document.getElementById('gbtn'),{theme:'filled_blue',size:'large',text:'signin_with',shape:'pill',width:280});
+  google.accounts.id.prompt();
+}
+window.onload=function(){
+  let cached=null;try{const _e=localStorage.getItem(SS_KEY+'_exp');if(_e&&Date.now()<parseInt(_e,10)){cached=localStorage.getItem(SS_KEY);}else{localStorage.removeItem(SS_KEY);localStorage.removeItem(SS_KEY+'_exp');}}catch(e){}
+  if(cached){document.getElementById('err').textContent='読み込み中…';tryToken(cached,true).then(ok=>{if(!ok)initGoogle();});}
+  else{initGoogle();}
+};
+</script>
+</body>
+</html>
