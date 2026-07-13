@@ -25,3 +25,13 @@ _DEPRECATED_*.md
 CLAUDE.md
 _archive_handoff_*.md
 .collaborator/
+
+# OMC運用アーティファクト全般（アクセス履歴にクライアント名パスが記録されるためPUBLIC配信先から除外・260713）
+.omc/project-memory.json
+.omc/notepad.md
+.omc/plans/
+.omc/research/
+.omc/logs/
+.omc/artifacts/
+.omc/handoffs/
+.omc/ultragoal/
