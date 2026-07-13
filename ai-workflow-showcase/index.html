@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIワークフロー・ショーケース — デザイン案比較</title>
+<meta name="robots" content="noindex">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0F1420;
+    color: #E9E4D8;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .wrap { max-width: 420px; width: 100%; }
+  h1 { font-size: 1.4rem; font-weight: 800; line-height: 1.5; margin-bottom: 8px; }
+  p.lead { color: #9AA3B5; font-size: 0.92rem; margin-bottom: 32px; line-height: 1.7; }
+  .card {
+    display: block;
+    background: #171E30;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 22px 22px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card .tag { font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #5AD7E0; margin-bottom: 8px; }
+  .card h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+  .card p { color: #9AA3B5; font-size: 0.86rem; line-height: 1.6; }
+  .card.b .tag { color: #2B5BFF; }
+  footer { margin-top: 28px; font-size: 0.78rem; color: #5D6980; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AIワークフロー・ショーケース</h1>
+  <p class="lead">デザイン方向性比較用の一時プレビュー。それぞれタップして確認してください。</p>
+  <a class="card a" href="sample-a.html">
+    <p class="tag">SAMPLE A</p>
+    <h2>ミッションコントロール型</h2>
+    <p>ダーク基調・ターミナルが実際にタイピングされていく現場中継スタイル</p>
+  </a>
+  <a class="card b" href="sample-b.html">
+    <p class="tag">SAMPLE B</p>
+    <h2>パイプライン可視化型</h2>
+    <p>明るい紙白基調・ページを貫く1本の線がスクロールで流れていくスタイル</p>
+  </a>
+  <footer>Internal preview — not for public sharing</footer>
+</div>
+</body>
+</html>
