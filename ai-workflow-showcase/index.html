@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light">
-<meta name="last-modified" content="2026-07-14T10:22:00+09:00">
+<meta name="color-scheme" content="dark">
+<meta name="last-modified" content="2026-07-14T16:24:30+09:00">
 <title>AIと働く、ある1日。</title>
 
 <!-- ===== OGP / Slack unfurl ===== -->
@@ -18,595 +18,540 @@
 <meta name="twitter:title" content="AIと働く、ある1日。">
 <meta name="twitter:description" content="日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。">
 
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23F3F4F0"/><path d="M8 4 V28" stroke="%232144E0" stroke-width="2.5"/><circle cx="8" cy="10" r="4" fill="%232144E0"/><circle cx="8" cy="24" r="3" fill="%23F3F4F0" stroke="%232144E0" stroke-width="2"/></svg>'>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%238B5CF6"/><stop offset="1" stop-color="%2322D3EE"/></linearGradient></defs><rect width="32" height="32" rx="7" fill="%2305060C"/><path d="M6 22 C12 10 20 26 26 11" stroke="url(%23g)" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="26" cy="11" r="3.2" fill="%23F472B6"/></svg>'>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Noto+Sans+JP:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --paper: #F3F4F0;
-    --paper-dim: #ECEDE8;
-    --card: #FCFCFA;
-    --ink: #171D2B;
-    --ink-soft: #4C5468;
-    --ink-faint: #8B92A3;
-    --hairline: #DDDFD7;
-    --blue: #2144E0;
-    --blue-soft: #C4CEF4;
-    --shu: #C73E2C;
-    --mincho: "Zen Old Mincho", "Hiragino Mincho ProN", serif;
-    --sans: "IBM Plex Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --r: 3px;
+    --bg: #05060C;
+    --hair: rgba(255,255,255,.09);
+    --ink: #EEF1FF;
+    --dim: #9BA3C7;
+    --faint: #6A7194;
+    --violet: #8B5CF6;
+    --cyan: #22D3EE;
+    --magenta: #F472B6;
+    --sans: "Noto Sans JP", sans-serif;
+    --disp: "Sora", "Noto Sans JP", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --ease: cubic-bezier(.22, 1, .36, 1);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-weight: 400;
-    line-height: 1.9;
+    background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.85;
     font-feature-settings: "palt";
     overflow-x: hidden;
   }
-  ::selection { background: var(--blue-soft); }
+  ::selection { background: rgba(139,92,246,.45); }
   img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 3px; }
 
-  /* ================= top nav ================= */
-  .site-head {
-    position: sticky; top: 0; z-index: 20;
-    background: rgba(243,244,240,0.88);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--hairline);
+  /* ================= atmosphere ================= */
+  .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(95px); opacity: .58; }
+  .b1 { width: 720px; height: 720px; left: -12%; top: -18%; background: radial-gradient(circle, #6D3EF0, transparent 65%); animation: drift1 19s ease-in-out infinite alternate; }
+  .b2 { width: 660px; height: 660px; right: -14%; top: 0%; background: radial-gradient(circle, #0EA5C9, transparent 65%); animation: drift2 23s ease-in-out infinite alternate; }
+  .b3 { width: 580px; height: 580px; left: 28%; top: 34%; background: radial-gradient(circle, #C0347F, transparent 68%); opacity: .36; animation: drift3 27s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(90px, 70px) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(-80px, 110px) scale(.92); } }
+  @keyframes drift3 { to { transform: translate(60px, -80px) scale(1.1); } }
+  .sweep {
+    position: fixed; inset: 0; pointer-events: none;
+    background: conic-gradient(from 160deg at 50% -12%, transparent 38%, rgba(139,92,246,.11) 49%, rgba(34,211,238,.08) 57%, transparent 68%);
   }
-  .site-head .inner {
-    max-width: 1120px; margin: 0 auto; padding: 0 28px;
-    height: 60px;
-    display: flex; align-items: center; justify-content: space-between;
+  .stars {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(rgba(255,255,255,.45) .7px, transparent .7px),
+      radial-gradient(rgba(255,255,255,.22) .5px, transparent .5px);
+    background-size: 190px 190px, 90px 90px;
+    background-position: 0 0, 44px 62px;
+    opacity: .4;
   }
-  .wordmark {
-    font-family: var(--mincho); font-weight: 900; font-size: 15px;
-    letter-spacing: 0.06em; color: var(--ink); text-decoration: none;
+  .vig {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background: radial-gradient(ellipse 130% 95% at 50% 30%, transparent 52%, rgba(0,0,0,.5) 100%);
   }
-  .site-nav { display: flex; gap: 26px; }
-  .site-nav a {
-    font-size: 12.5px; color: var(--ink-soft); text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.25s var(--ease);
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 6;
+    opacity: .06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
-  .site-nav a:hover { color: var(--blue); }
-  .site-nav a:focus-visible, .wordmark:focus-visible {
-    outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 2px;
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2.5px; z-index: 40;
+    background: linear-gradient(90deg, var(--violet), var(--cyan), var(--magenta));
+    transform-origin: 0 50%; transform: scaleX(0);
   }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; }
+  /* ================= nav ================= */
+  .nav {
+    position: sticky; top: 0; z-index: 30;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 15px 30px;
+    background: rgba(5,6,12,.62); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--hair);
+  }
+  .logo { font-family: var(--disp); font-weight: 800; font-size: 15px; letter-spacing: .04em; text-decoration: none; }
+  .logo i { font-style: normal; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 12.5px; color: var(--dim); text-decoration: none; letter-spacing: .05em;
+    transition: color .25s var(--ease);
+  }
+  .nav-links a:hover { color: var(--ink); }
 
-  /* ================= spine (page-long pipeline) ================= */
-  #spine { position: absolute; left: 28px; top: 0; width: 14px; pointer-events: none; z-index: 1; }
-  .spine-base { position: absolute; left: 6px; top: 0; bottom: 0; width: 1.5px; background: var(--hairline); }
-  .spine-live {
-    position: absolute; inset: 0;
-    clip-path: inset(0 0 100% 0);
-    transition: clip-path 0.9s linear;
-  }
-  .spine-line { position: absolute; left: 6px; top: 0; bottom: 0; width: 1.5px; background: var(--blue); }
-  .spine-comet {
-    position: absolute; left: 4.5px; top: -34px;
-    width: 4.5px; height: 30px; border-radius: 3px;
-    background: linear-gradient(180deg, rgba(33,68,224,0) 0%, var(--blue) 85%);
-    animation: cometFall 10s linear infinite;
-  }
-  .spine-comet.c2 { animation-delay: 5s; height: 20px; opacity: 0.7; }
-  @keyframes cometFall {
-    from { transform: translateY(0); }
-    to   { transform: translateY(calc(var(--spineH) * 1px + 40px)); }
-  }
-  .spine-node {
-    position: absolute; left: 0;
-    width: 13px; height: 13px; border-radius: 50%;
-    background: var(--paper); border: 1.5px solid var(--hairline);
-    transition: border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
-  }
-  .spine-node.lit { border-color: var(--blue); }
-  .spine-node.lit::after {
-    content: ""; position: absolute; inset: 3px; border-radius: 50%;
-    background: var(--blue);
-  }
-  .spine-node .lbl {
-    position: absolute; left: 22px; top: -4px;
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em;
-    color: var(--blue); white-space: nowrap;
-    opacity: 0; transform: translateX(-4px);
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
-  }
-  .spine-node.active .lbl { opacity: 1; transform: none; }
-  .spine-cap {
-    position: absolute; left: -2.5px; width: 18px; height: 18px; border-radius: 50%;
-    background: var(--blue); opacity: 0;
-    transition: opacity 0.5s var(--ease);
-  }
-  .spine-cap.lit { opacity: 1; }
-  .spine-cap::after {
-    content: ""; position: absolute; inset: 5.5px; border-radius: 50%; background: var(--paper);
-  }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
 
   /* ================= hero ================= */
-  .hero { padding: 108px 0 96px; position: relative; z-index: 2; }
-  .hero h1 {
-    font-family: var(--mincho); font-weight: 900;
-    font-size: clamp(3rem, 7.4vw, 5.6rem);
-    line-height: 1.28; letter-spacing: 0.045em;
+  .hero { position: relative; text-align: center; padding: 120px 0 90px; }
+  .hero::before {
+    content: ""; position: absolute; left: 50%; top: -40px; transform: translateX(-50%);
+    width: 960px; height: 560px; z-index: -1; pointer-events: none;
+    background: radial-gradient(ellipse 52% 55% at 50% 32%, rgba(165,145,255,.17), transparent 70%);
   }
-  .hero .sub {
-    margin-top: 30px;
-    font-size: 1.05rem; color: var(--ink-soft);
-    max-width: 34em;
+  .hero::after {
+    content: ""; position: absolute; left: 50%; bottom: -30px; transform: translateX(-50%);
+    width: 1100px; height: 220px; z-index: -1; pointer-events: none;
+    background: radial-gradient(ellipse 50% 100% at 50% 100%, rgba(34,211,238,.13), transparent 72%);
   }
+  .pill {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; color: var(--dim);
+    padding: 8px 18px; border-radius: 100px;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(90deg, rgba(139,92,246,.7), rgba(34,211,238,.7), rgba(244,114,182,.7)) border-box;
+    margin-bottom: 34px;
+  }
+  .pill i { font-style: normal; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+  h1 {
+    font-weight: 900; font-size: clamp(46px, 7vw, 92px); line-height: 1.16; letter-spacing: .01em;
+    margin-bottom: 26px;
+  }
+  h1 .grad {
+    background: linear-gradient(92deg, var(--violet) 0%, var(--cyan) 55%, var(--magenta) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-sub { color: var(--dim); font-size: 16.5px; max-width: 46ch; margin: 0 auto 56px; }
+
+  .pipe { position: relative; max-width: 860px; margin: 0 auto 34px; }
+  .pipe svg { width: 100%; height: auto; display: block; }
+  .pipe .lbl { font-family: var(--mono); font-size: 10px; fill: var(--dim); letter-spacing: .08em; }
+  .pipe .lbl-b { font-family: var(--sans); font-weight: 700; font-size: 12px; fill: var(--ink); }
+  .node-dot { filter: drop-shadow(0 0 6px rgba(34,211,238,.8)); }
+  .flow-dot { filter: drop-shadow(0 0 8px rgba(139,92,246,.9)); }
+
   .legend {
-    margin-top: 44px;
-    display: inline-flex; flex-wrap: wrap; gap: 14px 36px;
-    padding: 16px 22px;
-    background: var(--card);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r);
+    display: inline-flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+    font-family: var(--mono); font-size: 11.5px; color: var(--dim); letter-spacing: .05em;
   }
-  .legend .item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-soft); }
-  .legend .key-line {
-    width: 26px; height: 2px; background: var(--blue); border-radius: 1px;
-    position: relative;
-  }
-  .legend .key-line::after {
-    content: ""; position: absolute; right: -3px; top: -2.5px;
-    width: 7px; height: 7px; border-radius: 50%; background: var(--blue);
-  }
-  .legend .key-shu {
-    width: 15px; height: 15px; border-radius: 50%;
-    border: 1.6px solid var(--shu);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .legend .key-shu::after {
-    content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--shu);
-  }
+  .legend span { display: inline-flex; align-items: center; gap: 9px; }
+  .lg-line { width: 26px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--violet), var(--cyan)); box-shadow: 0 0 8px rgba(34,211,238,.6); }
+  .lg-dot { width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--magenta); box-shadow: 0 0 8px rgba(244,114,182,.6); }
 
-  /* ================= sections common ================= */
-  section { padding: 104px 0; position: relative; z-index: 2; }
-  .offset { padding-left: 76px; }
-  h2 {
-    font-family: var(--mincho); font-weight: 900;
-    font-size: clamp(1.7rem, 3.6vw, 2.5rem);
-    line-height: 1.5; letter-spacing: 0.04em;
-  }
-  .sec-body { color: var(--ink-soft); margin-top: 14px; font-size: 0.99rem; max-width: 36em; }
+  /* ================= section base ================= */
+  section { padding: 110px 0; }
+  .sec-pill { font-family: var(--mono); font-size: 11px; letter-spacing: .26em; color: var(--cyan); margin-bottom: 16px; }
+  h2 { font-weight: 900; font-size: clamp(28px, 3.8vw, 46px); line-height: 1.35; margin-bottom: 14px; }
+  .sec-sub { color: var(--dim); max-width: 56ch; margin-bottom: 52px; }
 
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
 
-  /* ================= stats (asymmetric ledger) ================= */
-  .stats-grid {
-    margin-top: 52px;
-    display: grid; grid-template-columns: 1.6fr 1fr; gap: 22px;
+  /* ================= glass cards / stats ================= */
+  .glass {
+    border-radius: 16px; border: 1px solid transparent;
+    background:
+      linear-gradient(rgba(13,15,26,.82), rgba(9,10,18,.82)) padding-box,
+      linear-gradient(150deg, rgba(139,92,246,.5), rgba(34,211,238,.18) 45%, rgba(255,255,255,.06)) border-box;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   }
-  .stat {
-    background: var(--card); border: 1px solid var(--hairline); border-radius: var(--r);
-    padding: 34px 36px;
-    box-shadow: 0 1px 2px rgba(23,29,43,0.03), 0 14px 36px rgba(23,29,43,0.05);
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    position: relative; padding: 32px 28px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
   }
-  .stat-feature { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
-  .stat .label { font-size: 0.95rem; font-weight: 700; }
-  .stat .note { font-size: 0.85rem; color: var(--ink-faint); margin-top: 4px; }
-  .stat .nums { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; font-feature-settings: "tnum"; }
-  .stat .from { font-family: var(--mono); color: var(--ink-faint); font-size: 1.25rem; text-decoration: line-through; text-decoration-thickness: 1px; }
-  .stat .arr { color: var(--blue); font-size: 1.3rem; }
-  .stat .to { font-family: var(--mono); font-weight: 600; color: var(--ink); font-size: 3.4rem; line-height: 1; }
-  .stat .unit { font-size: 1.15rem; font-weight: 700; }
-  .stat .scope { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.06em; margin-top: 18px; }
-  .stat-side { display: grid; gap: 22px; }
-  .stat-side .stat { padding: 26px 28px; }
-  .stat-side .to { font-size: 2.2rem; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 40px rgba(139,92,246,.12); }
+  .card-name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .card-desc { font-size: 12.5px; color: var(--dim); margin-bottom: 26px; min-height: 3.4em; }
+  .card-num {
+    font-family: var(--disp); font-weight: 800; font-size: 58px; line-height: 1;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    display: inline-block;
+  }
+  .card-unit { font-size: 15px; color: var(--dim); margin-left: 6px; }
+  .card-old { display: block; margin-top: 14px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }
+  .card-old s { color: var(--magenta); text-decoration-color: var(--magenta); }
 
-  /* ================= one day ================= */
-  .day-list { margin-top: 56px; display: grid; }
-  .day-row {
-    display: grid; grid-template-columns: 110px 1fr auto;
-    gap: 26px; align-items: baseline;
-    padding: 26px 6px;
-    border-top: 1px solid var(--hairline);
+  /* ================= day timeline ================= */
+  .tl { position: relative; padding-left: 42px; }
+  .tl::before {
+    content: ""; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px;
+    background: linear-gradient(180deg, var(--violet), var(--cyan) 55%, var(--magenta) 90%, transparent);
+    box-shadow: 0 0 14px rgba(139,92,246,.5);
   }
-  .day-row:last-child { border-bottom: 1px solid var(--hairline); }
-  .day-time {
-    font-family: var(--mono); font-weight: 500; font-size: 15px;
-    color: var(--blue); letter-spacing: 0.08em; font-feature-settings: "tnum";
+  .tl-item { position: relative; padding: 24px 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -37px; top: 36px; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2.5px solid var(--cyan); box-shadow: 0 0 12px rgba(34,211,238,.75);
   }
-  .day-main .t { font-weight: 700; font-size: 1.1rem; }
-  .day-main .d { color: var(--ink-soft); font-size: 0.93rem; margin-top: 3px; max-width: 42em; }
-  .day-main .d a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue-soft); }
-  .day-main .d a:hover { border-bottom-color: var(--blue); }
-  .day-role {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12px; color: var(--ink-soft); white-space: nowrap;
+  .tl-time { font-family: var(--mono); font-size: 13px; color: var(--cyan); letter-spacing: .1em; margin-bottom: 4px; }
+  .tl-t { font-weight: 900; font-size: 18px; margin-bottom: 4px; }
+  .tl-d { color: var(--dim); font-size: 13.5px; max-width: 62ch; }
+  .tl-d a { color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(34,211,238,.4); }
+  .tl-d a:hover { border-bottom-color: var(--cyan); }
+  .tl-role {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
+    font-family: var(--mono); font-size: 11px; color: var(--magenta);
+    border: 1px solid rgba(244,114,182,.35); border-radius: 100px; padding: 5px 13px;
+    background: rgba(244,114,182,.06);
   }
-  .hanko {
-    width: 15px; height: 15px; border-radius: 50%;
-    border: 1.6px solid var(--shu); flex: none;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hanko::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--shu); }
+  .tl-role::before { content: "●"; font-size: 8px; }
 
-  /* ================= dive panels common ================= */
-  .panel {
-    margin-top: 52px;
-    background: var(--card); border: 1px solid var(--hairline); border-radius: var(--r);
-    box-shadow: 0 1px 2px rgba(23,29,43,0.03), 0 14px 36px rgba(23,29,43,0.05);
-  }
+  /* ================= panel (dive sections) ================= */
+  .panel { padding: 0; overflow: hidden; }
   .panel-caption {
-    border-top: 1px solid var(--hairline);
-    padding: 16px 28px;
-    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em;
-    color: var(--ink-faint);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 18px 28px; border-top: 1px solid var(--hair);
+    font-size: 12.5px; color: var(--dim);
   }
-  .panel-caption b { color: var(--blue); font-weight: 600; }
+  .panel-caption b { color: var(--cyan); font-family: var(--disp); font-weight: 800; }
 
-  /* ---- fanout ---- */
-  .fan-scroller { overflow-x: auto; padding: 30px 18px 14px; }
-  .fanout-svg { display: block; margin: 0 auto; min-width: 620px; width: 100%; max-width: 760px; }
-  .fo-base { fill: none; stroke: var(--blue-soft); stroke-width: 1.5; }
-  .fo-comet { fill: none; stroke: var(--blue); stroke-width: 2; opacity: 0; }
-  .fanout.flow .fo-comet { opacity: 1; animation: cometPath 2.8s linear infinite; }
-  @keyframes cometPath { to { stroke-dashoffset: 0; } }
-  .fo-src { fill: var(--ink); }
-  .fo-src-t { fill: var(--paper); font-family: var(--sans); font-size: 13.5px; font-weight: 700; }
-  .fo-node { fill: var(--card); stroke: var(--ink); stroke-width: 1.1; }
-  .fo-t { fill: var(--ink); font-family: var(--sans); font-size: 13px; font-weight: 500; }
-  .fo-target { opacity: 0; transition: opacity 0.5s var(--ease); }
-  .fanout.go .fo-target { opacity: 1; }
+  /* ---- fan ---- */
+  .fan-scroll { overflow-x: auto; padding: 34px 22px 26px; }
+  .fan-scroll svg { min-width: 720px; width: 100%; height: auto; display: block; }
+  .fan-node { fill: rgba(13,15,26,.9); stroke: rgba(139,92,246,.45); }
+  .fan-node-t { font-family: var(--sans); font-weight: 700; font-size: 13px; fill: var(--ink); }
+  .fan-node-s { font-family: var(--mono); font-size: 9.5px; fill: var(--dim); letter-spacing: .08em; }
+  .fan-path { fill: none; stroke: url(#fanGrad); stroke-width: 1.8; opacity: .85; stroke-dasharray: 340; stroke-dashoffset: 340; }
+  .fan.in .fan-path { animation: draw 1.4s var(--ease) forwards; }
+  .fan.in .fan-path:nth-of-type(2) { animation-delay: .1s; }
+  .fan.in .fan-path:nth-of-type(3) { animation-delay: .2s; }
+  .fan.in .fan-path:nth-of-type(4) { animation-delay: .3s; }
+  .fan.in .fan-path:nth-of-type(5) { animation-delay: .4s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
 
   /* ---- loop ---- */
-  .loop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-  .loop-text { padding: 42px 44px; border-right: 1px solid var(--hairline); }
+  .loop-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .loop-text { padding: 42px 44px; border-right: 1px solid var(--hair); }
   .loop-text ol { list-style: none; margin-top: 26px; display: grid; gap: 18px; }
-  .loop-text li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: baseline; }
-  .loop-text .w { font-family: var(--mincho); font-weight: 900; font-size: 1.15rem; }
-  .loop-text .e { color: var(--ink-soft); font-size: 0.92rem; }
-  .loop-text .fine { margin-top: 26px; font-size: 0.85rem; color: var(--ink-faint); }
+  .loop-text li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: baseline; }
+  .loop-text .w { font-weight: 900; font-size: 1.1rem; background: linear-gradient(90deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .loop-text .e { color: var(--dim); font-size: .92rem; }
+  .loop-text .fine { margin-top: 26px; font-size: .85rem; color: var(--faint); }
   .loop-stage { padding: 42px 30px; display: flex; align-items: center; justify-content: center; }
   .loop-svg { width: 100%; max-width: 340px; display: block; }
-  .lp-ring { fill: none; stroke: var(--blue-soft); stroke-width: 1.5; }
+  .lp-ring { fill: none; stroke: url(#loopGrad); stroke-width: 2; opacity: .8; }
+  .lp-dot { fill: #fff; filter: drop-shadow(0 0 8px rgba(139,92,246,.95)); }
   .lp-orbit-g { transform-origin: 170px 170px; }
   .loop.spin .lp-orbit-g { animation: orbit 5.5s linear infinite; }
   @keyframes orbit { to { transform: rotate(360deg); } }
-  .lp-dot { fill: var(--blue); }
-  .lp-station { fill: var(--card); stroke: var(--ink); stroke-width: 1.1; }
-  .lp-station-t { fill: var(--ink); font-family: var(--sans); font-size: 12.5px; font-weight: 700; }
-  .lp-score { font-family: var(--mono); font-weight: 600; font-size: 44px; fill: var(--ink); }
-  .lp-score-cap { font-family: var(--mono); font-size: 11px; fill: var(--ink-faint); letter-spacing: 2px; }
-  .lp-round { font-family: var(--mono); font-size: 12px; fill: var(--ink-faint); }
-  .loop.pass .lp-score { fill: var(--blue); }
-  .lp-pass { font-family: var(--mincho); font-weight: 900; font-size: 15px; fill: var(--blue); opacity: 0; }
-  .loop.pass .lp-pass { opacity: 1; transition: opacity 0.5s var(--ease); }
+  .lp-station { fill: rgba(13,15,26,.95); stroke: rgba(139,92,246,.5); rx: 6; }
+  .lp-station-t { font-family: var(--sans); font-weight: 700; font-size: 13px; fill: var(--ink); }
+  .lp-score { font-family: var(--mono); font-weight: 500; font-size: 44px; fill: var(--ink); }
+  .lp-score-cap { font-family: var(--mono); font-size: 11px; fill: var(--faint); letter-spacing: 2px; }
+  .lp-round { font-family: var(--mono); font-size: 12px; fill: var(--dim); letter-spacing: 1px; }
+  .loop.pass .lp-score { fill: var(--cyan); }
+  .lp-pass { font-weight: 900; font-size: 15px; fill: var(--magenta); opacity: 0; }
+  .loop.pass .lp-pass { opacity: 1; transition: opacity .5s var(--ease); }
   .loop.pass .lp-orbit-g { animation-play-state: paused; }
 
-  /* ---- grid ---- */
-  .gen-grid {
-    padding: 28px;
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
-  }
+  /* ---- gen grid ---- */
+  .gen-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; padding: 26px; }
   .tile {
-    position: relative; aspect-ratio: 4 / 5; overflow: hidden;
-    border-radius: var(--r); background: var(--paper-dim);
-    opacity: 0; transform: scale(0.94);
+    position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.08);
+    opacity: 0; transform: translateY(14px) scale(.97);
+    transition: opacity .6s var(--ease), transform .6s var(--ease);
   }
-  .gen.in .tile { animation: tileIn 0.65s var(--ease) forwards; }
-  .gen.in .tile:nth-child(2)  { animation-delay: 0.12s; }
-  .gen.in .tile:nth-child(3)  { animation-delay: 0.24s; }
-  .gen.in .tile:nth-child(4)  { animation-delay: 0.36s; }
-  .gen.in .tile:nth-child(5)  { animation-delay: 0.48s; }
-  .gen.in .tile:nth-child(6)  { animation-delay: 0.60s; }
-  .gen.in .tile:nth-child(7)  { animation-delay: 0.72s; }
-  .gen.in .tile:nth-child(8)  { animation-delay: 0.84s; }
-  .gen.in .tile:nth-child(9)  { animation-delay: 0.96s; }
-  .gen.in .tile:nth-child(10) { animation-delay: 1.08s; }
-  .gen.in .tile:nth-child(11) { animation-delay: 1.20s; }
-  .gen.in .tile:nth-child(12) { animation-delay: 1.32s; }
-  @keyframes tileIn { to { opacity: 1; transform: none; } }
-  .tile img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.02); }
-  .tile.src { outline: 2px solid var(--blue); outline-offset: -2px; }
-  .tile.src img { filter: none; }
+  .gen.in .tile { opacity: 1; transform: none; }
+  .gen.in .tile:nth-child(2) { transition-delay: .06s; } .gen.in .tile:nth-child(3) { transition-delay: .12s; }
+  .gen.in .tile:nth-child(4) { transition-delay: .18s; } .gen.in .tile:nth-child(5) { transition-delay: .24s; }
+  .gen.in .tile:nth-child(6) { transition-delay: .3s; }  .gen.in .tile:nth-child(7) { transition-delay: .36s; }
+  .gen.in .tile:nth-child(8) { transition-delay: .42s; } .gen.in .tile:nth-child(9) { transition-delay: .48s; }
+  .gen.in .tile:nth-child(10) { transition-delay: .54s; } .gen.in .tile:nth-child(11) { transition-delay: .6s; }
+  .gen.in .tile:nth-child(12) { transition-delay: .66s; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; }
+  .tile:hover img { transform: scale(1.05); transition: transform .5s var(--ease); }
   .tile .tag {
-    position: absolute; left: 0; bottom: 0; right: 0;
-    background: var(--blue); color: #fff;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
-    text-align: center; padding: 3px 0;
+    position: absolute; left: 8px; bottom: 8px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+    background: rgba(5,6,12,.8); color: var(--cyan); padding: 3px 9px; border-radius: 100px;
+    border: 1px solid rgba(34,211,238,.4);
+  }
+  .tile.src { border: 1px solid transparent;
+    background:
+      linear-gradient(rgba(13,15,26,.9), rgba(13,15,26,.9)) padding-box,
+      linear-gradient(150deg, var(--violet), var(--cyan)) border-box;
   }
 
   /* ================= evolve ================= */
-  .evo-flow { margin-top: 60px; position: relative; }
-  .evo-line-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-  .evo-line { fill: none; stroke: var(--blue); stroke-width: 1.5; }
-  .evo-back { fill: none; stroke: var(--blue-soft); stroke-width: 1.5; stroke-dasharray: 5 6; }
-  .evo-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; position: relative; z-index: 2; }
-  .evo-step { padding-top: 34px; position: relative; }
-  .evo-step::before {
-    content: ""; position: absolute; top: 0; left: 2px;
-    width: 13px; height: 13px; border-radius: 50%;
-    background: var(--paper); border: 1.5px solid var(--blue);
+  .evo-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: evo; }
+  .evo-step { position: relative; padding: 28px 24px; }
+  .evo-step::after {
+    content: "→"; position: absolute; right: -17px; top: 50%; transform: translateY(-50%);
+    color: var(--faint); font-size: 18px; z-index: 2;
   }
-  .evo-step.in::before { background: var(--blue); }
-  .evo-step .w { font-family: var(--mincho); font-weight: 900; font-size: 1.5rem; letter-spacing: 0.06em; }
-  .evo-step .e { margin-top: 10px; font-size: 0.9rem; color: var(--ink-soft); }
+  .evo-step:last-child::after { content: none; }
+  .evo-step .w {
+    font-weight: 900; font-size: 1.3rem; letter-spacing: .06em; margin-bottom: 10px;
+    background: linear-gradient(90deg, var(--violet), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .evo-step:first-child .w { background: linear-gradient(90deg, var(--magenta), var(--violet)); -webkit-background-clip: text; background-clip: text; }
+  .evo-step .e { font-size: .88rem; color: var(--dim); }
   .evo-step .e b { color: var(--ink); font-weight: 700; }
-  .evo-note { margin-top: 44px; font-size: 0.9rem; color: var(--ink-faint); max-width: 40em; }
+  .evo-note { margin-top: 34px; color: var(--dim); font-size: 14px; max-width: 60ch; }
 
-  /* ================= share (human x ai) ================= */
-  .share-grid {
-    margin-top: 56px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
-  }
-  .share-col {
-    background: var(--card); border: 1px solid var(--hairline); border-radius: var(--r);
-    padding: 36px 40px;
-  }
-  .share-col .head { display: flex; align-items: center; gap: 12px; }
-  .share-col .head h3 { font-family: var(--mincho); font-weight: 900; font-size: 1.3rem; letter-spacing: 0.05em; }
-  .share-col ul { list-style: none; margin-top: 24px; display: grid; gap: 14px; }
-  .share-col li { display: flex; gap: 12px; align-items: baseline; font-size: 0.98rem; }
-  .share-col li .m { flex: none; }
-  .share-col li .d { color: var(--ink-faint); font-size: 0.86rem; margin-left: 6px; }
-  .m-ai {
-    width: 18px; height: 2px; background: var(--blue); border-radius: 1px;
-    position: relative; top: -4px;
-  }
-  .share-close {
-    margin-top: 56px; text-align: center;
-    font-family: var(--mincho); font-weight: 900;
-    font-size: clamp(1.3rem, 2.8vw, 1.8rem); letter-spacing: 0.06em;
-  }
-  .share-close .hito { color: var(--shu); }
-  .share-close .ai { color: var(--blue); }
+  /* ================= share ================= */
+  .share-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .share-col { padding: 34px 32px; }
+  .share-col h3 { font-weight: 900; font-size: 1.25rem; letter-spacing: .05em; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; }
+  .m-h { width: 11px; height: 11px; border-radius: 50%; border: 2.5px solid var(--magenta); box-shadow: 0 0 10px rgba(244,114,182,.6); flex: none; }
+  .m-a { width: 22px; height: 2.5px; border-radius: 2px; background: linear-gradient(90deg, var(--violet), var(--cyan)); box-shadow: 0 0 8px rgba(34,211,238,.6); flex: none; }
+  .share-col ul { list-style: none; display: grid; gap: 16px; }
+  .share-col li { display: flex; gap: 14px; align-items: baseline; font-weight: 700; font-size: 15px; }
+  .share-col li .m-h, .share-col li .m-a { position: relative; top: -2px; }
+  .share-col .d { display: block; font-weight: 400; font-size: 12.5px; color: var(--dim); }
+  .share-close { margin-top: 44px; text-align: center; font-weight: 900; font-size: clamp(20px, 2.6vw, 28px); }
+  .share-close .hito { color: var(--magenta); }
+  .share-close .ai { background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
   /* ================= outro ================= */
-  .outro { padding-bottom: 60px; }
-  .outro h2 { font-size: clamp(2rem, 5vw, 3.4rem); }
-  .outro .sec-body { margin-top: 22px; }
+  .outro { text-align: center; padding-bottom: 70px; }
+  .outro .sec-sub { margin-left: auto; margin-right: auto; }
   .colophon {
-    margin-top: 84px;
-    border-top: 1px solid var(--hairline);
-    padding: 26px 0 56px;
-    display: flex; flex-wrap: wrap; gap: 10px 40px;
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.05em;
-    color: var(--ink-faint);
+    display: flex; gap: 26px; flex-wrap: wrap; justify-content: center;
+    margin-top: 50px; padding-top: 26px; border-top: 1px solid var(--hair);
+    font-family: var(--mono); font-size: 11px; color: var(--faint); letter-spacing: .05em;
   }
 
-  /* ================= responsive ================= */
   @media (max-width: 920px) {
-    .offset { padding-left: 44px; }
-    #spine { left: 20px; }
-    .spine-node .lbl { display: none; }
-    .hero { padding: 72px 0 64px; }
-    section { padding: 72px 0; }
-    .site-nav { display: none; }
-    .stats-grid { grid-template-columns: 1fr; }
-    .day-row { grid-template-columns: 74px 1fr; gap: 14px; padding: 22px 2px; }
-    .day-role { grid-column: 2; margin-top: 6px; }
+    .nav-links { display: none; }
+    .cards, .share-grid { grid-template-columns: 1fr; }
     .loop-grid { grid-template-columns: 1fr; }
-    .loop-text { border-right: none; border-bottom: 1px solid var(--hairline); padding: 32px 28px; }
-    .gen-grid { grid-template-columns: repeat(3, 1fr); padding: 18px; gap: 10px; }
-    .evo-cols { grid-template-columns: 1fr; gap: 34px; }
-    .evo-line-svg { display: none; }
-    .share-grid { grid-template-columns: 1fr; }
-    .stat { padding: 26px 24px; }
-    .stat .to { font-size: 2.6rem; }
+    .loop-text { border-right: none; border-bottom: 1px solid var(--hair); padding: 32px 28px; }
+    .gen-grid { grid-template-columns: repeat(3, 1fr); }
+    .evo-cols { grid-template-columns: 1fr; }
+    .evo-step::after { content: "↓"; right: auto; left: 26px; top: auto; bottom: -18px; transform: none; }
+    section { padding: 84px 0; }
+    .hero { padding-top: 80px; }
   }
-
-  /* ================= reduced motion ================= */
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .spine-live { clip-path: none !important; transition: none; }
-    .spine-comet { display: none; }
-    .fanout.flow .fo-comet { animation: none; opacity: 0; }
-    .loop.spin .lp-orbit-g { animation: none; }
-    .gen.in .tile { animation: none; opacity: 1; transform: none; }
+    * { animation: none !important; transition: none !important; }
+    .reveal, .gen .tile { opacity: 1; transform: none; }
+    .fan-path { stroke-dashoffset: 0 !important; }
   }
 </style>
 </head>
 <body>
+<div class="aurora"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="sweep"></div></div>
+<div class="stars"></div>
+<div class="vig"></div>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<header class="site-head">
-  <div class="inner">
-    <a class="wordmark" href="#top">ある1日。</a>
-    <nav class="site-nav" aria-label="ページ内リンク">
-      <a href="#stats">実測</a>
-      <a href="#day">1日の流れ</a>
-      <a href="#dive-fan">深掘り</a>
-      <a href="#evolve">育て方</a>
-      <a href="#share">分担</a>
-    </nav>
+<nav class="nav" aria-label="ページ内リンク">
+  <a class="logo" href="#top">ONE DAY <i>WITH AI</i></a>
+  <div class="nav-links">
+    <a href="#stats">実測</a>
+    <a href="#day">1日の流れ</a>
+    <a href="#dive-fan">深掘り</a>
+    <a href="#evolve">育て方</a>
+    <a href="#share">分担</a>
   </div>
-</header>
+</nav>
 
-<main class="wrap" id="wrap">
-
-  <div id="spine" aria-hidden="true">
-    <div class="spine-base"></div>
-    <div class="spine-live" id="spineLive">
-      <div class="spine-line"></div>
-      <div class="spine-comet"></div>
-      <div class="spine-comet c2"></div>
-    </div>
-  </div>
+<main class="wrap" id="top">
 
   <!-- ================= HERO ================= -->
-  <section class="hero" id="top">
-    <h1>AIと働く、<br>ある1日。</h1>
-    <p class="sub">日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。誇張のない、毎日の話。</p>
-    <div class="legend reveal">
-      <span class="item"><span class="key-line"></span>青い線は、AIが運ぶ仕事</span>
-      <span class="item"><span class="key-shu"></span>朱の印は、人が判断する瞬間</span>
+  <header class="hero">
+    <div class="pill">⚡ <i>Co-crafted with Claude</i> — 構成・文章・実装まで</div>
+    <h1>AIと働く、<br><span class="grad">ある1日。</span></h1>
+    <p class="hero-sub">日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。誇張のない、毎日の話。</p>
+
+    <div class="pipe">
+      <svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" aria-label="朝から夜へ、仕事が流れるパイプライン">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8B5CF6"/><stop offset=".55" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/>
+          </linearGradient>
+        </defs>
+        <path d="M20,80 C160,20 300,130 430,80 C560,30 700,120 840,70" fill="none" stroke="url(#pg)" stroke-width="2.5" opacity=".85"/>
+        <circle class="node-dot" cx="20" cy="80" r="5" fill="#22D3EE"/>
+        <circle class="node-dot" cx="430" cy="80" r="5" fill="#22D3EE"/>
+        <circle class="node-dot" cx="840" cy="70" r="5" fill="#F472B6"/>
+        <circle class="flow-dot" r="6" fill="#fff">
+          <animateMotion dur="6s" repeatCount="indefinite" path="M20,80 C160,20 300,130 430,80 C560,30 700,120 840,70"/>
+        </circle>
+        <text class="lbl" x="20" y="112" text-anchor="start">07:30</text>
+        <text class="lbl-b" x="20" y="130" text-anchor="start">ブリーフィング</text>
+        <text class="lbl" x="430" y="112" text-anchor="middle">11:00 — 19:00</text>
+        <text class="lbl-b" x="430" y="130" text-anchor="middle">展開・自己改善・量産</text>
+        <text class="lbl" x="840" y="102" text-anchor="end">23:00</text>
+        <text class="lbl-b" x="840" y="120" text-anchor="end">引き継ぎ</text>
+      </svg>
     </div>
-  </section>
+
+    <div class="legend">
+      <span><span class="lg-line"></span>光の線は、AIが運ぶ仕事</span>
+      <span><span class="lg-dot"></span>ピンクの印は、人が判断する瞬間</span>
+    </div>
+  </header>
 
   <!-- ================= STATS ================= -->
-  <section class="offset" id="stats" data-spine="実測">
+  <section id="stats">
+    <div class="sec-pill reveal">01 — MEASURED</div>
     <h2 class="reveal">数字は、実測。</h2>
-    <p class="sec-body reveal">理想値ではなく、実際にかかっていた時間との比較。対象範囲もあわせて示す。</p>
-    <div class="stats-grid">
-      <div class="stat stat-feature reveal">
-        <div>
-          <p class="label">議事録の事後処理</p>
-          <p class="note">保存、要点の学習、返信案、案件ボード反映、社内共有までを含む。</p>
-        </div>
-        <div>
-          <p class="nums"><span class="from">90分</span><span class="arr">→</span><span class="to counter" data-from="90" data-to="15">90</span><span class="unit">分</span></p>
-          <p class="scope">外部会議 1本あたり</p>
-        </div>
+    <p class="sec-sub reveal">理想値ではなく、実際にかかっていた時間との比較。対象範囲もあわせて示す。</p>
+    <div class="cards" id="statCards">
+      <div class="card glass reveal">
+        <div class="card-name">議事録の事後処理</div>
+        <div class="card-desc">保存、要点の学習、返信案、案件ボード反映、社内共有までを含む。</div>
+        <span class="card-num" data-to="15">0</span><span class="card-unit">分</span>
+        <span class="card-old">BEFORE — <s>90分</s> ／ 外部会議1本あたり</span>
       </div>
-      <div class="stat-side">
-        <div class="stat reveal">
-          <p class="label">提案書ドラフト</p>
-          <p class="nums"><span class="from">8時間</span><span class="arr">→</span><span class="to counter" data-from="8" data-to="2">8</span><span class="unit">時間</span></p>
-          <p class="scope">骨子からレビュー済み初稿まで</p>
-        </div>
-        <div class="stat reveal">
-          <p class="label">返信の下書き</p>
-          <p class="nums"><span class="from">10分</span><span class="arr">→</span><span class="to counter" data-from="10" data-to="2">10</span><span class="unit">分</span></p>
-          <p class="scope">メール / チャット 1通あたり</p>
-        </div>
+      <div class="card glass reveal">
+        <div class="card-name">提案書ドラフト</div>
+        <div class="card-desc">骨子からレビュー済み初稿まで。自己改善ループ込み。</div>
+        <span class="card-num" data-to="2">0</span><span class="card-unit">時間</span>
+        <span class="card-old">BEFORE — <s>8時間</s> ／ 1本あたり</span>
+      </div>
+      <div class="card glass reveal">
+        <div class="card-name">返信の下書き</div>
+        <div class="card-desc">メール / チャット 1通あたり。文体と敬語ルールを維持。</div>
+        <span class="card-num" data-to="2">0</span><span class="card-unit">分</span>
+        <span class="card-old">BEFORE — <s>10分</s> ／ 1通あたり</span>
       </div>
     </div>
   </section>
 
-  <!-- ================= ONE DAY ================= -->
-  <section class="offset" id="day" data-spine="1日">
+  <!-- ================= DAY FLOW ================= -->
+  <section id="day">
+    <div class="sec-pill reveal">02 — TIMELINE</div>
     <h2 class="reveal">1日は、こう流れる。</h2>
-    <p class="sec-body reveal">朝から夜まで8つの場面。線の上を仕事が流れ、朱の印のところでだけ、人が手を止めて判断する。</p>
-    <div class="day-list">
-      <div class="day-row reveal">
-        <span class="day-time">07:30</span>
-        <div class="day-main">
-          <p class="t">朝のブリーフィング</p>
-          <p class="d">今日の予定、未返信のメッセージ、昨日からの持ち越しを、AIが1枚に集約して差し出す。</p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>読んで優先順位を決める</span>
+    <p class="sec-sub reveal">朝から夜まで8つの場面。光の線の上を仕事が流れ、ピンクの印のところでだけ、人が手を止めて判断する。</p>
+
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="tl-time">07:30</div>
+        <div class="tl-t">朝のブリーフィング</div>
+        <div class="tl-d">今日の予定、未返信のメッセージ、昨日からの持ち越しを、AIが1枚に集約して差し出す。</div>
+        <span class="tl-role">読んで優先順位を決める</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">09:00</span>
-        <div class="day-main">
-          <p class="t">返信の下書き</p>
-          <p class="d">未返信を検知して、本人の文体と相手別の敬語ルールを守った返信案が既に用意されている。</p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>確認して送信する</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">09:00</div>
+        <div class="tl-t">返信の下書き</div>
+        <div class="tl-d">未返信を検知して、本人の文体と相手別の敬語ルールを守った返信案が既に用意されている。</div>
+        <span class="tl-role">確認して送信する</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">10:00</span>
-        <div class="day-main">
-          <p class="t">会議の事前ブリーフ</p>
-          <p class="d">前回の宿題、先方との直近のやり取り、想定問答を1枚のブリーフに。準備時間は読む時間だけ。</p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>会議で話すのは人</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">10:00</div>
+        <div class="tl-t">会議の事前ブリーフ</div>
+        <div class="tl-d">前回の宿題、先方との直近のやり取り、想定問答を1枚のブリーフに。準備時間は読む時間だけ。</div>
+        <span class="tl-role">会議で話すのは人</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">11:00</span>
-        <div class="day-main">
-          <p class="t">議事録の5方面展開</p>
-          <p class="d">会議が終わると、議事録1本から5つの仕事が同時に始まる。<a href="#dive-fan">下で詳しく</a></p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>最終確認だけ</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">11:00</div>
+        <div class="tl-t">議事録の5方面展開</div>
+        <div class="tl-d">会議が終わると、議事録1本から5つの仕事が同時に始まる。<a href="#dive-fan">下で詳しく</a></div>
+        <span class="tl-role">最終確認だけ</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">14:00</span>
-        <div class="day-main">
-          <p class="t">提案書の自己改善ループ</p>
-          <p class="d">初稿はAI自身がレビューし、基準に届くまで書き直す。<a href="#dive-loop">下で詳しく</a></p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>戦略の采配は人</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">14:00</div>
+        <div class="tl-t">提案書の自己改善ループ</div>
+        <div class="tl-d">初稿はAI自身がレビューし、基準に届くまで書き直す。<a href="#dive-loop">下で詳しく</a></div>
+        <span class="tl-role">戦略の采配は人</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">16:00</span>
-        <div class="day-main">
-          <p class="t">見積もりの自動構築</p>
-          <p class="d">過去の類似案件を索引から参照し、スプレッドシートをスクリプトで自動生成する。</p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>条件と金額の最終判断</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">16:00</div>
+        <div class="tl-t">見積もりの自動構築</div>
+        <div class="tl-d">過去の類似案件を索引から参照し、スプレッドシートをスクリプトで自動生成する。</div>
+        <span class="tl-role">条件と金額の最終判断</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">19:00</span>
-        <div class="day-main">
-          <p class="t">クリエイティブ量産</p>
-          <p class="d">商品画像1枚から、AI画像とAI動画のサンプルが増えていく。<a href="#dive-gen">下で詳しく</a></p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>方向を決めて、選ぶ</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">19:00</div>
+        <div class="tl-t">クリエイティブ量産</div>
+        <div class="tl-d">商品画像1枚から、AI画像とAI動画のサンプルが増えていく。<a href="#dive-gen">下で詳しく</a></div>
+        <span class="tl-role">方向を決めて、選ぶ</span>
       </div>
-      <div class="day-row reveal">
-        <span class="day-time">23:00</span>
-        <div class="day-main">
-          <p class="t">引き継ぎメモ</p>
-          <p class="d">今日の文脈をAIが自分で記録して、明日の自分とAIに引き継ぐ。忘れる心配ごと、手放す。</p>
-        </div>
-        <span class="day-role"><span class="hanko" title="人の判断"></span>おやすみ、だけ</span>
+      <div class="tl-item reveal">
+        <div class="tl-time">23:00</div>
+        <div class="tl-t">引き継ぎメモ</div>
+        <div class="tl-d">今日の文脈をAIが自分で記録して、明日の自分とAIに引き継ぐ。忘れる心配ごと、手放す。</div>
+        <span class="tl-role">おやすみ、だけ</span>
       </div>
     </div>
   </section>
 
-  <!-- ================= DIVE: FANOUT ================= -->
-  <section class="offset" id="dive-fan" data-spine="展開">
+  <!-- ================= DIVE: FAN ================= -->
+  <section id="dive-fan">
+    <div class="sec-pill reveal">03 — DEEP DIVE</div>
     <h2 class="reveal">会議が終わると、<br>5つの仕事が始まっている。</h2>
-    <p class="sec-body reveal">議事録1本が5つの成果物に分岐する。かつては午後をまるごと使っていた作業。</p>
-    <div class="panel reveal">
-      <div class="fanout" id="fanout">
-        <div class="fan-scroller">
-          <svg class="fanout-svg" viewBox="0 0 760 330" aria-label="議事録1本が5つの成果物に分岐する図">
-            <path class="fo-base" d="M178 165 C 330 165, 390 42,  544 42"/>
-            <path class="fo-base" d="M178 165 C 330 165, 390 103, 544 103"/>
-            <path class="fo-base" d="M178 165 C 330 165, 390 165, 544 165"/>
-            <path class="fo-base" d="M178 165 C 330 165, 390 227, 544 227"/>
-            <path class="fo-base" d="M178 165 C 330 165, 390 288, 544 288"/>
-            <path class="fo-comet" d="M178 165 C 330 165, 390 42,  544 42"/>
-            <path class="fo-comet" style="animation-delay:.55s"  d="M178 165 C 330 165, 390 103, 544 103"/>
-            <path class="fo-comet" style="animation-delay:1.1s"  d="M178 165 C 330 165, 390 165, 544 165"/>
-            <path class="fo-comet" style="animation-delay:1.65s" d="M178 165 C 330 165, 390 227, 544 227"/>
-            <path class="fo-comet" style="animation-delay:2.2s"  d="M178 165 C 330 165, 390 288, 544 288"/>
-            <g>
-              <rect class="fo-src" x="34" y="139" width="144" height="52" rx="3"/>
-              <text class="fo-src-t" x="106" y="171" text-anchor="middle">議事録 1本</text>
-            </g>
-            <g class="fo-target" style="transition-delay:.15s">
-              <rect class="fo-node" x="544" y="21"  width="182" height="42" rx="3"/>
-              <text class="fo-t" x="635" y="47" text-anchor="middle">正しい場所へ保存</text>
-            </g>
-            <g class="fo-target" style="transition-delay:.3s">
-              <rect class="fo-node" x="544" y="82"  width="182" height="42" rx="3"/>
-              <text class="fo-t" x="635" y="108" text-anchor="middle">決定事項を学習</text>
-            </g>
-            <g class="fo-target" style="transition-delay:.45s">
-              <rect class="fo-node" x="544" y="144" width="182" height="42" rx="3"/>
-              <text class="fo-t" x="635" y="170" text-anchor="middle">返信ドラフト作成</text>
-            </g>
-            <g class="fo-target" style="transition-delay:.6s">
-              <rect class="fo-node" x="544" y="206" width="182" height="42" rx="3"/>
-              <text class="fo-t" x="635" y="232" text-anchor="middle">案件ボードに反映</text>
-            </g>
-            <g class="fo-target" style="transition-delay:.75s">
-              <rect class="fo-node" x="544" y="267" width="182" height="42" rx="3"/>
-              <text class="fo-t" x="635" y="293" text-anchor="middle">社内共有を下書き</text>
-            </g>
-          </svg>
-        </div>
-        <p class="panel-caption"><span>所要 <b>15分</b>。人の作業は最終確認のみ。</span><span>90分かかっていた仕事</span></p>
+    <p class="sec-sub reveal">議事録1本が5つの成果物に分岐する。かつては午後をまるごと使っていた作業。</p>
+    <div class="panel glass reveal">
+      <div class="fan-scroll">
+        <svg class="fan" id="fan" viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg" aria-label="議事録1本が5つの成果物に分岐する図">
+          <defs>
+            <linearGradient id="fanGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
+            </linearGradient>
+          </defs>
+          <path class="fan-path" d="M215,165 C330,165 380,40 500,40"/>
+          <path class="fan-path" d="M215,165 C330,165 380,102 500,102"/>
+          <path class="fan-path" d="M215,165 C340,165 380,165 500,165"/>
+          <path class="fan-path" d="M215,165 C330,165 380,228 500,228"/>
+          <path class="fan-path" d="M215,165 C330,165 380,290 500,290"/>
+          <g>
+            <rect class="fan-node" x="45" y="132" width="170" height="66" rx="12" stroke-width="1.5"/>
+            <text class="fan-node-s" x="65" y="158">SOURCE</text>
+            <text class="fan-node-t" x="65" y="180">議事録 1本</text>
+          </g>
+          <g>
+            <rect class="fan-node" x="500" y="18" width="360" height="44" rx="10"/>
+            <text class="fan-node-t" x="522" y="45">正しい場所へ保存</text>
+            <circle class="node-dot" cx="500" cy="40" r="4" fill="#22D3EE"/>
+          </g>
+          <g>
+            <rect class="fan-node" x="500" y="80" width="360" height="44" rx="10"/>
+            <text class="fan-node-t" x="522" y="107">決定事項を学習</text>
+            <circle class="node-dot" cx="500" cy="102" r="4" fill="#22D3EE"/>
+          </g>
+          <g>
+            <rect class="fan-node" x="500" y="143" width="360" height="44" rx="10"/>
+            <text class="fan-node-t" x="522" y="170">返信ドラフト作成</text>
+            <circle class="node-dot" cx="500" cy="165" r="4" fill="#22D3EE"/>
+          </g>
+          <g>
+            <rect class="fan-node" x="500" y="206" width="360" height="44" rx="10"/>
+            <text class="fan-node-t" x="522" y="233">案件ボードに反映</text>
+            <circle class="node-dot" cx="500" cy="228" r="4" fill="#22D3EE"/>
+          </g>
+          <g>
+            <rect class="fan-node" x="500" y="268" width="360" height="44" rx="10"/>
+            <text class="fan-node-t" x="522" y="295">社内共有を下書き</text>
+            <circle class="node-dot" cx="500" cy="290" r="4" fill="#22D3EE"/>
+          </g>
+        </svg>
       </div>
+      <p class="panel-caption"><span>所要 <b>15分</b>。人の作業は最終確認のみ。</span><span>90分かかっていた仕事</span></p>
     </div>
   </section>
 
   <!-- ================= DIVE: LOOP ================= -->
-  <section class="offset" id="dive-loop" data-spine="自走">
+  <section id="dive-loop">
+    <div class="sec-pill reveal">04 — DEEP DIVE</div>
     <h2 class="reveal">AIが、AIの原稿を差し戻す。</h2>
-    <p class="sec-body reveal">提案書の初稿は、評価基準にそってAI自身がレビューする。基準の9.0点に届くまで、生成と修正が自動で繰り返される。</p>
-    <div class="panel reveal">
+    <p class="sec-sub reveal">提案書の初稿は、評価基準にそってAI自身がレビューする。基準の9.0点に届くまで、生成と修正が自動で繰り返される。</p>
+    <div class="panel glass reveal">
       <div class="loop" id="loop">
         <div class="loop-grid">
           <div class="loop-text">
@@ -619,18 +564,23 @@
           </div>
           <div class="loop-stage">
             <svg class="loop-svg" viewBox="0 0 340 340" aria-label="生成と評価と修正が循環し、スコアが基準に達すると止まる図">
+              <defs>
+                <linearGradient id="loopGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
+                </linearGradient>
+              </defs>
               <circle class="lp-ring" cx="170" cy="170" r="118"/>
               <g class="lp-orbit-g"><circle class="lp-dot" cx="170" cy="52" r="6"/></g>
               <g>
-                <rect class="lp-station" x="134" y="18" width="72" height="30" rx="3"/>
+                <rect class="lp-station" x="134" y="18" width="72" height="30"/>
                 <text class="lp-station-t" x="170" y="38" text-anchor="middle">生成</text>
               </g>
               <g>
-                <rect class="lp-station" x="242" y="240" width="72" height="30" rx="3"/>
+                <rect class="lp-station" x="242" y="240" width="72" height="30"/>
                 <text class="lp-station-t" x="278" y="260" text-anchor="middle">評価</text>
               </g>
               <g>
-                <rect class="lp-station" x="26" y="240" width="72" height="30" rx="3"/>
+                <rect class="lp-station" x="26" y="240" width="72" height="30"/>
                 <text class="lp-station-t" x="62" y="260" text-anchor="middle">修正</text>
               </g>
               <text class="lp-score" id="lpScore" x="170" y="178" text-anchor="middle">6.8</text>
@@ -646,10 +596,11 @@
   </section>
 
   <!-- ================= DIVE: GEN GRID ================= -->
-  <section class="offset" id="dive-gen" data-spine="量産">
+  <section id="dive-gen">
+    <div class="sec-pill reveal">05 — DEEP DIVE</div>
     <h2 class="reveal">翌朝には、12案。</h2>
-    <p class="sec-body reveal">商品画像1枚から、AIが画像と動画のサンプルを量産する。人の仕事は方向を決めることと、選ぶこと。</p>
-    <div class="panel reveal">
+    <p class="sec-sub reveal">商品画像1枚から、AIが画像と動画のサンプルを量産する。人の仕事は方向を決めることと、選ぶこと。</p>
+    <div class="panel glass reveal">
       <div class="gen" id="gen">
         <div class="gen-grid">
           <figure class="tile src"><img src="https://picsum.photos/seed/oneday-src/400/500" alt="元になる商品画像のイメージ" loading="lazy"><figcaption class="tag">元画像</figcaption></figure>
@@ -671,53 +622,53 @@
   </section>
 
   <!-- ================= EVOLVE ================= -->
-  <section class="offset" id="evolve" data-spine="進化">
+  <section id="evolve">
+    <div class="sec-pill reveal">06 — GROWTH</div>
     <h2 class="reveal">昨日の失敗が、<br>今日の仕組みになる。</h2>
-    <p class="sec-body reveal">このワークフローの本当の核心は、道具の便利さではなく、AIが育つこと。ひとつの実例で示す。</p>
-    <div class="evo-flow">
-      <div class="evo-cols">
-        <div class="evo-step reveal">
-          <p class="w">失敗</p>
-          <p class="e">深夜の作業で、AIが資料の更新時刻を<b>推測で</b>書いた。実際の時刻とずれていた。</p>
-        </div>
-        <div class="evo-step reveal">
-          <p class="w">ルール</p>
-          <p class="e">「時刻は必ず時計を見てから書く」。失敗した夜のうちに、明文化されたルールになる。</p>
-        </div>
-        <div class="evo-step reveal">
-          <p class="w">機械化</p>
-          <p class="e">ルールは意思ではなく<b>仕組み</b>で守る。保存のたびに自動チェックが走るようになる。</p>
-        </div>
-        <div class="evo-step reveal">
-          <p class="w">スキル</p>
-          <p class="e">以後、すべての仕事でこの検証が働く。同じ失敗は、もう起きない。</p>
-        </div>
+    <p class="sec-sub reveal">このワークフローの本当の核心は、道具の便利さではなく、AIが育つこと。ひとつの実例で示す。</p>
+    <div class="evo-cols">
+      <div class="evo-step glass reveal">
+        <p class="w">失敗</p>
+        <p class="e">深夜の作業で、AIが資料の更新時刻を<b>推測で</b>書いた。実際の時刻とずれていた。</p>
       </div>
-      <p class="evo-note reveal">この循環が毎日まわる。使えば使うほど、AIは自分の仕事の癖を覚えた右腕になっていく。</p>
+      <div class="evo-step glass reveal">
+        <p class="w">ルール</p>
+        <p class="e">「時刻は必ず時計を見てから書く」。失敗した夜のうちに、明文化されたルールになる。</p>
+      </div>
+      <div class="evo-step glass reveal">
+        <p class="w">機械化</p>
+        <p class="e">ルールは意思ではなく<b>仕組み</b>で守る。保存のたびに自動チェックが走るようになる。</p>
+      </div>
+      <div class="evo-step glass reveal">
+        <p class="w">スキル</p>
+        <p class="e">以後、すべての仕事でこの検証が働く。同じ失敗は、もう起きない。</p>
+      </div>
     </div>
+    <p class="evo-note reveal">この循環が毎日まわる。使えば使うほど、AIは自分の仕事の癖を覚えた右腕になっていく。</p>
   </section>
 
   <!-- ================= SHARE ================= -->
-  <section class="offset" id="share" data-spine="分担">
+  <section id="share">
+    <div class="sec-pill reveal">07 — ROLES</div>
     <h2 class="reveal">奪われるのではなく、任せる。</h2>
-    <p class="sec-body reveal">この1日で、人とAIがそれぞれ何をしていたか。分担は最初から決まっている。</p>
+    <p class="sec-sub reveal">この1日で、人とAIがそれぞれ何をしていたか。分担は最初から決まっている。</p>
     <div class="share-grid">
-      <div class="share-col reveal">
-        <div class="head"><span class="hanko"></span><h3>人がやること</h3></div>
+      <div class="share-col glass reveal">
+        <h3><span class="m-h"></span>人がやること</h3>
         <ul>
-          <li><span class="m hanko"></span><span>判断する<span class="d">優先順位、金額、戦略の采配</span></span></li>
-          <li><span class="m hanko"></span><span>関係を築く<span class="d">会って、話して、信頼をつくる</span></span></li>
-          <li><span class="m hanko"></span><span>違和感に気づく<span class="d">数字にならない小さな引っかかり</span></span></li>
-          <li><span class="m hanko"></span><span>最終責任を持つ<span class="d">送る前、出す前の最後の目</span></span></li>
+          <li><span class="m-h"></span><span>判断する<span class="d">優先順位、金額、戦略の采配</span></span></li>
+          <li><span class="m-h"></span><span>関係を築く<span class="d">会って、話して、信頼をつくる</span></span></li>
+          <li><span class="m-h"></span><span>違和感に気づく<span class="d">数字にならない小さな引っかかり</span></span></li>
+          <li><span class="m-h"></span><span>最終責任を持つ<span class="d">送る前、出す前の最後の目</span></span></li>
         </ul>
       </div>
-      <div class="share-col reveal">
-        <div class="head"><span class="m-ai" style="top:0"></span><h3>AIがやること</h3></div>
+      <div class="share-col glass reveal">
+        <h3><span class="m-a"></span>AIがやること</h3>
         <ul>
-          <li><span class="m m-ai"></span><span>集める<span class="d">予定、未返信、文脈、過去の類似</span></span></li>
-          <li><span class="m m-ai"></span><span>下書きする<span class="d">返信、議事録展開、提案書、見積もり</span></span></li>
-          <li><span class="m m-ai"></span><span>繰り返す<span class="d">自己レビュー、量産、検証</span></span></li>
-          <li><span class="m m-ai"></span><span>記録する<span class="d">今日の文脈と、昨日の失敗</span></span></li>
+          <li><span class="m-a"></span><span>集める<span class="d">予定、未返信、文脈、過去の類似</span></span></li>
+          <li><span class="m-a"></span><span>下書きする<span class="d">返信、議事録展開、提案書、見積もり</span></span></li>
+          <li><span class="m-a"></span><span>繰り返す<span class="d">自己レビュー、量産、検証</span></span></li>
+          <li><span class="m-a"></span><span>記録する<span class="d">今日の文脈と、昨日の失敗</span></span></li>
         </ul>
       </div>
     </div>
@@ -725,13 +676,14 @@
   </section>
 
   <!-- ================= OUTRO ================= -->
-  <section class="offset outro" id="outro" data-spine="結び">
+  <section class="outro" id="outro">
+    <div class="sec-pill reveal">08 — COLOPHON</div>
     <h2 class="reveal">このページも、<br>AIと作った。</h2>
-    <p class="sec-body reveal">構成も、文章も、デザインも、いま見てきたアニメーションも。ここまで読んだすべてが、本文に登場した相棒との共作。特別な1日ではなく、これがふつうの1日。あなたの毎日にも、同じことが起こせる。</p>
+    <p class="sec-sub reveal">構成も、文章も、デザインも、いま見てきたアニメーションも。ここまで読んだすべてが、本文に登場した相棒との共作。特別な1日ではなく、これがふつうの1日。あなたの毎日にも、同じことが起こせる。</p>
     <div class="colophon">
-      <span>書体: Zen Old Mincho / IBM Plex Sans JP / IBM Plex Mono</span>
-      <span>実装: HTML + CSS + SVG(ライブラリ不使用)</span>
-      <span>最終更新: 2026年7月14日 10:22</span>
+      <span>書体: Sora / Noto Sans JP / IBM Plex Mono</span>
+      <span>実装: HTML + CSS + SVG（ライブラリ不使用）</span>
+      <span>最終更新: 2026年7月14日 16:24</span>
     </div>
   </section>
 
@@ -741,63 +693,49 @@
 (function () {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- scroll progress ---------- */
+  const progress = document.getElementById('progress');
+  function onScroll() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   /* ---------- reveals ---------- */
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ---------- counters ---------- */
-  function runCounter(el) {
-    const from = +el.dataset.from, to = +el.dataset.to;
-    const dur = 1500, t0 = performance.now();
-    function tick(t) {
-      const p = Math.min(1, (t - t0) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(from + (to - from) * eased);
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
+  /* ---------- stat counters ---------- */
   const cio = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       cio.unobserve(e.target);
-      if (reduced) e.target.textContent = e.target.dataset.to;
-      else runCounter(e.target);
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll('.counter').forEach(el => cio.observe(el));
-
-  /* ---------- fanout: draw then flow ---------- */
-  const fan = document.getElementById('fanout');
-  const bases = fan.querySelectorAll('.fo-base');
-  const comets = fan.querySelectorAll('.fo-comet');
-  bases.forEach(p => {
-    const L = p.getTotalLength();
-    p.style.strokeDasharray = L;
-    p.style.strokeDashoffset = reduced ? 0 : L;
-  });
-  comets.forEach(p => {
-    const L = p.getTotalLength();
-    p.style.strokeDasharray = '24 ' + L;
-    p.style.strokeDashoffset = L + 24;
-  });
-  const fio = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      fio.unobserve(e.target);
-      bases.forEach((p, i) => {
-        p.style.transition = 'stroke-dashoffset .8s cubic-bezier(0.22,1,0.36,1) ' + (i * 0.1) + 's';
-        p.style.strokeDashoffset = 0;
+      e.target.querySelectorAll('[data-to]').forEach(el => {
+        const to = +el.dataset.to;
+        if (reduced) { el.textContent = to; return; }
+        const t0 = performance.now();
+        (function f(t) {
+          const p = Math.min(1, (t - t0) / 1300);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(f);
+        })(t0);
       });
-      fan.classList.add('go');
-      if (!reduced) setTimeout(() => fan.classList.add('flow'), 1200);
     });
   }, { threshold: 0.4 });
+  cio.observe(document.getElementById('statCards'));
+
+  /* ---------- fan draw ---------- */
+  const fan = document.getElementById('fan');
+  const fio = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { fan.classList.add('in'); fio.unobserve(e.target); } });
+  }, { threshold: 0.35 });
   fio.observe(fan);
 
-  /* ---------- loop: orbit + score sequence ---------- */
+  /* ---------- loop ---------- */
   const loop = document.getElementById('loop');
   const lpScore = document.getElementById('lpScore');
   const lpRound = document.getElementById('lpRound');
@@ -834,81 +772,6 @@
     entries.forEach(e => { if (e.isIntersecting) { gen.classList.add('in'); gio.unobserve(e.target); } });
   }, { threshold: 0.25 });
   gio.observe(gen);
-
-  /* ---------- spine: sentinel-driven fill (no scroll listener) ---------- */
-  const wrap = document.getElementById('wrap');
-  const spine = document.getElementById('spine');
-  const live = document.getElementById('spineLive');
-  const firstSec = document.getElementById('stats');
-  const lastSec = document.getElementById('outro');
-  let sentinels = [], nodes = [], sio = null, nio = null;
-
-  function layout() {
-    const spineTop = firstSec.offsetTop - 10;
-    const spineEnd = lastSec.offsetTop + 90;
-    const spineH = Math.max(1, spineEnd - spineTop);
-    spine.style.top = spineTop + 'px';
-    spine.style.height = spineH + 'px';
-    spine.style.setProperty('--spineH', spineH);
-
-    if (sio) sio.disconnect();
-    if (nio) nio.disconnect();
-    sentinels.forEach(s => s.remove());
-    nodes.forEach(n => n.el.remove());
-    sentinels = []; nodes = [];
-
-    if (reduced) { live.style.clipPath = 'none'; }
-
-    /* fill waypoints: one sentinel every ~140px of spine */
-    const stepCount = Math.max(8, Math.round(spineH / 140));
-    sio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const y = +e.target.dataset.y;
-        const cur = +(live.dataset.progress || 0);
-        if (y > cur) {
-          live.dataset.progress = y;
-          if (!reduced) live.style.clipPath = 'inset(0 0 ' + Math.max(0, 100 - (y / spineH) * 100) + '% 0)';
-        }
-      });
-    }, { rootMargin: '0px 0px -34% 0px' });
-    for (let i = 1; i <= stepCount; i++) {
-      const y = (spineH / stepCount) * i;
-      const s = document.createElement('div');
-      s.style.cssText = 'position:absolute;left:0;width:1px;height:1px;top:' + y + 'px;';
-      s.dataset.y = y;
-      spine.appendChild(s);
-      sentinels.push(s);
-      sio.observe(s);
-    }
-
-    /* section nodes on the spine */
-    nio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const rec = nodes.find(n => n.sec === e.target);
-        if (!rec) return;
-        rec.el.classList.add('lit');
-        nodes.forEach(n => n.el.classList.remove('active'));
-        rec.el.classList.add('active');
-      });
-    }, { rootMargin: '-20% 0px -55% 0px' });
-    document.querySelectorAll('[data-spine]').forEach(sec => {
-      const el = document.createElement('div');
-      const isLast = sec.id === 'outro';
-      el.className = isLast ? 'spine-cap' : 'spine-node';
-      el.style.top = (sec.offsetTop - spineTop + 84) + 'px';
-      if (!isLast) el.innerHTML = '<span class="lbl">' + sec.dataset.spine + '</span>';
-      spine.appendChild(el);
-      nodes.push({ el, sec });
-      nio.observe(sec);
-    });
-  }
-
-  let rt = null;
-  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 250); });
-  window.addEventListener('load', () => setTimeout(layout, 350));
-  layout();
 })();
 </script>
 </body>
