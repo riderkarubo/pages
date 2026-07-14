@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRAFT C｜オーロラ・プレミアム — AIと働く、ある1日。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Noto+Sans+JP:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05060C;
+    --card: rgba(255,255,255,.035);
+    --hair: rgba(255,255,255,.09);
+    --ink: #EEF1FF;
+    --dim: #9BA3C7;
+    --violet: #8B5CF6;
+    --cyan: #22D3EE;
+    --magenta: #F472B6;
+    --sans: "Noto Sans JP", sans-serif;
+    --disp: "Sora", "Noto Sans JP", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.85; overflow-x: hidden; }
+  ::selection { background: rgba(139,92,246,.45); }
+
+  /* ==== aurora ==== */
+  .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(95px); opacity: .5; }
+  .b1 { width: 560px; height: 560px; left: -8%; top: -14%; background: radial-gradient(circle, #6D3EF0, transparent 65%); animation: drift1 19s ease-in-out infinite alternate; }
+  .b2 { width: 520px; height: 520px; right: -10%; top: 4%; background: radial-gradient(circle, #0EA5C9, transparent 65%); animation: drift2 23s ease-in-out infinite alternate; }
+  .b3 { width: 460px; height: 460px; left: 30%; top: 36%; background: radial-gradient(circle, #C0347F, transparent 68%); opacity: .3; animation: drift3 27s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(90px, 70px) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(-80px, 110px) scale(.92); } }
+  @keyframes drift3 { to { transform: translate(60px, -80px) scale(1.1); } }
+  .stars {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,.35) .6px, transparent .6px);
+    background-size: 140px 140px; opacity: .35;
+  }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  /* ==== nav ==== */
+  .nav {
+    position: sticky; top: 0; z-index: 30;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 30px;
+    background: rgba(5,6,12,.6); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--hair);
+  }
+  .nav .logo { font-family: var(--disp); font-weight: 800; font-size: 15px; letter-spacing: .04em; }
+  .nav .logo i { font-style: normal; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nav-meta { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: .1em; }
+
+  /* ==== hero ==== */
+  .hero { text-align: center; padding: 130px 0 90px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; color: var(--dim);
+    padding: 8px 18px; border-radius: 100px;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(90deg, rgba(139,92,246,.7), rgba(34,211,238,.7), rgba(244,114,182,.7)) border-box;
+    margin-bottom: 34px;
+  }
+  .pill i { font-style: normal; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+  h1 {
+    font-weight: 900; font-size: clamp(46px, 7vw, 92px); line-height: 1.16; letter-spacing: .01em;
+    margin-bottom: 26px;
+  }
+  h1 .grad {
+    background: linear-gradient(92deg, var(--violet) 0%, var(--cyan) 55%, var(--magenta) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-sub { color: var(--dim); font-size: 16.5px; max-width: 46ch; margin: 0 auto 60px; }
+
+  /* pipeline */
+  .pipe { position: relative; max-width: 860px; margin: 0 auto; }
+  .pipe svg { width: 100%; height: auto; display: block; }
+  .pipe .lbl { font-family: var(--mono); font-size: 10px; fill: var(--dim); letter-spacing: .08em; }
+  .pipe .lbl-b { font-family: var(--sans); font-weight: 700; font-size: 12px; fill: var(--ink); }
+  .node-dot { filter: drop-shadow(0 0 6px rgba(34,211,238,.8)); }
+  .flow-dot { filter: drop-shadow(0 0 8px rgba(139,92,246,.9)); }
+
+  /* ==== sections ==== */
+  section { padding: 110px 0; }
+  .sec-pill { font-family: var(--mono); font-size: 11px; letter-spacing: .26em; color: var(--cyan); margin-bottom: 16px; }
+  h2 { font-weight: 900; font-size: clamp(28px, 3.8vw, 46px); line-height: 1.35; margin-bottom: 14px; }
+  .sec-sub { color: var(--dim); max-width: 56ch; margin-bottom: 52px; }
+
+  /* ==== glass stats ==== */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    position: relative; padding: 32px 28px;
+    border-radius: 16px; border: 1px solid transparent;
+    background:
+      linear-gradient(rgba(13,15,26,.82), rgba(9,10,18,.82)) padding-box,
+      linear-gradient(150deg, rgba(139,92,246,.5), rgba(34,211,238,.18) 45%, rgba(255,255,255,.06)) border-box;
+    backdrop-filter: blur(10px);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 40px rgba(139,92,246,.12); }
+  .card-name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .card-desc { font-size: 12.5px; color: var(--dim); margin-bottom: 26px; min-height: 3.4em; }
+  .card-num {
+    font-family: var(--disp); font-weight: 800; font-size: 58px; line-height: 1;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    display: inline-block;
+  }
+  .card-unit { font-size: 15px; color: var(--dim); margin-left: 6px; }
+  .card-old { display: block; margin-top: 14px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }
+  .card-old s { color: var(--magenta); text-decoration-color: var(--magenta); }
+
+  /* ==== timeline ==== */
+  .tl { position: relative; padding-left: 40px; }
+  .tl::before {
+    content: ""; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px;
+    background: linear-gradient(180deg, var(--violet), var(--cyan) 60%, transparent);
+    box-shadow: 0 0 14px rgba(139,92,246,.5);
+  }
+  .tl-item { position: relative; padding: 22px 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -35px; top: 34px; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2.5px solid var(--cyan); box-shadow: 0 0 12px rgba(34,211,238,.75);
+  }
+  .tl-time { font-family: var(--mono); font-size: 13px; color: var(--cyan); letter-spacing: .1em; margin-bottom: 4px; }
+  .tl-t { font-weight: 900; font-size: 18px; margin-bottom: 4px; }
+  .tl-d { color: var(--dim); font-size: 13.5px; max-width: 62ch; }
+  .tl-role {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
+    font-family: var(--mono); font-size: 11px; color: var(--magenta);
+    border: 1px solid rgba(244,114,182,.35); border-radius: 100px; padding: 5px 13px;
+    background: rgba(244,114,182,.06);
+  }
+  .tl-role::before { content: "●"; font-size: 8px; }
+
+  footer { padding: 60px 0 90px; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: .2em; color: var(--dim); }
+  footer b { background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  @media (max-width: 880px) {
+    .cards { grid-template-columns: 1fr; }
+    .hero { padding-top: 90px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="aurora"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="stars"></div>
+
+<div class="nav">
+  <span class="logo">ONE DAY <i>WITH AI</i></span>
+  <span class="nav-meta">REAL WORKFLOW — 2026.07</span>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="pill">⚡ <i>Co-crafted with Claude</i> — 構成・文章・実装まで</div>
+    <h1>AIと働く、<br><span class="grad">ある1日。</span></h1>
+    <p class="hero-sub">日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。誇張のない、毎日の話。</p>
+
+    <div class="pipe">
+      <svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" aria-label="朝から夜へ、仕事が流れるパイプライン">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8B5CF6"/><stop offset=".55" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/>
+          </linearGradient>
+        </defs>
+        <path id="pline" d="M20,80 C160,20 300,130 430,80 C560,30 700,120 840,70" fill="none" stroke="url(#pg)" stroke-width="2.5" opacity=".85"/>
+        <circle class="node-dot" cx="20" cy="80" r="5" fill="#22D3EE"/>
+        <circle class="node-dot" cx="430" cy="80" r="5" fill="#22D3EE"/>
+        <circle class="node-dot" cx="840" cy="70" r="5" fill="#F472B6"/>
+        <circle class="flow-dot" r="6" fill="#fff">
+          <animateMotion dur="6s" repeatCount="indefinite" path="M20,80 C160,20 300,130 430,80 C560,30 700,120 840,70"/>
+        </circle>
+        <text class="lbl" x="20" y="112" text-anchor="start">07:30</text>
+        <text class="lbl-b" x="20" y="130" text-anchor="start">ブリーフィング</text>
+        <text class="lbl" x="430" y="112" text-anchor="middle">11:00 — 19:00</text>
+        <text class="lbl-b" x="430" y="130" text-anchor="middle">展開・自己改善・量産</text>
+        <text class="lbl" x="840" y="102" text-anchor="end">23:00</text>
+        <text class="lbl-b" x="840" y="120" text-anchor="end">引き継ぎ</text>
+      </svg>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-pill">01 — MEASURED</div>
+    <h2>数字は、実測。</h2>
+    <p class="sec-sub">理想値ではなく、実際にかかっていた時間との比較。対象範囲もあわせて示す。</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-name">議事録の事後処理</div>
+        <div class="card-desc">保存、要点の学習、返信案、案件ボード反映、社内共有までを含む。</div>
+        <span class="card-num" data-to="15">0</span><span class="card-unit">分</span>
+        <span class="card-old">BEFORE — <s>90分</s> ／ 外部会議1本あたり</span>
+      </div>
+      <div class="card">
+        <div class="card-name">提案書ドラフト</div>
+        <div class="card-desc">骨子からレビュー済み初稿まで。自己改善ループ込み。</div>
+        <span class="card-num" data-to="2">0</span><span class="card-unit">時間</span>
+        <span class="card-old">BEFORE — <s>8時間</s> ／ 1本あたり</span>
+      </div>
+      <div class="card">
+        <div class="card-name">返信の下書き</div>
+        <div class="card-desc">メール / チャット 1通あたり。文体と敬語ルールを維持。</div>
+        <span class="card-num" data-to="2">0</span><span class="card-unit">分</span>
+        <span class="card-old">BEFORE — <s>10分</s> ／ 1通あたり</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-pill">02 — TIMELINE</div>
+    <h2>1日は、こう流れる。</h2>
+    <p class="sec-sub">朝から夜まで8つの場面。光の線の上を仕事が流れ、ピンクの印のところでだけ、人が手を止めて判断する。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-time">07:30</div>
+        <div class="tl-t">朝のブリーフィング</div>
+        <div class="tl-d">今日の予定、未返信のメッセージ、昨日からの持ち越しを、AIが1枚に集約して差し出す。</div>
+        <span class="tl-role">読んで優先順位を決める</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">11:00</div>
+        <div class="tl-t">議事録の5方面展開</div>
+        <div class="tl-d">会議が終わると、議事録1本から5つの仕事が同時に始まる。</div>
+        <span class="tl-role">最終確認だけ</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">19:00</div>
+        <div class="tl-t">クリエイティブ量産</div>
+        <div class="tl-d">商品画像1枚から、AI画像とAI動画のサンプルが増えていく。</div>
+        <span class="tl-role">方向を決めて、選ぶ</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>DRAFT C — <b>オーロラ・プレミアム</b> ／ 続きのセクションは選定後に実装</footer>
+</div>
+
+<script>
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io.unobserve(e.target);
+    e.target.querySelectorAll('[data-to]').forEach(el => {
+      const to = +el.dataset.to;
+      if (reduced) { el.textContent = to; return; }
+      const t0 = performance.now();
+      (function f(t) {
+        const p = Math.min(1, (t - t0) / 1300);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(f);
+      })(t0);
+    });
+  }), { threshold: .4 });
+  document.querySelectorAll('.cards').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
