@@ -1,6 +1,9 @@
 .DS_Store
 **/.DS_Store
 .omc/state/
+**/.omc/state/
+.serena/
+**/.serena/
 .playwright-mcp/
 # 一時バックアップディレクトリ（色置換等の作業用）
 .backup_*/
