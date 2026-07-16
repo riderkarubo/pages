@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-13T12:30:00+09:00">
+<meta name="last-modified" content="2026-07-17T00:46:00+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;
 --active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
@@ -466,12 +467,60 @@ body{padding-left:220px}
 .price-btn .pb-arrow{font-size:1.5rem;font-weight:900}
 
 </style>
+<style id="rpg-skin">
+/* ===== AIGC QUEST — スーファミRPGスキン（260717 Phase2） =====
+   このblockと rpgSkin() 関数を削除すれば完全に現行デザインへ復帰できる（隔離構造）。
+   原則: 見出し・ラベルのみDotGothic16、本文・数字・表はNoto Sans JP維持（可読性ガード） */
+img.rpg-mon,img.rpg-job,.rpg-emblem,.rpg-party-march img,.lockbox .em img,.ql-card .ql-icon img{image-rendering:pixelated}
+/* --- ヘッダー: タイトル画面（ワールドマップ+エンブレム） --- */
+header{background:linear-gradient(rgba(13,13,38,.78),rgba(19,19,42,.9)),url(rpg-assets/bg-worldmap.webp) center 35%/cover no-repeat;border-bottom:4px solid #fff;box-shadow:0 3px 0 #0b0b23}
+header h1{font-family:'DotGothic16','Noto Sans JP',sans-serif;letter-spacing:.05em}
+header .eyebrow{font-family:'DotGothic16',monospace;letter-spacing:.14em}
+.rpg-emblem{float:right;width:92px;height:auto;margin:-4px 0 0 16px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.55))}
+/* --- サイドナビ・セクション見出し --- */
+.sidenav .brand{font-family:'DotGothic16',monospace;letter-spacing:.04em}
+.section-title{font-family:'DotGothic16','Noto Sans JP',sans-serif;letter-spacing:.04em;border-left:none;padding-left:0;display:flex;align-items:baseline;flex-wrap:wrap}
+.section-title::before{content:"▶";color:var(--accent);margin-right:9px;font-size:.82em;animation:rpgBlink 1.3s steps(2) infinite}
+@keyframes rpgBlink{0%,55%{opacity:1}56%,100%{opacity:.12}}
+.rpg-sub{font-family:'DotGothic16',monospace;font-size:.7rem;color:var(--accent);margin-left:12px;letter-spacing:.08em;font-weight:400}
+/* --- モンスターずかん（アタックリスト） --- */
+.rpg-mon{display:block;height:40px;width:auto;margin:0 auto 3px}
+tr.pm-lost .rpg-mon{filter:grayscale(1);opacity:.35}
+.rpg-job{height:20px;width:auto;vertical-align:middle;margin-right:3px}
+.ps-アポ確定::before,.stat.アポ確定::before{content:"!";font-family:'DotGothic16',monospace;color:#fff;background:var(--accent);border-radius:3px;padding:0 4px;margin-right:4px;animation:rpgBlink .9s steps(2) infinite}
+/* --- バナー演出（魔王城/街道/酒場掲示板） --- */
+.rpg-banner{position:relative;border:3px solid #fff;outline:3px solid #0b0b23;border-radius:8px;overflow:hidden;margin:0 0 16px;height:150px;background-size:cover;background-position:center}
+.rpg-banner .rpg-cap{position:absolute;left:12px;bottom:9px;font-family:'DotGothic16',monospace;color:#fff;font-size:.95rem;letter-spacing:.06em;text-shadow:0 2px 0 #000,0 0 10px rgba(0,0,0,.9)}
+.rpg-banner-castle{background-image:url(rpg-assets/bg-castle.webp)}
+.rpg-banner-guild{background-image:url(rpg-assets/bg-guild.webp)}
+.rpg-banner-road{background-image:url(rpg-assets/bg-road.webp);height:176px}
+.rpg-party-march{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;align-items:flex-end;gap:20px}
+.rpg-party-march img{height:76px;width:auto;filter:drop-shadow(0 3px 3px rgba(0,0,0,.35))}
+/* --- クイックリンク: 道具屋アイコン --- */
+.ql-card .ql-icon img{height:42px;width:auto}
+/* --- SSOロック画面: ぼうけんのしょ --- */
+#lock{background:linear-gradient(rgba(13,13,38,.8),rgba(13,13,38,.92)),url(rpg-assets/bg-worldmap.webp) center/cover no-repeat}
+.lockbox{background:rgba(11,11,35,.95);border:3px solid #fff;outline:3px solid #0b0b23;color:#fff}
+.lockbox h1{font-family:'DotGothic16','Noto Sans JP',sans-serif;color:#fff;letter-spacing:.05em}
+.lockbox p{color:#cdd3e0}
+.lockbox .note{color:#8b93a8}
+.lockbox .em img{height:78px;width:auto}
+.rpg-locksub{font-family:'DotGothic16',monospace;color:var(--accent);font-size:.8rem;margin-bottom:8px;letter-spacing:.1em}
+@media(max-width:600px){
+  .rpg-emblem{width:58px}
+  .rpg-banner{height:112px}
+  .rpg-banner-road{height:128px}
+  .rpg-party-march{gap:9px}
+  .rpg-party-march img{height:54px}
+}
+</style>
 </head>
 <body>
 <div id="lock">
   <div class="lockbox">
-    <div class="em">🔒</div>
+    <div class="em"><img src="rpg-assets/emblem-guild.webp" alt="Firework遠征隊エンブレム"></div>
     <h1>AIGC事業 進捗ボード</h1>
+    <div class="rpg-locksub">〜 ぼうけんの しょ を ひらく 〜</div>
     <p>Firework社内限定。<br>fireworkhq.com の Google アカウントでログインしてください。</p>
     <div class="gwrap"><div id="gbtn"></div></div>
     <div class="err" id="err"></div>
@@ -740,9 +789,66 @@ function wireFoldToggles(){
     });
   });
 }
+/* ===== AIGC QUEST RPGスキン: render()後のDOM注入のみ（データ・機能層は不変・260717） ===== */
+function rpgSkin(){
+  var A='rpg-assets/';
+  var RANK={'S':'mon-dragon-s','A':'mon-golem-a','B':'mon-wolf-b','C':'mon-slime-c'};
+  var VOCAB={'先方検討中':'ようすを みている','アポ確定':'そうぐう！','提案済み':'たたかいを いどんだ','提案中':'たたかいを いどんでいる','保留':'ねむっている','失注':'にげられた…','受注確定':'なかまに なった！','進行中':'ぼうけん中','停滞':'まよいの森','完了':'クエストクリア','検討中':'さくせんかいぎ中','未着手':'みはっけん','POC中':'しれんのほこら こうりゃく中','ステイ':'ねむっている'};
+  var SUBS={'sec-exec':'おうさまの ちょくめい','sec-rev':'まおうじょうへの しんぐん','sec-thinkbig':'よげんの しょ','sec-road':'しんぐん ルート','sec-pipe':'ダンジョン こうりゃく','sec-pm':'モンスター ずかん','sec-cat':'そうび と どうぐぶくろ','sec-clients':'モンスター ステータス','sec-tasks':'ギルドの おしごと','sec-na':'クエスト けいじばん','sec-june':'そうぐう きろく','sec-rich':'みらいよちの すいしょう'};
+  Object.keys(SUBS).forEach(function(id){
+    var el=document.getElementById(id);
+    if(el&&!el.querySelector('.rpg-sub')){var s=document.createElement('span');s.className='rpg-sub';s.textContent='〜 '+SUBS[id]+' 〜';el.appendChild(s);}
+  });
+  var hd=document.querySelector('#app header');
+  if(hd&&!hd.querySelector('.rpg-emblem')){var em=document.createElement('img');em.src=A+'emblem-guild.webp';em.alt='';em.className='rpg-emblem';hd.insertBefore(em,hd.firstChild);}
+  // モンスターずかん: ランク→種族・保留→ねむり・受注→なかま・失注→グレーアウト(CSS)
+  document.querySelectorAll('.pm-table .rank-pill').forEach(function(pill){
+    var base=RANK[pill.textContent.trim()];if(!base)return;
+    var tr=pill.closest('tr'),suffix='';
+    if(tr){if(tr.querySelector('.ps-保留')||tr.querySelector('.ps-ステイ'))suffix='-sleep';else if(tr.querySelector('.ps-受注確定'))suffix='-friend';}
+    var td=pill.parentElement;
+    if(td&&!td.querySelector('.rpg-mon')){var img=document.createElement('img');img.src=A+base+suffix+'.webp';img.alt='';img.className='rpg-mon';img.loading='lazy';td.insertBefore(img,pill);}
+  });
+  // 担当バッジ: 営=戦士 / 顧=僧侶
+  document.querySelectorAll('.pm-table .pmown i').forEach(function(i){
+    if(i.dataset.rpg)return;i.dataset.rpg='1';
+    var img=document.createElement('img');img.className='rpg-job';img.alt='';img.loading='lazy';
+    img.src=A+(i.textContent==='営'?'char-warrior':'char-priest')+'.webp';
+    i.parentElement.insertBefore(img,i);
+  });
+  // ステータス語彙はツールチップで併記（正式語彙は不変）
+  document.querySelectorAll('.ps,.stat,.sdot').forEach(function(el){
+    var key;
+    if(el.classList.contains('sdot')){var m=el.className.match(/s-(\S+)/);key=m&&m[1];}
+    else{key=(el.textContent||'').replace(/^!\s*/,'').trim();}
+    if(key&&VOCAB[key])el.title='〜 '+VOCAB[key]+' 〜';
+  });
+  // バナー演出: 魔王城(売上)・街道+パーティ行進(ロードマップ)・酒場掲示板(NA)
+  function banner(cls,cap,march){
+    var d=document.createElement('div');d.className='rpg-banner '+cls;
+    if(march){var m=document.createElement('div');m.className='rpg-party-march';
+      ['char-hero','char-warrior','char-mage','char-priest','char-scout','char-sage'].forEach(function(c){
+        var im=document.createElement('img');im.src=A+c+'.webp';im.alt='';im.loading='lazy';m.appendChild(im);});
+      d.appendChild(m);}
+    var c=document.createElement('div');c.className='rpg-cap';c.textContent=cap;d.appendChild(c);
+    return d;
+  }
+  var rev=document.querySelector('.rev-decl');
+  if(rev&&!rev.querySelector('.rpg-banner'))rev.insertBefore(banner('rpg-banner-castle','めざすは まおうじょう — FY2026'),rev.firstChild);
+  var road=document.querySelector('.road');
+  if(road&&!document.querySelector('.rpg-banner-road'))road.parentElement.insertBefore(banner('rpg-banner-road','Firework えんせいたい の こうしん',true),road);
+  var na=document.getElementById('sec-na');
+  if(na&&na.nextElementSibling&&!document.querySelector('.rpg-banner-guild'))na.parentElement.insertBefore(banner('rpg-banner-guild','ギルドの クエストけいじばん'),na.nextElementSibling);
+  // クイックリンク: 道具屋アイコンへ差し替え
+  var QL={'ql-price':'item-gold','ql-learn':'item-book','ql-sample':'item-chest','ql-tool':'item-crystal'};
+  Object.keys(QL).forEach(function(cls){
+    var ic=document.querySelector('.ql-card.'+cls+' .ql-icon');
+    if(ic&&!ic.querySelector('img')){ic.textContent='';var img=document.createElement('img');img.src=A+QL[cls]+'.webp';img.alt='';ic.appendChild(img);}
+  });
+}
 const SS_KEY='aigc_cred';
 const SSO_TTL_MS=2592000000;/*30日=firework-sso-no-popup.md準拠の自前TTL*/
-function showData(d){render(d);document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
+function showData(d){render(d);try{rpgSkin();}catch(e){console.warn('[rpg-skin] skipped:',e);}document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';}
 // credential(GoogleのIDトークン)をドメイン検証。成功時はlocalStorageに保持し、
 // 自前TTL(30日・SSO_TTL_MS)以内はGoogle側の再検証をスキップして無音ログインする。
 function tryToken(credential,fromCache){
