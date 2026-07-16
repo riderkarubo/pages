@@ -218,8 +218,22 @@
   .legend .item{display:flex;align-items:center;gap:6px}
 
   /* ── 地上部シーン・地層 ─────────────────── */
-  .scene{margin-top:14px;line-height:0}
-  .scene svg{display:block;width:100%;height:auto}
+  /* 地上部シーン：動画レイヤー＋SVGフォールバックの二層構造。
+     動画(assets/scene/base-loop.*)が無い間は背後のSVGが表示され、置いた瞬間にJSが昇格させる */
+  .scene{
+    --scene-aspect: 1000 / 235;   /* 動画を差し込む時に 3 / 1 へ変更すると16:9動画が収まりやすい */
+    margin-top:14px;line-height:0;position:relative;
+    aspect-ratio:var(--scene-aspect);
+    overflow:hidden;border-radius:10px;background:var(--steel-deep);
+  }
+  .scene>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .scene-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center 42%;
+    opacity:0;transition:opacity .6s ease;pointer-events:none;background:var(--steel-deep);
+  }
+  .scene.video-ready .scene-video{opacity:1}
+  @media (prefers-reduced-motion:reduce){.scene-video{transition:none}}
   .ground-wrap{
     padding:0 26px 26px;border-radius:10px;
     background:
@@ -377,7 +391,12 @@
       <span class="bp-note">灯の色 = 任務状況（凡例は下部）／各棟の隊員色は識別カラー</span>
     </div>
     <div class="scene" aria-hidden="true">
-      <svg viewBox="0 0 1000 235">
+      <!-- 動画レイヤー：assets/scene/ に base-loop.webm/mp4 を置くと自動昇格。無ければ下のSVGが表示され続ける -->
+      <video class="scene-video" autoplay loop muted playsinline preload="metadata" disablepictureinpicture>
+        <source src="assets/scene/base-loop.webm" type="video/webm">
+        <source src="assets/scene/base-loop.mp4" type="video/mp4">
+      </video>
+      <svg viewBox="0 0 1000 235" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#0D1A24"/>
@@ -927,6 +946,28 @@
       setTimeout(function(){ b.textContent = old; b.classList.remove("did"); }, 1800);
     });
   });
+})();
+</script>
+<script>
+/* 地上部シーン：動画の冪等な昇格／据え置き。ファイルが無い・失敗・動きオフ時は背後のSVGのまま */
+(function(){
+  var scene = document.querySelector(".scene");
+  if(!scene || scene.dataset.sceneVideoInit){ return; }
+  scene.dataset.sceneVideoInit = "1";
+  var video = scene.querySelector(".scene-video");
+  if(!video){ return; }
+  var mm = window.matchMedia ? window.matchMedia.bind(window) : function(){ return {matches:false}; };
+  if(mm("(prefers-reduced-motion: reduce)").matches){
+    video.removeAttribute("autoplay");
+    try{ video.pause(); }catch(e){}
+    return;
+  }
+  function promote(){ scene.classList.add("video-ready"); }
+  function demote(){ scene.classList.remove("video-ready"); }
+  video.addEventListener("canplay", promote);
+  video.addEventListener("playing", promote);
+  video.addEventListener("error", demote);
+  try{ video.load(); }catch(e){}
 })();
 </script>
 </body>
