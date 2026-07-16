@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-17T01:31:00+09:00">
+<meta name="last-modified" content="2026-07-17T01:52:00+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
@@ -536,6 +536,13 @@ body.rpg-bg footer{color:#9099b0}
 #bgswitch button:hover{background:#1e1e3a;color:#fff}
 #bgswitch button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 @media(max-width:600px){#bgswitch{right:8px;bottom:8px;padding:4px}#bgswitch button{font-size:.6rem;padding:3px 6px}}
+/* --- コンテンツ枠（金枠=セクション級パネル／木枠=テーブル・掲示板）border-image --- */
+.rpg-fr-gold{border:22px solid transparent!important;border-image:url(rpg-assets/frame-gold.webp) 27% stretch!important;border-radius:0!important;box-shadow:none!important}
+.rpg-fr-wood{border:18px solid transparent!important;border-image:url(rpg-assets/frame-wood.webp) 20% stretch!important;border-radius:0!important;box-shadow:none!important}
+.rpg-fr-wood.pm-wrap{border-top:18px solid transparent!important}
+.rpg-fr-woodwrap{background:transparent}
+.rpg-fr-woodwrap>.na-table{border-radius:0!important;border:none!important}
+@media(max-width:600px){.rpg-fr-gold{border-width:15px}.rpg-fr-wood{border-width:13px}}
 @media(max-width:600px){
   .rpg-emblem{width:58px}
   .rpg-banner{height:112px}
@@ -899,6 +906,17 @@ function rpgSkin(){
     var barI=w.querySelector('.rpg-bar i');
     requestAnimationFrame(function(){requestAnimationFrame(function(){barI.style.width=pct+'%';});});
   }
+  // コンテンツ枠: 金枠=セクション級パネル / 木枠=テーブル・掲示板
+  ['.rev-decl','.rich-aigc-section','.bmk','.road'].forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el){el.classList.add('rpg-fr-gold');});
+  });
+  // pm-wrapはdivなのでそのまま枠付与。na-tableはborder-collapse表でborder-imageが効かないためdivで包む
+  document.querySelectorAll('.pm-wrap').forEach(function(el){el.classList.add('rpg-fr-wood');});
+  document.querySelectorAll('.na-table').forEach(function(t){
+    if(t.parentElement&&t.parentElement.classList.contains('rpg-fr-woodwrap'))return;
+    var wrap=document.createElement('div');wrap.className='rpg-fr-wood rpg-fr-woodwrap';
+    t.parentNode.insertBefore(wrap,t);wrap.appendChild(t);
+  });
   // 全体背景スイッチャー（星空／石壁／なし・localStorage記憶・比較用）
   (function(){
     var KEY='aigc_bg';
