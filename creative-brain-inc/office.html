@@ -177,7 +177,8 @@
   }
   .room:hover .plate{background:var(--orange);color:#180D05}
   .plate-hq{background:var(--orange);color:#180D05}
-  .crew{display:flex;gap:10px;align-items:flex-start}
+  .crew{display:flex;gap:10px;align-items:flex-end}
+  .c-info{flex:1;min-width:0;align-self:flex-start}
   .c-agent{font-family:var(--dot);font-size:11px;color:var(--orange);letter-spacing:.05em}
   .c-role{font-size:11.5px;color:var(--ink-2);line-height:1.55}
   .screen{
@@ -270,12 +271,14 @@
 
   /* ── 室内の芝居（天井灯・コンソール卓・EV昇降） ── */
   .room{box-shadow:inset 0 16px 26px -20px rgba(232,220,195,.28)}
-  .operator{position:relative;display:flex;flex-direction:column;align-items:center;flex:none;width:46px}
-  .avatar-svg{display:block;width:36px;height:42px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
+  .operator{position:relative;flex:none;align-self:flex-end}
+  .trp-sprite{display:block;height:58px;width:auto;filter:drop-shadow(0 3px 3px rgba(0,0,0,.5))}
+  .bldg-thumb{flex:none;align-self:flex-end;line-height:0}
+  .bldg-thumb img{display:block;height:58px;width:auto;filter:drop-shadow(0 3px 4px rgba(0,0,0,.5))}
   .avatar-patch{
-    position:absolute;top:-3px;right:1px;width:15px;height:15px;border-radius:50%;
+    position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;
     background:var(--cream);border:1.5px solid var(--steel-deep);
-    display:flex;align-items:center;justify-content:center;font-size:9px;line-height:1;
+    display:flex;align-items:center;justify-content:center;font-size:9px;line-height:1;z-index:2;
   }
   .chestlight{animation:pulse 2.6s ease-in-out infinite}
   .desk{
@@ -527,34 +530,14 @@
   var svgNS = "http://www.w3.org/2000/svg";
   function svgEl(t,a){ var e=document.createElementNS(svgNS,t); for(var k in a){ e.setAttribute(k,a[k]); } return e; }
 
-  /* ---- 隊員アバター（顔を伏せた識別色ヘルメット。全員AIエージェントにつき没個性統一） ---- */
-  function opAvatar(accent, variant){
-    var collar, head, antenna = "";
-    if(variant === "chief"){
-      collar = '<path d="M4 41 C4 29 10 26 18 26 C26 26 32 29 32 41 Z" fill="#333F48" stroke="#141B1F" stroke-width="1"/>'
-        + '<rect x="5" y="31" width="6" height="2.6" rx="1" fill="' + accent + '"/>'
-        + '<rect x="25" y="31" width="6" height="2.6" rx="1" fill="' + accent + '"/>';
-      head = '<ellipse cx="18" cy="15" rx="10.5" ry="11.5" fill="#161D21"/>'
-        + '<path d="M8 10.5 C8 6 12 3.6 18 3.6 C24 3.6 28 6 28 10.5" fill="none" stroke="#4A5761" stroke-width="1.6"/>'
-        + '<rect x="8.5" y="14" width="19" height="4.6" rx="2.3" fill="#0C1316" stroke="' + accent + '" stroke-width="1.1"/>';
-    } else {
-      collar = '<path d="M3 41 C3 28 10 25 18 25 C26 25 33 28 33 41 Z" fill="#333F48" stroke="#141B1F" stroke-width="1"/>'
-        + '<path d="M8 40 C9 31 13 27 18 26.3" fill="none" stroke="' + accent + '" stroke-width="2" stroke-linecap="round"/>';
-      head = '<ellipse cx="18" cy="15" rx="11" ry="12" fill="#3A4750" stroke="#20282E" stroke-width="1.4"/>'
-        + '<ellipse cx="14.5" cy="10.5" rx="3" ry="4.6" fill="#ffffff" opacity=".08"/>'
-        + '<rect x="8" y="13" width="20" height="7" rx="3.4" fill="' + accent + '" opacity=".92"/>'
-        + '<rect x="10" y="14.4" width="16" height="4.2" rx="2.1" fill="#0C1316" opacity=".45"/>';
-      if(variant === "ai"){
-        antenna = '<line x1="27" y1="9" x2="31.5" y2="3.5" stroke="' + accent + '" stroke-width="1.6" stroke-linecap="round"/>'
-          + '<circle cx="31.5" cy="3.5" r="1.8" fill="' + accent + '"/>';
-      }
-    }
-    var chest = '<circle class="chestlight" cx="18" cy="35" r="2.4" fill="' + accent + '"/>';
-    return '<svg class="avatar-svg" viewBox="0 0 36 42" role="img" aria-hidden="true">' + collar + head + antenna + chest + '</svg>';
+  /* ---- 隊員スプライト＋担当建物（俯瞰マップと同じドット絵素材を流用） ---- */
+  function operatorHTML(trpId, emoji){
+    return '<span class="operator" aria-hidden="true">'
+      + '<img class="trp-sprite" src="assets/sprites/trp-' + trpId + '.png" alt="" loading="lazy">'
+      + '<span class="avatar-patch">' + emoji + '</span></span>';
   }
-  function avatarPatch(emoji){ return '<span class="avatar-patch" aria-hidden="true">' + emoji + '</span>'; }
-  function operatorHTML(accent, variant, emoji){
-    return '<span class="operator" aria-hidden="true">' + opAvatar(accent, variant) + avatarPatch(emoji) + '<span class="desk"><i></i><i></i><i></i></span></span>';
+  function bldgThumb(bldgId){
+    return '<span class="bldg-thumb" aria-hidden="true"><img src="assets/sprites/bldg-' + bldgId + '.png" alt="" loading="lazy"></span>';
   }
 
   /* ---- 集計 ---- */
@@ -633,15 +616,15 @@
 
   /* ---- 部門定義（部屋割り） ---- */
   var DEPTS = {
-    "分析官":{emoji:"📊",agent:"growth-analyst",role:"数値分析・週次戦況レポート・正本データの番人。",call:"分析官に今週の戦況レポートを作らせて",room:"レーダー室",st:"ST-01",radar:true,accent:"#4FC3E8"},
-    "企画部":{emoji:"💡",agent:"content-planner",role:"動画企画・シリーズ設計・月間計画（常に3案）。",call:"企画部に来月のコンテンツ計画を3案出させて",room:"作戦会議室",st:"ST-02",accent:"#B98CF2"},
-    "コピー部":{emoji:"✍️",agent:"copy-chief",role:"タイトル・サムネ文言・冒頭フック（常に3案）。",call:"コピー部に次の動画のタイトルを3案出させて",room:"通信室",st:"ST-03",accent:"#F28FB4"},
-    "トレンド偵察":{emoji:"🔭",agent:"trend-scout",role:"海外バズ形式・ミーム・AI動画ハックの偵察。",call:"トレンド偵察に直近のバズ形式を偵察させて",room:"展望観測塔",st:"ST-04",accent:"#4FD9BE"},
-    "制作進行":{emoji:"🎬",agent:"production-manager",role:"台本・絵コンテ・AI生成プロンプトMDの管理。",call:"制作進行に次のカットの指示書を作らせて",room:"第一スタジオ",st:"ST-05",accent:"#6FA0F2"},
-    "運用部":{emoji:"📣",agent:"sns-operator",role:"投稿カレンダー・時間帯・ハッシュタグ・クロス展開。",call:"運用部に今週の投稿カレンダーを組ませて",room:"発進管制室",st:"ST-06",accent:"#8C93F2"},
-    "渉外部":{emoji:"💬",agent:"community-manager",role:"コメント返信文案・コラボ戦略（下書きまで）。",call:"渉外部にコメント返信案を作らせて",room:"応接室",st:"ST-07",accent:"#F2A87A"},
-    "素材司書":{emoji:"🗄",agent:"archive-librarian",role:"素材・過去作の台帳化と再利用発掘（削除禁止）。",call:"素材司書に素材の棚卸しをさせて",room:"資料保管庫",st:"ST-08",accent:"#9AA6B2"},
-    "品質評価室":{emoji:"🧪",agent:"quality-evaluator",role:"公開前の辛口レビュー。8点未満は差し戻し。",call:"品質評価室にこの企画を評価させて",room:"検査ゲート",st:"ST-09",accent:"#E8748C"}
+    "分析官":{emoji:"📊",agent:"growth-analyst",role:"数値分析・週次戦況レポート・正本データの番人。",call:"分析官に今週の戦況レポートを作らせて",room:"レーダー室",st:"ST-01",radar:true,accent:"#4FC3E8",trp:"03",bldg:"02"},
+    "企画部":{emoji:"💡",agent:"content-planner",role:"動画企画・シリーズ設計・月間計画（常に3案）。",call:"企画部に来月のコンテンツ計画を3案出させて",room:"作戦会議室",st:"ST-02",accent:"#B98CF2",trp:"04",bldg:"05"},
+    "コピー部":{emoji:"✍️",agent:"copy-chief",role:"タイトル・サムネ文言・冒頭フック（常に3案）。",call:"コピー部に次の動画のタイトルを3案出させて",room:"通信室",st:"ST-03",accent:"#F28FB4",trp:"05",bldg:"04"},
+    "トレンド偵察":{emoji:"🔭",agent:"trend-scout",role:"海外バズ形式・ミーム・AI動画ハックの偵察。",call:"トレンド偵察に直近のバズ形式を偵察させて",room:"展望観測塔",st:"ST-04",accent:"#4FD9BE",trp:"06",bldg:"03"},
+    "制作進行":{emoji:"🎬",agent:"production-manager",role:"台本・絵コンテ・AI生成プロンプトMDの管理。",call:"制作進行に次のカットの指示書を作らせて",room:"第一スタジオ",st:"ST-05",accent:"#6FA0F2",trp:"07",bldg:"06"},
+    "運用部":{emoji:"📣",agent:"sns-operator",role:"投稿カレンダー・時間帯・ハッシュタグ・クロス展開。",call:"運用部に今週の投稿カレンダーを組ませて",room:"発進管制室",st:"ST-06",accent:"#8C93F2",trp:"08",bldg:"07"},
+    "渉外部":{emoji:"💬",agent:"community-manager",role:"コメント返信文案・コラボ戦略（下書きまで）。",call:"渉外部にコメント返信案を作らせて",room:"応接室",st:"ST-07",accent:"#F2A87A",trp:"09",bldg:"08"},
+    "素材司書":{emoji:"🗄",agent:"archive-librarian",role:"素材・過去作の台帳化と再利用発掘（削除禁止）。",call:"素材司書に素材の棚卸しをさせて",room:"資料保管庫",st:"ST-08",accent:"#9AA6B2",trp:"10",bldg:"09"},
+    "品質評価室":{emoji:"🧪",agent:"quality-evaluator",role:"公開前の辛口レビュー。8点未満は差し戻し。",call:"品質評価室にこの企画を評価させて",room:"検査ゲート",st:"ST-09",accent:"#E8748C",trp:"11",bldg:"10"}
   };
   var CEO_ACCENT = "#F25C1F", AI_ACCENT = "#C9A8F5";
 
@@ -662,7 +645,7 @@
     return '<div class="room">'
       + '<div class="r-top"><span class="st">' + esc(d.st) + ' ｜ ' + esc(d.room) + '</span><span class="lamp ' + lamp + '" title="' + esc(lampTitle) + '"></span></div>'
       + '<div class="plate">' + esc(name) + '</div>'
-      + '<div class="crew">' + operatorHTML(d.accent, "trooper", d.emoji) + '<div class="c-info"><div class="c-agent">' + esc(d.agent) + '</div><div class="c-role">' + esc(d.role) + '</div></div></div>'
+      + '<div class="crew">' + operatorHTML(d.trp, d.emoji) + '<div class="c-info"><div class="c-agent">' + esc(d.agent) + '</div><div class="c-role">' + esc(d.role) + '</div></div>' + bldgThumb(d.bldg) + '</div>'
       + extra
       + '<div class="screen">' + screen + '</div>'
       + '<div class="r-foot"><button class="summon" type="button" data-call="' + esc(d.call) + '">呼集文をコピー</button></div>'
@@ -676,7 +659,7 @@
     return '<div class="room">'
       + '<div class="r-top"><span class="st">HQ-01 ｜ 司令室</span><span class="lamp ' + (pending.length ? "st-wait" : "st-idle") + '" title="決裁"></span></div>'
       + '<div class="plate plate-hq">社長室</div>'
-      + '<div class="crew">' + operatorHTML(CEO_ACCENT, "chief", "🕶️") + '<div class="c-info"><div class="c-agent">CEO ISSY ─ 隊長</div><div class="c-role">最高決裁者。公開・投稿・送信・課金の実行権限は社長のみ。</div></div></div>'
+      + '<div class="crew">' + operatorHTML("01", "🕶️") + '<div class="c-info"><div class="c-agent">CEO ISSY ─ 隊長</div><div class="c-role">最高決裁者。公開・投稿・送信・課金の実行権限は社長のみ。</div></div>' + bldgThumb("01") + '</div>'
       + '<div class="screen' + (pending.length ? ' screen-alert' : '') + '">' + (pending.length ? '決裁待ち ' + pending.length + '件<br>' + lines : '決裁待ちなし ─ 良い盤面') + '</div>'
       + '<div class="r-foot"><button class="summon" type="button" data-call="' + esc(call) + '">' + btn + '</button></div>'
       + '</div>';
@@ -687,7 +670,7 @@
     return '<div class="room">'
       + '<div class="r-top"><span class="st">HQ-02 ｜ 幕僚室</span><span class="lamp st-ready" title="常時稼働"></span></div>'
       + '<div class="plate">参謀本部</div>'
-      + '<div class="crew">' + operatorHTML(AI_ACCENT, "ai", "🧠") + '<div class="c-info"><div class="c-agent">CLAUDE ─ 幕僚長</div><div class="c-role">全部門の招集と采配。朝会 /ceo で戦況報告と発令を行う。</div></div></div>'
+      + '<div class="crew">' + operatorHTML("02", "🧠") + '<div class="c-info"><div class="c-agent">CLAUDE ─ 幕僚長</div><div class="c-role">全部門の招集と采配。朝会 /ceo で戦況報告と発令を行う。</div></div>' + bldgThumb("01") + '</div>'
       + '<div class="screen">' + (n ? '指令書 ' + n + '件を執行中' : '指令書 受付中 ─ 自然文で発令可') + '<br>起草はダッシュボードの指令書フォームからも可</div>'
       + '<div class="r-foot"><button class="summon" type="button" data-call="/ceo">朝会 /ceo をコピー</button></div>'
       + '</div>';
