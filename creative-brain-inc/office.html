@@ -12,7 +12,12 @@
 <meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain-inc/office.html">
 <meta property="og:site_name" content="Creative Brain Inc.">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://riderkarubo.github.io/pages/creative-brain-inc/assets/og/keyvisual.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="作戦基地 BRAIN BASE の俯瞰マップ（ドット絵）">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://riderkarubo.github.io/pages/creative-brain-inc/assets/og/keyvisual.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,14 +226,14 @@
   /* 地上部シーン：動画レイヤー＋SVGフォールバックの二層構造。
      動画(assets/scene/base-loop.*)が無い間は背後のSVGが表示され、置いた瞬間にJSが昇格させる */
   .scene{
-    --scene-aspect: 1000 / 235;   /* 動画を差し込む時に 3 / 1 へ変更すると16:9動画が収まりやすい */
+    --scene-aspect: 3 / 1;   /* 16:9のVeo動画をcoverで収める（動画未投入時のSVGはmeetで切らずに表示） */
     margin-top:14px;line-height:0;position:relative;
     aspect-ratio:var(--scene-aspect);
     overflow:hidden;border-radius:10px;background:var(--steel-deep);
   }
-  .scene>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .scene>svg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
   .scene-video{
-    position:absolute;inset:0;width:100%;height:100%;
+    position:absolute;inset:0;width:100%;height:100%;z-index:2;
     object-fit:cover;object-position:center 42%;
     opacity:0;transition:opacity .6s ease;pointer-events:none;background:var(--steel-deep);
   }
