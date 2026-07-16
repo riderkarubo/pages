@@ -199,18 +199,6 @@
   .summon:hover{border-color:var(--orange);color:var(--orange)}
   .summon.did{border-color:var(--green);color:var(--green)}
 
-  /* レーダー */
-  .radar-box{display:flex;justify-content:center;padding:2px 0}
-  #radarSvg{
-    width:132px;height:132px;border-radius:50%;
-    background:radial-gradient(circle at 50% 42%,#0F1A16,#081009 74%);
-    border:3px solid var(--steel-hi);
-    box-shadow:inset 0 0 18px rgba(0,0,0,.6),0 0 0 1px #0B1114;
-  }
-  .r-lbl{font-family:var(--dot);font-size:8px}
-  .sweep{transform-box:view-box;transform-origin:50% 50%;animation:sweep 5.2s linear infinite}
-  .cur{animation:pulse 1.6s ease-in-out infinite}
-
   /* 発進口 */
   .launch{border-top:7px solid #121A1E}
   .launch .hazard{display:block;height:10px;background:repeating-linear-gradient(-45deg,var(--orange) 0 12px,#161D21 12px 24px);opacity:.85}
@@ -318,7 +306,6 @@
   footer .dot{font-family:var(--dot)}
 
   @keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.12}}
-  @keyframes sweep{to{transform:rotate(360deg)}}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
   @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -636,7 +623,6 @@
     var screen = t ? "▶ " + esc(t.title) + " ─ " + esc(t.status) : "待機中 ─ 指令待ち";
     var extra = "";
     if(d.radar){
-      extra = '<div class="radar-box"><svg id="radarSvg" viewBox="0 0 150 150" role="img" aria-label="目標接近レーダー。中心が本陣1,000人"></svg></div>';
       var reads = (D.platforms||[]).map(function(p){
         return esc(p.name) + " " + (p.followers==null ? "未報告" : fmt(p.followers));
       }).join(" ／ ");
@@ -703,45 +689,6 @@
       base.appendChild(l);
     }
   });
-
-  /* ---- 目標接近レーダー（分析官室） ---- */
-  (function(){
-    var svg = document.getElementById("radarSvg");
-    if(!svg){ return; }
-    var C=75, PMAX=56;
-    [16,32,48,64].forEach(function(r){
-      svg.appendChild(svgEl("circle",{cx:C,cy:C,r:r,fill:"none",stroke:"rgba(99,230,164,.25)","stroke-width":1}));
-    });
-    svg.appendChild(svgEl("line",{x1:C-64,y1:C,x2:C+64,y2:C,stroke:"rgba(99,230,164,.16)","stroke-width":1}));
-    svg.appendChild(svgEl("line",{x1:C,y1:C-64,x2:C,y2:C+64,stroke:"rgba(99,230,164,.16)","stroke-width":1}));
-    var g = svgEl("g",{"class":"sweep"});
-    g.appendChild(svgEl("path",{d:"M75 75 L75 11 A64 64 0 0 1 107 20 Z",fill:"rgba(99,230,164,.15)"}));
-    g.appendChild(svgEl("line",{x1:75,y1:75,x2:75,y2:11,stroke:"#63E6A4","stroke-width":1.6,"stroke-linecap":"round",opacity:".9"}));
-    svg.appendChild(g);
-    function place(v, bearingDeg){
-      var r = (1 - Math.min(1, v/target)) * PMAX;
-      var rad = (bearingDeg - 90) * Math.PI / 180;
-      return { x: C + r*Math.cos(rad), y: C + r*Math.sin(rad) };
-    }
-    var bearings = [205, 325, 60];
-    (D.goal.milestones||[]).forEach(function(m, i){
-      var p = place(m, bearings[i % bearings.length]);
-      var reached = total >= m;
-      svg.appendChild(svgEl("circle",{cx:p.x,cy:p.y,r:3.4,
-        fill:reached?"#63E6A4":"none",stroke:reached?"#63E6A4":"#F5B841","stroke-width":1.4}));
-      var t = svgEl("text",{x:p.x,y:p.y-6,"text-anchor":"middle","class":"r-lbl",fill:reached?"#63E6A4":"#F5B841"});
-      t.textContent = m; svg.appendChild(t);
-    });
-    var cp = place(total, 140);
-    var cur = svgEl("circle",{cx:cp.x,cy:cp.y,r:4,fill:"#F25C1F","class":"cur"});
-    svg.appendChild(cur);
-    var ct = svgEl("text",{x:cp.x,y:cp.y+12,"text-anchor":"middle","class":"r-lbl",fill:"#F25C1F"});
-    ct.textContent = "現在 " + total; svg.appendChild(ct);
-    svg.appendChild(svgEl("line",{x1:C-4,y1:C,x2:C+4,y2:C,stroke:"#E8DCC3","stroke-width":1}));
-    svg.appendChild(svgEl("line",{x1:C,y1:C-4,x2:C,y2:C+4,stroke:"#E8DCC3","stroke-width":1}));
-    var hn = svgEl("text",{x:C,y:C+13,"text-anchor":"middle","class":"r-lbl",fill:"#E8DCC3"});
-    hn.textContent = "本陣 " + fmt(target); svg.appendChild(hn);
-  })();
 
   /* ---- 基地俯瞰図（アイソメトリック配置マップ） ---- */
   (function(){
