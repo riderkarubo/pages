@@ -782,29 +782,89 @@
     var DEPT_BLDG = {"分析官":"02","トレンド偵察":"03","コピー部":"04","運用部":"07","品質評価室":"10","素材司書":"09","制作進行":"06","渉外部":"08","企画部":"05"};
     var DEPT_TRP  = {"分析官":"03","企画部":"04","コピー部":"05","トレンド偵察":"06","制作進行":"07","運用部":"08","渉外部":"09","素材司書":"10","品質評価室":"11"};
 
-    /* 地盤（プラットフォーム。楕円の発着場） */
-    var GC = isoPt(0,0,0), GRX=400, GRY=222;
-    var plazaGrad = svgEl("radialGradient",{id:"plazaGrad",cx:"50%",cy:"40%",r:"68%"});
-    plazaGrad.appendChild(svgEl("stop",{offset:"0%","stop-color":"#2C373F"}));
-    plazaGrad.appendChild(svgEl("stop",{offset:"68%","stop-color":"#1B2328"}));
-    plazaGrad.appendChild(svgEl("stop",{offset:"100%","stop-color":"#11171B"}));
-    defs.appendChild(plazaGrad);
-    svg.appendChild(svgEl("ellipse",{cx:GC.x,cy:GC.y,rx:GRX,ry:GRY,fill:"url(#plazaGrad)"}));
-    [0.98,0.7,0.42].forEach(function(s,i){
-      svg.appendChild(svgEl("ellipse",{cx:GC.x,cy:GC.y,rx:GRX*s,ry:GRY*s,fill:"none",
-        stroke: i===0 ? "#3A4750" : "rgba(232,220,195,.08)", "stroke-width": i===0?2:1}));
-    });
-    svg.appendChild(svgEl("ellipse",{cx:GC.x,cy:GC.y,rx:GRX,ry:GRY,fill:"none",stroke:"#F25C1F","stroke-width":1.4,"stroke-dasharray":"2 11",opacity:.5}));
-    var centerGlow = svgEl("ellipse",{cx:GC.x,cy:GC.y,rx:160,ry:88,fill:"#F25C1F",opacity:.07});
+    /* ── シムMAPの地面 ──────────────────────────
+       地形画像(GROUND_IMG)があればそれを下敷きに（道路・点景も画像側に含まれる）、
+       無ければプロシージャルなダイヤタイル地面＋道路＋点景をコードで描く二段構え */
+    var GC = isoPt(0,0,0);
+    /* Nano Banana地形背景。prompts/base-map-sprites.md §4の地面プロンプトで生成し assets/map/ground.png に置いてパスを入れると下敷きに昇格。空ならプロシージャルなタイル地面のみ */
+    var GROUND_IMG = "";
+    var PROCEDURAL = !GROUND_IMG;
+
+    function tileDiamond(i,j){
+      return [isoPt(i-0.5,j-0.5,0),isoPt(i+0.5,j-0.5,0),isoPt(i+0.5,j+0.5,0),isoPt(i-0.5,j+0.5,0)];
+    }
+    function inLand(i,j){
+      var rr = (i*i)/34 + (j*j)/26;
+      var edge = 1.0 + 0.16*Math.sin(i*1.7 + j*2.3) + 0.08*Math.cos(i*2.9 - j*1.3);
+      return rr <= edge;
+    }
+    if(PROCEDURAL){
+      /* 不定形の敷地内だけダイヤタイルを敷く（円ではない有機的な島） */
+      for(var gi=-7; gi<=7; gi++){
+        for(var gj=-7; gj<=7; gj++){
+          if(!inLand(gi,gj)){ continue; }
+          var checker = ((gi+gj)&1) ? "#1D262C" : "#212C33";
+          svg.appendChild(svgEl("polygon",{points:ptsStr(tileDiamond(gi,gj)),
+            fill:checker, stroke:"rgba(58,71,80,.28)","stroke-width":1}));
+        }
+      }
+    } else {
+      /* 地形画像はviewBox全面にslice配置（画像は13:8で生成し主要素を中央セーフゾーンに寄せてある） */
+      svg.appendChild(svgEl("image",{href:GROUND_IMG, x:0, y:0, width:1040, height:640,
+        preserveAspectRatio:"xMidYMid slice"}));
+    }
+    /* 中心グロー（生活感の芯。円のリング・放射は廃止） */
+    var centerGlow = svgEl("ellipse",{cx:GC.x,cy:GC.y-6,rx:150,ry:82,fill:"#F25C1F",opacity:.05});
     centerGlow.setAttribute("filter","url(#isoShadowBlur)");
     svg.appendChild(centerGlow);
 
-    function appendRoad(p0,p1){
+    function appendRoad(p0,p1,kind){
+      var half = kind==="trunk" ? 9 : 5.5;
       var dx=p1.x-p0.x, dy=p1.y-p0.y, len=Math.sqrt(dx*dx+dy*dy)||1;
-      var nx=-dy/len*7.5, ny=dx/len*7.5;
+      var nx=-dy/len*half, ny=dx/len*half;
       var pts = [{x:p0.x+nx,y:p0.y+ny},{x:p1.x+nx,y:p1.y+ny},{x:p1.x-nx,y:p1.y-ny},{x:p0.x-nx,y:p0.y-ny}];
-      svg.appendChild(svgEl("polygon",{points:ptsStr(pts), fill:"#20282E", stroke:"#333F48","stroke-width":1}));
-      svg.appendChild(svgEl("line",{x1:p0.x,y1:p0.y,x2:p1.x,y2:p1.y,stroke:"#5A6871","stroke-width":1.3,"stroke-dasharray":"7 9",opacity:.6}));
+      svg.appendChild(svgEl("polygon",{points:ptsStr(pts), fill:"#1A2126", stroke:"#333F48","stroke-width":1}));
+      svg.appendChild(svgEl("line",{x1:p0.x,y1:p0.y,x2:p1.x,y2:p1.y,
+        stroke:"#5A6871","stroke-width":kind==="trunk"?1.4:1,"stroke-dasharray":"7 9",opacity:.5}));
+    }
+
+    /* シムMAP点景（地面レイヤー。木・街灯・貯水池・資材・柵・ヘリパッド・茂み） */
+    function appendMapProp(p){
+      var c = isoPt(p.cx, p.cy, 0), x = c.x, y = c.y, t = p.type;
+      if(t==="tree"){
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y+1,rx:9,ry:3.2,fill:"#000",opacity:.28}));
+        svg.appendChild(svgEl("rect",{x:x-1.6,y:y-9,width:3.2,height:10,rx:1,fill:"#2A2018",stroke:"#141B1F","stroke-width":1}));
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y-15,rx:10,ry:11,fill:"#2E4636",stroke:"#141B1F","stroke-width":1.4}));
+        svg.appendChild(svgEl("ellipse",{cx:x-3,cy:y-18,rx:4.6,ry:4.8,fill:"#3C5A45",opacity:.8}));
+      } else if(t==="bush"){
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y,rx:9,ry:5.2,fill:"#2E4636",stroke:"#141B1F","stroke-width":1.2}));
+        svg.appendChild(svgEl("ellipse",{cx:x-2.5,cy:y-1.6,rx:3.4,ry:2.6,fill:"#3C5A45",opacity:.75}));
+      } else if(t==="lamp"){
+        svg.appendChild(svgEl("line",{x1:x,y1:y,x2:x,y2:y-18,stroke:"#39454C","stroke-width":2}));
+        svg.appendChild(svgEl("circle",{cx:x,cy:y-20,r:3,fill:"#F5B841"}));
+        svg.appendChild(svgEl("circle",{cx:x,cy:y-20,r:6,fill:"#F5B841",opacity:.22}));
+      } else if(t==="pond"){
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y,rx:26,ry:13,fill:"#1B3038",stroke:"#39454C","stroke-width":1.6}));
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y,rx:19,ry:9,fill:"none",stroke:"rgba(99,230,164,.18)","stroke-width":1}));
+        svg.appendChild(svgEl("ellipse",{cx:x-6,cy:y-3,rx:6,ry:2.4,fill:"#F5B841",opacity:.14}));
+      } else if(t==="crate"){
+        [[-9,0],[1,3],[9,-3]].forEach(function(o,i){
+          var bx=x+o[0], by=y+o[1];
+          svg.appendChild(svgEl("rect",{x:bx-7,y:by-8,width:13,height:9,rx:1.4,fill:i%2?"#333F48":"#3A4750",stroke:"#141B1F","stroke-width":1}));
+          svg.appendChild(svgEl("polygon",{points:(bx-7)+","+(by-8)+" "+(bx-2)+","+(by-11)+" "+(bx+11)+","+(by-11)+" "+(bx+6)+","+(by-8),fill:"#4A5761",stroke:"#141B1F","stroke-width":1}));
+        });
+      } else if(t==="fence"){
+        for(var k=-1;k<=1;k++){
+          var fx=x+k*10;
+          svg.appendChild(svgEl("line",{x1:fx,y1:y,x2:fx,y2:y-9,stroke:"#4A5761","stroke-width":1.6}));
+        }
+        svg.appendChild(svgEl("line",{x1:x-12,y1:y-6,x2:x+12,y2:y-6,stroke:"#4A5761","stroke-width":1.2}));
+      } else if(t==="heli"){
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y,rx:40,ry:20,fill:"#1A2126",stroke:"#E8DCC3","stroke-width":1.4,opacity:.92}));
+        svg.appendChild(svgEl("ellipse",{cx:x,cy:y,rx:29,ry:14.5,fill:"none",stroke:"#E8DCC3","stroke-width":1,"stroke-dasharray":"6 6",opacity:.55}));
+        var ht = svgEl("text",{x:x,y:y+5,"text-anchor":"middle","font-size":"14",fill:"#E8DCC3","class":"iso-plate",opacity:.85});
+        ht.textContent = "H"; svg.appendChild(ht);
+      }
     }
 
     function appendTrooper(x,y,spriteId,accent){
@@ -850,56 +910,62 @@
       return gp;
     }
 
-    /* 9部門を均等角度でリング状に配置（東西南北の投影ズレを補正済み） */
+    /* 9部門をシムMAP風に点在配置（円環を廃止・有機的な散らばり／衝突検算済み） */
     var LAYOUT = [
-      {key:"分析官",     cx:-3.21, cy:-3.21, prop:"dish",   h:96, sx:-4.11, sy:-2.21},
-      {key:"トレンド偵察", cx:-0.71, cy:-4.21, prop:"mast",   h:108},
-      {key:"コピー部",   cx:2.12,  cy:-3.24, prop:"dish",   h:78},
-      {key:"運用部",     cx:3.97,  cy:-0.75, prop:"beacon", h:84},
-      {key:"品質評価室", cx:3.95,  cy:2.09,  prop:"vent",   h:74},
-      {key:"素材司書",   cx:2.09,  cy:3.95,  prop:"crate",  h:70},
-      {key:"制作進行",   cx:-0.75, cy:3.97,  prop:"vent",   h:92},
-      {key:"渉外部",     cx:-3.24, cy:2.12,  prop:"awning", h:68},
-      {key:"企画部",     cx:-4.21, cy:-0.71, prop:"mast",   h:82}
+      {key:"トレンド偵察", cx:-3.1, cy:-1.9, h:108},
+      {key:"分析官",     cx:-1.2, cy:-3.2, h:96},
+      {key:"コピー部",   cx:0.65, cy:-3.95,h:78},
+      {key:"企画部",     cx:-2.5, cy:0.9,  h:82},
+      {key:"制作進行",   cx:-1.2, cy:3.4,  h:92},
+      {key:"運用部",     cx:0.9,  cy:2.7,  h:84},
+      {key:"渉外部",     cx:2.4,  cy:1.8,  h:68},
+      {key:"素材司書",   cx:4.1,  cy:-0.7, h:70},
+      {key:"品質評価室", cx:2.2,  cy:-0.2, h:74}
     ];
-    LAYOUT.forEach(function(l){ appendRoad(isoPt(0,0,0), isoPt(l.cx,l.cy,0)); });
 
-    /* 外周警戒灯（縁を順番に点滅） */
-    [15,60,105,150,195,240,285,330].forEach(function(deg,i){
-      var a = deg*Math.PI/180;
-      svg.appendChild(svgEl("circle",{
-        cx:GC.x+GRX*0.97*Math.cos(a), cy:GC.y+GRY*0.97*Math.sin(a), r:2.6,
-        fill:"#F5B841", opacity:.9, "class": (i%3===0 ? "rl" : (i%3===1 ? "rl2" : "rl3"))
-      }));
-    });
+    if(PROCEDURAL){
+      /* 有機的な道路網（放射状ではなく建物間を曲がって繋ぐ幹線＋支線） */
+      var ROADS = [
+        {f:[3.4,3],   t:[1.6,2.2], k:"trunk"}, {f:[1.6,2.2], t:[0.6,0.4], k:"trunk"},
+        {f:[0.6,0.4], t:[-0.8,-1.4],k:"trunk"},{f:[-0.8,-1.4],t:[-2.2,-2.8],k:"trunk"},
+        {f:[1.6,2.2], t:[0.9,3.3], k:"path"}, {f:[0.9,3.3], t:[-1.2,4],   k:"path"},
+        {f:[1.6,2.2], t:[2.4,2.4], k:"path"}, {f:[0.6,0.4], t:[2.2,0.5],  k:"path"},
+        {f:[2.2,0.5], t:[4.1,0],   k:"path"}, {f:[0.6,0.4], t:[-1.2,0.9], k:"path"},
+        {f:[-1.2,0.9],t:[-2.5,1.5],k:"path"}, {f:[-0.8,-1.4],t:[-2,-1.35],k:"path"},
+        {f:[-2,-1.35],t:[-3.1,-1.3],k:"path"},{f:[-2.2,-2.8],t:[-1.2,-2.6],k:"path"},
+        {f:[-2.2,-2.8],t:[-0.8,-3.1],k:"path"},{f:[-0.8,-3.1],t:[0.65,-3.35],k:"path"}
+      ];
+      ROADS.forEach(function(r){ appendRoad(isoPt(r.f[0],r.f[1],0), isoPt(r.t[0],r.t[1],0), r.k); });
 
-    /* ヘリパッド（南西の空き地） */
-    (function(){
-      var hp = isoPt(-1.9, 1.9, 0);
-      svg.appendChild(svgEl("ellipse",{cx:hp.x,cy:hp.y,rx:46,ry:23,fill:"#20282E",stroke:"#E8DCC3","stroke-width":1.4,opacity:.9}));
-      svg.appendChild(svgEl("ellipse",{cx:hp.x,cy:hp.y,rx:33,ry:16.5,fill:"none",stroke:"#E8DCC3","stroke-width":1,"stroke-dasharray":"6 6",opacity:.6}));
-      var ht = svgEl("text",{x:hp.x,y:hp.y+5.5,"text-anchor":"middle","font-size":"15",fill:"#E8DCC3","class":"iso-plate",opacity:.85});
-      ht.textContent = "H"; svg.appendChild(ht);
-    })();
+      /* 点景（木・街灯・貯水池・資材・柵・ヘリパッド）でシムMAPの生活感を出す */
+      var PROPS = [
+        {type:"heli",cx:4.4,cy:2.4}, {type:"pond",cx:1.2,cy:4.6}, {type:"crate",cx:2.8,cy:-1.2},
+        {type:"tree",cx:-4.8,cy:-0.4},{type:"tree",cx:-5,cy:1.2},{type:"tree",cx:4.9,cy:1.4},
+        {type:"tree",cx:5.2,cy:-1.6},{type:"tree",cx:-4.2,cy:2.6},
+        {type:"lamp",cx:1.3,cy:1.5},{type:"lamp",cx:-1.6,cy:2},{type:"lamp",cx:-2,cy:-2},{type:"lamp",cx:3.2,cy:1.4},
+        {type:"fence",cx:3.8,cy:2.6},{type:"fence",cx:-3.2,cy:3.2},
+        {type:"bush",cx:2.2,cy:3.2},{type:"bush",cx:-0.2,cy:2.4}
+      ];
+      PROPS.sort(function(a,b){ return (a.cx+a.cy)-(b.cx+b.cy); });
+      PROPS.forEach(function(p){ appendMapProp(p); });
 
-    /* 資材置き場（北東の空き地） */
-    (function(){
-      var cp = isoPt(1.9, -1.9, 0);
-      [[-13,0],[1,4],[11,-4]].forEach(function(o,i){
-        var bx = cp.x+o[0], by = cp.y+o[1];
-        svg.appendChild(svgEl("rect",{x:bx-7,y:by-8,width:14,height:10,rx:1.5,fill:i%2 ? "#333F48" : "#3A4750",stroke:"#141B1F","stroke-width":1}));
-        svg.appendChild(svgEl("polygon",{points:(bx-7)+","+(by-8)+" "+(bx-2)+","+(by-12)+" "+(bx+12)+","+(by-12)+" "+(bx+7)+","+(by-8),fill:"#4A5761",stroke:"#141B1F","stroke-width":1}));
+      /* 外周警戒灯（敷地の縁沿いに数点・順に点滅） */
+      [[-3.5,-3.5],[0.5,-4.6],[4.6,-1.2],[4.8,2.6],[1.4,4.9],[-3.6,3.2],[-5,0.4]].forEach(function(c,i){
+        var p = isoPt(c[0],c[1],0);
+        svg.appendChild(svgEl("circle",{cx:p.x,cy:p.y,r:2.4,fill:"#F5B841",opacity:.85,
+          "class": (i%3===0 ? "rl" : (i%3===1 ? "rl2" : "rl3"))}));
       });
-    })();
+    }
 
     /* 描画キュー: 奥（北）から手前（南）へ深度ソートして正しい前後関係で描く */
     var queue = [];
+    var TOWER = {cx:0.2, cy:0.6};
     var towerLampColor = pending.length ? LAMP_HEX["st-wait"] : LAMP_HEX["st-ready"];
-    queue.push({depth:0, draw:function(){
-      isoBuilding({cx:0,cy:0,h:150,accent:"#D9CBA8",label:"司令塔",spriteId:"01",lampColor:towerLampColor,lampWait:pending.length>0});
+    queue.push({depth:TOWER.cx+TOWER.cy, draw:function(){
+      isoBuilding({cx:TOWER.cx,cy:TOWER.cy,h:150,accent:"#D9CBA8",label:"司令塔",spriteId:"01",lampColor:towerLampColor,lampWait:pending.length>0});
     }});
-    var towerStand = isoPt(0, 1.75, 0);
-    queue.push({depth:1.75, draw:function(){
+    var towerStand = isoPt(TOWER.cx, TOWER.cy+1.7, 0);
+    queue.push({depth:TOWER.cx+TOWER.cy+1.7, draw:function(){
       appendTrooper(towerStand.x-16, towerStand.y, "01", CEO_ACCENT);
       appendTrooper(towerStand.x+16, towerStand.y, "02", AI_ACCENT);
     }});
