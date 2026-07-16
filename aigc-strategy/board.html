@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-17T00:46:00+09:00">
+<meta name="last-modified" content="2026-07-17T01:05:00+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード — Firework社内</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
@@ -506,12 +506,29 @@ tr.pm-lost .rpg-mon{filter:grayscale(1);opacity:.35}
 .lockbox .note{color:#8b93a8}
 .lockbox .em img{height:78px;width:auto}
 .rpg-locksub{font-family:'DotGothic16',monospace;color:var(--accent);font-size:.8rem;margin-bottom:8px;letter-spacing:.1em}
+/* --- HP/EXP/ゴールド風ステータスウィンドウ（売上セクション） --- */
+.rpg-status{background:rgba(11,11,35,.95);border:3px solid #fff;outline:3px solid #0b0b23;border-radius:8px;padding:16px 18px;margin-bottom:16px;color:#fff}
+.rpg-status-h{font-family:'DotGothic16',monospace;color:#ffd54a;font-size:.9rem;letter-spacing:.05em;margin-bottom:13px}
+.rpg-exp{margin-bottom:13px}
+.rpg-exp-lbl{display:flex;justify-content:space-between;align-items:baseline;font-family:'DotGothic16',monospace;font-size:.76rem;margin-bottom:6px}
+.rpg-exp-lbl .lv{color:#fff}
+.rpg-exp-lbl .ex{color:#9fb0d8}
+.rpg-bar{position:relative;height:22px;background:#05050f;border:2px solid #fff;border-radius:3px;overflow:hidden}
+.rpg-bar i{display:block;height:100%;width:0;background:linear-gradient(#ff5fa8,#FA006D 55%,#c80059);transition:width 1.2s cubic-bezier(.2,.85,.25,1)}
+.rpg-bar::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 9px);pointer-events:none}
+.rpg-bar b{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:'DotGothic16',monospace;font-size:.74rem;color:#fff;text-shadow:0 1px 0 #000,0 0 4px #000}
+.rpg-status-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.rpg-status-grid>div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:5px;padding:8px 11px;display:flex;flex-direction:column;gap:3px}
+.rpg-status-grid .rl{font-family:'DotGothic16',monospace;font-size:.66rem;color:#9fb0d8;letter-spacing:.02em}
+.rpg-status-grid .rv{font-weight:900;font-size:1.02rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.rpg-status-grid .rv.gold{color:#ffd54a}
 @media(max-width:600px){
   .rpg-emblem{width:58px}
   .rpg-banner{height:112px}
   .rpg-banner-road{height:128px}
   .rpg-party-march{gap:9px}
   .rpg-party-march img{height:54px}
+  .rpg-status-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -845,6 +862,29 @@ function rpgSkin(){
     var ic=document.querySelector('.ql-card.'+cls+' .ql-icon');
     if(ic&&!ic.querySelector('img')){ic.textContent='';var img=document.createElement('img');img.src=A+QL[cls]+'.webp';img.alt='';ic.appendChild(img);}
   });
+  // HP/EXP/ゴールド風ステータスウィンドウ（売上セクション・実データから生成）
+  var rdcl=document.querySelector('.rev-decl');
+  if(rdcl&&!rdcl.querySelector('.rpg-status')){
+    var goalRu=document.querySelector('.rev-num.goal .ru');
+    var pctM=goalRu&&goalRu.textContent.match(/([\d.]+)%/);
+    var pct=pctM?Math.max(0,Math.min(100,parseFloat(pctM[1]))):0;
+    var bookM=goalRu&&goalRu.textContent.match(/受注\s*(¥[\d,]+)/);
+    var booked=bookM?bookM[1]:'—';
+    var goalV=document.querySelector('.rev-num.goal .rv');
+    var target=goalV?goalV.textContent:'—';
+    var gapLbl=[].slice.call(document.querySelectorAll('.rev-num .rl')).filter(function(x){return /残GAP/.test(x.textContent);})[0];
+    var gap=gapLbl?gapLbl.parentElement.querySelector('.rv').textContent:'—';
+    var w=document.createElement('div');w.className='rpg-status';
+    w.innerHTML='<div class="rpg-status-h">▶ Firework えんせいたい ステータス</div>'
+      +'<div class="rpg-exp"><div class="rpg-exp-lbl"><span class="lv">LV. FY2026</span><span class="ex">EXP ／ 目標 '+esc(target)+'</span></div>'
+      +'<div class="rpg-bar"><i></i><b>'+pct.toFixed(1)+'%</b></div></div>'
+      +'<div class="rpg-status-grid"><div><span class="rl">◆ ゴールド（受注EXP）</span><span class="rv gold">'+esc(booked)+' <span style="font-size:.7em">G</span></span></div>'
+      +'<div><span class="rl">◆ まおうまでの のこり（GAP）</span><span class="rv">'+esc(gap)+'</span></div></div>';
+    var castle=rdcl.querySelector('.rpg-banner-castle');
+    if(castle&&castle.nextSibling){rdcl.insertBefore(w,castle.nextSibling);}else{rdcl.insertBefore(w,rdcl.firstChild);}
+    var barI=w.querySelector('.rpg-bar i');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){barI.style.width=pct+'%';});});
+  }
 }
 const SS_KEY='aigc_cred';
 const SSO_TTL_MS=2592000000;/*30日=firework-sso-no-popup.md準拠の自前TTL*/
