@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-07-16 17:27">
+<title>Creative Brain Inc. — 経営ダッシュボード</title>
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Creative Brain Inc. — 経営ダッシュボード">
+<meta property="og:description" content="AI制作会社 Creative Brain Inc. の経営ダッシュボード。目標1,000人への進捗と部門タスクを管理する。">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/creative-brain-inc/dashboard.html">
+<meta property="og:site_name" content="Creative Brain Inc.">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏯</text></svg>">
+<style>
+  :root{
+    --bg:#111827;            /* gray-900 */
+    --panel:#1F2937;         /* gray-800 */
+    --panel-soft:rgba(31,41,55,.5);
+    --border:#374151;        /* gray-700 */
+    --border-soft:#1F2937;   /* gray-800 */
+    --text:#F3F4F6;          /* gray-100 */
+    --text-2:#9CA3AF;        /* gray-400 */
+    --text-3:#6B7280;        /* gray-500 */
+    --purple:#9333EA;        /* purple-600 */
+    --purple-hover:#7E22CE;  /* purple-700 */
+    --purple-hi:#C084FC;     /* purple-400 */
+    --purple-bg:rgba(168,85,247,.08);
+    --purple-line:rgba(168,85,247,.25);
+    --ok:#34D399;            /* emerald-400: 着手可 */
+    --warn:#FBBF24;          /* amber-400: 進行中 */
+    --hot:#FB7185;           /* rose-400: 決裁待ち */
+    --spark-yt:#F87171;      /* red-400: YouTube */
+    --spark-tt:#22D3EE;      /* cyan-400: TikTok */
+    --sans:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,"IBM Plex Mono",monospace;
+    --r:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14.5px;line-height:1.7;min-height:100vh}
+  ::selection{background:var(--purple);color:#fff}
+  a{color:var(--purple-hi)}
+  button{font-family:var(--sans)}
+  :focus-visible{outline:2px solid var(--purple-hi);outline-offset:2px}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px 80px}
+
+  /* ── ヘッダー（sticky・blur） ─────────────── */
+  header.masthead{
+    position:sticky;top:0;z-index:20;
+    background:rgba(17,24,39,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .masthead-inner{
+    max-width:1160px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-badge{
+    width:34px;height:34px;border-radius:9px;background:var(--purple);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:15px;
+  }
+  .brand h1{font-size:17px;font-weight:700;letter-spacing:.01em;line-height:1.3}
+  .brand .goal-line{font-size:11.5px;color:var(--text-3)}
+  .masthead-meta{font-size:12px;color:var(--text-2);display:flex;align-items:center;gap:14px}
+  .masthead-meta b{color:var(--text);font-weight:600}
+  .chip{
+    display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;
+    color:var(--purple-hi);background:var(--purple-bg);border:1px solid var(--purple-line);
+  }
+
+  /* ── セクション見出し ─────────────────────── */
+  section{margin-top:46px}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+  .sec-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--purple-hi);text-transform:uppercase}
+  .sec-head h2{font-size:17px;font-weight:700;letter-spacing:.01em}
+  .sec-head .sec-note{font-size:11.5px;color:var(--text-3);margin-left:auto;text-align:right}
+
+  /* ── ゴールトラッカー ─────────────────────── */
+  .warboard{
+    background:var(--panel);border:1px solid var(--border);border-radius:var(--r);
+    padding:26px 28px 20px;margin-top:28px;
+  }
+  .board-title{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .board-title .t{font-size:13px;font-weight:700;color:var(--text-2);letter-spacing:.04em}
+  .board-title .d{font-family:var(--mono);font-size:11.5px;color:var(--text-3)}
+  #trackSvg{width:100%;height:auto;display:block}
+  .stat-row{
+    display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:14px;
+    margin-top:16px;padding-top:18px;border-top:1px solid var(--border-soft);
+  }
+  .stat .label{font-size:11px;letter-spacing:.12em;color:var(--text-3);margin-bottom:2px}
+  .stat .value{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:28px;font-weight:700;line-height:1.3}
+  .stat .value small{font-size:13px;color:var(--text-3);font-family:var(--sans);font-weight:500;margin-left:4px}
+  .stat.hero .value{font-size:46px;color:var(--purple-hi)}
+  .stat .sub{font-size:11.5px;color:var(--text-3)}
+  .stat .sub.alert{color:var(--hot)}
+
+  /* ── カード共通 ─────────────────────────── */
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px}
+  .card-title{font-size:13px;font-weight:700;color:var(--text-2);letter-spacing:.04em;margin-bottom:10px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+  /* ── プラットフォーム ────────────────────── */
+  .pf-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .pf-head .name{font-size:14px;font-weight:700}
+  .pf-head .handle{font-family:var(--mono);font-size:11px;color:var(--text-3)}
+  .pf-count{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:34px;font-weight:700}
+  .pf-count .unreported{font-size:14px;color:var(--text-3);font-family:var(--sans);font-weight:500}
+  .pf-spark{margin-top:10px;position:relative}
+  .pf-spark svg{width:100%;height:64px;display:block}
+  .pf-empty{
+    margin-top:10px;padding:11px 13px;border:1px dashed var(--border);border-radius:8px;
+    font-size:12px;color:var(--text-3);
+  }
+  .spark-tip{
+    position:absolute;pointer-events:none;background:var(--bg);border:1px solid var(--purple);
+    color:var(--text);font-size:11px;padding:3px 8px;border-radius:6px;white-space:nowrap;
+    transform:translate(-50%,-130%);display:none;font-family:var(--mono);
+  }
+
+  /* ── 決裁待ち ───────────────────────────── */
+  .approval{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border-soft)}
+  .approval:last-child{border-bottom:none;padding-bottom:4px}
+  .ap-mark{
+    flex:none;width:34px;height:34px;border-radius:999px;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:12px;font-weight:700;
+    background:rgba(251,113,133,.1);color:var(--hot);border:1px solid rgba(251,113,133,.35);
+  }
+  .approval.done .ap-mark{background:rgba(52,211,153,.1);color:var(--ok);border-color:rgba(52,211,153,.35)}
+  .approval .a-title{font-weight:600;font-size:13.5px}
+  .approval .a-id{font-family:var(--mono);font-size:10.5px;color:var(--text-3);margin-right:8px}
+  .approval .a-detail{font-size:12.5px;color:var(--text-2);margin-top:2px}
+  .approval .a-how{font-size:11.5px;color:var(--purple-hi);margin-top:4px}
+
+  /* ── 発令フォーム ───────────────────────── */
+  .order-form label{display:block;font-size:11px;letter-spacing:.12em;color:var(--text-3);margin:12px 0 6px}
+  .order-form select,.order-form textarea{
+    width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;
+    color:var(--text);font-family:var(--sans);font-size:13.5px;padding:9px 12px;
+  }
+  .order-form select:focus,.order-form textarea:focus{outline:none;border-color:transparent;box-shadow:0 0 0 2px var(--purple)}
+  .order-form textarea{min-height:104px;resize:vertical;line-height:1.7}
+  .order-form .btn-row{display:flex;align-items:center;gap:12px;margin-top:14px}
+  .btn-primary{
+    background:var(--purple);color:#fff;border:none;border-radius:8px;
+    font-weight:600;font-size:13.5px;padding:10px 20px;cursor:pointer;transition:background .15s;
+  }
+  .btn-primary:hover{background:var(--purple-hover)}
+  .copy-feedback{font-size:12px;color:var(--ok);opacity:0;transition:opacity .25s}
+  .copy-feedback.show{opacity:1}
+  .order-form .hint{font-size:11.5px;color:var(--text-3);margin-top:10px}
+  .order-form .hint b{color:var(--purple-hi);font-weight:600;font-family:var(--mono)}
+
+  /* ── 組織図 ─────────────────────────────── */
+  .org-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .dept{transition:border-color .15s, transform .15s}
+  .dept:hover{border-color:var(--purple);transform:translateY(-2px)}
+  .dept .d-head{display:flex;align-items:center;gap:8px}
+  .dept .d-emoji{font-size:18px}
+  .dept .d-name{font-size:14px;font-weight:700}
+  .dept .d-agent{font-family:var(--mono);font-size:10px;color:var(--text-3);margin-left:auto}
+  .dept .d-role{font-size:12px;color:var(--text-2);margin-top:6px;min-height:3.4em}
+  .dept .d-call{
+    margin-top:10px;display:flex;align-items:center;gap:8px;
+    background:var(--bg);border:1px solid var(--border-soft);border-radius:8px;padding:7px 10px;
+  }
+  .dept .d-call .phrase{font-size:11.5px;color:var(--text-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .copy-mini{
+    background:none;border:1px solid var(--border);border-radius:6px;color:var(--text-3);
+    font-size:11px;padding:2px 9px;cursor:pointer;flex:none;transition:all .15s;
+  }
+  .copy-mini:hover{color:var(--purple-hi);border-color:var(--purple)}
+  .hq-note{
+    grid-column:1 / -1;text-align:center;font-size:12px;color:var(--text-2);
+    background:var(--purple-bg);border:1px solid var(--purple-line);border-radius:var(--r);padding:12px;
+  }
+  .hq-note b{color:var(--purple-hi);font-weight:600}
+
+  /* ── タスク盤・活動ログ ───────────────────── */
+  table.tasks{width:100%;border-collapse:collapse;font-size:13px}
+  table.tasks th{
+    text-align:left;font-size:10.5px;letter-spacing:.14em;color:var(--text-3);
+    font-weight:600;padding:0 10px 8px;border-bottom:1px solid var(--border);white-space:nowrap;
+  }
+  table.tasks td{padding:9px 10px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+  table.tasks tr:last-child td{border-bottom:none}
+  .badge{
+    display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;border-radius:999px;
+    padding:2px 9px;white-space:nowrap;border:1px solid;
+  }
+  .badge.ready{color:var(--ok);border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}
+  .badge.doing{color:var(--warn);border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
+  .badge.waiting{color:var(--hot);border-color:rgba(251,113,133,.35);background:rgba(251,113,133,.08)}
+  .badge.done{color:var(--text-3);border-color:var(--border);background:var(--panel-soft)}
+  .log-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-soft);font-size:12.5px}
+  .log-item:last-child{border-bottom:none}
+  .log-item .l-date{flex:none;color:var(--text-3);font-family:var(--mono);font-size:11.5px;padding-top:1px}
+  .log-item .l-dept{flex:none;color:var(--purple-hi);font-size:11.5px;font-weight:600;padding-top:1px}
+  .log-item .l-text{color:var(--text-2)}
+
+  footer{
+    margin-top:60px;padding-top:18px;border-top:1px solid var(--border-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-size:11.5px;color:var(--text-3);
+  }
+  footer .num{font-size:11.5px}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+  @media (max-width:940px){
+    .grid-2,.org-grid{grid-template-columns:1fr}
+    .stat-row{grid-template-columns:1fr 1fr}
+    .stat.hero .value{font-size:38px}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="brand-badge" aria-hidden="true">CB</div>
+      <div>
+        <h1>Creative Brain Inc.</h1>
+        <div class="goal-line" id="goalLine">年内 総フォロワー 1,000人 — 創業 2026.7.15</div>
+      </div>
+    </div>
+    <div class="masthead-meta">
+      <span>社長 <b>Issy</b> ／ 参謀本部 <b>Claude</b></span>
+      <span class="chip">更新 <span id="updatedAtHead" class="num">—</span></span>
+      <a class="chip" href="office.html" style="text-decoration:none">📡 作戦基地</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ゴールトラッカー -->
+  <div class="warboard" role="img" aria-label="目標1,000人への進捗">
+    <div class="board-title">
+      <span class="t">GOAL TRACKER — 一千人への行軍</span>
+      <span class="d" id="boardDeadline">期限 2026-12-31</span>
+    </div>
+    <svg id="trackSvg" viewBox="0 0 1000 104" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="stat-row">
+      <div class="stat hero">
+        <div class="label">総フォロワー</div>
+        <div class="value" id="statTotal">—</div>
+        <div class="sub" id="statTotalSub"></div>
+      </div>
+      <div class="stat">
+        <div class="label">目標まで</div>
+        <div class="value" id="statRemain">—</div>
+      </div>
+      <div class="stat">
+        <div class="label">残り日数</div>
+        <div class="value" id="statDays">—<small>日</small></div>
+        <div class="sub" id="statWeeks"></div>
+      </div>
+      <div class="stat">
+        <div class="label">必要ペース</div>
+        <div class="value" id="statPace">—<small>人/週</small></div>
+        <div class="sub">残期間の週次平均</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- プラットフォーム -->
+  <section aria-labelledby="h-pf">
+    <div class="sec-head">
+      <span class="sec-kicker">01</span>
+      <h2 id="h-pf">プラットフォーム別</h2>
+      <span class="sec-note">数値の更新はClaudeへ「フォロワー数更新: YouTube ◯人」</span>
+    </div>
+    <div class="grid-2" id="pfCards"></div>
+  </section>
+
+  <!-- 決裁・発令 -->
+  <section aria-labelledby="h-gov">
+    <div class="sec-head">
+      <span class="sec-kicker">02</span>
+      <h2 id="h-gov">社長決裁・発令</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">決裁待ち</div>
+        <div id="approvalList"></div>
+      </div>
+      <div class="card order-form">
+        <div class="card-title">指令書をつくる</div>
+        <label for="orderDept">宛先部門</label>
+        <select id="orderDept"></select>
+        <label for="orderText">指令内容</label>
+        <textarea id="orderText" placeholder="例: 8月のショート動画計画を3案。SUMIMASENの既存素材を活かす前提で。"></textarea>
+        <div class="btn-row">
+          <button class="btn-primary" id="copyOrder" type="button">指令書をコピー</button>
+          <span class="copy-feedback" id="orderFeedback">コピーしました。Claude Code に貼り付けて発令してください</span>
+        </div>
+        <div class="hint">コピーした指令書を Claude Code に貼ると、参謀本部が該当部門を招集して実行します。朝会は <b>/ceo</b>。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 組織図 -->
+  <section aria-labelledby="h-org">
+    <div class="sec-head">
+      <span class="sec-kicker">03</span>
+      <h2 id="h-org">組織図 — 9部門</h2>
+      <span class="sec-note">定義: 05_プライベート/.claude/agents/</span>
+    </div>
+    <div class="org-grid" id="orgGrid"></div>
+  </section>
+
+  <!-- タスク盤・活動ログ -->
+  <section aria-labelledby="h-ops">
+    <div class="sec-head">
+      <span class="sec-kicker">04</span>
+      <h2 id="h-ops">部門タスク盤・活動記録</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">タスク</div>
+        <table class="tasks" aria-label="部門タスク一覧">
+          <thead><tr><th>部門</th><th>任務</th><th>状態</th><th>期日</th></tr></thead>
+          <tbody id="taskBody"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">活動ログ</div>
+        <div id="logList"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Creative Brain Inc. — 経営ダッシュボード（社内限り）</span>
+    <span>正本データ: data/company-data.js ／ 最終更新: <span id="updatedAtFoot" class="num">—</span></span>
+  </footer>
+</div>
+
+<script src="data/company-data.js"></script>
+<script>
+(function(){
+  "use strict";
+  var D = window.COMPANY_DATA;
+  if(!D){ document.body.insertAdjacentHTML("afterbegin",'<p style="padding:24px;color:#FB7185">data/company-data.js が読めませんでした。</p>'); return; }
+
+  var ORG = [
+    {emoji:"📊", name:"分析官",       agent:"growth-analyst",     role:"フォロワー・再生数の分析と週次戦況レポート。正本データの番人。", call:"分析官に今週の戦況レポートを作らせて"},
+    {emoji:"💡", name:"企画部",       agent:"content-planner",    role:"動画企画・シリーズ設計・月間計画。常に3案並行で提示。", call:"企画部に来月のコンテンツ計画を3案出させて"},
+    {emoji:"✍️", name:"コピー部",     agent:"copy-chief",         role:"タイトル・サムネ文言・冒頭フック。感情/数値/疑問の3軸で提案。", call:"コピー部に次の動画のタイトルを3案出させて"},
+    {emoji:"🎬", name:"制作進行",     agent:"production-manager", role:"台本・絵コンテ・AI生成プロンプトMDの管理。工程の見える化。", call:"制作進行に次のカットの指示書を作らせて"},
+    {emoji:"📣", name:"運用部",       agent:"sns-operator",       role:"投稿カレンダー・時間帯・ハッシュタグ・クロス展開の設計。", call:"運用部に今週の投稿カレンダーを組ませて"},
+    {emoji:"🔭", name:"トレンド偵察", agent:"trend-scout",        role:"海外バズ形式・ミーム・AI動画ハックの偵察と構造分解。", call:"トレンド偵察に直近のバズ形式を偵察させて"},
+    {emoji:"🧪", name:"品質評価室",   agent:"quality-evaluator",  role:"公開前の辛口レビュー。10点満点で8点未満は差し戻し。", call:"品質評価室にこの企画を評価させて"},
+    {emoji:"💬", name:"渉外部",       agent:"community-manager",  role:"コメント返信文案・固定コメント・コラボ戦略。下書きまで。", call:"渉外部にコメント返信案を作らせて"},
+    {emoji:"🗄", name:"素材司書",     agent:"archive-librarian",  role:"素材・過去作の台帳化と再利用発掘。削除は絶対にしない。", call:"素材司書に素材の棚卸しをさせて"}
+  ];
+
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+  function fmt(n){ return n==null ? null : Number(n).toLocaleString("ja-JP"); }
+
+  /* ---- 集計 ---- */
+  var total = 0, unreported = 0;
+  (D.platforms||[]).forEach(function(p){ if(p.followers==null){unreported++;} else {total += p.followers;} });
+  var target = D.goal.target;
+  var now = new Date();
+  var deadline = new Date(D.goal.deadline + "T23:59:59+09:00");
+  var daysLeft = Math.max(0, Math.ceil((deadline - now)/86400000));
+  var weeksLeft = daysLeft/7;
+  var pace = weeksLeft>0 ? Math.ceil((target-total)/weeksLeft) : (target-total);
+
+  document.getElementById("updatedAtHead").textContent = D.updatedAt;
+  document.getElementById("updatedAtFoot").textContent = D.updatedAt;
+  document.getElementById("goalLine").textContent = D.goal.label + " — 創業 " + D.company.founded.replace(/-0?/g,".");
+  document.getElementById("boardDeadline").textContent = "期限 " + D.goal.deadline;
+
+  document.getElementById("statTotal").textContent = fmt(total);
+  document.getElementById("statTotalSub").textContent = unreported>0 ? "未報告のプラットフォームが" + unreported + "件あります" : "全プラットフォーム報告済み";
+  if(unreported>0){ document.getElementById("statTotalSub").className = "sub alert"; }
+  document.getElementById("statRemain").textContent = fmt(Math.max(0, target-total));
+  document.getElementById("statDays").innerHTML = daysLeft + "<small>日</small>";
+  document.getElementById("statWeeks").textContent = "約" + weeksLeft.toFixed(1) + "週";
+  document.getElementById("statPace").innerHTML = fmt(pace) + "<small>人/週</small>";
+
+  /* ---- ゴールトラッカー（ワークフロー式ステッパー） ---- */
+  (function(){
+    var svg = document.getElementById("trackSvg");
+    var X0=36, X1=964, Y=52;
+    var ns="http://www.w3.org/2000/svg";
+    function el(t,a){ var e=document.createElementNS(ns,t); for(var k in a){e.setAttribute(k,a[k]);} return e; }
+    function xAt(v){ return X0 + (X1-X0)*Math.min(1, v/target); }
+    var MONO = "ui-monospace, SF Mono, Menlo, monospace";
+
+    /* 進捗レール */
+    svg.appendChild(el("line",{x1:X0,y1:Y,x2:X1,y2:Y,stroke:"#374151","stroke-width":4,"stroke-linecap":"round"}));
+    var progX = xAt(total);
+    if(total>0){
+      svg.appendChild(el("line",{x1:X0,y1:Y,x2:progX,y2:Y,stroke:"#A855F7","stroke-width":4,"stroke-linecap":"round"}));
+    }
+    /* ステップ円（マイルストーン） */
+    var stones = (D.goal.milestones||[]).concat([target]);
+    stones.forEach(function(m,i){
+      var x = xAt(m), reached = total>=m, isFinal = (m===target);
+      var g = el("g",{});
+      g.appendChild(el("circle",{
+        cx:x, cy:Y, r:14,
+        fill: reached ? "#9333EA" : "#1F2937",
+        stroke: reached ? "#A855F7" : "#374151",
+        "stroke-width":2
+      }));
+      var n = el("text",{x:x,y:Y+4,"text-anchor":"middle","font-size":"10","font-weight":"700","font-family":MONO,
+        fill: reached ? "#FFFFFF" : "#6B7280"});
+      n.textContent = reached ? "✓" : (i+1);
+      g.appendChild(n);
+      var lbl = el("text",{x:x,y:Y+34,"text-anchor":"middle","font-size":"11","font-family":MONO,
+        fill: reached ? "#C084FC" : "#6B7280"});
+      lbl.textContent = (isFinal ? "GOAL " : "") + m.toLocaleString("ja-JP");
+      g.appendChild(lbl);
+      svg.appendChild(g);
+    });
+    /* 現在地マーカー */
+    var gNow = el("g",{});
+    gNow.appendChild(el("circle",{cx:progX,cy:Y,r:7,fill:"#111827",stroke:"#C084FC","stroke-width":2.5}));
+    gNow.appendChild(el("circle",{cx:progX,cy:Y,r:2.6,fill:"#C084FC"}));
+    var nowLabel = el("text",{x:progX,y:Y-24,"text-anchor":"middle","font-size":"12","font-weight":"700","font-family":MONO,fill:"#C084FC"});
+    nowLabel.textContent = fmt(total);
+    gNow.appendChild(nowLabel);
+    var nowCap = el("text",{x:progX,y:Y-38,"text-anchor":"middle","font-size":"9","font-family":MONO,fill:"#6B7280"});
+    nowCap.textContent = "NOW";
+    gNow.appendChild(nowCap);
+    svg.appendChild(gNow);
+    /* 始点 */
+    var t0 = el("text",{x:X0,y:Y+34,"text-anchor":"start","font-size":"11","font-family":MONO,fill:"#6B7280"});
+    t0.textContent = "0";
+    svg.appendChild(t0);
+  })();
+
+  /* ---- プラットフォームカード ---- */
+  (function(){
+    var wrap = document.getElementById("pfCards");
+    var colors = {youtube:"#F87171", tiktok:"#22D3EE"};
+    (D.platforms||[]).forEach(function(p){
+      var card = document.createElement("div");
+      card.className = "card";
+      var count = p.followers==null
+        ? '<span class="unreported">未報告 — 社長からの初回報告待ち</span>'
+        : esc(fmt(p.followers)) + ' <span style="font-size:14px;color:var(--text-3);font-family:var(--sans);font-weight:500">人</span>';
+      var body = '<div class="pf-head"><span class="name" style="color:'+(colors[p.id]||"var(--text)")+'">'+esc(p.name)+'</span><span class="handle">'+esc(p.handle||"")+'</span></div>'
+               + '<div class="pf-count">'+count+'</div>';
+      if(p.history && p.history.length>=2){
+        body += '<div class="pf-spark" data-pf="'+esc(p.id)+'"><svg viewBox="0 0 320 64" preserveAspectRatio="none"></svg><div class="spark-tip"></div></div>';
+      } else {
+        body += '<div class="pf-empty">推移データはまだありません。フォロワー数を報告するたびに、ここに成長曲線が刻まれます。</div>';
+      }
+      card.innerHTML = body;
+      wrap.appendChild(card);
+
+      if(p.history && p.history.length>=2){
+        var box = card.querySelector(".pf-spark"), svg = box.querySelector("svg"), tip = box.querySelector(".spark-tip");
+        var ns="http://www.w3.org/2000/svg";
+        var vals = p.history.map(function(h){return h.count;});
+        var min = Math.min.apply(null,vals), max = Math.max.apply(null,vals);
+        if(max===min){max=min+1;}
+        var pts = p.history.map(function(h,i){
+          return { x: 8 + (304)*(i/(p.history.length-1)), y: 54 - 44*((h.count-min)/(max-min)), h:h };
+        });
+        var path = document.createElementNS(ns,"polyline");
+        path.setAttribute("points", pts.map(function(q){return q.x+","+q.y;}).join(" "));
+        path.setAttribute("fill","none");
+        path.setAttribute("stroke", colors[p.id]||"#A855F7");
+        path.setAttribute("stroke-width","2");
+        path.setAttribute("stroke-linejoin","round");
+        svg.appendChild(path);
+        pts.forEach(function(q){
+          var c = document.createElementNS(ns,"circle");
+          c.setAttribute("cx",q.x); c.setAttribute("cy",q.y); c.setAttribute("r","6");
+          c.setAttribute("fill","transparent"); c.style.cursor="crosshair";
+          c.addEventListener("mouseenter",function(){
+            var rect = svg.getBoundingClientRect();
+            tip.style.left = (q.x/320*rect.width) + "px";
+            tip.style.top  = (q.y/64*rect.height) + "px";
+            tip.textContent = q.h.date + " — " + fmt(q.h.count) + "人";
+            tip.style.display = "block";
+          });
+          c.addEventListener("mouseleave",function(){ tip.style.display="none"; });
+          svg.appendChild(c);
+        });
+      }
+    });
+  })();
+
+  /* ---- 決裁待ち ---- */
+  (function(){
+    var wrap = document.getElementById("approvalList");
+    var items = (D.approvals||[]);
+    if(!items.length){ wrap.innerHTML = '<div class="pf-empty">決裁待ちはありません。良い盤面です。</div>'; return; }
+    items.forEach(function(a){
+      var done = a.status !== "pending";
+      var div = document.createElement("div");
+      div.className = "approval" + (done ? " done" : "");
+      div.innerHTML =
+        '<div class="ap-mark" aria-hidden="true">'+(done?"✓":"!")+'</div>'
+      + '<div><div class="a-title"><span class="a-id">'+esc(a.id)+'</span>'+esc(a.title)+'</div>'
+      + '<div class="a-detail">'+esc(a.detail)+'</div>'
+      + (done ? '' : '<div class="a-how">承認するには Claude に「承認: '+esc(a.id)+'」と伝える</div>')
+      + '</div>';
+      wrap.appendChild(div);
+    });
+  })();
+
+  /* ---- 発令フォーム ---- */
+  (function(){
+    var sel = document.getElementById("orderDept");
+    var optAll = document.createElement("option");
+    optAll.value = "参謀本部"; optAll.textContent = "参謀本部（采配おまかせ）";
+    sel.appendChild(optAll);
+    ORG.forEach(function(o){
+      var op = document.createElement("option");
+      op.value = o.name; op.textContent = o.emoji + " " + o.name + "（" + o.agent + "）";
+      sel.appendChild(op);
+    });
+    function copyText(text, after){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(after, function(){ fallback(); });
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand("copy"); }catch(e){}
+        document.body.removeChild(ta); after();
+      }
+    }
+    document.getElementById("copyOrder").addEventListener("click", function(){
+      var dept = sel.value;
+      var text = (document.getElementById("orderText").value||"").trim();
+      if(!text){ document.getElementById("orderText").focus(); return; }
+      var order = "【社長指令】\n宛先: " + dept + "\n内容: " + text + "\n（Creative Brain Inc. ダッシュボードより発令。directivesへの記録と部門招集をお願いします）";
+      var fb = document.getElementById("orderFeedback");
+      copyText(order, function(){
+        fb.classList.add("show");
+        setTimeout(function(){ fb.classList.remove("show"); }, 3500);
+      });
+    });
+    window.__copyText = copyText;
+  })();
+
+  /* ---- 組織図 ---- */
+  (function(){
+    var grid = document.getElementById("orgGrid");
+    ORG.forEach(function(o){
+      var d = document.createElement("div");
+      d.className = "card dept";
+      d.innerHTML =
+        '<div class="d-head"><span class="d-emoji">'+o.emoji+'</span><span class="d-name">'+esc(o.name)+'</span><span class="d-agent">'+esc(o.agent)+'</span></div>'
+      + '<div class="d-role">'+esc(o.role)+'</div>'
+      + '<div class="d-call"><span class="phrase">「'+esc(o.call)+'」</span><button class="copy-mini" type="button" aria-label="'+esc(o.name)+'への呼びかけ例をコピー">コピー</button></div>';
+      d.querySelector(".copy-mini").addEventListener("click", function(){
+        var btn = this;
+        window.__copyText(o.call, function(){
+          btn.textContent = "✓";
+          setTimeout(function(){ btn.textContent = "コピー"; }, 1800);
+        });
+      });
+      grid.appendChild(d);
+    });
+    var note = document.createElement("div");
+    note.className = "hq-note";
+    note.innerHTML = '社長は自然文で命じるだけでよい。<b>参謀本部（メインのClaude）</b>が該当部門を招集し、成果物を <b>成果物/</b> に納品させます。朝会は <b>/ceo</b>。';
+    grid.appendChild(note);
+  })();
+
+  /* ---- タスク盤 ---- */
+  (function(){
+    var body = document.getElementById("taskBody");
+    var cls = {"着手可":"ready","進行中":"doing","決裁待ち":"waiting","完了":"done"};
+    (D.tasks||[]).forEach(function(t){
+      var tr = document.createElement("tr");
+      tr.innerHTML = '<td style="white-space:nowrap">'+esc(t.dept)+'</td><td>'+esc(t.title)+'</td>'
+        + '<td><span class="badge '+(cls[t.status]||"done")+'">'+esc(t.status)+'</span></td>'
+        + '<td style="white-space:nowrap;color:var(--text-3);font-size:12px">'+esc(t.due||"—")+'</td>';
+      body.appendChild(tr);
+    });
+    if(!(D.tasks||[]).length){
+      body.innerHTML = '<tr><td colspan="4" style="color:var(--text-3)">任務はありません。/ceo で朝会を開き、指令を発令してください。</td></tr>';
+    }
+  })();
+
+  /* ---- 活動ログ ---- */
+  (function(){
+    var wrap = document.getElementById("logList");
+    var items = (D.log||[]).slice().reverse();
+    if(!items.length){ wrap.innerHTML = '<div class="pf-empty">記録はまだありません。</div>'; return; }
+    items.forEach(function(l){
+      var div = document.createElement("div");
+      div.className = "log-item";
+      div.innerHTML = '<span class="l-date">'+esc(l.date)+'</span><span class="l-dept">'+esc(l.dept)+'</span><span class="l-text">'+esc(l.text)+'</span>';
+      wrap.appendChild(div);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
