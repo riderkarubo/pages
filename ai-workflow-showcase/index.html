@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<meta name="last-modified" content="2026-07-16T11:19:55+09:00">
-<title>AIと働く、ある1日。</title>
+<meta name="last-modified" content="2026-07-16T11:52:04+09:00">
+<title>AIと働いた90日、全記録。</title>
 
 <!-- ===== OGP / Slack unfurl ===== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="AIと働く、ある1日。">
-<meta property="og:description" content="日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。">
+<meta property="og:title" content="AIと働いた90日、全記録。">
+<meta property="og:description" content="GAS 117本、HTML 500超、常駐AI秘書。稼働時間は増やさず、同時進行の仕事だけが増えた。実運用ワークフローの実測記録。">
 <meta property="og:url" content="https://riderkarubo.github.io/pages/ai-workflow-showcase/">
 <meta property="og:site_name" content="One Day with AI">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AIと働く、ある1日。">
-<meta name="twitter:description" content="日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。">
+<meta name="twitter:title" content="AIと働いた90日、全記録。">
+<meta name="twitter:description" content="GAS 117本、HTML 500超、常駐AI秘書。稼働時間は増やさず、同時進行の仕事だけが増えた。実運用ワークフローの実測記録。">
 
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%238B5CF6"/><stop offset="1" stop-color="%2322D3EE"/></linearGradient></defs><rect width="32" height="32" rx="7" fill="%2305060C"/><path d="M6 22 C12 10 20 26 26 11" stroke="url(%23g)" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="26" cy="11" r="3.2" fill="%23F472B6"/></svg>'>
 
@@ -132,14 +132,14 @@
   }
   .pill i { font-style: normal; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
   h1 {
-    font-weight: 900; font-size: clamp(46px, 7vw, 92px); line-height: 1.16; letter-spacing: .01em;
+    font-weight: 900; font-size: clamp(44px, 6.6vw, 88px); line-height: 1.18; letter-spacing: .01em;
     margin-bottom: 26px;
   }
   h1 .grad {
     background: linear-gradient(92deg, var(--violet) 0%, var(--cyan) 55%, var(--magenta) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .hero-sub { color: var(--dim); font-size: 16.5px; max-width: 46ch; margin: 0 auto 56px; }
+  .hero-sub { color: var(--dim); font-size: 16.5px; max-width: 48ch; margin: 0 auto 56px; }
 
   .pipe { position: relative; max-width: 860px; margin: 0 auto 34px; }
   .pipe svg { width: 100%; height: auto; display: block; }
@@ -160,12 +160,13 @@
   section { padding: 110px 0; }
   .sec-pill { font-family: var(--mono); font-size: 11px; letter-spacing: .26em; color: var(--cyan); margin-bottom: 16px; }
   h2 { font-weight: 900; font-size: clamp(28px, 3.8vw, 46px); line-height: 1.35; margin-bottom: 14px; }
-  .sec-sub { color: var(--dim); max-width: 56ch; margin-bottom: 52px; }
+  .sec-sub { color: var(--dim); max-width: 58ch; margin-bottom: 52px; }
+  .sec-note { margin-top: 30px; font-size: 12px; color: var(--faint); max-width: 62ch; }
 
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
 
-  /* ================= glass cards / stats ================= */
+  /* ================= glass ================= */
   .glass {
     border-radius: 16px; border: 1px solid transparent;
     background:
@@ -173,6 +174,8 @@
       linear-gradient(150deg, rgba(139,92,246,.5), rgba(34,211,238,.18) 45%, rgba(255,255,255,.06)) border-box;
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   }
+
+  /* ================= stats ================= */
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .card {
     position: relative; padding: 32px 28px;
@@ -191,43 +194,62 @@
   .card-old { display: block; margin-top: 14px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }
   .card-old s { color: var(--magenta); text-decoration-color: var(--magenta); }
 
-  /* ================= day timeline ================= */
-  .tl { position: relative; padding-left: 42px; }
-  .tl::before {
-    content: ""; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px;
-    background: linear-gradient(180deg, var(--violet), var(--cyan) 55%, var(--magenta) 90%, transparent);
-    box-shadow: 0 0 14px rgba(139,92,246,.5);
-  }
-  .tl-item { position: relative; padding: 24px 0; }
-  .tl-item::before {
-    content: ""; position: absolute; left: -37px; top: 36px; width: 11px; height: 11px; border-radius: 50%;
-    background: var(--bg); border: 2.5px solid var(--cyan); box-shadow: 0 0 12px rgba(34,211,238,.75);
-  }
-  .tl-time { font-family: var(--mono); font-size: 13px; color: var(--cyan); letter-spacing: .1em; margin-bottom: 4px; }
-  .tl-t { font-weight: 900; font-size: 18px; margin-bottom: 4px; }
-  .tl-d { color: var(--dim); font-size: 13.5px; max-width: 62ch; }
-  .tl-d a { color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(34,211,238,.4); }
-  .tl-d a:hover { border-bottom-color: var(--cyan); }
-  .tl-role {
-    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
-    font-family: var(--mono); font-size: 11px; color: var(--magenta);
-    border: 1px solid rgba(244,114,182,.35); border-radius: 100px; padding: 5px 13px;
-    background: rgba(244,114,182,.06);
-  }
-  .tl-role::before { content: "●"; font-size: 8px; }
+  /* toggl wide card */
+  .toggl-card { margin-top: 22px; padding: 36px 34px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 30px; align-items: center; }
+  .toggl-card h3 { font-weight: 900; font-size: clamp(19px, 2.2vw, 25px); line-height: 1.5; margin-bottom: 12px; }
+  .toggl-card h3 .up { background: linear-gradient(90deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .toggl-card p { font-size: 13px; color: var(--dim); max-width: 44ch; }
+  .toggl-fig svg { width: 100%; height: auto; display: block; }
+  .tg-lbl { font-family: var(--mono); font-size: 11px; fill: var(--dim); letter-spacing: .05em; }
+  .tg-val { font-family: var(--disp); font-weight: 800; font-size: 15px; fill: var(--ink); }
 
-  /* ================= panel (dive sections) ================= */
-  .panel { padding: 0; overflow: hidden; }
-  .panel-caption {
+  /* asset counter belt */
+  .belt { margin-top: 22px; padding: 26px 20px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; text-align: center; }
+  .belt-item .n { font-family: var(--disp); font-weight: 800; font-size: 30px; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .belt-item .l { font-family: var(--mono); font-size: 10.5px; color: var(--dim); letter-spacing: .06em; margin-top: 2px; }
+
+  /* ================= evolution timeline ================= */
+  .evo-panel { padding: 34px 26px 10px; overflow-x: auto; }
+  .evo-panel svg { min-width: 760px; width: 100%; height: auto; display: block; }
+  .ev-axis { stroke: var(--hair); stroke-width: 1; }
+  .ev-lbl { font-family: var(--mono); font-size: 10.5px; fill: var(--dim); letter-spacing: .06em; }
+  .ev-mk-lbl { font-family: var(--sans); font-weight: 700; font-size: 11.5px; fill: var(--ink); }
+  .ev-mk-t { font-family: var(--mono); font-size: 9.5px; fill: var(--cyan); letter-spacing: .05em; }
+  .ev-area { fill: url(#evArea); opacity: .5; }
+  .ev-line { fill: none; stroke: url(#evLine); stroke-width: 2.2; stroke-linecap: round; }
+  .ev-cnt { font-family: var(--mono); font-size: 10px; fill: var(--faint); }
+
+  .phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 26px; counter-reset: ph; }
+  .phase { padding: 22px 18px; position: relative; }
+  .phase::before {
+    counter-increment: ph; content: counter(ph);
+    position: absolute; top: -13px; left: 16px;
+    font-family: var(--disp); font-weight: 800; font-size: 13px; line-height: 1;
+    color: var(--bg); background: linear-gradient(90deg, var(--violet), var(--cyan));
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .phase .w { font-weight: 900; font-size: 15px; margin-bottom: 6px; }
+  .phase .e { font-size: 11.5px; color: var(--dim); }
+  .phase .t { display: block; margin-top: 10px; font-family: var(--mono); font-size: 10px; color: var(--faint); letter-spacing: .04em; }
+
+  /* ================= patterns ================= */
+  .pat { margin-bottom: 26px; overflow: hidden; }
+  .pat-head { display: flex; align-items: baseline; gap: 14px; padding: 26px 30px 0; }
+  .pat-no { font-family: var(--disp); font-weight: 800; font-size: 15px; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; flex: none; }
+  .pat-t { font-weight: 900; font-size: clamp(17px, 2vw, 21px); }
+  .pat-d { padding: 8px 30px 0 59px; color: var(--dim); font-size: 13px; max-width: 68ch; }
+  .pat-body { padding: 22px 26px 26px; }
+  .pat-caption {
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    padding: 18px 28px; border-top: 1px solid var(--hair);
+    padding: 16px 28px; border-top: 1px solid var(--hair);
     font-size: 12.5px; color: var(--dim);
   }
-  .panel-caption b { color: var(--cyan); font-family: var(--disp); font-weight: 800; }
+  .pat-caption b { color: var(--cyan); font-family: var(--disp); font-weight: 800; }
 
-  /* ---- fan ---- */
-  .fan-scroll { overflow-x: auto; padding: 34px 22px 26px; }
-  .fan-scroll svg { min-width: 720px; width: 100%; height: auto; display: block; }
+  .pat svg { width: 100%; height: auto; display: block; }
+  .fan-scroll { overflow-x: auto; }
+  .fan-scroll svg { min-width: 700px; }
   .fan-node { fill: rgba(13,15,26,.9); stroke: rgba(139,92,246,.45); }
   .fan-node-t { font-family: var(--sans); font-weight: 700; font-size: 13px; fill: var(--ink); }
   .fan-node-s { font-family: var(--mono); font-size: 9.5px; fill: var(--dim); letter-spacing: .08em; }
@@ -239,95 +261,71 @@
   .fan.in .fan-path:nth-of-type(5) { animation-delay: .4s; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
 
-  /* ---- loop ---- */
-  .loop-grid { display: grid; grid-template-columns: 1fr 1fr; }
-  .loop-text { padding: 42px 44px; border-right: 1px solid var(--hair); }
-  .loop-text ol { list-style: none; margin-top: 26px; display: grid; gap: 18px; }
-  .loop-text li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: baseline; }
-  .loop-text .w { font-weight: 900; font-size: 1.1rem; background: linear-gradient(90deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .loop-text .e { color: var(--dim); font-size: .92rem; }
-  .loop-text .fine { margin-top: 26px; font-size: .85rem; color: var(--faint); }
-  .loop-stage { padding: 42px 30px; display: flex; align-items: center; justify-content: center; }
-  .loop-svg { width: 100%; max-width: 340px; display: block; }
-  .lp-ring { fill: none; stroke: url(#loopGrad); stroke-width: 2; opacity: .8; }
-  .lp-dot { fill: #fff; filter: drop-shadow(0 0 8px rgba(139,92,246,.95)); }
-  .lp-orbit-g { transform-origin: 170px 170px; }
-  .loop.spin .lp-orbit-g { animation: orbit 5.5s linear infinite; }
-  @keyframes orbit { to { transform: rotate(360deg); } }
-  .lp-station { fill: rgba(13,15,26,.95); stroke: rgba(139,92,246,.5); rx: 6; }
-  .lp-station-t { font-family: var(--sans); font-weight: 700; font-size: 13px; fill: var(--ink); }
-  .lp-score { font-family: var(--mono); font-weight: 500; font-size: 44px; fill: var(--ink); }
-  .lp-score-cap { font-family: var(--mono); font-size: 11px; fill: var(--faint); letter-spacing: 2px; }
-  .lp-round { font-family: var(--mono); font-size: 12px; fill: var(--dim); letter-spacing: 1px; }
-  .loop.pass .lp-score { fill: var(--cyan); }
-  .lp-pass { font-weight: 900; font-size: 15px; fill: var(--magenta); opacity: 0; }
-  .loop.pass .lp-pass { opacity: 1; transition: opacity .5s var(--ease); }
-  .loop.pass .lp-orbit-g { animation-play-state: paused; }
+  .tri-node { fill: rgba(13,15,26,.92); stroke: rgba(139,92,246,.5); }
+  .tri-t { font-family: var(--sans); font-weight: 700; font-size: 13px; fill: var(--ink); }
+  .tri-s { font-family: var(--mono); font-size: 9.5px; fill: var(--dim); letter-spacing: .05em; }
+  .tri-arrow { fill: none; stroke: url(#fanGrad); stroke-width: 1.7; opacity: .85; marker-end: url(#ah); }
+  .tri-alt { stroke: var(--magenta); opacity: .75; }
 
-  /* ---- gen grid ---- */
-  .gen-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; padding: 26px; }
-  .tile {
-    position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 10px;
-    border: 1px solid rgba(255,255,255,.08);
-    opacity: 0; transform: translateY(14px) scale(.97);
-    transition: opacity .6s var(--ease), transform .6s var(--ease);
+  .steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .step3 { position: relative; padding: 24px 22px; border: 1px solid var(--hair); border-radius: 12px; background: rgba(13,15,26,.6); }
+  .step3::after {
+    content: "→"; position: absolute; right: -16px; top: 50%; transform: translateY(-50%);
+    color: var(--faint); font-size: 17px; z-index: 2;
   }
-  .gen.in .tile { opacity: 1; transform: none; }
-  .gen.in .tile:nth-child(2) { transition-delay: .06s; } .gen.in .tile:nth-child(3) { transition-delay: .12s; }
-  .gen.in .tile:nth-child(4) { transition-delay: .18s; } .gen.in .tile:nth-child(5) { transition-delay: .24s; }
-  .gen.in .tile:nth-child(6) { transition-delay: .3s; }  .gen.in .tile:nth-child(7) { transition-delay: .36s; }
-  .gen.in .tile:nth-child(8) { transition-delay: .42s; } .gen.in .tile:nth-child(9) { transition-delay: .48s; }
-  .gen.in .tile:nth-child(10) { transition-delay: .54s; } .gen.in .tile:nth-child(11) { transition-delay: .6s; }
-  .gen.in .tile:nth-child(12) { transition-delay: .66s; }
-  .tile img { width: 100%; height: 100%; object-fit: cover; }
-  .tile:hover img { transform: scale(1.05); transition: transform .5s var(--ease); }
-  .tile .tag {
-    position: absolute; left: 8px; bottom: 8px;
+  .step3:last-child::after { content: none; }
+  .step3 .w { font-weight: 900; font-size: 1.15rem; margin-bottom: 8px; background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .step3:first-child .w { background: linear-gradient(90deg, var(--magenta), var(--violet)); -webkit-background-clip: text; background-clip: text; }
+  .step3 .e { font-size: .85rem; color: var(--dim); }
+  .step3 .e b { color: var(--ink); font-weight: 700; }
+
+  /* ================= secretary ================= */
+  .sec3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .sec3-col { padding: 30px 28px; }
+  .sec3-col h3 { font-weight: 900; font-size: 1.1rem; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  .sec3-col .grade { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; margin-bottom: 18px; display: block; }
+  .g-auto { color: var(--cyan); }
+  .g-semi { color: var(--violet); }
+  .g-assist { color: var(--magenta); }
+  .sec3-col ul { list-style: none; display: grid; gap: 13px; }
+  .sec3-col li { font-weight: 700; font-size: 13.5px; }
+  .sec3-col li .d { display: block; font-weight: 400; font-size: 11.5px; color: var(--dim); }
+  .dot-auto { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px rgba(34,211,238,.7); margin-right: 8px; }
+  .dot-semi { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 8px rgba(139,92,246,.7); margin-right: 8px; }
+  .dot-assist { display: inline-block; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--magenta); box-shadow: 0 0 8px rgba(244,114,182,.5); margin-right: 8px; }
+  .sec-motto { margin-top: 40px; text-align: center; font-weight: 900; font-size: clamp(17px, 2.2vw, 24px); }
+  .sec-motto .ai { background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sec-motto .hito { color: var(--magenta); }
+
+  /* ================= apps ================= */
+  .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .app-card { overflow: hidden; display: flex; flex-direction: column; }
+  .app-shot { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--hair); background: rgba(13,15,26,.8); }
+  .app-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s var(--ease); }
+  .app-card:hover .app-shot img { transform: scale(1.03); }
+  .app-body { padding: 20px 22px 24px; }
+  .app-name { font-weight: 900; font-size: 15px; margin-bottom: 6px; }
+  .app-desc { font-size: 12px; color: var(--dim); }
+  .app-tag {
+    display: inline-block; margin-top: 14px;
     font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
-    background: rgba(5,6,12,.8); color: var(--cyan); padding: 3px 9px; border-radius: 100px;
-    border: 1px solid rgba(34,211,238,.4);
+    color: var(--cyan); border: 1px solid rgba(34,211,238,.4); border-radius: 100px; padding: 3px 11px;
   }
-  .tile.src { border: 1px solid transparent;
-    background:
-      linear-gradient(rgba(13,15,26,.9), rgba(13,15,26,.9)) padding-box,
-      linear-gradient(150deg, var(--violet), var(--cyan)) border-box;
-  }
-
-  /* ================= evolve ================= */
-  .evo-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: evo; }
-  .evo-step { position: relative; padding: 28px 24px; }
-  .evo-step::after {
-    content: "→"; position: absolute; right: -17px; top: 50%; transform: translateY(-50%);
-    color: var(--faint); font-size: 18px; z-index: 2;
-  }
-  .evo-step:last-child::after { content: none; }
-  .evo-step .w {
-    font-weight: 900; font-size: 1.3rem; letter-spacing: .06em; margin-bottom: 10px;
-    background: linear-gradient(90deg, var(--violet), var(--cyan));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .evo-step:first-child .w { background: linear-gradient(90deg, var(--magenta), var(--violet)); -webkit-background-clip: text; background-clip: text; }
-  .evo-step .e { font-size: .88rem; color: var(--dim); }
-  .evo-step .e b { color: var(--ink); font-weight: 700; }
-  .evo-note { margin-top: 34px; color: var(--dim); font-size: 14px; max-width: 60ch; }
-
-  /* ================= share ================= */
-  .share-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .share-col { padding: 34px 32px; }
-  .share-col h3 { font-weight: 900; font-size: 1.25rem; letter-spacing: .05em; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; }
-  .m-h { width: 11px; height: 11px; border-radius: 50%; border: 2.5px solid var(--magenta); box-shadow: 0 0 10px rgba(244,114,182,.6); flex: none; }
-  .m-a { width: 22px; height: 2.5px; border-radius: 2px; background: linear-gradient(90deg, var(--violet), var(--cyan)); box-shadow: 0 0 8px rgba(34,211,238,.6); flex: none; }
-  .share-col ul { list-style: none; display: grid; gap: 16px; }
-  .share-col li { display: flex; gap: 14px; align-items: baseline; font-weight: 700; font-size: 15px; }
-  .share-col li .m-h, .share-col li .m-a { position: relative; top: -2px; }
-  .share-col .d { display: block; font-weight: 400; font-size: 12.5px; color: var(--dim); }
-  .share-close { margin-top: 44px; text-align: center; font-weight: 900; font-size: clamp(20px, 2.6vw, 28px); }
-  .share-close .hito { color: var(--magenta); }
-  .share-close .ai { background: linear-gradient(90deg, var(--violet), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .apps-more { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .app-txt { padding: 24px 26px; }
+  .app-txt .app-name { display: flex; align-items: center; gap: 10px; }
+  .app-txt .app-desc { max-width: 56ch; }
 
   /* ================= outro ================= */
   .outro { text-align: center; padding-bottom: 70px; }
   .outro .sec-sub { margin-left: auto; margin-right: auto; }
+  .making {
+    max-width: 640px; margin: 0 auto; text-align: left;
+    font-family: var(--mono); font-size: 11.5px; color: var(--dim); line-height: 2.2;
+    padding: 24px 28px;
+  }
+  .making .ok { color: var(--cyan); }
+  .making .hm { color: var(--magenta); }
   .colophon {
     display: flex; gap: 26px; flex-wrap: wrap; justify-content: center;
     margin-top: 50px; padding-top: 26px; border-top: 1px solid var(--hair);
@@ -336,18 +334,19 @@
 
   @media (max-width: 920px) {
     .nav-links { display: none; }
-    .cards, .share-grid { grid-template-columns: 1fr; }
-    .loop-grid { grid-template-columns: 1fr; }
-    .loop-text { border-right: none; border-bottom: 1px solid var(--hair); padding: 32px 28px; }
-    .gen-grid { grid-template-columns: repeat(3, 1fr); }
-    .evo-cols { grid-template-columns: 1fr; }
-    .evo-step::after { content: "↓"; right: auto; left: 26px; top: auto; bottom: -18px; transform: none; }
+    .cards, .sec3, .apps-grid { grid-template-columns: 1fr; }
+    .toggl-card { grid-template-columns: 1fr; }
+    .belt { grid-template-columns: repeat(2, 1fr) ; gap: 18px 8px; }
+    .phases { grid-template-columns: 1fr; gap: 20px; }
+    .steps3 { grid-template-columns: 1fr; }
+    .step3::after { content: "↓"; right: auto; left: 24px; top: auto; bottom: -18px; transform: none; }
+    .apps-more { grid-template-columns: 1fr; }
     section { padding: 84px 0; }
     .hero { padding-top: 80px; }
   }
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
-    .reveal, .gen .tile { opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; }
     .fan-path { stroke-dashoffset: 0 !important; }
   }
 </style>
@@ -360,13 +359,13 @@
 <div class="progress" id="progress"></div>
 
 <nav class="nav" aria-label="ページ内リンク">
-  <a class="logo" href="#top">ONE DAY <i>WITH AI</i></a>
+  <a class="logo" href="#top">90 DAYS <i>WITH AI</i></a>
   <div class="nav-links">
     <a href="#stats">実測</a>
-    <a href="#day">1日の流れ</a>
-    <a href="#dive-fan">深掘り</a>
-    <a href="#evolve">育て方</a>
-    <a href="#share">分担</a>
+    <a href="#evolution">変遷</a>
+    <a href="#patterns">仕事の型</a>
+    <a href="#secretary">AI秘書</a>
+    <a href="#apps">自作アプリ</a>
   </div>
 </nav>
 
@@ -375,8 +374,8 @@
   <!-- ================= HERO ================= -->
   <header class="hero">
     <div class="pill">⚡ <i>Co-crafted with Claude</i> — 構成・文章・実装まで</div>
-    <h1>AIと働く、<br><span class="grad">ある1日。</span></h1>
-    <p class="hero-sub">日々の業務からクリエイティブ制作まで。育てたAIが隣で走る、実運用ワークフローの記録。誇張のない、毎日の話。</p>
+    <h1>AIと働いた90日、<br><span class="grad">全記録。</span></h1>
+    <p class="hero-sub">日々の業務からクリエイティブ制作まで。2026年4月から90日、AIに仕事を任せながら働き方がどう変わったかの、誇張のない実測記録。</p>
 
     <div class="pipe">
       <svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" aria-label="朝から夜へ、仕事が流れるパイプライン">
@@ -392,12 +391,12 @@
         <circle class="flow-dot" r="6" fill="#fff">
           <animateMotion dur="6s" repeatCount="indefinite" path="M20,80 C160,20 300,130 430,80 C560,30 700,120 840,70"/>
         </circle>
-        <text class="lbl" x="20" y="112" text-anchor="start">07:30</text>
-        <text class="lbl-b" x="20" y="130" text-anchor="start">ブリーフィング</text>
-        <text class="lbl" x="430" y="112" text-anchor="middle">11:00 — 19:00</text>
-        <text class="lbl-b" x="430" y="130" text-anchor="middle">展開・自己改善・量産</text>
-        <text class="lbl" x="840" y="102" text-anchor="end">23:00</text>
-        <text class="lbl-b" x="840" y="120" text-anchor="end">引き継ぎ</text>
+        <text class="lbl" x="20" y="112" text-anchor="start">07:30 朝ブリーフィング</text>
+        <text class="lbl-b" x="20" y="130" text-anchor="start">daily-briefing</text>
+        <text class="lbl" x="430" y="112" text-anchor="middle">日中 議事録展開・見積もり・自己改善</text>
+        <text class="lbl-b" x="430" y="130" text-anchor="middle">meeting-pipeline / 見積もりGAS</text>
+        <text class="lbl" x="840" y="102" text-anchor="end">23:00 引き継ぎ</text>
+        <text class="lbl-b" x="840" y="120" text-anchor="end">session-handoff</text>
       </svg>
     </div>
 
@@ -411,7 +410,7 @@
   <section id="stats">
     <div class="sec-pill reveal">01 — MEASURED</div>
     <h2 class="reveal">数字は、実測。</h2>
-    <p class="sec-sub reveal">理想値ではなく、実際にかかっていた時間との比較。対象範囲もあわせて示す。</p>
+    <p class="sec-sub reveal">理想値ではなく、実際にかかっていた時間との比較。そして90日で積み上がった成果物の実数。</p>
     <div class="cards" id="statCards">
       <div class="card glass reveal">
         <div class="card-name">議事録の事後処理</div>
@@ -432,78 +431,154 @@
         <span class="card-old">BEFORE — <s>5分</s> ／ 1通あたり</span>
       </div>
     </div>
+
+    <div class="toggl-card glass reveal">
+      <div>
+        <h3>稼働時間は横ばい。<br><span class="up">同時に回る仕事だけが、増えた。</span></h3>
+        <p>時間記録ツール17ヶ月分の実測。月の総稼働はほぼ変わらないまま、同時進行プロジェクト数が平均8.8件から10.2件へ。空いた手で、次の仕事を持てるようになった。</p>
+      </div>
+      <div class="toggl-fig">
+        <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg" aria-label="月間稼働時間は横ばい、同時進行プロジェクト数は増加の模式図">
+          <line x1="40" y1="170" x2="400" y2="170" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          <text class="tg-lbl" x="40" y="192">AI導入前</text>
+          <text class="tg-lbl" x="400" y="192" text-anchor="end">現在</text>
+          <path d="M40,80 C160,84 280,78 400,86" fill="none" stroke="#9BA3C7" stroke-width="2" opacity=".7" stroke-dasharray="1 0"/>
+          <text class="tg-lbl" x="40" y="66">月間稼働</text>
+          <text class="tg-val" x="400" y="72" text-anchor="end" fill="#9BA3C7">157h → 149h</text>
+          <path d="M40,140 C160,136 280,110 400,96" fill="none" stroke="url(#pg)" stroke-width="2.6"/>
+          <circle cx="400" cy="96" r="4.5" fill="#22D3EE" class="node-dot"/>
+          <text class="tg-lbl" x="40" y="158">同時進行の案件</text>
+          <text class="tg-val" x="400" y="118" text-anchor="end">8.8 → 10.2件（+16%）</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="belt glass reveal">
+      <div class="belt-item"><div class="n" data-to="117">0</div><div class="l">業務GAS（本）</div></div>
+      <div class="belt-item"><div class="n" data-to="500">0</div><div class="l">提案書・ボードHTML（超）</div></div>
+      <div class="belt-item"><div class="n" data-to="19">0</div><div class="l">保護付き公開デッキ</div></div>
+      <div class="belt-item"><div class="n" data-to="161">0</div><div class="l">育てたスキル</div></div>
+      <div class="belt-item"><div class="n" data-to="87">0</div><div class="l">セッション引き継ぎ書</div></div>
+    </div>
+
+    <p class="sec-note reveal">※ 2026年7月16日にワークスペースを実カウント。効率化をAI単独の効果とは断定しない。確実に言えるのは、処理キャパが広がった実測と、自動化ツールを自作してきた外部証跡。</p>
   </section>
 
-  <!-- ================= DAY FLOW ================= -->
-  <section id="day">
-    <div class="sec-pill reveal">02 — TIMELINE</div>
-    <h2 class="reveal">1日は、こう流れる。</h2>
-    <p class="sec-sub reveal">朝から夜まで8つの場面。光の線の上を仕事が流れ、ピンクの印のところでだけ、人が手を止めて判断する。</p>
+  <!-- ================= EVOLUTION ================= -->
+  <section id="evolution">
+    <div class="sec-pill reveal">02 — EVOLUTION</div>
+    <h2 class="reveal">頼む、から任せるへ。</h2>
+    <p class="sec-sub reveal">90日の記録を読み返すと、働き方は5段階で変わっていた。曲線は月ごとの作業記録数。仕組みが増えるほど、1日に回るセッションが増えていく。</p>
 
-    <div class="tl">
-      <div class="tl-item reveal">
-        <div class="tl-time">07:30</div>
-        <div class="tl-t">朝のブリーフィング</div>
-        <div class="tl-d">今日の予定、未返信のメッセージ、昨日からの持ち越しを、AIが1枚に集約して差し出す。</div>
-        <span class="tl-role">読んで優先順位を決める</span>
+    <div class="evo-panel glass reveal">
+      <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" aria-label="4月から7月の活動量とスタイル変遷のタイムライン">
+        <defs>
+          <linearGradient id="evLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8B5CF6"/><stop offset=".6" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/>
+          </linearGradient>
+          <linearGradient id="evArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="rgba(139,92,246,.45)"/><stop offset="1" stop-color="rgba(139,92,246,0)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- axis -->
+        <line class="ev-axis" x1="60" y1="228" x2="860" y2="228"/>
+        <text class="ev-lbl" x="60" y="250">4月</text>
+        <text class="ev-lbl" x="272" y="250">5月</text>
+        <text class="ev-lbl" x="492" y="250">6月</text>
+        <text class="ev-lbl" x="704" y="250">7月</text>
+
+        <!-- activity area: 月別セッション記録数 5 / 29 / 93 / 82 -->
+        <path class="ev-area" d="M60,224 L166,220 C240,216 300,204 378,180 C450,158 500,80 590,62 C650,52 700,64 782,74 L830,80 L830,228 L60,228 Z"/>
+        <path class="ev-line" d="M60,224 L166,220 C240,216 300,204 378,180 C450,158 500,80 590,62 C650,52 700,64 782,74 L830,80"/>
+        <text class="ev-cnt" x="166" y="208">5</text>
+        <text class="ev-cnt" x="378" y="166">29</text>
+        <text class="ev-cnt" x="590" y="48">93</text>
+        <text class="ev-cnt" x="782" y="60">82</text>
+
+        <!-- markers -->
+        <g>
+          <circle cx="222" cy="218" r="4.5" fill="#22D3EE" class="node-dot"/>
+          <line x1="222" y1="218" x2="222" y2="120" stroke="rgba(34,211,238,.3)" stroke-width="1"/>
+          <text class="ev-mk-t" x="222" y="104" text-anchor="middle">4/23</text>
+          <text class="ev-mk-lbl" x="222" y="88" text-anchor="middle">初の常駐アプリ稼働</text>
+        </g>
+        <g>
+          <circle cx="437" cy="192" r="4.5" fill="#22D3EE" class="node-dot"/>
+          <line x1="437" y1="192" x2="437" y2="150" stroke="rgba(34,211,238,.3)" stroke-width="1"/>
+          <text class="ev-mk-t" x="437" y="134" text-anchor="middle">5/21</text>
+          <text class="ev-mk-lbl" x="437" y="118" text-anchor="middle">引き継ぎ書の運用開始</text>
+        </g>
+        <g>
+          <circle cx="640" cy="56" r="4.5" fill="#F472B6" class="node-dot"/>
+          <line x1="640" y1="56" x2="640" y2="34" stroke="rgba(244,114,182,.35)" stroke-width="1"/>
+          <text class="ev-mk-t" x="640" y="24" text-anchor="middle" fill="#F472B6">6/22</text>
+          <text class="ev-mk-lbl" x="640" y="10" text-anchor="middle" opacity="0"> </text>
+          <text class="ev-mk-lbl" x="646" y="52" text-anchor="start">禁止事項をフックで機械化</text>
+        </g>
+        <g>
+          <circle cx="740" cy="64" r="4.5" fill="#22D3EE" class="node-dot"/>
+          <line x1="740" y1="64" x2="740" y2="130" stroke="rgba(34,211,238,.3)" stroke-width="1"/>
+          <text class="ev-mk-t" x="740" y="146" text-anchor="middle">7/7</text>
+          <text class="ev-mk-lbl" x="740" y="162" text-anchor="middle">返信秘書が無人稼働</text>
+        </g>
+        <g>
+          <circle cx="800" cy="76" r="4.5" fill="#F472B6" class="node-dot"/>
+          <line x1="800" y1="76" x2="800" y2="180" stroke="rgba(244,114,182,.35)" stroke-width="1"/>
+          <text class="ev-mk-t" x="800" y="196" text-anchor="middle" fill="#F472B6">7/10</text>
+          <text class="ev-mk-lbl" x="800" y="212" text-anchor="middle">ルール8,826行を340行へ蒸留</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="phases">
+      <div class="phase glass reveal">
+        <p class="w">頼む</p>
+        <p class="e">資料もスライドも、都度依頼して受け取る。AIは便利な外注先。</p>
+        <span class="t">4月上旬</span>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">09:00</div>
-        <div class="tl-t">返信の下書き</div>
-        <div class="tl-d">未返信を検知して、本人の文体と相手別の敬語ルールを守った返信案が既に用意されている。</div>
-        <span class="tl-role">確認して送信する</span>
+      <div class="phase glass reveal">
+        <p class="w">覚えさせる</p>
+        <p class="e">指摘をルール化し、見積もりGASやテンプレを再利用資産に変える。</p>
+        <span class="t">4月下旬〜5月</span>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">10:00</div>
-        <div class="tl-t">会議の事前ブリーフ</div>
-        <div class="tl-d">前回の宿題、先方との直近のやり取り、想定問答を1枚のブリーフに。準備時間は読む時間だけ。</div>
-        <span class="tl-role">会議で話すのは人</span>
+      <div class="phase glass reveal">
+        <p class="w">任せる</p>
+        <p class="e">業務ごとに専用スキルを建て、ボードやダッシュボードの日次運用をAIが担う。</p>
+        <span class="t">6月上旬〜中旬</span>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">11:00</div>
-        <div class="tl-t">議事録の5方面展開</div>
-        <div class="tl-d">会議が終わると、議事録1本から5つの仕事が同時に始まる。<a href="#dive-fan">下で詳しく</a></div>
-        <span class="tl-role">最終確認だけ</span>
+      <div class="phase glass reveal">
+        <p class="w">間違えられなくする</p>
+        <p class="e">「ルールを読んで守る」をやめ、禁止操作をフックで物理的に実行不能にする。</p>
+        <span class="t">6月下旬</span>
       </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">14:00</div>
-        <div class="tl-t">提案書の自己改善ループ</div>
-        <div class="tl-d">初稿はAI自身がレビューし、基準に届くまで書き直す。<a href="#dive-loop">下で詳しく</a></div>
-        <span class="tl-role">戦略の采配は人</span>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">16:00</div>
-        <div class="tl-t">見積もりの自動構築</div>
-        <div class="tl-d">過去の類似案件を索引から参照し、スプレッドシートをスクリプトで自動生成する。</div>
-        <span class="tl-role">条件と金額の最終判断</span>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">19:00</div>
-        <div class="tl-t">クリエイティブ量産</div>
-        <div class="tl-d">商品画像1枚から、AI画像とAI動画のサンプルが増えていく。<a href="#dive-gen">下で詳しく</a></div>
-        <span class="tl-role">方向を決めて、選ぶ</span>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-time">23:00</div>
-        <div class="tl-t">引き継ぎメモ</div>
-        <div class="tl-d">今日の文脈をAIが自分で記録して、明日の自分とAIに引き継ぐ。忘れる心配ごと、手放す。</div>
-        <span class="tl-role">おやすみ、だけ</span>
+      <div class="phase glass reveal">
+        <p class="w">AIがAIを改善する</p>
+        <p class="e">AIが自分のルール・スキル・環境を並列エージェントで監査し、圧縮し、常駐システムが人の代わりに回る。</p>
+        <span class="t">7月</span>
       </div>
     </div>
   </section>
 
-  <!-- ================= DIVE: FAN ================= -->
-  <section id="dive-fan">
-    <div class="sec-pill reveal">03 — DEEP DIVE</div>
-    <h2 class="reveal">会議が終わると、<br>5つの仕事が始まっている。</h2>
-    <p class="sec-sub reveal">議事録1本が5つの成果物に分岐する。かつては午後をまるごと使っていた作業。</p>
-    <div class="panel glass reveal">
-      <div class="fan-scroll">
+  <!-- ================= PATTERNS ================= -->
+  <section id="patterns">
+    <div class="sec-pill reveal">03 — PATTERNS</div>
+    <h2 class="reveal">実務から生まれた、5つの型。</h2>
+    <p class="sec-sub reveal">一般論ではなく、実際の案件の中で繰り返し使われて型になったものだけを並べる。</p>
+
+    <!-- 型1: fan -->
+    <div class="pat glass reveal">
+      <div class="pat-head"><span class="pat-no">型 01</span><span class="pat-t">議事録1本が、5つの仕事になる</span></div>
+      <p class="pat-d">外部会議が終わると、録音AIの議事録1本から5つの成果物が同時に走り出す。かつて午後の1時間を使っていた事後処理が、確認だけの15分になった。</p>
+      <div class="pat-body fan-scroll">
         <svg class="fan" id="fan" viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg" aria-label="議事録1本が5つの成果物に分岐する図">
           <defs>
             <linearGradient id="fanGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
             </linearGradient>
+            <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#22D3EE" stroke-width="1.4"/>
+            </marker>
           </defs>
           <path class="fan-path" d="M215,165 C330,165 380,40 500,40"/>
           <path class="fan-path" d="M215,165 C330,165 380,102 500,102"/>
@@ -542,148 +617,219 @@
           </g>
         </svg>
       </div>
-      <p class="panel-caption"><span>所要 <b>15分</b>。人の作業は最終確認のみ。</span><span>60分かかっていた仕事</span></p>
+      <p class="pat-caption"><span>所要 <b>15分</b>。人の作業は最終確認のみ。</span><span>実例: 議事録1本から新規案件2件を同時立ち上げした日もある</span></p>
     </div>
-  </section>
 
-  <!-- ================= DIVE: LOOP ================= -->
-  <section id="dive-loop">
-    <div class="sec-pill reveal">04 — DEEP DIVE</div>
-    <h2 class="reveal">AIが、AIの原稿を差し戻す。</h2>
-    <p class="sec-sub reveal">提案書の初稿は、評価基準にそってAI自身がレビューする。基準の9.0点に届くまで、生成と修正が自動で繰り返される。</p>
-    <div class="panel glass reveal">
-      <div class="loop" id="loop">
-        <div class="loop-grid">
-          <div class="loop-text">
-            <ol>
-              <li><span class="w">生成</span><span class="e">骨子と過去の類似提案をもとに初稿を書く。</span></li>
-              <li><span class="w">評価</span><span class="e">論理の飛躍、根拠の弱さ、表現の粗さを自分で採点する。</span></li>
-              <li><span class="w">修正</span><span class="e">指摘を反映して書き直し、もう一度評価に回す。</span></li>
-            </ol>
-            <p class="fine">基準に届かない場合は5周で止まり、人に差し戻される。合格しても、最後に読むのは人。</p>
+    <!-- 型2: 3層設計 -->
+    <div class="pat glass reveal">
+      <div class="pat-head"><span class="pat-no">型 02</span><span class="pat-t">見積もりは、人とAIの双方向編集</span></div>
+      <p class="pat-d">見積もりスプレッドシートはスクリプトが生成する。だが人が手で直した数字をAIが読み戻し、マスター側を同期する。「生成して終わり」ではなく、台帳が育ち続ける3層設計。90日で業務GASは117本になった。</p>
+      <div class="pat-body">
+        <svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" aria-label="マスターGASとスプレッドシートと検査スクリプトの循環図">
+          <path class="tri-arrow" d="M255,86 C320,60 380,60 440,84"/>
+          <path class="tri-arrow" d="M600,130 C590,160 560,185 520,196"/>
+          <path class="tri-arrow tri-alt" d="M330,196 C290,185 262,160 250,132" marker-end="url(#ah)"/>
+          <g>
+            <rect class="tri-node" x="80" y="80" width="180" height="60" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="100" y="105">MASTER</text>
+            <text class="tri-t" x="100" y="126">マスターGAS</text>
+          </g>
+          <g>
+            <rect class="tri-node" x="445" y="60" width="200" height="60" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="465" y="85">SHEET</text>
+            <text class="tri-t" x="465" y="106">見積もりシート生成</text>
+          </g>
+          <g>
+            <rect class="tri-node" x="340" y="170" width="190" height="56" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="360" y="193">INSPECT</text>
+            <text class="tri-t" x="360" y="213">全行ダンプ → AI解析</text>
+          </g>
+          <text class="tri-s" x="330" y="48" fill="#22D3EE">① スクリプトが生成</text>
+          <text class="tri-s" x="620" y="170" fill="#22D3EE">② 人が手で修正</text>
+          <text class="tri-s" x="120" y="180" fill="#F472B6">③ AIがマスターへ逆同期</text>
+        </svg>
+      </div>
+      <p class="pat-caption"><span>共通フレームワーク継承・<b>117本</b>のGASが同じ型で動く</span><span>過去案件の索引から類似見積もりを自動参照</span></p>
+    </div>
+
+    <!-- 型3: 失敗→ルール→機械化 -->
+    <div class="pat glass reveal">
+      <div class="pat-head"><span class="pat-no">型 03</span><span class="pat-t">失敗は、その夜のうちに仕組みになる</span></div>
+      <p class="pat-d">実話。深夜の作業で、AIが資料の更新時刻を推測で書いた。翌日にはルールになり、やがて保存のたびに走る自動チェックになった。同じ progression で、危険なコマンドや禁止表現は「実行そのものがブロックされる」仕組みまで進んでいる。</p>
+      <div class="pat-body">
+        <div class="steps3">
+          <div class="step3">
+            <p class="w">失敗</p>
+            <p class="e">AIが更新時刻を<b>推測で</b>記載。実際の時刻とずれていた。</p>
           </div>
-          <div class="loop-stage">
-            <svg class="loop-svg" viewBox="0 0 340 340" aria-label="生成と評価と修正が循環し、スコアが基準に達すると止まる図">
-              <defs>
-                <linearGradient id="loopGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
-                </linearGradient>
-              </defs>
-              <circle class="lp-ring" cx="170" cy="170" r="118"/>
-              <g class="lp-orbit-g"><circle class="lp-dot" cx="170" cy="52" r="6"/></g>
-              <g>
-                <rect class="lp-station" x="134" y="18" width="72" height="30"/>
-                <text class="lp-station-t" x="170" y="38" text-anchor="middle">生成</text>
-              </g>
-              <g>
-                <rect class="lp-station" x="242" y="240" width="72" height="30"/>
-                <text class="lp-station-t" x="278" y="260" text-anchor="middle">評価</text>
-              </g>
-              <g>
-                <rect class="lp-station" x="26" y="240" width="72" height="30"/>
-                <text class="lp-station-t" x="62" y="260" text-anchor="middle">修正</text>
-              </g>
-              <text class="lp-score" id="lpScore" x="170" y="178" text-anchor="middle">6.8</text>
-              <text class="lp-score-cap" x="170" y="202" text-anchor="middle">/ 10.0</text>
-              <text class="lp-round" id="lpRound" x="170" y="228" text-anchor="middle">1周目</text>
-              <text class="lp-pass" x="170" y="140" text-anchor="middle">合格</text>
-            </svg>
+          <div class="step3">
+            <p class="w">ルール</p>
+            <p class="e">「時刻は必ず時計を見てから書く」。<b>その夜のうちに</b>明文化。</p>
+          </div>
+          <div class="step3">
+            <p class="w">機械化</p>
+            <p class="e">ルールは意思ではなく<b>フック</b>で守る。違反操作は実行自体が拒否される。</p>
           </div>
         </div>
-        <p class="panel-caption"><span>4周目で基準の <b>9.0</b> を超えて停止</span><span>人が待つのは、仕上がった原稿だけ</span></p>
       </div>
+      <p class="pat-caption"><span>学習スキル <b>181</b>ファイル・確定ルール <b>54</b>本が同じ経路で生まれた</span><span>同じ失敗は、もう起きない</span></p>
+    </div>
+
+    <!-- 型4: 暗号化公開 -->
+    <div class="pat glass reveal">
+      <div class="pat-head"><span class="pat-no">型 04</span><span class="pat-t">社外秘を、公開Webで安全に回す</span></div>
+      <p class="pat-d">営業パイプラインのダッシュボードは、公開リポジトリの上で動いている。データ本体を暗号化して埋め込み、閲覧は社内アカウント限定の認証で解く。SaaSを買わずに、AIと自前で建てた仕組み。</p>
+      <div class="pat-body">
+        <svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" aria-label="業務データを暗号化して公開Webに置き、認証で閲覧する流れ">
+          <path class="tri-arrow" d="M255,75 L335,75"/>
+          <path class="tri-arrow" d="M590,75 L670,75"/>
+          <g>
+            <rect class="tri-node" x="60" y="45" width="195" height="60" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="80" y="70">SOURCE</text>
+            <text class="tri-t" x="80" y="91">案件データ（社外秘）</text>
+          </g>
+          <g>
+            <rect class="tri-node" x="340" y="45" width="250" height="60" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="360" y="70">ENCRYPT + AUTH</text>
+            <text class="tri-t" x="360" y="91">暗号化 × 社内アカウント認証</text>
+          </g>
+          <g>
+            <rect class="tri-node" x="675" y="45" width="180" height="60" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="695" y="70">PUBLIC WEB</text>
+            <text class="tri-t" x="695" y="91">どこからでも閲覧</text>
+          </g>
+        </svg>
+      </div>
+      <p class="pat-caption"><span>保護付き公開デッキ <b>19</b>サイトが運用中</span><span>更新は「復号 → 編集 → 再暗号化 → 漏洩ゼロ検査」の機械フロー</span></p>
+    </div>
+
+    <!-- 型5: 3案並行 -->
+    <div class="pat glass reveal">
+      <div class="pat-head"><span class="pat-no">型 05</span><span class="pat-t">1案を磨かず、3案から選ぶ</span></div>
+      <p class="pat-d">創作物は「1案を出して直す」を繰り返さない。軸の違う3案を並行で作らせて、人は選ぶだけ。試行回数が3倍になり、案同士の良いところを混ぜる発想も生まれる。</p>
+      <div class="pat-body">
+        <svg viewBox="0 0 900 210" xmlns="http://www.w3.org/2000/svg" aria-label="1つの依頼から3案が並行生成され1案が選ばれる図">
+          <path class="fan-path" style="stroke-dasharray:none;stroke-dashoffset:0" d="M250,105 C330,105 360,45 440,45"/>
+          <path class="fan-path" style="stroke-dasharray:none;stroke-dashoffset:0" d="M250,105 C340,105 360,105 440,105"/>
+          <path class="fan-path" style="stroke-dasharray:none;stroke-dashoffset:0" d="M250,105 C330,105 360,165 440,165"/>
+          <g>
+            <rect class="tri-node" x="70" y="75" width="180" height="60" rx="12" stroke-width="1.5"/>
+            <text class="tri-s" x="90" y="100">BRIEF</text>
+            <text class="tri-t" x="90" y="121">依頼はひとつ</text>
+          </g>
+          <g opacity=".55">
+            <rect class="tri-node" x="440" y="23" width="330" height="44" rx="10"/>
+            <text class="tri-t" x="462" y="50">A案 — 司令室ダーク</text>
+          </g>
+          <g>
+            <rect class="tri-node" x="440" y="83" width="330" height="44" rx="10" stroke="url(#fanGrad)" stroke-width="2"/>
+            <text class="tri-t" x="462" y="110">C案 — オーロラ・プレミアム ✓ 採用</text>
+            <circle class="node-dot" cx="790" cy="105" r="4.5" fill="#F472B6"/>
+          </g>
+          <g opacity=".55">
+            <rect class="tri-node" x="440" y="143" width="330" height="44" rx="10"/>
+            <text class="tri-t" x="462" y="170">B案 — キネティック・タイポ</text>
+          </g>
+        </svg>
+      </div>
+      <p class="pat-caption"><span>提案骨子・メール・デザインで常用</span><span><b>このページ自体</b>が3案比較からC案が選ばれた実物</span></p>
     </div>
   </section>
 
-  <!-- ================= DIVE: GEN GRID ================= -->
-  <section id="dive-gen">
-    <div class="sec-pill reveal">05 — DEEP DIVE</div>
-    <h2 class="reveal">翌朝には、12案。</h2>
-    <p class="sec-sub reveal">商品画像1枚から、AIが画像と動画のサンプルを量産する。人の仕事は方向を決めることと、選ぶこと。</p>
-    <div class="panel glass reveal">
-      <div class="gen" id="gen">
-        <div class="gen-grid">
-          <figure class="tile src"><img src="https://picsum.photos/seed/oneday-src/400/500" alt="元になる商品画像のイメージ" loading="lazy"><figcaption class="tag">元画像</figcaption></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g02/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g03/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g04/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g05/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g06/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g07/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g08/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g09/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g10/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g11/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
-          <figure class="tile"><img src="https://picsum.photos/seed/oneday-g12/400/500" alt="生成サンプルのイメージ" loading="lazy"></figure>
+  <!-- ================= SECRETARY ================= -->
+  <section id="secretary">
+    <div class="sec-pill reveal">04 — SECRETARY</div>
+    <h2 class="reveal">寝ている間も、秘書は働く。</h2>
+    <p class="sec-sub reveal">単発の依頼ではなく、常駐して回り続けるシステム群。自動化の深さは3段階に分かれている。</p>
+    <div class="sec3">
+      <div class="sec3-col glass reveal">
+        <h3>完全無人</h3>
+        <span class="grade g-auto">HANDS-FREE</span>
+        <ul>
+          <li><span class="dot-auto"></span>返信秘書<span class="d">1分間隔でSlack/メールの未返信を検知し、本人の文体ルール1,000行超に沿った下書きをDMへ配達</span></li>
+          <li><span class="dot-auto"></span>稼働記録の自動同期<span class="d">毎週土曜9:00、カレンダーの予定を時間記録ツールへ無人複製</span></li>
+        </ul>
+      </div>
+      <div class="sec3-col glass reveal">
+        <h3>半自動</h3>
+        <span class="grade g-semi">HUMAN FINAL TAP</span>
+        <ul>
+          <li><span class="dot-semi"></span>請求処理<span class="d">請求書PDFをAIが直読し、管理シート転記と申請フォーム投入まで。申請ボタンだけ人</span></li>
+          <li><span class="dot-semi"></span>経費精算<span class="d">レシートを放り込むと42種の内訳を自動判定してフォームへ一括投入</span></li>
+          <li><span class="dot-semi"></span>勤怠打刻<span class="d">月末に平日分を一括処理。土日祝は自動除外</span></li>
+        </ul>
+      </div>
+      <div class="sec3-col glass reveal">
+        <h3>AI支援</h3>
+        <span class="grade g-assist">CO-PILOT</span>
+        <ul>
+          <li><span class="dot-assist"></span>朝のブリーフィング<span class="d">予定・未返信・持ち越しを1枚に集約して差し出す</span></li>
+          <li><span class="dot-assist"></span>月次振り返り<span class="d">本人とチームメンバーの稼働分析レポートを自動生成</span></li>
+          <li><span class="dot-assist"></span>会議の事前ブリーフ<span class="d">前回の宿題・直近のやり取り・想定問答を1枚に</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="sec-motto reveal">下書き・転記・判定までは<span class="ai">AI</span>。送信・申請・確定は、必ず<span class="hito">人</span>がボタンを押す。</p>
+  </section>
+
+  <!-- ================= APPS ================= -->
+  <section id="apps">
+    <div class="sec-pill reveal">05 — APPS</div>
+    <h2 class="reveal">道具がなければ、AIと作る。</h2>
+    <p class="sec-sub reveal">業務の隙間を埋めるアプリは、探すより作る方が早かった。すべてAIとの共作で、実際の現場で使われているもの。</p>
+    <div class="apps-grid">
+      <div class="app-card glass reveal">
+        <div class="app-shot"><img src="assets/shot-qa-aggregator.png" alt="質問コメント集計アプリの画面。CSVをドラッグアンドドロップするとAIが配信現場判定とアーカイブ判定を統合してExcelを出力する" loading="lazy"></div>
+        <div class="app-body">
+          <div class="app-name">質問コメント集計アプリ</div>
+          <div class="app-desc">ライブ配信の質問コメントをAIが意味ベースで突合し、回答率を自動集計してExcel出力。配信レポートの手集計を置き換えた。</div>
+          <span class="app-tag">Next.js + AI判定</span>
         </div>
-        <p class="panel-caption"><span>1枚 → <b>12案</b>。写真はイメージ。</span><span>選ぶ楽しさだけが残る</span></p>
+      </div>
+      <div class="app-card glass reveal">
+        <div class="app-shot"><img src="assets/shot-offsite-timer.png" alt="オフサイトタイマーの画面。アジェンダごとの残り時間と遅延調整ボタンが並ぶ" loading="lazy"></div>
+        <div class="app-body">
+          <div class="app-name">オフサイトタイマー</div>
+          <div class="app-desc">社内合宿の進行を分単位でタイムキープ。遅延をワンタップで全アジェンダに波及させる。全社イベント当日に実運用された。</div>
+          <span class="app-tag">PWA・オフライン対応</span>
+        </div>
+      </div>
+      <div class="app-card glass reveal">
+        <div class="app-shot"><img src="assets/shot-code-guide.png" alt="Claude Codeコマンド活用指南書の画面。コマンドをシーン別に引けるダークテーマのリファレンス" loading="lazy"></div>
+        <div class="app-body">
+          <div class="app-name">AI活用の社内ガイド</div>
+          <div class="app-desc">自分のAI環境の使い方をリファレンス化して公開。チームや制作パートナーへのAI教育教材も同じ型で量産している。</div>
+          <span class="app-tag">ナレッジ移転</span>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- ================= EVOLVE ================= -->
-  <section id="evolve">
-    <div class="sec-pill reveal">06 — GROWTH</div>
-    <h2 class="reveal">昨日の失敗が、<br>今日の仕組みになる。</h2>
-    <p class="sec-sub reveal">このワークフローの本当の核心は、道具の便利さではなく、AIが育つこと。ひとつの実例で示す。</p>
-    <div class="evo-cols">
-      <div class="evo-step glass reveal">
-        <p class="w">失敗</p>
-        <p class="e">深夜の作業で、AIが資料の更新時刻を<b>推測で</b>書いた。実際の時刻とずれていた。</p>
+    <div class="apps-more">
+      <div class="app-txt glass reveal">
+        <div class="app-name"><span class="dot-auto"></span>コメント抽出ツール v4</div>
+        <div class="app-desc">配信中のコメントをリアルタイムでスプレッドシートに記録するブラウザ拡張。v2から改良を重ね、非エンジニアに配布するためのスクショ18枚入りマニュアルまでAIと制作。</div>
       </div>
-      <div class="evo-step glass reveal">
-        <p class="w">ルール</p>
-        <p class="e">「時刻は必ず時計を見てから書く」。失敗した夜のうちに、明文化されたルールになる。</p>
-      </div>
-      <div class="evo-step glass reveal">
-        <p class="w">機械化</p>
-        <p class="e">ルールは意思ではなく<b>仕組み</b>で守る。保存のたびに自動チェックが走るようになる。</p>
-      </div>
-      <div class="evo-step glass reveal">
-        <p class="w">スキル</p>
-        <p class="e">以後、すべての仕事でこの検証が働く。同じ失敗は、もう起きない。</p>
+      <div class="app-txt glass reveal">
+        <div class="app-name"><span class="dot-semi"></span>音楽制作ソフトを操作するAI接続</div>
+        <div class="app-desc">公開APIのないDAW（音楽制作ソフト）をAIから操作するための自作コネクタ。「ボーカルを2dB上げて」の一言でミックスが動く。仕事の型は、趣味の制作にも波及する。</div>
       </div>
     </div>
-    <p class="evo-note reveal">この循環が毎日まわる。使えば使うほど、AIは自分の仕事の癖を覚えた右腕になっていく。</p>
-  </section>
-
-  <!-- ================= SHARE ================= -->
-  <section id="share">
-    <div class="sec-pill reveal">07 — ROLES</div>
-    <h2 class="reveal">奪われるのではなく、任せる。</h2>
-    <p class="sec-sub reveal">この1日で、人とAIがそれぞれ何をしていたか。分担は最初から決まっている。</p>
-    <div class="share-grid">
-      <div class="share-col glass reveal">
-        <h3><span class="m-h"></span>人がやること</h3>
-        <ul>
-          <li><span class="m-h"></span><span>判断する<span class="d">優先順位、金額、戦略の采配</span></span></li>
-          <li><span class="m-h"></span><span>関係を築く<span class="d">会って、話して、信頼をつくる</span></span></li>
-          <li><span class="m-h"></span><span>違和感に気づく<span class="d">数字にならない小さな引っかかり</span></span></li>
-          <li><span class="m-h"></span><span>最終責任を持つ<span class="d">送る前、出す前の最後の目</span></span></li>
-        </ul>
-      </div>
-      <div class="share-col glass reveal">
-        <h3><span class="m-a"></span>AIがやること</h3>
-        <ul>
-          <li><span class="m-a"></span><span>集める<span class="d">予定、未返信、文脈、過去の類似</span></span></li>
-          <li><span class="m-a"></span><span>下書きする<span class="d">返信、議事録展開、提案書、見積もり</span></span></li>
-          <li><span class="m-a"></span><span>繰り返す<span class="d">自己レビュー、量産、検証</span></span></li>
-          <li><span class="m-a"></span><span>記録する<span class="d">今日の文脈と、昨日の失敗</span></span></li>
-        </ul>
-      </div>
-    </div>
-    <p class="share-close reveal"><span class="hito">人は判断</span>に、<span class="ai">AIは実行</span>に。</p>
   </section>
 
   <!-- ================= OUTRO ================= -->
   <section class="outro" id="outro">
-    <div class="sec-pill reveal">08 — COLOPHON</div>
+    <div class="sec-pill reveal">06 — COLOPHON</div>
     <h2 class="reveal">このページも、<br>AIと作った。</h2>
-    <p class="sec-sub reveal">構成も、文章も、デザインも、いま見てきたアニメーションも。ここまで読んだすべてが、本文に登場した相棒との共作。特別な1日ではなく、これがふつうの1日。あなたの毎日にも、同じことが起こせる。</p>
+    <p class="sec-sub reveal">構成も、文章も、デザインも、数字の実測も。ここまで読んだすべてが、本文に登場した相棒との共作。制作の過程まで、この90日の働き方そのものだった。</p>
+    <div class="making glass reveal">
+      <div><span class="ok">✓</span> デザイン3案を並行生成 → C案（オーロラ・プレミアム）を選定</div>
+      <div><span class="hm">✗</span> 初稿は「一般的なAI活用」の内容で差し戻し</div>
+      <div><span class="ok">✓</span> 解析エージェント5部隊がワークスペース全体を棚卸し</div>
+      <div><span class="ok">✓</span> 実測値だけで骨子を再構成 → 承認 → この実装</div>
+    </div>
     <div class="colophon">
       <span>書体: Sora / Noto Sans JP / IBM Plex Mono</span>
       <span>実装: HTML + CSS + SVG（ライブラリ不使用）</span>
-      <span>最終更新: 2026年7月16日 11:19</span>
+      <span>最終更新: 2026年7月16日 11:52</span>
     </div>
   </section>
 
@@ -709,24 +855,28 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ---------- stat counters ---------- */
+  /* ---------- counters (stats + belt) ---------- */
+  function runCounters(scope) {
+    scope.querySelectorAll('[data-to]').forEach(el => {
+      const to = +el.dataset.to;
+      if (reduced) { el.textContent = to; return; }
+      const t0 = performance.now();
+      (function f(t) {
+        const p = Math.min(1, (t - t0) / 1300);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(f);
+      })(t0);
+    });
+  }
   const cio = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       cio.unobserve(e.target);
-      e.target.querySelectorAll('[data-to]').forEach(el => {
-        const to = +el.dataset.to;
-        if (reduced) { el.textContent = to; return; }
-        const t0 = performance.now();
-        (function f(t) {
-          const p = Math.min(1, (t - t0) / 1300);
-          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
-          if (p < 1) requestAnimationFrame(f);
-        })(t0);
-      });
+      runCounters(e.target);
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.3 });
   cio.observe(document.getElementById('statCards'));
+  document.querySelectorAll('.belt').forEach(el => cio.observe(el));
 
   /* ---------- fan draw ---------- */
   const fan = document.getElementById('fan');
@@ -734,44 +884,6 @@
     entries.forEach(e => { if (e.isIntersecting) { fan.classList.add('in'); fio.unobserve(e.target); } });
   }, { threshold: 0.35 });
   fio.observe(fan);
-
-  /* ---------- loop ---------- */
-  const loop = document.getElementById('loop');
-  const lpScore = document.getElementById('lpScore');
-  const lpRound = document.getElementById('lpRound');
-  const seq = [
-    { s: '6.8', r: '1周目' },
-    { s: '7.6', r: '2周目' },
-    { s: '8.4', r: '3周目' },
-    { s: '9.2', r: '4周目' },
-  ];
-  const lio = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      lio.unobserve(e.target);
-      if (reduced) {
-        lpScore.textContent = '9.2'; lpRound.textContent = '4周目';
-        loop.classList.add('pass');
-        return;
-      }
-      loop.classList.add('spin');
-      seq.forEach((step, i) => {
-        setTimeout(() => {
-          lpScore.textContent = step.s;
-          lpRound.textContent = step.r;
-          if (i === seq.length - 1) loop.classList.add('pass');
-        }, 900 + i * 1400);
-      });
-    });
-  }, { threshold: 0.45 });
-  lio.observe(loop);
-
-  /* ---------- gen grid ---------- */
-  const gen = document.getElementById('gen');
-  const gio = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { gen.classList.add('in'); gio.unobserve(e.target); } });
-  }, { threshold: 0.25 });
-  gio.observe(gen);
 })();
 </script>
 </body>
