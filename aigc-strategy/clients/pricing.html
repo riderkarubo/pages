@@ -3,75 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-06-18T22:15:00+09:00">
+<meta name="last-modified" content="2026-07-17T11:04:16+09:00">
 <meta name="robots" content="noindex, nofollow">
-<title>AIGCプライスリスト — Firework社内</title>
+<title>AIGCプライスリスト｜Firework社内</title>
+<!-- ===== OGP / Slack unfurl ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIGCプライスリスト｜Firework社内">
+<meta property="og:description" content="動画・LIVE・画像の単価＆バルク割引一覧。社内限定・営業見積もりの一次ソース。">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/pricing.html">
+<meta property="og:site_name" content="Firework社内 / AIGC事業">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AIGCプライスリスト｜Firework社内">
+<meta name="twitter:description" content="動画・LIVE・画像の単価＆バルク割引一覧。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💴</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;}
+:root{--ink:#FFFFFF;--accent:#FA006D;--accent-text:#FF3D8F;--teal:#57E389;--navy:#10173F;--bg:#0A0D24;--card:#1B2364;--border:rgba(255,255,255,.45);--muted:#C9D1F5;--gold:#FFD75E;--win2:#10173F;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:14px}
-#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
-.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.lockbox .em{font-size:2.2rem;margin-bottom:10px}
-.lockbox h1{font-size:1.12rem;margin-bottom:6px}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
+#lock{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:40px 36px;width:min(92vw,400px);text-align:center;color:#fff}
+.lockbox .em{width:64px;height:64px;margin:0 auto 10px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:url("../rpg-assets/emblem-guild.webp"),url("../rpg-assets/frame-gold.webp")}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px;font-family:"DotGothic16",monospace;font-weight:normal;color:#fff}
 .lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
 .lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
-.lockbox .err{color:#e74c3c;font-size:.78rem;margin-top:14px;min-height:18px}
-.lockbox .conf{display:inline-block;margin-top:18px;font-size:.66rem;color:#8890a0;letter-spacing:.05em}
+.lockbox .err{color:#FF6B6B;font-size:.78rem;margin-top:14px;min-height:18px}
+.lockbox .conf{display:inline-block;margin-top:18px;font-size:.66rem;color:var(--muted);letter-spacing:.05em}
 #app{display:none;max-width:1280px;margin:0 auto;padding:24px 20px 80px}
-header{background:linear-gradient(135deg,#1a1a2e,#0F3460);color:#fff;padding:28px 32px;border-radius:16px;margin-bottom:24px;position:relative}
-.back{position:absolute;top:14px;left:18px;color:#fff;text-decoration:none;font-size:.78rem;opacity:.85;background:rgba(255,255,255,.1);padding:5px 12px;border-radius:14px}
-.back:hover{opacity:1}
-header h1{font-size:1.5rem;margin:6px 0 6px;font-weight:900;letter-spacing:.02em}
-header .lead{font-size:.85rem;opacity:.92;line-height:1.65;margin-top:8px}
-header .src{margin-top:14px;font-size:.74rem;opacity:.85}
-header .src a{color:#fa006d;background:#fff;padding:4px 12px;border-radius:14px;text-decoration:none;font-weight:700}
-.wrap{background:var(--card);border-radius:14px;padding:22px 26px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:18px}
+.rpg-hero{position:relative;background-image:linear-gradient(180deg,rgba(10,13,36,.35),rgba(10,13,36,.9)),url("../rpg-assets/bg-castle.webp");background-size:cover;background-position:center;color:#fff;padding:28px 32px;border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);margin-bottom:24px}
+.back{position:absolute;top:14px;left:18px;color:#fff;text-decoration:none;font-size:.78rem;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.5);padding:5px 12px;border-radius:2px}
+.back:hover{background:var(--accent)}
+.rpg-hero .eyebrow{display:block;margin-top:30px;color:var(--accent-text);font-weight:700;font-size:.76rem;letter-spacing:.1em}
+.rpg-hero h1{font-size:1.5rem;margin:8px 0 6px;font-weight:900;letter-spacing:.02em;text-shadow:2px 2px 0 rgba(0,0,0,.6)}
+.rpg-hero .lead{font-size:.85rem;opacity:.95;line-height:1.7;margin-top:8px;max-width:700px;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
+.rpg-hero .src{margin-top:14px;font-size:.74rem;opacity:.9}
+.rpg-hero .src a{color:#fff;background:var(--accent);padding:4px 12px;border-radius:2px;text-decoration:none;font-weight:700;border:1px solid #fff}
+.wrap{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:22px 26px;margin-bottom:20px}
+.section-h{font-size:1.05rem;font-weight:900;color:#fff;margin:20px 0 12px;display:flex;align-items:center;gap:10px;font-family:"DotGothic16",monospace}
+.section-h:first-child{margin-top:0}
+.section-h::before,.cust-list h3::before,.notes h3::before{content:'';display:block;flex-shrink:0;width:32px;height:32px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:var(--ic,none),url("../rpg-assets/frame-gold.webp")}
+.section-h.h-video{--ic:url("../rpg-assets/item-sword.webp")}
+.section-h.h-live{--ic:url("../rpg-assets/item-staff.webp")}
+.section-h.h-img{--ic:url("../rpg-assets/item-crystal.webp")}
 .tier-h{display:flex;align-items:baseline;gap:10px;margin:18px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
-.tier-h .lbl{font-size:1.05rem;font-weight:900;color:var(--accent);letter-spacing:.04em}
-.tier-h .cap{font-size:.86rem;color:var(--ink);font-weight:700}
+.tier-h .lbl{font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:.03em;font-family:"DotGothic16",monospace}
+.tier-h .cap{font-size:.84rem;color:#E4E8FF;font-weight:700}
 .tier-h .note{font-size:.74rem;color:var(--muted);margin-left:auto}
-.ptbl{width:100%;border-collapse:collapse;font-size:.76rem;margin-bottom:14px}
-.ptbl th{background:#1a1a2e;color:#fff;padding:8px 6px;font-weight:600;font-size:.7rem;text-align:center;white-space:nowrap;border-right:1px solid #2a2a3e}
-.ptbl th.itm{text-align:left;background:#0F3460;min-width:200px}
-.ptbl td{padding:8px 6px;border-bottom:1px solid #f0f1f4;text-align:center;font-size:.74rem;vertical-align:middle}
-.ptbl td.itm{text-align:left;font-weight:700;color:var(--ink)}
+.ptbl{width:100%;border-collapse:collapse;font-size:.76rem;margin-bottom:14px;background:var(--win2);border:2px solid #fff;border-radius:4px;overflow:hidden}
+.ptbl th{background:var(--win2);color:var(--gold);padding:8px 6px;font-weight:700;font-size:.7rem;text-align:center;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.4)}
+.ptbl th.itm{text-align:left;min-width:200px}
+.ptbl td{padding:8px 6px;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:.74rem;vertical-align:middle;color:#E4E8FF}
+.ptbl td.itm{text-align:left;font-weight:700;color:#fff}
 .ptbl td.itm .desc{display:block;font-weight:400;font-size:.66rem;color:var(--muted);line-height:1.5;margin-top:2px;white-space:normal;max-width:380px}
-.ptbl td.base{font-weight:700;color:var(--accent);background:#fff5f9}
-.ptbl tr:hover{background:#fafbfc}
+.ptbl td.base{font-weight:700;color:#FF9EC4;background:rgba(250,0,109,.12)}
+.ptbl tr:hover td{background:rgba(255,255,255,.06)}
 .add-tbl{width:100%;border-collapse:collapse;font-size:.76rem;margin-top:10px}
-.add-tbl th{background:#0F3460;color:#fff;padding:8px;font-size:.7rem;text-align:left}
-.add-tbl td{padding:8px;border-bottom:1px solid #f0f1f4}
-.add-tbl td.p{text-align:right;font-weight:700;color:var(--accent);white-space:nowrap}
-.cust-list{background:#fff8f0;border-left:4px solid #f5a623;padding:14px 18px;border-radius:8px;margin:14px 0}
-.cust-list h3{font-size:.92rem;color:#1a1a2e;margin-bottom:8px}
-.cust-list .ci{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dotted #e0d0b0}
+.add-tbl th{background:var(--win2);color:var(--gold);padding:8px;font-size:.7rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.4)}
+.add-tbl td{padding:8px;border-bottom:1px solid rgba(255,255,255,.18);color:#E4E8FF}
+.add-tbl td.p{text-align:right;font-weight:700;color:#FF9EC4;white-space:nowrap}
+.cust-list{background:var(--win2);border:2px solid var(--gold);border-radius:4px;padding:14px 18px;margin:14px 0}
+.cust-list h3{font-size:.9rem;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:10px;font-family:"DotGothic16",monospace}
+.cust-list h3.h-custom{--ic:url("../rpg-assets/item-scroll.webp")}
+.cust-list .ci{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dotted rgba(255,255,255,.25)}
 .cust-list .ci:last-child{border-bottom:none}
-.cust-list .ci .nm{font-weight:700}
+.cust-list .ci .nm{font-weight:700;color:#fff}
 .cust-list .ci .desc{font-size:.7rem;color:var(--muted)}
-.cust-list .ci .pr{font-weight:700;color:#d97706}
-.notes{background:#fafbfc;border-radius:8px;padding:14px 18px;margin-top:18px;font-size:.74rem;color:var(--ink);line-height:1.7}
-.notes h3{font-size:.85rem;color:var(--accent);margin-bottom:6px}
+.cust-list .ci .pr{font-weight:700;color:var(--gold)}
+.notes{background:var(--card);border:2px solid #fff;border-radius:4px;padding:14px 18px;margin-top:18px;font-size:.74rem;color:#E4E8FF;line-height:1.7}
+.notes h3{font-size:.88rem;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:10px;font-family:"DotGothic16",monospace}
+.notes h3.h-notes{--ic:url("../rpg-assets/item-shield.webp")}
 .notes ul{margin-left:18px}
-.notes li{margin-bottom:3px}
-.fx{display:inline-block;background:#1B998B;color:#fff;padding:4px 12px;border-radius:14px;font-size:.74rem;font-weight:700;margin:10px 0}
+.notes li{margin-bottom:4px}
+.fx{display:inline-block;background:var(--teal);color:#0A0D24;padding:4px 12px;border-radius:2px;font-size:.74rem;font-weight:700;margin:10px 0}
 footer{margin-top:30px;text-align:center;color:var(--muted);font-size:.74rem}
-footer .conf{display:inline-block;background:#1a1a2e;color:#fff;padding:4px 10px;border-radius:4px;margin-right:8px;font-size:.66rem;letter-spacing:.04em}
-.section-h{font-size:1.15rem;font-weight:900;color:var(--ink);margin:24px 0 6px;padding-left:8px;border-left:5px solid var(--accent)}
+footer .conf{display:inline-block;background:var(--accent);color:#fff;padding:4px 10px;border-radius:2px;margin-right:8px;font-size:.66rem;letter-spacing:.04em;font-weight:700}
 @media print{
   * {-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
   @page{size:A4;margin:10mm}
   #lock{display:none!important}
   #app{display:block!important;max-width:none}
+  body{background:#fff;color:#1a1a2e}
+  .rpg-hero{background-image:none!important;background:#1a1a2e;box-shadow:none}
+  .wrap{background:#fff;border:1px solid #ddd;box-shadow:none}
+  .ptbl,.add-tbl{background:#fff}
+  .ptbl th,.add-tbl th{background:#1a1a2e;color:#fff}
+  .ptbl td,.add-tbl td,.section-h,.cust-list,.cust-list .ci .nm,.notes,.notes h3{color:#1a1a2e}
+  .cust-list,.notes{background:#fafbfc;border:1px solid #ddd}
   .section-h,.tier-h{page-break-after:avoid}
   .ptbl tr,.add-tbl tr,.cust-list .ci{page-break-inside:avoid}
 }
 </style>
 </head>
 <body>
-<div id="lock"><div class="lockbox"><div class="em">💴</div><h1>AIGCプライスリスト</h1><p>Firework社員（@fireworkhq.com）のみアクセス可能</p><div class="gwrap"><div id="gbtn"></div></div><div class="err" id="err"></div><div class="conf">CONFIDENTIAL / SOCIAL HERE INC.</div></div></div>
+<div id="lock"><div class="lockbox"><div class="em"></div><h1>💴 AIGCプライスリスト</h1><p>Firework社員（@fireworkhq.com）のみアクセス可能</p><div class="gwrap"><div id="gbtn"></div></div><div class="err" id="err"></div><div class="conf">CONFIDENTIAL / SOCIAL HERE INC.</div></div></div>
 <div id="app"></div>
 <script src="https://accounts.google.com/gsi/client" async></script>
 <script>
@@ -104,7 +129,7 @@ function showData(d){
   const t1HTML=renderTier(tv.tier1, tv.headers);
   const t2HTML=renderTier(tv.tier2, tv.headers);
   const t3HTML=renderTier(tv.tier3, tv.headers);
-  const custHTML='<div class="cust-list"><h3>📐 カスタム見積もり（個別ヒアリング・要件ベース）</h3>'+d.custom.map(c=>'<div class="ci"><div><span class="nm">'+esc(c.name)+'</span> <span class="desc">'+esc(c.desc)+'</span></div><div class="pr">'+esc(c.price)+'</div></div>').join('')+'</div>';
+  const custHTML='<div class="cust-list"><h3 class="h-custom">📐 カスタム見積もり（個別ヒアリング・要件ベース）</h3>'+d.custom.map(c=>'<div class="ci"><div><span class="nm">'+esc(c.name)+'</span> <span class="desc">'+esc(c.desc)+'</span></div><div class="pr">'+esc(c.price)+'</div></div>').join('')+'</div>';
   const ls=d.livestream;
   const lsRows=ls.items.map(it=>'<tr><td class="itm">'+esc(it.name)+'</td><td class="base">'+esc(it.baseJpy)+(it.usd?'<span style="display:block;font-size:.62rem;font-weight:400;color:#888">'+esc(it.usd)+'</span>':'')+'</td>'+it.discounts.map(d=>'<td>'+esc(d)+'</td>').join('')+'</tr>').join('');
   const lsHeads='<th class="itm">項目</th><th>標準単価</th>'+ls.headers.map(h=>'<th>'+esc(h)+'</th>').join('');
@@ -115,8 +140,8 @@ function showData(d){
   const imHeads='<th class="itm">項目</th><th>標準単価</th>'+im.headers.map(h=>'<th>'+esc(h)+'</th>').join('');
   const imRows=im.items.map(it=>'<tr><td class="itm">'+esc(it.name)+(it.desc?'<span class="desc">'+esc(it.desc)+'</span>':'')+'</td><td class="base">'+esc(it.baseJpy)+(it.usd?'<span style="display:block;font-size:.62rem;font-weight:400;color:#888">'+esc(it.usd)+'</span>':'')+'</td>'+it.discounts.map(d=>'<td>'+esc(d)+'</td>').join('')+'</tr>').join('');
   const imHTML='<div class="tier-h"><span class="lbl">🎨 IMG</span><span class="cap">'+esc(im.cap)+'</span></div><table class="ptbl"><thead><tr>'+imHeads+'</tr></thead><tbody>'+imRows+'</tbody></table>';
-  const notesHTML='<div class="notes"><h3>📝 注意事項</h3><div class="fx">'+esc(d.fxNote)+'</div><ul>'+d.notes.map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul></div>';
-  document.getElementById('app').innerHTML='<header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a><h1>💴 AIGCプライスリスト</h1><div class="lead">'+esc(d.intro)+'</div><div class="src">📋 原本: <a href="'+esc(d.sourceUrl)+'" target="_blank" rel="noopener">Google Sheets（最新版・編集可能）</a> ／ 受領: Yifan / 最終更新: '+esc(d.asOf)+'</div></header><div class="wrap"><div class="section-h">🎬 動画コンテンツ（VIDEO）</div>'+t1HTML+t2HTML+t3HTML+custHTML+'</div><div class="wrap"><div class="section-h">📺 ライブ配信 / ビデオコマース</div>'+lsHTML+addonHTML+'</div><div class="wrap"><div class="section-h">🎨 AI生成画像</div>'+imHTML+'</div>'+notesHTML+'<footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGCプライスリスト 最終更新 '+esc(d.asOf)+' JST</footer>';
+  const notesHTML='<div class="notes"><h3 class="h-notes">📝 注意事項</h3><div class="fx">'+esc(d.fxNote)+'</div><ul>'+d.notes.map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul></div>';
+  document.getElementById('app').innerHTML='<header class="rpg-hero"><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a><div class="eyebrow">TREASURY OF FIREWORK</div><h1>💴 AIGCプライスリスト</h1><div class="lead">'+esc(d.intro)+'</div><div class="src">📋 原本: <a href="'+esc(d.sourceUrl)+'" target="_blank" rel="noopener">Google Sheets（最新版・編集可能）</a> ／ 受領: Yifan / 最終更新: '+esc(d.asOf)+'</div></header><div class="wrap"><div class="section-h h-video">🎬 動画コンテンツ（VIDEO）</div>'+t1HTML+t2HTML+t3HTML+custHTML+'</div><div class="wrap"><div class="section-h h-live">📺 ライブ配信 / ビデオコマース</div>'+lsHTML+addonHTML+'</div><div class="wrap"><div class="section-h h-img">🎨 AI生成画像</div>'+imHTML+'</div>'+notesHTML+'<footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGCプライスリスト 最終更新 '+esc(d.asOf)+' JST</footer>';
   document.getElementById('lock').style.display='none';
   document.getElementById('app').style.display='block';
 }
