@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-17T11:04:16+09:00">
+<meta name="last-modified" content="2026-07-17T11:31:48+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGCプライスリスト｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
@@ -39,6 +39,10 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
 .rpg-hero .lead{font-size:.85rem;opacity:.95;line-height:1.7;margin-top:8px;max-width:700px;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
 .rpg-hero .src{margin-top:14px;font-size:.74rem;opacity:.9}
 .rpg-hero .src a{color:#fff;background:var(--accent);padding:4px 12px;border-radius:2px;text-decoration:none;font-weight:700;border:1px solid #fff}
+.hero-guide{position:absolute;right:20px;bottom:0;display:flex;align-items:flex-end;gap:8px;pointer-events:none;z-index:1}
+.hero-guide img{width:84px;height:auto;image-rendering:pixelated;filter:drop-shadow(3px 5px 0 rgba(0,0,0,.5))}
+.hero-guide .say{background:var(--win2);border:2px solid #fff;border-radius:4px;padding:7px 11px;font-size:.7rem;color:#fff;max-width:190px;margin-bottom:16px;line-height:1.5;box-shadow:0 4px 0 rgba(0,0,0,.35)}
+@media(max-width:680px){.hero-guide{display:none}}
 .wrap{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:22px 26px;margin-bottom:20px}
 .section-h{font-size:1.05rem;font-weight:900;color:#fff;margin:20px 0 12px;display:flex;align-items:center;gap:10px;font-family:"DotGothic16",monospace}
 .section-h:first-child{margin-top:0}
@@ -85,6 +89,7 @@ footer .conf{display:inline-block;background:var(--accent);color:#fff;padding:4p
   #app{display:block!important;max-width:none}
   body{background:#fff;color:#1a1a2e}
   .rpg-hero{background-image:none!important;background:#1a1a2e;box-shadow:none}
+  .hero-guide{display:none!important}
   .wrap{background:#fff;border:1px solid #ddd;box-shadow:none}
   .ptbl,.add-tbl{background:#fff}
   .ptbl th,.add-tbl th{background:#1a1a2e;color:#fff}
@@ -141,7 +146,7 @@ function showData(d){
   const imRows=im.items.map(it=>'<tr><td class="itm">'+esc(it.name)+(it.desc?'<span class="desc">'+esc(it.desc)+'</span>':'')+'</td><td class="base">'+esc(it.baseJpy)+(it.usd?'<span style="display:block;font-size:.62rem;font-weight:400;color:#888">'+esc(it.usd)+'</span>':'')+'</td>'+it.discounts.map(d=>'<td>'+esc(d)+'</td>').join('')+'</tr>').join('');
   const imHTML='<div class="tier-h"><span class="lbl">🎨 IMG</span><span class="cap">'+esc(im.cap)+'</span></div><table class="ptbl"><thead><tr>'+imHeads+'</tr></thead><tbody>'+imRows+'</tbody></table>';
   const notesHTML='<div class="notes"><h3 class="h-notes">📝 注意事項</h3><div class="fx">'+esc(d.fxNote)+'</div><ul>'+d.notes.map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul></div>';
-  document.getElementById('app').innerHTML='<header class="rpg-hero"><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a><div class="eyebrow">TREASURY OF FIREWORK</div><h1>💴 AIGCプライスリスト</h1><div class="lead">'+esc(d.intro)+'</div><div class="src">📋 原本: <a href="'+esc(d.sourceUrl)+'" target="_blank" rel="noopener">Google Sheets（最新版・編集可能）</a> ／ 受領: Yifan / 最終更新: '+esc(d.asOf)+'</div></header><div class="wrap"><div class="section-h h-video">🎬 動画コンテンツ（VIDEO）</div>'+t1HTML+t2HTML+t3HTML+custHTML+'</div><div class="wrap"><div class="section-h h-live">📺 ライブ配信 / ビデオコマース</div>'+lsHTML+addonHTML+'</div><div class="wrap"><div class="section-h h-img">🎨 AI生成画像</div>'+imHTML+'</div>'+notesHTML+'<footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGCプライスリスト 最終更新 '+esc(d.asOf)+' JST</footer>';
+  document.getElementById('app').innerHTML='<header class="rpg-hero"><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a><div class="eyebrow">TREASURY OF FIREWORK</div><h1>💴 AIGCプライスリスト</h1><div class="lead">'+esc(d.intro)+'</div><div class="src">📋 原本: <a href="'+esc(d.sourceUrl)+'" target="_blank" rel="noopener">Google Sheets（最新版・編集可能）</a> ／ 受領: Yifan / 最終更新: '+esc(d.asOf)+'</div><div class="hero-guide"><div class="say">相場も品質も、この帳簿に記してございます</div><img src="../rpg-assets/char-merchant.webp" alt="商人ギルドマスター"></div></header><div class="wrap"><div class="section-h h-video">🎬 動画コンテンツ（VIDEO）</div>'+t1HTML+t2HTML+t3HTML+custHTML+'</div><div class="wrap"><div class="section-h h-live">📺 ライブ配信 / ビデオコマース</div>'+lsHTML+addonHTML+'</div><div class="wrap"><div class="section-h h-img">🎨 AI生成画像</div>'+imHTML+'</div>'+notesHTML+'<footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGCプライスリスト 最終更新 '+esc(d.asOf)+' JST</footer>';
   document.getElementById('lock').style.display='none';
   document.getElementById('app').style.display='block';
 }
