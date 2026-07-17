@@ -5,7 +5,7 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-03T14:10:52+09:00">
+<meta name="last-modified" content="2026-07-17T10:39:00+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>案件別サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
@@ -169,6 +169,16 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
   line-height:1.7;
   margin:0 0 14px 18px;
 }
+.demo-linkbox{margin:0 0 4px 18px}
+.demo-link-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;
+  background:linear-gradient(135deg,var(--accent),#c8005a);
+  color:#fff;border-radius:12px;font-size:.86rem;font-weight:700;
+  text-decoration:none;transition:all .18s;
+  box-shadow:0 3px 10px rgba(250,0,109,.25);
+}
+.demo-link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(250,0,109,.35)}
 
 .tier-h{
   font-size:1.05rem;
@@ -240,6 +250,7 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       <div class="ql-buttons">
         <a href="#client-united-arrows" class="ql-btn">United Arrows</a>
         <a href="#client-nitori" class="ql-btn">ニトリ（NITORI）</a>
+        <a href="#client-kitamura" class="ql-btn">キタムラ</a>
       </div>
     </div>
 
@@ -273,11 +284,19 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
       </div>
     </section>
 
+    <section class="vsec" id="client-kitamura">
+      <div class="vsec-h"><span class="num">3</span>キタムラ（元町キタムラ）</div>
+      <p class="vsec-desc">キタムラ様向けに制作したAIGCサンプル。商品PDP（麻調パナマ配色ワンピース）を模したデモサイトで、着用コーデ動画をFireworkプレーヤーで埋め込み再生した事例。老舗アパレル・バッグ系への横展開サンプルとして活用可。</p>
+      <div class="demo-linkbox">
+        <a href="https://toshiyukimishima-arch.github.io/kitamura_demo/" target="_blank" rel="noopener" class="demo-link-btn">🔗 キタムラ PDPデモサイトを開く →</a>
+      </div>
+    </section>
+
   </div>
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年7月3日 14:10 JST ｜ Firework社内 / AIGC事業
+    最終更新: 2026年7月17日 10:39 JST ｜ Firework社内 / AIGC事業
   </footer>
 
 </div>
