@@ -1,0 +1,17 @@
+{
+  "name": "ラストウォー 作戦当直表",
+  "short_name": "LW 当直",
+  "description": "連盟対決・軍備大作戦・軍事演習を最小時間でこなすための当直表",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#15170f",
+  "theme_color": "#15170f",
+  "lang": "ja",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

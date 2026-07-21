@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ラストウォー 作戦当直表</title>
+<meta name="description" content="連盟対決・軍備大作戦・軍事演習を最小時間でこなすための当直表。二重取りの時間帯を自動で知らせます。">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#15170f">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LW 当直">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ラストウォー 作戦当直表">
+<meta property="og:description" content="連盟対決・軍備大作戦・軍事演習を最小時間でこなすための当直表。二重取りの時間帯を自動で知らせます。">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/lastwar-ops/">
+<meta property="og:site_name" content="LW Duty Roster">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+
+<style>
+:root{
+  --ground:#dcdad2; --surface:#eeede7; --surface-2:#e5e3db;
+  --ink:#191c15; --muted:#6a6e61; --rule:#c0beb4;
+  --accent:#8a671b; --accent-soft:#e2d5ae;
+  --live:#7e2d18; --live-soft:#ecd4c9;
+  --ok:#4c6135; --ok-soft:#d8e0c8;
+  --shadow:0 1px 0 rgba(25,28,21,.06), 0 2px 10px -6px rgba(25,28,21,.3);
+  --font-jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","BIZ UDPGothic",system-ui,sans-serif;
+  --font-mono:ui-monospace,"SF Mono",Menlo,"Roboto Mono","Courier New",monospace;
+  --s0:.8125rem; --s1:.9375rem; --s2:1.0625rem; --s3:1.3125rem; --s4:1.75rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#15170f; --surface:#1e211a; --surface-2:#262a20;
+    --ink:#e5e4d9; --muted:#989c8c; --rule:#343829;
+    --accent:#d5ac4e; --accent-soft:#3d3520;
+    --live:#db7350; --live-soft:#3f2419;
+    --ok:#8da96a; --ok-soft:#2a3320;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px -6px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15170f; --surface:#1e211a; --surface-2:#262a20;
+  --ink:#e5e4d9; --muted:#989c8c; --rule:#343829;
+  --accent:#d5ac4e; --accent-soft:#3d3520;
+  --live:#db7350; --live-soft:#3f2419;
+  --ok:#8da96a; --ok-soft:#2a3320;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px -6px rgba(0,0,0,.8);
+}
+:root[data-theme="light"]{
+  --ground:#dcdad2; --surface:#eeede7; --surface-2:#e5e3db;
+  --ink:#191c15; --muted:#6a6e61; --rule:#c0beb4;
+  --accent:#8a671b; --accent-soft:#e2d5ae;
+  --live:#7e2d18; --live-soft:#ecd4c9;
+  --ok:#4c6135; --ok-soft:#d8e0c8;
+  --shadow:0 1px 0 rgba(25,28,21,.06), 0 2px 10px -6px rgba(25,28,21,.3);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-jp);font-size:var(--s1);line-height:1.72}
+.wrap{max-width:1180px;margin:0 auto;padding:0 14px calc(64px + env(safe-area-inset-bottom))}
+.eyebrow{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0}
+
+.statusbar{position:sticky;top:0;z-index:30;background:var(--ground);border-bottom:1px solid var(--rule);
+  padding:calc(9px + env(safe-area-inset-top)) 0 8px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.statusbar .brand{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.clocks{margin-left:auto;display:flex;gap:12px;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:.75rem;color:var(--muted)}
+.clocks b{color:var(--ink);font-weight:600}
+
+header.masthead{padding:22px 0 16px}
+header.masthead h1{font-size:var(--s4);line-height:1.28;letter-spacing:-.01em;font-weight:800;margin:6px 0 8px;text-wrap:balance}
+header.masthead p.lede{margin:0;max-width:62ch;color:var(--muted);font-size:var(--s1)}
+
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:3px;box-shadow:var(--shadow)}
+
+.stackalert{margin:16px 0 0;padding:13px 15px;border-radius:3px;background:var(--ok-soft);border:1px solid var(--ok);display:flex;gap:11px;align-items:flex-start}
+.stackalert.off{background:var(--surface);border-color:var(--rule)}
+.stackalert .tag{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--ground);background:var(--ok);padding:3px 7px;border-radius:2px;white-space:nowrap;margin-top:2px}
+.stackalert.off .tag{background:var(--muted)}
+.stackalert p{margin:0;font-size:var(--s0);line-height:1.7}
+
+.nowgrid{display:grid;gap:12px;margin:16px 0 0}
+@media(min-width:800px){.nowgrid{grid-template-columns:1.2fr 1fr 1fr}}
+.card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.card-head{padding:10px 14px 9px;border-bottom:1px solid var(--rule);background:var(--surface-2);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card-head .k{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.card-head .cd{margin-left:auto;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:.6875rem;color:var(--accent);font-weight:700;white-space:nowrap}
+.card-body{padding:12px 14px 14px;display:grid;gap:9px;flex:1}
+.card-body .big{font-size:var(--s3);font-weight:800;line-height:1.3;margin:0}
+.card-body .sub{margin:0;font-size:var(--s0);color:var(--muted)}
+ul.mini{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+ul.mini li{font-size:var(--s0);line-height:1.6;padding-left:13px;position:relative}
+ul.mini li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--accent)}
+ul.mini li .pt{font-family:var(--font-mono);font-size:.6875rem;color:var(--accent)}
+
+/* timetable */
+.tt{display:grid;gap:3px;margin:0}
+.tt .row{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;
+  padding:7px 9px;border-radius:2px;background:var(--surface-2);font-size:var(--s0)}
+.tt .row time{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:700;font-size:.8125rem;color:var(--muted)}
+.tt .row.now{background:var(--accent-soft);border-left:3px solid var(--accent);padding-left:6px}
+.tt .row.now time{color:var(--ink)}
+.tt .row.hit{background:var(--ok-soft);border-left:3px solid var(--ok);padding-left:6px}
+.tt .row.hit.now{border-left-color:var(--accent)}
+.tt .row .mark{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.08em;color:var(--ok);font-weight:700;white-space:nowrap}
+.tt .row.now .mark{color:var(--accent)}
+.tt .row .nm{font-weight:600}
+
+.slotlist{display:grid;gap:8px;margin:14px 0 0}
+.slot{display:grid;grid-template-columns:70px 1fr;gap:11px;align-items:start;padding:9px 12px;
+  background:var(--surface);border:1px solid var(--rule);border-left-width:3px;border-left-color:var(--rule);border-radius:2px}
+.slot.is-key{border-left-color:var(--accent)}
+.slot.is-live{border-left-color:var(--live);background:var(--live-soft)}
+.slot.is-stack{border-left-color:var(--ok);background:var(--ok-soft)}
+.slot time{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:.8125rem;font-weight:700}
+.slot .what{font-size:var(--s0);line-height:1.62}
+.slot .what b{font-weight:700;display:block}
+.slot .what span{color:var(--muted)}
+
+details.settings{margin:20px 0 26px}
+details.settings>summary{cursor:pointer;list-style:none;padding:12px 15px;font-family:var(--font-mono);font-size:.6875rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+details.settings>summary::-webkit-details-marker{display:none}
+details.settings>summary::after{content:"▾";margin-left:auto}
+details.settings[open]>summary::after{content:"▴"}
+.settings-body{padding:4px 15px 18px;border-top:1px solid var(--rule);display:grid;gap:6px}
+.field>.label{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin:14px 0 7px}
+.field .hint{font-size:var(--s0);color:var(--muted);margin:7px 0 0}
+.seg{display:grid;gap:4px}
+.seg.c4{grid-template-columns:repeat(4,1fr)}
+.seg.c3{grid-template-columns:repeat(3,1fr)}
+.seg button{font-family:var(--font-jp);font-size:.75rem;padding:9px 2px;border:1px solid var(--rule);background:var(--surface-2);
+  color:var(--muted);border-radius:2px;cursor:pointer;min-height:40px}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--ground);font-weight:700}
+.availgrid{display:grid;gap:6px}
+.availrow{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:9px}
+.availrow .dow{font-family:var(--font-mono);font-size:.75rem;font-weight:700;color:var(--muted)}
+input[type=time],input[type=date],input[type=number]{font-family:var(--font-mono);font-size:var(--s1);padding:9px 10px;
+  border:1px solid var(--rule);background:var(--surface-2);color:var(--ink);border-radius:2px;min-height:42px;max-width:100%}
+.inline{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.inline span{font-size:var(--s0);color:var(--muted)}
+
+.sechead{display:flex;align-items:baseline;gap:12px;margin:30px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.sechead h2{margin:0;font-size:var(--s2);font-weight:800}
+.sechead .note{font-size:var(--s0);color:var(--muted)}
+.btn{margin-left:auto;font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule);color:var(--muted);padding:6px 10px;border-radius:2px;cursor:pointer}
+.btn:hover{color:var(--ink);border-color:var(--ink)}
+
+.roster{display:grid;gap:12px}
+@media(min-width:760px){.roster{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1060px){.roster{grid-template-columns:repeat(3,1fr)}}
+.day{display:flex;flex-direction:column;overflow:hidden}
+.day.today{border-color:var(--accent);border-width:2px}
+.day-head{padding:11px 14px 10px;border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;background:var(--surface-2)}
+.day.today .day-head{background:var(--accent-soft)}
+.day-head .no{font-family:var(--font-mono);font-size:1.0625rem;font-weight:700;letter-spacing:-.02em;color:var(--accent)}
+.day-head h3{margin:0;font-size:var(--s2);font-weight:800}
+.day-head .dow{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.06em;color:var(--muted)}
+.badge{margin-left:auto;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:.6875rem;padding:2px 7px;
+  border:1px solid var(--rule);border-radius:2px;color:var(--muted);white-space:nowrap}
+.badge.drill{border-color:var(--live);color:var(--live);font-weight:700}
+.day-body{padding:12px 14px 14px;display:grid;gap:10px}
+.window{font-family:var(--font-mono);font-size:.75rem;font-variant-numeric:tabular-nums;color:var(--muted);
+  background:var(--surface-2);padding:7px 9px;border-radius:2px;line-height:1.62}
+.window b{color:var(--ink)}
+.window .st{color:var(--ok);font-weight:700}
+ul.tasks{list-style:none;margin:0;padding:0;display:grid;gap:1px}
+ul.tasks label{display:grid;grid-template-columns:20px 1fr;gap:9px;align-items:start;padding:5px 4px 5px 0;cursor:pointer;font-size:var(--s0);line-height:1.6;border-radius:2px}
+ul.tasks label:hover{background:var(--surface-2)}
+ul.tasks input[type=checkbox]{width:18px;height:18px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+ul.tasks input:checked + .txt{color:var(--muted);text-decoration:line-through}
+ul.tasks .txt .pt{font-family:var(--font-mono);font-size:.6875rem;color:var(--accent);white-space:nowrap}
+.hoard{border-top:1px dotted var(--rule);padding-top:9px;font-size:var(--s0);color:var(--muted)}
+.hoard .k{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);font-weight:700;display:block;margin-bottom:3px}
+.progress{height:3px;background:var(--rule);border-radius:2px;overflow:hidden;margin-top:4px}
+.progress>i{display:block;height:100%;background:var(--accent);width:0;transition:width .2s ease}
+
+.weekgrid{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table.wk{border-collapse:collapse;width:100%;min-width:560px;font-size:var(--s0)}
+table.wk th,table.wk td{padding:7px 9px;text-align:left;border-bottom:1px solid var(--rule);white-space:nowrap}
+table.wk thead th{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
+table.wk tbody th{font-family:var(--font-mono);font-weight:700;color:var(--muted);font-size:.75rem}
+table.wk td.hit{background:var(--ok-soft);color:var(--ok);font-weight:700}
+table.wk tr.today th,table.wk tr.today td{background:var(--accent-soft)}
+table.wk tr.today td.hit{background:var(--ok-soft)}
+
+.armsref{display:grid;gap:10px}
+@media(min-width:700px){.armsref{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1060px){.armsref{grid-template-columns:repeat(3,1fr)}}
+.armscard{padding:12px 14px 14px;display:grid;gap:7px}
+.armscard.now{border-color:var(--accent);border-width:2px}
+.armscard h3{margin:0;font-size:var(--s1);font-weight:800;display:flex;align-items:baseline;gap:8px}
+.armscard h3 .vs{margin-left:auto;font-family:var(--font-mono);font-size:.625rem;letter-spacing:.06em;color:var(--muted);font-weight:400}
+
+.doctrine{margin:30px 0 0;padding:18px 15px 20px}
+.doctrine h2{margin:0 0 14px;font-size:var(--s2);font-weight:800}
+.rules{display:grid;gap:14px;counter-reset:r}
+@media(min-width:760px){.rules{grid-template-columns:repeat(3,1fr);gap:20px}}
+.rule{counter-increment:r}
+.rule h3{margin:0 0 5px;font-size:var(--s1);font-weight:800;display:flex;align-items:baseline;gap:8px}
+.rule h3::before{content:counter(r,decimal-leading-zero);font-family:var(--font-mono);font-size:.75rem;color:var(--accent);font-weight:700}
+.rule p{margin:0;font-size:var(--s0);color:var(--muted);line-height:1.7}
+
+footer.foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--rule);font-size:.75rem;color:var(--muted);line-height:1.8}
+footer.foot a{color:var(--accent);text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="statusbar">
+    <span class="brand">Last War / Duty Roster</span>
+    <div class="clocks">
+      <span>JST <b id="clkJst">--:--</b></span>
+      <span>SERVER <b id="clkSrv">--:--</b></span>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <p class="eyebrow">週間作戦当直表 — 連盟対決・軍備大作戦・軍事演習</p>
+    <h1>火〜金は19時。<br>月曜は11時。それだけ守る。</h1>
+    <p class="lede">連盟対決の曜日テーマと、軍備大作戦の同名ブロックが重なる4時間。そこで温存分を放出すれば、ひとつの行動が二重に score します。この表はその一点だけを見張ります。</p>
+  </header>
+
+  <div id="stackAlert"></div>
+
+  <div class="nowgrid">
+    <section class="panel card">
+      <div class="card-head"><span class="k">軍備大作戦 — 本日のブロック</span><span class="cd" id="armsCd"></span></div>
+      <div class="card-body" id="armsBody"></div>
+    </section>
+    <section class="panel card">
+      <div class="card-head"><span class="k">連盟対決 — 本日</span><span class="cd" id="vsCd"></span></div>
+      <div class="card-body" id="vsBody"></div>
+    </section>
+    <section class="panel card">
+      <div class="card-head"><span class="k">軍事演習 — 次回</span><span class="cd" id="drillCd"></span></div>
+      <div class="card-body" id="drillBody"></div>
+    </section>
+  </div>
+
+  <div class="slotlist" id="nowSlots"></div>
+
+  <details class="panel settings" id="settings">
+    <summary>作戦設定 — 軍事演習・在席状況・ズレ補正</summary>
+    <div class="settings-body">
+      <div class="field">
+        <span class="label">① 軍事演習 — 起点日・間隔・開始時刻</span>
+        <div class="inline">
+          <input type="date" id="drillAnchor">
+          <span>から</span>
+          <input type="number" id="drillEvery" min="1" max="7" step="1" style="width:74px">
+          <span>日に1回</span>
+          <input type="time" id="drillTime">
+        </div>
+        <p class="hint">集合地点への基地移設が要りますので、開催日の枠は開始10分前に前倒しいたします。</p>
+      </div>
+      <div class="field">
+        <span class="label">② 曜日ごとの在席状況</span>
+        <div class="availgrid" id="availGrid"></div>
+        <p class="hint">「無理」の日は60秒メニューへ切り替わります。テーマ日は翌朝10:59まで生きておりますので、取り返しは効きます。</p>
+      </div>
+      <div class="field">
+        <span class="label">③ 軍拡テーブルのズレ補正</span>
+        <div class="seg c3" id="offsetSeg"></div>
+        <p class="hint">ゲーム内の「日程」と表示がズレていた場合のみ動かしてくださいませ。通常は「補正なし」のままで合います。1日1回の入れ替えを使った日は、その枠だけ実際とズレます。</p>
+      </div>
+    </div>
+  </details>
+
+  <div class="sechead">
+    <h2>今後7日の当直</h2>
+    <button class="btn" id="btnReset" type="button">チェック全解除</button>
+  </div>
+  <div class="progress"><i id="mBar"></i></div>
+  <p class="eyebrow" id="mDone" style="margin:6px 0 12px"></p>
+  <div class="roster" id="roster"></div>
+
+  <div class="sechead">
+    <h2>軍備大作戦 週間テーブル</h2>
+    <span class="note">緑が連盟対決との二重取り枠</span>
+  </div>
+  <div class="weekgrid"><table class="wk" id="wkTable"></table></div>
+
+  <div class="sechead">
+    <h2>軍備大作戦の5テーマ</h2>
+    <span class="note">各テーマで加点される行動</span>
+  </div>
+  <div class="armsref" id="armsRef"></div>
+
+  <section class="panel doctrine">
+    <h2>この表が前提にしている3つの原則</h2>
+    <div class="rules">
+      <div class="rule"><h3>温存</h3>
+        <p>高速化・英雄EXP・英雄のかけら・レーダークエスト・未開封のプレゼントボックスは、該当曜日が来るまで一切使いません。日曜は何も消費しない仕込み日にございます。溜めずに使うのが、最も損な負け方です。</p></div>
+      <div class="rule"><h3>重ね取り</h3>
+        <p>火曜から金曜は19:00、月曜は11:00。そこが連盟対決と軍備大作戦の同名テーマが重なる4時間にございます。火〜金は翌07:00にも同テーマが再来しますので、取りこぼしても朝に拾えます。</p></div>
+      <div class="rule"><h3>入れ替えを使う</h3>
+        <p>軍備大作戦は1日1回だけブロックを入れ替えられます。二重取りの時間に在席できない日は、入れ替えで自分が動ける時間帯へテーマを寄せてくださいませ。これが最も費用対効果の高い一手にございます。</p></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>テーマ切替とデイリーのリセットは<b>日本時間 11:00</b>。「火曜の基地建設テーマ」は火曜11:00〜水曜10:59まで有効にございます。軍備大作戦の区切りも11:00起点の4時間刻み（11/15/19/23/03/07）です。<br>
+    軍備大作戦の週間テーブルは、貴殿の戦域・グループ（Lv.31-35）の実データを反映しております。グループが変わると配列も変わりますので、その際はゲーム内「日程」でご確認くださいませ。<br>
+    連盟対決のポイント配分の出典: <a href="https://game8.jp/lastwar-survival/599936" target="_blank" rel="noopener">ゲームエイト</a> ／ 軍拡テーマの加点行動: <a href="https://game8.jp/lastwar-survival/599827" target="_blank" rel="noopener">ゲームエイト</a></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var RESET_HOUR=11, BLOCK_MS=4*3600*1000;
+var DOW=["日","月","火","水","木","金","土"];
+var SLOT_LABEL=["11:00","15:00","19:00","23:00","03:00","07:00"];
+
+/* 軍備大作戦の5テーマ */
+var ARMS={
+  drone:{name:"ドローン強化",tasks:[{t:"ドローン戦闘データを消費",pt:"+1/10個"},{t:"APを消費する",pt:"+10"},{t:"ドローン部品でパーツを強化",pt:""}]},
+  troop:{name:"兵士強化",tasks:[{t:"兵士を訓練する",pt:"Lv別 +5〜31/人"},{t:"訓練時間短縮を使う",pt:"+10/分"},{t:"低Lv兵の昇級を回す",pt:""}]},
+  hero: {name:"英雄強化",tasks:[{t:"英雄募集を回す",pt:"+400/回"},{t:"英雄EXPを消費",pt:"+1"},{t:"かけらでスキル・星を上げる",pt:""}]},
+  tech: {name:"科学研究",tasks:[{t:"科学研究を完了して戦力を得る",pt:"戦力+1"},{t:"研究時間短縮を使う",pt:"+10/分"},{t:"長時間の研究を先に仕込む",pt:""}]},
+  build:{name:"基地建設",tasks:[{t:"施設の建設・アップグレードを完了",pt:"戦力+1"},{t:"建設時間短縮を使う",pt:"+10/分"},{t:"完了直前の建物を溜めて一気に着地",pt:""}]}
+};
+
+/* 実データ（Issy戦域 Lv.31-35グループ・2026-07取得）
+   1日目=月曜 … 7日目=日曜。各日 [11,15,19,23,03,07]
+   基準: 2026-07-22 00:30 JST（サーバー日=火曜）が「2日目 23:00 ドローン強化」 */
+var ARMS_WEEK={
+  0:["drone","hero","tech","build","troop","tech"],   /* 日 = 7日目 */
+  1:["drone","troop","hero","tech","build","hero"],   /* 月 = 1日目 */
+  2:["troop","tech","build","drone","hero","build"],  /* 火 = 2日目 */
+  3:["drone","hero","tech","build","troop","tech"],   /* 水 = 3日目 */
+  4:["build","troop","hero","tech","drone","hero"],   /* 木 = 4日目 */
+  5:["tech","drone","troop","hero","build","troop"],  /* 金 = 5日目 */
+  6:["troop","tech","build","drone","hero","build"]   /* 土 = 6日目 */
+};
+/* 開催日の表示用（dow → N日目） */
+var DAY_NO={0:7,1:1,2:2,3:3,4:4,5:5,6:6};
+
+/* 連盟対決 曜日テーマ。armsKey は軍拡側の同テーマ */
+var DAYS=[
+  {dow:0,no:"00",theme:"仕込み日",sub:"対決なし",armsKey:null,minutes:5,tasks:[
+    {t:"デイリー任務と無料ガチャだけ回収",pt:""},
+    {t:"レーダークエストはクリアせず放置（月曜用に貯める）",pt:"貯"},
+    {t:"プレゼントボックスは開封しない",pt:"貯"},
+    {t:"建設・研究に一番長いキューを1本だけ入れて寝る",pt:""}],
+   hoard:"高速化・英雄EXP・かけら・レーダークエスト・宝箱 — この日は何ひとつ使いません。"},
+  {dow:1,no:"01",theme:"レーダー特訓",sub:"Day 1",armsKey:"drone",minutes:15,tasks:[
+    {t:"貯めたレーダークエストを一気にクリア",pt:"+10,000/回"},
+    {t:"AP（行動力）を使い切る",pt:"+150/1AP"},
+    {t:"余った英雄EXPを流す（本命は木曜）",pt:"660ごと+1"},
+    {t:"建設・研究のキューは火曜・水曜用に空けておく",pt:""}],
+   hoard:"建設高速化は火曜、研究高速化は水曜、かけらは木曜まで手をつけません。"},
+  {dow:2,no:"02",theme:"基地建設",sub:"Day 2",armsKey:"build",minutes:15,tasks:[
+    {t:"UR貿易輸送車を発車",pt:"+100,000/回"},
+    {t:"UR極秘任務を遂行",pt:"+75,000/回"},
+    {t:"貯めたプレゼントボックスを開封し建設高速化を放出",pt:""},
+    {t:"生存者募集を回す",pt:"+1,500/回"}],
+   hoard:"研究高速化と英雄のかけらには、まだ触れません。レーダークエストも貯め続けます。"},
+  {dow:3,no:"03",theme:"科学研究",sub:"Day 3",armsKey:"tech",minutes:15,tasks:[
+    {t:"研究高速化をまとめて放出",pt:""},
+    {t:"知恵の勲章を消費",pt:"+300/枚"},
+    {t:"貯めたドローン部品宝箱を開封",pt:"Lv.7 +810,000"},
+    {t:"レーダークエストをクリア",pt:"+10,000/回"}],
+   hoard:"英雄のかけら・英雄EXPは明日の本命にございます。ここでは絶対に使いません。"},
+  {dow:4,no:"04",theme:"英雄育成",sub:"Day 4",armsKey:"hero",minutes:10,tasks:[
+    {t:"UR英雄のかけらを消費",pt:"+10,000/枚"},
+    {t:"SSR英雄のかけらを消費",pt:"+3,500/枚"},
+    {t:"英雄募集を回す",pt:"+1,500/回"},
+    {t:"貯めた英雄EXPを全部流す",pt:""}],
+   hoard:"訓練高速化と兵士の生産枠は、明日の戦争準備に温存します。"},
+  {dow:5,no:"05",theme:"戦争準備",sub:"Day 5",armsKey:"troop",minutes:20,tasks:[
+    {t:"兵士訓練を最大数で回す",pt:"Lv.10 +110"},
+    {t:"残っている高速化を全種類、ここで使い切る",pt:"+50/回"},
+    {t:"レーダークエストをクリア",pt:"+10,000/回"},
+    {t:"明日の討伐に向けて部隊を回復・編成しておく",pt:""}],
+   hoard:"使い残しは翌週に持ち越さず、この日に吐き切るのが最も高効率にございます。"},
+  {dow:6,no:"06",theme:"敵軍討伐",sub:"Day 6・直接対決",armsKey:null,minutes:25,tasks:[
+    {t:"敵兵士を撃破する（連盟の集結に乗るのが最も安全）",pt:"Lv.10 +55"},
+    {t:"UR貿易輸送車を発車",pt:"+100,000/回"},
+    {t:"UR極秘任務を遂行",pt:"+75,000/回"},
+    {t:"自基地は要塞化するか、開幕前に安全地帯へ移設",pt:""}],
+   hoard:"翌日から次週の仕込みに戻ります。日曜は何も使いません。"}
+];
+
+var LS="lastwar-duty-v3";
+var state={week:"",done:{},avail:{0:"both",1:"both",2:"both",3:"both",4:"both",5:"both",6:"both"},
+  drillAnchor:"2026-07-22",drillEvery:2,drillTime:"21:30",armsShift:0};
+
+/* ---------- 時間 ---------- */
+function shift(d){return new Date((d||new Date()).getTime()-RESET_HOUR*3600*1000);}
+function serverDow(d){return shift(d).getDay();}
+function serverDayStart(d){
+  var s=shift(d), b=new Date(s.getFullYear(),s.getMonth(),s.getDate());
+  return new Date(b.getTime()+RESET_HOUR*3600*1000);
+}
+function slotIndex(d){
+  var t=(d||new Date()).getTime()-serverDayStart(d).getTime();
+  return Math.max(0,Math.min(5,Math.floor(t/BLOCK_MS)));
+}
+function slotStart(dayStart,i){return new Date(dayStart.getTime()+i*BLOCK_MS);}
+function mod(n,m){return ((n%m)+m)%m;}
+function armsRow(dow){return ARMS_WEEK[mod(dow+state.armsShift,7)];}
+function hhmm(t){var d=new Date(t);return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");}
+function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function dur(ms){if(ms<0)ms=0;var h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000);
+  return h>0?h+"時間"+String(m).padStart(2,"0")+"分":m+"分";}
+function weekKey(){var s=shift(new Date()),d=new Date(s.getFullYear(),s.getMonth(),s.getDate());d.setDate(d.getDate()-d.getDay());return ymd(d);}
+
+/* 二重取りスロット（その曜日で連盟対決テーマと一致する軍拡ブロックの index 配列） */
+function stackSlots(dow){
+  var key=DAYS[dow].armsKey; if(!key) return [];
+  var row=armsRow(dow), out=[];
+  for(var i=0;i<6;i++) if(row[i]===key) out.push(i);
+  return out;
+}
+
+/* ---------- 軍事演習 ---------- */
+function isDrillDay(dateObj){
+  var p=state.drillAnchor.split("-");
+  var a=new Date(+p[0],+p[1]-1,+p[2]);
+  var b=new Date(dateObj.getFullYear(),dateObj.getMonth(),dateObj.getDate());
+  var diff=Math.round((b-a)/86400000);
+  var ev=Math.max(1,parseInt(state.drillEvery,10)||2);
+  return diff>=0 && diff%ev===0;
+}
+function nextDrill(){
+  var p=state.drillAnchor.split("-"), hm=state.drillTime.split(":");
+  var cur=new Date(+p[0],+p[1]-1,+p[2],+hm[0],+hm[1],0,0);
+  var ev=Math.max(1,parseInt(state.drillEvery,10)||2), now=Date.now(), g=0;
+  while(cur.getTime()<now && g++<4000) cur.setDate(cur.getDate()+ev);
+  return cur;
+}
+
+/* ---------- 保存 ---------- */
+function load(){
+  try{
+    var raw=localStorage.getItem(LS); if(!raw) return;
+    var s=JSON.parse(raw); if(!s||typeof s!=="object") return;
+    if(s.avail) state.avail=s.avail;
+    if(s.drillAnchor) state.drillAnchor=s.drillAnchor;
+    if(s.drillEvery) state.drillEvery=s.drillEvery;
+    if(s.drillTime) state.drillTime=s.drillTime;
+    if(typeof s.armsShift==="number") state.armsShift=s.armsShift;
+    if(s.week===weekKey()&&s.done) state.done=s.done;
+  }catch(e){ /* 初回起動または保存破損。初期値で継続 */ }
+}
+function save(){state.week=weekKey();
+  try{localStorage.setItem(LS,JSON.stringify(state));}catch(e){ /* 保存不可でも操作は継続 */ }}
+
+/* ---------- 作業枠 ---------- */
+function slotsFor(day,dateObj){
+  var av=state.avail[day.dow], out=[], ds=serverDayStart(dateObj||new Date());
+  var st=stackSlots(day.dow);
+  var stackTime = st.length ? hhmm(slotStart(ds,st[0]).getTime()) : null;
+
+  if(av==="none"){
+    out.push({time:"60秒",title:"最低限メニューだけ",
+      note:"デイリー回収 → 建設・研究に最長キューを1本 → 訓練を最大数で仕込む。翌朝10:59までに取り返せます。"});
+    return out;
+  }
+  if(av==="both"||av==="am"){
+    out.push({time:"11:05",key:av==="am",
+      title:av==="am"?"この枠に全部まとめる":"リセット直後の回収",
+      note:av==="am"?"夜に入れないため前夜の持ち越しごとここで放出いたします。所要は倍を見てくださいませ。"
+                    :"デイリー・無料ガチャ・連盟ヘルプを回収し、建設と研究のキューを長時間物で埋めます。"});
+  }
+  if(stackTime){
+    var again = st.length>1 ? "この枠を逃しても "+SLOT_LABEL[st[1]]+" に同テーマが再来いたします。" : "";
+    out.push({time:stackTime,stack:true,title:"二重取り — "+day.theme+"を放出",
+      note:"連盟対決「"+day.theme+"」と軍備大作戦「"+ARMS[day.armsKey].name+"」が重なる4時間にございます。温存分はすべてここで叩きます。"+again});
+    // 夜しか入れないのに重なりが朝しかない日は、夜の通常枠も残す
+    if(av==="pm" && st.length===1 && st[0]<2){
+      out.push({time:"23:00",key:true,title:"入れなかった分をここで",
+        note:"本日の重ね取り枠は日中にございました。夜は通常枠として連盟対決分だけ放出してくださいませ。軍拡の入れ替え（1日1回）で夜へ寄せる手もございます。"});
+    }
+  }else if(av==="both"||av==="pm"){
+    out.push({time:"23:00",key:true,title:"本日のテーマを放出",
+      note:"本日は軍拡との重なりがございません。通常どおりこの枠で放出してくださいませ。"});
+  }
+  if(av==="pm"){
+    out.push({time:"翌10:59",title:"猶予はここまで",
+      note:"テーマ日は翌朝10:59まで生きております。寝落ちしても翌朝に間に合えば失点いたしません。"});
+  }
+  if(dateObj&&isDrillDay(dateObj)){
+    var hm=state.drillTime.split(":");
+    var t=new Date(dateObj.getFullYear(),dateObj.getMonth(),dateObj.getDate(),+hm[0],+hm[1]);
+    t.setMinutes(t.getMinutes()-10);
+    out.push({time:hhmm(t.getTime()),live:true,title:"軍事演習 — 集合地点へ移設",
+      note:"開始10分前に基地を集合地点へ移し、30分間ダメージを出します。移設を忘れると参加できません。"});
+  }
+  out.sort(function(a,b){
+    var x=(a.time.charCodeAt(0)<128&&a.time.indexOf(":")>-1)?a.time:"99:99";
+    var y=(b.time.charCodeAt(0)<128&&b.time.indexOf(":")>-1)?b.time:"99:99";
+    return x<y?-1:(x>y?1:0);
+  });
+  return out;
+}
+function minutesFor(day,dateObj){
+  if(state.avail[day.dow]==="none") return 1;
+  var m=day.minutes;
+  if(dateObj&&isDrillDay(dateObj)) m+=30;
+  return m;
+}
+
+/* ---------- 描画 ---------- */
+var lastSlot=null,lastDow=null;
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e;}
+
+function renderStackAlert(){
+  var host=document.getElementById("stackAlert");host.textContent="";
+  var dow=serverDow(), day=DAYS[dow], si=slotIndex(), st=stackSlots(dow);
+  var live=st.indexOf(si)!==-1;
+  var box=el("div","stackalert"+(live?"":" off"));
+  box.appendChild(el("span","tag",live?"重ね取り":"待機"));
+  var p=el("p");
+  var ds=serverDayStart(new Date());
+  if(live){
+    var e=slotStart(ds,si+1);
+    var b=el("b",null,"いまが好機。");
+    p.appendChild(b);
+    p.appendChild(document.createTextNode("連盟対決「"+day.theme+"」と軍備大作戦「"+ARMS[day.armsKey].name+"」が重なっております。"+hhmm(e.getTime())+"までに温存分を放出してくださいませ。"));
+  }else if(st.length){
+    var nxt=null;
+    for(var i=0;i<st.length;i++){ if(st[i]>si){ nxt=st[i]; break; } }
+    if(nxt!==null){
+      p.appendChild(document.createTextNode("本日の重ね取りは "));
+      p.appendChild(el("b",null,hhmm(slotStart(ds,nxt).getTime())+"〜"+hhmm(slotStart(ds,nxt+1).getTime())));
+      p.appendChild(document.createTextNode(" にございます。連盟対決「"+day.theme+"」の放出はその枠まで待つのが最も効率的です。"));
+    }else{
+      p.appendChild(document.createTextNode("本日の重ね取り枠（"+SLOT_LABEL[st[0]]+"）は過ぎております。連盟対決のテーマ日は翌朝10:59まで有効ですので、残りは通常枠で放出してくださいませ。"));
+    }
+  }else{
+    p.appendChild(document.createTextNode("本日は連盟対決「"+day.theme+"」に重なる軍拡テーマがございません。軍拡は軍拡、対決は対決として別々に消化してくださいませ。"));
+  }
+  box.appendChild(p);host.appendChild(box);
+}
+
+function renderArmsCard(){
+  var body=document.getElementById("armsBody");body.textContent="";
+  var dow=serverDow(), row=armsRow(dow), si=slotIndex(), ds=serverDayStart(new Date());
+  var st=stackSlots(dow);
+  document.getElementById("armsCd").textContent="あと "+dur(slotStart(ds,si+1)-Date.now());
+
+  body.appendChild(el("p","big",ARMS[row[si]].name));
+  body.appendChild(el("p","sub",SLOT_LABEL[si]+" 〜 "+SLOT_LABEL[(si+1)%6]+" のブロック（"+DOW[dow]+"曜）"));
+
+  var tt=el("div","tt");
+  for(var i=0;i<6;i++){
+    var hit=st.indexOf(i)!==-1;
+    var r=el("div","row"+(i===si?" now":"")+(hit?" hit":""));
+    r.appendChild(el("time",null,SLOT_LABEL[i]));
+    r.appendChild(el("span","nm",ARMS[row[i]].name));
+    r.appendChild(el("span","mark",i===si?"NOW":(hit?"二重取り":"")));
+    tt.appendChild(r);
+  }
+  body.appendChild(tt);
+
+  var ul=el("ul","mini");
+  ARMS[row[si]].tasks.forEach(function(t){
+    var li=el("li");li.appendChild(document.createTextNode(t.t));
+    if(t.pt){li.appendChild(document.createTextNode(" "));li.appendChild(el("span","pt",t.pt));}
+    ul.appendChild(li);
+  });
+  body.appendChild(ul);
+}
+
+function renderVsCard(){
+  var dow=serverDow(), d=DAYS[dow], body=document.getElementById("vsBody");body.textContent="";
+  var now=new Date(), next=new Date(now.getFullYear(),now.getMonth(),now.getDate(),RESET_HOUR,0,0,0);
+  if(next<=now) next.setDate(next.getDate()+1);
+  document.getElementById("vsCd").textContent="切替まで "+dur(next-now);
+  body.appendChild(el("p","big","Day "+d.no+"　"+d.theme));
+  body.appendChild(el("p","sub",DOW[dow]+"曜 / 本日の所要 約"+minutesFor(d,new Date())+"分"));
+  var ul=el("ul","mini");
+  d.tasks.slice(0,3).forEach(function(t){
+    var li=el("li");li.appendChild(document.createTextNode(t.t));
+    if(t.pt){li.appendChild(document.createTextNode(" "));li.appendChild(el("span","pt",t.pt));}
+    ul.appendChild(li);
+  });
+  body.appendChild(ul);
+}
+
+function renderDrillCard(){
+  var body=document.getElementById("drillBody");body.textContent="";
+  var nd=nextDrill(), ms=nd.getTime()-Date.now();
+  document.getElementById("drillCd").textContent=(ms>0?"あと "+dur(ms):"開催中");
+  body.appendChild(el("p","big",(nd.getMonth()+1)+"/"+nd.getDate()+"（"+DOW[nd.getDay()]+"） "+hhmm(nd.getTime())));
+  body.appendChild(el("p","sub",state.drillEvery+"日に1回・30分間。開始10分前までに集合地点へ基地を移設してくださいませ。"));
+  var ul=el("ul","mini");
+  [{t:"開始10分前に集合地点へ移設",pt:""},{t:"元帥親衛隊へダメージを出し切る",pt:"30分"},{t:"終了後に基地を元の位置へ戻す",pt:""}]
+  .forEach(function(t){var li=el("li");li.appendChild(document.createTextNode(t.t));
+    if(t.pt){li.appendChild(document.createTextNode(" "));li.appendChild(el("span","pt",t.pt));}ul.appendChild(li);});
+  body.appendChild(ul);
+}
+
+function renderSlots(){
+  var d=DAYS[serverDow()], host=document.getElementById("nowSlots");host.textContent="";
+  slotsFor(d,new Date()).forEach(function(s){
+    var e=el("div","slot"+(s.key?" is-key":"")+(s.live?" is-live":"")+(s.stack?" is-stack":""));
+    e.appendChild(el("time",null,s.time));
+    var w=el("div","what");w.appendChild(el("b",null,s.title));w.appendChild(el("span",null,s.note));
+    e.appendChild(w);host.appendChild(e);
+  });
+}
+
+function renderRoster(){
+  var host=document.getElementById("roster");host.textContent="";
+  var start=serverDayStart(new Date()),total=0,done=0;
+  for(var i=0;i<7;i++){
+    var when=new Date(start.getTime()+i*86400000), dow=when.getDay(), day=DAYS[dow];
+    var card=el("section","panel day"+(i===0?" today":""));
+    var head=el("div","day-head");
+    head.appendChild(el("span","no",day.no));
+    head.appendChild(el("h3",null,day.theme));
+    head.appendChild(el("span","dow",(when.getMonth()+1)+"/"+when.getDate()+"（"+DOW[dow]+"）"));
+    var dr=isDrillDay(when);
+    head.appendChild(el("span","badge"+(dr?" drill":""),minutesFor(day,when)+"分"+(dr?"・演習":"")));
+
+    var body=el("div","day-body");
+    var win=el("div","window");
+    slotsFor(day,when).forEach(function(s,j){
+      if(j) win.appendChild(document.createElement("br"));
+      win.appendChild(el("b",null,s.time+" "));
+      win.appendChild(el("span",s.stack?"st":null,s.title));
+    });
+    body.appendChild(win);
+
+    var ul=el("ul","tasks");
+    day.tasks.forEach(function(task,ti){
+      total++;var key=dow+"-"+ti;if(state.done[key])done++;
+      var li=el("li"),lab=el("label");
+      var cb=document.createElement("input");cb.type="checkbox";cb.checked=!!state.done[key];
+      cb.addEventListener("change",function(){state.done[key]=cb.checked;save();renderRoster();});
+      var txt=el("span","txt");txt.appendChild(document.createTextNode(task.t));
+      if(task.pt){txt.appendChild(document.createTextNode(" "));txt.appendChild(el("span","pt",task.pt));}
+      lab.appendChild(cb);lab.appendChild(txt);li.appendChild(lab);ul.appendChild(li);
+    });
+    body.appendChild(ul);
+
+    var h=el("div","hoard");h.appendChild(el("span","k","温存"));
+    h.appendChild(document.createTextNode(day.hoard));body.appendChild(h);
+
+    card.appendChild(head);card.appendChild(body);host.appendChild(card);
+  }
+  document.getElementById("mBar").style.width=(total?(done/total)*100:0)+"%";
+  document.getElementById("mDone").textContent="今週の消化 "+done+" / "+total;
+}
+
+function renderWeekTable(){
+  var t=document.getElementById("wkTable");t.textContent="";
+  var today=serverDow();
+  var thead=document.createElement("thead"),tr=document.createElement("tr");
+  tr.appendChild(el("th",null,"曜日"));
+  SLOT_LABEL.forEach(function(s){tr.appendChild(el("th",null,s));});
+  thead.appendChild(tr);t.appendChild(thead);
+  var tb=document.createElement("tbody");
+  for(var d=0;d<7;d++){
+    var row=armsRow(d),st=stackSlots(d);
+    var r=document.createElement("tr");if(d===today)r.className="today";
+    r.appendChild(el("th",null,DOW[d]+"（"+DAY_NO[d]+"日目）"));
+    for(var i=0;i<6;i++){
+      var td=el("td",st.indexOf(i)!==-1?"hit":null,ARMS[row[i]].name);
+      r.appendChild(td);
+    }
+    tb.appendChild(r);
+  }
+  t.appendChild(tb);
+}
+
+function renderArmsRef(){
+  var host=document.getElementById("armsRef");host.textContent="";
+  var cur=armsRow(serverDow())[slotIndex()];
+  Object.keys(ARMS).forEach(function(k){
+    var a=ARMS[k],c=el("section","panel armscard"+(k===cur?" now":""));
+    var h=el("h3",null,a.name);
+    var days=[];for(var d=0;d<7;d++){if(DAYS[d].armsKey===k)days.push(DOW[d]+"曜");}
+    h.appendChild(el("span","vs",days.length?"連盟対決 "+days.join("・")+"と同テーマ":"連盟対決に対応なし"));
+    c.appendChild(h);
+    var ul=el("ul","mini");
+    a.tasks.forEach(function(t){var li=el("li");li.appendChild(document.createTextNode(t.t));
+      if(t.pt){li.appendChild(document.createTextNode(" "));li.appendChild(el("span","pt",t.pt));}ul.appendChild(li);});
+    c.appendChild(ul);host.appendChild(c);
+  });
+}
+
+function renderSettings(){
+  var ag=document.getElementById("availGrid");ag.textContent="";
+  var opts=[["both","両方"],["am","朝のみ"],["pm","夜のみ"],["none","無理"]];
+  for(var d=0;d<7;d++){(function(d){
+    var row=el("div","availrow");row.appendChild(el("span","dow",DOW[d]+"曜"));
+    var seg=el("div","seg c4");
+    opts.forEach(function(o){
+      var b=document.createElement("button");b.type="button";b.textContent=o[1];
+      b.setAttribute("aria-pressed",state.avail[d]===o[0]);
+      b.addEventListener("click",function(){state.avail[d]=o[0];save();renderAll();});
+      seg.appendChild(b);
+    });
+    row.appendChild(seg);ag.appendChild(row);
+  })(d);}
+
+  var os=document.getElementById("offsetSeg");os.textContent="";
+  [[-1,"1日戻す"],[0,"補正なし"],[1,"1日進める"]].forEach(function(o){
+    var b=document.createElement("button");b.type="button";b.textContent=o[1];
+    b.setAttribute("aria-pressed",state.armsShift===o[0]);
+    b.addEventListener("click",function(){state.armsShift=o[0];save();renderAll();});
+    os.appendChild(b);
+  });
+
+  document.getElementById("drillAnchor").value=state.drillAnchor;
+  document.getElementById("drillEvery").value=state.drillEvery;
+  document.getElementById("drillTime").value=state.drillTime;
+}
+
+function renderAll(){
+  renderStackAlert();renderArmsCard();renderVsCard();renderDrillCard();
+  renderSlots();renderRoster();renderWeekTable();renderArmsRef();renderSettings();
+  lastSlot=slotIndex();lastDow=serverDow();
+}
+
+document.getElementById("drillAnchor").addEventListener("change",function(e){if(e.target.value){state.drillAnchor=e.target.value;save();renderAll();}});
+document.getElementById("drillEvery").addEventListener("change",function(e){var v=parseInt(e.target.value,10);state.drillEvery=(v>=1&&v<=7)?v:2;e.target.value=state.drillEvery;save();renderAll();});
+document.getElementById("drillTime").addEventListener("change",function(e){if(e.target.value){state.drillTime=e.target.value;save();renderAll();}});
+document.getElementById("btnReset").addEventListener("click",function(){state.done={};save();renderRoster();});
+
+function tick(){
+  var n=new Date();
+  document.getElementById("clkJst").textContent=String(n.getHours()).padStart(2,"0")+":"+String(n.getMinutes()).padStart(2,"0");
+  var s=shift(n);
+  document.getElementById("clkSrv").textContent=String(s.getHours()).padStart(2,"0")+":"+String(s.getMinutes()).padStart(2,"0");
+  if(slotIndex()!==lastSlot||serverDow()!==lastDow){renderAll();return;}  /* 4時間ごとの切替で全面更新 */
+  renderStackAlert();renderArmsCard();renderVsCard();renderDrillCard();
+}
+document.addEventListener("visibilitychange",function(){if(!document.hidden)renderAll();});
+window.addEventListener("focus",function(){renderAll();});
+
+load();renderAll();tick();setInterval(tick,20000);
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("./sw.js").catch(function(){ /* オフライン化は任意機能 */ });
+  });
+}
+})();
+</script>
+</body>
+</html>
