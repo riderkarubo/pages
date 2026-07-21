@@ -137,6 +137,15 @@ input.bad{border-color:var(--live);color:var(--live)}
 .inline span{font-size:var(--s0);color:var(--muted)}
 .inline input{width:auto}
 
+.calbox{padding:14px 15px;display:grid;gap:12px}
+.calbtn{display:block;text-decoration:none;background:var(--accent);color:var(--ground);padding:14px 16px;border-radius:3px}
+.calbtn:hover{filter:brightness(1.08)}
+.calbtn b{display:block;font-size:var(--s2);font-weight:800;margin-bottom:3px}
+.calbtn span{display:block;font-size:var(--s0);opacity:.88;line-height:1.55}
+.calalt{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:var(--s0)}
+.calalt a{color:var(--accent);text-underline-offset:2px}
+.calnote{margin:0;font-size:var(--s0);color:var(--muted);line-height:1.68}
+.calnote b{color:var(--ink)}
 .wk{display:grid;gap:9px}
 .wkday{padding:11px 13px;display:grid;gap:6px}
 .wkday.today{border-color:var(--accent);border-width:2px}
@@ -187,14 +196,20 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
   <div class="sechead"><h2>今日の軍拡ブロック</h2><span class="note">入れ替え先を青で示します</span></div>
   <div class="panel" style="padding:11px 13px"><div class="blocks" id="blocks"></div></div>
 
-  <div class="sechead">
-    <h2>通知をセット</h2>
-    <button class="btn primary right" id="btnIcs" type="button">カレンダーに入れる</button>
-  </div>
-  <div class="panel" style="padding:13px 15px">
-    <p style="margin:0;font-size:var(--s0);color:var(--muted)">
-      上のボタンで当直予定（.icsファイル）を書き出します。iPhoneならそのまま「カレンダーに追加」を選べば、以後は毎日その時刻に端末の通知が鳴ります。件名に何をするかが入っておりますので、通知を見るだけで動けます。<br><br>
-      Web版のプッシュ通知は配信サーバーが必要で、このページ単体では実現できません。カレンダー通知はロック画面に出て音も鳴り、圏外でも確実に発火いたしますので、実用上はこちらが上位互換にございます。<br>
+  <div class="sechead"><h2>通知をセット</h2></div>
+  <div class="panel calbox">
+    <a class="calbtn" href="webcal://riderkarubo.github.io/pages/lastwar-ops/lastwar-duty.ics">
+      <b>カレンダーに登録する</b>
+      <span>タップするとカレンダーAppが開きます。「照会」を選べば登録完了。以後この表を更新した分も自動で届きます。</span>
+    </a>
+    <div class="calalt">
+      <a href="./lastwar-duty.ics">購読せず1回だけ取り込む</a>
+      <button class="btn" id="btnIcs" type="button">設定を変えた版を書き出す</button>
+    </div>
+    <p class="calnote">
+      件名に何をするかが入っておりますので、通知を見るだけで動けます。各予定の5分前に鳴ります。<br>
+      登録後、<b>設定 → カレンダー → アカウント → 照会したカレンダー → ラストウォー 当直</b> を開き、「アラームを削除」が<b>オフ</b>になっていることをご確認くださいませ。オンだと通知が鳴りません。<br>
+      在席時間などを設定画面で変更された場合は、購読分には反映されません。右の「設定を変えた版を書き出す」から取り込むか、お申しつけくださいませ。<br>
       <span id="icsSummary" style="color:var(--ink)"></span>
     </p>
   </div>
