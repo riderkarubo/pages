@@ -89,6 +89,7 @@ header.masthead p.lede{margin:0;max-width:60ch;color:var(--muted);font-size:var(
 .step.stack{border-left-color:var(--ok)}
 .step.swapstep{border-left-color:var(--swap)}
 .step.drill{border-left-color:var(--live)}
+.step.checkstep{border-left-color:var(--muted)}
 .step .when{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
 .step .when time{display:block;font-size:1.0625rem;font-weight:700;letter-spacing:-.02em}
 .step .when small{display:block;font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:1px}
@@ -97,6 +98,7 @@ header.masthead p.lede{margin:0;max-width:60ch;color:var(--muted);font-size:var(
 .flag.k-stack{background:var(--ok);color:var(--ground)}
 .flag.k-swap{background:var(--swap);color:var(--ground)}
 .flag.k-drill{background:var(--live);color:var(--ground)}
+.flag.k-check{background:var(--muted);color:var(--ground)}
 .flag.k-now{background:var(--accent);color:var(--ground)}
 .step ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:1px}
 .step ul li{display:block}
@@ -149,6 +151,7 @@ input.bad{border-color:var(--live);color:var(--live)}
 .wkday ol li.s time,.wkday ol li.s span{color:var(--ok)}
 .wkday ol li.w time,.wkday ol li.w span{color:var(--swap)}
 .wkday ol li.d time,.wkday ol li.d span{color:var(--live)}
+.wkday ol li.c time,.wkday ol li.c span{color:var(--muted)}
 
 .doctrine{margin:26px 0 0;padding:17px 15px 19px}
 .doctrine h2{margin:0 0 13px;font-size:var(--s2);font-weight:800}
@@ -190,7 +193,8 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
   </div>
   <div class="panel" style="padding:13px 15px">
     <p style="margin:0;font-size:var(--s0);color:var(--muted)">
-      上のボタンで週間の当直予定（.icsファイル）を書き出します。iPhoneならそのまま「カレンダーに追加」を選べば、以後は毎週その時刻に端末の通知が鳴ります。予定には何をするかが件名に入っておりますので、通知を見るだけで動けます。<br>
+      上のボタンで当直予定（.icsファイル）を書き出します。iPhoneならそのまま「カレンダーに追加」を選べば、以後は毎日その時刻に端末の通知が鳴ります。件名に何をするかが入っておりますので、通知を見るだけで動けます。<br><br>
+      Web版のプッシュ通知は配信サーバーが必要で、このページ単体では実現できません。カレンダー通知はロック画面に出て音も鳴り、圏外でも確実に発火いたしますので、実用上はこちらが上位互換にございます。<br>
       <span id="icsSummary" style="color:var(--ink)"></span>
     </p>
   </div>
@@ -213,7 +217,12 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
         <p class="hint">開始10分前に集合地点への基地移設が要りますので、その時刻で指示を出します。</p>
       </div>
       <div class="field">
-        <span class="label">③ 軍拡テーブルのズレ補正</span>
+        <span class="label">③ 臨時イベントの確認時刻</span>
+        <input type="time" id="checkTime" style="width:auto">
+        <p class="hint">毎日この時刻に、開催中の臨時イベント（闇市大作戦など）と受け取り漏れ、連盟チャットの告知を確認する指示を出します。その時刻に在席していない曜日は自動で省かれます。</p>
+      </div>
+      <div class="field">
+        <span class="label">④ 軍拡テーブルのズレ補正</span>
         <div class="inline" id="offsetSeg"></div>
         <p class="hint">ゲーム内「日程」と表示がズレた場合のみ動かしてくださいませ。通常は補正なしで合います。</p>
       </div>
@@ -250,13 +259,13 @@ var DOW=["日","月","火","水","木","金","土"];
 var BYDAY=["SU","MO","TU","WE","TH","FR","SA"];
 var SLOT=["11:00","15:00","19:00","23:00","03:00","07:00"];
 
-/* 軍拡5テーマ。free = 温存に触れずに点が入る行動 */
+/* 軍拡5テーマ。free = 温存に触れずに点が入る行動。チェック欄は1テーマ1つに束ねる */
 var ARMS={
-  drone:{name:"ドローン強化",free:["APを使い切る","ドローン戦闘データを消費する"],hold:null},
-  troop:{name:"兵士強化",free:["兵士訓練を最大数で回す"],hold:"訓練高速化は金曜まで温存"},
-  hero:{name:"英雄強化",free:["英雄募集を回す"],hold:"英雄EXPとかけらは木曜まで温存"},
-  tech:{name:"科学研究",free:["研究を完了させる","次の研究をキューに入れる"],hold:"研究高速化は水曜まで温存"},
-  build:{name:"基地建設",free:["建設を完了させる","次の建設をキューに入れる"],hold:"建設高速化は火曜まで温存"}
+  drone:{name:"ドローン強化",free:"APを使い切り、ドローン戦闘データを消費する",hold:null},
+  troop:{name:"兵士強化",free:"兵士訓練を最大数で回す",hold:"訓練高速化は金曜まで温存"},
+  hero:{name:"英雄強化",free:"英雄募集を回す",hold:"英雄EXPとかけらは木曜まで温存"},
+  tech:{name:"科学研究",free:"研究を完了させ、次の研究をキューに入れる",hold:"研究高速化は水曜まで温存"},
+  build:{name:"基地建設",free:"建設を完了させ、次の建設をキューに入れる",hold:"建設高速化は火曜まで温存"}
 };
 
 /* 実データ（Issy戦域 Lv.31-35・2026-07取得）1日目=月曜〜7日目=日曜。各日 [11,15,19,23,03,07] */
@@ -286,7 +295,7 @@ var LS="lastwar-duty-v4";
 var state={
   week:"",done:{},armsShift:0,
   win:{0:"10:00-26:00",1:"10:30-26:00",2:"10:30-26:00",3:"10:00-26:00",4:"10:30-26:00",5:"11:00-14:00, 21:00-27:00",6:"10:00-26:00"},
-  drillAnchor:"2026-07-22",drillEvery:2,drillTime:"21:30"
+  drillAnchor:"2026-07-22",drillEvery:2,drillTime:"21:30",checkTime:"21:00"
 };
 
 /* ---------- 時間 ---------- */
@@ -340,6 +349,9 @@ function availOf(dayStart){
     });
   });
   return out.sort(function(a,b){return a[0]-b[0];});
+}
+function inAvail(dayStart,t){
+  return availOf(dayStart).some(function(w){return t>=w[0]&&t<w[1];});
 }
 /* ブロックiに10分以上いられるか。いられるなら最速の行動時刻を返す */
 function reachOf(dayStart,i){
@@ -395,7 +407,7 @@ function planFor(dayStart){
     var s={at:r.at,block:r.i,kind:isStack?"stack":"block",bonus:r.i===5,
       title:(isStack?"二重取り — ":"")+theme.name, items:[], memo:""};
 
-    if(r.i===0){ s.items.push("デイリー任務・無料ガチャ・連盟ヘルプを回収"); }
+    if(r.i===0){ s.items.push("デイリー任務・無料ガチャ・連盟ヘルプを回収し、建設と研究に一番長いキューを入れる"); }
 
     if(isStack){
       vs.push.forEach(function(x){s.items.push(x);});
@@ -405,14 +417,14 @@ function planFor(dayStart){
         s.memo+="取りこぼしても "+SLOT[other]+" に同テーマが再来いたします。";
       }
     }else{
-      theme.free.forEach(function(x){s.items.push(x);});
+      s.items.push(theme.free);
       if(theme.hold) s.memo=theme.hold+"。ここでは使いません。";
       if(!vs.key&&dow===0) s.memo="日曜は仕込み日にございます。無料で回せるものだけ触ってくださいませ。";
     }
-    if(r.i===0&&dow!==0) s.items.push("建設・研究に一番長いキューを入れておく");
     if(s.bonus){
       s.title="翌朝の拾い物 — "+theme.name;
-      s.memo="リセット直前の最後の枠にございます。"+(isStack?"二重取りの二度目を取り切れます。":"")+"時間がなければ飛ばして構いません。"+(s.memo?" "+s.memo:"");
+      s.items=[isStack?"同じテーマをもう一度回して宝箱を取り切る":theme.free];
+      s.memo="リセット直前の最後の枠にございます。"+(isStack?"二重取りの二度目にあたります。昨夜で出し切っていれば受け取るだけで構いません。":"")+"時間がなければ飛ばして結構です。";
     }
     return s;
   });
@@ -437,9 +449,20 @@ function planFor(dayStart){
       memo:"移設を忘れると参加できません。開始10分前にございます。"});
   }
 
+  /* 臨時イベントの確認。在席していない時刻には置かない */
+  var ct=String(state.checkTime||"21:00").split(":");
+  var ctAt=new Date(dayStart.getFullYear(),dayStart.getMonth(),dayStart.getDate(),+ct[0],+ct[1],0,0).getTime();
+  if(ctAt<dayStart.getTime()) ctAt+=86400000;
+  if(ctAt<dayStart.getTime()+86400000 && inAvail(dayStart,ctAt)){
+    steps.push({at:ctAt+2,block:null,kind:"check",title:"臨時イベントの確認",
+      items:["イベント画面のタブを一通り見て、開催中の臨時イベントと受け取り漏れを確認する"],
+      memo:"闇市大作戦などの期間限定イベントと、連盟チャットの告知（軍事演習の時刻変更を含む）をここで拾います。新しい予定があれば、この場で今夜の動きを決めてくださいませ。"});
+  }
+
   steps.sort(function(a,b){return a.at-b.at;});
   var mins=steps.reduce(function(n,s){
     if(s.kind==="drill") return n+35;
+    if(s.kind==="check") return n+3;
     if(s.bonus) return n+4;
     if(s.kind==="stack") return n+12;
     if(s.kind==="swap") return n+7;
@@ -457,6 +480,7 @@ function load(){
     if(s.drillAnchor) state.drillAnchor=s.drillAnchor;
     if(s.drillEvery) state.drillEvery=s.drillEvery;
     if(s.drillTime) state.drillTime=s.drillTime;
+    if(s.checkTime) state.checkTime=s.checkTime;
     if(typeof s.armsShift==="number") state.armsShift=s.armsShift;
     if(s.week===weekKey()&&s.done) state.done=s.done;
   }catch(e){ /* 初回起動または保存破損。初期値で継続 */ }
@@ -483,16 +507,17 @@ function renderToday(){
   p.steps.forEach(function(s,idx){
     var isNow = s.block!==null && s.block===cur && now>=s.at-30*60000;
     var past = now > s.at + (s.kind==="drill"?45*60000:BLOCK_MS);
-    var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="swap"?"swapstep":s.kind==="drill"?"drill":"")+(isNow?" now":"")+(past?" past":""));
+    var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="swap"?"swapstep":s.kind==="drill"?"drill":s.kind==="check"?"checkstep":"")+(isNow?" now":"")+(past?" past":""));
     var w=el("div","when");
     w.appendChild(el("time",null,labelAt(s.at,ds)));
-    w.appendChild(el("small",null,s.kind==="drill"?"演習":s.block!==null?SLOT[s.block]+"枠":""));
+    w.appendChild(el("small",null,s.kind==="drill"?"演習":s.kind==="check"?"確認":s.block!==null?SLOT[s.block]+"枠":""));
     box.appendChild(w);
     var b=document.createElement("div");
     var h=el("h3",null,s.title);
     if(s.kind==="stack") h.appendChild(el("span","flag k-stack","二重取り"));
     if(s.kind==="swap") h.appendChild(el("span","flag k-swap","入れ替え"));
     if(s.kind==="drill") h.appendChild(el("span","flag k-drill","演習"));
+    if(s.kind==="check") h.appendChild(el("span","flag k-check","確認"));
     if(isNow) h.appendChild(el("span","flag k-now","NOW"));
     b.appendChild(h);
     var ul=document.createElement("ul");
@@ -537,7 +562,7 @@ function renderWeek(){
     c.appendChild(hd);
     var ol=document.createElement("ol");
     p.steps.forEach(function(s){
-      var li=el("li",s.kind==="stack"?"s":s.kind==="swap"?"w":s.kind==="drill"?"d":"");
+      var li=el("li",s.kind==="stack"?"s":s.kind==="swap"?"w":s.kind==="drill"?"d":s.kind==="check"?"c":"");
       li.appendChild(el("time",null,labelAt(s.at,ds)));
       li.appendChild(el("span",null,s.title));
       ol.appendChild(li);
@@ -570,6 +595,7 @@ function renderSettings(){
   document.getElementById("drillAnchor").value=state.drillAnchor;
   document.getElementById("drillEvery").value=state.drillEvery;
   document.getElementById("drillTime").value=state.drillTime;
+  document.getElementById("checkTime").value=state.checkTime;
 }
 
 /* ---------- .ics 書き出し ---------- */
@@ -593,24 +619,26 @@ function utc(d){
 function buildIcs(){
   var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//LW Duty Roster//JA","CALSCALE:GREGORIAN","METHOD:PUBLISH",
          "X-WR-CALNAME:ラストウォー 当直"];
-  var stamp=utc(new Date()), start=serverDayStart(new Date()), n=0, drillDone=false;
+  var stamp=utc(new Date()), start=serverDayStart(new Date()), n=0, drillDone=false, checkDone=false;
   for(var i=0;i<7;i++){
     var ds=new Date(start.getTime()+i*86400000), p=planFor(ds);
     p.steps.forEach(function(s,idx){
-      /* 演習は2日おきの繰り返し1本だけ出す。曜日ごとに出すと重複する */
+      /* 演習と臨時イベント確認は毎日の繰り返し1本ずつ。曜日ごとに出すと重複する */
       if(s.kind==="drill"){ if(drillDone) return; drillDone=true; }
+      if(s.kind==="check"){ if(checkDone) return; checkDone=true; }
       var at=new Date(s.at);
-      var tag=s.kind==="stack"?"★":s.kind==="swap"?"⇄":s.kind==="drill"?"⚑":"";
+      var tag=s.kind==="stack"?"★":s.kind==="swap"?"⇄":s.kind==="drill"?"⚑":s.kind==="check"?"◇":"";
       var sum="LW "+pad(at.getHours())+":"+pad(at.getMinutes())+" "+tag+s.title;
       var body=s.items.map(function(x,k){return (k+1)+". "+x;}).join("\n")+(s.memo?"\n\n"+s.memo:"");
-      var isDrill=s.kind==="drill";
+      var isDrill=s.kind==="drill", isCheck=s.kind==="check";
       L.push("BEGIN:VEVENT");
       L.push("UID:lw-"+p.dow+"-"+idx+"-"+(n++)+"@lastwar-ops");
       L.push("DTSTAMP:"+stamp);
       L.push("DTSTART:"+utc(at));
-      L.push("DURATION:"+(isDrill?"PT40M":s.bonus?"PT5M":s.kind==="stack"?"PT20M":"PT10M"));
-      /* 演習は2日おき、それ以外は毎週その曜日 */
+      L.push("DURATION:"+(isDrill?"PT40M":(s.bonus||isCheck)?"PT5M":s.kind==="stack"?"PT20M":"PT10M"));
+      /* 演習は2日おき、臨時イベント確認は毎日、それ以外は毎週その曜日 */
       L.push(isDrill?("RRULE:FREQ=DAILY;INTERVAL="+Math.max(1,parseInt(state.drillEvery,10)||2))
+                   :isCheck?"RRULE:FREQ=DAILY"
                    :("RRULE:FREQ=WEEKLY;BYDAY="+BYDAY[at.getDay()]));
       L.push(fold("SUMMARY:"+icsEsc(sum)));
       L.push(fold("DESCRIPTION:"+icsEsc(body)));
@@ -641,6 +669,7 @@ document.getElementById("btnReset").addEventListener("click",function(){state.do
 document.getElementById("drillAnchor").addEventListener("change",function(e){if(e.target.value){state.drillAnchor=e.target.value;save();renderAll();}});
 document.getElementById("drillEvery").addEventListener("change",function(e){var v=parseInt(e.target.value,10);state.drillEvery=(v>=1&&v<=7)?v:2;e.target.value=state.drillEvery;save();renderAll();});
 document.getElementById("drillTime").addEventListener("change",function(e){if(e.target.value){state.drillTime=e.target.value;save();renderAll();}});
+document.getElementById("checkTime").addEventListener("change",function(e){if(e.target.value){state.checkTime=e.target.value;save();renderAll();}});
 
 function tick(){
   var n=new Date();
