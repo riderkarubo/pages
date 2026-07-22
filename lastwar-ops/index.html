@@ -229,7 +229,7 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
           <input type="number" id="drillEvery" min="1" max="7" step="1" style="width:70px"><span>日に1回</span>
           <input type="time" id="drillTime" style="width:auto">
         </div>
-        <p class="hint">開始10分前に集合地点への基地移設が要りますので、その時刻で指示を出します。</p>
+        <p class="hint">この開始時刻でそのまま指示を出します。連盟チャットで時刻変更の告知があった場合はここを書き換えてくださいませ。</p>
       </div>
       <div class="field">
         <span class="label">③ 臨時イベントの確認時刻</span>
@@ -276,12 +276,19 @@ var SLOT=["11:00","15:00","19:00","23:00","03:00","07:00"];
 
 /* 軍拡5テーマ。free = 温存に触れずに点が入る行動。チェック欄は1テーマ1つに束ねる */
 var ARMS={
-  drone:{name:"ドローン強化",free:"APを使い切り、ドローン戦闘データを消費する",hold:null},
-  troop:{name:"兵士強化",free:"兵士訓練を最大数で回す",hold:"訓練高速化は金曜まで温存"},
+  drone:{name:"ドローン強化",free:"APを使い切る",hold:null},
+  troop:{name:"兵士強化",free:"兵士訓練でポイント獲得",hold:"訓練高速化は金曜まで温存"},
   hero:{name:"英雄強化",free:"英雄募集を回す",hold:"英雄EXPとかけらは木曜まで温存"},
-  tech:{name:"科学研究",free:"研究を完了させ、次の研究をキューに入れる",hold:"研究高速化は水曜まで温存"},
-  build:{name:"基地建設",free:"建設を完了させ、次の建設をキューに入れる",hold:"建設高速化は火曜まで温存"}
+  tech:{name:"科学研究",free:"科学研究でポイント獲得",hold:"研究高速化は水曜まで温存"},
+  build:{name:"基地建設",free:"建設でポイント獲得",hold:"建設高速化は火曜まで温存"}
 };
+/* ドローン枠だけ曜日で中身が変わる。AP消費の言い回しと、戦闘データを流してよい日の判定 */
+function freeItems(key,vs){
+  if(key!=="drone") return [ARMS[key].free];
+  var out=[vs.radar?"レーダークエストでAPを消費する":"APを使い切る"];
+  if(vs.key==="drone") out.push("ドローン戦闘データを消費する");
+  return out;
+}
 
 /* 実データ（Issy戦域 Lv.31-35・2026-07取得）1日目=月曜〜7日目=日曜。各日 [11,15,19,23,03,07] */
 var ARMS_WEEK={
@@ -298,11 +305,11 @@ var DAY_NO={0:7,1:1,2:2,3:3,4:4,5:5,6:6};
 /* 連盟対決 曜日テーマ */
 var VSD=[
   {no:"00",theme:"仕込み日",key:null,push:["何も消費せず、デイリーと無料ガチャだけ回収する","レーダークエストはクリアせず貯める","プレゼントボックスは開封しない"]},
-  {no:"01",theme:"レーダー特訓",key:"drone",push:["貯めたレーダークエストを一気にクリア","APを使い切る","ドローン戦闘データを流す"]},
+  {no:"01",theme:"レーダー特訓",key:"drone",radar:true,push:["貯めたレーダークエストを一気にクリア","APを使い切る","ドローン戦闘データを流す"]},
   {no:"02",theme:"基地建設",key:"build",push:["貯めたプレゼントボックスを開封し、建設高速化を全投入","UR貿易輸送車を発車","UR極秘任務を遂行","生存者募集を回す"]},
-  {no:"03",theme:"科学研究",key:"tech",push:["研究高速化をまとめて放出","知恵の勲章を消費","貯めたドローン部品宝箱を開封"]},
+  {no:"03",theme:"科学研究",key:"tech",push:["研究高速化をまとめて放出","知恵の勲章を消費"]},
   {no:"04",theme:"英雄育成",key:"hero",push:["UR英雄のかけらを消費","SSR英雄のかけらを消費","貯めた英雄EXPを全部流す","英雄募集を回す"]},
-  {no:"05",theme:"戦争準備",key:"troop",push:["兵士訓練を最大数で回す","残っている高速化を全種類ここで使い切る","レーダークエストをクリア"]},
+  {no:"05",theme:"戦争準備",key:"troop",radar:true,push:["兵士訓練を最大数で回す","残っている高速化を全種類ここで使い切る","レーダークエストをクリア"]},
   {no:"06",theme:"敵軍討伐",key:null,push:["連盟の集結に乗って敵兵士を撃破","UR貿易輸送車を発車","UR極秘任務を遂行","自基地は要塞化するか安全地帯へ移設"]}
 ];
 
@@ -376,8 +383,6 @@ function reachOf(dayStart,i){
     if(e-s>=10*60000 && (best===null||s<best)) best=s;
   });
   if(best===null) return null;
-  /* リセット直後は5分置いてから触る */
-  if(i===0 && best<=bs) best=bs+5*60000;
   return best;
 }
 
@@ -389,13 +394,13 @@ function drillOn(dateObj){
   var diff=Math.round((b-a)/86400000), ev=Math.max(1,parseInt(state.drillEvery,10)||2);
   return diff>=0&&diff%ev===0;
 }
-/* サーバー日の中で開催される演習の実時刻（移設開始=10分前） */
+/* サーバー日の中で開催される演習の開始時刻 */
 function drillIn(dayStart){
   var hm=state.drillTime.split(":"), end=dayStart.getTime()+86400000;
   for(var off=0;off<=1;off++){
     var base=new Date(dayStart.getFullYear(),dayStart.getMonth(),dayStart.getDate()+off);
     if(!drillOn(base)) continue;
-    var t=new Date(base.getFullYear(),base.getMonth(),base.getDate(),+hm[0],+hm[1]).getTime()-10*60000;
+    var t=new Date(base.getFullYear(),base.getMonth(),base.getDate(),+hm[0],+hm[1]).getTime();
     if(t>=dayStart.getTime()&&t<end) return t;
   }
   return null;
@@ -422,7 +427,10 @@ function planFor(dayStart){
     var s={at:r.at,block:r.i,kind:isStack?"stack":"block",bonus:r.i===5,
       title:(isStack?"二重取り — ":"")+theme.name, items:[], memo:""};
 
-    if(r.i===0){ s.items.push("デイリー任務・無料ガチャ・連盟ヘルプを回収し、建設と研究に一番長いキューを入れる"); }
+    if(r.i===0){
+      s.items.push("闇市、輸送車発射、野良攻撃");
+      s.items.push("ドローン部品宝箱開封");
+    }
 
     if(isStack){
       vs.push.forEach(function(x){s.items.push(x);});
@@ -432,36 +440,35 @@ function planFor(dayStart){
         s.memo+="取りこぼしても "+SLOT[other]+" に同テーマが再来いたします。";
       }
     }else{
-      s.items.push(theme.free);
+      freeItems(row[r.i],vs).forEach(function(x){s.items.push(x);});
       if(theme.hold) s.memo=theme.hold+"。ここでは使いません。";
       if(!vs.key&&dow===0) s.memo="日曜は仕込み日にございます。無料で回せるものだけ触ってくださいませ。";
     }
     if(s.bonus){
-      s.title="翌朝の拾い物 — "+theme.name;
-      s.items=[isStack?"同じテーマをもう一度回して宝箱を取り切る":theme.free];
+      s.title=theme.name+"２回目";
+      s.items=freeItems(row[r.i],vs);
       s.memo="リセット直前の最後の枠にございます。"+(isStack?"二重取りの二度目にあたります。昨夜で出し切っていれば受け取るだけで構いません。":"")+"時間がなければ飛ばして結構です。";
     }
     return s;
   });
 
+  /* 入れ替えは独立した枠にせず、元ブロックの枠へ畳み込む */
   if(swap){
-    var toTheme=ARMS[armsRow(dow)[swap.to]];
+    var toTheme=ARMS[row[swap.to]];
     var host=steps.filter(function(s){return s.block===swap.from;})[0];
-    var at=Math.max(swap.at, dayStart.getTime()+swap.from*BLOCK_MS+10*60000);
-    steps.push({at:at+1,block:swap.from,kind:"swap",
-      title:"入れ替え → "+toTheme.name,
-      items:["いま進行中のブロックの宝箱・報酬をすべて受け取る"]
-        .concat(["「日程」を開き、"+SLOT[swap.to]+"（"+toTheme.name+"）の矢印を押して交換"])
-        .concat(toTheme.free),
-      memo:SLOT[swap.to]+"は貴殿が寝ている時間帯にございます。ここで交換すれば、この1回のログインで2テーマ分こなせます。受け取り残しがあると交換できませんので、先に全部回収してくださいませ。"});
-    if(host) host.memo+=(host.memo?" ":"")+"このあと入れ替えを使いますので、宝箱は必ず受け取り切ってくださいませ。";
+    if(host){
+      host.swap=true;
+      host.items.push("ポイント獲得後、"+SLOT[swap.to]+"の"+toTheme.name+"と軍拡入れ替え");
+      freeItems(row[swap.to],vs).forEach(function(x){host.items.push(x);});
+      host.memo+=(host.memo?" ":"")+SLOT[swap.to]+"は貴殿が寝ている時間帯にございます。宝箱・報酬を受け取り切ってから「日程」で交換すれば、この1回のログインで2テーマ分こなせます。受け取り残しがあると交換できませんので、先に全部回収してくださいませ。";
+    }
   }
 
   var dt=drillIn(dayStart);
   if(dt!==null){
-    steps.push({at:dt,block:null,kind:"drill",title:"軍事演習 — 集合地点へ移設",
-      items:["集合地点へ基地を移設する","開始したら30分間ダメージを出し切る","終了後に基地を元の位置へ戻す"],
-      memo:"移設を忘れると参加できません。開始10分前にございます。"});
+    steps.push({at:dt,block:null,kind:"drill",title:"軍事演習",
+      items:["演習参加"],
+      memo:"軍事演習の開始時刻にございます。"});
   }
 
   /* 臨時イベントの確認。在席していない時刻には置かない */
@@ -470,18 +477,20 @@ function planFor(dayStart){
   if(ctAt<dayStart.getTime()) ctAt+=86400000;
   if(ctAt<dayStart.getTime()+86400000 && inAvail(dayStart,ctAt)){
     steps.push({at:ctAt+2,block:null,kind:"check",title:"臨時イベントの確認",
-      items:["イベント画面のタブを一通り見て、開催中の臨時イベントと受け取り漏れを確認する"],
+      items:["キャンペーンとイベントタブに見落としがないか確認"],
       memo:"闇市大作戦などの期間限定イベントと、連盟チャットの告知（軍事演習の時刻変更を含む）をここで拾います。新しい予定があれば、この場で今夜の動きを決めてくださいませ。"});
   }
 
   steps.sort(function(a,b){return a.at-b.at;});
   var mins=steps.reduce(function(n,s){
-    if(s.kind==="drill") return n+35;
-    if(s.kind==="check") return n+3;
-    if(s.bonus) return n+4;
-    if(s.kind==="stack") return n+12;
-    if(s.kind==="swap") return n+7;
-    return n+6;
+    var m;
+    if(s.kind==="drill") m=30;
+    else if(s.kind==="check") m=3;
+    else if(s.bonus) m=4;
+    else if(s.kind==="stack") m=12;
+    else m=6;
+    if(s.swap) m+=7;
+    return n+m;
   },0);
   return {dow:dow,row:row,vs:vs,steps:steps,reach:reach,miss:miss,swap:swap,stackSlots:stackSlots,minutes:mins,dayStart:dayStart};
 }
@@ -522,7 +531,7 @@ function renderToday(){
   p.steps.forEach(function(s,idx){
     var isNow = s.block!==null && s.block===cur && now>=s.at-30*60000;
     var past = now > s.at + (s.kind==="drill"?45*60000:BLOCK_MS);
-    var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="swap"?"swapstep":s.kind==="drill"?"drill":s.kind==="check"?"checkstep":"")+(isNow?" now":"")+(past?" past":""));
+    var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="drill"?"drill":s.kind==="check"?"checkstep":s.swap?"swapstep":"")+(isNow?" now":"")+(past?" past":""));
     var w=el("div","when");
     w.appendChild(el("time",null,labelAt(s.at,ds)));
     w.appendChild(el("small",null,s.kind==="drill"?"演習":s.kind==="check"?"確認":s.block!==null?SLOT[s.block]+"枠":""));
@@ -530,7 +539,7 @@ function renderToday(){
     var b=document.createElement("div");
     var h=el("h3",null,s.title);
     if(s.kind==="stack") h.appendChild(el("span","flag k-stack","二重取り"));
-    if(s.kind==="swap") h.appendChild(el("span","flag k-swap","入れ替え"));
+    if(s.swap) h.appendChild(el("span","flag k-swap","入れ替え"));
     if(s.kind==="drill") h.appendChild(el("span","flag k-drill","演習"));
     if(s.kind==="check") h.appendChild(el("span","flag k-check","確認"));
     if(isNow) h.appendChild(el("span","flag k-now","NOW"));
@@ -577,7 +586,7 @@ function renderWeek(){
     c.appendChild(hd);
     var ol=document.createElement("ol");
     p.steps.forEach(function(s){
-      var li=el("li",s.kind==="stack"?"s":s.kind==="swap"?"w":s.kind==="drill"?"d":s.kind==="check"?"c":"");
+      var li=el("li",s.kind==="stack"?"s":s.kind==="drill"?"d":s.kind==="check"?"c":s.swap?"w":"");
       li.appendChild(el("time",null,labelAt(s.at,ds)));
       li.appendChild(el("span",null,s.title));
       ol.appendChild(li);
@@ -642,7 +651,7 @@ function buildIcs(){
       if(s.kind==="drill"){ if(drillDone) return; drillDone=true; }
       if(s.kind==="check"){ if(checkDone) return; checkDone=true; }
       var at=new Date(s.at);
-      var tag=s.kind==="stack"?"★":s.kind==="swap"?"⇄":s.kind==="drill"?"⚑":s.kind==="check"?"◇":"";
+      var tag=s.kind==="stack"?"★":s.kind==="drill"?"⚑":s.kind==="check"?"◇":s.swap?"⇄":"";
       var sum="LW "+pad(at.getHours())+":"+pad(at.getMinutes())+" "+tag+s.title;
       var body=s.items.map(function(x,k){return (k+1)+". "+x;}).join("\n")+(s.memo?"\n\n"+s.memo:"");
       var isDrill=s.kind==="drill", isCheck=s.kind==="check";
@@ -650,7 +659,7 @@ function buildIcs(){
       L.push("UID:lw-"+p.dow+"-"+idx+"-"+(n++)+"@lastwar-ops");
       L.push("DTSTAMP:"+stamp);
       L.push("DTSTART:"+utc(at));
-      L.push("DURATION:"+(isDrill?"PT40M":(s.bonus||isCheck)?"PT5M":s.kind==="stack"?"PT20M":"PT10M"));
+      L.push("DURATION:"+(isDrill?"PT30M":(s.bonus||isCheck)?"PT5M":s.kind==="stack"?"PT20M":"PT10M"));
       /* 演習は2日おき、臨時イベント確認は毎日、それ以外は毎週その曜日 */
       L.push(isDrill?("RRULE:FREQ=DAILY;INTERVAL="+Math.max(1,parseInt(state.drillEvery,10)||2))
                    :isCheck?"RRULE:FREQ=DAILY"

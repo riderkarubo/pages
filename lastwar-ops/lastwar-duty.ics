@@ -4,154 +4,24 @@ PRODID:-//LW Duty Roster//JA
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:ラストウォー 当直
-X-WR-CALDESC:連盟対決・軍備大作戦・軍事演習の当直指示
-X-WR-TIMEZONE:Asia/Tokyo
-REFRESH-INTERVAL;VALUE=DURATION:PT12H
-X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:lw-2-0-0@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260721T020500Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=TU
-SUMMARY:LW 11:05 兵士強化
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. 兵
- 士訓練を最大数で回す\n\n訓練高速化は金曜まで温存
- 。ここでは使いません。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 11:05 兵士強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-2-1-1@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260721T060000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=TU
-SUMMARY:LW 15:00 科学研究
-DESCRIPTION:1. 研究を完了させ、次の研究をキューに入れ
- る\n\n研究高速化は水曜まで温存。ここでは使いませ
- ん。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 15:00 科学研究
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-2-2-2@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260721T100000Z
-DURATION:PT20M
-RRULE:FREQ=WEEKLY;BYDAY=TU
-SUMMARY:LW 19:00 ★二重取り — 基地建設
-DESCRIPTION:1. 貯めたプレゼントボックスを開封し、建設
- 高速化を全投入\n2. UR貿易輸送車を発車\n3. UR極秘任務
- を遂行\n4. 生存者募集を回す\n\n連盟対決「基地建設」
- と軍拡「基地建設」が重なる4時間にございます。温
- 存分はここで全部叩きます。取りこぼしても 07:00 に
- 同テーマが再来いたします。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 19:00 ★二重取り — 基地建設
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-2-3-3@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260721T120000Z
-DURATION:PT5M
-RRULE:FREQ=DAILY
-SUMMARY:LW 21:00 ◇臨時イベントの確認
-DESCRIPTION:1. イベント画面のタブを一通り見て、開催中
- の臨時イベントと受け取り漏れを確認する\n\n闇市大
- 作戦などの期間限定イベントと、連盟チャットの告知
- （軍事演習の時刻変更を含む）をここで拾います。新
- しい予定があれば、この場で今夜の動きを決めてくだ
- さいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 21:00 ◇臨時イベントの確認
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-2-4-4@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260721T140000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=TU
-SUMMARY:LW 23:00 ドローン強化
-DESCRIPTION:1. APを使い切り、ドローン戦闘データを消費
- する\n\nこのあと入れ替えを使いますので、宝箱は必
- ず受け取り切ってくださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:00 ドローン強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-2-5-5@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260721T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=TU
-SUMMARY:LW 23:10 ⇄入れ替え → 英雄強化
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（英雄強化）の
- 矢印を押して交換\n3. 英雄募集を回す\n\n03:00は貴殿が
- 寝ている時間帯にございます。ここで交換すれば、こ
- の1回のログインで2テーマ分こなせます。受け取り残
- しがあると交換できませんので、先に全部回収してく
- ださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → 英雄強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-2-6-6@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260722T010000Z
-DURATION:PT5M
-RRULE:FREQ=WEEKLY;BYDAY=WE
-SUMMARY:LW 10:00 ★翌朝の拾い物 — 基地建設
-DESCRIPTION:1. 同じテーマをもう一度回して宝箱を取り切
- る\n\nリセット直前の最後の枠にございます。二重取
- りの二度目にあたります。昨夜で出し切っていれば受
- け取るだけで構いません。時間がなければ飛ばして結
- 構です。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 10:00 ★翌朝の拾い物 — 基地建設
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-3-0-7@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260722T020500Z
+UID:lw-3-0-0@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260722T020000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=WE
-SUMMARY:LW 11:05 ドローン強化
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. AP
- を使い切り、ドローン戦闘データを消費する
+SUMMARY:LW 11:00 ドローン強化
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. APを使い切る
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 11:05 ドローン強化
+DESCRIPTION:LW 11:00 ドローン強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-3-1-8@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-3-1-1@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260722T060000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=WE
@@ -165,17 +35,17 @@ DESCRIPTION:LW 15:00 英雄強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-3-2-9@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-3-2-2@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260722T100000Z
 DURATION:PT20M
 RRULE:FREQ=WEEKLY;BYDAY=WE
 SUMMARY:LW 19:00 ★二重取り — 科学研究
 DESCRIPTION:1. 研究高速化をまとめて放出\n2. 知恵の勲章
- を消費\n3. 貯めたドローン部品宝箱を開封\n\n連盟対決
- 「科学研究」と軍拡「科学研究」が重なる4時間にご
- ざいます。温存分はここで全部叩きます。取りこぼし
- ても 07:00 に同テーマが再来いたします。
+ を消費\n\n連盟対決「科学研究」と軍拡「科学研究」
+ が重なる4時間にございます。温存分はここで全部叩
+ きます。取りこぼしても 07:00 に同テーマが再来いた
+ します。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
@@ -183,102 +53,100 @@ DESCRIPTION:LW 19:00 ★二重取り — 科学研究
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-3-4-10@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260722T122000Z
-DURATION:PT40M
-RRULE:FREQ=DAILY;INTERVAL=2
-SUMMARY:LW 21:20 ⚑軍事演習 — 集合地点へ移設
-DESCRIPTION:1. 集合地点へ基地を移設する\n2. 開始したら30
- 分間ダメージを出し切る\n3. 終了後に基地を元の位置
- へ戻す\n\n移設を忘れると参加できません。開始10分前
- にございます。
+UID:lw-3-3-3@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260722T120000Z
+DURATION:PT5M
+RRULE:FREQ=DAILY
+SUMMARY:LW 21:00 ◇臨時イベントの確認
+DESCRIPTION:1. キャンペーンとイベントタブに見落としが
+ ないか確認\n\n闇市大作戦などの期間限定イベントと
+ 、連盟チャットの告知（軍事演習の時刻変更を含む）
+ をここで拾います。新しい予定があれば、この場で今
+ 夜の動きを決めてくださいませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 21:20 ⚑軍事演習 — 集合地点へ移設
+DESCRIPTION:LW 21:00 ◇臨時イベントの確認
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-3-5-11@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-3-4-4@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260722T123000Z
+DURATION:PT30M
+RRULE:FREQ=DAILY;INTERVAL=2
+SUMMARY:LW 21:30 ⚑軍事演習
+DESCRIPTION:1. 演習参加\n\n軍事演習の開始時刻にございま
+ す。
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:LW 21:30 ⚑軍事演習
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lw-3-5-5@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260722T140000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=WE
-SUMMARY:LW 23:00 基地建設
-DESCRIPTION:1. 建設を完了させ、次の建設をキューに入れ
- る\n\n建設高速化は火曜まで温存。ここでは使いませ
- ん。 このあと入れ替えを使いますので、宝箱は必ず
- 受け取り切ってくださいませ。
+SUMMARY:LW 23:00 ⇄基地建設
+DESCRIPTION:1. 建設でポイント獲得\n2. ポイント獲得後、03
+ :00の兵士強化と軍拡入れ替え\n3. 兵士訓練でポイント
+ 獲得\n\n建設高速化は火曜まで温存。ここでは使いま
+ せん。 03:00は貴殿が寝ている時間帯にございます。宝
+ 箱・報酬を受け取り切ってから「日程」で交換すれば
+ 、この1回のログインで2テーマ分こなせます。受け取
+ り残しがあると交換できませんので、先に全部回収し
+ てくださいませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 23:00 基地建設
+DESCRIPTION:LW 23:00 ⇄基地建設
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-3-6-12@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260722T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=WE
-SUMMARY:LW 23:10 ⇄入れ替え → 兵士強化
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（兵士強化）の
- 矢印を押して交換\n3. 兵士訓練を最大数で回す\n\n03:00
- は貴殿が寝ている時間帯にございます。ここで交換す
- れば、この1回のログインで2テーマ分こなせます。受
- け取り残しがあると交換できませんので、先に全部回
- 収してくださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → 兵士強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-3-7-13@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-3-6-6@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260723T013000Z
 DURATION:PT5M
 RRULE:FREQ=WEEKLY;BYDAY=TH
-SUMMARY:LW 10:30 ★翌朝の拾い物 — 科学研究
-DESCRIPTION:1. 同じテーマをもう一度回して宝箱を取り切
- る\n\nリセット直前の最後の枠にございます。二重取
- りの二度目にあたります。昨夜で出し切っていれば受
- け取るだけで構いません。時間がなければ飛ばして結
- 構です。
+SUMMARY:LW 10:30 ★科学研究２回目
+DESCRIPTION:1. 科学研究でポイント獲得\n\nリセット直前の
+ 最後の枠にございます。二重取りの二度目にあたりま
+ す。昨夜で出し切っていれば受け取るだけで構いませ
+ ん。時間がなければ飛ばして結構です。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 10:30 ★翌朝の拾い物 — 科学研究
+DESCRIPTION:LW 10:30 ★科学研究２回目
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-4-0-14@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260723T020500Z
+UID:lw-4-0-7@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260723T020000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=TH
-SUMMARY:LW 11:05 基地建設
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. 建
- 設を完了させ、次の建設をキューに入れる\n\n建設高
- 速化は火曜まで温存。ここでは使いません。
+SUMMARY:LW 11:00 基地建設
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. 建設でポイント獲得\n\n建設高速化は
+ 火曜まで温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 11:05 基地建設
+DESCRIPTION:LW 11:00 基地建設
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-4-1-15@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-4-1-8@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260723T060000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=TH
 SUMMARY:LW 15:00 兵士強化
-DESCRIPTION:1. 兵士訓練を最大数で回す\n\n訓練高速化は金
+DESCRIPTION:1. 兵士訓練でポイント獲得\n\n訓練高速化は金
  曜まで温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
@@ -287,8 +155,8 @@ DESCRIPTION:LW 15:00 兵士強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-4-2-16@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-4-2-9@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260723T100000Z
 DURATION:PT20M
 RRULE:FREQ=WEEKLY;BYDAY=TH
@@ -305,62 +173,45 @@ DESCRIPTION:LW 19:00 ★二重取り — 英雄強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-4-4-17@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-4-4-10@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260723T140000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=TH
-SUMMARY:LW 23:00 科学研究
-DESCRIPTION:1. 研究を完了させ、次の研究をキューに入れ
+SUMMARY:LW 23:00 ⇄科学研究
+DESCRIPTION:1. 科学研究でポイント獲得\n2. ポイント獲得
+ 後、03:00のドローン強化と軍拡入れ替え\n3. APを使い切
  る\n\n研究高速化は水曜まで温存。ここでは使いませ
- ん。 このあと入れ替えを使いますので、宝箱は必ず
- 受け取り切ってくださいませ。
+ ん。 03:00は貴殿が寝ている時間帯にございます。宝箱
+ ・報酬を受け取り切ってから「日程」で交換すれば、
+ この1回のログインで2テーマ分こなせます。受け取り
+ 残しがあると交換できませんので、先に全部回収して
+ くださいませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 23:00 科学研究
+DESCRIPTION:LW 23:00 ⇄科学研究
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-4-5-18@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260723T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=TH
-SUMMARY:LW 23:10 ⇄入れ替え → ドローン強化
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（ドローン強化
- ）の矢印を押して交換\n3. APを使い切り、ドローン戦
- 闘データを消費する\n\n03:00は貴殿が寝ている時間帯に
- ございます。ここで交換すれば、この1回のログイン
- で2テーマ分こなせます。受け取り残しがあると交換
- できませんので、先に全部回収してくださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → ドローン強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-5-0-19@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260724T020500Z
+UID:lw-5-0-11@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260724T020000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=FR
-SUMMARY:LW 11:05 科学研究
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. 研
- 究を完了させ、次の研究をキューに入れる\n\n研究高
- 速化は水曜まで温存。ここでは使いません。
+SUMMARY:LW 11:00 科学研究
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. 科学研究でポイント獲得\n\n研究高速
+ 化は水曜まで温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 11:05 科学研究
+DESCRIPTION:LW 11:00 科学研究
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-5-1-20@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-5-1-12@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260724T120000Z
 DURATION:PT20M
 RRULE:FREQ=WEEKLY;BYDAY=FR
@@ -378,87 +229,68 @@ DESCRIPTION:LW 21:00 ★二重取り — 兵士強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-5-4-21@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-5-4-13@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260724T140000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=FR
-SUMMARY:LW 23:00 英雄強化
-DESCRIPTION:1. 英雄募集を回す\n\n英雄EXPとかけらは木曜ま
- で温存。ここでは使いません。 このあと入れ替えを
- 使いますので、宝箱は必ず受け取り切ってくださいま
- せ。
+SUMMARY:LW 23:00 ⇄英雄強化
+DESCRIPTION:1. 英雄募集を回す\n2. ポイント獲得後、03:00の
+ 基地建設と軍拡入れ替え\n3. 建設でポイント獲得\n\n英
+ 雄EXPとかけらは木曜まで温存。ここでは使いません。
+  03:00は貴殿が寝ている時間帯にございます。宝箱・報
+ 酬を受け取り切ってから「日程」で交換すれば、この
+ 1回のログインで2テーマ分こなせます。受け取り残し
+ があると交換できませんので、先に全部回収してくだ
+ さいませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 23:00 英雄強化
+DESCRIPTION:LW 23:00 ⇄英雄強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-5-5-22@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260724T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=FR
-SUMMARY:LW 23:10 ⇄入れ替え → 基地建設
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（基地建設）の
- 矢印を押して交換\n3. 建設を完了させ、次の建設をキ
- ューに入れる\n\n03:00は貴殿が寝ている時間帯にござい
- ます。ここで交換すれば、この1回のログインで2テー
- マ分こなせます。受け取り残しがあると交換できませ
- んので、先に全部回収してくださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → 基地建設
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-5-6-23@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-5-5-14@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260725T010000Z
 DURATION:PT5M
 RRULE:FREQ=WEEKLY;BYDAY=SA
-SUMMARY:LW 10:00 ★翌朝の拾い物 — 兵士強化
-DESCRIPTION:1. 同じテーマをもう一度回して宝箱を取り切
- る\n\nリセット直前の最後の枠にございます。二重取
- りの二度目にあたります。昨夜で出し切っていれば受
- け取るだけで構いません。時間がなければ飛ばして結
- 構です。
+SUMMARY:LW 10:00 ★兵士強化２回目
+DESCRIPTION:1. 兵士訓練でポイント獲得\n\nリセット直前の
+ 最後の枠にございます。二重取りの二度目にあたりま
+ す。昨夜で出し切っていれば受け取るだけで構いませ
+ ん。時間がなければ飛ばして結構です。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 10:00 ★翌朝の拾い物 — 兵士強化
+DESCRIPTION:LW 10:00 ★兵士強化２回目
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-6-0-24@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260725T020500Z
+UID:lw-6-0-15@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260725T020000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SA
-SUMMARY:LW 11:05 兵士強化
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. 兵
- 士訓練を最大数で回す\n\n訓練高速化は金曜まで温存
- 。ここでは使いません。
+SUMMARY:LW 11:00 兵士強化
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. 兵士訓練でポイント獲得\n\n訓練高速
+ 化は金曜まで温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 11:05 兵士強化
+DESCRIPTION:LW 11:00 兵士強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-6-1-25@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-6-1-16@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260725T060000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SA
 SUMMARY:LW 15:00 科学研究
-DESCRIPTION:1. 研究を完了させ、次の研究をキューに入れ
- る\n\n研究高速化は水曜まで温存。ここでは使いませ
- ん。
+DESCRIPTION:1. 科学研究でポイント獲得\n\n研究高速化は水
+ 曜まで温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
@@ -466,15 +298,14 @@ DESCRIPTION:LW 15:00 科学研究
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-6-2-26@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-6-2-17@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260725T100000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SA
 SUMMARY:LW 19:00 基地建設
-DESCRIPTION:1. 建設を完了させ、次の建設をキューに入れ
- る\n\n建設高速化は火曜まで温存。ここでは使いませ
- ん。
+DESCRIPTION:1. 建設でポイント獲得\n\n建設高速化は火曜ま
+ で温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
@@ -482,78 +313,61 @@ DESCRIPTION:LW 19:00 基地建設
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-6-4-27@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-6-4-18@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260725T140000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SA
-SUMMARY:LW 23:00 ドローン強化
-DESCRIPTION:1. APを使い切り、ドローン戦闘データを消費
- する\n\nこのあと入れ替えを使いますので、宝箱は必
- ず受け取り切ってくださいませ。
+SUMMARY:LW 23:00 ⇄ドローン強化
+DESCRIPTION:1. APを使い切る\n2. ポイント獲得後、03:00の英
+ 雄強化と軍拡入れ替え\n3. 英雄募集を回す\n\n03:00は貴
+ 殿が寝ている時間帯にございます。宝箱・報酬を受け
+ 取り切ってから「日程」で交換すれば、この1回のロ
+ グインで2テーマ分こなせます。受け取り残しがある
+ と交換できませんので、先に全部回収してくださいま
+ せ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 23:00 ドローン強化
+DESCRIPTION:LW 23:00 ⇄ドローン強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-6-5-28@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260725T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=SA
-SUMMARY:LW 23:10 ⇄入れ替え → 英雄強化
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（英雄強化）の
- 矢印を押して交換\n3. 英雄募集を回す\n\n03:00は貴殿が
- 寝ている時間帯にございます。ここで交換すれば、こ
- の1回のログインで2テーマ分こなせます。受け取り残
- しがあると交換できませんので、先に全部回収してく
- ださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → 英雄強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-6-6-29@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-6-5-19@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260726T010000Z
 DURATION:PT5M
 RRULE:FREQ=WEEKLY;BYDAY=SU
-SUMMARY:LW 10:00 翌朝の拾い物 — 基地建設
-DESCRIPTION:1. 建設を完了させ、次の建設をキューに入れ
- る\n\nリセット直前の最後の枠にございます。時間が
- なければ飛ばして結構です。
+SUMMARY:LW 10:00 基地建設２回目
+DESCRIPTION:1. 建設でポイント獲得\n\nリセット直前の最後
+ の枠にございます。時間がなければ飛ばして結構です
+ 。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 10:00 翌朝の拾い物 — 基地建設
+DESCRIPTION:LW 10:00 基地建設２回目
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-0-0-30@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260726T020500Z
+UID:lw-0-0-20@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260726T020000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SU
-SUMMARY:LW 11:05 ドローン強化
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. AP
- を使い切り、ドローン戦闘データを消費する\n\n日曜
- は仕込み日にございます。無料で回せるものだけ触っ
- てくださいませ。
+SUMMARY:LW 11:00 ドローン強化
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. APを使い切る\n\n日曜は仕込み日にご
+ ざいます。無料で回せるものだけ触ってくださいませ
+ 。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 11:05 ドローン強化
+DESCRIPTION:LW 11:00 ドローン強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-0-1-31@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-0-1-21@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260726T060000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SU
@@ -567,15 +381,15 @@ DESCRIPTION:LW 15:00 英雄強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-0-2-32@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-0-2-22@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260726T100000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SU
 SUMMARY:LW 19:00 科学研究
-DESCRIPTION:1. 研究を完了させ、次の研究をキューに入れ
- る\n\n日曜は仕込み日にございます。無料で回せるも
- のだけ触ってくださいませ。
+DESCRIPTION:1. 科学研究でポイント獲得\n\n日曜は仕込み日
+ にございます。無料で回せるものだけ触ってください
+ ませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
@@ -583,86 +397,69 @@ DESCRIPTION:LW 19:00 科学研究
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-0-5-33@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-0-5-23@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260726T140000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=SU
-SUMMARY:LW 23:00 基地建設
-DESCRIPTION:1. 建設を完了させ、次の建設をキューに入れ
- る\n\n日曜は仕込み日にございます。無料で回せるも
- のだけ触ってくださいませ。 このあと入れ替えを使
- いますので、宝箱は必ず受け取り切ってくださいませ
- 。
+SUMMARY:LW 23:00 ⇄基地建設
+DESCRIPTION:1. 建設でポイント獲得\n2. ポイント獲得後、03
+ :00の兵士強化と軍拡入れ替え\n3. 兵士訓練でポイント
+ 獲得\n\n日曜は仕込み日にございます。無料で回せる
+ ものだけ触ってくださいませ。 03:00は貴殿が寝ている
+ 時間帯にございます。宝箱・報酬を受け取り切ってか
+ ら「日程」で交換すれば、この1回のログインで2テー
+ マ分こなせます。受け取り残しがあると交換できませ
+ んので、先に全部回収してくださいませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 23:00 基地建設
+DESCRIPTION:LW 23:00 ⇄基地建設
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-0-6-34@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260726T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=SU
-SUMMARY:LW 23:10 ⇄入れ替え → 兵士強化
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（兵士強化）の
- 矢印を押して交換\n3. 兵士訓練を最大数で回す\n\n03:00
- は貴殿が寝ている時間帯にございます。ここで交換す
- れば、この1回のログインで2テーマ分こなせます。受
- け取り残しがあると交換できませんので、先に全部回
- 収してくださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → 兵士強化
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-0-7-35@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-0-6-24@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260727T013000Z
 DURATION:PT5M
 RRULE:FREQ=WEEKLY;BYDAY=MO
-SUMMARY:LW 10:30 翌朝の拾い物 — 科学研究
-DESCRIPTION:1. 研究を完了させ、次の研究をキューに入れ
- る\n\nリセット直前の最後の枠にございます。時間が
- なければ飛ばして結構です。
+SUMMARY:LW 10:30 科学研究２回目
+DESCRIPTION:1. 科学研究でポイント獲得\n\nリセット直前の
+ 最後の枠にございます。時間がなければ飛ばして結構
+ です。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 10:30 翌朝の拾い物 — 科学研究
+DESCRIPTION:LW 10:30 科学研究２回目
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-1-0-36@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260727T020500Z
+UID:lw-1-0-25@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260727T020000Z
 DURATION:PT20M
 RRULE:FREQ=WEEKLY;BYDAY=MO
-SUMMARY:LW 11:05 ★二重取り — ドローン強化
-DESCRIPTION:1. デイリー任務・無料ガチャ・連盟ヘルプを
- 回収し、建設と研究に一番長いキューを入れる\n2. 貯
- めたレーダークエストを一気にクリア\n3. APを使い切
- る\n4. ドローン戦闘データを流す\n\n連盟対決「レーダ
- ー特訓」と軍拡「ドローン強化」が重なる4時間にご
- ざいます。温存分はここで全部叩きます。
+SUMMARY:LW 11:00 ★二重取り — ドローン強化
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. 貯めたレーダークエストを一気にク
+ リア\n4. APを使い切る\n5. ドローン戦闘データを流す\n\
+ n連盟対決「レーダー特訓」と軍拡「ドローン強化」
+ が重なる4時間にございます。温存分はここで全部叩
+ きます。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 11:05 ★二重取り — ドローン強化
+DESCRIPTION:LW 11:00 ★二重取り — ドローン強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-1-1-37@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-1-1-26@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260727T060000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=MO
 SUMMARY:LW 15:00 兵士強化
-DESCRIPTION:1. 兵士訓練を最大数で回す\n\n訓練高速化は金
+DESCRIPTION:1. 兵士訓練でポイント獲得\n\n訓練高速化は金
  曜まで温存。ここでは使いません。
 BEGIN:VALARM
 TRIGGER:-PT5M
@@ -671,8 +468,8 @@ DESCRIPTION:LW 15:00 兵士強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-1-2-38@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-1-2-27@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260727T100000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=MO
@@ -686,55 +483,126 @@ DESCRIPTION:LW 19:00 英雄強化
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-1-4-39@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-1-4-28@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260727T140000Z
 DURATION:PT10M
 RRULE:FREQ=WEEKLY;BYDAY=MO
-SUMMARY:LW 23:00 科学研究
-DESCRIPTION:1. 研究を完了させ、次の研究をキューに入れ
- る\n\n研究高速化は水曜まで温存。ここでは使いませ
- ん。 このあと入れ替えを使いますので、宝箱は必ず
- 受け取り切ってくださいませ。
+SUMMARY:LW 23:00 ⇄科学研究
+DESCRIPTION:1. 科学研究でポイント獲得\n2. ポイント獲得
+ 後、03:00の基地建設と軍拡入れ替え\n3. 建設でポイン
+ ト獲得\n\n研究高速化は水曜まで温存。ここでは使い
+ ません。 03:00は貴殿が寝ている時間帯にございます。
+ 宝箱・報酬を受け取り切ってから「日程」で交換すれ
+ ば、この1回のログインで2テーマ分こなせます。受け
+ 取り残しがあると交換できませんので、先に全部回収
+ してくださいませ。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 23:00 科学研究
+DESCRIPTION:LW 23:00 ⇄科学研究
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:lw-1-5-40@lastwar-ops
-DTSTAMP:20260721T160700Z
-DTSTART:20260727T141000Z
-DURATION:PT10M
-RRULE:FREQ=WEEKLY;BYDAY=MO
-SUMMARY:LW 23:10 ⇄入れ替え → 基地建設
-DESCRIPTION:1. いま進行中のブロックの宝箱・報酬をすべ
- て受け取る\n2. 「日程」を開き、03:00（基地建設）の
- 矢印を押して交換\n3. 建設を完了させ、次の建設をキ
- ューに入れる\n\n03:00は貴殿が寝ている時間帯にござい
- ます。ここで交換すれば、この1回のログインで2テー
- マ分こなせます。受け取り残しがあると交換できませ
- んので、先に全部回収してくださいませ。
-BEGIN:VALARM
-TRIGGER:-PT5M
-ACTION:DISPLAY
-DESCRIPTION:LW 23:10 ⇄入れ替え → 基地建設
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:lw-1-6-41@lastwar-ops
-DTSTAMP:20260721T160700Z
+UID:lw-1-5-29@lastwar-ops
+DTSTAMP:20260722T121200Z
 DTSTART:20260728T013000Z
 DURATION:PT5M
 RRULE:FREQ=WEEKLY;BYDAY=TU
-SUMMARY:LW 10:30 翌朝の拾い物 — 英雄強化
+SUMMARY:LW 10:30 英雄強化２回目
 DESCRIPTION:1. 英雄募集を回す\n\nリセット直前の最後の枠
  にございます。時間がなければ飛ばして結構です。
 BEGIN:VALARM
 TRIGGER:-PT5M
 ACTION:DISPLAY
-DESCRIPTION:LW 10:30 翌朝の拾い物 — 英雄強化
+DESCRIPTION:LW 10:30 英雄強化２回目
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lw-2-0-30@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260728T020000Z
+DURATION:PT10M
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:LW 11:00 兵士強化
+DESCRIPTION:1. 闇市、輸送車発射、野良攻撃\n2. ドローン
+ 部品宝箱開封\n3. 兵士訓練でポイント獲得\n\n訓練高速
+ 化は金曜まで温存。ここでは使いません。
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:LW 11:00 兵士強化
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lw-2-1-31@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260728T060000Z
+DURATION:PT10M
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:LW 15:00 科学研究
+DESCRIPTION:1. 科学研究でポイント獲得\n\n研究高速化は水
+ 曜まで温存。ここでは使いません。
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:LW 15:00 科学研究
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lw-2-2-32@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260728T100000Z
+DURATION:PT20M
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:LW 19:00 ★二重取り — 基地建設
+DESCRIPTION:1. 貯めたプレゼントボックスを開封し、建設
+ 高速化を全投入\n2. UR貿易輸送車を発車\n3. UR極秘任務
+ を遂行\n4. 生存者募集を回す\n\n連盟対決「基地建設」
+ と軍拡「基地建設」が重なる4時間にございます。温
+ 存分はここで全部叩きます。取りこぼしても 07:00 に
+ 同テーマが再来いたします。
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:LW 19:00 ★二重取り — 基地建設
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lw-2-5-33@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260728T140000Z
+DURATION:PT10M
+RRULE:FREQ=WEEKLY;BYDAY=TU
+SUMMARY:LW 23:00 ⇄ドローン強化
+DESCRIPTION:1. APを使い切る\n2. ポイント獲得後、03:00の英
+ 雄強化と軍拡入れ替え\n3. 英雄募集を回す\n\n03:00は貴
+ 殿が寝ている時間帯にございます。宝箱・報酬を受け
+ 取り切ってから「日程」で交換すれば、この1回のロ
+ グインで2テーマ分こなせます。受け取り残しがある
+ と交換できませんので、先に全部回収してくださいま
+ せ。
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:LW 23:00 ⇄ドローン強化
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:lw-2-6-34@lastwar-ops
+DTSTAMP:20260722T121200Z
+DTSTART:20260729T010000Z
+DURATION:PT5M
+RRULE:FREQ=WEEKLY;BYDAY=WE
+SUMMARY:LW 10:00 ★基地建設２回目
+DESCRIPTION:1. 建設でポイント獲得\n\nリセット直前の最後
+ の枠にございます。二重取りの二度目にあたります。
+ 昨夜で出し切っていれば受け取るだけで構いません。
+ 時間がなければ飛ばして結構です。
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:LW 10:00 ★基地建設２回目
 END:VALARM
 END:VEVENT
 END:VCALENDAR

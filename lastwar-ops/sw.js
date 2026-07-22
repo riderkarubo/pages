@@ -1,7 +1,7 @@
 /* ラストウォー作戦当直表 — Service Worker
    方針: HTMLはネットワーク優先（更新を確実に拾う）、アイコン等はキャッシュ優先。 */
 
-var CACHE = "lw-ops-v3";
+var CACHE = "lw-ops-v4";
 var ASSETS = [
   "./",
   "./index.html",
