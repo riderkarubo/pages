@@ -5,7 +5,7 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-24T13:05:32+09:00">
+<meta name="last-modified" content="2026-07-24T13:24:16+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>Firework AIGCサンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
@@ -212,6 +212,15 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
   font-weight:700;
 }
 
+.subplayer-label{
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--teal);
+  margin:14px 0 8px 0;
+  font-family:"DotGothic16",monospace;
+}
+.subplayer-label:first-of-type{margin-top:6px}
+
 .tier-h{
   font-size:1rem;
   font-weight:900;
@@ -340,7 +349,7 @@ footer .conf{display:inline-block;background:var(--accent);color:#fff;font-weigh
     </div>
 
     <!-- ============== Tier 1 ============== -->
-    <div class="tier-h t1"><span class="tier-badge">TIER 1</span>パックショット系<span class="tier-note">商品単体を多アングルで魅せる</span></div>
+    <div class="tier-h t1"><span class="tier-badge">TIER 1</span>パックショット系</div>
 
     <section class="vsec" id="cat-pdp-360">
       <div class="vsec-h"><span class="num">1</span>パックショットビデオ（360°ポージング）</div>
@@ -374,12 +383,22 @@ footer .conf{display:inline-block;background:var(--accent);color:#fff;font-weigh
         <span class="chip"><span class="lbl">修正回数</span>2</span>
         <span class="chip"><span class="lbl">最小ロット</span>20</span>
       </div>
-      <div class="vplayer" data-slot="lifestyle-tryon">
+      <div class="subplayer-label">1-A アパレル</div>
+      <div class="vplayer" data-slot="lifestyle-tryon-apparel">
         <fw-embed-feed
-          channel="fw_aigc_lab"
+          channel="aigc_jp"
           mode="row"
           player_placement="bottom-right"
-          playlist="gplK8q"
+          playlist="gdR36D"
+        ></fw-embed-feed>
+      </div>
+      <div class="subplayer-label">1-B インテリア</div>
+      <div class="vplayer" data-slot="lifestyle-tryon-interior">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="oN1MNb"
         ></fw-embed-feed>
       </div>
     </section>
@@ -423,7 +442,7 @@ footer .conf{display:inline-block;background:var(--accent);color:#fff;font-weigh
     </section>
 
     <section class="vsec" id="cat-social">
-      <div class="vsec-h"><span class="num">4</span>ソーシャルビデオ</div>
+      <div class="vsec-h"><span class="num">4</span>SNS向け・UGC動画</div>
       <p class="vsec-desc">ソーシャル向け動画の作成（ソーシャルで人気のある他の動画を参考に）。</p>
       <div class="vsec-meta">
         <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
@@ -466,7 +485,7 @@ footer .conf{display:inline-block;background:var(--accent);color:#fff;font-weigh
     <p class="vsec-desc empty">※修正回数はJP基準（Globalでは4回）</p>
 
     <section class="vsec" id="cat-tier3-social">
-      <div class="vsec-h"><span class="num">1</span>ソーシャル動画（貴社がクリエイティブブリーフを提供）</div>
+      <div class="vsec-h"><span class="num">1</span>SNS向け動画（貴社がクリエイティブブリーフを提供）</div>
       <p class="vsec-desc">クリエイティブブリーフに基づくソーシャル向け動画。</p>
       <div class="vsec-meta">
         <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
@@ -546,10 +565,64 @@ footer .conf{display:inline-block;background:var(--accent);color:#fff;font-weigh
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年7月24日 13:05 JST ｜ Firework社内 / AIGC事業<br>
+    最終更新: 2026年7月24日 13:24 JST ｜ Firework社内 / AIGC事業<br>
     © 2026 Firework. All rights reserved.
   </footer>
 
 </div>
+<script>
+(function () {
+  function hideCaptions(root) {
+    root.querySelectorAll(".fw-thumbnail-caption, .cy-player-caption").forEach(function (cap) {
+      cap.style.setProperty("display", "none", "important");
+    });
+  }
+  function watchShadow(el) {
+    hideCaptions(el.shadowRoot);
+    new MutationObserver(function () {
+      hideCaptions(el.shadowRoot);
+    }).observe(el.shadowRoot, { childList: true, subtree: true });
+  }
+  function waitForShadow(el) {
+    if (el.shadowRoot) {
+      watchShadow(el);
+      return;
+    }
+    var tries = 0;
+    var iv = setInterval(function () {
+      tries++;
+      if (el.shadowRoot) {
+        clearInterval(iv);
+        watchShadow(el);
+      } else if (tries > 40) {
+        clearInterval(iv);
+      }
+    }, 250);
+  }
+  function attachFeeds() {
+    document.querySelectorAll("fw-embed-feed").forEach(waitForShadow);
+  }
+  function attachFullscreenPlayer() {
+    var existing = document.getElementById("fw-player");
+    if (existing) waitForShadow(existing);
+    new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        m.addedNodes.forEach(function (node) {
+          if (node.id === "fw-player") waitForShadow(node);
+        });
+      });
+    }).observe(document.body, { childList: true });
+  }
+  function attach() {
+    attachFeeds();
+    attachFullscreenPlayer();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", attach);
+  } else {
+    attach();
+  }
+})();
+</script>
 </body>
 </html>
