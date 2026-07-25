@@ -38,3 +38,4 @@ _archive_handoff_*.md
 .omc/artifacts/
 .omc/handoffs/
 .omc/ultragoal/
+.omc/sessions/
