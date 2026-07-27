@@ -3,9 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-07T15:05:12+09:00">
+<meta name="last-modified" content="2026-07-27T13:33:14+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC事業 進捗ボード 🗡QUEST — Firework社内</title>
+<!-- ===== OGP / Slack unfurl ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIGC事業 進捗ボード 🗡QUEST — Firework社内">
+<meta property="og:description" content="AIGC事業の進捗・優先順位・アタックリストを集約した社内ダッシュボード。">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/board-quest.html">
+<meta property="og:site_name" content="Firework社内 / AIGC事業">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AIGC事業 進捗ボード 🗡QUEST — Firework社内">
+<meta name="twitter:description" content="AIGC事業の進捗・優先順位・アタックリストを集約した社内ダッシュボード。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗡️</text></svg>"><text y='.9em' font-size='90'>📊</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -635,7 +645,7 @@ function render(d){
   const quickLinksHTML=`<div class="quick-links-grid">
     ${pl?`<a class="ql-card ql-price" href="${esc(pl.href)}"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">${esc(pl.label||'AIGCプライスリスト')}</div><div class="ql-sub">${esc(pl.sub||'動画・LIVE・画像の単価＆バルク割')}</div></div><div class="ql-arr">→</div></a>`:`<a class="ql-card ql-price" href="clients/pricing.html"><div class="ql-icon">💴</div><div class="ql-body"><div class="ql-h">AIGCプライスリスト</div><div class="ql-sub">動画・LIVE・画像の単価＆バルク割</div></div><div class="ql-arr">→</div></a>`}
     <a class="ql-card ql-learn" href="clients/aigc-creative-learnings.html"><div class="ql-icon">🎬</div><div class="ql-body"><div class="ql-h">AIGC制作ナレッジ</div><div class="ql-sub">躓き×勝ち筋・現場レビュー</div></div><div class="ql-arr">→</div></a>
-    <a class="ql-card ql-sample" href="clients/aigc-sample-videos.html"><div class="ql-icon">🎥</div><div class="ql-body"><div class="ql-h">サンプル動画集</div><div class="ql-sub">7カテゴリ別・営業武器ギャラリー</div></div><div class="ql-arr">→</div></a>
+    <a class="ql-card ql-sample" href="https://fw-aigc-sample-videos.netlify.app/" target="_blank" rel="noopener"><div class="ql-icon">🎥</div><div class="ql-body"><div class="ql-h">サンプル動画集</div><div class="ql-sub">Tier別＋案件別デモ・Netlify版（社外共有可）</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-tool" href="clients/aigc-bizportal-tech-log.html"><div class="ql-icon">🛠️</div><div class="ql-body"><div class="ql-h">BizPortalツール検証ログ</div><div class="ql-sub">内製AIGC生成ツールの技術・UX課題</div></div><div class="ql-arr">→</div></a>
   </div>`;
   const tb=d.thinkBig;
