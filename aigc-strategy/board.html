@@ -660,8 +660,7 @@ function render(d){
     <a href="#sec-cat"><span class="num">07</span>営業武器</a>
     <a href="#sec-clients"><span class="num">08</span>クライアント別ステータス</a>
     ${taskAreas.length?`<a href="#sec-tasks"><span class="num">09</span>横断タスク・イネーブラ</a>`:''}
-    <a href="#sec-june"><span class="num">${(taskAreas.length?1:0)+9}</span>6月商談リスト</a>
-    <a href="#sec-rich"><span class="num">${(taskAreas.length?1:0)+10}</span>将来構想：リッチAIGC</a>
+    <a href="#sec-rich"><span class="num">${(taskAreas.length?1:0)+9}</span>将来構想：リッチAIGC</a>
     <div class="foot">CONFIDENTIAL 社外秘<br>${esc(d.generatedAt)} 時点</div>
   </nav>`;
   document.getElementById('app').innerHTML=`${nav}
