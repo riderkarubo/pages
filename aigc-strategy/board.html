@@ -612,6 +612,7 @@ function render(d){
     <a class="ql-card ql-learn" href="clients/aigc-creative-learnings.html"><div class="ql-icon">🎬</div><div class="ql-body"><div class="ql-h">AIGC制作ナレッジ</div><div class="ql-sub">躓き×勝ち筋・現場レビュー</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-sample" href="clients/aigc-sample-videos.html"><div class="ql-icon">🎥</div><div class="ql-body"><div class="ql-h">サンプル動画集</div><div class="ql-sub">7カテゴリ別・営業武器ギャラリー</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-tool" href="clients/aigc-bizportal-tech-log.html"><div class="ql-icon">🛠️</div><div class="ql-body"><div class="ql-h">BizPortalツール検証ログ</div><div class="ql-sub">内製AIGC生成ツールの技術・UX課題</div></div><div class="ql-arr">→</div></a>
+    <a class="ql-card ql-global" href="clients/aigc-global-live-sites.html"><div class="ql-icon">🌐</div><div class="ql-body"><div class="ql-h">海外AIGC進捗・実績</div><div class="ql-sub">Liveサイト実績＋Monday.comグローバル制作進捗</div></div><div class="ql-arr">→</div></a>
   </div>`;
   const tb=d.thinkBig;
   const tbHTML=tb?`<div class="section-title" id="sec-thinkbig">${esc(tb.title)}</div><p class="tb-lead">${esc(tb.lead)}</p><div class="tb-grid">${tb.pillars.map((p,i)=>`<div class="tb-card"><div class="tb-n">${i+1}</div><div class="tb-h">${esc(p.h)}</div><div class="tb-t">${esc(p.t)}</div></div>`).join('')}</div>`:'';
