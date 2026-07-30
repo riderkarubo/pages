@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRAFT A｜司令室ダーク — AIと働く、ある1日。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+JP:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070B14;
+    --panel: #0C1322;
+    --panel2: #101A2E;
+    --line: rgba(96, 144, 255, 0.14);
+    --ink: #E8EEFA;
+    --ink-dim: #8FA0C0;
+    --blue: #5B8CFF;
+    --green: #3DE8A0;
+    --red: #FF5C7A;
+    --amber: #FFC24B;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --sans: "Noto Sans JP", sans-serif;
+    --disp: "Space Grotesk", "Noto Sans JP", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background:
+      radial-gradient(1200px 700px at 75% -12%, rgba(64,110,255,.15), transparent 62%),
+      radial-gradient(900px 700px at -12% 38%, rgba(31,197,166,.07), transparent 60%),
+      radial-gradient(800px 620px at 92% 88%, rgba(255,92,122,.05), transparent 65%),
+      linear-gradient(180deg, #0B1225 0%, #070B14 46%, #04060D 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--sans); line-height: 1.8;
+    overflow-x: hidden;
+  }
+  ::selection { background: rgba(91,140,255,.35); }
+
+  /* ==== ambient grid ==== */
+  .gridbg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      linear-gradient(rgba(96,144,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(96,144,255,.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 30%, transparent 80%);
+  }
+  .scan {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: .35;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(0,0,0,.12) 3px 4px);
+  }
+  .vig {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background: radial-gradient(ellipse 120% 90% at 50% 40%, transparent 55%, rgba(0,0,0,.42) 100%);
+  }
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 6;
+    opacity: .055; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* ==== status bar ==== */
+  .statusbar {
+    position: sticky; top: 0; z-index: 30;
+    display: flex; align-items: center; gap: 22px;
+    padding: 12px 26px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    color: var(--ink-dim);
+    background: rgba(7,11,20,.82); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; display:inline-block; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  .statusbar .grow { flex: 1; }
+  .statusbar b { color: var(--ink); font-weight: 700; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  /* ==== hero ==== */
+  .hero { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; min-height: calc(100vh - 46px); padding: 60px 0; }
+  .hero::after {
+    content: ""; position: absolute; right: -10%; top: 16%;
+    width: 620px; height: 520px; z-index: -1; pointer-events: none;
+    background: radial-gradient(closest-side, rgba(91,140,255,.17), transparent 72%);
+    filter: blur(24px);
+  }
+  .hero::before {
+    content: ""; position: absolute; left: -14%; bottom: 4%;
+    width: 420px; height: 380px; z-index: -1; pointer-events: none;
+    background: radial-gradient(closest-side, rgba(61,232,160,.07), transparent 72%);
+    filter: blur(26px);
+  }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .3em;
+    color: var(--blue); margin-bottom: 26px; display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before { content: ""; width: 36px; height: 1px; background: var(--blue); }
+  h1 {
+    font-family: var(--sans); font-weight: 900;
+    font-size: clamp(44px, 6.2vw, 84px); line-height: 1.18; letter-spacing: .01em;
+    margin-bottom: 28px;
+  }
+  h1 .ai { font-family: var(--disp); color: var(--blue); text-shadow: 0 0 34px rgba(91,140,255,.55); }
+  .hero-sub { color: var(--ink-dim); font-size: 16px; max-width: 42ch; margin-bottom: 36px; }
+  .hero-tags { display: flex; gap: 12px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+    padding: 8px 14px; border: 1px solid var(--line); border-radius: 4px;
+    color: var(--ink-dim); background: rgba(12,19,34,.6);
+  }
+  .tag i { font-style: normal; color: var(--green); }
+
+  /* ==== terminal ==== */
+  .term {
+    background: linear-gradient(180deg, var(--panel2), var(--panel));
+    border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(91,140,255,.06), 0 0 60px rgba(91,140,255,.07);
+    overflow: hidden;
+  }
+  .term-head {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px; border-bottom: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px; color: var(--ink-dim); letter-spacing: .08em;
+  }
+  .term-head .b { width: 10px; height: 10px; border-radius: 50%; }
+  .term-body {
+    padding: 20px 18px 26px; font-family: var(--mono); font-size: 12.5px; line-height: 2.1;
+    min-height: 340px;
+  }
+  .tl { display: block; white-space: pre-wrap; }
+  .tl .t { color: var(--ink-dim); }
+  .tl .cmd { color: var(--blue); }
+  .tl .ok { color: var(--green); }
+  .tl .hitl { color: var(--red); font-weight: 700; }
+  .cursor { display: inline-block; width: 8px; height: 15px; background: var(--green); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ==== section base ==== */
+  section { padding: 110px 0; border-top: 1px solid var(--line); }
+  .sec-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .3em; color: var(--blue);
+    margin-bottom: 18px;
+  }
+  h2 { font-weight: 900; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.35; margin-bottom: 16px; }
+  .sec-sub { color: var(--ink-dim); max-width: 56ch; margin-bottom: 54px; }
+
+  /* ==== HUD stats ==== */
+  .hud { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .hud-card {
+    position: relative; padding: 30px 26px 26px;
+    background: linear-gradient(180deg, rgba(16,26,46,.9), rgba(12,19,34,.9));
+    border: 1px solid var(--line); border-radius: 8px;
+  }
+  .hud-card::before, .hud-card::after {
+    content: ""; position: absolute; width: 14px; height: 14px; border-color: var(--blue); border-style: solid;
+  }
+  .hud-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .hud-card::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+  .hud-name { font-size: 13px; font-weight: 700; letter-spacing: .06em; margin-bottom: 6px; }
+  .hud-desc { font-size: 11.5px; color: var(--ink-dim); margin-bottom: 20px; min-height: 3em; }
+  .hud-nums { display: flex; align-items: baseline; gap: 14px; font-family: var(--disp); }
+  .hud-old { font-size: 20px; color: var(--ink-dim); text-decoration: line-through; text-decoration-color: var(--red); }
+  .hud-new { font-size: 52px; font-weight: 700; color: var(--green); text-shadow: 0 0 28px rgba(61,232,160,.4); line-height: 1; }
+  .hud-unit { font-size: 15px; color: var(--ink-dim); }
+  .hud-bar { margin-top: 18px; height: 3px; background: rgba(255,255,255,.07); border-radius: 2px; overflow: hidden; }
+  .hud-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--green)); width: 0; transition: width 1.4s cubic-bezier(.22,1,.36,1); }
+  .hud-bar.go i { width: var(--w); }
+
+  /* ==== mission log ==== */
+  .log-row {
+    display: grid; grid-template-columns: 110px 1fr 220px; gap: 26px; align-items: start;
+    padding: 30px 0; border-bottom: 1px dashed rgba(96,144,255,.16);
+  }
+  .log-time { font-family: var(--disp); font-size: 26px; font-weight: 700; color: var(--blue); }
+  .log-t { font-weight: 700; font-size: 16.5px; margin-bottom: 4px; }
+  .log-d { color: var(--ink-dim); font-size: 13.5px; }
+  .log-role {
+    justify-self: end; font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+    color: var(--red); border: 1px solid rgba(255,92,122,.4); border-radius: 4px;
+    padding: 7px 12px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,92,122,.06);
+  }
+  .log-role::before { content: "◉"; font-size: 10px; }
+
+  footer { padding: 60px 0 80px; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: .2em; color: var(--ink-dim); }
+  footer b { color: var(--amber); }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }
+    .hud { grid-template-columns: 1fr; }
+    .log-row { grid-template-columns: 80px 1fr; }
+    .log-role { grid-column: 2; justify-self: start; margin-top: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="gridbg"></div>
+<div class="scan"></div>
+<div class="vig"></div>
+<div class="grain"></div>
+
+<div class="statusbar">
+  <span><span class="dot"></span>&nbsp; SYSTEM ONLINE</span>
+  <span class="grow"></span>
+  <span>ONE DAY WITH <b>AI</b></span>
+  <span>07:30 — 23:00 JST</span>
+  <span>SCENES <b>8</b> LOGGED</span>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">MISSION LOG — 2026.07</div>
+      <h1><span class="ai">AI</span>と働く、<br>ある1日。</h1>
+      <p class="hero-sub">日々の業務からクリエイティブ制作まで。育てたAIが管制室の向こうで走り続ける、実運用ワークフローの記録。誇張のない、毎日の話。</p>
+      <div class="hero-tags">
+        <span class="tag">SCENES <i>8 / DAY</i></span>
+        <span class="tag">HUMAN DECISION <i style="color:var(--red)">8 POINTS</i></span>
+        <span class="tag">WORKDAY <i>15.5h</i></span>
+      </div>
+    </div>
+    <div class="term">
+      <div class="term-head">
+        <span class="b" style="background:#FF5C7A"></span>
+        <span class="b" style="background:#FFC24B"></span>
+        <span class="b" style="background:#3DE8A0"></span>
+        <span style="margin-left:8px">issy@workflow — live agent log</span>
+      </div>
+      <div class="term-body" id="term"><span class="cursor"></span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-label">01 / TELEMETRY</div>
+    <h2>数字は、実測。</h2>
+    <p class="sec-sub">理想値ではなく、実際にかかっていた時間との比較。計器の針は、毎日この位置を指す。</p>
+    <div class="hud">
+      <div class="hud-card">
+        <div class="hud-name">議事録の事後処理</div>
+        <div class="hud-desc">保存、要点の学習、返信案、案件ボード反映、社内共有までを含む。</div>
+        <div class="hud-nums"><span class="hud-old">90分</span><span class="hud-new" data-to="15">0</span><span class="hud-unit">分</span></div>
+        <div class="hud-bar" style="--w:83%"><i></i></div>
+      </div>
+      <div class="hud-card">
+        <div class="hud-name">提案書ドラフト</div>
+        <div class="hud-desc">骨子からレビュー済み初稿まで。自己改善ループ込み。</div>
+        <div class="hud-nums"><span class="hud-old">8時間</span><span class="hud-new" data-to="2">0</span><span class="hud-unit">時間</span></div>
+        <div class="hud-bar" style="--w:75%"><i></i></div>
+      </div>
+      <div class="hud-card">
+        <div class="hud-name">返信の下書き</div>
+        <div class="hud-desc">メール / チャット 1通あたり。文体と敬語ルールを維持。</div>
+        <div class="hud-nums"><span class="hud-old">10分</span><span class="hud-new" data-to="2">0</span><span class="hud-unit">分</span></div>
+        <div class="hud-bar" style="--w:80%"><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">02 / MISSION LOG</div>
+    <h2>1日は、こう流れる。</h2>
+    <p class="sec-sub">朝から夜まで8つの場面。青いログが自動で流れ、赤い印のところでだけ、人が手を止めて判断する。</p>
+
+    <div class="log-row">
+      <div class="log-time">07:30</div>
+      <div>
+        <div class="log-t">朝のブリーフィング</div>
+        <div class="log-d">今日の予定、未返信のメッセージ、昨日からの持ち越しを、AIが1枚に集約して差し出す。</div>
+      </div>
+      <span class="log-role">読んで優先順位を決める</span>
+    </div>
+    <div class="log-row">
+      <div class="log-time">11:00</div>
+      <div>
+        <div class="log-t">議事録の5方面展開</div>
+        <div class="log-d">会議が終わると、議事録1本から5つの仕事が同時に始まる。</div>
+      </div>
+      <span class="log-role">最終確認だけ</span>
+    </div>
+    <div class="log-row">
+      <div class="log-time">19:00</div>
+      <div>
+        <div class="log-t">クリエイティブ量産</div>
+        <div class="log-d">商品画像1枚から、AI画像とAI動画のサンプルが増えていく。</div>
+      </div>
+      <span class="log-role">方向を決めて、選ぶ</span>
+    </div>
+  </section>
+
+  <footer>DRAFT A — <b>司令室ダーク</b> ／ 続きのセクションは選定後に実装</footer>
+</div>
+
+<script>
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* terminal auto-typing */
+  const lines = [
+    [{c:'t',s:'07:30 '},{c:'cmd',s:'briefing.generate()'},{c:'t',s:'  '},{c:'ok',s:'done 42s'}],
+    [{c:'t',s:'09:02 '},{c:'cmd',s:'reply.draft(unread)'},{c:'t',s:'  '},{c:'ok',s:'drafts ready'}],
+    [{c:'t',s:'09:14 '},{c:'hitl',s:'◉ HUMAN — review & send'}],
+    [{c:'t',s:'11:00 '},{c:'cmd',s:'minutes.fanout(×5)'},{c:'t',s:'  '},{c:'ok',s:'save / learn / reply / board / share'}],
+    [{c:'t',s:'14:00 '},{c:'cmd',s:'proposal.selfReview()'},{c:'t',s:'  '},{c:'ok',s:'score 9.0+ — pass (loop 4)'}],
+    [{c:'t',s:'19:00 '},{c:'cmd',s:'creative.batch(img=1)'},{c:'t',s:'  '},{c:'ok',s:'12 samples by morning'}],
+    [{c:'t',s:'23:00 '},{c:'cmd',s:'handoff.write()'},{c:'t',s:'  '},{c:'ok',s:'context saved for tomorrow'}],
+  ];
+  const term = document.getElementById('term');
+  const cursor = term.querySelector('.cursor');
+
+  if (reduced) {
+    lines.forEach(parts => {
+      const el = document.createElement('span'); el.className = 'tl';
+      parts.forEach(p => { const s = document.createElement('span'); s.className = p.c; s.textContent = p.s; el.appendChild(s); });
+      term.insertBefore(el, cursor);
+    });
+  } else {
+    let li = 0;
+    function typeLine() {
+      if (li >= lines.length) return;
+      const parts = lines[li]; li++;
+      const el = document.createElement('span'); el.className = 'tl';
+      term.insertBefore(el, cursor);
+      let pi = 0, ci = 0;
+      function tick() {
+        if (pi >= parts.length) { setTimeout(typeLine, 420); return; }
+        const p = parts[pi];
+        let s = el.querySelector('[data-i="' + pi + '"]');
+        if (!s) { s = document.createElement('span'); s.className = p.c; s.dataset.i = pi; el.appendChild(s); }
+        s.textContent = p.s.slice(0, ++ci);
+        if (ci >= p.s.length) { pi++; ci = 0; }
+        setTimeout(tick, 14);
+      }
+      tick();
+    }
+    setTimeout(typeLine, 600);
+  }
+
+  /* HUD counters */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io.unobserve(e.target);
+    e.target.querySelectorAll('.hud-bar').forEach(b => b.classList.add('go'));
+    e.target.querySelectorAll('.hud-new').forEach(el => {
+      const to = +el.dataset.to;
+      if (reduced) { el.textContent = to; return; }
+      const t0 = performance.now();
+      (function f(t) {
+        const p = Math.min(1, (t - t0) / 1300);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(f);
+      })(t0);
+    });
+  }), { threshold: .4 });
+  document.querySelectorAll('.hud').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

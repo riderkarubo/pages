@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAMPLE B — パイプライン可視化型 | AIワークフロー・ショーケース</title>
+<style>
+  :root {
+    --bg: #F5F6F2;
+    --ink: #15213A;
+    --dim: #5D6980;
+    --blue: #2B5BFF;
+    --blue-soft: #B9C6F5;
+    --rail: #D6DAE1;
+    --card: #FFFFFF;
+    --border: #E3E6EB;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ===== sample badge ===== */
+  .sample-badge {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 24px;
+  }
+  .sample-badge b { color: var(--blue); font-weight: 700; }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; position: relative; }
+
+  /* ===== hero ===== */
+  .hero { padding: 100px 0 72px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(2.7rem, 6.4vw, 4.8rem);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+  }
+  h1 .u {
+    background-image: linear-gradient(transparent 82%, rgba(43,91,255,0.35) 82%);
+  }
+  .lead {
+    margin-top: 26px;
+    color: var(--dim);
+    font-size: 1.05rem;
+    max-width: 34em;
+  }
+  .lead em { color: var(--ink); font-style: normal; font-weight: 700; }
+
+  /* hero intro pipe */
+  .hero-pipe { margin-top: 56px; max-width: 720px; }
+  .hero-pipe svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .hp-line { fill: none; stroke: var(--blue-soft); stroke-width: 2; }
+  .hp-comet { fill: none; stroke: var(--blue); stroke-width: 2.5; }
+  .hp-node { fill: var(--bg); stroke: var(--blue); stroke-width: 2; }
+  .hp-box { fill: var(--ink); }
+  .hp-boxtext { fill: #fff; font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; }
+  .hp-label { fill: var(--dim); font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; }
+  .hp-arrow { fill: var(--blue); }
+
+  /* ===== spine (page-long pipeline) ===== */
+  #spine { position: absolute; left: 24px; top: 0; width: 12px; pointer-events: none; }
+  .spine-base { position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: var(--rail); }
+  .spine-live { position: absolute; inset: 0; clip-path: inset(0 0 100% 0); }
+  .spine-line { position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: var(--blue); }
+  .particle {
+    position: absolute; left: 2px; top: -8px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 10px rgba(43,91,255,0.65);
+    animation: partMove 7s linear infinite;
+  }
+  .particle.p2 { animation-delay: 2.3s; }
+  .particle.p3 { animation-delay: 4.6s; }
+  @keyframes partMove {
+    from { transform: translateY(0); }
+    to   { transform: translateY(calc(var(--spineH) * 1px)); }
+  }
+  .spine-dot {
+    position: absolute; left: 0;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--rail);
+    transition: border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+  }
+  .spine-dot.lit { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(43,91,255,0.15); }
+
+  /* ===== sections ===== */
+  section { padding: 88px 0 88px 64px; }
+  .sec-head { margin-bottom: 44px; }
+  .sec-eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.24em;
+    color: var(--blue); margin-bottom: 12px;
+  }
+  h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); font-weight: 800; letter-spacing: 0.01em; }
+  .sec-note { color: var(--dim); margin-top: 10px; font-size: 0.97rem; }
+
+  /* ===== stats ===== */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 26px 24px;
+    box-shadow: 0 8px 28px rgba(21,33,58,0.05);
+  }
+  .stat .label { font-size: 0.93rem; color: var(--dim); margin-bottom: 16px; }
+  .stat .nums { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .stat .from { color: var(--dim); font-size: 1.1rem; text-decoration: line-through; text-decoration-color: rgba(93,105,128,0.5); }
+  .stat .arrow { color: var(--blue); font-size: 1.2rem; font-weight: 700; }
+  .stat .to { color: var(--ink); font-size: 2.7rem; font-weight: 800; line-height: 1; }
+  .stat .unit { color: var(--ink); font-size: 1.05rem; font-weight: 700; }
+  .stat .scope { font-family: var(--mono); font-size: 11px; color: var(--dim); margin-top: 14px; letter-spacing: 0.05em; }
+
+  /* ===== timeline ===== */
+  .tl-list { display: grid; gap: 26px; }
+  .tl-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: 0 8px 28px rgba(21,33,58,0.05);
+    max-width: 640px;
+  }
+  .tl-card::before {
+    content: ""; position: absolute; left: -59px; top: 32px;
+    width: 59px; height: 2px; background: var(--rail);
+  }
+  .tl-time {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 700;
+    color: var(--blue); letter-spacing: 0.12em;
+  }
+  .tl-title { font-weight: 800; font-size: 1.15rem; margin-top: 4px; }
+  .tl-desc { color: var(--dim); font-size: 0.95rem; margin-top: 6px; }
+  .tl-more { font-family: var(--mono); font-size: 12.5px; color: var(--dim); letter-spacing: 0.06em; }
+
+  /* ===== fanout ===== */
+  .fanout-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 30px 18px 12px;
+    box-shadow: 0 8px 28px rgba(21,33,58,0.05);
+    overflow-x: auto;
+  }
+  .fanout-svg { display: block; margin: 0 auto; min-width: 640px; width: 100%; max-width: 780px; }
+  .fanout-svg text { font-family: var(--sans); }
+  .fo-base { fill: none; stroke: var(--blue-soft); stroke-width: 2; }
+  .fo-comet { fill: none; stroke: var(--blue); stroke-width: 2.5; opacity: 0; }
+  .fanout.flow .fo-comet { opacity: 1; animation: comet 2.6s linear infinite; }
+  @keyframes comet { to { stroke-dashoffset: 0; } }
+  .fo-box { fill: var(--bg); stroke: var(--ink); stroke-width: 1.2; }
+  .fo-label { fill: var(--ink); font-size: 13.5px; font-weight: 600; }
+  .fo-src-box { fill: var(--ink); }
+  .fo-src-label { fill: #fff; font-size: 14px; font-weight: 700; }
+  .fo-target { opacity: 0; transition: opacity 0.45s ease; }
+  .fanout.go .fo-target { opacity: 1; }
+  .fanout-caption {
+    text-align: center; font-family: var(--mono); font-size: 13px;
+    color: var(--dim); padding: 14px 0 10px; letter-spacing: 0.06em;
+  }
+  .fanout-caption b { color: var(--blue); font-weight: 700; }
+
+  /* ===== footer ===== */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 64px;
+    font-family: var(--mono); font-size: 12.5px; color: var(--dim);
+    letter-spacing: 0.05em; line-height: 2;
+  }
+
+  /* ===== reveal ===== */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .hero { padding: 64px 0 48px; }
+    section { padding: 60px 0 60px 44px; }
+    #spine { left: 12px; }
+    .tl-card::before { left: -39px; width: 39px; }
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .particle { display: none; }
+    .spine-live { clip-path: none !important; }
+    .fanout.flow .fo-comet { animation: none; opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-badge">SAMPLE <b>B</b> — パイプライン可視化型（方向性確認用・コンテンツは抜粋）</div>
+
+<div class="wrap" id="wrap">
+
+  <!-- page-long pipeline spine -->
+  <div id="spine" aria-hidden="true">
+    <div class="spine-base"></div>
+    <div class="spine-live" id="spineLive">
+      <div class="spine-line"></div>
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <p class="eyebrow">ISSY × AI — ONE DAY PIPELINE</p>
+    <h1>AIと働く、<br>ある<span class="u">1日</span>。</h1>
+    <p class="lead">日々の業務からクリエイティブまで。すべての仕事が、<em>育てたAI</em>のパイプラインを流れて成果物になる。これは机上の話ではなく、毎日の実運用の記録。</p>
+
+    <div class="hero-pipe reveal">
+      <svg viewBox="0 0 720 96" aria-label="意図がAIを通って成果物になる流れ">
+        <path class="hp-line hp-draw" d="M44 48 H 292"/>
+        <path class="hp-line hp-draw" d="M428 48 H 664"/>
+        <path class="hp-comet hc" d="M44 48 H 292"/>
+        <path class="hp-comet hc" d="M428 48 H 664"/>
+        <circle class="hp-node" cx="36" cy="48" r="8"/>
+        <rect class="hp-box" x="292" y="26" width="136" height="44" rx="22"/>
+        <text class="hp-boxtext" x="360" y="53" text-anchor="middle">AI PIPELINE</text>
+        <polygon class="hp-arrow" points="664,40 680,48 664,56"/>
+        <text class="hp-label" x="36" y="82" text-anchor="middle">あなたの意図</text>
+        <text class="hp-label" x="360" y="90" text-anchor="middle">育てた相棒が実行</text>
+        <text class="hp-label" x="666" y="82" text-anchor="end">成果物</text>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ================= STATS ================= -->
+  <section id="stats" class="node-sec">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">MEASURED RESULTS</p>
+      <h2>数字は、実測。</h2>
+      <p class="sec-note">体感や理想値ではなく、実際にかかっていた時間との比較。</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <p class="label">議事録の事後処理(保存・返信・共有まで)</p>
+        <p class="nums"><span class="from">90分</span><span class="arrow">→</span><span class="to counter" data-from="90" data-to="15">90</span><span class="unit">分</span></p>
+        <p class="scope">SCOPE: 外部MTG 1本あたり</p>
+      </div>
+      <div class="stat reveal">
+        <p class="label">提案書ドラフト(骨子〜レビュー済み初稿)</p>
+        <p class="nums"><span class="from">8時間</span><span class="arrow">→</span><span class="to counter" data-from="8" data-to="2">8</span><span class="unit">時間</span></p>
+        <p class="scope">SCOPE: 新規提案 1件あたり</p>
+      </div>
+      <div class="stat reveal">
+        <p class="label">返信の下書き(文体・敬語ルール適用済み)</p>
+        <p class="nums"><span class="from">10分</span><span class="arrow">→</span><span class="to counter" data-from="10" data-to="2">10</span><span class="unit">分</span></p>
+        <p class="scope">SCOPE: メール / チャット 1通あたり</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section id="timeline" class="node-sec">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">ONE DAY FLOW</p>
+      <h2>1日が、流れになる。</h2>
+      <p class="sec-note">朝から夜まで。人が判断し、AIが実行する。(フル版では8場面)</p>
+    </div>
+    <div class="tl-list">
+      <div class="tl-card reveal">
+        <p class="tl-time">07:30 — MORNING BRIEFING</p>
+        <p class="tl-title">朝のブリーフィング</p>
+        <p class="tl-desc">今日の予定・未返信のメッセージ・昨日からの持ち越しを、AIが1枚のブリーフに集約して差し出す。1日の盤面が、コーヒーが冷める前に見える。</p>
+      </div>
+      <div class="tl-card reveal">
+        <p class="tl-time">11:00 — MEETING PIPELINE</p>
+        <p class="tl-title">会議後の5方面展開</p>
+        <p class="tl-desc">議事録1本が「保存・学習・返信案・管理ボード反映・社内共有」の5つの成果物に化ける。人がやるのは最終確認だけ。</p>
+      </div>
+      <div class="tl-card reveal">
+        <p class="tl-time">19:00 — CREATIVE FACTORY</p>
+        <p class="tl-title">クリエイティブ量産</p>
+        <p class="tl-desc">商品写真1枚から、AI画像・AI動画のサンプルがグリッドに増殖していく。翌朝には提案に添えるクリエイティブが揃っている。</p>
+      </div>
+      <p class="tl-more reveal">+ 5 more scenes in full version …</p>
+    </div>
+  </section>
+
+  <!-- ================= FANOUT ================= -->
+  <section id="fanout-sec" class="node-sec">
+    <div class="sec-head reveal">
+      <p class="sec-eyebrow">DEEP DIVE 01</p>
+      <h2>会議1本 → 成果物5つ。</h2>
+      <p class="sec-note">1つの入力が5方面へ自動分岐する。これが「自動化」の実感。</p>
+    </div>
+    <div class="fanout-panel reveal">
+      <div class="fanout" id="fanout">
+        <svg class="fanout-svg" viewBox="0 0 780 340" aria-label="議事録が5つの成果物に分岐する図">
+          <!-- base paths -->
+          <path class="fo-base" d="M186 170 C 340 170, 400 46,  556 46"/>
+          <path class="fo-base" d="M186 170 C 340 170, 400 108, 556 108"/>
+          <path class="fo-base" d="M186 170 C 340 170, 400 170, 556 170"/>
+          <path class="fo-base" d="M186 170 C 340 170, 400 232, 556 232"/>
+          <path class="fo-base" d="M186 170 C 340 170, 400 294, 556 294"/>
+          <!-- comet overlays -->
+          <path class="fo-comet" d="M186 170 C 340 170, 400 46,  556 46"/>
+          <path class="fo-comet" style="animation-delay:.5s"  d="M186 170 C 340 170, 400 108, 556 108"/>
+          <path class="fo-comet" style="animation-delay:1s"   d="M186 170 C 340 170, 400 170, 556 170"/>
+          <path class="fo-comet" style="animation-delay:1.5s" d="M186 170 C 340 170, 400 232, 556 232"/>
+          <path class="fo-comet" style="animation-delay:2s"   d="M186 170 C 340 170, 400 294, 556 294"/>
+          <!-- source -->
+          <g>
+            <rect class="fo-src-box" x="36" y="142" width="150" height="56" rx="28"/>
+            <text class="fo-src-label" x="111" y="176" text-anchor="middle">議事録 × 1</text>
+          </g>
+          <!-- targets -->
+          <g class="fo-target" style="transition-delay:.15s">
+            <rect class="fo-box" x="556" y="24"  width="188" height="44" rx="22"/>
+            <text class="fo-label" x="650" y="51" text-anchor="middle">正しい場所へ保存</text>
+          </g>
+          <g class="fo-target" style="transition-delay:.3s">
+            <rect class="fo-box" x="556" y="86"  width="188" height="44" rx="22"/>
+            <text class="fo-label" x="650" y="113" text-anchor="middle">決定事項を学習</text>
+          </g>
+          <g class="fo-target" style="transition-delay:.45s">
+            <rect class="fo-box" x="556" y="148" width="188" height="44" rx="22"/>
+            <text class="fo-label" x="650" y="175" text-anchor="middle">返信ドラフト作成</text>
+          </g>
+          <g class="fo-target" style="transition-delay:.6s">
+            <rect class="fo-box" x="556" y="210" width="188" height="44" rx="22"/>
+            <text class="fo-label" x="650" y="237" text-anchor="middle">案件ボードに反映</text>
+          </g>
+          <g class="fo-target" style="transition-delay:.75s">
+            <rect class="fo-box" x="556" y="272" width="188" height="44" rx="22"/>
+            <text class="fo-label" x="650" y="299" text-anchor="middle">社内共有を下書き</text>
+          </g>
+        </svg>
+      </div>
+      <p class="fanout-caption">ELAPSED: <b>15 min</b> — 人の作業は最終確認のみ</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>NOTE: これは方向性確認用のサンプルです。</p>
+    <p>フル版 → ONE DAY 8場面 / 自己改善ループ / 量産グリッド / 自己進化ループ / HUMAN × AI 分担 / 種明かし</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- reveals ---------- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.18 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---------- counters ---------- */
+  function runCounter(el) {
+    const from = +el.dataset.from, to = +el.dataset.to;
+    const dur = 1400, t0 = performance.now();
+    function tick(t) {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(from + (to - from) * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      cio.unobserve(e.target);
+      if (reduced) e.target.textContent = e.target.dataset.to;
+      else runCounter(e.target);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.counter').forEach(el => cio.observe(el));
+
+  /* ---------- hero pipe: draw + comet ---------- */
+  document.querySelectorAll('.hp-draw').forEach((p, i) => {
+    const L = p.getTotalLength();
+    p.style.strokeDasharray = L;
+    p.style.strokeDashoffset = reduced ? 0 : L;
+    if (!reduced) {
+      p.style.transition = 'stroke-dashoffset .9s ease ' + (0.3 + i * 0.5) + 's';
+      requestAnimationFrame(() => requestAnimationFrame(() => { p.style.strokeDashoffset = 0; }));
+    }
+  });
+  document.querySelectorAll('.hc').forEach((p, i) => {
+    const L = p.getTotalLength();
+    p.style.strokeDasharray = '22 ' + L;
+    p.style.strokeDashoffset = L + 22;
+    if (!reduced) {
+      p.style.animation = 'comet 1.8s linear infinite';
+      p.style.animationDelay = (1.6 + i * 0.9) + 's';
+      p.style.opacity = 1;
+    } else {
+      p.style.opacity = 0;
+    }
+  });
+
+  /* ---------- fanout: draw then flow ---------- */
+  const fan = document.getElementById('fanout');
+  const bases = fan.querySelectorAll('.fo-base');
+  const comets = fan.querySelectorAll('.fo-comet');
+  bases.forEach(p => {
+    const L = p.getTotalLength();
+    p.style.strokeDasharray = L;
+    p.style.strokeDashoffset = reduced ? 0 : L;
+  });
+  comets.forEach(p => {
+    const L = p.getTotalLength();
+    p.style.strokeDasharray = '26 ' + L;
+    p.style.strokeDashoffset = L + 26;
+  });
+  const fio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      fio.unobserve(e.target);
+      bases.forEach((p, i) => {
+        p.style.transition = 'stroke-dashoffset .8s ease ' + (i * 0.12) + 's';
+        p.style.strokeDashoffset = 0;
+      });
+      fan.classList.add('go');
+      if (!reduced) setTimeout(() => fan.classList.add('flow'), 1300);
+    });
+  }, { threshold: 0.4 });
+  fio.observe(fan);
+
+  /* ---------- spine: page-long pipeline drawn on scroll ---------- */
+  const wrap = document.getElementById('wrap');
+  const spine = document.getElementById('spine');
+  const live = document.getElementById('spineLive');
+  const statsSec = document.getElementById('stats');
+  const footerEl = document.querySelector('footer');
+  let spineTop = 0, spineH = 1, wrapTopAbs = 0, dots = [];
+
+  function layout() {
+    const wrapRect = wrap.getBoundingClientRect();
+    wrapTopAbs = wrapRect.top + window.scrollY;
+    spineTop = statsSec.offsetTop - 8;
+    spineH = Math.max(1, footerEl.offsetTop - spineTop);
+    spine.style.top = spineTop + 'px';
+    spine.style.height = spineH + 'px';
+    spine.style.setProperty('--spineH', spineH);
+    // node dots at each section
+    dots.forEach(d => d.el.remove());
+    dots = [];
+    document.querySelectorAll('.node-sec').forEach(sec => {
+      const y = sec.offsetTop - spineTop + 96;
+      const el = document.createElement('div');
+      el.className = 'spine-dot';
+      el.style.top = (y - 6) + 'px';
+      spine.appendChild(el);
+      dots.push({ el, y });
+    });
+    update();
+  }
+
+  function update() {
+    const lead = window.scrollY + window.innerHeight * 0.66;
+    const progressPx = Math.max(0, Math.min(spineH, lead - (wrapTopAbs + spineTop)));
+    if (!reduced) {
+      live.style.clipPath = 'inset(0 0 ' + (100 - (progressPx / spineH) * 100) + '% 0)';
+    }
+    dots.forEach(d => d.el.classList.toggle('lit', progressPx >= d.y));
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { update(); ticking = false; });
+  }, { passive: true });
+  window.addEventListener('resize', layout);
+  window.addEventListener('load', layout);
+  layout();
+  setTimeout(layout, 400);
+})();
+</script>
+</body>
+</html>

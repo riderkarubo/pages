@@ -5,20 +5,20 @@
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-27T13:39:54+09:00">
+<meta name="last-modified" content="2026-07-03T14:10:52+09:00">
 <meta name="robots" content="noindex, nofollow">
-<title>【アーカイブ】案件別サンプル動画集｜Firework社内</title>
+<title>案件別サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="【アーカイブ】案件別サンプル動画集｜Firework社内">
-<meta property="og:description" content="このページはアーカイブされました。最新版はNetlify社外版（fw-aigc-sample-videos.netlify.app）をご覧ください。">
+<meta property="og:title" content="案件別サンプル動画集｜Firework社内">
+<meta property="og:description" content="クライアント案件別に整理したAIGCサンプル動画集。営業商談で「御社向けサンプル」として即時提示できるよう、各社固有プレイリストをまとめた社内武器ページ。">
 <meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/aigc-client-samples.html">
 <meta property="og:site_name" content="Firework社内 / AIGC事業">
 <meta property="og:locale" content="ja_JP">
 <!-- og:image は画像準備でき次第追記（1200x630推奨・絶対URL）。当面は text only unfurl -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【アーカイブ】案件別サンプル動画集｜Firework社内">
-<meta name="twitter:description" content="アーカイブ済み。最新版はNetlify社外版をご覧ください。">
+<meta name="twitter:title" content="案件別サンプル動画集｜Firework社内">
+<meta name="twitter:description" content="クライアント案件別のAIGCサンプル動画集。各社固有プレイリストを社内で共有。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <!-- Firework player runtime (business_id=g1W3Qj・AIGC営業武器用) -->
@@ -169,18 +169,6 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
   line-height:1.7;
   margin:0 0 14px 18px;
 }
-.demo-linkbox{margin:0 0 4px 18px}
-.demo-linkbox.multi{display:flex;flex-wrap:wrap;gap:10px}
-.demo-link-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:11px 20px;
-  background:linear-gradient(135deg,var(--accent),#c8005a);
-  color:#fff;border-radius:12px;font-size:.86rem;font-weight:700;
-  text-decoration:none;transition:all .18s;
-  box-shadow:0 3px 10px rgba(250,0,109,.25);
-}
-.demo-link-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(250,0,109,.35)}
-.demo-linkbox.multi .demo-link-btn{padding:9px 16px;font-size:.82rem}
 
 .tier-h{
   font-size:1.05rem;
@@ -222,18 +210,6 @@ body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;back
   position:relative;
 }
 
-.archive-banner{
-  background:#fff3f8;
-  border:2px solid var(--accent);
-  border-radius:10px;
-  padding:14px 18px;
-  margin:16px 32px 0;
-  font-size:.86rem;
-  color:var(--ink);
-  text-align:center;
-}
-.archive-banner a{color:var(--accent);font-weight:900;text-decoration:underline}
-
 footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
 footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
 </style>
@@ -241,14 +217,9 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
 <body>
 <div id="app">
 
-  <div class="archive-banner">
-    🗄️ <strong>このページはアーカイブされました。</strong> 最新版は <a href="https://fw-aigc-sample-videos.netlify.app/" target="_blank" rel="noopener">案件別サンプル動画サイト一覧（Netlify版）</a> をご覧ください。
-  </div>
-
   <div class="cover">
     <a class="back" href="../board.html">← AIGC事業 進捗ボードへ戻る</a>
     <a class="back" href="./aigc-sample-videos.html">📚 サンプル動画集（Tier 1〜3）</a>
-    <a class="back" href="https://fw-aigc-sample-videos.netlify.app/" target="_blank" rel="noopener">🌐 社外共有用リンク（Netlify版）</a>
     <div class="cat-tag">CLIENT SAMPLE GALLERY</div>
     <h1>🎬 案件別サンプル動画集</h1>
     <div class="headline">
@@ -265,12 +236,10 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
     </div>
 
     <div class="quick-links">
-      <div class="ql-label">サンプル動画サイト一覧</div>
+      <div class="ql-label">案件一覧</div>
       <div class="ql-buttons">
-        <a href="https://toshiyukimishima-arch.github.io/UA-Demo2/" target="_blank" rel="noopener" class="ql-btn">United Arrows様</a>
-        <a href="#client-nitori" class="ql-btn">ニトリ様</a>
-        <a href="https://toshiyukimishima-arch.github.io/kitamura_demo/" target="_blank" rel="noopener" class="ql-btn">キタムラ様</a>
-        <a href="https://gleaming-ganache-2896a0.netlify.app/index-carousel.html" target="_blank" rel="noopener" class="ql-btn">ベルメゾン様</a>
+        <a href="#client-united-arrows" class="ql-btn">United Arrows</a>
+        <a href="#client-nitori" class="ql-btn">ニトリ（NITORI）</a>
       </div>
     </div>
 
@@ -279,9 +248,15 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
 
     <section class="vsec" id="client-united-arrows">
       <div class="vsec-h"><span class="num">1</span>United Arrows</div>
-      <p class="vsec-desc">United Arrows 向けに制作したAIGCサンプル。商品PDPを模したデモサイトで、AIGC動画をFireworkプレーヤーで埋め込み再生した事例。</p>
-      <div class="demo-linkbox">
-        <a href="https://toshiyukimishima-arch.github.io/UA-Demo2/" target="_blank" rel="noopener" class="demo-link-btn">🔗 United Arrows PDPデモサイトを開く →</a>
+      <p class="vsec-desc">United Arrows 向けに制作したAIGCサンプル。</p>
+      <div class="vplayer" data-slot="client-united-arrows">
+        <fw-embed-feed
+          channel="aigc_jp"
+          mode="row"
+          player_placement="bottom-right"
+          playlist="5zJErN"
+          title="United Arrows Sample"
+        ></fw-embed-feed>
       </div>
     </section>
 
@@ -296,37 +271,13 @@ footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-we
           playlist="v7RAkq"
         ></fw-embed-feed>
       </div>
-      <p class="vsec-desc" style="margin-top:14px">商品カテゴリ別PDPデモサイト（5種）。</p>
-      <div class="demo-linkbox multi">
-        <a href="https://chimerical-wisp-ac2b85.netlify.app/" target="_blank" rel="noopener" class="demo-link-btn">🔗 ソファ →</a>
-        <a href="https://eloquent-cobbler-f3d8f3.netlify.app/" target="_blank" rel="noopener" class="demo-link-btn">🔗 ペットベッド →</a>
-        <a href="https://sprightly-manatee-be65f1.netlify.app/" target="_blank" rel="noopener" class="demo-link-btn">🔗 タンクトップ →</a>
-        <a href="https://resplendent-cat-a20532.netlify.app/" target="_blank" rel="noopener" class="demo-link-btn">🔗 洗濯機 →</a>
-        <a href="https://shimmering-chimera-234db2.netlify.app/" target="_blank" rel="noopener" class="demo-link-btn">🔗 ベッド →</a>
-      </div>
-    </section>
-
-    <section class="vsec" id="client-kitamura">
-      <div class="vsec-h"><span class="num">3</span>キタムラ（元町キタムラ）</div>
-      <p class="vsec-desc">キタムラ様向けに制作したAIGCサンプル。商品PDP（麻調パナマ配色ワンピース）を模したデモサイトで、着用コーデ動画をFireworkプレーヤーで埋め込み再生した事例。老舗アパレル・バッグ系への横展開サンプルとして活用可。</p>
-      <div class="demo-linkbox">
-        <a href="https://toshiyukimishima-arch.github.io/kitamura_demo/" target="_blank" rel="noopener" class="demo-link-btn">🔗 キタムラ PDPデモサイトを開く →</a>
-      </div>
-    </section>
-
-    <section class="vsec" id="client-bellemaison">
-      <div class="vsec-h"><span class="num">4</span>ベルメゾン</div>
-      <p class="vsec-desc">ベルメゾン向けに制作したAIGCサンプル。商品カルーセル形式のPDPデモサイトで、AIGC動画をFireworkプレーヤーで埋め込み再生した事例。</p>
-      <div class="demo-linkbox">
-        <a href="https://gleaming-ganache-2896a0.netlify.app/index-carousel.html" target="_blank" rel="noopener" class="demo-link-btn">🔗 ベルメゾン PDPデモサイトを開く →</a>
-      </div>
     </section>
 
   </div>
 
   <footer>
     <span class="conf">社外秘</span>
-    最終更新: 2026年7月27日 13:39 JST ｜ Firework社内 / AIGC事業
+    最終更新: 2026年7月3日 14:10 JST ｜ Firework社内 / AIGC事業
   </footer>
 
 </div>

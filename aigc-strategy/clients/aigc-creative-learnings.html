@@ -3,129 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-17T11:04:16+09:00">
+<meta name="last-modified" content="2026-06-16T14:07:35+09:00">
 <meta name="robots" content="noindex, nofollow">
 <title>AIGC制作ナレッジ｜Firework社内</title>
-<!-- ===== OGP / Slack unfurl ===== -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="AIGC制作ナレッジ｜Firework社内">
-<meta property="og:description" content="現場の学び（躓き×勝ち筋）の集約。カテゴリ別・クリエイティブタイプ別の勝ちパターンと躓き事例、代表事例、軍師の進言をまとめた社内ナレッジ。">
-<meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/aigc-creative-learnings.html">
-<meta property="og:site_name" content="Firework社内 / AIGC事業">
-<meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AIGC制作ナレッジ｜Firework社内">
-<meta name="twitter:description" content="現場の学び（躓き×勝ち筋）の集約ナレッジ。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📁</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#FFFFFF;--accent:#FA006D;--accent-text:#FF3D8F;--teal:#57E389;--navy:#10173F;--bg:#0A0D24;--card:#1B2364;--border:rgba(255,255,255,.45);--muted:#C9D1F5;--gold:#FFD75E;--win2:#10173F;--active:#57E389;--warn:#FFD75E;--danger:#FF6B6B;--hold:#8A93C4;--check:#9BD1FF;}
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--active:#1B998B;--warn:#f5a623;--danger:#e74c3c;--hold:#8890a0;--check:#0F3460;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
-#lock{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:1000}
-.lockbox{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:40px 36px;width:min(92vw,400px);text-align:center;color:#fff}
-.lockbox .em{width:64px;height:64px;margin:0 auto 10px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:url("../rpg-assets/emblem-guild.webp"),url("../rpg-assets/frame-gold.webp")}
-.lockbox h1{font-size:1.05rem;margin-bottom:6px;font-family:"DotGothic16",monospace;font-weight:normal;color:#fff}
+#lock{position:fixed;inset:0;background:linear-gradient(135deg,#1a1a2e,#0F3460);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lockbox{background:#fff;border-radius:16px;padding:40px 36px;width:min(92vw,400px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lockbox .em{font-size:2.2rem;margin-bottom:10px}
+.lockbox h1{font-size:1.12rem;margin-bottom:6px}
 .lockbox p{color:var(--muted);font-size:.82rem;margin-bottom:20px}
 .lockbox .gwrap{display:flex;justify-content:center;min-height:44px}
 .lockbox .err{color:var(--danger);font-size:.8rem;min-height:1.2em;margin-top:14px}
-.lockbox .note{color:var(--muted);font-size:.68rem;margin-top:16px}
+.lockbox .note{color:#aab;font-size:.68rem;margin-top:16px}
 #app{display:none;max-width:920px;margin:0 auto;padding:0 0 60px}
-header.rpg-hero{position:relative;background-image:linear-gradient(180deg,rgba(10,13,36,.35),rgba(10,13,36,.9)),url("../rpg-assets/bg-guild.webp");background-size:cover;background-position:center;color:#fff;padding:28px 32px 26px;border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);margin:16px 16px 0}
-header .back{display:inline-block;color:#fff;font-size:.74rem;text-decoration:none;margin-bottom:14px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.5);border-radius:2px;padding:5px 12px;transition:background .15s}
-header .back:hover{background:var(--accent)}
-header .cat-tag{display:block;color:var(--accent-text);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
-header h1{font-size:1.5rem;font-weight:900;margin:8px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;text-shadow:2px 2px 0 rgba(0,0,0,.6)}
-header .headline{color:#E4E8FF;font-size:.9rem;max-width:760px;margin-top:4px;line-height:1.7;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
-.wrap{padding:0 32px 20px}
-.sumbox{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:16px 18px;margin-top:22px;font-size:.86rem;line-height:1.8;color:#E4E8FF}
-.sec-h{font-size:1rem;font-weight:900;margin:32px 0 14px;padding:5px 18px;display:inline-flex;align-items:center;gap:10px;background:var(--card);border:2px solid #fff;border-radius:3px;box-shadow:0 4px 0 rgba(0,0,0,.45);font-family:"DotGothic16",monospace;color:#fff}
-.sec-h.h-sage::before{content:'';display:block;flex-shrink:0;width:30px;height:30px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:url("../rpg-assets/char-sage.webp"),url("../rpg-assets/frame-gold.webp")}
-.sec-h.h-src::before{content:'';display:block;flex-shrink:0;width:30px;height:30px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:url("../rpg-assets/item-scroll.webp"),url("../rpg-assets/frame-gold.webp")}
-.tbl{width:100%;border-collapse:collapse;background:var(--win2);border:2px solid #fff;border-radius:4px;overflow:hidden}
-.tbl th{background:var(--win2);text-align:left;font-size:.72rem;font-weight:700;color:var(--gold);padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.4)}
-.tbl td{padding:10px 12px;border-top:1px solid rgba(255,255,255,.18);font-size:.8rem;vertical-align:top;color:#E4E8FF}
-.tbl tr:first-child td{border-top:none}
-.tbl .nm{font-weight:700;width:32%;color:#fff}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%);color:#fff;padding:24px 32px 26px}
+header .back{display:inline-block;color:#cdd3e0;font-size:.74rem;text-decoration:none;margin-bottom:14px;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;transition:background .15s}
+header .back:hover{background:rgba(255,255,255,.12)}
+header .cat-tag{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+header h1{font-size:1.6rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header .headline{color:#dfe4ee;font-size:.92rem;max-width:760px;margin-top:4px;line-height:1.6}
+.wrap{padding:0 32px}
+.sumbox{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin-top:22px;font-size:.86rem;line-height:1.8}
+.sec-h{font-size:1.02rem;font-weight:900;margin:28px 0 12px;padding-left:12px;border-left:4px solid var(--navy)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.tbl th{background:#f2f4f8;text-align:left;font-size:.72rem;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border)}
+.tbl td{padding:10px 12px;border-bottom:1px solid #f0f1f4;font-size:.8rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .nm{font-weight:700;width:32%}
 .tbl .nt{color:var(--muted);font-size:.76rem}
-.tbl .st{display:inline-block;background:rgba(255,255,255,.12);color:#E4E8FF;border-radius:2px;padding:2px 9px;font-size:.72rem;white-space:nowrap;border:1px solid rgba(255,255,255,.3)}
-.nalist,.rklist{list-style:none;background:var(--win2);border:2px solid #fff;border-radius:4px;padding:6px 8px}
-.nalist li,.rklist li{padding:10px 12px 10px 30px;position:relative;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.18);line-height:1.6;color:#E4E8FF}
+.tbl .st{display:inline-block;background:#eef1f6;color:var(--navy);border-radius:6px;padding:2px 9px;font-size:.72rem;white-space:nowrap}
+.nalist,.rklist{list-style:none;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:6px 8px}
+.nalist li,.rklist li{padding:10px 12px 10px 30px;position:relative;font-size:.82rem;border-bottom:1px solid #f0f0f0;line-height:1.6}
 .nalist li:last-child,.rklist li:last-child{border-bottom:none}
 .nalist li:before{content:"▶";position:absolute;left:11px;color:var(--teal);font-size:.66rem;top:13px}
 .rklist li:before{content:"⚠";position:absolute;left:10px;color:var(--warn);top:11px}
 .nalist .na-o{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}
-.owners .chip{display:inline-block;background:var(--win2);border:1px solid rgba(255,255,255,.4);border-radius:2px;padding:4px 14px;font-size:.78rem;margin:0 6px 6px 0;font-weight:700;color:#fff}
-.stat{font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:2px;white-space:nowrap;border:1px solid transparent}
-.stat.進行中{background:rgba(87,227,137,.15);color:#7BEFA8;border-color:var(--active)}.stat.停滞{background:rgba(255,215,94,.14);color:var(--warn);border-color:var(--warn)}.stat.先方検討中{background:rgba(255,215,94,.14);color:var(--warn);border-color:var(--warn)}.stat.保留{background:rgba(255,255,255,.1);color:var(--hold);border-color:var(--hold)}.stat.完了{background:rgba(155,209,255,.15);color:var(--check);border-color:var(--check)}.stat.検討中{background:rgba(143,183,255,.15);color:#8FB7FF;border-color:#8FB7FF}.stat.未着手{background:rgba(255,255,255,.08);color:#A9B2E0;border-color:#A9B2E0}
-.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:var(--win2);border:1px solid rgba(255,255,255,.3);border-radius:4px}
+.owners .chip{display:inline-block;background:#eef1f6;border-radius:20px;padding:4px 14px;font-size:.78rem;margin:0 6px 6px 0;font-weight:700;color:var(--navy)}
+.stat{font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.stat.進行中{background:#e6f4f1;color:var(--active)}.stat.停滞{background:#fdf0db;color:#b9791a}.stat.先方検討中{background:#fdf0db;color:#b9791a}.stat.保留{background:#eef0f3;color:var(--hold)}.stat.完了{background:#e8eef7;color:var(--check)}.stat.検討中{background:#e9edf6;color:var(--navy)}.stat.未着手{background:#f0f0f0;color:#999}
+.src{margin-top:22px;font-size:.72rem;color:var(--muted);padding:12px 14px;background:#f2f4f8;border-radius:8px}
 footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
-.conf{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:2px;margin-right:8px}
+.conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
 /* creative-learnings */
 header .scope{margin-top:10px;font-size:.74rem;color:var(--muted);line-height:1.6}
 .kpi-grid{display:flex;flex-direction:column;gap:10px}
-.wcard{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:12px 14px 12px 58px;position:relative}
-.wcard::before{content:'';position:absolute;left:12px;top:12px;width:32px;height:32px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:url("../rpg-assets/item-book.webp"),url("../rpg-assets/frame-gold.webp")}
-.wcard .wt{font-size:.86rem;font-weight:900;color:var(--gold);margin-bottom:5px;display:flex;gap:7px;align-items:flex-start;font-family:"DotGothic16",monospace}
-.wcard .wt .wn{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--check);color:#0A0D24;border-radius:50%;font-size:.7rem;flex-shrink:0;margin-top:1px}
-.wcard .wb{font-size:.76rem;color:#E4E8FF;line-height:1.6}
-.bcard{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:12px 14px 12px 58px;position:relative}
-.bcard::before{content:'';position:absolute;left:12px;top:12px;width:32px;height:32px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:var(--ic,url("../rpg-assets/mon-slime-c.webp")),url("../rpg-assets/frame-gold.webp")}
-.bcard.rk-c{--ic:url("../rpg-assets/mon-slime-c.webp")}
-.bcard.rk-b{--ic:url("../rpg-assets/mon-wolf-b.webp")}
-.bcard.rk-a{--ic:url("../rpg-assets/mon-golem-a.webp")}
-.bcard.rk-x{--ic:url("../rpg-assets/mon-mimic-x.webp")}
-.bcard.rk-s{--ic:url("../rpg-assets/mon-dragon-s.webp")}
-.bcard .rk{font-size:.66rem;font-weight:900;color:var(--gold);letter-spacing:.06em;margin-bottom:4px}
-.bcard .wt{font-size:.86rem;font-weight:900;color:#FF9EC4;margin-bottom:5px;font-family:"DotGothic16",monospace}
-.bcard .wb{font-size:.76rem;color:#E4E8FF;line-height:1.6}
-.catblk{background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:14px 16px;margin-bottom:14px}
-.cat-h{display:flex;align-items:center;gap:9px;font-size:1rem;font-weight:900;color:#fff;font-family:"DotGothic16",monospace}
+.wcard{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--check);border-radius:10px;padding:12px 14px}
+.wcard .wt{font-size:.86rem;font-weight:900;color:var(--navy);margin-bottom:5px;display:flex;gap:7px;align-items:flex-start}
+.wcard .wt .wn{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:var(--check);color:#fff;border-radius:50%;font-size:.7rem;flex-shrink:0;margin-top:1px}
+.wcard .wb{font-size:.76rem;color:var(--ink);line-height:1.6}
+.bcard{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px}
+.bcard .wt{font-size:.86rem;font-weight:900;color:var(--accent);margin-bottom:5px}
+.bcard .wb{font-size:.76rem;color:var(--ink);line-height:1.6}
+.catblk{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.cat-h{display:flex;align-items:center;gap:9px;font-size:1rem;font-weight:900;color:var(--ink)}
 .cat-h .ico{font-size:1.2rem}
 .cat-clients{font-size:.72rem;color:var(--muted);margin:6px 0 12px;line-height:1.5}
 .wb-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.wb-cols h4{font-size:.74rem;font-weight:800;margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,.3)}
-.wb-cols .h-win{color:var(--active)}.wb-cols .h-blk{color:var(--accent-text)}
+.wb-cols h4{font-size:.74rem;font-weight:800;margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.wb-cols .h-win{color:var(--check)}.wb-cols .h-blk{color:var(--accent)}
 .wb-cols ul{margin:0;padding-left:16px}
-.wb-cols li{font-size:.76rem;color:#E4E8FF;line-height:1.55;margin-bottom:5px}
-.cv-row{display:flex;gap:12px;background:var(--card);border:3px solid #fff;border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:12px 14px;margin-bottom:10px;align-items:flex-start}
+.wb-cols li{font-size:.76rem;color:var(--ink);line-height:1.55;margin-bottom:5px}
+.cv-row{display:flex;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px;align-items:flex-start}
 .cv-ico{font-size:1.4rem;flex-shrink:0}
 .cv-main{flex:1}
-.cv-name{font-size:.88rem;font-weight:900;color:#fff;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:"DotGothic16",monospace}
-.cv-stab{font-size:.66rem;font-weight:800;padding:2px 9px;border-radius:2px;background:rgba(255,255,255,.12);color:#E4E8FF;white-space:nowrap;border:1px solid rgba(255,255,255,.3)}
-.cv-line{font-size:.76rem;line-height:1.55;margin-top:6px;color:#E4E8FF}
-.cv-line .lbl{font-weight:800;font-size:.7rem;padding:1px 7px;border-radius:2px;margin-right:6px}
-.cv-line .lbl-w{background:rgba(87,227,137,.16);color:var(--active)}
-.cv-line .lbl-b{background:rgba(250,0,109,.18);color:#FF9EC4}
+.cv-name{font-size:.88rem;font-weight:900;color:var(--ink);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cv-stab{font-size:.66rem;font-weight:800;padding:2px 9px;border-radius:20px;background:#eef1f6;color:var(--navy);white-space:nowrap}
+.cv-line{font-size:.76rem;line-height:1.55;margin-top:6px}
+.cv-line .lbl{font-weight:800;font-size:.7rem;padding:1px 7px;border-radius:5px;margin-right:6px}
+.cv-line .lbl-w{background:rgba(27,153,139,.16);color:var(--teal)}
+.cv-line .lbl-b{background:rgba(250,0,109,.14);color:var(--accent)}
 .case-grid{display:flex;flex-direction:column;gap:10px}
-.case-card{background:var(--card);border:3px solid #fff;border-top:4px solid var(--check);border-radius:4px;box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px #fff,0 6px 0 rgba(0,0,0,.45);padding:13px 15px 13px 60px;position:relative}
-.case-card::before{content:'';position:absolute;left:13px;top:13px;width:32px;height:32px;background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:58% 58%,100% 100%;background-image:url("../rpg-assets/item-chest.webp"),url("../rpg-assets/frame-gold.webp")}
+.case-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--check);border-radius:10px;padding:13px 15px}
 .case-card.progress{border-top-color:var(--accent)}
 .case-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.case-name{font-size:.88rem;font-weight:900;color:var(--gold);font-family:"DotGothic16",monospace}
-.case-tag{font-size:.64rem;color:var(--muted);background:rgba(255,255,255,.1);border-radius:2px;padding:2px 9px;white-space:nowrap;border:1px solid rgba(255,255,255,.3)}
-.case-sum{font-size:.77rem;color:#E4E8FF;line-height:1.55;margin:7px 0}
-.case-learn{font-size:.73rem;color:var(--muted);line-height:1.55;border-top:1px dashed rgba(255,255,255,.3);padding-top:7px}
-.case-learn b{color:#fff}
+.case-name{font-size:.88rem;font-weight:900;color:var(--navy)}
+.case-tag{font-size:.64rem;color:var(--muted);background:#eef1f6;border-radius:20px;padding:2px 9px;white-space:nowrap}
+.case-sum{font-size:.77rem;color:var(--ink);line-height:1.55;margin:7px 0}
+.case-learn{font-size:.73rem;color:var(--muted);line-height:1.55;border-top:1px dashed var(--border);padding-top:7px}
+.case-learn b{color:var(--ink)}
 .srclist{list-style:none;margin:0;padding:0}
-.srclist li{font-size:.77rem;line-height:1.55;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.18);color:#E4E8FF}
+.srclist li{font-size:.77rem;line-height:1.55;padding:7px 0;border-bottom:1px solid #f0f1f4}
 .srclist li:last-child{border-bottom:none}
-.srclist .cc{font-weight:800;color:var(--gold);font-family:ui-monospace,monospace;font-size:.74rem}
+.srclist .cc{font-weight:800;color:var(--navy);font-family:ui-monospace,monospace;font-size:.74rem}
 @media(max-width:640px){.wb-cols{grid-template-columns:1fr}}
-@media print{
-  * {-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
-  #lock{display:none!important}
-  #app{display:block!important;max-width:none}
-  body{background:#fff;color:#1a1a2e}
-  header.rpg-hero{background-image:none!important;background:#1a1a2e;box-shadow:none}
-}
 </style>
 </head>
 <body>
 <div id="lock">
   <div class="lockbox">
-    <div class="em"></div>
-    <h1>📁 AIGC制作ナレッジ（躓き×勝ち筋）</h1>
+    <div class="em">📁</div>
+    <h1>AIGC制作ナレッジ（躓き×勝ち筋）</h1>
     <p>Firework 社内限定（@fireworkhq.com）<br>Googleアカウントでログインしてください</p>
     <div class="gwrap"><div id="gbtn"></div></div>
     <div class="err" id="err"></div>
@@ -155,10 +127,8 @@ function render(c){
   var wins=(c.winPatterns||[]).map(function(w){
     return '<div class="wcard"><div class="wt"><span class="wn">'+esc(w.n)+'</span>'+esc(w.title)+'</div><div class="wb">'+esc(w.body)+'</div></div>';
   }).join('');
-  var RANKS=[['rk-c','C'],['rk-b','B'],['rk-a','A'],['rk-x','X'],['rk-s','S']];
-  var blks=(c.topBlocks||[]).map(function(b,i){
-    var r=RANKS[i%RANKS.length];
-    return '<div class="bcard '+r[0]+'"><div class="rk">RANK '+r[1]+'</div><div class="wt">'+esc(b.title)+'</div><div class="wb">'+esc(b.body)+'</div></div>';
+  var blks=(c.topBlocks||[]).map(function(b){
+    return '<div class="bcard"><div class="wt">'+esc(b.title)+'</div><div class="wb">'+esc(b.body)+'</div></div>';
   }).join('');
   var cats=(c.categories||[]).map(function(k){
     var wl=(k.wins||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')||'<li>—</li>';
@@ -174,9 +144,9 @@ function render(c){
   var adv=(c.advisory||[]).map(function(a){return '<li>'+esc(a)+'</li>';}).join('')||'<li>—</li>';
   var src=(c.sources||[]).map(function(s){return '<li><span class="cc">'+esc(s.ch)+'</span> — '+esc(s.desc)+'</li>';}).join('');
   document.getElementById('app').innerHTML=
-    '<header class="rpg-hero"><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>'+
-    '<div class="cat-tag">GUILD QUEST BOARD</div>'+
-    '<h1>📁 AIGC制作ナレッジ（躓き×勝ち筋）</h1>'+
+    '<header><a class="back" href="../board.html">← AIGC進捗ボードに戻る</a>'+
+    '<div class="cat-tag">制作ナレッジ・現場の学び</div>'+
+    '<h1>AIGC制作ナレッジ（躓き×勝ち筋）</h1>'+
     '<div class="headline">'+esc(c.headline)+'</div>'+
     '<div class="scope">'+esc(c.scope||'')+'</div></header>'+
     '<div class="wrap">'+
@@ -185,8 +155,8 @@ function render(c){
     '<div class="sec-h">📂 カテゴリ別 躓き×勝ち事例</div>'+cats+
     '<div class="sec-h">🎨 クリエイティブタイプ別</div>'+crs+
     '<div class="sec-h">⭐ 代表的な勝ち事例</div><div class="case-grid">'+cases+'</div>'+
-    '<div class="sec-h h-sage">🧠 軍師の進言・打ち手</div><ul class="rklist">'+adv+'</ul>'+
-    '<div class="sec-h h-src">📎 出典（Slackチャンネル）</div><ul class="srclist">'+src+'</ul>'+
+    '<div class="sec-h">🧠 軍師の進言・打ち手</div><ul class="rklist">'+adv+'</ul>'+
+    '<div class="sec-h">📎 出典（Slackチャンネル）</div><ul class="srclist">'+src+'</ul>'+
     '<div class="src">現場レビューの集約（2025/07〜2026/06）。最終更新: '+esc(c.asOf||'')+' JST</div>'+
     '</div>'+
     '<footer><span class="conf">CONFIDENTIAL — 社外秘</span>AIGC制作ナレッジ　最終更新 '+esc(c.asOf||'')+' JST</footer>';
