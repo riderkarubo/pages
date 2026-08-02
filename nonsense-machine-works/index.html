@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナンセンス機械製作所 技術資料 ｜ AI×フィジカルで、くだらないものを作って舞台に立つ</title>
+<meta name="description" content="AI活用を武器に、電子工作・3Dプリンタ・音声AIでくだらない装置を作り、舞台に立つまでの学習ロードマップ。先人の観測記録、部品表、工程表、YouTube教材、初期予算、出演導線までを1枚にまとめた技術資料。">
+<meta name="last-modified" content="2026-08-02T16:02+09:00">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ナンセンス機械製作所 技術資料｜AI×フィジカルで、くだらないものを作って舞台に立つ">
+<meta property="og:description" content="電子工作ゼロから、AI駆動で「役に立たない装置」を作って舞台に立つまでの工程表・部品表・教材リスト。">
+<meta property="og:site_name" content="ナンセンス機械製作所">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/nonsense-machine-works/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔩</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --denki:#1F4FA8;
+  --deep:#0C1A33;
+  --deep2:#132649;
+  --paper:#EDF0F4;
+  --paper-hi:#FAFBFC;
+  --ink:#11161F;
+  --ink-2:#4A5567;
+  --hanko:#C4302B;
+  --caution:#E5B300;
+  --rule:#C3CBD6;
+  --grid:rgba(31,79,168,.10);
+  --grid-dark:rgba(140,180,255,.16);
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-weight:900;line-height:1.3;margin:0}
+a{color:var(--denki);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--hanko)}
+:focus-visible{outline:3px solid var(--caution);outline-offset:3px}
+.code{font-family:"Chakra Petch",monospace;font-weight:600;letter-spacing:.04em}
+
+/* ---------- binder spine ---------- */
+.spine{
+  position:fixed;left:0;top:0;bottom:0;width:34px;
+  background:var(--deep);
+  border-right:2px solid var(--denki);
+  z-index:40;
+  display:flex;align-items:center;justify-content:center;
+}
+.spine span{
+  writing-mode:vertical-rl;
+  font-family:"Chakra Petch",sans-serif;font-weight:600;
+  color:#7FA6E8;font-size:11px;letter-spacing:.34em;
+  text-transform:uppercase;
+}
+.shell{margin-left:34px}
+
+/* ---------- cover ---------- */
+.cover{
+  position:relative;
+  background:var(--deep);
+  background-image:
+    linear-gradient(var(--grid-dark) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-dark) 1px,transparent 1px);
+  background-size:32px 32px;
+  color:#EAF0FA;
+  padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px) clamp(56px,7vw,88px);
+  overflow:hidden;
+}
+.cover::after{
+  content:"";position:absolute;inset:16px;border:1px solid rgba(127,166,232,.35);pointer-events:none;
+}
+.cover-inner{position:relative;max-width:var(--maxw);margin:0 auto;z-index:2}
+.doc-no{
+  font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:12px;letter-spacing:.22em;
+  color:#7FA6E8;margin-bottom:26px;
+}
+.cover h1{
+  font-size:clamp(30px,5.4vw,62px);
+  letter-spacing:-.01em;
+  margin-bottom:22px;
+  max-width:19em;
+}
+.cover h1 em{font-style:normal;color:var(--caution)}
+.cover-lead{
+  font-size:clamp(15px,1.5vw,18px);
+  color:#B9CBE8;max-width:44em;margin:0 0 40px;
+}
+.titleblock{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+  border:1px solid rgba(127,166,232,.42);
+  max-width:760px;background:rgba(9,20,40,.5);
+}
+.tb-cell{padding:12px 14px;border-right:1px solid rgba(127,166,232,.24)}
+.tb-cell:last-child{border-right:0}
+.tb-k{font-size:10px;letter-spacing:.16em;color:#7FA6E8;font-family:"Chakra Petch",sans-serif;font-weight:600}
+.tb-v{font-size:14px;font-weight:700;color:#EAF0FA;margin-top:3px}
+
+/* stamp */
+.stamp{
+  position:absolute;right:clamp(12px,5vw,84px);top:clamp(150px,26vw,180px);
+  width:126px;height:126px;
+  border:4px solid var(--hanko);border-radius:6px;
+  color:var(--hanko);
+  display:grid;grid-template-columns:1fr 1fr;place-items:center;
+  font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:34px;line-height:1;
+  transform:rotate(-13deg);
+  opacity:.92;
+  z-index:3;
+}
+.stamp i{font-style:normal}
+@media (prefers-reduced-motion:no-preference){
+  .stamp{animation:thud .5s cubic-bezier(.2,1.5,.4,1) .9s both}
+  .cover h1,.cover-lead,.titleblock,.doc-no{animation:rise .7s ease-out both}
+  .cover h1{animation-delay:.08s}.cover-lead{animation-delay:.2s}.titleblock{animation-delay:.32s}
+}
+@keyframes thud{
+  0%{opacity:0;transform:rotate(-30deg) scale(2.6)}
+  70%{opacity:1;transform:rotate(-11deg) scale(.95)}
+  100%{opacity:.92;transform:rotate(-13deg) scale(1)}
+}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- nav ---------- */
+.toc{
+  position:sticky;top:0;z-index:30;
+  background:var(--paper-hi);border-bottom:2px solid var(--deep);
+  padding:10px clamp(16px,4vw,40px);
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;
+}
+.toc a{
+  flex:0 0 auto;font-size:12px;font-weight:700;text-decoration:none;
+  color:var(--ink-2);padding:6px 11px;border:1px solid var(--rule);white-space:nowrap;
+}
+.toc a:hover{background:var(--denki);color:#fff;border-color:var(--denki)}
+
+/* ---------- sections ---------- */
+main{
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(40px,6vw,76px) clamp(18px,5vw,40px) 100px;
+}
+.sec{margin-bottom:clamp(56px,8vw,104px);scroll-margin-top:64px}
+.sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:3px solid var(--deep);padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap}
+.sec-no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;color:var(--denki);white-space:nowrap}
+.sec-head h2{font-size:clamp(21px,3vw,30px)}
+.sec-sub{color:var(--ink-2);font-size:14px;margin:0 0 32px}
+
+.card{
+  background:var(--paper-hi);
+  border:1px solid var(--rule);
+  border-left:4px solid var(--denki);
+  padding:20px 22px;
+}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+
+/* verdict block */
+.verdict{
+  background:var(--deep2);color:#EAF0FA;padding:clamp(22px,3.5vw,34px);
+  border-left:6px solid var(--caution);
+}
+.verdict ol{margin:0;padding-left:1.3em}
+.verdict li{margin-bottom:14px;font-size:clamp(15px,1.7vw,18px);font-weight:500}
+.verdict li:last-child{margin-bottom:0}
+.verdict b{color:var(--caution);font-weight:700}
+
+/* ancestors */
+.anc{background:var(--paper-hi);border:1px solid var(--rule);padding:20px 22px;display:flex;flex-direction:column}
+.anc-name{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:19px;margin-bottom:2px}
+.anc-role{font-size:12px;color:var(--ink-2);margin-bottom:12px}
+.anc p{margin:0 0 14px;font-size:14px}
+.steal{margin-top:auto;background:#FFF7DA;border-top:2px solid var(--caution);padding:11px 13px;font-size:13.5px}
+.steal b{display:block;font-size:10px;letter-spacing:.18em;color:#8A6B00;font-family:"Chakra Petch",sans-serif;margin-bottom:3px}
+.watch{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--denki);text-decoration:none;margin-bottom:14px}
+.watch:hover{color:var(--hanko)}
+.watch::before{content:"▶";font-size:9px}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--rule);background:var(--paper-hi)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th{
+  background:var(--deep);color:#EAF0FA;text-align:left;padding:10px 13px;
+  font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;white-space:nowrap;
+}
+td{padding:11px 13px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:rgba(31,79,168,.035)}
+td.n{white-space:nowrap;font-family:"Chakra Petch",sans-serif;font-weight:600}
+
+/* phases */
+.phase{display:grid;grid-template-columns:88px 1fr;border:1px solid var(--rule);background:var(--paper-hi);margin-bottom:14px}
+.phase-no{
+  background:var(--denki);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:16px 8px;text-align:center;
+}
+.phase-no strong{font-family:"Chakra Petch",sans-serif;font-size:30px;line-height:1;font-weight:700}
+.phase-no span{font-size:10px;letter-spacing:.14em;margin-top:5px;opacity:.85}
+.phase-body{padding:18px 22px}
+.phase-body h3{font-size:17px;margin-bottom:4px}
+.phase-when{font-size:11px;font-family:"Chakra Petch",sans-serif;font-weight:600;color:var(--ink-2);letter-spacing:.1em;margin-bottom:10px}
+.goal{background:#FFF7DA;border-left:3px solid var(--caution);padding:9px 12px;font-size:13.5px;margin-top:12px}
+.goal b{font-size:10px;letter-spacing:.16em;color:#8A6B00;font-family:"Chakra Petch",sans-serif;margin-right:8px}
+.phase-body ul{margin:8px 0 0;padding-left:1.2em;font-size:14px}
+.phase-body li{margin-bottom:5px}
+
+/* caution */
+.caution{
+  background:repeating-linear-gradient(45deg,#FFF4CC,#FFF4CC 14px,#FFEAA0 14px,#FFEAA0 28px);
+  border:2px solid var(--caution);padding:18px 20px;
+}
+.caution h3{font-size:16px;margin-bottom:8px;color:#6B5200}
+.caution ul{margin:0;padding-left:1.2em;font-size:14px}
+.caution li{margin-bottom:6px}
+
+/* plan cards */
+.plan{background:var(--paper-hi);border:1px solid var(--rule);border-top:5px solid var(--hanko);padding:20px 22px}
+.plan .axis{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:10px;letter-spacing:.18em;color:var(--hanko);margin-bottom:6px}
+.plan h3{font-size:18px;margin-bottom:10px}
+.plan p{margin:0 0 12px;font-size:14px}
+.plan .spec{font-size:12.5px;color:var(--ink-2);border-top:1px dashed var(--rule);padding-top:10px}
+
+.note{font-size:12.5px;color:var(--ink-2)}
+.tag{display:inline-block;font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:10px;letter-spacing:.12em;background:var(--deep);color:#fff;padding:2px 7px;margin-right:6px;vertical-align:2px}
+.tag.y{background:var(--caution);color:#4A3800}
+.tag.r{background:var(--hanko)}
+
+/* sources */
+.src{font-size:13px}
+.src ul{padding-left:1.2em;margin:0}
+.src li{margin-bottom:6px}
+
+footer{
+  border-top:2px solid var(--deep);background:var(--paper-hi);
+  padding:26px clamp(18px,5vw,40px);font-size:12px;color:var(--ink-2);
+}
+footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:720px){
+  .spine{display:none}
+  .shell{margin-left:0}
+  .stamp{width:92px;height:92px;font-size:24px;border-width:3px;top:auto;bottom:22px;right:18px}
+  .phase{grid-template-columns:1fr}
+  .phase-no{flex-direction:row;gap:10px;padding:8px}
+  .phase-no strong{font-size:20px}
+}
+@media print{
+  .spine,.toc{display:none}.shell{margin-left:0}
+  body{background:#fff}
+  .cover{background:#0C1A33 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="spine" aria-hidden="true"><span>Nonsense Machine Works / Vol.01</span></div>
+
+<div class="shell">
+
+<header class="cover">
+  <div class="stamp" aria-label="検印：無駄承認"><i>無</i><i>駄</i><i>承</i><i>認</i></div>
+  <div class="cover-inner">
+    <div class="doc-no code">DOC-NMW-001 ／ 分類：社内技術資料 ／ 取扱注意（笑いの企業秘密）</div>
+    <h1>役に立たない装置を、<em>AIで</em>作って、<br>舞台の上で動かすための技術資料</h1>
+    <p class="cover-lead">
+      電子工作の経験ゼロから始めて、3ヶ月で「人前で動かせるくだらない装置」を1台完成させる。
+      そのために何を買い、何を学び、どの順で作り、どこに立つか。先人が実際にやっていることだけで組んだ工程表です。
+    </p>
+    <div class="titleblock">
+      <div class="tb-cell"><div class="tb-k">SUBJECT</div><div class="tb-v">AI×フィジカル芸</div></div>
+      <div class="tb-cell"><div class="tb-k">TARGET</div><div class="tb-v">初舞台まで3ヶ月</div></div>
+      <div class="tb-cell"><div class="tb-k">BUDGET</div><div class="tb-v">初期 約4〜7万円</div></div>
+      <div class="tb-cell"><div class="tb-k">REV.</div><div class="tb-v">1.0 / 2026-08-02</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目次">
+  <a href="#s0">結論</a>
+  <a href="#s1">先人の観測記録</a>
+  <a href="#s2">部品表</a>
+  <a href="#s3">工程表</a>
+  <a href="#s4">AI駆動の作り方</a>
+  <a href="#s5">YouTube教材</a>
+  <a href="#s6">初期購入リスト</a>
+  <a href="#s7">舞台に立つ導線</a>
+  <a href="#s8">第1作の企画案</a>
+  <a href="#s9">出典</a>
+</nav>
+
+<main>
+
+<!-- 0 -->
+<section class="sec" id="s0">
+  <div class="sec-head"><span class="sec-no">SEC. 00</span><h2>結論だけ先に</h2></div>
+  <p class="sec-sub">迷ったらこの3行に戻ってください。</p>
+  <div class="verdict">
+    <ol>
+      <li><b>技術より先に「会社ごっこ」を決める。</b>明和電機が強いのは装置そのものより、青い作業服と「製品」「製品デモ」という額縁です。装置単体は必ず滑ります。世界観のフォーマットが笑いを支えます。</li>
+      <li><b>最初の1台は「首を振る／音が出る／光る」の3つだけでいい。</b>M5Stack＋サーボ1個＋スピーカー。ここに音声AIを載せた瞬間、既に舞台で成立する装置になります。実際にオープンソースの完成形（スタックチャン）が存在するので、それを土台に改造するのが最短です。</li>
+      <li><b>舞台は探すのではなく、既にある。</b>「技術力の低い人限定ロボコン（ヘボコン）」はヘボさがルール、Maker Faire Tokyo は個人出展可、アマチュアお笑いライブはエントリー制。3ヶ月後の出番を先に予約してから作り始めるのが正解です。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 1 -->
+<section class="sec" id="s1">
+  <div class="sec-head"><span class="sec-no">SEC. 01</span><h2>先人の観測記録</h2></div>
+  <p class="sec-sub">この分野は既に開拓済みです。憧れるのではなく、技を1つずつ盗んでください。</p>
+  <div class="grid g2">
+
+    <article class="anc">
+      <div class="anc-name">明和電機（土佐信道）</div>
+      <div class="anc-role">ナンセンスマシーン ／ 青い作業服のアートユニット</div>
+      <p>作品を「製品」、ライブを「製品デモ」、メンバーを「社員」と呼ぶ。装置は本当に役に立たないが、全体が1つの会社として完璧に統一されているため、観客は世界観ごと笑う。ホールでの単独ライブが成立する規模まで到達している数少ない例。</p>
+      <a class="watch" href="https://www.youtube.com/watch?v=e5T7iIUHQAM" target="_blank" rel="noopener">土佐信道×落合陽一「役に立たない機械」開発秘話</a>
+      <div class="steal"><b>STEAL THIS</b>装置ではなく「会社」を作る。名刺・制服・型番・カタログを先に用意すると、しょぼい装置が急に作品になる。</div>
+    </article>
+
+    <article class="anc">
+      <div class="anc-name">藤原麻里菜（無駄づくり）</div>
+      <div class="anc-role">無駄づくり発明家 ／ 2013年〜</div>
+      <p>「オンライン飲み会緊急脱出マシーン」「インスタ映え台無しマシーン」など、日常の感情を起点に発明する。技術的な入り口はArduino。CNCやRaspberry Piも使うが、常に企画が先で技術は後。著書『雑に作る』というタイトルが姿勢のすべてを語っている。</p>
+      <a class="watch" href="https://www.youtube.com/watch?v=nZP9xnOp518" target="_blank" rel="noopener">無駄が世界を変える！藤原麻里菜をイッキ見</a>
+      <div class="steal"><b>STEAL THIS</b>発想は技術リストからではなく「〜したくない」「〜がムカつく」から取る。企画の質が9割、実装精度は1割でいい。</div>
+    </article>
+
+    <article class="anc">
+      <div class="anc-name">Simone Giertz</div>
+      <div class="anc-role">"Queen of Shitty Robots" ／ スウェーデン</div>
+      <p>歯磨きロボット、ゴム手で頬を叩いて起こす目覚まし時計など、必ず失敗する機械で世界的に知られた。本人が語る核心は「失敗する前提で作ると、完璧主義とパフォーマンス不安から解放され、莫大な創作の自由が手に入る」こと。後に本物のプロダクト会社を立ち上げている。</p>
+      <a class="watch" href="https://www.youtube.com/@simonegiertz" target="_blank" rel="noopener">Simone Giertz 公式チャンネル（英語）</a>
+      <div class="steal"><b>STEAL THIS</b>「うまく動かない」を欠陥ではなくネタとして設計に組み込む。壊れた瞬間がいちばんウケる構成にしておく。</div>
+    </article>
+
+    <article class="anc">
+      <div class="anc-name">ヘボコン（デイリーポータルZ）</div>
+      <div class="anc-role">技術力の低い人限定ロボコン ／ 主催：石川大樹</div>
+      <p>技術のない人がガラクタで作ったロボットに無理やり相撲をさせるイベント。「ハイテクノロジーペナルティ」という公式ルールがあり、技術的に高度すぎると減点される。2026年も開催・出場者募集が行われている。</p>
+      <a class="watch" href="https://www.youtube.com/watch?v=QpYKEBje67k" target="_blank" rel="noopener">ヘボコン10周年「失われた10年」の歴史</a>
+      <div class="steal"><b>STEAL THIS</b>初舞台をここにする。ヘボさが減点されないどころか加点される場は、練習台として異常に条件が良い。</div>
+    </article>
+
+    <article class="anc">
+      <div class="anc-name">テクノコント（AR三兄弟／川田十夢）</div>
+      <div class="anc-role">2018年〜 ／ 芸人×開発者のライブ</div>
+      <p>ラブレターズ、男性ブランコら芸人が出演し、AR三兄弟が「開発担当」として参加する新ジャンルのコント公演。スマートスピーカーやVRヘッドセットが小道具として舞台に上がる。ラジオでも「週刊テクノコント」として展開された。</p>
+      <a class="watch" href="https://www.youtube.com/channel/UCJu3mFiERByz2CupSdurYUA/videos" target="_blank" rel="noopener">出演者・男性ブランコ 公式チャンネル</a>
+      <div class="steal"><b>STEAL THIS</b>演者と開発者を分ける座組がある。全部ひとりでやらず、「装置を作る側」として芸人と組む道は既に実績がある。</div>
+    </article>
+
+    <article class="anc">
+      <div class="anc-name">ギャル電</div>
+      <div class="anc-role">「今のギャルは電子工作をやる」 ／ 光り物電子工作</div>
+      <p>テープLEDで光るサンバイザーなど、ノリと勢いで光り物を作る。入門書『ギャル電とつくる！ バイブステンアゲサイバーパンク光り物電子工作』は、はんだ付けだけのレシピからArduino応用まで段階的に進む構成で、電子工作の教科書としても評価が高い。</p>
+      <a class="watch" href="https://www.youtube.com/channel/UCdy7DYQLk6BhKebhzAArhNw/videos" target="_blank" rel="noopener">ギャル電 公式チャンネル</a>
+      <div class="steal"><b>STEAL THIS</b>「光る」は最小の投資で最大の見栄えが出る。舞台では特に効く。最初の武装はLEDテープでいい。</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="sec" id="s2">
+  <div class="sec-head"><span class="sec-no">SEC. 02</span><h2>部品表：装置は4系統でできている</h2></div>
+  <p class="sec-sub">全部を一度に学ぼうとすると必ず折れます。装置を4つの系統に分けて、下から順に手をつけてください。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>系統</th><th>役割</th><th>まず触るもの</th><th>学習コスト</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="n">① 神経<br><span class="note">マイコン</span></td>
+          <td>センサーを読み、モーターを回す。装置の中枢。</td>
+          <td><b>M5Stack系</b>（CoreS3 / M5StickC Plus2）</td>
+          <td class="n">低</td>
+          <td>画面・ボタン・スピーカー・Wi-Fi・バッテリーが最初から入っており、はんだ付けなしで始められる。Arduino互換。</td>
+        </tr>
+        <tr>
+          <td class="n">② 筋肉<br><span class="note">アクチュエータ</span></td>
+          <td>物理的に動く。首を振る、腕が上がる、蓋が閉まる。</td>
+          <td><b>サーボモーター（SG90など）</b>、LEDテープ、小型スピーカー</td>
+          <td class="n">低</td>
+          <td>1個数百円。「角度を指定すると、その角度まで回る」だけの部品。最初はこれ1個で十分。</td>
+        </tr>
+        <tr>
+          <td class="n">③ 頭脳<br><span class="note">AI</span></td>
+          <td>喋る・聞く・判断する。貴殿の既存の強みが直結する層。</td>
+          <td><b>VOICEVOX</b>（無料の音声合成）→ <b>OpenAI Realtime API</b> → <b>M5 Module LLM</b>（オンデバイス）</td>
+          <td class="n">低〜中</td>
+          <td>Realtime APIは音声→応答→音声を1本のWebSocketで処理する。従来の3段パイプラインが不要になった。</td>
+        </tr>
+        <tr>
+          <td class="n">④ 外装<br><span class="note">ガワ</span></td>
+          <td>見た目。舞台上ではここが8割。</td>
+          <td><b>ダンボール・ホームセンター素材</b> →（必要なら）<b>3Dプリンタ</b></td>
+          <td class="n">中</td>
+          <td>3Dプリンタは急がない。Bambu Lab A1 mini などが3万円前後まで下りてきているので、必要になってから買えばよい。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note" style="margin-top:12px">※ 回路設計・基板設計（KiCad等）は当面不要です。ブレッドボードとM5Stack用のコネクタ（Grove）で、はんだごてを握らずに済む範囲がかなり広い。</p>
+</section>
+
+<!-- 3 -->
+<section class="sec" id="s3">
+  <div class="sec-head"><span class="sec-no">SEC. 03</span><h2>工程表：3ヶ月で舞台まで</h2></div>
+  <p class="sec-sub">順序に意味があります。飛ばすと必ず「動かない箱」で止まります。</p>
+
+  <div class="phase">
+    <div class="phase-no"><strong>00</strong><span>WEEKEND</span></div>
+    <div class="phase-body">
+      <h3>光らせる・動かす</h3>
+      <div class="phase-when">所要：週末2日／費用：約1万円</div>
+      <p>M5StickC Plus2にサーボ1個をつなぎ、ボタンを押すと首が振れる状態を作る。プログラムはAIに書かせて構いません。ここでの目的は理解ではなく「自分の手元で物が動いた」という事実です。</p>
+      <ul>
+        <li>M5Stack公式の日本語ドキュメントで開発環境（Arduino IDE）を構築</li>
+        <li>Lチカ（LEDを点滅させる）→ サーボを0度と90度で往復</li>
+        <li>LEDテープを光らせる</li>
+      </ul>
+      <div class="goal"><b>GOAL</b>ボタンを押すと、何かが動いて光る。</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-no"><strong>01</strong><span>WEEK 1-4</span></div>
+    <div class="phase-body">
+      <h3>喋らせる ＝ スタックチャンを作る</h3>
+      <div class="phase-when">所要：2〜4週／費用：約2万円</div>
+      <p>「スタックチャン」はM5Stackで作るオープンソースのデスクトップロボットで、コミュニティがAI連携まで作り込んでいます。公式キットがスイッチサイエンスで販売されており（基本版18,150円）、ゼロから設計する必要がありません。<b>ここを土台にするのが最大の時短です。</b></p>
+      <ul>
+        <li>まず素の状態で動かす（首振り＋表情）</li>
+        <li>VOICEVOXで喋らせる → 次にChatGPT/Realtime APIで返事をさせる</li>
+        <li>返事の内容を「絶対に役に立たない」方向へ改造する ← ここが芸</li>
+      </ul>
+      <div class="goal"><b>GOAL</b>話しかけると、ろくでもない返事をして首を振る。</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-no"><strong>02</strong><span>MONTH 2</span></div>
+    <div class="phase-body">
+      <h3>外装を作る ＝ ネタとして成立させる</h3>
+      <div class="phase-when">所要：3〜6週／費用：0〜3.5万円</div>
+      <p>中身が同じでも、外装で笑いの量が変わります。まずはダンボール・木材・100均で作り、それでも足りなければ3Dプリンタを導入する。3DモデリングはGUIで覚えるより<b>コードで書くCAD（OpenSCAD / CadQuery / Build123d）をAIに書かせる</b>のが、貴殿の場合は圧倒的に速い。</p>
+      <ul>
+        <li>装置に型番と製品名をつける（例：SUMIMASEN-1号）</li>
+        <li>説明書・カタログ・シールを作る（ここが世界観の8割）</li>
+        <li>3Dプリンタは「必要になってから」買う</li>
+      </ul>
+      <div class="goal"><b>GOAL</b>写真1枚で何の装置か伝わり、笑える。</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-no"><strong>03</strong><span>MONTH 3</span></div>
+    <div class="phase-body">
+      <h3>舞台に載せる</h3>
+      <div class="phase-when">所要：3〜4週</div>
+      <p>装置が完成した状態と、舞台で動く状態はまったく別物です。ここを甘く見た人が本番で必ず沈みます。</p>
+      <ul>
+        <li>3分の構成を作る（振り→装置起動→期待外れ→オチ）</li>
+        <li>スマホで自撮りして通しリハを最低5回。動かない前提の逃げ道の台詞を用意する</li>
+        <li>電源・音声出力・照明下での見え方を実会場条件で確認</li>
+      </ul>
+      <div class="goal"><b>GOAL</b>装置が壊れても3分間ウケる状態。</div>
+    </div>
+  </div>
+
+  <div class="caution" style="margin-top:26px">
+    <h3>⚠ 舞台上でAIを使う者への警告</h3>
+    <ul>
+      <li><b>会場のWi-Fiは信用しない。</b>クラウドAPI（Realtime API等）はネットが落ちた瞬間にネタごと死にます。スマホのテザリングを必ず二重化するか、そもそもオフラインで動く構成にする。</li>
+      <li><b>オフラインの選択肢は既にある。</b>M5Stackには「Module LLM」というオンデバイスでLLMを動かすモジュールがあり、Arduinoから使えます。ネット不要は舞台では絶対的な強みです。</li>
+      <li><b>音声認識は客席のざわつきで落ちる。</b>本番はマイクを装置に近づける、もしくは「自分が手元のボタンで発話タイミングを制御する」設計に逃がす。</li>
+      <li><b>応答の待ち時間は舞台では致命傷。</b>2秒の沈黙は舞台では10秒に感じます。待ち時間中に装置が意味もなく回る等、「間」を埋める動作を必ず入れる。</li>
+      <li><b>バッテリーは本番前に必ず満充電。</b>M5Stackの内蔵バッテリーは実働が短い。モバイルバッテリー給電を標準構成にする。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="sec" id="s4">
+  <div class="sec-head"><span class="sec-no">SEC. 04</span><h2>AI駆動の作り方：貴殿の勝ち筋</h2></div>
+  <p class="sec-sub">電子工作の学習コストの大半は、AIで消せます。ここが他の入門者との決定的な差になります。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>工程</th><th>従来のやり方</th><th>AI駆動でのやり方</th></tr></thead>
+      <tbody>
+        <tr><td class="n">配線</td><td>データシートを読んでピン配置を調べる</td><td>部品とマイコンの<b>写真を撮ってAIに貼る</b>。「このサーボをM5StickC Plus2に繋ぐ配線を教えて」で完了する。</td></tr>
+        <tr><td class="n">コード</td><td>Arduinoの文法・ライブラリを学習</td><td>Claude Code等に<b>PlatformIOのプロジェクトごと生成させる</b>。エラーはシリアルモニタの出力をそのまま貼れば直る。</td></tr>
+        <tr><td class="n">3Dモデル</td><td>Fusion 360等のGUI操作を習得</td><td><b>OpenSCAD / CadQuery / Build123d</b>はコードで形状を書く方式。AIが直接書けるため、GUI習得を丸ごと飛ばせる。</td></tr>
+        <tr><td class="n">部品選定</td><td>電子部品の知識が前提</td><td>「秋月電子で買える、3V〜5Vで動く、音が出る安い部品」のように条件で聞く。型番まで出させる。</td></tr>
+        <tr><td class="n">ネタ出し</td><td>ひたすら考える</td><td>装置の<b>仕様書をLLMに渡して</b>ボケを100個出させ、自分は選ぶ側に回る。3案並行で軸を変えるのが効く。</td></tr>
+        <tr><td class="n">装置の中身</td><td>if文で条件分岐を書く</td><td>Realtime APIで<b>装置自体が即興で喋る</b>。台本のない受け答えは、舞台では最大の武器になる。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <p style="margin:0"><span class="tag y">POINT</span>電子工作の初心者が最初に折れるのは「動かない原因が分からない」瞬間です。貴殿はそこをAIで踏み倒せる。つまり<b>本来なら3ヶ月かかる第0〜1工程を、数週間に圧縮できる</b>立場にいます。逆に言えば、時間を使うべきなのは技術ではなく企画と舞台稽古の側です。</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="sec" id="s5">
+  <div class="sec-head"><span class="sec-no">SEC. 05</span><h2>YouTube教材リスト</h2></div>
+  <p class="sec-sub">上から順に見る必要はありません。工程に対応するものだけを、必要になった時に見てください。<span class="tag">検索</span>と付いたものは、チャンネル名で検索して最新動画から入るのが早いものです。</p>
+
+  <h3 style="font-size:16px;margin:26px 0 10px">A. まず精神を作る（先人を見る）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>対象</th><th>内容</th><th>リンク</th></tr></thead>
+      <tbody>
+        <tr><td class="n">無駄づくり</td><td>藤原麻里菜氏の作品まとめ。企画の発想の型が最も分かりやすい入り口。</td><td><a href="https://www.youtube.com/watch?v=nZP9xnOp518" target="_blank" rel="noopener">あえて無駄を作る藤原麻里菜をイッキ見</a></td></tr>
+        <tr><td class="n">無駄づくり</td><td>「物づくりの発想法」インタビュー。作る前に何を考えているか。</td><td><a href="https://www.youtube.com/watch?v=5LLFc3CfYAQ" target="_blank" rel="noopener">“無駄”は未来への価値</a></td></tr>
+        <tr><td class="n">明和電機</td><td>土佐信道×落合陽一。役に立たない機械を作り続ける動機の話。</td><td><a href="https://www.youtube.com/watch?v=e5T7iIUHQAM" target="_blank" rel="noopener">『役に立たない機械』の開発秘話</a></td></tr>
+        <tr><td class="n">明和電機</td><td>ナンセンスマシーンの世界観そのもの。</td><td><a href="https://www.youtube.com/watch?v=Y9qFZmjk-sY" target="_blank" rel="noopener">「常識を超える」ナンセンスマシーン</a></td></tr>
+        <tr><td class="n">明和電機</td><td>「製品デモ」＝ライブが実際にどう成立しているか。舞台構成の参考。</td><td><a href="https://www.youtube.com/watch?v=f85GlCkd7Y0" target="_blank" rel="noopener">ナンセンスマシーンコンサート／社歌</a></td></tr>
+        <tr><td class="n">Simone Giertz</td><td>失敗する機械の女王。英語だが、笑いの構造は言語不要で伝わる。</td><td><a href="https://www.youtube.com/watch?v=B5YgjjUbvEA" target="_blank" rel="noopener">The Girl Who Creates the Stupidest Machines</a> ／ <a href="https://www.youtube.com/watch?v=xJdxY49ypts" target="_blank" rel="noopener">Queen Of Shitty Robots</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size:16px;margin:30px 0 10px">B. 第0工程（電子工作の入り口）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>対象</th><th>内容</th><th>リンク</th></tr></thead>
+      <tbody>
+        <tr><td class="n">はじめ方</td><td>電子工作を始めるのに何を買えばいいかの解説。最初の1本にちょうどよい。</td><td><a href="https://www.youtube.com/watch?v=aDlCzYu2Hlo" target="_blank" rel="noopener">【初心者向け】電子工作のはじめ方と必要なもの</a></td></tr>
+        <tr><td class="n">ロードマップ</td><td>何から何の順で覚えるかの全体像。</td><td><a href="https://www.youtube.com/watch?v=CmLKCsjtvZU" target="_blank" rel="noopener">【超初心者向け】電子工作習得のためのロードマップ</a></td></tr>
+        <tr><td class="n">イチケン<span class="tag" style="margin-left:6px">検索</span></td><td>登録者50万人超。電子回路の仕組みを噛み砕いて解説する定番チャンネル。分解・改造系も強い。<a href="https://ichiken-engineering.com/" target="_blank" rel="noopener">公式ブログ</a>に記事版あり。</td><td><a href="https://www.youtube.com/results?search_query=%E3%82%A4%E3%83%81%E3%82%B1%E3%83%B3" target="_blank" rel="noopener">YouTubeで「イチケン」</a></td></tr>
+        <tr><td class="n">ギャル電<span class="tag" style="margin-left:6px">検索</span></td><td>光り物電子工作。難しいことを言わないので心理的ハードルが下がる。書籍が特に良い。</td><td><a href="https://www.youtube.com/results?search_query=%E3%82%AE%E3%83%A3%E3%83%AB%E9%9B%BB+%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C" target="_blank" rel="noopener">YouTubeで「ギャル電 電子工作」</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size:16px;margin:30px 0 10px">C. 第1工程（M5Stack／スタックチャン／AI連携）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>対象</th><th>内容</th><th>リンク</th></tr></thead>
+      <tbody>
+        <tr><td class="n">スタックチャン<span class="tag" style="margin-left:6px">検索</span></td><td>作例動画が大量にある。まず完成品の動きを見てから着手すると迷わない。</td><td><a href="https://www.youtube.com/results?search_query=%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%83%81%E3%83%A3%E3%83%B3" target="_blank" rel="noopener">YouTubeで「スタックチャン」</a></td></tr>
+        <tr><td class="n">M5Stack<span class="tag" style="margin-left:6px">検索</span></td><td>公式チャンネルに製品デモ多数。ただし文字情報は<a href="https://docs.m5stack.com/ja/start" target="_blank" rel="noopener">公式日本語ドキュメント</a>のほうが圧倒的に早い。</td><td><a href="https://www.youtube.com/results?search_query=M5Stack+%E5%85%A5%E9%96%80" target="_blank" rel="noopener">YouTubeで「M5Stack 入門」</a></td></tr>
+        <tr><td class="n">AI×スタックチャン</td><td>ChatGPTと連動させる手順の記事版。動画より手順書のほうが正確に追える領域。</td><td><a href="https://deviceplus.jp/mc-general/m5stack-chatgpt-aistack-chan" target="_blank" rel="noopener">M5StackとChatGPTで作るAIスタックチャン</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size:16px;margin:30px 0 10px">D. 第2工程（3D／舞台演出）</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>対象</th><th>内容</th><th>リンク</th></tr></thead>
+      <tbody>
+        <tr><td class="n">3Dプリンタ<span class="tag" style="margin-left:6px">検索</span></td><td>買う前に「A1 mini 開封・設置」系を1本見ておくと導入判断が早い。</td><td><a href="https://www.youtube.com/results?search_query=Bambu+Lab+A1+mini+%E9%96%8B%E5%B0%81" target="_blank" rel="noopener">YouTubeで「Bambu Lab A1 mini 開封」</a></td></tr>
+        <tr><td class="n">TouchDesigner<span class="tag" style="margin-left:6px">検索</span></td><td>装置ではなく「映像側」で舞台を作りたくなった時の選択肢。リアルタイム映像の定番。<a href="https://manumaruscript.com/touchdesigner-turorials-japanese/" target="_blank" rel="noopener">日本語チュートリアルまとめ</a>あり。</td><td><a href="https://www.youtube.com/results?search_query=TouchDesigner+%E5%88%9D%E5%BF%83%E8%80%85+%E6%97%A5%E6%9C%AC%E8%AA%9E" target="_blank" rel="noopener">YouTubeで「TouchDesigner 初心者」</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="sec" id="s6">
+  <div class="sec-head"><span class="sec-no">SEC. 06</span><h2>初期購入リスト</h2></div>
+  <p class="sec-sub">第0〜1工程に必要なものだけ。3Dプリンタは後回しで構いません。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>優先</th><th>品目</th><th>概算</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td class="n"><span class="tag r">必須</span></td><td>M5StickC Plus2 もしくは M5Stack CoreS3</td><td class="n">3,000〜10,000円</td><td>装置の中枢。画面・ボタン・スピーカー・Wi-Fi込み</td></tr>
+        <tr><td class="n"><span class="tag r">必須</span></td><td>サーボモーター SG90 ×2〜3個</td><td class="n">1,000円前後</td><td>首を振る・腕を上げる</td></tr>
+        <tr><td class="n"><span class="tag r">必須</span></td><td>ジャンパーワイヤー／ブレッドボード</td><td class="n">1,000円前後</td><td>はんだ付けなしで配線するため</td></tr>
+        <tr><td class="n"><span class="tag r">必須</span></td><td>USB-Cケーブル／モバイルバッテリー</td><td class="n">2,000円前後</td><td>本番の電源。会場のコンセントを当てにしない</td></tr>
+        <tr><td class="n"><span class="tag y">推奨</span></td><td>M5 スタックチャン（公式キット）</td><td class="n">18,150円〜</td><td>第1工程を丸ごと短縮する。ジョイスティック付は22,990円</td></tr>
+        <tr><td class="n"><span class="tag y">推奨</span></td><td>テープLED（NeoPixel系）</td><td class="n">1,500円前後</td><td>舞台映え。投資対効果が最も高い</td></tr>
+        <tr><td class="n"><span class="tag y">推奨</span></td><td>はんだごてセット＋テスター</td><td class="n">5,000〜10,000円</td><td>いずれ必要になる。焦って最初に買わなくてよい</td></tr>
+        <tr><td class="n"><span class="tag">後回し</span></td><td>3Dプリンタ（Bambu Lab A1 mini 等）</td><td class="n">30,000円前後〜</td><td>外装の精度が必要になってから</td></tr>
+        <tr><td class="n"><span class="tag">後回し</span></td><td>M5 Module LLM</td><td class="n">要確認</td><td>オフラインでLLMを動かす。舞台のネット不安を消す切り札</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note" style="margin-top:12px">※ 価格は2026年8月時点の目安です。購入直前に必ず販売ページで実価格を確認してください。購入先はスイッチサイエンス・秋月電子通商・千石電商が定番。</p>
+</section>
+
+<!-- 7 -->
+<section class="sec" id="s7">
+  <div class="sec-head"><span class="sec-no">SEC. 07</span><h2>舞台に立つ導線</h2></div>
+  <p class="sec-sub">「いつか出る」は永遠に来ません。作る前に出番を確保するのが唯一の正解です。</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="font-size:17px;margin-bottom:8px">① ヘボコン（最有力）</h3>
+      <p style="font-size:14px;margin:0 0 10px">技術力の低さがルールで守られている唯一の舞台。ハイテクノロジーペナルティがあるため、下手であることが不利にならない。デイリーポータルZ主催で毎年開催・出場者募集がある。</p>
+      <p class="note" style="margin:0"><a href="https://dailyportalz.jp/kiji/hebocon2026-kokuchi" target="_blank" rel="noopener">2026年開催告知ページ</a>／<a href="https://dailyportalz.jp/b/cs/Hebocon-report/list/2.htm" target="_blank" rel="noopener">過去レポート一覧</a></p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:17px;margin-bottom:8px">② Maker Faire Tokyo</h3>
+      <p style="font-size:14px;margin:0 0 10px">個人・グループでも出展できる、ものづくりの祭典。2026年は9月5〜6日、有明GYM-EXで開催。出展募集は3月〜4月に締め切られるため、<b>出るなら翌年分を年初から狙う</b>のが実務。今年はまず客として観に行き、出展者の作り込みを実測する。</p>
+      <p class="note" style="margin:0"><a href="https://makezine.jp/event/mft2026/about/" target="_blank" rel="noopener">開催概要</a>／<a href="https://makezine.jp/event/mft2026/callformakers/" target="_blank" rel="noopener">出展をご希望の方へ</a></p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:17px;margin-bottom:8px">③ アマチュアお笑いライブ</h3>
+      <p style="font-size:14px;margin:0 0 10px">エントリー制で、事務所所属でなくても出られるライブが東京に複数ある。ピン1,000円程度から。ネタ時間2〜3分という制約は、装置1台の芸とちょうど噛み合う。</p>
+      <p class="note" style="margin:0"><a href="https://note.com/toffee101/n/n3f48144ac982" target="_blank" rel="noopener">東京で誰でも出られるお笑いライブ一覧</a>／<a href="https://note.com/pechka_oono/n/nacbeab781b75" target="_blank" rel="noopener">エントリー制アマチュアライブ紹介（全国版）</a>／<a href="https://amateurowarai.amebaownd.com/" target="_blank" rel="noopener">楽しいペチカ</a>／<a href="https://kpro-web.com/gereron/" target="_blank" rel="noopener">K-PRO 出演者募集</a></p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:17px;margin-bottom:8px">④ 30秒動画という実質の舞台</h3>
+      <p style="font-size:14px;margin:0 0 10px">無駄づくりもSimone Giertzも、最初の観客は劇場ではなくインターネットでした。装置1台につき縦30秒の動画を必ず撮る。反応が取れたネタだけを舞台に上げれば、初舞台の勝率が上がります。動画の設計は貴殿の本業の領域です。</p>
+      <p class="note" style="margin:0">構成の型：①装置を見せる ②何をする装置か宣言する ③実演する ④期待を外す</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="sec" id="s8">
+  <div class="sec-head"><span class="sec-no">SEC. 08</span><h2>第1作の企画案（3軸）</h2></div>
+  <p class="sec-sub">どれも第1工程（スタックチャン＋サーボ1個）の範囲で作れます。軸が違う3案です。お選びください。</p>
+  <div class="grid g3">
+
+    <article class="plan">
+      <div class="axis">軸A ／ 怠惰起点</div>
+      <h3>謝罪代行機<br><span class="code" style="font-size:13px;color:var(--ink-2)">SUMIMASEN-1</span></h3>
+      <p>状況を話しかけると、AIが謝罪文を生成し、サーボで頭を下げながら読み上げる。<b>ただし絶対に自分の非を認めない文面しか出力しない。</b>下げる角度は深いのに、内容がまったく謝っていない。</p>
+      <div class="spec">構成：M5Stack＋サーボ1（首）＋VOICEVOX／笑いの核：所作と内容の乖離／既存のCreative Brain系企画とも接続しやすい</div>
+    </article>
+
+    <article class="plan">
+      <div class="axis">軸B ／ 会社ごっこ起点</div>
+      <h3>会議出席代行ロボ<br><span class="code" style="font-size:13px;color:var(--ink-2)">NARUHODO-α</span></h3>
+      <p>会議の音声をリアルタイムで聞き、絶妙なタイミングで頷き、「なるほど」「たしかに」「持ち帰ります」の3語しか言わない。<b>それでも会議が成立してしまう。</b>製品カタログ・取扱説明書・保証書を作り込んで「会社の製品」として売り込む形式で舞台に立つ。</p>
+      <div class="spec">構成：M5Stack＋サーボ1（頷き）＋Realtime API／笑いの核：AIの無力さではなく、それで足りてしまう社会の側／明和電機の型を継承</div>
+    </article>
+
+    <article class="plan">
+      <div class="axis">軸C ／ AIの無能さ起点</div>
+      <h3>最高のボケを言わない機械<br><span class="code" style="font-size:13px;color:var(--ink-2)">MUGON-0</span></h3>
+      <p>お題を入力するとAIが本気で最高のボケを生成する。画面に表示される直前、<b>サーボで物理的なシャッターが降りて隠す。</b>観客は永遠に答えを見られない。装置が「今のは相当おもしろかった」とだけ報告する。</p>
+      <div class="spec">構成：M5Stack＋サーボ1（シャッター）＋LLM／笑いの核：見せないという一点だけで成立する構造／最も少ない部品で作れる</div>
+    </article>
+
+  </div>
+  <div class="card" style="margin-top:20px">
+    <p style="margin:0"><span class="tag y">進言</span>3案のうち、<b>軸C（MUGON-0）を第1作に推します。</b>部品が最も少なく、AIの出力品質に依存せず（何しろ見せない）、失敗しても構造上ネタが崩れないためです。軸Bは世界観の作り込みに時間がかかるので第2作、軸Aは映像作品として展開する余地が大きいので、動画側の企画と束ねるのが得策かと存じます。</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="sec src" id="s9">
+  <div class="sec-head"><span class="sec-no">SEC. 09</span><h2>出典</h2></div>
+  <p class="sec-sub">本資料の記述は以下の一次・二次情報にもとづきます。価格・開催日程は必ず最新をご確認ください。</p>
+  <ul>
+    <li>藤原麻里菜／無駄づくり：<a href="https://deviceplus.jp/interview/interview-mudadukuri-02" target="_blank" rel="noopener">DEVICE PLUS インタビュー</a>、<a href="https://ja.wikipedia.org/wiki/%E8%97%A4%E5%8E%9F%E9%BA%BB%E9%87%8C%E8%8F%9C" target="_blank" rel="noopener">Wikipedia</a>、<a href="https://www.concent-f.jp/energy/column_07" target="_blank" rel="noopener">Concent インタビュー</a></li>
+    <li>ヘボコン：<a href="https://dailyportalz.jp/kiji/hebocon2026-kokuchi" target="_blank" rel="noopener">デイリーポータルZ 2026開催告知</a>、<a href="https://www.cemedine.co.jp/cemedine_reports/hebocon2023.html" target="_blank" rel="noopener">セメダイン観戦レポート</a></li>
+    <li>Simone Giertz：<a href="https://www.siliconrepublic.com/innovation/simone-giertz-yetch-robots-company-youtube" target="_blank" rel="noopener">Silicon Republic</a>、<a href="https://spectrum.ieee.org/simone-giertz" target="_blank" rel="noopener">IEEE Spectrum</a></li>
+    <li>テクノコント：<a href="https://natalie.mu/owarai/news/283935" target="_blank" rel="noopener">お笑いナタリー</a>、<a href="https://note.com/wakusei2nd/n/n3bd5f4231938" target="_blank" rel="noopener">PLANETS 川田十夢インタビュー</a></li>
+    <li>スタックチャン：<a href="https://www.switch-science.com/products/11129" target="_blank" rel="noopener">スイッチサイエンス製品ページ</a>、<a href="https://zenn.dev/karaage0703/articles/f14b27ccb22737" target="_blank" rel="noopener">開発に必要な情報まとめ（Zenn）</a>、<a href="https://oitomas.com/926" target="_blank" rel="noopener">初心者向け組立手順</a>、<a href="https://prtimes.jp/main/html/rd/p/000000244.000064534.html" target="_blank" rel="noopener">販売開始プレスリリース</a></li>
+    <li>M5Stack：<a href="https://docs.m5stack.com/ja/start" target="_blank" rel="noopener">公式日本語ドキュメント</a>、<a href="https://docs.m5stack.com/ja/guide/llm/llm/arduino" target="_blank" rel="noopener">Module LLM Arduino Quick Start</a>、<a href="https://docs.m5stack.com/ja/arduino/arduino_ide" target="_blank" rel="noopener">Arduino開発環境の構築</a></li>
+    <li>音声AI：<a href="https://digirise.ai/chaen-ai-lab/openai-realtime-api-2/" target="_blank" rel="noopener">OpenAI Realtime API 解説</a>、<a href="https://qiita.com/ueponx/items/186a7c859b49d996785f" target="_blank" rel="noopener">VOICEVOX CORE を Raspberry Pi で使う</a>、<a href="https://raspida.com/speech-synthesis/" target="_blank" rel="noopener">ラズパイで動く音声合成ソフト3選</a></li>
+    <li>3Dプリンタ：<a href="https://3day-printer.com/media/purchase-implementation/bambu-recommendations/" target="_blank" rel="noopener">Bambu Lab 機種比較（2026年版）</a>、<a href="https://my-best.com/32862" target="_blank" rel="noopener">初心者向け3Dプリンタ比較</a></li>
+    <li>Maker Faire Tokyo 2026：<a href="https://makezine.jp/event/mft2026/about/" target="_blank" rel="noopener">開催概要</a>、<a href="https://www.impress.co.jp/newsrelease/2026/03/20260326-01.html" target="_blank" rel="noopener">インプレス プレスリリース</a></li>
+    <li>電子工作入門：<a href="https://www.ohmsha.co.jp/book/9784274227516/" target="_blank" rel="noopener">『ギャル電とつくる！ バイブステンアゲサイバーパンク光り物電子工作』（オーム社）</a>、<a href="https://ichiken-engineering.com/" target="_blank" rel="noopener">イチケン公式ブログ</a>、<a href="https://omoroya.com/esp32-lesson00/" target="_blank" rel="noopener">ESP32入門 Lesson 00</a></li>
+    <li>TouchDesigner：<a href="https://manumaruscript.com/touchdesigner-turorials-japanese/" target="_blank" rel="noopener">初心者向けチュートリアルまとめ</a>、<a href="https://cgworld.jp/article/202512-cgw327-tdbasic.html" target="_blank" rel="noopener">CGWORLD 基本解説</a></li>
+    <li>アマチュアお笑いライブ：<a href="https://note.com/toffee101/n/n3f48144ac982" target="_blank" rel="noopener">東京で誰でも出られるお笑いライブ一覧</a>、<a href="https://note.com/pechka_oono/n/nacbeab781b75" target="_blank" rel="noopener">エントリー制アマチュアお笑いライブ紹介</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="fin">
+    <span class="code">DOC-NMW-001 ／ REV.1.0 ／ 分類：社内技術資料</span>
+    <span>最終更新：2026年8月2日 16:02</span>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
