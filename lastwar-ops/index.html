@@ -26,7 +26,7 @@
   --accent:#8a671b;--accent-soft:#e2d5ae;
   --live:#7e2d18;--live-soft:#ecd4c9;
   --ok:#4c6135;--ok-soft:#d8e0c8;
-  --swap:#2f5d6b;--swap-soft:#cfe0e5;
+  --swap:#2f5d6b;--swap-soft:#cfe0e5;--meku:#2b5f8a;--musa:#7a4a91;
   --shadow:0 1px 0 rgba(25,28,21,.06),0 2px 10px -6px rgba(25,28,21,.3);
   --font-jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","BIZ UDPGothic",system-ui,sans-serif;
   --font-mono:ui-monospace,"SF Mono",Menlo,"Roboto Mono","Courier New",monospace;
@@ -38,7 +38,7 @@
   --accent:#d5ac4e;--accent-soft:#3d3520;
   --live:#db7350;--live-soft:#3f2419;
   --ok:#8da96a;--ok-soft:#2a3320;
-  --swap:#7fb3c4;--swap-soft:#1e2f36;
+  --swap:#7fb3c4;--swap-soft:#1e2f36;--meku:#5b9bd5;--musa:#b98fd1;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 2px 12px -6px rgba(0,0,0,.8);}}
 :root[data-theme="dark"]{
   --ground:#15170f;--surface:#1e211a;--surface-2:#262a20;
@@ -46,7 +46,7 @@
   --accent:#d5ac4e;--accent-soft:#3d3520;
   --live:#db7350;--live-soft:#3f2419;
   --ok:#8da96a;--ok-soft:#2a3320;
-  --swap:#7fb3c4;--swap-soft:#1e2f36;
+  --swap:#7fb3c4;--swap-soft:#1e2f36;--meku:#5b9bd5;--musa:#b98fd1;
   --shadow:0 1px 0 rgba(0,0,0,.3),0 2px 12px -6px rgba(0,0,0,.8);}
 :root[data-theme="light"]{
   --ground:#dcdad2;--surface:#eeede7;--surface-2:#e5e3db;
@@ -54,7 +54,7 @@
   --accent:#8a671b;--accent-soft:#e2d5ae;
   --live:#7e2d18;--live-soft:#ecd4c9;
   --ok:#4c6135;--ok-soft:#d8e0c8;
-  --swap:#2f5d6b;--swap-soft:#cfe0e5;
+  --swap:#2f5d6b;--swap-soft:#cfe0e5;--meku:#2b5f8a;--musa:#7a4a91;
   --shadow:0 1px 0 rgba(25,28,21,.06),0 2px 10px -6px rgba(25,28,21,.3);}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -89,6 +89,8 @@ header.masthead p.lede{margin:0;max-width:60ch;color:var(--muted);font-size:var(
 .step.stack{border-left-color:var(--ok)}
 .step.swapstep{border-left-color:var(--swap)}
 .step.drill{border-left-color:var(--live)}
+.step.meku{border-left-color:var(--meku)}
+.step.musa{border-left-color:var(--musa)}
 .step.checkstep{border-left-color:var(--muted)}
 .step .when{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
 .step .when time{display:block;font-size:1.0625rem;font-weight:700;letter-spacing:-.02em}
@@ -98,6 +100,8 @@ header.masthead p.lede{margin:0;max-width:60ch;color:var(--muted);font-size:var(
 .flag.k-stack{background:var(--ok);color:var(--ground)}
 .flag.k-swap{background:var(--swap);color:var(--ground)}
 .flag.k-drill{background:var(--live);color:var(--ground)}
+.flag.k-meku{background:var(--meku);color:var(--ground)}
+.flag.k-musa{background:var(--musa);color:var(--ground)}
 .flag.k-check{background:var(--muted);color:var(--ground)}
 .flag.k-now{background:var(--accent);color:var(--ground)}
 .step ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:1px}
@@ -160,6 +164,8 @@ input.bad{border-color:var(--live);color:var(--live)}
 .wkday ol li.s time,.wkday ol li.s span{color:var(--ok)}
 .wkday ol li.w time,.wkday ol li.w span{color:var(--swap)}
 .wkday ol li.d time,.wkday ol li.d span{color:var(--live)}
+.wkday ol li.mk time,.wkday ol li.mk span{color:var(--meku)}
+.wkday ol li.mu time,.wkday ol li.mu span{color:var(--musa)}
 .wkday ol li.c time,.wkday ol li.c span{color:var(--muted)}
 
 .doctrine{margin:26px 0 0;padding:17px 15px 19px}
@@ -215,7 +221,7 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
   </div>
 
   <details class="panel settings" id="settings">
-    <summary>作戦設定 — 在席時間・軍事演習</summary>
+    <summary>作戦設定 — 在席時間・軍事演習（本垢/サブ垢）</summary>
     <div class="settings-body">
       <div class="field">
         <span class="label">① 曜日ごとのログイン可能時間</span>
@@ -223,7 +229,7 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
         <p class="hint">「10:30-26:00」のように書きます。26:00は翌2:00、27:00は翌3:00の意味にございます。複数ある日はカンマで区切ってくださいませ（例: 11:00-14:00, 21:00-27:00）。</p>
       </div>
       <div class="field">
-        <span class="label">② 軍事演習 — 起点日・間隔・開始時刻</span>
+        <span class="label">② 軍事演習（本垢）— 起点日・間隔・開始時刻</span>
         <div class="inline">
           <input type="date" id="drillAnchor" style="width:auto"><span>から</span>
           <input type="number" id="drillEvery" min="1" max="7" step="1" style="width:70px"><span>日に1回</span>
@@ -237,7 +243,19 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
         <p class="hint">毎日この時刻に、開催中の臨時イベント（闇市大作戦など）と受け取り漏れ、連盟チャットの告知を確認する指示を出します。その時刻に在席していない曜日は自動で省かれます。</p>
       </div>
       <div class="field">
-        <span class="label">④ 軍拡テーブルのズレ補正</span>
+        <span class="label">④ サブ垢の軍事演習</span>
+        <div class="winrow" style="grid-template-columns:96px 1fr">
+          <span class="dow" style="color:var(--meku)">メクメク</span>
+          <div class="inline"><span>本垢と同じ日の</span><input type="time" id="drillTimeMeku" style="width:auto"><span>から</span></div>
+        </div>
+        <div class="winrow" style="grid-template-columns:96px 1fr">
+          <span class="dow" style="color:var(--musa)">ムササビ5</span>
+          <div class="inline"><span>本垢の翌日の</span><input type="time" id="drillTimeMusa" style="width:auto"><span>から</span></div>
+        </div>
+        <p class="hint">開催日は本垢の起点日・間隔（②）から自動で算出いたします（メクメクは本垢と同日、ムササビ5は本垢の翌日）。時刻のみここで調整できます。</p>
+      </div>
+      <div class="field">
+        <span class="label">⑤ 軍拡テーブルのズレ補正</span>
         <div class="inline" id="offsetSeg"></div>
         <p class="hint">ゲーム内「日程」と表示がズレた場合のみ動かしてくださいませ。通常は補正なしで合います。</p>
       </div>
@@ -317,7 +335,8 @@ var LS="lastwar-duty-v4";
 var state={
   week:"",done:{},armsShift:0,
   win:{0:"10:00-26:00",1:"10:30-26:00",2:"10:30-26:00",3:"10:00-26:00",4:"10:30-26:00",5:"11:00-14:00, 21:00-27:00",6:"10:00-26:00"},
-  drillAnchor:"2026-07-23",drillEvery:2,drillTime:"21:30",checkTime:"21:00"
+  drillAnchor:"2026-07-23",drillEvery:2,drillTime:"21:30",checkTime:"21:00",
+  drillTimeMeku:"22:00",drillTimeMusa:"22:00"
 };
 
 /* ---------- 時間 ---------- */
@@ -406,6 +425,22 @@ function drillIn(dayStart){
   return null;
 }
 
+/* サブ垢の演習判定。offsetDaysだけ本垢の開催日からずらす（メクメク=0・ムササビ5=+1） */
+function subDrillOn(dateObj,offsetDays){
+  var base=new Date(dateObj.getFullYear(),dateObj.getMonth(),dateObj.getDate()-offsetDays);
+  return drillOn(base);
+}
+function drillTimeFor(dayStart,offsetDays,timeStr){
+  var hm=String(timeStr||"22:00").split(":"), end=dayStart.getTime()+86400000;
+  for(var off=0;off<=1;off++){
+    var base=new Date(dayStart.getFullYear(),dayStart.getMonth(),dayStart.getDate()+off);
+    if(!subDrillOn(base,offsetDays)) continue;
+    var t=new Date(base.getFullYear(),base.getMonth(),base.getDate(),+hm[0],+hm[1]).getTime();
+    if(t>=dayStart.getTime()&&t<end) return t;
+  }
+  return null;
+}
+
 /* ---------- 当日の指示を組む ---------- */
 function planFor(dayStart){
   var dow=dayStart.getDay(), row=armsRow(dow), vs=VSD[dow];
@@ -457,8 +492,20 @@ function planFor(dayStart){
 
   var dt=drillIn(dayStart);
   if(dt!==null){
-    steps.push({at:dt,block:null,kind:"drill",title:"軍事演習",
-      items:["演習参加"]});
+    steps.push({at:dt,block:null,kind:"drill",title:"軍事演習（本垢）",
+      items:["本垢で演習参加"]});
+  }
+
+  /* サブ垢の軍事演習。メクメクは本垢と同日、ムササビ5は本垢の翌日 */
+  var dtMeku=drillTimeFor(dayStart,0,state.drillTimeMeku);
+  if(dtMeku!==null){
+    steps.push({at:dtMeku,block:null,kind:"meku",title:"メクメク 軍事演習",
+      items:["メクメクで演習参加"]});
+  }
+  var dtMusa=drillTimeFor(dayStart,1,state.drillTimeMusa);
+  if(dtMusa!==null){
+    steps.push({at:dtMusa,block:null,kind:"musa",title:"ムササビ5 軍事演習",
+      items:["ムササビ5で演習参加"]});
   }
 
   /* 臨時イベントの確認。在席していない時刻には置かない */
@@ -475,6 +522,7 @@ function planFor(dayStart){
   var mins=steps.reduce(function(n,s){
     var m;
     if(s.kind==="drill") m=30;
+    else if(s.kind==="meku"||s.kind==="musa") m=15;
     else if(s.kind==="check") m=3;
     else if(s.bonus) m=4;
     else if(s.kind==="stack") m=12;
@@ -495,6 +543,8 @@ function load(){
     if(s.drillEvery) state.drillEvery=s.drillEvery;
     if(s.drillTime) state.drillTime=s.drillTime;
     if(s.checkTime) state.checkTime=s.checkTime;
+    if(s.drillTimeMeku) state.drillTimeMeku=s.drillTimeMeku;
+    if(s.drillTimeMusa) state.drillTimeMusa=s.drillTimeMusa;
     if(typeof s.armsShift==="number") state.armsShift=s.armsShift;
     if(s.week===weekKey()&&s.done) state.done=s.done;
   }catch(e){ /* 初回起動または保存破損。初期値で継続 */ }
@@ -520,17 +570,19 @@ function renderToday(){
   var host=document.getElementById("timeline"); host.textContent="";
   p.steps.forEach(function(s,idx){
     var isNow = s.block!==null && s.block===cur && now>=s.at-30*60000;
-    var past = now > s.at + (s.kind==="drill"?45*60000:BLOCK_MS);
-    var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="drill"?"drill":s.kind==="check"?"checkstep":s.swap?"swapstep":"")+(isNow?" now":"")+(past?" past":""));
+    var past = now > s.at + ((s.kind==="drill"||s.kind==="meku"||s.kind==="musa")?45*60000:BLOCK_MS);
+    var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="drill"?"drill":s.kind==="meku"?"meku":s.kind==="musa"?"musa":s.kind==="check"?"checkstep":s.swap?"swapstep":"")+(isNow?" now":"")+(past?" past":""));
     var w=el("div","when");
     w.appendChild(el("time",null,labelAt(s.at,ds)));
-    w.appendChild(el("small",null,s.kind==="drill"?"演習":s.kind==="check"?"確認":s.block!==null?SLOT[s.block]+"枠":""));
+    w.appendChild(el("small",null,s.kind==="drill"?"本垢演習":s.kind==="meku"?"メクメク演習":s.kind==="musa"?"ムササビ5演習":s.kind==="check"?"確認":s.block!==null?SLOT[s.block]+"枠":""));
     box.appendChild(w);
     var b=document.createElement("div");
     var h=el("h3",null,s.title);
     if(s.kind==="stack") h.appendChild(el("span","flag k-stack","二重取り"));
     if(s.swap) h.appendChild(el("span","flag k-swap","入れ替え"));
-    if(s.kind==="drill") h.appendChild(el("span","flag k-drill","演習"));
+    if(s.kind==="drill") h.appendChild(el("span","flag k-drill","本垢"));
+    if(s.kind==="meku") h.appendChild(el("span","flag k-meku","メクメク"));
+    if(s.kind==="musa") h.appendChild(el("span","flag k-musa","ムササビ5"));
     if(s.kind==="check") h.appendChild(el("span","flag k-check","確認"));
     if(isNow) h.appendChild(el("span","flag k-now","NOW"));
     b.appendChild(h);
@@ -576,7 +628,7 @@ function renderWeek(){
     c.appendChild(hd);
     var ol=document.createElement("ol");
     p.steps.forEach(function(s){
-      var li=el("li",s.kind==="stack"?"s":s.kind==="drill"?"d":s.kind==="check"?"c":s.swap?"w":"");
+      var li=el("li",s.kind==="stack"?"s":s.kind==="drill"?"d":s.kind==="meku"?"mk":s.kind==="musa"?"mu":s.kind==="check"?"c":s.swap?"w":"");
       li.appendChild(el("time",null,labelAt(s.at,ds)));
       li.appendChild(el("span",null,s.title));
       ol.appendChild(li);
@@ -610,6 +662,8 @@ function renderSettings(){
   document.getElementById("drillEvery").value=state.drillEvery;
   document.getElementById("drillTime").value=state.drillTime;
   document.getElementById("checkTime").value=state.checkTime;
+  document.getElementById("drillTimeMeku").value=state.drillTimeMeku;
+  document.getElementById("drillTimeMusa").value=state.drillTimeMusa;
 }
 
 /* ---------- .ics 書き出し ---------- */
@@ -633,25 +687,27 @@ function utc(d){
 function buildIcs(){
   var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//LW Duty Roster//JA","CALSCALE:GREGORIAN","METHOD:PUBLISH",
          "X-WR-CALNAME:ラストウォー 当直"];
-  var stamp=utc(new Date()), start=serverDayStart(new Date()), n=0, drillDone=false, checkDone=false;
+  var stamp=utc(new Date()), start=serverDayStart(new Date()), n=0, drillDone=false, checkDone=false, mekuDone=false, musaDone=false;
   for(var i=0;i<7;i++){
     var ds=new Date(start.getTime()+i*86400000), p=planFor(ds);
     p.steps.forEach(function(s,idx){
-      /* 演習と臨時イベント確認は毎日の繰り返し1本ずつ。曜日ごとに出すと重複する */
+      /* 演習系と臨時イベント確認は毎日の繰り返し1本ずつ。曜日ごとに出すと重複する */
       if(s.kind==="drill"){ if(drillDone) return; drillDone=true; }
+      if(s.kind==="meku"){ if(mekuDone) return; mekuDone=true; }
+      if(s.kind==="musa"){ if(musaDone) return; musaDone=true; }
       if(s.kind==="check"){ if(checkDone) return; checkDone=true; }
       var at=new Date(s.at);
       var tag=s.kind==="stack"?"★":s.kind==="drill"?"⚑":s.kind==="check"?"◇":s.swap?"⇄":"";
       var sum="LW "+pad(at.getHours())+":"+pad(at.getMinutes())+" "+tag+s.title;
       var body=s.items.map(function(x,k){return (k+1)+". "+x;}).join("\n")+(s.memo?"\n\n"+s.memo:"");
-      var isDrill=s.kind==="drill", isCheck=s.kind==="check";
+      var isDrill=s.kind==="drill", isCheck=s.kind==="check", isSub=s.kind==="meku"||s.kind==="musa";
       L.push("BEGIN:VEVENT");
-      L.push("UID:lw-"+p.dow+"-"+idx+"-"+(n++)+"@lastwar-ops");
+      L.push("UID:lw-"+s.kind+"-"+p.dow+"-"+idx+"-"+(n++)+"@lastwar-ops");
       L.push("DTSTAMP:"+stamp);
       L.push("DTSTART:"+utc(at));
-      L.push("DURATION:"+(isDrill?"PT30M":(s.bonus||isCheck)?"PT5M":s.kind==="stack"?"PT20M":"PT10M"));
-      /* 演習は2日おき、臨時イベント確認は毎日、それ以外は毎週その曜日 */
-      L.push(isDrill?("RRULE:FREQ=DAILY;INTERVAL="+Math.max(1,parseInt(state.drillEvery,10)||2))
+      L.push("DURATION:"+(isDrill?"PT30M":isSub?"PT15M":(s.bonus||isCheck)?"PT5M":s.kind==="stack"?"PT20M":"PT10M"));
+      /* 演習系は起点日+間隔おき、臨時イベント確認は毎日、それ以外は毎週その曜日 */
+      L.push((isDrill||isSub)?("RRULE:FREQ=DAILY;INTERVAL="+Math.max(1,parseInt(state.drillEvery,10)||2))
                    :isCheck?"RRULE:FREQ=DAILY"
                    :("RRULE:FREQ=WEEKLY;BYDAY="+BYDAY[at.getDay()]));
       L.push(fold("SUMMARY:"+icsEsc(sum)));
@@ -684,6 +740,8 @@ document.getElementById("drillAnchor").addEventListener("change",function(e){if(
 document.getElementById("drillEvery").addEventListener("change",function(e){var v=parseInt(e.target.value,10);state.drillEvery=(v>=1&&v<=7)?v:2;e.target.value=state.drillEvery;save();renderAll();});
 document.getElementById("drillTime").addEventListener("change",function(e){if(e.target.value){state.drillTime=e.target.value;save();renderAll();}});
 document.getElementById("checkTime").addEventListener("change",function(e){if(e.target.value){state.checkTime=e.target.value;save();renderAll();}});
+document.getElementById("drillTimeMeku").addEventListener("change",function(e){if(e.target.value){state.drillTimeMeku=e.target.value;save();renderAll();}});
+document.getElementById("drillTimeMusa").addEventListener("change",function(e){if(e.target.value){state.drillTimeMusa=e.target.value;save();renderAll();}});
 
 function tick(){
   var n=new Date();
