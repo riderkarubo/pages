@@ -99,7 +99,6 @@ header.masthead p.lede{margin:0;max-width:60ch;color:var(--muted);font-size:var(
 .step .flag{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.1em;padding:2px 6px;border-radius:2px;font-weight:700}
 .flag.k-stack{background:var(--ok);color:var(--ground)}
 .flag.k-swap{background:var(--swap);color:var(--ground)}
-.flag.k-drill{background:var(--live);color:var(--ground)}
 .flag.k-meku{background:var(--meku);color:var(--ground)}
 .flag.k-musa{background:var(--musa);color:var(--ground)}
 .flag.k-check{background:var(--muted);color:var(--ground)}
@@ -492,8 +491,8 @@ function planFor(dayStart){
 
   var dt=drillIn(dayStart);
   if(dt!==null){
-    steps.push({at:dt,block:null,kind:"drill",title:"軍事演習（本垢）",
-      items:["本垢で演習参加"]});
+    steps.push({at:dt,block:null,kind:"drill",title:"軍事演習",
+      items:["演習参加"]});
   }
 
   /* サブ垢の軍事演習。メクメクは本垢と同日、ムササビ5は本垢の翌日 */
@@ -574,13 +573,12 @@ function renderToday(){
     var box=el("div","step "+(s.kind==="stack"?"stack":s.kind==="drill"?"drill":s.kind==="meku"?"meku":s.kind==="musa"?"musa":s.kind==="check"?"checkstep":s.swap?"swapstep":"")+(isNow?" now":"")+(past?" past":""));
     var w=el("div","when");
     w.appendChild(el("time",null,labelAt(s.at,ds)));
-    w.appendChild(el("small",null,s.kind==="drill"?"本垢演習":s.kind==="meku"?"メクメク演習":s.kind==="musa"?"ムササビ5演習":s.kind==="check"?"確認":s.block!==null?SLOT[s.block]+"枠":""));
+    w.appendChild(el("small",null,s.kind==="drill"?"演習":s.kind==="meku"?"メクメク演習":s.kind==="musa"?"ムササビ5演習":s.kind==="check"?"確認":s.block!==null?SLOT[s.block]+"枠":""));
     box.appendChild(w);
     var b=document.createElement("div");
     var h=el("h3",null,s.title);
     if(s.kind==="stack") h.appendChild(el("span","flag k-stack","二重取り"));
     if(s.swap) h.appendChild(el("span","flag k-swap","入れ替え"));
-    if(s.kind==="drill") h.appendChild(el("span","flag k-drill","本垢"));
     if(s.kind==="meku") h.appendChild(el("span","flag k-meku","メクメク"));
     if(s.kind==="musa") h.appendChild(el("span","flag k-musa","ムササビ5"));
     if(s.kind==="check") h.appendChild(el("span","flag k-check","確認"));
