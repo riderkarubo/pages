@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ピン芸ネタ帳 ｜ ナンセンス機械製作所 DOC-NMW-004</title>
+<meta name="description" content="一人で舞台に立つためのピン芸ネタ帳。AI×フィジカルデバイスをネタに変換し、SNS・動画でも目立つ形に落とし込む本命ページ。">
+<meta name="last-modified" content="2026-08-02T22:29+09:00">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ピン芸ネタ帳｜ナンセンス機械製作所">
+<meta property="og:description" content="一人で舞台に立つためのネタ帳。装置・発想をSNSで目立つピン芸へ変換する。">
+<meta property="og:site_name" content="ナンセンス機械製作所">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/nonsense-machine-works/pin-geki.html">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --denki:#1F4FA8;
+  --deep:#0C1A33;
+  --deep2:#132649;
+  --paper:#EDF0F4;
+  --paper-hi:#FAFBFC;
+  --ink:#11161F;
+  --ink-2:#4A5567;
+  --hanko:#C4302B;
+  --caution:#E5B300;
+  --rule:#C3CBD6;
+  --grid-dark:rgba(140,180,255,.16);
+  --maxw:900px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-weight:900;line-height:1.3;margin:0}
+a{color:var(--denki);text-underline-offset:3px}
+a:hover{color:var(--hanko)}
+:focus-visible{outline:3px solid var(--caution);outline-offset:3px}
+.code{font-family:"Chakra Petch",monospace;font-weight:600;letter-spacing:.04em}
+
+.spine{position:fixed;left:0;top:0;bottom:0;width:34px;background:var(--deep);border-right:2px solid var(--denki);z-index:40;display:flex;align-items:center;justify-content:center}
+.spine span{writing-mode:vertical-rl;font-family:"Chakra Petch",sans-serif;font-weight:600;color:#7FA6E8;font-size:11px;letter-spacing:.34em;text-transform:uppercase}
+.shell{margin-left:34px}
+
+.cover{
+  position:relative;background:var(--deep);
+  background-image:linear-gradient(var(--grid-dark) 1px,transparent 1px),linear-gradient(90deg,var(--grid-dark) 1px,transparent 1px);
+  background-size:32px 32px;color:#EAF0FA;
+  padding:clamp(40px,6vw,72px) clamp(20px,5vw,64px);
+}
+.cover::after{content:"";position:absolute;inset:16px;border:1px solid rgba(127,166,232,.35);pointer-events:none}
+.cover-inner{position:relative;max-width:var(--maxw);margin:0 auto;z-index:2}
+.doc-no{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:12px;letter-spacing:.22em;color:#7FA6E8;margin-bottom:22px}
+.cover h1{font-size:clamp(28px,5.5vw,50px);letter-spacing:-.01em;margin-bottom:16px}
+.cover h1 em{font-style:normal;color:var(--caution)}
+.cover-lead{font-size:clamp(14.5px,1.6vw,17px);color:#B9CBE8;max-width:38em;margin:0 0 6px}
+.cover-note{font-size:13px;color:#7FA6E8;max-width:38em}
+.nav-back{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.nav-back a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:1px solid rgba(127,166,232,.5);color:#EAF0FA;padding:8px 14px;font-size:12.5px;font-weight:700}
+.nav-back a:hover{background:var(--denki);border-color:var(--denki);color:#fff}
+.nav-back a::before{content:"◀";font-size:8px;color:var(--caution)}
+
+main{max-width:var(--maxw);margin:0 auto;padding:clamp(34px,5vw,56px) clamp(18px,5vw,40px) 90px}
+
+.status-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--paper-hi);border:1px solid var(--rule);border-left:4px solid var(--caution);padding:12px 16px;margin-bottom:32px;font-size:13.5px;color:var(--ink-2)}
+.status-bar b{font-family:"Chakra Petch",sans-serif;color:var(--ink);font-size:15px}
+
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--deep);padding-bottom:9px;margin-bottom:20px}
+.sec-no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--denki)}
+.sec-head h2{font-size:clamp(19px,2.6vw,25px)}
+
+.bit{background:var(--paper-hi);border:1px solid var(--rule);border-top:5px solid var(--denki);padding:22px 24px;margin-bottom:22px}
+.bit-no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--denki)}
+.bit h3{font-size:20px;margin:4px 0 10px}
+.bit-status{display:inline-block;font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.1em;padding:3px 9px;margin-bottom:14px}
+.bit-status.wip{background:#FFF2CC;color:#6B5200}
+.bit-status.stock{background:#E7EFFA;color:#1B3A63}
+.bit p{font-size:14.5px;margin:0 0 14px}
+.bit p:last-child{margin-bottom:0}
+
+.flip{background:var(--deep2);color:#EAF0FA;padding:18px 20px;margin:16px 0}
+.flip h4{font-size:12px;letter-spacing:.1em;color:var(--caution);margin-bottom:12px}
+.flip-card{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;font-size:13.5px}
+.flip-card .req,.flip-card .got{background:rgba(255,255,255,.06);padding:11px 13px;border-radius:3px}
+.flip-card .req b,.flip-card .got b{display:block;font-family:"Chakra Petch",sans-serif;font-size:10px;letter-spacing:.1em;margin-bottom:5px}
+.flip-card .req b{color:#7FA6E8}
+.flip-card .got b{color:var(--caution)}
+.flip-card .arrow{font-family:"Chakra Petch",sans-serif;color:var(--caution);font-size:18px}
+.flip-src{font-size:11.5px;color:#9FBEEC;margin-top:12px}
+
+.next{background:var(--paper-hi);border:1px dashed var(--rule);padding:14px 16px;font-size:13px;color:var(--ink-2)}
+.next b{color:var(--ink)}
+
+.stock-list{margin:0;padding-left:1.3em;font-size:14.5px}
+.stock-list li{margin-bottom:8px}
+.stock-list .empty{color:var(--ink-2);font-style:normal;list-style:none;margin-left:-1.3em;padding:8px 0}
+
+footer{border-top:2px solid var(--deep);background:var(--paper-hi);padding:22px clamp(18px,5vw,40px);font-size:12px;color:var(--ink-2)}
+footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:600px){
+  .spine{display:none}
+  .shell{margin-left:0}
+  .flip-card{grid-template-columns:1fr}
+  .flip-card .arrow{transform:rotate(90deg);justify-self:center}
+}
+@media print{
+  .spine{display:none}.shell{margin-left:0}
+  body{background:#fff}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="spine" aria-hidden="true"><span>Nonsense Machine Works / Vol.04</span></div>
+
+<div class="shell">
+
+<header class="cover">
+  <div class="cover-inner">
+    <div class="doc-no code">DOC-NMW-004 ／ 分類：ピン芸ネタ帳 ／ 本命ページ</div>
+    <h1>一人で舞台に立つ。<em>それだけ</em>が目的。</h1>
+    <p class="cover-lead">
+      装置のスペックを詰めることは目的ではございません。ここに並ぶのは、<b>実際にピン芸として演じられるか／SNSや動画で目立つか</b>だけを基準にしたネタ帳です。
+    </p>
+    <p class="cover-note">アイデアの泉（DOC-NMW-002）で作った装置・発想は、すべてこの帳面に落とし込むための素材にございます。</p>
+    <nav class="nav-back">
+      <a href="./index.html">DOC-NMW-001 学習ロードマップへ</a>
+      <a href="./ideas.html">DOC-NMW-002 アイデアの泉へ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="status-bar"><b>登録ネタ数：1</b>（構想段階0・素材確保待ち1・完成0）</div>
+
+  <section class="sec">
+    <div class="sec-head"><span class="sec-no">01</span><h2>ネタ①：デジタルフリップ芸 — AIハルシネーション列伝</h2></div>
+
+    <div class="bit">
+      <div class="bit-no">BIT-01</div>
+      <h3>デジタルフリップ芸「AIハルシネーション列伝」</h3>
+      <span class="bit-status stock">STATUS：素材確保待ち（骨子のみ確定）</span>
+
+      <p><b>型</b>：手にした端末（タブレット等）を紙のフリップに見立て、実際にAIが生成した「頼んだもの」と「出てきたもの」を1枚ずつ見せていく。落語や漫談の「フリップ芸」のデジタル版。装置の製作は不要で、<b>実話ベースの素材さえ揃えば今すぐ台本化できる</b>のが強みにございます。</p>
+      <p><b>素材の出所</b>：Gemini（Flow・Nano Banana）で作った動画・画像、およびFireworkの仕事でAIGCサンプルを作った際に、実際に起きたハルシネーション（見当違いの生成結果）。具体例は貴殿より追ってご指示いただく方針で確定済み。</p>
+
+      <div class="flip">
+        <h4>確保済み実例 ／ FLIP CARD 見本</h4>
+        <div class="flip-card">
+          <div class="req"><b>頼んだもの</b>眠っている状態のドット絵モンスター5体。既存シートと同じスタイルで</div>
+          <div class="arrow">▶</div>
+          <div class="got"><b>出てきたもの</b>見覚えのないベクター調のスライム・コウモリ・タコ。スタイルも被写体も別物</div>
+        </div>
+        <p class="flip-src">出典：2026-07-17・Nano Banana（Gemini画像生成）・AIGCダッシュボードRPG化プロジェクトでの実事故。編集継続プロンプトを新規会話に送信し、参照が切れたまま生成された。</p>
+      </div>
+
+      <div class="next"><b>次の一手</b>：Flow動画・Firework AIGC実務での具体的な事例は、貴殿から追ってご指示いただいてから台本に追加する。それまでは上記1件を確保のうえ待機。</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="sec-no">02</span><h2>ネタ帳（以降、追加分をここへ）</h2></div>
+    <ul class="stock-list">
+      <li class="empty">まだございません。次のネタが決まり次第、ここへ追記いたします。</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="fin">
+    <span class="code">DOC-NMW-004 ／ REV.1.0 ／ 登録1件</span>
+    <span>最終更新：2026年8月2日 22:29</span>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>
