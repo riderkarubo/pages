@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>アイデアの泉 ｜ ナンセンス機械製作所 装置カタログ DOC-NMW-002</title>
 <meta name="description" content="Issyの価値観・テイスト・既存資産（SUMIMASEN 411景／作曲アイデア群／影響を受けたコンテンツ）から、AI×フィジカルデバイスで作れるネタと装置を118案まで展開した発想カタログ。5つの変換式つき。">
-<meta name="last-modified" content="2026-08-02T16:50+09:00">
+<meta name="last-modified" content="2026-08-02T17:11+09:00">
 <meta property="og:type" content="article">
 <meta property="og:title" content="アイデアの泉｜ナンセンス機械製作所 装置カタログ">
 <meta property="og:description" content="価値観と既存資産から、AI×フィジカルで作れる「役に立たない装置」を118案。5つの変換式で無限に汲める発想エンジンつき。">
@@ -112,13 +112,25 @@ main{max-width:var(--maxw);margin:0 auto;padding:clamp(36px,5vw,64px) clamp(18px
 .stock li{margin-bottom:5px}
 
 /* hero picks */
-.pick{background:var(--paper-hi);border:1px solid var(--rule);border-top:5px solid var(--hanko);padding:20px 22px;display:flex;flex-direction:column}
-.pick .no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--hanko);margin-bottom:5px}
+.pick{position:relative;background:var(--paper-hi);border:1px solid var(--rule);border-top:5px solid var(--hanko);padding:20px 22px;display:flex;flex-direction:column;transition:all .15s}
+.pick .no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--hanko);margin-bottom:5px;padding-right:52px}
 .pick h3{font-size:18px;margin-bottom:4px}
 .pick .model{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:12px;color:var(--ink-2);margin-bottom:11px}
 .pick p{margin:0 0 13px;font-size:14px}
 .pick .spec{margin-top:auto;border-top:1px dashed var(--rule);padding-top:10px;font-size:12.5px;color:var(--ink-2)}
 .pick .spec b{color:var(--ink);font-weight:700}
+
+/* PICK 選定状態（本命12案） */
+.pick.adopted{background:#FFFAE8;border-top-color:var(--caution);box-shadow:0 1px 3px rgba(229,179,0,.22),0 1px 2px rgba(229,179,0,.12)}
+.pick.adopted h3::after{content:"⭐ 採用";display:inline-block;margin-left:8px;font-size:11px;font-weight:700;vertical-align:middle;background:linear-gradient(120deg,#FFE680,#FFD24A);color:#5A4310;border-radius:999px;padding:2px 8px;letter-spacing:.02em}
+.pick.rejected{opacity:.5;filter:grayscale(.85)}
+.pick.rejected.adopted{background:var(--paper-hi);border-top-color:var(--hanko);box-shadow:none}
+.pick.rejected.adopted h3::after{display:none}
+.pick .cut-x{top:9px;right:9px}
+.pick .cut-star{top:9px;right:37px}
+
+.pick-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:16px 0 20px;padding:9px 14px;background:var(--paper-hi);border:1px solid var(--rule);border-left:4px solid var(--caution)}
+.pick-bar b{font-family:"Chakra Petch",sans-serif;color:var(--ink);font-size:15px}
 
 /* ===== 選定UI（creative-brain-sumimasen-cuts.html 準拠） ===== */
 
@@ -486,6 +498,11 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 <section class="sec" id="s3">
   <div class="sec-head"><span class="sec-no">SEC. 03</span><h2>本命12案</h2></div>
   <p class="sec-sub">118案のうち、①貴殿の芯に合致し ②第1〜2工程の技術で作れて ③舞台で3分持つ、の3条件を満たすものだけを抜き出しました。<b>この12案は全件、世の中に同じものが既に無いかを検索で照合済み</b>です。判定と出典を各カードに記載しています。</p>
+
+  <div class="pick-bar">
+    <span>選定 — 採用 <b id="pick-cnt">0</b> / 12</span>
+    <span>⭐で採用候補、✕でボツ（グレーアウトのまま残ります）。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。</span>
+  </div>
 
   <div class="card" style="margin-bottom:26px;border-left-color:var(--hanko)">
     <h3 style="font-size:16px;margin-bottom:8px">着手前ゲート — 既出チェック</h3>
@@ -874,8 +891,8 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 
 <footer>
   <div class="fin">
-    <span class="code">DOC-NMW-002 ／ REV.2.0 ／ 総案数 118</span>
-    <span>最終更新：2026年8月2日 16:50</span>
+    <span class="code">DOC-NMW-002 ／ REV.2.1 ／ 総案数 118</span>
+    <span>最終更新：2026年8月2日 17:11</span>
   </div>
 </footer>
 
@@ -956,30 +973,34 @@ function sortGrid(grid){
   items.sort(function(a,b){ return a.getAttribute('data-no').localeCompare(b.getAttribute('data-no'),undefined,{numeric:true}); });
   items.forEach(function(it){ grid.appendChild(it); });
 }
-function rejectCut(cut){
-  cut.classList.add('rejected');
-  var x=cut.querySelector('.cut-x');
+function rejectCut(el){
+  el.classList.add('rejected');
+  var x=el.querySelector('.cut-x');
   x.textContent='↩'; x.title='元に戻す';
-  document.getElementById('bin-grid').appendChild(cut);
+  if(el.classList.contains('cut')) document.getElementById('bin-grid').appendChild(el);
 }
-function restoreCut(cut){
-  cut.classList.remove('rejected');
-  var x=cut.querySelector('.cut-x');
+function restoreCut(el){
+  el.classList.remove('rejected');
+  var x=el.querySelector('.cut-x');
   x.textContent='✕'; x.title='ボツにする';
-  var cat=cut.getAttribute('data-cat');
-  var grid=document.querySelector('section.cat[data-cat="'+cat+'"] .grid');
-  if(grid){ grid.appendChild(cut); sortGridAdoptedFirst(grid); }
+  if(el.classList.contains('cut')){
+    var cat=el.getAttribute('data-cat');
+    var grid=document.querySelector('section.cat[data-cat="'+cat+'"] .grid');
+    if(grid){ grid.appendChild(el); sortGridAdoptedFirst(grid); }
+  }
+  /* .pick はボツでも元の位置に留まる（グレーアウトのみ） */
 }
 function toggleBin(ev,btn){
   ev.stopPropagation();
-  var cut=btn.closest('.cut');
-  var wasRejected=cut.classList.contains('rejected');
-  _applyRejectToggle(cut,!wasRejected);
-  pushAction({type:'reject',no:cut.getAttribute('data-no'),newState:!wasRejected});
+  var el=btn.closest('.cut, .pick');
+  var wasRejected=el.classList.contains('rejected');
+  _applyRejectToggle(el,!wasRejected);
+  pushAction({type:'reject',no:el.getAttribute('data-no'),newState:!wasRejected});
 }
-function _applyRejectToggle(cut,makeRejected){
-  if(makeRejected) rejectCut(cut); else restoreCut(cut);
-  updateBin(); saveBin();
+function _applyRejectToggle(el,makeRejected){
+  if(makeRejected) rejectCut(el); else restoreCut(el);
+  if(el.classList.contains('cut')){ updateBin(); saveBin(); }
+  else { savePickRejected(); }
 }
 function applyRejected(nos){
   nos=(nos||[]).map(String);
@@ -995,64 +1016,95 @@ function applyRejected(nos){
   updateBin();
 }
 
-/* ===== ⭐/✕ ボタン注入 ===== */
+/* ===== PICK（本命12案）専用ボツ永続化 — バイン移動なしで所定位置に留める ===== */
+var PICK_REJECT_KEY='nmw-ideas-pick-rejected-v1';
+function savePickRejected(){
+  var nos=[];
+  document.querySelectorAll('.pick.rejected').forEach(function(p){ nos.push(p.getAttribute('data-no')); });
+  try{ localStorage.setItem(PICK_REJECT_KEY, JSON.stringify(nos)); }catch(e){}
+}
+function applyPickRejected(nos){
+  nos=(nos||[]).map(String);
+  document.querySelectorAll('.pick').forEach(function(p){
+    var no=p.getAttribute('data-no');
+    var should=nos.indexOf(no)>=0;
+    if(should && !p.classList.contains('rejected')) rejectCut(p);
+    else if(!should && p.classList.contains('rejected')) restoreCut(p);
+  });
+}
+
+/* ===== ⭐/✕ ボタン注入（カタログ .cut と本命 .pick の両方） ===== */
+function addSelectButtons(el){
+  if(!el.querySelector('.cut-x')){
+    var b=document.createElement('button');
+    b.className='cut-x'; b.type='button'; b.textContent='✕';
+    b.title='ボツにする'; b.setAttribute('aria-label','ボツにする');
+    b.onclick=function(ev){ toggleBin(ev,b); };
+    el.appendChild(b);
+  }
+  if(!el.querySelector('.cut-star')){
+    var s=document.createElement('button');
+    s.className='cut-star'; s.type='button'; s.textContent='⭐';
+    s.title='採用する'; s.setAttribute('aria-label','採用する');
+    s.onclick=function(ev){ toggleAdopt(ev,s); };
+    el.appendChild(s);
+  }
+}
 function injectButtons(){
   document.querySelectorAll('.cut').forEach(function(cut){
     var noEl=cut.querySelector('.cut-no');
     if(!noEl) return;
     cut.setAttribute('data-no', noEl.textContent.trim());
-    if(!cut.querySelector('.cut-x')){
-      var b=document.createElement('button');
-      b.className='cut-x'; b.type='button'; b.textContent='✕';
-      b.title='ボツにする'; b.setAttribute('aria-label','ボツにする');
-      b.onclick=function(ev){ toggleBin(ev,b); };
-      cut.appendChild(b);
-    }
-    if(!cut.querySelector('.cut-star')){
-      var s=document.createElement('button');
-      s.className='cut-star'; s.type='button'; s.textContent='⭐';
-      s.title='採用する'; s.setAttribute('aria-label','採用する');
-      s.onclick=function(ev){ toggleAdopt(ev,s); };
-      cut.appendChild(s);
-    }
+    addSelectButtons(cut);
+  });
+  document.querySelectorAll('.pick').forEach(function(pick){
+    var modelEl=pick.querySelector('.model');
+    if(!modelEl) return;
+    pick.setAttribute('data-no', modelEl.textContent.trim());
+    addSelectButtons(pick);
   });
 }
 
-/* ===== 採用（⭐） ===== */
+/* ===== 採用（⭐） — .cut と .pick 共通 ===== */
 var ADOPTED_KEY='nmw-ideas-adopted-v1';
 function saveAdopted(){
   var nos=[];
-  document.querySelectorAll('.cut.adopted').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
+  document.querySelectorAll('.cut.adopted, .pick.adopted').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
   try{ localStorage.setItem(ADOPTED_KEY, JSON.stringify(nos)); }catch(e){}
   updateAdoptedCount();
 }
 function updateAdoptedCount(){
   var el=document.getElementById('cnt-adopted');
   if(el) el.textContent=document.querySelectorAll('.cut.adopted').length;
+  var pel=document.getElementById('pick-cnt');
+  if(pel) pel.textContent=document.querySelectorAll('.pick.adopted').length;
 }
 function applyAdopted(nos){
   nos=(nos||[]).map(String);
-  document.querySelectorAll('.cut').forEach(function(cut){
-    var no=cut.getAttribute('data-no');
-    if(nos.indexOf(no)>=0) cut.classList.add('adopted');
-    else cut.classList.remove('adopted');
+  document.querySelectorAll('.cut, .pick').forEach(function(el){
+    var no=el.getAttribute('data-no');
+    if(nos.indexOf(no)>=0) el.classList.add('adopted');
+    else el.classList.remove('adopted');
   });
   sortAllAdoptedFirst();
+  sortAllPickAdoptedFirst();
   updateAdoptedCount();
 }
 function toggleAdopt(ev,btn){
   ev.stopPropagation();
-  var cut=btn.closest('.cut');
-  var wasAdopted=cut.classList.contains('adopted');
-  _applyAdoptToggle(cut,!wasAdopted);
-  pushAction({type:'adopt',no:cut.getAttribute('data-no'),newState:!wasAdopted});
+  var el=btn.closest('.cut, .pick');
+  var wasAdopted=el.classList.contains('adopted');
+  _applyAdoptToggle(el,!wasAdopted);
+  pushAction({type:'adopt',no:el.getAttribute('data-no'),newState:!wasAdopted});
 }
-function _applyAdoptToggle(cut,makeAdopted){
-  if(makeAdopted) cut.classList.add('adopted'); else cut.classList.remove('adopted');
-  var section=cut.closest('section.cat');
-  if(section){
-    var grid=section.querySelector('.grid');
-    if(grid) sortGridAdoptedFirst(grid);
+function _applyAdoptToggle(el,makeAdopted){
+  if(makeAdopted) el.classList.add('adopted'); else el.classList.remove('adopted');
+  if(el.classList.contains('cut')){
+    var section=el.closest('section.cat');
+    if(section){ var grid=section.querySelector('.grid'); if(grid) sortGridAdoptedFirst(grid); }
+  } else {
+    var pgrid=el.closest('#s3 .grid');
+    if(pgrid) sortPickGridAdoptedFirst(pgrid);
   }
   saveAdopted();
 }
@@ -1069,6 +1121,19 @@ function sortGridAdoptedFirst(grid){
 function sortAllAdoptedFirst(){
   document.querySelectorAll('section.cat:not(.binsec) > .grid').forEach(function(g){ sortGridAdoptedFirst(g); });
 }
+/* PICK 12案は番号順の意味が薄いため、採用/未採用の2グループへ安定ソート（元の並びは維持） */
+function sortPickGridAdoptedFirst(grid){
+  var items=Array.prototype.slice.call(grid.querySelectorAll(':scope > .pick'));
+  items.sort(function(a,b){
+    var aA=a.classList.contains('adopted')?0:1;
+    var bA=b.classList.contains('adopted')?0:1;
+    return aA-bA;
+  });
+  items.forEach(function(it){ grid.appendChild(it); });
+}
+function sortAllPickAdoptedFirst(){
+  document.querySelectorAll('#s3 .grid').forEach(function(g){ sortPickGridAdoptedFirst(g); });
+}
 
 /* ===== Undo / Redo (⌘Z / ⌘⇧Z) ===== */
 var UNDO_STACK=[], REDO_STACK=[], UNDO_MAX=200;
@@ -1078,10 +1143,10 @@ function pushAction(action){
   REDO_STACK=[];
 }
 function applyActionState(action,makeNew){
-  var cut=document.querySelector('.cut[data-no="'+action.no+'"]');
-  if(!cut) return false;
-  if(action.type==='adopt') _applyAdoptToggle(cut,makeNew);
-  else if(action.type==='reject') _applyRejectToggle(cut,makeNew);
+  var el=document.querySelector('[data-no="'+action.no+'"]');
+  if(!el) return false;
+  if(action.type==='adopt') _applyAdoptToggle(el,makeNew);
+  else if(action.type==='reject') _applyRejectToggle(el,makeNew);
   return true;
 }
 function undo(){
@@ -1157,6 +1222,9 @@ function initCollapseHandlers(){
   var rejected=[];
   try{ rejected=JSON.parse(localStorage.getItem(BIN_KEY)||'[]'); }catch(e){}
   applyRejected(rejected);
+  var pickRejected=[];
+  try{ pickRejected=JSON.parse(localStorage.getItem(PICK_REJECT_KEY)||'[]'); }catch(e){}
+  applyPickRejected(pickRejected);
 })();
 </script>
 
