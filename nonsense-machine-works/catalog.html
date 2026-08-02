@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナンセンス機械製作所 総合製品カタログ ｜ IIS規格準拠 全11機種</title>
+<meta name="description" content="ナンセンス機械製作所の総合製品カタログ。IIS規格に準拠した全11機種の製品仕様、取扱説明書、保証書、お客様相談室のご案内を収録しています。">
+<meta name="last-modified" content="2026-08-02T22:05+09:00">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ナンセンス機械製作所 総合製品カタログ｜IIS規格準拠 全11機種">
+<meta property="og:description" content="停止しない、終わらない、謝らない。これらはいずれも仕様でございます。">
+<meta property="og:site_name" content="ナンセンス機械製作所">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/nonsense-machine-works/catalog.html">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔩</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 2色刷り（スミ＋特色赤）＋ 黄ばんだ上質紙 */
+  --paper:#F2EDE1;
+  --paper-hi:#F8F5EC;
+  --sumi:#1A1A18;
+  --sumi-2:#4A4740;
+  --aka:#C4302B;
+  --aka-pale:#EFD9D6;
+  --rule:#BFB8A6;
+  --rule-thin:#D6D0C0;
+  --maxw:1000px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#3A362E;
+  color:var(--sumi);
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-weight:900;line-height:1.3;margin:0}
+a{color:var(--aka)}
+:focus-visible{outline:3px solid var(--aka);outline-offset:2px}
+.code{font-family:"Chakra Petch",monospace;font-weight:600;letter-spacing:.06em}
+
+/* ===== 紙面 ===== */
+.sheet{
+  max-width:var(--maxw);margin:0 auto;background:var(--paper);
+  position:relative;
+  box-shadow:0 0 0 1px rgba(0,0,0,.2),0 18px 50px rgba(0,0,0,.45);
+  /* 紙の繊維 */
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.012) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.008) 0 1px,transparent 1px 4px);
+}
+/* 経年のシミ（控えめに3点） */
+.sheet::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 140px 90px at 8% 12%,rgba(150,120,60,.09),transparent 70%),
+    radial-gradient(ellipse 200px 120px at 92% 61%,rgba(150,120,60,.07),transparent 70%),
+    radial-gradient(ellipse 110px 80px at 30% 94%,rgba(150,120,60,.06),transparent 70%);
+}
+.pg{position:relative;z-index:1;padding:clamp(28px,5vw,60px) clamp(20px,5vw,64px)}
+.pg + .pg{border-top:1px dashed var(--rule-thin)}
+
+/* 網点（特色赤のベタ面に使う） */
+.ami{
+  background-color:var(--aka);
+  background-image:radial-gradient(rgba(255,255,255,.28) 1px,transparent 1.2px);
+  background-size:4px 4px;
+}
+
+/* ===== 表紙 ===== */
+.cover{background:var(--sumi);color:var(--paper);padding:clamp(40px,7vw,86px) clamp(20px,5vw,64px);position:relative;z-index:1}
+.cover .kata{font-family:"Chakra Petch",sans-serif;font-size:11px;letter-spacing:.4em;color:#B9B2A0}
+.cover h1{font-size:clamp(30px,6vw,58px);letter-spacing:.02em;margin:14px 0 6px}
+.cover .en{font-family:"Chakra Petch",sans-serif;font-size:12px;letter-spacing:.3em;color:var(--aka)}
+.cover .sub{font-size:clamp(14px,1.7vw,17px);color:#CFC8B6;margin-top:22px;max-width:34em}
+.cover-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-top:clamp(30px,6vw,60px);border-top:1px solid #4A4740;padding-top:16px;font-size:11.5px;color:#B9B2A0;font-family:"Chakra Petch",sans-serif;letter-spacing:.1em}
+
+/* 表紙の IIS 銘板 */
+.plate{
+  position:absolute;right:clamp(16px,5vw,64px);top:clamp(30px,6vw,70px);
+  width:112px;text-align:center;border:2px solid var(--aka);padding:10px 6px;
+}
+.plate .p-k{font-family:"Chakra Petch",sans-serif;font-size:7.5px;letter-spacing:.14em;color:#B9B2A0;line-height:1.5}
+.plate .p-m{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:34px;color:var(--aka);line-height:1.15;margin:3px 0 1px}
+.plate .p-f{font-family:"Chakra Petch",sans-serif;font-size:7.5px;letter-spacing:.05em;color:#B9B2A0}
+
+/* ===== 見出し ===== */
+.h-band{display:flex;align-items:center;gap:14px;margin:0 0 8px}
+.h-no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;color:var(--paper);background:var(--sumi);padding:4px 10px;white-space:nowrap}
+.h-band h2{font-size:clamp(19px,2.8vw,26px);flex:1}
+.h-rule{border-bottom:3px solid var(--sumi);margin-bottom:8px}
+.h-rule.aka{border-bottom-color:var(--aka)}
+.lead{font-size:14px;color:var(--sumi-2);margin:0 0 26px;max-width:46em}
+
+/* ===== ライン見出し ===== */
+.ln{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--sumi)}
+.ln .tag{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;color:var(--paper);padding:3px 9px;background:var(--sumi)}
+.ln.aka{border-bottom-color:var(--aka)}
+.ln.aka .tag{background:var(--aka)}
+.ln h3{font-size:18px}
+.ln .motto{font-size:12.5px;color:var(--aka);margin-left:auto;font-weight:700}
+
+/* ===== 製品面 ===== */
+.prod{border:1px solid var(--rule);background:var(--paper-hi);margin-bottom:18px;display:grid;grid-template-columns:200px 1fr}
+.prod-fig{border-right:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:
+  repeating-linear-gradient(45deg,rgba(0,0,0,.02) 0 6px,transparent 6px 12px)}
+.prod-fig svg{width:100%;height:auto;max-width:150px}
+.prod-fig .cap{font-family:"Chakra Petch",sans-serif;font-size:9px;letter-spacing:.1em;color:var(--sumi-2);margin-top:9px}
+.prod-body{padding:18px 20px}
+.prod-no{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:12px;color:var(--aka);letter-spacing:.08em}
+.prod-name{font-size:20px;margin:2px 0 8px}
+.prod-copy{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:clamp(15px,1.9vw,18px);color:var(--aka);line-height:1.5;margin:0 0 10px;padding-left:11px;border-left:4px solid var(--aka)}
+.prod-desc{font-size:13.5px;margin:0 0 12px}
+.prod-feat{list-style:none;padding:0;margin:0 0 12px;font-size:12.5px}
+.prod-feat li{padding-left:1.15em;text-indent:-1.15em;margin-bottom:3px}
+.prod-voice{background:var(--aka-pale);border-left:3px solid var(--aka);padding:8px 11px;font-size:12.5px;font-weight:700}
+.prod-voice b{font-family:"Chakra Petch",sans-serif;font-size:9.5px;letter-spacing:.14em;color:var(--aka);display:block;font-weight:600;margin-bottom:2px}
+
+/* ===== 表組（取説・保証書） ===== */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin:0 0 18px;background:var(--paper-hi)}
+.tbl th{background:var(--sumi);color:var(--paper);text-align:left;padding:7px 10px;font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.1em;white-space:nowrap}
+.tbl td{border:1px solid var(--rule);padding:7px 10px;vertical-align:top}
+.tbl-wrap{overflow-x:auto}
+.tbl.min{min-width:560px}
+
+/* 警告・注意 */
+.warn{display:grid;grid-template-columns:66px 1fr;border:1px solid var(--rule);margin-bottom:9px;background:var(--paper-hi)}
+.warn-k{display:flex;align-items:center;justify-content:center;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:13px;color:#fff;padding:9px 4px;text-align:center}
+.warn-k.w{background:var(--aka)}
+.warn-k.c{background:var(--sumi-2)}
+.warn-b{padding:9px 13px;font-size:12.5px}
+
+/* 条項 */
+.jou{font-size:12.5px;margin:0 0 9px;padding-left:1em;text-indent:-1em}
+.jou b{color:var(--aka)}
+
+/* 音声応答 */
+.ivr{background:var(--sumi);color:var(--paper);padding:20px 22px;font-size:13px;line-height:2}
+.ivr h4{color:var(--aka);font-size:13px;margin-bottom:11px;letter-spacing:.08em}
+.ivr p{margin:0 0 9px}
+.ivr .t{font-family:"Chakra Petch",sans-serif;color:#B9B2A0;font-size:10.5px;letter-spacing:.1em;margin-right:9px}
+
+/* 相談室 */
+.soudan{border:3px double var(--sumi);padding:18px 20px;background:var(--paper-hi);margin-bottom:18px}
+.soudan .tel{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(24px,4vw,36px);color:var(--aka);letter-spacing:.04em;line-height:1.2}
+.soudan .goro{font-size:12px;color:var(--sumi-2);margin-top:2px}
+
+/* 奥付 */
+.oku{font-size:11.5px;color:var(--sumi-2);border-top:1px solid var(--rule);padding-top:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.note{font-size:11.5px;color:var(--sumi-2)}
+
+/* 戻りリンク */
+.back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:1px solid var(--rule);color:var(--sumi);padding:8px 14px;font-size:12.5px;font-weight:700;background:var(--paper-hi)}
+.back:hover{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+.back::before{content:"◀";font-size:8px;color:var(--aka)}
+
+@media (max-width:680px){
+  .prod{grid-template-columns:1fr}
+  .prod-fig{border-right:0;border-bottom:1px solid var(--rule)}
+  .plate{position:static;margin:0 0 20px}
+  .ln .motto{margin-left:0;flex-basis:100%}
+}
+@media print{
+  body{background:#fff}
+  .sheet{box-shadow:none;max-width:none}
+  .sheet::before{display:none}
+  .back{display:none}
+  .pg{page-break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- 表紙 -->
+  <header class="cover">
+    <div class="plate">
+      <div class="p-k">JAPANESE INDUSTRIAL<br>STANDARD ／ 非公認</div>
+      <div class="p-m">IIS</div>
+      <div class="p-f">Ishijima Industrial Standard</div>
+    </div>
+    <div class="kata">GENERAL CATALOGUE</div>
+    <h1>総合製品カタログ</h1>
+    <div class="en">NONSENSE MACHINE WORKS CO., LTD.</div>
+    <p class="sub">失われつつある所作を、正確に、そして省略することなく再現いたします。全製品はIIS規格に準拠しております。</p>
+    <div class="cover-foot">
+      <span>ナンセンス機械製作所</span>
+      <span>全11機種収録 ／ 3ライン</span>
+      <span>DOC-NMW-003</span>
+    </div>
+  </header>
+
+  <!-- ごあいさつ -->
+  <section class="pg">
+    <div class="h-band"><span class="h-no">01</span><h2>ごあいさつ</h2></div>
+    <div class="h-rule aka"></div>
+    <p class="lead" style="margin-bottom:16px">弊社は創業以来、一貫して「人がしてきたことは、人がしてきた手順のままに」という思想のもと、製品開発を続けてまいりました。</p>
+    <p style="max-width:46em;margin:0 0 14px">近年、業務の効率化が進み、人が人に対して行ってきた所作の多くが省略されつつあります。挨拶、謝罪、指導、労い。これらは本来、時間をかけて行われるべきものでございました。</p>
+    <p style="max-width:46em;margin:0 0 14px">弊社はこれらの所作を機械化し、失われつつある手順を、一切省略することなく再現いたします。所要時間の短縮は、弊社の目的ではございません。</p>
+    <p style="max-width:46em;margin:0 0 14px">なお、全製品はIIS規格（Ishijima Industrial Standard）に準拠しております。同規格は弊社創業者の姓に由来するものであり、現在のところ、準拠している製品は弊社製品のみでございます。</p>
+    <p style="max-width:46em;margin:0 0 20px">みなさまの一日に、ひと手間を。</p>
+    <p class="note">ナンセンス機械製作所　代表</p>
+  </section>
+
+  <!-- 製品ラインナップ -->
+  <section class="pg">
+    <div class="h-band"><span class="h-no">02</span><h2>製品ラインナップ</h2></div>
+    <div class="h-rule"></div>
+    <p class="lead">全製品はIIS規格に準拠し、銘板に規格の刻印を打っております。センセイラインの各製品には、講義時間3分および終講チャイムを標準で搭載しております。</p>
+      <div class="ln aka"><span class="tag">LINE K</span><h3>課長ライン</h3><span class="motto">全ラインの祖</span></div>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="飯田課長 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="34" y="34" width="42" height="40" rx="3"/><rect x="42" y="12" width="26" height="20" rx="3"/>
+<circle cx="49" cy="21" r="2.2"/><circle cx="61" cy="21" r="2.2"/><path d="M48 27h14"/>
+<path d="M76 44h18l4 6"/><ellipse cx="99" cy="53" rx="7" ry="3.5"/><path d="M92 53v4a7 7 0 0 0 14 0v-4"/>
+<path d="M34 46H22l-5 8"/><rect x="38" y="76" width="34" height="7" rx="2"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M40 40h30M40 46h20"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-K55</div>
+          <h4 class="prod-name">全自動昭和上司『飯田課長』</h4>
+          <p class="prod-copy">その指導は、いつまでも終わりません。</p>
+          <p class="prod-desc">昭和期の管理職の所作と語彙を再現した卓上型の対話ロボットです。会話の文脈に応じて、助言、回想、および酌の要求を行います。電源操作による停止には応じません。</p>
+          <ul class="prod-feat"><li>● 会話が3秒途切れると自動的に発話します</li><li>● 空の猪口を検知するまで右腕が静止しません</li><li>● 名刺をかざすだけで4つのモードを切り替え</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「俺の話はまだ終わっとらん」</div>
+        </div>
+      </article>
+
+      <div class="ln "><span class="tag">LINE S</span><h3>センセイライン</h3><span class="motto">社是「知らないことほど、大きな声で。」</span></div>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="サンプラー指導係 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="46" width="62" height="40" rx="3"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1">
+<rect x="21" y="53" width="12" height="11"/><rect x="36" y="53" width="12" height="11"/><rect x="51" y="53" width="12" height="11"/>
+<rect x="21" y="68" width="12" height="11"/><rect x="36" y="68" width="12" height="11"/><rect x="51" y="68" width="12" height="11"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M84 20v34l-16 8"/><circle cx="86" cy="16" r="5"/><path d="M68 62l-8-3"/>
+</g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-S1</div>
+          <h4 class="prod-name">サンプラー指導係</h4>
+          <p class="prod-copy">演奏の前に、まず基礎から。</p>
+          <p class="prod-desc">電子楽器の操作を検知し、演奏に先立って基礎講義を実施します。講義時間は3分間で、終了と同時に終講チャイムが鳴ります。演奏時間は保証されません。</p>
+          <ul class="prod-feat"><li>● 打鍵を検知して0.3秒以内にアームが制止</li><li>● 講義の残り時間を前面LEDに常時表示</li><li>● 実技指導1回付き（所要時間1秒）</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「押すと、鳴る。以上がサンプラーの全てです。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="謝罪指導係 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="30" y="58" width="34" height="26" rx="3"/>
+<path d="M64 62l22 14"/><rect x="80" y="66" width="20" height="16" rx="3" transform="rotate(32 90 74)"/>
+<path d="M30 70H16"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M64 62h32"/><path d="M64 62l24 16"/><path d="M84 62a20 20 0 0 1-4 12"/>
+<text x="90" y="58" font-size="9" stroke="none" fill="currentColor" font-family="monospace">90</text></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-S2</div>
+          <h4 class="prod-name">謝罪指導係</h4>
+          <p class="prod-copy">謝り方には、型があります。</p>
+          <p class="prod-desc">謝罪の姿勢を411種類の分類から判定し、改善点を指摘します。本機は指導を目的としており、本機自身が謝罪を行うことはありません。</p>
+          <ul class="prod-feat"><li>● 加速度センサーにより角度を0.5度単位で判定</li><li>● 411種の型番から最も近い分類を提示</li><li>● 修了試験として模範謝罪を1回実演</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「私は悪くないのですが、謝ります。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="読経添削係 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M16 42h74"/><path d="M16 74h74"/><ellipse cx="16" cy="58" rx="5" ry="16"/><ellipse cx="90" cy="58" rx="5" ry="16"/>
+<path d="M60 20v16l-10 8"/><circle cx="62" cy="16" r="5"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M28 50h44M28 58h36M28 66h40"/></g>
+<g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M46 48l14 12" stroke-width="2"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-S3</div>
+          <h4 class="prod-name">読経添削係</h4>
+          <p class="prod-copy">どんな文章にも、改善の余地があります。</p>
+          <p class="prod-desc">音声で入力された文章を解析し、赤色の実線で添削いたします。添削結果および総評は付属のプリンターより出力されます。文章の来歴は考慮いたしません。</p>
+          <ul class="prod-feat"><li>● 巻物に直接、赤ペンで作図します</li><li>● 総評は5段階（優・良・可・要再提出・不可）</li><li>● 修正例文を自動生成し印字</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「お世話になっております。色即是空の件、進捗いかがでしょうか。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="グルーヴ指導木魚 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="52" cy="62" r="24"/><path d="M40 48c6 6 18 6 24 0"/><path d="M52 38v-6"/>
+<path d="M78 26l-14 22"/><ellipse cx="80" cy="22" rx="6" ry="4" transform="rotate(-30 80 22)"/>
+<path d="M28 86h48"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M92 44v18"/><circle cx="88" cy="63" r="4"/><path d="M92 44l10 4"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-S4</div>
+          <h4 class="prod-name">グルーヴ指導木魚</h4>
+          <p class="prod-copy">その読経、走っています。</p>
+          <p class="prod-desc">打点の間隔を解析し、基準テンポからのずれを指摘します。ずれが一定を超えた場合、本機が模範演奏を行います。模範演奏の様式は選択できません。</p>
+          <ul class="prod-feat"><li>● 圧電センサーで打点を1ミリ秒単位で計測</li><li>● 内蔵メトロノーム360拍で自動停止</li><li>● 模範演奏機能つき（様式：固定）</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「悟りまで、あと半拍です。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="自作ロボ遺言講義係 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="36" y="30" width="38" height="34" rx="3"/><circle cx="47" cy="44" r="2.2"/><circle cx="63" cy="44" r="2.2"/>
+<path d="M46 54h18"/><rect x="42" y="66" width="26" height="16" rx="2"/>
+<path d="M74 40h14"/><circle cx="93" cy="40" r="5"/><path d="M93 36v4"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><rect x="46" y="70" width="18" height="7"/><path d="M50 70v7M55 70v7"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-S5</div>
+          <h4 class="prod-name">自作ロボ遺言講義係</h4>
+          <p class="prod-copy">私のことは、私が一番よく知っています。</p>
+          <p class="prod-desc">自機の製造工程および開発経緯を解説する卓上ロボットです。解説内容は本機の記憶に基づくため、事実と異なる場合があります。訂正は受け付けません。</p>
+          <ul class="prod-feat"><li>● 内蔵電池の残量に応じて発話速度が変化</li><li>● 残量ゼロで講義を自動終了</li><li>● 電源操作の手順を最後にご案内</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「最後に、私の電源の切り方をお教えします。」</div>
+        </div>
+      </article>
+
+      <div class="ln "><span class="tag">LINE B</span><h3>バショチガイライン</h3><span class="motto">社是「正しく動きます。間違った場所で。」</span></div>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="万年宴会部長 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 44h34l-4 40H34z"/><path d="M28 44h38"/><path d="M40 30l-4-8M54 30l4-8"/>
+<path d="M78 54l8-6 8 6-8 6z"/><circle cx="86" cy="54" r="3"/>
+<path d="M78 74h18"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M38 56h22M39 66h20"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-B1</div>
+          <h4 class="prod-name">万年宴会部長</h4>
+          <p class="prod-copy">乾杯のご挨拶を、承ります。</p>
+          <p class="prod-desc">湯を注いだことを蒸気センサーで検知し、宴席の進行を開始します。進行は乾杯の挨拶、中締め、二次会のご案内の順に行われ、途中で中断することはできません。</p>
+          <ul class="prod-feat"><li>● 注湯から3分間、挨拶を継続</li><li>● 箸の挙上を検知しておしぼりトレーが制止</li><li>● 一本締め用の拍子木を標準装備</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「僭越ながら、麺がのびるまで一言、ご挨拶を。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="全国謝罪キャラバン号 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M92 18c-6 8-10 14-18 20s-16 8-24 16-12 16-20 20"/>
+<path d="M30 74c-6 2-10 6-14 8"/>
+<rect x="20" y="86" width="80" height="8" rx="2"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1">
+<circle cx="90" cy="22" r="2.6"/><circle cx="74" cy="38" r="2.6"/><circle cx="58" cy="50" r="2.6"/>
+<circle cx="44" cy="62" r="2.6"/><circle cx="28" cy="76" r="2.6"/><circle cx="16" cy="80" r="2"/>
+</g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-B2</div>
+          <h4 class="prod-name">全国謝罪キャラバン号</h4>
+          <p class="prod-copy">47都道府県、順番に。</p>
+          <p class="prod-desc">一件の謝罪を全国規模で実施する車載型システムです。持ち時間から一県あたりの所要時間を自動で再計算するため、後半は簡略化されます。</p>
+          <ul class="prod-feat"><li>● 日本地図LEDで進捗を表示</li><li>● 各県の方言に対応（47種収録）</li><li>● 未完了分は次回開催として印字告知</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「残り12秒ですので、九州は、まとめて失礼いたします。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="勝利土下座マシン 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M22 78h50"/><rect x="30" y="62" width="30" height="16" rx="3"/>
+<rect x="16" y="70" width="16" height="9" rx="2"/>
+<path d="M84 76V34"/><path d="M84 34h22l-6 8 6 8H84"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M36 68h18"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-B3</div>
+          <h4 class="prod-name">勝利土下座マシン</h4>
+          <p class="prod-copy">勝利は、お詫びすべき事態です。</p>
+          <p class="prod-desc">勝敗を判定し、自機が勝利した場合に謝罪動作を行います。謝罪時間は勝利数に応じて倍増するため、試合時間を圧迫する場合があります。</p>
+          <ul class="prod-feat"><li>● 勝利のたび謝罪時間が2倍に</li><li>● 敗北時は謝罪機会の損失を謝罪</li><li>● 最終結果は「勝敗：不明」で記録</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「この度は、私が勝利するという不祥事を起こしてしまいました。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="おにぎり国宝警備システム 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="24" y="34" width="52" height="46" rx="2"/>
+<path d="M50 48l14 22H36z"/><path d="M42 62h16"/>
+<circle cx="96" cy="30" r="6"/><path d="M96 36v8"/><path d="M92 44h8"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M91 34L64 58" stroke-dasharray="3 3"/><path d="M24 80h52"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-B4</div>
+          <h4 class="prod-name">おにぎり国宝警備システム</h4>
+          <p class="prod-copy">大切なものを、お時間まで。</p>
+          <p class="prod-desc">指定された対象物を、指定の時刻まで厳重に保管いたします。解除には指紋認証、合言葉、および礼の3工程を要します。対象物の状態は保証いたしません。</p>
+          <ul class="prod-feat"><li>● 30cm手前から段階的に警告</li><li>● 解除工程は3段階（省略不可）</li><li>● 解除時に賞味期限を最終確認</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「私はおにぎりを守りました。賞味期限は、守れませんでした。」</div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="prod-fig"><svg viewBox="0 0 120 100" role="img" aria-label="観葉植物謝罪会見システム 外観図"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 68V44"/><path d="M40 52c-8-4-12-10-12-16 8 0 12 6 12 12"/><path d="M40 48c8-5 12-12 12-18-8 1-12 8-12 14"/>
+<path d="M30 68h20l-3 16H33z"/>
+<path d="M76 82V56"/><rect x="70" y="40" width="12" height="18" rx="6"/><path d="M68 82h16"/>
+</g><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M96 34l6-6M100 44h8M96 54l6 6"/></g></svg><div class="cap">図は外観の一例です</div></div>
+        <div class="prod-body">
+          <div class="prod-no">IIS-B5</div>
+          <h4 class="prod-name">観葉植物謝罪会見システム</h4>
+          <p class="prod-copy">対応が遅れましたことを、お詫び申し上げます。</p>
+          <p class="prod-desc">土壌水分の低下を検知し、対象の植物に対して記者会見形式の謝罪を実施します。質疑応答の時間には、沈黙の長さに応じて礼の角度が深くなります。</p>
+          <ul class="prod-feat"><li>● 5段階の礼（15度〜土下座）に対応</li><li>● 沈黙時間とお辞儀角度が連動</li><li>● 給水装置を標準装備（作動時は再会見）</li></ul>
+          <div class="prod-voice"><b>PRODUCT VOICE</b>「ご質問がないようですので、もう一段、深くお詫びいたします。」</div>
+        </div>
+      </article>
+
+  </section>
+
+  <!-- 取扱説明書 -->
+  <section class="pg">
+    <div class="h-band"><span class="h-no">03</span><h2>取扱説明書（全機種共通）</h2></div>
+    <div class="h-rule"></div>
+    <p class="lead">ご使用の前に、必ずお読みください。お読みになったあとは、いつでも見られる場所に保管してください。</p>
+
+    <h3 style="font-size:15px;margin:24px 0 10px">安全上のご注意</h3>
+<div class="warn"><div class="warn-k w">警告</div><div class="warn-b">本機の説教中に電源プラグを抜かないでください。内蔵電池により動作が継続します。感電のおそれはありませんが、話は終わりません。</div></div><div class="warn"><div class="warn-k w">警告</div><div class="warn-b">猪口には日本酒以外を注がないでください。本機は液体の種類を判別できません。</div></div><div class="warn"><div class="warn-k c">注意</div><div class="warn-b">実際の上長の面前で作動させないでください。両者が同時に発話した場合、会話は成立しません。</div></div><div class="warn"><div class="warn-k c">注意</div><div class="warn-b">ぐらつく台の上に設置しないでください。貧乏ゆすり機能により本体が移動する場合があります。</div></div><div class="warn"><div class="warn-k c">注意</div><div class="warn-b">小さなお子様の手の届く場所に設置しないでください。教育上の影響につきましては保証いたしかねます。</div></div>
+
+    <h3 style="font-size:15px;margin:26px 0 10px">ご使用の前に</h3>
+    <ul class="prod-feat" style="font-size:13px">
+      <li>● 付属の名刺4枚がそろっていることをご確認ください</li>
+      <li>● 初回起動時、本機は約30秒間、敬語で応対します。異常ではありません</li>
+      <li>● 語録データは工場出荷時に200件収録されております。追加はできません</li>
+    </ul>
+
+    <h3 style="font-size:15px;margin:26px 0 10px">故障かな？と思ったら</h3>
+    <div class="tbl-wrap"><table class="tbl min">
+      <thead><tr><th>症　状</th><th>原　因</th><th>処　置</th></tr></thead>
+      <tbody><tr><td>電源が切れない</td><td>仕様です</td><td>内蔵電池の消耗をお待ちください。約3分で停止します</td></tr><tr><td>右腕が震え続ける</td><td>猪口が空になっています</td><td>日本酒をお注ぎください</td></tr><tr><td>褒めてもらえない</td><td>仕様です</td><td>本機の褒め言葉は1種類のみ収録されています</td></tr><tr><td>話が昔に戻る</td><td>仕様です</td><td>3ターン以内に回想へ接続する設計です</td></tr><tr><td>二次会を提案される</td><td>仕様です</td><td>会話終了時の標準動作です</td></tr></tbody>
+    </table></div>
+
+    <h3 style="font-size:15px;margin:26px 0 10px">仕様</h3>
+    <div class="tbl-wrap"><table class="tbl min">
+      <tbody><tr><td>電源</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>消費電力</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>外形寸法（幅×奥行×高さ）</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>質量</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>使用温度範囲</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>収録語録数</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>対応モード数</td><td class='note'>各製品の個別ページをご参照ください</td></tr><tr><td>保証期間</td><td class='note'>各製品の個別ページをご参照ください</td></tr></tbody>
+    </table></div>
+    <p class="note">※ 仕様および外観は、改良のため予告なく変更する場合がございます。</p>
+  </section>
+
+  <!-- 保証書 -->
+  <section class="pg">
+    <div class="h-band"><span class="h-no">04</span><h2>保証書</h2></div>
+    <div class="h-rule"></div>
+    <p class="lead">本書は、無償修理をお約束するものです。お買い上げ日および販売店名の記入をご確認のうえ、大切に保管してください。</p>
+
+    <h3 style="font-size:15px;margin:22px 0 10px">保証規定</h3>
+<p class="jou"><b>第1条</b>　本保証書は、取扱説明書に従った正常なご使用状態で故障した場合に、無償修理を行うことをお約束するものです。</p><p class="jou"><b>第2条</b>　保証期間は、お買い上げ日より1年間といたします。</p><p class="jou"><b>第3条</b>　修理をご依頼の際は、本保証書を添えて販売店までお持ちください。</p><p class="jou"><b>第4条</b>　本保証書は日本国内においてのみ有効です。</p><p class="jou"><b>第5条</b>　本保証書は再発行いたしませんので、大切に保管してください。</p>
+
+    <h3 style="font-size:15px;margin:26px 0 10px">次の場合は、保証期間内でも無償修理の対象外となります</h3>
+    <ul class="prod-feat" style="font-size:13px"><li>● 本機の助言に従ったことにより生じた損害</li><li>● 本機との会話が終わらないことによる予定の遅延</li><li>● 本機が語った経歴と事実が異なっていた場合</li><li>● 謝罪が相手方に受け入れられなかった場合</li><li>● 本機を停止させようとして生じた損傷</li></ul>
+
+    <div class="tbl-wrap" style="margin-top:22px"><table class="tbl min">
+      <tbody>
+        <tr><td style="width:9em">製品名／型番</td><td class="note">　</td></tr>
+        <tr><td>お買い上げ日</td><td class="note">　年　　月　　日</td></tr>
+        <tr><td>保証期間</td><td>お買い上げ日より1年間</td></tr>
+        <tr><td>販売店名・住所・電話番号</td><td class="note">　</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- お客様相談室 -->
+  <section class="pg">
+    <div class="h-band"><span class="h-no">05</span><h2>お客様相談室</h2></div>
+    <div class="h-rule aka"></div>
+    <p class="lead">製品に関するお問い合わせは、下記までご連絡ください。</p>
+
+    <div class="soudan">
+      <div class="note" style="margin-bottom:4px">フリーダイヤル</div>
+      <div class="tel">0120-41-0874</div>
+      <div class="goro">（よい・おはなし）</div>
+      <div class="note" style="margin-top:12px">受付時間　平日 9:00〜17:00（12:00〜13:00を除く）<br>※ 当相談室の応対は、すべて自動音声によるものです。</div>
+    </div>
+
+    <div class="ivr">
+      <h4>自動音声応答　全文（約60秒）</h4>
+<p><span class="t">00:00</span>お電話ありがとうございます。ナンセンス機械製作所、お客様相談室でございます。</p><p><span class="t">00:06</span>ただいま、大変混み合っております。</p><p><span class="t">00:10</span>このたびは、弊社製品に関しまして、ご不便をおかけしております。誠に申し訳ございません。</p><p><span class="t">00:19</span>恐れ入りますが、弊社の製品は、いずれも所定の動作を正常に行っております。</p><p><span class="t">00:26</span>停止しない、終わらない、謝らない。これらはいずれも仕様でございます。</p><p><span class="t">00:34</span>そのことにつきまして、事前のご説明が十分でなかった点、重ねてお詫び申し上げます。</p><p><span class="t">00:43</span>なお、当相談室にオペレーターは在籍しておりません。</p><p><span class="t">00:48</span>弊社は、謝罪を機械化することを事業としております。したがいまして、謝罪は本音声をもって完了とさせていただきます。</p><p><span class="t">00:58</span>このたびは、誠に申し訳ございませんでした。ありがとうございました。</p>
+    </div>
+    <p class="note" style="margin-top:12px">※ 本音声は、最後まで再生されたのち、自動的に切断されます。折り返しのご連絡はいたしかねます。</p>
+  </section>
+
+  <!-- 奥付 -->
+  <footer class="pg">
+    <a class="back" href="./ideas.html">アイデアの泉 DOC-NMW-002 へ戻る</a>
+    <div class="oku" style="margin-top:22px">
+      <span>ナンセンス機械製作所　総合製品カタログ　DOC-NMW-003</span>
+      <span class="code">IIS 規格準拠 ／ 全11機種</span>
+      <span>最終更新：2026年8月2日 22:05</span>
+    </div>
+    <p class="note" style="margin-top:10px">本カタログに掲載の製品は、いずれも構想および設計の段階にあり、現時点で製造されたものはございません。掲載の価格、仕様、外観は予告なく変更する場合がございます。</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
