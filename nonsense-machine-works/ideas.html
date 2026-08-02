@@ -442,12 +442,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 <nav class="toc" aria-label="目次">
   <a href="#s1">6つの変換式</a>
   <a href="#s2">素材棚</a>
-  <a href="#s4">製品ラインナップ（第2世代）</a>
+  <a href="#s3">製品ラインナップ（第2世代）</a>
   <a href="#iida">飯田課長</a>
-  <a href="#s5">初期試作12案・既出チェック</a>
-  <a href="#s6">泉（全カタログ）</a>
-  <a href="#s7">3分ネタの型</a>
-  <a href="#s8">次の一手</a>
+  <a href="#s4">初期試作12案・既出チェック</a>
+  <a href="#s5">泉（全カタログ）</a>
+  <a href="#s6">3分ネタの型</a>
+  <a href="#s7">次の一手</a>
 </nav>
 
 <main>
@@ -566,7 +566,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 4 -->
-<section class="sec" id="s4">
+<section class="sec" id="s3">
   <div class="sec-head"><span class="sec-no">SEC. 03</span><h2>製品ラインナップ — 第2世代 11機種</h2></div>
   <p class="sec-sub">貴殿がボツ82案を仕分けてくださったことで、除外すべき5軸が確定いたしました。その5軸を通し、生成を別モデル（Fable）に、査定を私が担う分業で作り直したのが本節にございます。第1世代（SEC.05）が「装置の集まり」だったのに対し、第2世代は<b>ひとつの会社の製品カタログ</b>として設計されております。</p>
 
@@ -809,7 +809,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 5 -->
-<section class="sec" id="s5">
+<section class="sec" id="s4">
   <div class="sec-head"><span class="sec-no">SEC. 04</span><h2>初期試作 12案（第1世代）</h2></div>
   <p class="sec-sub">第1世代の118案のうち、①貴殿の芯に合致し ②第1〜2工程の技術で作れて ③舞台で3分持つ、の3条件を満たすものだけを抜き出しました。<b>この12案は全件、世の中に同じものが既に無いかを検索で照合済み</b>です。判定と出典を各カードに記載しています。</p>
 
@@ -931,7 +931,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 6 -->
-<section class="sec" id="s6">
+<section class="sec" id="s5">
   <div class="sec-head"><span class="sec-no">SEC. 05</span><h2>泉 — 全カタログ 106案</h2></div>
   <p class="sec-sub">⭐で採用候補、✕でボツ。採用したカードはセクション内で上へ並び替わります。カード本体のクリックで内容をコピー。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。<br><b>カタログ側は既出チェック未実施</b>（🔴が判明した3案のみ表示）。<b>⭐を付けた案は、着手前に必ず既出チェックを通してください。</b></p>
 
@@ -1148,7 +1148,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 7 -->
-<section class="sec" id="s7">
+<section class="sec" id="s6">
   <div class="sec-head"><span class="sec-no">SEC. 06</span><h2>3分ネタの型</h2></div>
   <p class="sec-sub">装置ができても、そのままでは舞台になりません。貴殿のテイスト語「緊張と緩和」「期待を大きく裏切るオチ」をそのまま構成に落とした雛形です。装置を差し替えれば何度でも使えます。</p>
 
@@ -1179,7 +1179,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 8 -->
-<section class="sec" id="s8">
+<section class="sec" id="s7">
   <div class="sec-head"><span class="sec-no">SEC. 07</span><h2>次の一手</h2></div>
   <p class="sec-sub">この泉を眺めて終わらせないための、具体的な3手にございます。</p>
   <div class="grid g3">
@@ -1391,9 +1391,9 @@ function updateAdoptedCount(){
   var el=document.getElementById('cnt-adopted');
   if(el) el.textContent=document.querySelectorAll('.cut.adopted').length;
   var pel=document.getElementById('pick-cnt');
-  if(pel) pel.textContent=document.querySelectorAll('#s5 .pick.adopted').length;
+  if(pel) pel.textContent=document.querySelectorAll('#s4 .pick.adopted').length;
   var pel2=document.getElementById('pick2-cnt');
-  if(pel2) pel2.textContent=document.querySelectorAll('#s4 .pick.adopted').length;
+  if(pel2) pel2.textContent=document.querySelectorAll('#s3 .pick.adopted').length;
 }
 function applyAdopted(nos){
   nos=(nos||[]).map(String);
