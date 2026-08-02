@@ -258,6 +258,11 @@ footer.foot a{color:var(--accent);text-underline-offset:2px}
         <div class="inline" id="offsetSeg"></div>
         <p class="hint">ゲーム内「日程」と表示がズレた場合のみ動かしてくださいませ。通常は補正なしで合います。</p>
       </div>
+      <div class="field">
+        <span class="label">⑥ アプリの更新</span>
+        <button class="btn" id="btnCheckUpdate" type="button">更新を確認</button>
+        <p class="hint" id="updateStatus">このアプリはオフラインでも使えるよう、内容を端末に保存しております。改修後に反映されない場合は、このボタンで最新の内容に更新してくださいませ。</p>
+      </div>
     </div>
   </details>
 
@@ -726,6 +731,44 @@ function downloadIcs(){
   document.getElementById("icsSummary").textContent="書き出しました。予定 "+r.count+"件・各5分前に通知いたします。";
 }
 
+/* ---------- アプリの更新確認 ---------- */
+/* sw.jsはHTML自体をネットワーク優先で配信するが、SW本体やアイコン等の
+   キャッシュ優先資産は端末に残り続けることがある。reg.update()で新版の
+   有無を確認し、見つかれば（install側のskipWaiting/activate側のclients.claimにより）
+   controllerchangeが自動発火するので、それを合図にリロードする。 */
+function checkForUpdate(timeoutMs){
+  timeoutMs=timeoutMs||3000;
+  var btn=document.getElementById("btnCheckUpdate"), status=document.getElementById("updateStatus");
+  if(!("serviceWorker" in navigator)){
+    status.textContent="このブラウザは更新確認に対応しておりません。";
+    return;
+  }
+  btn.disabled=true;
+  status.textContent="更新を確認しております…";
+  navigator.serviceWorker.getRegistration().then(function(reg){
+    if(!reg){
+      status.textContent="更新の準備がまだ整っておりません。少し間を置いてから、もう一度お試しくださいませ。";
+      btn.disabled=false;
+      return;
+    }
+    var reloaded=false;
+    function onControllerChange(){
+      if(reloaded) return;
+      reloaded=true;
+      location.reload();
+    }
+    navigator.serviceWorker.addEventListener("controllerchange",onControllerChange);
+    reg.update().catch(function(){ /* オフライン等。下のタイムアウトで「最新」表示に落ち着く */ });
+    setTimeout(function(){
+      navigator.serviceWorker.removeEventListener("controllerchange",onControllerChange);
+      if(!reloaded){
+        status.textContent="すでに最新の状態にございます。";
+        btn.disabled=false;
+      }
+    },timeoutMs);
+  });
+}
+
 /* ---------- 起動 ---------- */
 function renderAll(){renderToday();renderWeek();renderSettings();
   var r=buildIcs();
@@ -734,6 +777,7 @@ function renderAll(){renderToday();renderWeek();renderSettings();
 
 document.getElementById("btnIcs").addEventListener("click",downloadIcs);
 document.getElementById("btnReset").addEventListener("click",function(){state.done={};save();renderToday();});
+document.getElementById("btnCheckUpdate").addEventListener("click",function(){checkForUpdate();});
 document.getElementById("drillAnchor").addEventListener("change",function(e){if(e.target.value){state.drillAnchor=e.target.value;save();renderAll();}});
 document.getElementById("drillEvery").addEventListener("change",function(e){var v=parseInt(e.target.value,10);state.drillEvery=(v>=1&&v<=7)?v:2;e.target.value=state.drillEvery;save();renderAll();});
 document.getElementById("drillTime").addEventListener("change",function(e){if(e.target.value){state.drillTime=e.target.value;save();renderAll();}});
