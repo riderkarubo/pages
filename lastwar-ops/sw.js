@@ -1,7 +1,7 @@
 /* ラストウォー作戦当直表 — Service Worker
    方針: HTMLはネットワーク優先（更新を確実に拾う）、アイコン等はキャッシュ優先。 */
 
-var CACHE = "lw-ops-v5";
+var CACHE = "lw-ops-v6";
 var ASSETS = [
   "./",
   "./index.html",
@@ -36,9 +36,10 @@ self.addEventListener("fetch", function (e) {
   var isDoc = req.mode === "navigate" || (req.headers.get("accept") || "").indexOf("text/html") !== -1;
 
   if (isDoc) {
-    // ネットワーク優先。オフライン時のみキャッシュへ落とす。
+    // ネットワーク優先。cache:"no-store"でブラウザのHTTPディスクキャッシュも
+    // バイパスし、確実に最新のHTMLを取得する（オフライン時のみキャッシュへ落とす）。
     e.respondWith(
-      fetch(req).then(function (res) {
+      fetch(req, { cache: "no-store" }).then(function (res) {
         var copy = res.clone();
         caches.open(CACHE).then(function (c) { c.put(req, copy); });
         return res;
