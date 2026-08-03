@@ -315,7 +315,7 @@ function freeItems(key,vs){
 /* 実データ（Issy戦域 Lv.31-35・2026-07取得）1日目=月曜〜7日目=日曜。各日 [11,15,19,23,03,07] */
 var ARMS_WEEK={
   0:["drone","hero","tech","build","troop","tech"],
-  1:["drone","troop","hero","tech","build","hero"],
+  1:["build","troop","hero","tech","drone","hero"],
   2:["troop","tech","build","drone","hero","build"],
   3:["drone","hero","tech","build","troop","tech"],
   4:["build","troop","hero","tech","drone","hero"],
@@ -468,7 +468,7 @@ function planFor(dayStart){
 
     if(r.i===0){
       s.items.push("闇市、輸送車発車、野良攻撃");
-      if(dow===1) s.items.push("ドローン部品宝箱開封");
+      if(dow===3) s.items.push("ドローン部品宝箱開封");
     }
 
     if(isStack){
