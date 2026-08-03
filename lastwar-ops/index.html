@@ -458,6 +458,13 @@ function planFor(dayStart){
     if(cand.length){ swap={from:reach[k].i,to:cand[0],at:reach[k].at}; break; }
   }
 
+  /* 月曜(dow===1)だけは入れ替えを11:00枠に固定する。VS「レーダー特訓」に合わせ、
+     朝一の基地建設でポイントを取り切った直後に3時のドローン強化と軍拡入れ替える（2026-08-03指示） */
+  if(dow===1){
+    var mondayHost=reach.filter(function(r){return r.i===0;})[0];
+    if(mondayHost && miss.indexOf(4)!==-1){ swap={from:0,to:4,at:mondayHost.at}; }
+  }
+
   var stackSlots=[];
   if(vs.key) for(var j=0;j<6;j++) if(row[j]===vs.key) stackSlots.push(j);
 
