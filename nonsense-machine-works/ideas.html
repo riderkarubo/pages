@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>アイデアの泉 ｜ ナンセンス機械製作所 装置カタログ DOC-NMW-002</title>
 <meta name="description" content="Issyの価値観・テイスト・既存資産（SUMIMASEN 411景／作曲アイデア群／影響を受けたコンテンツ）から、AI×フィジカルデバイスで作れるネタと装置を132案まで展開した発想カタログ。6つの変換式つき。">
-<meta name="last-modified" content="2026-08-10T21:38+09:00">
+<meta name="last-modified" content="2026-08-10T21:54+09:00">
 <meta property="og:type" content="article">
 <meta property="og:title" content="アイデアの泉｜ナンセンス機械製作所 装置カタログ">
 <meta property="og:description" content="価値観と既存資産から、AI×フィジカルで作れる「役に立たない装置」を132案。6つの変換式で無限に汲める発想エンジンつき。">
@@ -129,15 +129,19 @@ main{max-width:var(--maxw);margin:0 auto;padding:clamp(36px,5vw,64px) clamp(18px
 .pick .cut-x{top:9px;right:9px}
 .pick .cut-star{top:9px;right:37px}
 
-/* ランク判定（D/C/B/A/S）— SEC.04本命12案専用 */
-.rank-row{display:flex;gap:5px;margin-top:11px}
+/* ランク判定（D/C/B/A/S）— SEC.03初期試作アイデア専用 */
+.rank-row{display:flex;gap:5px;align-items:center;margin-top:11px}
 .rank-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .15s;padding:0}
 .rank-btn:hover{border-color:var(--denki);color:var(--denki)}
 .rank-btn.active{background:var(--hanko);border-color:var(--hanko);color:#fff}
 .rank-btn[data-rank="S"].active{background:var(--caution);border-color:var(--caution);color:#5A4310}
 .pick.rejected .rank-btn{pointer-events:none;opacity:.5}
 
-/* カードクリックで開くメモ欄 */
+/* メモ欄 — ボタンをタップした時だけ開く */
+.memo-toggle{margin-left:auto;font-family:inherit;font-size:12px;font-weight:700;color:var(--ink-2);background:#fff;border:1px solid var(--rule);border-radius:6px;padding:4px 9px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.memo-toggle:hover{border-color:var(--denki);color:var(--denki)}
+.pick.has-memo .memo-toggle{border-color:var(--denki);color:var(--denki);background:#EAF3FF}
+.pick.rejected .memo-toggle{pointer-events:none;opacity:.5}
 .pick.has-memo h3::before{content:"📝";margin-right:6px;font-size:14px}
 .memo-box{margin-top:10px}
 .memo-box textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:12.5px;line-height:1.6;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);resize:vertical;min-height:56px}
@@ -458,12 +462,11 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 <nav class="toc" aria-label="目次">
   <a href="#s1">6つの変換式</a>
   <a href="#s2">素材棚</a>
-  <a href="#s3">製品ラインナップ（第2世代）</a>
+  <a href="#s3">初期試作アイデア（23案）・既出チェック</a>
   <a href="#iida">飯田課長</a>
-  <a href="#s4">初期試作12案・既出チェック</a>
-  <a href="#s5">泉（全カタログ）</a>
-  <a href="#s6">3分ネタの型</a>
-  <a href="#s7">次の一手</a>
+  <a href="#s4">泉（全カタログ）</a>
+  <a href="#s5">3分ネタの型</a>
+  <a href="#s6">次の一手</a>
 </nav>
 
 <main>
@@ -581,11 +584,235 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
   </div>
 </section>
 
-<!-- 4 -->
-<section class="sec" id="s3">
-  <div class="sec-head"><span class="sec-no">SEC. 03</span><h2>製品ラインナップ — 第2世代 11機種</h2></div>
-  <p class="sec-sub">貴殿がボツ82案を仕分けてくださったことで、除外すべき5軸が確定いたしました。その5軸を通し、生成を別モデル（Fable）に、査定を私が担う分業で作り直したのが本節にございます。第1世代（SEC.05）が「装置の集まり」だったのに対し、第2世代は<b>ひとつの会社の製品カタログ</b>として設計されております。</p>
 
+<section class="sec" id="s3">
+  <div class="sec-head"><span class="sec-no">SEC. 03</span><h2>初期試作アイデア（23案）</h2></div>
+  <p class="sec-sub">第1世代の118案のうち、①貴殿の芯に合致し ②第1〜2工程の技術で作れて ③舞台で3分持つ、の3条件を満たす<b>初期試作12案</b>と、ボツ82案の仕分けから確定した除外5軸を通し生成・査定し直した<b>第2世代「製品ラインナップ」11機種</b>（IIS規格・課長ライン／センセイライン／バショチガイライン）を、この節に統合しました。<b>この23案は全件、世の中に同じものが既に無いかを検索で照合済み</b>です。判定と出典を各カードに記載しています。</p>
+
+  <div class="pick-bar">
+    <span>選定 — 採用 <b id="pick-cnt">0</b> / 23</span>
+    <span>⭐で採用候補、✕でボツ（ページ下部のボツ箱へ移動）。📝ボタンでメモ、D〜Sでランク判定。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。</span>
+    <button type="button" onclick="sortPicksByRank('s3')">ランク順に並び替え</button>
+  </div>
+
+  <div class="card" style="margin-bottom:26px;border-left-color:var(--hanko)">
+    <h3 style="font-size:16px;margin-bottom:8px">着手前ゲート — 既出チェック</h3>
+    <p style="font-size:14px;margin:0 0 10px">「まだ誰もやっていない」ことにこそ価値がある領域ゆえ、<b>アイデアは提示前に必ず世の中と照合</b>します。日本語2クエリ＋英語1クエリを最低ラインとし、判定には必ず出典を添えます（英語検索を飛ばすと Shannon の Useless Machine のような海外の古典を取りこぼすため）。</p>
+    <div class="fc-legend">
+      <span>🟢 <b>新規</b>：先行事例なし → そのまま進める</span>
+      <span>🟡 <b>類似あり</b>：差別化ポイントを明記して進める</span>
+      <span>🔴 <b>既出</b>：原則除外</span>
+      <span>⚪ <b>未検証</b>：着手前に必ず検索する</span>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-2);margin:12px 0 0">今回の照合で、カタログ側の <b>K-01・I-01・L-07 の3案が完全既出</b>と判明し除外推奨としました。カタログ109案のうち未検証のものは <b>着手を決めた時点で必ず検索する</b>こと。この手順はグローバルルール <span class="code">idea-originality-factcheck</span> として恒久化済みで、以後すべてのアイデア出しに適用されます。</p>
+  </div>
+  <div class="grid g3 pick-grid">
+
+    <article class="pick">
+      <div class="no">PICK 01 ／ 逆転</div>
+      <h3>最高のボケを言わない機械</h3>
+      <div class="model code">MUGON-0</div>
+      <p>お題を入れるとAIが本気で最高のボケを生成する。表示される直前、サーボで物理シャッターが降りて隠す。装置は「今のは相当おもしろかった」とだけ報告する。観客は永遠に答えを見られない。</p>
+      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — AI大喜利は既出多数（<a href='https://tech.stockmark.co.jp/blog/denshosen2021/' target='_blank' rel='noopener'>ボケて電笑戦</a>・<a href='https://aismiley.co.jp/ai_news/ai-bokete-camera/' target='_blank' rel='noopener'>bokete camera</a>）<br><b>差別化</b>: 生成したボケを物理シャッターで隠す構造は先行事例なし。核は「AIの性能」ではなく「見せないこと」</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 見せないという一点だけで成立する構造</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 02 ／ 計測</div>
+      <h3>土下座角度計</h3>
+      <div class="model code">DOGEZA-METER</div>
+      <p>額に貼った加速度センサで土下座の角度をリアルタイム計測。85度で「誠意不足」ブザー、90度で合格音。SUMIMASENの土下座スライディング98景がそのまま実演素材になる。</p>
+      <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪・土下座を計測するデバイスの先行作は検索で見つからず（ゲーム『超土下座』等はあるがデバイスではない）</div><div class="spec"><b>部品</b> M5StickC（加速度内蔵）＋ブザー ／ <b>難度</b> 低 ／ <b>核</b> 誠意を数値で切り捨てる残酷さ</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 03 ／ 代行</div>
+      <h3>会議出席代行ロボ</h3>
+      <div class="model code">NARUHODO-α</div>
+      <p>会議音声を聞き、絶妙なタイミングで頷き、「なるほど」「たしかに」「持ち帰ります」の3語しか言わない。それでも会議が成立してしまう。製品カタログと保証書を作り込み「会社の製品」として売り込む形式で舞台に立つ。</p>
+      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 相槌ロボットは研究・製品とも多数（<a href='https://www.waseda.jp/inst/wias/news/2008/05/21/3732/' target='_blank' rel='noopener'>早稲田ROBISUKE</a>・<a href='https://chizaizukan.com/pickup/interview/42c3pM3fVka4XdsyHW358K/' target='_blank' rel='noopener'>Uh-huh⤴</a>・ヤマハHEARTalk）<br><b>差別化</b>: 「3語しか言わない」制約と、会社の製品として売り込む額縁。技術ではなく構成で差別化する</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋Realtime API ／ <b>難度</b> 中 ／ <b>核</b> AIの無力さではなく、それで足りる社会の側</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 04 ／ 過剰</div>
+      <h3>ぺこぺこ増幅器</h3>
+      <div class="model code">PEKO-30</div>
+      <p>電話でお辞儀すると、背後に並んだ30体の小型人形が一斉に同じ角度でお辞儀する。1台では滑るが、30台になると笑いになる。物理でしかできない量の暴力。</p>
+      <div class="fc-line fc-green"><b>🟢 新規</b> — 多数のサーボで一斉にお辞儀させる作品は特定できず</div><div class="spec"><b>部品</b> サーボ×30＋PCA9685（サーボドライバ） ／ <b>難度</b> 中 ／ <b>核</b> 数が笑いに転化する閾値の実験</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 05 ／ 物理化</div>
+      <h3>取り消せマシン</h3>
+      <div class="model code">TORIKESE-1</div>
+      <p>送ってしまったメッセージを物理的に取り消す装置。文面を紙に印字して吸い込み、シュレッダーにかける。既存の作曲アイデア「取り消せ！取り消せ！」がそのまま主題歌になる。</p>
+      <div class="fc-line fc-green"><b>🟢 新規</b> — 送信取り消しを物理装置で再現した作品は見つからず</div><div class="spec"><b>部品</b> レシートプリンタ＋モーター＋M5Stack ／ <b>難度</b> 中 ／ <b>核</b> デジタルの不可逆性を物理で無理やり覆す</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 06 ／ 計測×逆転</div>
+      <h3>誠意可視化メーター</h3>
+      <div class="model code">SEII-VIEW</div>
+      <p>謝罪の声を解析し「誠意 32%」と即座に表示。数値が高いほど装置が疑い、低いほど「正直でよろしい」と褒める。逆転が効いているので謝るほど詰む。</p>
+      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 音声感情認識AIは商用多数（<a href='https://www.cac.co.jp/trends/trend41/' target='_blank' rel='noopener'>Empath</a>・<a href='https://emotion-voice-ai.userlocal.jp/' target='_blank' rel='noopener'>ユーザーローカル</a>・ST Emotion SDK）<br><b>差別化</b>: 既存技術を「誠意」という測れない軸に転用し、高いほど疑うという評価の逆転を入れる</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 測れないものを測る × 評価軸の裏返し</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 07 ／ 代行×おじさん</div>
+      <h3>ChatGPT爺</h3>
+      <div class="model code">GPT-JII</div>
+      <p>何を質問しても最終的に昔話に着地する音声AI。最新技術を聞いても「昔はな…」で終わる。既存の動画企画をそのまま実体化した装置で、卓上ロボットの見た目とのギャップが効く。</p>
+      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ChatGPTのキャラ化は既出（お兄ちゃん／お姉ちゃん／おじさん構文プロンプト）。おじいちゃん×昔話固定の作品は未発見<br><b>差別化</b>: プロンプト芸に留めず、卓上ロボットとして物理実体を持たせる点</div><div class="spec"><b>部品</b> スタックチャン＋Realtime API（人格プロンプト） ／ <b>難度</b> 低 ／ <b>核</b> 最先端の器に最も古い中身</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 08 ／ 音・サンプラー</div>
+      <h3>謝罪サンプラー</h3>
+      <div class="model code">SUMIMASEN-8PAD</div>
+      <p>8つのパッドすべてが謝罪音。押すたびに録音済みの土下座が深くなり、8回目で床に着く。「サンプラーでふざけたパフォーマンス」というR-1目標に、装置が直接刺さる一台。</p>
+      <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪音に特化したサンプラー機の先行作は見つからず</div><div class="spec"><b>部品</b> M5Stack＋タッチパッド＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 音楽と謝罪という既存2資産の合流点</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 09 ／ 過剰×衣装</div>
+      <h3>自動シャツイン装置</h3>
+      <div class="model code">SHATSU-IN</div>
+      <p>シャツを出すたび、腰に仕込んだ機械が強制的に入れ直す。抵抗すればするほど速くなる。衣装案の「シャツイン」がそのまま装置になり、着るだけで芸になる。</p>
+      <div class="fc-line fc-none"><b>⚪ 未検証</b> — 時間の都合により未検証。着手を決めた時点で必ず検索すること</div><div class="spec"><b>部品</b> サーボ＋ベルト機構＋距離センサ ／ <b>難度</b> 中 ／ <b>核</b> 身につけた瞬間に負けが確定する装置</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 10 ／ 物理化×ノスタルジー</div>
+      <h3>クソダサテロップ発生器</h3>
+      <div class="model code">WORDART-88</div>
+      <p>喋った言葉を音声認識し、90年代のワードアート風テロップに変換してスクリーンに実時間投影する。虹色グラデーション・影付き・無駄な回転つき。舞台で自分の発言が全部ダサくなる。</p>
+      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ワードアート生成ツールは既出（<a href='https://forest.watch.impress.co.jp/docs/serial/netserv/1035176.html' target='_blank' rel='noopener'>Make WordArt</a>・<a href='https://softantenna.com/blog/wordart-generator/' target='_blank' rel='noopener'>WordArt generator</a>）<br><b>差別化</b>: 既存は静的な画像生成。音声認識でリアルタイムに舞台へ投影する点が未踏</div><div class="spec"><b>部品</b> PC＋音声認識＋ブラウザ表示 ／ <b>難度</b> 低 ／ <b>核</b> ダサさを自動生成する装置という発明</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 11 ／ 逆転×観客</div>
+      <h3>スベリ検知装置</h3>
+      <div class="model code">SUBERI-DETECT</div>
+      <p>客席の音量を常時監視し、笑いが3秒間なければ警報が鳴り、照明が青く落ちる。装置が容赦なく自分を裁くので、スベればスベるほど舞台が動く。保険としても優秀。</p>
+      <div class="fc-line fc-red"><b>🔴 既出</b> — 笑いの測定は日本のお笑い文脈で既に多数・商用化済み（<a href='https://waraiplus.com/' target='_blank' rel='noopener'>WARAI+「UKETA」</a>・アッハメーター・横隔膜式笑い測定機・<a href='https://prtimes.jp/main/html/rd/p/000000044.000007582.html' target='_blank' rel='noopener'>ウェブレッジ笑度測定ツール</a>）<br><b>差別化</b>: 除外推奨。使うなら「測る」ではなく「測った結果への装置の反応」側に核を移すこと</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LEDテープ ／ <b>難度</b> 低 ／ <b>核</b> 失敗が構造上ネタに変換される安全装置</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+    <article class="pick">
+      <div class="no">PICK 12 ／ ヘボコン専用</div>
+      <h3>土下座で押す相撲ロボ</h3>
+      <div class="model code">HEBO-DOGEZA</div>
+      <p>前傾姿勢のまま謝り続けて相手を押し出すヘボコン用機体。「すみません」と言いながら進み、勝つと自分から土俵を出て詫びる。ハイテクノロジーペナルティも狙って取りにいく。</p>
+      <div class="fc-line fc-green"><b>🟢 新規</b> — ヘボコン機体としての同一コンセプトは特定できず</div><div class="spec"><b>部品</b> ギヤモーター2＋M5StickC＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 初舞台の予約が取れる唯一の案</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+    </article>
+
+  </div>
   <div class="iis">
     <div class="iis-plate">
       <div class="iis-k">JAPANESE INDUSTRIAL STANDARD ／ 非公認</div>
@@ -597,11 +824,6 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <p>全製品はこの規格に準拠し、銘板に <span class="code">IIS</span> の刻印を打ちます。80年代家電の作法に倣い、<b>取扱説明書・保証書・お客様相談室ステッカー</b>を全機種に付属させます（相談室に電話すると謝罪音声が流れるだけ）。取説と保証書そのものが持ち帰れる拡散素材を兼ねます。</p>
       <p class="note" style="margin:10px 0 0">貴殿の姓が工業規格になっている点が、この額縁の最大の資産にございます。装置は模倣できても、規格の由来は模倣できませぬ。</p>
     </div>
-  </div>
-
-  <div class="pick-bar">
-    <span>選定 — 採用 <b id="pick2-cnt">0</b> / 11</span>
-    <span>⭐で採用候補、✕でボツ。第1世代と同じ操作です。⌘Z／⌘⇧Zで取り消し・やり直し。</span>
   </div>
 
   <!-- ライン1: 課長ライン -->
@@ -670,6 +892,15 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 
     <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 「AI上司」はソフトウェアとして既に事業化済み（<a href="https://www.nikkei.com/article/DGXZQOCD1252Q0S5A211C2000000/" target="_blank" rel="noopener">あえて叱責する「鬼コーチ」AI上司・日経</a>／<a href="https://www.nikkei.com/article/DGKKZO92024070Y5A011C2EA5000/" target="_blank" rel="noopener">KDDIのAI上司</a>／書籍『上司がAIになりました』）。ハラスメント研修VRも商用普及済み（<a href="https://www.nttexc.co.jp/solution/training/vr_harassment/" target="_blank" rel="noopener">NTT ExCパートナー</a>）。昭和上司コントも定番（<a href="https://www.youtube.com/watch?v=YkE3wgW9FCY" target="_blank" rel="noopener">ネルソンズ「上司の説教」</a>）。<br><b>差別化</b>: 先行はすべて<b>真面目な研修・実用</b>目的か映像作品。①笑いを目的とした②<b>物理アバターロボット</b>で③矛先が本人のみ——この交点は検索で発見できず。技術土台は<a href="https://deviceplus.jp/mc-general/m5stack-chatgpt-aistack-chan" target="_blank" rel="noopener">スタックチャン＋ChatGPT連携のOSS</a>が使える</div>
     <div class="spec"><b>部品</b> M5Stack Core2（¥8,129・<a href="https://www.switch-science.com/products/11050" target="_blank" rel="noopener">実売確認済</a>）＋SG90サーボ×5（¥3,575）＋PCA9685＋振動モーター＋スピーカー＋モバイルバッテリー（電源切れないオチ用）＋NFCリーダー＋名刺タグ＋外装 ／ <b>概算</b> 約22,000〜25,000円 ／ <b>難度</b> 中 ／ <b>採点</b> 97点</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
   </article>
 
   <!-- ライン2: センセイライン -->
@@ -692,7 +923,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> サンプラー実機とパフォーマンス志向。演奏技術が上がるほど前半が強くなり、<b>練習がそのままネタ磨きになる</b></div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 「演奏を妨害して指導する装置」は先行事例なし（SpeechJammerは発話妨害のみで指導人格を持たない）</div>
       <div class="spec"><b>部品</b> M5Stack Core2＋MG996Rアーム＋圧電センサー＋SP-404実機 ／ <b>採点</b> 95点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-S2 ／ 逆転×逸脱</div>
@@ -704,7 +944,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> <b>SUMIMASENの謝罪411景</b>。装置は「世界の謝罪411種を学習済み」という設定で、その場でデータベースから型番を引いて指導する＝本編と世界観が接続する</div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 「謝らない謝罪コーチ」は先行事例なし。藤原麻里菜「謝罪メールパンチングマシーン」は謝罪文入力装置で方向が別</div>
       <div class="spec"><b>部品</b> M5Stack Core2＋お辞儀サーボ＋物倒しアーム＋加速度センサー ／ <b>採点</b> 96点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-S3 ／ 計測×逸脱</div>
@@ -716,7 +965,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> クライアント資料の赤入れ・ビジネス文書の実務。文面の精度がそのまま笑いの精度になる</div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 読経ガジェット（デジタル木魚等）はあるが「経典を添削して不可を出す装置」は先行事例なし。<b>笑いの対象は経典ではなく「経典の偉大さを知らない校閲AIの無知」に固定</b>し、貴殿は一貫して経典側に立ってツッコむ構図で安全化済み</div>
       <div class="spec"><b>部品</b> M5Stack Core2＋サーマルプリンター＋赤ペンアーム＋巻物送りモーター ／ <b>採点</b> 92点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-S4 ／ 逆転×逸脱</div>
@@ -728,7 +986,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> 作曲DTM・New Jack Swing・Louis Cole/KNOWER的な打楽器グルーヴ感。<b>サンプラザ中野衣装</b>を読経ファンクの舞台衣装として着用</div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 電子木魚アプリは「叩くと功徳」方向。「木魚側が人間のグルーヴを指導する」逆転は先行事例なし。非言語で成立するため海外にも刺さる</div>
       <div class="spec"><b>部品</b> M5Stack Core2＋本物の木魚＋ソレノイド打撃＋圧電センサー（BPM解析）＋360拍カウンタLED ／ <b>採点</b> 94点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-S5 ／ 逸脱×代行</div>
@@ -740,7 +1007,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> <b>「電子工作初心者がAIに作らせた」という実話そのもの</b>。装置が語る製作秘話の中で「AIがほぼ全部やった」という真実だけを誇らしげに隠す＝フェイクドキュメンタリー志向と実人生が二重写しになる</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — <a href="https://en.wikipedia.org/wiki/Useless_machine" target="_blank" rel="noopener">Useless Machine</a>（自分のスイッチを切る古典）が先行。<br><b>差別化</b>: 古典は無言の一発芸。本案は自己OFFを<b>「説法の締め」として引用</b>する構造で、メイカー文化圏への目配せとして機能する</div>
       <div class="spec"><b>部品</b> M5Stack Core2（残量%表示）＋首振りサーボ＋指差しアーム＋自己電源カットリレー ／ <b>採点</b> 95点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
   </div>
 
@@ -764,7 +1040,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> おじさん軸／サンプラザ中野衣装（装置に蝶ネクタイ）／<b>作曲DTM</b>（乾杯ファンファーレと中締めジングルを自作実装）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 飲みニケーションロボ「Sota」が居酒屋で乾杯対応（<a href="https://www.itmedia.co.jp/enterprise/articles/1703/07/news014.html" target="_blank" rel="noopener">ITmedia</a>）。<br><b>差別化</b>: Sotaは孤独緩和の実用系。本案は一人メシに宴会の格式を強制する逸脱で、中締め・二次会まで進行する宴会プロトコルの完全実装は先行なし</div>
       <div class="spec"><b>部品</b> M5Stack Core2＋重量センサー＋蒸気センサー（注湯検知）＋拍子木サーボ＋おしぼりトレーサーボ＋蝶ネクタイサーボ ／ <b>採点</b> 95点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-B2 ／ 逸脱×過剰</div>
@@ -776,7 +1061,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> <b>SUMIMASENの土下座411景</b>（人形モーションの原案集として直接移植）＋作曲アイデア在庫「申し訳ございませんの歌」（各県方言版を量産してBGM実装）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 謝罪装置の先行に藤原麻里菜「謝罪メールパンチングマシン」等あり。<br><b>差別化</b>: 先行は謝罪の「手段」の工作。本案は謝罪の<b>「規模」</b>の逸脱。些事1件×47都道府県×方言AIの組合せは先行なし</div>
       <div class="spec"><b>部品</b> M5Stack＋日本地図LEDマトリクス＋土下座人形サーボ（平伏深度可変）＋残時間再計算ロジック＋方言謝罪ソング47種＋サーマルプリンタ ／ <b>採点</b> 97点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-B3 ／ 逸脱×逆転</div>
@@ -788,7 +1082,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> SUMIMASEN（土下座の型）＋<b>ライブ配信の実務</b>（貴殿が対決をライブコマース口調でセルフ実況する）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 謝罪ロボ・お辞儀ロボの学術研究あり（<a href="https://ieeexplore.ieee.org/document/10973849/" target="_blank" rel="noopener">IEEE</a>）。<br><b>差別化</b>: 研究は対人の信頼修復が目的。「謝罪×勝利」のタイミング逆転は先行なし。<span class="fix">当初案の観客じゃんけんは除外フィルター軸2に触れるため、貴殿本人 対 装置へ修正済み</span></div>
       <div class="spec"><b>部品</b> M5Stack＋IMU付き旗×2＋大型サーボ土下座変形機構＋謝罪時間倍増ロジック＋スコアLED ／ <b>採点</b> 94点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-B4 ／ 逸脱×過剰</div>
@@ -800,7 +1103,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> <b>ライブ配信の実務</b>——劇場外では「24時間おにぎり監視ライブ」として常設配信化でき、装置がSNSコンテンツを自ら生産する</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — Raspberry Piによる過剰警備の作例あり（<a href="https://www.xda-developers.com/frustrated-gamer-built-raspberry-pi-security-system-keep-family-away-from-steam-deck/" target="_blank" rel="noopener">XDA</a>）。<br><b>差別化</b>: 先行は実害系（攻撃を伴う）。本案は儀仗・格式系で攻撃性ゼロ。守る対象の無価値さと警備の格式のギャップが主役</div>
       <div class="spec"><b>部品</b> M5Stack＋7セグカウントダウン＋距離/人感センサー＋レーザー＋パンチルトカメラ＋指紋センサー＋回転灯＋敬礼アーム ／ <b>採点</b> 94点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
     <article class="pick">
       <div class="no">IIS-B5 ／ 逸脱×代行</div>
@@ -812,7 +1124,16 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="asset"><b>効く資産</b> SUMIMASEN（礼→最敬礼→土下座のエスカレーション所作を411景から移植）＋フェイクドキュメンタリー志向（会見様式の完全再現）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ロボットのお辞儀謝罪は学術研究あり（<a href="https://ieeexplore.ieee.org/document/10973849/" target="_blank" rel="noopener">IEEE</a>）。<br><b>差別化</b>: 研究は対人の信頼修復。本案は謝罪の<b>「相手」</b>を植物に逸脱させた記者会見様式のパロディで、エンタメ実装は先行なし</div>
       <div class="spec"><b>部品</b> M5Stack＋土壌水分センサー＋多段お辞儀サーボ（15度〜土下座）＋LEDフラッシュ×4＋水ポンプ＋床濡れセンサー ／ <b>採点</b> 94点</div>
-    </article>
+        <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+        <button type="button" class="memo-toggle">📝 メモ</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
+  </article>
 
   </div>
 
@@ -822,230 +1143,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
     <p style="font-size:14px;margin:0 0 10px">ゆえに100点の条件は<b>「IIS規格という架空の工業規格を持つ製作所が実在するように見えること」</b>だと結論いたします。11機種が同じ銘板を打ち、同じ取扱説明書の書式を持ち、同じ相談室の番号を載せている——その状態に到達したとき、装置の出来を超えて<b>「ナンセンス機械製作所」そのものが検索対象になります</b>。これが明和電機が到達している地点にございます。</p>
     <p style="font-size:14px;margin:0"><span class="tag y">最初の一手</span>3ラインの頂点は<b>IIS-K55 飯田課長</b>（貴殿ご発案・97点）と<b>IIS-B2 全国謝罪キャラバン号</b>（97点）にございます。前者は「AIに昭和を学習させたら最悪だった」というテック×世代の交差、後者は「誠意が時間切れで雑になる」という誰も見たことのない画。<b>どちらか1台を作れば、残り10機種はカタログの写真だけで存在を主張できます。</b></p>
   </div>
-</section>
 
-<!-- 5 -->
-<section class="sec" id="s4">
-  <div class="sec-head"><span class="sec-no">SEC. 04</span><h2>初期試作 12案（第1世代）</h2></div>
-  <p class="sec-sub">第1世代の118案のうち、①貴殿の芯に合致し ②第1〜2工程の技術で作れて ③舞台で3分持つ、の3条件を満たすものだけを抜き出しました。<b>この12案は全件、世の中に同じものが既に無いかを検索で照合済み</b>です。判定と出典を各カードに記載しています。</p>
-
-  <div class="pick-bar">
-    <span>選定 — 採用 <b id="pick-cnt">0</b> / 12</span>
-    <span>⭐で採用候補、✕でボツ（ページ下部のボツ箱へ移動）。カード本体クリックでメモ、D〜Sでランク判定。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。</span>
-    <button type="button" onclick="sortPicksByRank('s4')">ランク順に並び替え</button>
-  </div>
-
-  <div class="card" style="margin-bottom:26px;border-left-color:var(--hanko)">
-    <h3 style="font-size:16px;margin-bottom:8px">着手前ゲート — 既出チェック</h3>
-    <p style="font-size:14px;margin:0 0 10px">「まだ誰もやっていない」ことにこそ価値がある領域ゆえ、<b>アイデアは提示前に必ず世の中と照合</b>します。日本語2クエリ＋英語1クエリを最低ラインとし、判定には必ず出典を添えます（英語検索を飛ばすと Shannon の Useless Machine のような海外の古典を取りこぼすため）。</p>
-    <div class="fc-legend">
-      <span>🟢 <b>新規</b>：先行事例なし → そのまま進める</span>
-      <span>🟡 <b>類似あり</b>：差別化ポイントを明記して進める</span>
-      <span>🔴 <b>既出</b>：原則除外</span>
-      <span>⚪ <b>未検証</b>：着手前に必ず検索する</span>
-    </div>
-    <p style="font-size:12.5px;color:var(--ink-2);margin:12px 0 0">今回の照合で、カタログ側の <b>K-01・I-01・L-07 の3案が完全既出</b>と判明し除外推奨としました。カタログ109案のうち未検証のものは <b>着手を決めた時点で必ず検索する</b>こと。この手順はグローバルルール <span class="code">idea-originality-factcheck</span> として恒久化済みで、以後すべてのアイデア出しに適用されます。</p>
-  </div>
-  <div class="grid g3 pick-grid">
-
-    <article class="pick">
-      <div class="no">PICK 01 ／ 逆転</div>
-      <h3>最高のボケを言わない機械</h3>
-      <div class="model code">MUGON-0</div>
-      <p>お題を入れるとAIが本気で最高のボケを生成する。表示される直前、サーボで物理シャッターが降りて隠す。装置は「今のは相当おもしろかった」とだけ報告する。観客は永遠に答えを見られない。</p>
-      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — AI大喜利は既出多数（<a href='https://tech.stockmark.co.jp/blog/denshosen2021/' target='_blank' rel='noopener'>ボケて電笑戦</a>・<a href='https://aismiley.co.jp/ai_news/ai-bokete-camera/' target='_blank' rel='noopener'>bokete camera</a>）<br><b>差別化</b>: 生成したボケを物理シャッターで隠す構造は先行事例なし。核は「AIの性能」ではなく「見せないこと」</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 見せないという一点だけで成立する構造</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 02 ／ 計測</div>
-      <h3>土下座角度計</h3>
-      <div class="model code">DOGEZA-METER</div>
-      <p>額に貼った加速度センサで土下座の角度をリアルタイム計測。85度で「誠意不足」ブザー、90度で合格音。SUMIMASENの土下座スライディング98景がそのまま実演素材になる。</p>
-      <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪・土下座を計測するデバイスの先行作は検索で見つからず（ゲーム『超土下座』等はあるがデバイスではない）</div><div class="spec"><b>部品</b> M5StickC（加速度内蔵）＋ブザー ／ <b>難度</b> 低 ／ <b>核</b> 誠意を数値で切り捨てる残酷さ</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 03 ／ 代行</div>
-      <h3>会議出席代行ロボ</h3>
-      <div class="model code">NARUHODO-α</div>
-      <p>会議音声を聞き、絶妙なタイミングで頷き、「なるほど」「たしかに」「持ち帰ります」の3語しか言わない。それでも会議が成立してしまう。製品カタログと保証書を作り込み「会社の製品」として売り込む形式で舞台に立つ。</p>
-      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 相槌ロボットは研究・製品とも多数（<a href='https://www.waseda.jp/inst/wias/news/2008/05/21/3732/' target='_blank' rel='noopener'>早稲田ROBISUKE</a>・<a href='https://chizaizukan.com/pickup/interview/42c3pM3fVka4XdsyHW358K/' target='_blank' rel='noopener'>Uh-huh⤴</a>・ヤマハHEARTalk）<br><b>差別化</b>: 「3語しか言わない」制約と、会社の製品として売り込む額縁。技術ではなく構成で差別化する</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋Realtime API ／ <b>難度</b> 中 ／ <b>核</b> AIの無力さではなく、それで足りる社会の側</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 04 ／ 過剰</div>
-      <h3>ぺこぺこ増幅器</h3>
-      <div class="model code">PEKO-30</div>
-      <p>電話でお辞儀すると、背後に並んだ30体の小型人形が一斉に同じ角度でお辞儀する。1台では滑るが、30台になると笑いになる。物理でしかできない量の暴力。</p>
-      <div class="fc-line fc-green"><b>🟢 新規</b> — 多数のサーボで一斉にお辞儀させる作品は特定できず</div><div class="spec"><b>部品</b> サーボ×30＋PCA9685（サーボドライバ） ／ <b>難度</b> 中 ／ <b>核</b> 数が笑いに転化する閾値の実験</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 05 ／ 物理化</div>
-      <h3>取り消せマシン</h3>
-      <div class="model code">TORIKESE-1</div>
-      <p>送ってしまったメッセージを物理的に取り消す装置。文面を紙に印字して吸い込み、シュレッダーにかける。既存の作曲アイデア「取り消せ！取り消せ！」がそのまま主題歌になる。</p>
-      <div class="fc-line fc-green"><b>🟢 新規</b> — 送信取り消しを物理装置で再現した作品は見つからず</div><div class="spec"><b>部品</b> レシートプリンタ＋モーター＋M5Stack ／ <b>難度</b> 中 ／ <b>核</b> デジタルの不可逆性を物理で無理やり覆す</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 06 ／ 計測×逆転</div>
-      <h3>誠意可視化メーター</h3>
-      <div class="model code">SEII-VIEW</div>
-      <p>謝罪の声を解析し「誠意 32%」と即座に表示。数値が高いほど装置が疑い、低いほど「正直でよろしい」と褒める。逆転が効いているので謝るほど詰む。</p>
-      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 音声感情認識AIは商用多数（<a href='https://www.cac.co.jp/trends/trend41/' target='_blank' rel='noopener'>Empath</a>・<a href='https://emotion-voice-ai.userlocal.jp/' target='_blank' rel='noopener'>ユーザーローカル</a>・ST Emotion SDK）<br><b>差別化</b>: 既存技術を「誠意」という測れない軸に転用し、高いほど疑うという評価の逆転を入れる</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 測れないものを測る × 評価軸の裏返し</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 07 ／ 代行×おじさん</div>
-      <h3>ChatGPT爺</h3>
-      <div class="model code">GPT-JII</div>
-      <p>何を質問しても最終的に昔話に着地する音声AI。最新技術を聞いても「昔はな…」で終わる。既存の動画企画をそのまま実体化した装置で、卓上ロボットの見た目とのギャップが効く。</p>
-      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ChatGPTのキャラ化は既出（お兄ちゃん／お姉ちゃん／おじさん構文プロンプト）。おじいちゃん×昔話固定の作品は未発見<br><b>差別化</b>: プロンプト芸に留めず、卓上ロボットとして物理実体を持たせる点</div><div class="spec"><b>部品</b> スタックチャン＋Realtime API（人格プロンプト） ／ <b>難度</b> 低 ／ <b>核</b> 最先端の器に最も古い中身</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 08 ／ 音・サンプラー</div>
-      <h3>謝罪サンプラー</h3>
-      <div class="model code">SUMIMASEN-8PAD</div>
-      <p>8つのパッドすべてが謝罪音。押すたびに録音済みの土下座が深くなり、8回目で床に着く。「サンプラーでふざけたパフォーマンス」というR-1目標に、装置が直接刺さる一台。</p>
-      <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪音に特化したサンプラー機の先行作は見つからず</div><div class="spec"><b>部品</b> M5Stack＋タッチパッド＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 音楽と謝罪という既存2資産の合流点</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 09 ／ 過剰×衣装</div>
-      <h3>自動シャツイン装置</h3>
-      <div class="model code">SHATSU-IN</div>
-      <p>シャツを出すたび、腰に仕込んだ機械が強制的に入れ直す。抵抗すればするほど速くなる。衣装案の「シャツイン」がそのまま装置になり、着るだけで芸になる。</p>
-      <div class="fc-line fc-none"><b>⚪ 未検証</b> — 時間の都合により未検証。着手を決めた時点で必ず検索すること</div><div class="spec"><b>部品</b> サーボ＋ベルト機構＋距離センサ ／ <b>難度</b> 中 ／ <b>核</b> 身につけた瞬間に負けが確定する装置</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 10 ／ 物理化×ノスタルジー</div>
-      <h3>クソダサテロップ発生器</h3>
-      <div class="model code">WORDART-88</div>
-      <p>喋った言葉を音声認識し、90年代のワードアート風テロップに変換してスクリーンに実時間投影する。虹色グラデーション・影付き・無駄な回転つき。舞台で自分の発言が全部ダサくなる。</p>
-      <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ワードアート生成ツールは既出（<a href='https://forest.watch.impress.co.jp/docs/serial/netserv/1035176.html' target='_blank' rel='noopener'>Make WordArt</a>・<a href='https://softantenna.com/blog/wordart-generator/' target='_blank' rel='noopener'>WordArt generator</a>）<br><b>差別化</b>: 既存は静的な画像生成。音声認識でリアルタイムに舞台へ投影する点が未踏</div><div class="spec"><b>部品</b> PC＋音声認識＋ブラウザ表示 ／ <b>難度</b> 低 ／ <b>核</b> ダサさを自動生成する装置という発明</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 11 ／ 逆転×観客</div>
-      <h3>スベリ検知装置</h3>
-      <div class="model code">SUBERI-DETECT</div>
-      <p>客席の音量を常時監視し、笑いが3秒間なければ警報が鳴り、照明が青く落ちる。装置が容赦なく自分を裁くので、スベればスベるほど舞台が動く。保険としても優秀。</p>
-      <div class="fc-line fc-red"><b>🔴 既出</b> — 笑いの測定は日本のお笑い文脈で既に多数・商用化済み（<a href='https://waraiplus.com/' target='_blank' rel='noopener'>WARAI+「UKETA」</a>・アッハメーター・横隔膜式笑い測定機・<a href='https://prtimes.jp/main/html/rd/p/000000044.000007582.html' target='_blank' rel='noopener'>ウェブレッジ笑度測定ツール</a>）<br><b>差別化</b>: 除外推奨。使うなら「測る」ではなく「測った結果への装置の反応」側に核を移すこと</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LEDテープ ／ <b>難度</b> 低 ／ <b>核</b> 失敗が構造上ネタに変換される安全装置</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-    <article class="pick">
-      <div class="no">PICK 12 ／ ヘボコン専用</div>
-      <h3>土下座で押す相撲ロボ</h3>
-      <div class="model code">HEBO-DOGEZA</div>
-      <p>前傾姿勢のまま謝り続けて相手を押し出すヘボコン用機体。「すみません」と言いながら進み、勝つと自分から土俵を出て詫びる。ハイテクノロジーペナルティも狙って取りにいく。</p>
-      <div class="fc-line fc-green"><b>🟢 新規</b> — ヘボコン機体としての同一コンセプトは特定できず</div><div class="spec"><b>部品</b> ギヤモーター2＋M5StickC＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 初舞台の予約が取れる唯一の案</div>
-      <div class="rank-row" role="group" aria-label="ランク判定">
-        <button type="button" class="rank-btn" data-rank="D">D</button>
-        <button type="button" class="rank-btn" data-rank="C">C</button>
-        <button type="button" class="rank-btn" data-rank="B">B</button>
-        <button type="button" class="rank-btn" data-rank="A">A</button>
-        <button type="button" class="rank-btn" data-rank="S">S</button>
-      </div>
-      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
-    </article>
-
-  </div>
 </section>
 
 <!-- 6 -->
-<section class="sec" id="s5">
-  <div class="sec-head"><span class="sec-no">SEC. 05</span><h2>泉 — 全カタログ 109案</h2></div>
+<section class="sec" id="s4">
+  <div class="sec-head"><span class="sec-no">SEC. 04</span><h2>泉 — 全カタログ 109案</h2></div>
   <p class="sec-sub">⭐で採用候補、✕でボツ。採用したカードはセクション内で上へ並び替わります。カード本体のクリックで内容をコピー。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。<br><b>カタログ側は既出チェック未実施</b>（🔴が判明した3案のみ表示）。<b>⭐を付けた案は、着手前に必ず既出チェックを通してください。</b></p>
 
   <div class="filter-bar">
@@ -1120,7 +1223,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
         <div class="cut" data-cat="C" onclick="copyCut(this)"><span class="cut-no">C-10</span><div><div class="cut-ttl">エレベーター謝罪装置</div><div class="cut-dsc">扉が閉まる瞬間だけ全力で頭を下げ、閉まった直後に真顔に戻る</div><div class="cut-tg"><span>サーボ</span><span>距離センサ</span></div></div></div>
         <div class="cut" data-cat="C" onclick="copyCut(this)"><span class="cut-no">C-11</span><div><div class="cut-ttl">ろくろ回し自動化アーム</div><div class="cut-dsc">インタビューで喋ると勝手に両手がろくろを回す</div><div class="cut-tg"><span>サーボ2</span><span>腕装着治具</span></div></div></div>
         <div class="cut" data-cat="C" onclick="copyCut(this)"><span class="cut-no">C-12</span><div><div class="cut-ttl">既読スタンプ機</div><div class="cut-dsc">メッセージを読むと物理の「既読」印が紙に押される</div><div class="cut-tg"><span>ソレノイド</span><span>スタンプ</span></div></div></div>
-        <div class="cut" data-cat="C" onclick="copyCut(this)"><span class="cut-no">C-13</span><div><div class="cut-ttl">会議出席代行ロボ</div><div class="cut-dsc">相槌AIが「なるほど」「たしかに」「持ち帰ります」の3語だけで会議を成立させる（SEC.04 PICK 03と同案）</div><div class="cut-tg"><span>M5Stack</span><span>Realtime API</span></div></div></div>
+        <div class="cut" data-cat="C" onclick="copyCut(this)"><span class="cut-no">C-13</span><div><div class="cut-ttl">会議出席代行ロボ</div><div class="cut-dsc">相槌AIが「なるほど」「たしかに」「持ち帰ります」の3語だけで会議を成立させる（SEC.03 PICK 03と同案）</div><div class="cut-tg"><span>M5Stack</span><span>Realtime API</span></div></div></div>
       </div>
     </section>
     <section class="cat" data-cat="D">
@@ -1171,7 +1274,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
         <div class="cut" data-cat="F" onclick="copyCut(this)"><span class="cut-no">F-06</span><div><div class="cut-ttl">大喜利負け確定装置</div><div class="cut-dsc">客の回答とAIの回答を並べ、必ずAIが勝つよう集計が壊れている</div><div class="cut-tg"><span>LLM</span><span>投票ボタン</span><span>表示</span></div></div></div>
         <div class="cut" data-cat="F" onclick="copyCut(this)"><span class="cut-no">F-07</span><div><div class="cut-ttl">プロンプト筋トレ器</div><div class="cut-dsc">指示が曖昧だと持ち上げる重りが物理的に増える</div><div class="cut-tg"><span>サーボ</span><span>錘機構</span><span>LLM</span></div></div></div>
         <div class="cut" data-cat="F" onclick="copyCut(this)"><span class="cut-no">F-08</span><div><div class="cut-ttl">AI検閲マシン</div><div class="cut-dsc">面白い発言だけを検知してピー音で消す。つまらない話は通す</div><div class="cut-tg"><span>音声認識</span><span>LLM</span><span>ミキサー</span></div></div></div>
-        <div class="cut" data-cat="F" onclick="copyCut(this)"><span class="cut-no">F-09</span><div><div class="cut-ttl">最高のボケを言わない機械</div><div class="cut-dsc">AIが本気のボケを生成した瞬間、物理シャッターで隠す。答えは永遠に見られない（SEC.04 PICK 01と同案）</div><div class="cut-tg"><span>M5Stack</span><span>サーボ</span><span>LLM</span></div></div></div>
+        <div class="cut" data-cat="F" onclick="copyCut(this)"><span class="cut-no">F-09</span><div><div class="cut-ttl">最高のボケを言わない機械</div><div class="cut-dsc">AIが本気のボケを生成した瞬間、物理シャッターで隠す。答えは永遠に見られない（SEC.03 PICK 01と同案）</div><div class="cut-tg"><span>M5Stack</span><span>サーボ</span><span>LLM</span></div></div></div>
       </div>
     </section>
     <section class="cat" data-cat="G">
@@ -1264,8 +1367,8 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 7 -->
-<section class="sec" id="s6">
-  <div class="sec-head"><span class="sec-no">SEC. 06</span><h2>3分ネタの型</h2></div>
+<section class="sec" id="s5">
+  <div class="sec-head"><span class="sec-no">SEC. 05</span><h2>3分ネタの型</h2></div>
   <p class="sec-sub">装置ができても、そのままでは舞台になりません。貴殿のテイスト語「緊張と緩和」「期待を大きく裏切るオチ」をそのまま構成に落とした雛形です。装置を差し替えれば何度でも使えます。</p>
 
   <div class="beat">
@@ -1295,8 +1398,8 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 </section>
 
 <!-- 8 -->
-<section class="sec" id="s7">
-  <div class="sec-head"><span class="sec-no">SEC. 07</span><h2>次の一手</h2></div>
+<section class="sec" id="s6">
+  <div class="sec-head"><span class="sec-no">SEC. 06</span><h2>次の一手</h2></div>
   <p class="sec-sub">この泉を眺めて終わらせないための、具体的な3手にございます。</p>
   <div class="grid g3">
     <div class="card">
@@ -1323,7 +1426,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 <footer>
   <div class="fin">
     <span class="code">DOC-NMW-002 ／ REV.3.0 ／ 総案数 132</span>
-    <span>最終更新：2026年8月10日 21:38</span>
+    <span>最終更新：2026年8月10日 21:54</span>
   </div>
 </footer>
 
@@ -1451,7 +1554,7 @@ function applyRejected(nos){
 }
 /* 旧仕様（PICK専用・バイン移動なしでグレーアウトのみ残す方式）で保存済みのボツ判定を
    新仕様（.cut と同じくボツ箱へ実際に移動）の保存先へ1回だけ引き継ぐ。
-   2026-08-10、SEC.04も他セクションと同じボツ箱移動方式へ統一した際に追加。 */
+   2026-08-10、SEC.03（当時SEC.04）も他セクションと同じボツ箱移動方式へ統一した際に追加。 */
 function migratePickRejected(){
   var OLD_KEY='nmw-ideas-pick-rejected-v1';
   var raw=null;
@@ -1512,9 +1615,7 @@ function updateAdoptedCount(){
   var el=document.getElementById('cnt-adopted');
   if(el) el.textContent=document.querySelectorAll('.cut.adopted').length;
   var pel=document.getElementById('pick-cnt');
-  if(pel) pel.textContent=document.querySelectorAll('#s4 .pick.adopted').length;
-  var pel2=document.getElementById('pick2-cnt');
-  if(pel2) pel2.textContent=document.querySelectorAll('#s3 .pick.adopted').length;
+  if(pel) pel.textContent=document.querySelectorAll('#s3 .pick.adopted').length;
 }
 function applyAdopted(nos){
   nos=(nos||[]).map(String);
@@ -1572,7 +1673,7 @@ function sortAllPickAdoptedFirst(){
   document.querySelectorAll('.pick-grid').forEach(function(g){ sortPickGridAdoptedFirst(g); });
 }
 
-/* ===== ランク判定（D/C/B/A/S）— SEC.04本命12案専用 ===== */
+/* ===== ランク判定（D/C/B/A/S）— SEC.03初期試作アイデア専用 ===== */
 var RANK_KEY='nmw-ideas-pick-rank-v1';
 var RANK_ORDER={S:0,A:1,B:2,C:3,D:4};
 function saveRank(){
@@ -1614,15 +1715,17 @@ function initRanks(){
 /* ランク未判定は末尾へ回す（S→A→B→C→D→未判定）。ボツ箱へ移動済みのカードは
    .pick-grid の子ではなくなっているため対象外になる（ボツ後のランクソートは対象外でよい）。 */
 function sortPicksByRank(secId){
-  var grid=document.querySelector('#'+secId+' .pick-grid');
-  if(!grid) return;
-  var items=Array.prototype.slice.call(grid.querySelectorAll(':scope > .pick'));
-  items.sort(function(a,b){
-    var ra=RANK_ORDER[a.getAttribute('data-rank')]; if(ra===undefined) ra=99;
-    var rb=RANK_ORDER[b.getAttribute('data-rank')]; if(rb===undefined) rb=99;
-    return ra-rb;
+  var grids=document.querySelectorAll('#'+secId+' .pick-grid');
+  if(!grids.length) return;
+  grids.forEach(function(grid){
+    var items=Array.prototype.slice.call(grid.querySelectorAll(':scope > .pick'));
+    items.sort(function(a,b){
+      var ra=RANK_ORDER[a.getAttribute('data-rank')]; if(ra===undefined) ra=99;
+      var rb=RANK_ORDER[b.getAttribute('data-rank')]; if(rb===undefined) rb=99;
+      return ra-rb;
+    });
+    items.forEach(function(it){ grid.appendChild(it); });
   });
-  items.forEach(function(it){ grid.appendChild(it); });
   showToast('ランク順に並び替えました');
 }
 
@@ -1649,13 +1752,15 @@ function applyMemo(map){
 }
 function initMemos(){
   document.querySelectorAll('.pick').forEach(function(pick){
-    pick.addEventListener('click', function(ev){
-      if(ev.target.closest('button, textarea, a')) return;
-      var box=pick.querySelector('.memo-box');
-      if(!box) return;
-      box.hidden=!box.hidden;
-      if(!box.hidden) box.querySelector('textarea').focus();
-    });
+    var toggle=pick.querySelector('.memo-toggle');
+    var box=pick.querySelector('.memo-box');
+    if(toggle && box){
+      toggle.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        box.hidden=!box.hidden;
+        if(!box.hidden) box.querySelector('textarea').focus();
+      });
+    }
     var ta=pick.querySelector('.memo-input');
     if(!ta) return;
     ta.addEventListener('click', function(ev){ ev.stopPropagation(); });
