@@ -129,8 +129,24 @@ main{max-width:var(--maxw);margin:0 auto;padding:clamp(36px,5vw,64px) clamp(18px
 .pick .cut-x{top:9px;right:9px}
 .pick .cut-star{top:9px;right:37px}
 
+/* ランク判定（D/C/B/A/S）— SEC.04本命12案専用 */
+.rank-row{display:flex;gap:5px;margin-top:11px}
+.rank-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .15s;padding:0}
+.rank-btn:hover{border-color:var(--denki);color:var(--denki)}
+.rank-btn.active{background:var(--hanko);border-color:var(--hanko);color:#fff}
+.rank-btn[data-rank="S"].active{background:var(--caution);border-color:var(--caution);color:#5A4310}
+.pick.rejected .rank-btn{pointer-events:none;opacity:.5}
+
+/* カードクリックで開くメモ欄 */
+.pick.has-memo h3::before{content:"📝";margin-right:6px;font-size:14px}
+.memo-box{margin-top:10px}
+.memo-box textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:12.5px;line-height:1.6;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);resize:vertical;min-height:56px}
+.memo-box textarea:focus-visible{outline:2px solid var(--denki);outline-offset:1px}
+
 .pick-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:16px 0 20px;padding:9px 14px;background:var(--paper-hi);border:1px solid var(--rule);border-left:4px solid var(--caution)}
 .pick-bar b{font-family:"Chakra Petch",sans-serif;color:var(--ink);font-size:15px}
+.pick-bar button{font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-2);background:#fff;border:1px solid var(--rule);border-radius:6px;padding:5px 10px;cursor:pointer;transition:all .15s}
+.pick-bar button:hover{border-color:var(--denki);color:var(--denki)}
 
 /* ===== 選定UI（creative-brain-sumimasen-cuts.html 準拠） ===== */
 
@@ -309,7 +325,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
   .collapse-hint{display:none}
 }
 @media print{
-  .spine,.toc,.filter-bar,.collapse-bar,#toast,.cut-x,.cut-star,#bin-section{display:none !important}
+  .spine,.toc,.filter-bar,.collapse-bar,#toast,.cut-x,.cut-star,.rank-row,.memo-box,#bin-section{display:none !important}
   .shell{margin-left:0}
   body{background:#fff}
   .cut.rejected{display:none !important}
@@ -815,7 +831,8 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 
   <div class="pick-bar">
     <span>選定 — 採用 <b id="pick-cnt">0</b> / 12</span>
-    <span>⭐で採用候補、✕でボツ（グレーアウトのまま残ります）。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。</span>
+    <span>⭐で採用候補、✕でボツ（ページ下部のボツ箱へ移動）。カード本体クリックでメモ、D〜Sでランク判定。⌘Z／⌘⇧Zで取り消し・やり直し。選定結果はこの端末に保存されます。</span>
+    <button type="button" onclick="sortPicksByRank('s4')">ランク順に並び替え</button>
   </div>
 
   <div class="card" style="margin-bottom:26px;border-left-color:var(--hanko)">
@@ -837,6 +854,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">MUGON-0</div>
       <p>お題を入れるとAIが本気で最高のボケを生成する。表示される直前、サーボで物理シャッターが降りて隠す。装置は「今のは相当おもしろかった」とだけ報告する。観客は永遠に答えを見られない。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — AI大喜利は既出多数（<a href='https://tech.stockmark.co.jp/blog/denshosen2021/' target='_blank' rel='noopener'>ボケて電笑戦</a>・<a href='https://aismiley.co.jp/ai_news/ai-bokete-camera/' target='_blank' rel='noopener'>bokete camera</a>）<br><b>差別化</b>: 生成したボケを物理シャッターで隠す構造は先行事例なし。核は「AIの性能」ではなく「見せないこと」</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 見せないという一点だけで成立する構造</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -845,6 +870,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">DOGEZA-METER</div>
       <p>額に貼った加速度センサで土下座の角度をリアルタイム計測。85度で「誠意不足」ブザー、90度で合格音。SUMIMASENの土下座スライディング98景がそのまま実演素材になる。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪・土下座を計測するデバイスの先行作は検索で見つからず（ゲーム『超土下座』等はあるがデバイスではない）</div><div class="spec"><b>部品</b> M5StickC（加速度内蔵）＋ブザー ／ <b>難度</b> 低 ／ <b>核</b> 誠意を数値で切り捨てる残酷さ</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -853,6 +886,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">NARUHODO-α</div>
       <p>会議音声を聞き、絶妙なタイミングで頷き、「なるほど」「たしかに」「持ち帰ります」の3語しか言わない。それでも会議が成立してしまう。製品カタログと保証書を作り込み「会社の製品」として売り込む形式で舞台に立つ。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 相槌ロボットは研究・製品とも多数（<a href='https://www.waseda.jp/inst/wias/news/2008/05/21/3732/' target='_blank' rel='noopener'>早稲田ROBISUKE</a>・<a href='https://chizaizukan.com/pickup/interview/42c3pM3fVka4XdsyHW358K/' target='_blank' rel='noopener'>Uh-huh⤴</a>・ヤマハHEARTalk）<br><b>差別化</b>: 「3語しか言わない」制約と、会社の製品として売り込む額縁。技術ではなく構成で差別化する</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋Realtime API ／ <b>難度</b> 中 ／ <b>核</b> AIの無力さではなく、それで足りる社会の側</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -861,6 +902,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">PEKO-30</div>
       <p>電話でお辞儀すると、背後に並んだ30体の小型人形が一斉に同じ角度でお辞儀する。1台では滑るが、30台になると笑いになる。物理でしかできない量の暴力。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 多数のサーボで一斉にお辞儀させる作品は特定できず</div><div class="spec"><b>部品</b> サーボ×30＋PCA9685（サーボドライバ） ／ <b>難度</b> 中 ／ <b>核</b> 数が笑いに転化する閾値の実験</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -869,6 +918,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">TORIKESE-1</div>
       <p>送ってしまったメッセージを物理的に取り消す装置。文面を紙に印字して吸い込み、シュレッダーにかける。既存の作曲アイデア「取り消せ！取り消せ！」がそのまま主題歌になる。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 送信取り消しを物理装置で再現した作品は見つからず</div><div class="spec"><b>部品</b> レシートプリンタ＋モーター＋M5Stack ／ <b>難度</b> 中 ／ <b>核</b> デジタルの不可逆性を物理で無理やり覆す</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -877,6 +934,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SEII-VIEW</div>
       <p>謝罪の声を解析し「誠意 32%」と即座に表示。数値が高いほど装置が疑い、低いほど「正直でよろしい」と褒める。逆転が効いているので謝るほど詰む。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 音声感情認識AIは商用多数（<a href='https://www.cac.co.jp/trends/trend41/' target='_blank' rel='noopener'>Empath</a>・<a href='https://emotion-voice-ai.userlocal.jp/' target='_blank' rel='noopener'>ユーザーローカル</a>・ST Emotion SDK）<br><b>差別化</b>: 既存技術を「誠意」という測れない軸に転用し、高いほど疑うという評価の逆転を入れる</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 測れないものを測る × 評価軸の裏返し</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -885,6 +950,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">GPT-JII</div>
       <p>何を質問しても最終的に昔話に着地する音声AI。最新技術を聞いても「昔はな…」で終わる。既存の動画企画をそのまま実体化した装置で、卓上ロボットの見た目とのギャップが効く。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ChatGPTのキャラ化は既出（お兄ちゃん／お姉ちゃん／おじさん構文プロンプト）。おじいちゃん×昔話固定の作品は未発見<br><b>差別化</b>: プロンプト芸に留めず、卓上ロボットとして物理実体を持たせる点</div><div class="spec"><b>部品</b> スタックチャン＋Realtime API（人格プロンプト） ／ <b>難度</b> 低 ／ <b>核</b> 最先端の器に最も古い中身</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -893,6 +966,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SUMIMASEN-8PAD</div>
       <p>8つのパッドすべてが謝罪音。押すたびに録音済みの土下座が深くなり、8回目で床に着く。「サンプラーでふざけたパフォーマンス」というR-1目標に、装置が直接刺さる一台。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪音に特化したサンプラー機の先行作は見つからず</div><div class="spec"><b>部品</b> M5Stack＋タッチパッド＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 音楽と謝罪という既存2資産の合流点</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -901,6 +982,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SHATSU-IN</div>
       <p>シャツを出すたび、腰に仕込んだ機械が強制的に入れ直す。抵抗すればするほど速くなる。衣装案の「シャツイン」がそのまま装置になり、着るだけで芸になる。</p>
       <div class="fc-line fc-none"><b>⚪ 未検証</b> — 時間の都合により未検証。着手を決めた時点で必ず検索すること</div><div class="spec"><b>部品</b> サーボ＋ベルト機構＋距離センサ ／ <b>難度</b> 中 ／ <b>核</b> 身につけた瞬間に負けが確定する装置</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -909,6 +998,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">WORDART-88</div>
       <p>喋った言葉を音声認識し、90年代のワードアート風テロップに変換してスクリーンに実時間投影する。虹色グラデーション・影付き・無駄な回転つき。舞台で自分の発言が全部ダサくなる。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ワードアート生成ツールは既出（<a href='https://forest.watch.impress.co.jp/docs/serial/netserv/1035176.html' target='_blank' rel='noopener'>Make WordArt</a>・<a href='https://softantenna.com/blog/wordart-generator/' target='_blank' rel='noopener'>WordArt generator</a>）<br><b>差別化</b>: 既存は静的な画像生成。音声認識でリアルタイムに舞台へ投影する点が未踏</div><div class="spec"><b>部品</b> PC＋音声認識＋ブラウザ表示 ／ <b>難度</b> 低 ／ <b>核</b> ダサさを自動生成する装置という発明</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -917,6 +1014,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SUBERI-DETECT</div>
       <p>客席の音量を常時監視し、笑いが3秒間なければ警報が鳴り、照明が青く落ちる。装置が容赦なく自分を裁くので、スベればスベるほど舞台が動く。保険としても優秀。</p>
       <div class="fc-line fc-red"><b>🔴 既出</b> — 笑いの測定は日本のお笑い文脈で既に多数・商用化済み（<a href='https://waraiplus.com/' target='_blank' rel='noopener'>WARAI+「UKETA」</a>・アッハメーター・横隔膜式笑い測定機・<a href='https://prtimes.jp/main/html/rd/p/000000044.000007582.html' target='_blank' rel='noopener'>ウェブレッジ笑度測定ツール</a>）<br><b>差別化</b>: 除外推奨。使うなら「測る」ではなく「測った結果への装置の反応」側に核を移すこと</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LEDテープ ／ <b>難度</b> 低 ／ <b>核</b> 失敗が構造上ネタに変換される安全装置</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
     <article class="pick">
@@ -925,6 +1030,14 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">HEBO-DOGEZA</div>
       <p>前傾姿勢のまま謝り続けて相手を押し出すヘボコン用機体。「すみません」と言いながら進み、勝つと自分から土俵を出て詫びる。ハイテクノロジーペナルティも狙って取りにいく。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — ヘボコン機体としての同一コンセプトは特定できず</div><div class="spec"><b>部品</b> ギヤモーター2＋M5StickC＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 初舞台の予約が取れる唯一の案</div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
+        <button type="button" class="rank-btn" data-rank="D">D</button>
+        <button type="button" class="rank-btn" data-rank="C">C</button>
+        <button type="button" class="rank-btn" data-rank="B">B</button>
+        <button type="button" class="rank-btn" data-rank="A">A</button>
+        <button type="button" class="rank-btn" data-rank="S">S</button>
+      </div>
+      <div class="memo-box" hidden><textarea class="memo-input" placeholder="メモを入力…" rows="3"></textarea></div>
     </article>
 
   </div>
@@ -1207,7 +1320,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 <footer>
   <div class="fin">
     <span class="code">DOC-NMW-002 ／ REV.3.0 ／ 総案数 129</span>
-    <span>最終更新：2026年8月2日 19:00</span>
+    <span>最終更新：2026年8月10日 21:29</span>
   </div>
 </footer>
 
@@ -1274,12 +1387,12 @@ var BIN_KEY='nmw-ideas-rejected-v1';
 
 function saveBin(){
   var nos=[];
-  document.querySelectorAll('#bin-grid .cut').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
+  document.querySelectorAll('#bin-grid .cut, #bin-grid .pick').forEach(function(c){ nos.push(c.getAttribute('data-no')); });
   try{ localStorage.setItem(BIN_KEY, JSON.stringify(nos)); }catch(e){}
 }
 function updateBin(){
   var grid=document.getElementById('bin-grid');
-  var n=grid.querySelectorAll('.cut').length;
+  var n=grid.children.length;
   document.getElementById('bin-count').textContent=n;
   document.getElementById('bin-section').style.display=n?'':'none';
 }
@@ -1288,11 +1401,12 @@ function sortGrid(grid){
   items.sort(function(a,b){ return a.getAttribute('data-no').localeCompare(b.getAttribute('data-no'),undefined,{numeric:true}); });
   items.forEach(function(it){ grid.appendChild(it); });
 }
+/* .cut・.pick 共通：✕でページ下部のボツ箱（#bin-grid）へ実際に移動する */
 function rejectCut(el){
   el.classList.add('rejected');
   var x=el.querySelector('.cut-x');
   x.textContent='↩'; x.title='元に戻す';
-  if(el.classList.contains('cut')) document.getElementById('bin-grid').appendChild(el);
+  document.getElementById('bin-grid').appendChild(el);
 }
 function restoreCut(el){
   el.classList.remove('rejected');
@@ -1302,8 +1416,11 @@ function restoreCut(el){
     var cat=el.getAttribute('data-cat');
     var grid=document.querySelector('section.cat[data-cat="'+cat+'"] .grid');
     if(grid){ grid.appendChild(el); sortGridAdoptedFirst(grid); }
+  } else if(el.classList.contains('pick')){
+    var home=el.getAttribute('data-home');
+    var pgrid=home && document.querySelector('#'+home+' .pick-grid');
+    if(pgrid){ pgrid.appendChild(el); sortPickGridAdoptedFirst(pgrid); }
   }
-  /* .pick はボツでも元の位置に留まる（グレーアウトのみ） */
 }
 function toggleBin(ev,btn){
   ev.stopPropagation();
@@ -1314,38 +1431,36 @@ function toggleBin(ev,btn){
 }
 function _applyRejectToggle(el,makeRejected){
   if(makeRejected) rejectCut(el); else restoreCut(el);
-  if(el.classList.contains('cut')){ updateBin(); saveBin(); }
-  else { savePickRejected(); }
+  updateBin(); saveBin();
 }
 function applyRejected(nos){
   nos=(nos||[]).map(String);
-  document.querySelectorAll('#bin-grid .cut').forEach(function(cut){
-    if(nos.indexOf(cut.getAttribute('data-no'))===-1) restoreCut(cut);
+  document.querySelectorAll('#bin-grid .cut, #bin-grid .pick').forEach(function(el){
+    if(nos.indexOf(el.getAttribute('data-no'))===-1) restoreCut(el);
   });
   nos.forEach(function(no){
-    var cut=document.querySelector('.cut[data-no="'+no+'"]');
-    if(!cut) return;
-    if(!cut.classList.contains('rejected')) rejectCut(cut);
-    else document.getElementById('bin-grid').appendChild(cut);
+    var el=document.querySelector('.cut[data-no="'+no+'"], .pick[data-no="'+no+'"]');
+    if(!el) return;
+    if(!el.classList.contains('rejected')) rejectCut(el);
+    else document.getElementById('bin-grid').appendChild(el);
   });
   updateBin();
 }
-
-/* ===== PICK（本命12案）専用ボツ永続化 — バイン移動なしで所定位置に留める ===== */
-var PICK_REJECT_KEY='nmw-ideas-pick-rejected-v1';
-function savePickRejected(){
-  var nos=[];
-  document.querySelectorAll('.pick.rejected').forEach(function(p){ nos.push(p.getAttribute('data-no')); });
-  try{ localStorage.setItem(PICK_REJECT_KEY, JSON.stringify(nos)); }catch(e){}
-}
-function applyPickRejected(nos){
-  nos=(nos||[]).map(String);
-  document.querySelectorAll('.pick').forEach(function(p){
-    var no=p.getAttribute('data-no');
-    var should=nos.indexOf(no)>=0;
-    if(should && !p.classList.contains('rejected')) rejectCut(p);
-    else if(!should && p.classList.contains('rejected')) restoreCut(p);
-  });
+/* 旧仕様（PICK専用・バイン移動なしでグレーアウトのみ残す方式）で保存済みのボツ判定を
+   新仕様（.cut と同じくボツ箱へ実際に移動）の保存先へ1回だけ引き継ぐ。
+   2026-08-10、SEC.04も他セクションと同じボツ箱移動方式へ統一した際に追加。 */
+function migratePickRejected(){
+  var OLD_KEY='nmw-ideas-pick-rejected-v1';
+  var raw=null;
+  try{ raw=localStorage.getItem(OLD_KEY); }catch(e){}
+  if(raw===null) return;
+  var oldNos=[]; try{ oldNos=JSON.parse(raw)||[]; }catch(e){ oldNos=[]; }
+  if(oldNos.length){
+    var binNos=[]; try{ binNos=JSON.parse(localStorage.getItem(BIN_KEY)||'[]'); }catch(e){ binNos=[]; }
+    oldNos.forEach(function(no){ if(binNos.indexOf(String(no))===-1) binNos.push(String(no)); });
+    try{ localStorage.setItem(BIN_KEY, JSON.stringify(binNos)); }catch(e){}
+  }
+  try{ localStorage.removeItem(OLD_KEY); }catch(e){}
 }
 
 /* ===== ⭐/✕ ボタン注入（カタログ .cut と本命 .pick の両方） ===== */
@@ -1376,6 +1491,8 @@ function injectButtons(){
     var modelEl=pick.querySelector('.model');
     if(!modelEl) return;
     pick.setAttribute('data-no', modelEl.textContent.trim());
+    var homeSec=pick.closest('section.sec');
+    if(homeSec) pick.setAttribute('data-home', homeSec.id);
     addSelectButtons(pick);
   });
 }
@@ -1450,6 +1567,103 @@ function sortPickGridAdoptedFirst(grid){
 }
 function sortAllPickAdoptedFirst(){
   document.querySelectorAll('.pick-grid').forEach(function(g){ sortPickGridAdoptedFirst(g); });
+}
+
+/* ===== ランク判定（D/C/B/A/S）— SEC.04本命12案専用 ===== */
+var RANK_KEY='nmw-ideas-pick-rank-v1';
+var RANK_ORDER={S:0,A:1,B:2,C:3,D:4};
+function saveRank(){
+  var map={};
+  document.querySelectorAll('.pick[data-rank]').forEach(function(p){
+    var r=p.getAttribute('data-rank');
+    if(r) map[p.getAttribute('data-no')]=r;
+  });
+  try{ localStorage.setItem(RANK_KEY, JSON.stringify(map)); }catch(e){}
+}
+function setRank(pick,rank){
+  var was=pick.getAttribute('data-rank')||'';
+  var next=(was===rank)?'':rank; /* 同じランクを再クリックしたら解除 */
+  if(next) pick.setAttribute('data-rank',next); else pick.removeAttribute('data-rank');
+  pick.querySelectorAll('.rank-btn').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-rank')===next);
+  });
+  saveRank();
+}
+function applyRank(map){
+  document.querySelectorAll('.pick').forEach(function(p){
+    var r=map[p.getAttribute('data-no')];
+    if(!r) return;
+    p.setAttribute('data-rank',r);
+    p.querySelectorAll('.rank-btn').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-rank')===r); });
+  });
+}
+function initRanks(){
+  document.querySelectorAll('.pick .rank-btn').forEach(function(btn){
+    btn.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      setRank(btn.closest('.pick'), btn.getAttribute('data-rank'));
+    });
+  });
+  var map={};
+  try{ map=JSON.parse(localStorage.getItem(RANK_KEY)||'{}'); }catch(e){ map={}; }
+  applyRank(map);
+}
+/* ランク未判定は末尾へ回す（S→A→B→C→D→未判定）。ボツ箱へ移動済みのカードは
+   .pick-grid の子ではなくなっているため対象外になる（ボツ後のランクソートは対象外でよい）。 */
+function sortPicksByRank(secId){
+  var grid=document.querySelector('#'+secId+' .pick-grid');
+  if(!grid) return;
+  var items=Array.prototype.slice.call(grid.querySelectorAll(':scope > .pick'));
+  items.sort(function(a,b){
+    var ra=RANK_ORDER[a.getAttribute('data-rank')]; if(ra===undefined) ra=99;
+    var rb=RANK_ORDER[b.getAttribute('data-rank')]; if(rb===undefined) rb=99;
+    return ra-rb;
+  });
+  items.forEach(function(it){ grid.appendChild(it); });
+  showToast('ランク順に並び替えました');
+}
+
+/* ===== メモ — カード本体クリックでトグル表示・blurで自動保存 ===== */
+var MEMO_KEY='nmw-ideas-pick-memo-v1';
+function saveMemo(){
+  var map={};
+  document.querySelectorAll('.pick').forEach(function(p){
+    var ta=p.querySelector('.memo-input');
+    if(ta && ta.value.trim()) map[p.getAttribute('data-no')]=ta.value;
+  });
+  try{ localStorage.setItem(MEMO_KEY, JSON.stringify(map)); }catch(e){}
+}
+function applyMemo(map){
+  document.querySelectorAll('.pick').forEach(function(p){
+    var v=map[p.getAttribute('data-no')];
+    if(!v) return;
+    var ta=p.querySelector('.memo-input');
+    var box=p.querySelector('.memo-box');
+    if(ta){ ta.value=v; }
+    if(box){ box.hidden=false; }
+    p.classList.add('has-memo');
+  });
+}
+function initMemos(){
+  document.querySelectorAll('.pick').forEach(function(pick){
+    pick.addEventListener('click', function(ev){
+      if(ev.target.closest('button, textarea, a')) return;
+      var box=pick.querySelector('.memo-box');
+      if(!box) return;
+      box.hidden=!box.hidden;
+      if(!box.hidden) box.querySelector('textarea').focus();
+    });
+    var ta=pick.querySelector('.memo-input');
+    if(!ta) return;
+    ta.addEventListener('click', function(ev){ ev.stopPropagation(); });
+    ta.addEventListener('blur', function(){
+      pick.classList.toggle('has-memo', ta.value.trim().length>0);
+      saveMemo();
+    });
+  });
+  var map={};
+  try{ map=JSON.parse(localStorage.getItem(MEMO_KEY)||'{}'); }catch(e){ map={}; }
+  applyMemo(map);
 }
 
 /* ===== Undo / Redo (⌘Z / ⌘⇧Z) ===== */
@@ -1539,15 +1753,15 @@ function initCollapseHandlers(){
   injectButtons();
   applyCollapsed();
   initCollapseHandlers();
+  migratePickRejected();
   var adopted=[];
   try{ adopted=JSON.parse(localStorage.getItem(ADOPTED_KEY)||'[]'); }catch(e){}
   applyAdopted(adopted);
   var rejected=[];
   try{ rejected=JSON.parse(localStorage.getItem(BIN_KEY)||'[]'); }catch(e){}
   applyRejected(rejected);
-  var pickRejected=[];
-  try{ pickRejected=JSON.parse(localStorage.getItem(PICK_REJECT_KEY)||'[]'); }catch(e){}
-  applyPickRejected(pickRejected);
+  initRanks();
+  initMemos();
 })();
 </script>
 
