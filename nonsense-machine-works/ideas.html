@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>アイデアの泉 ｜ ナンセンス機械製作所 装置カタログ DOC-NMW-002</title>
 <meta name="description" content="Issyの価値観・テイスト・既存資産（SUMIMASEN 411景／作曲アイデア群／影響を受けたコンテンツ）から、AI×フィジカルデバイスで作れるネタと装置を132案まで展開した発想カタログ。6つの変換式つき。">
-<meta name="last-modified" content="2026-08-10T21:54+09:00">
+<meta name="last-modified" content="2026-08-10T22:00+09:00">
 <meta property="og:type" content="article">
 <meta property="og:title" content="アイデアの泉｜ナンセンス機械製作所 装置カタログ">
 <meta property="og:description" content="価値観と既存資産から、AI×フィジカルで作れる「役に立たない装置」を132案。6つの変換式で無限に汲める発想エンジンつき。">
@@ -146,6 +146,13 @@ main{max-width:var(--maxw);margin:0 auto;padding:clamp(36px,5vw,64px) clamp(18px
 .memo-box{margin-top:10px}
 .memo-box textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:12.5px;line-height:1.6;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);resize:vertical;min-height:56px}
 .memo-box textarea:focus-visible{outline:2px solid var(--denki);outline-offset:1px}
+
+/* R-1実戦仕様（100点化ブロック） */
+.r1-box{margin-top:11px;border:2px solid var(--caution);background:#FFFBEA;padding:11px 13px;border-radius:8px}
+.r1-head{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;color:#8A6E22;margin-bottom:7px}
+.r1-box p{font-size:12.5px;margin:0 0 7px;line-height:1.7}
+.r1-box p:last-child{margin-bottom:0}
+.r1-box p.r1-kill{font-weight:700;font-size:13.5px;color:var(--hanko)}
 
 .pick-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:16px 0 20px;padding:9px 14px;background:var(--paper-hi);border:1px solid var(--rule);border-left:4px solid var(--caution)}
 .pick-bar b{font-family:"Chakra Petch",sans-serif;color:var(--ink);font-size:15px}
@@ -587,7 +594,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 
 <section class="sec" id="s3">
   <div class="sec-head"><span class="sec-no">SEC. 03</span><h2>初期試作アイデア（23案）</h2></div>
-  <p class="sec-sub">第1世代の118案のうち、①貴殿の芯に合致し ②第1〜2工程の技術で作れて ③舞台で3分持つ、の3条件を満たす<b>初期試作12案</b>と、ボツ82案の仕分けから確定した除外5軸を通し生成・査定し直した<b>第2世代「製品ラインナップ」11機種</b>（IIS規格・課長ライン／センセイライン／バショチガイライン）を、この節に統合しました。<b>この23案は全件、世の中に同じものが既に無いかを検索で照合済み</b>です。判定と出典を各カードに記載しています。</p>
+  <p class="sec-sub">第1世代の118案のうち、①貴殿の芯に合致し ②第1〜2工程の技術で作れて ③舞台で3分持つ、の3条件を満たす<b>初期試作12案</b>と、ボツ82案の仕分けから確定した除外5軸を通し生成・査定し直した<b>第2世代「製品ラインナップ」11機種</b>（IIS規格・課長ライン／センセイライン／バショチガイライン）を、この節に統合しました。<b>この23案は全件、世の中に同じものが既に無いかを検索で照合済み</b>です。判定と出典を各カードに記載しています。<br><b>2026-08-10更新</b>：従来の全案を50点とみなし、<b>「ピン芸として通用するか」「R-1グランプリ3回戦以上で戦えるか」</b>を100点とする実戦基準へ更新しました。全23案に<b>R-1実戦仕様</b>（キラーフレーズ／3分ビート／50→100の一手／スベった時の保険）を実装済みです。</p>
 
   <div class="pick-bar">
     <span>選定 — 採用 <b id="pick-cnt">0</b> / 23</span>
@@ -614,6 +621,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">MUGON-0</div>
       <p>お題を入れるとAIが本気で最高のボケを生成する。表示される直前、サーボで物理シャッターが降りて隠す。装置は「今のは相当おもしろかった」とだけ報告する。観客は永遠に答えを見られない。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — AI大喜利は既出多数（<a href='https://tech.stockmark.co.jp/blog/denshosen2021/' target='_blank' rel='noopener'>ボケて電笑戦</a>・<a href='https://aismiley.co.jp/ai_news/ai-bokete-camera/' target='_blank' rel='noopener'>bokete camera</a>）<br><b>差別化</b>: 生成したボケを物理シャッターで隠す構造は先行事例なし。核は「AIの性能」ではなく「見せないこと」</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 見せないという一点だけで成立する構造</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「今のボケは、人類にはまだ早い。」</p>
+        <p><b>3分ビート</b>　0:00 「AIは人間より面白い。証明します」と研究発表の体で開始 → 1:00 お題投入→生成音→表示直前にシャッター降下。「今のは84点の面白さでした」 → 2:00 続けるほど評価だけがインフレ（92点→測定不能）。対抗して生でボケると装置「参考にします」 → 2:45 最後の大技でシャッターが開く——白紙。「面白すぎたため、自動的に削除しました」</p>
+        <p><b>50→100の一手</b>　「見せない」を1回で終わらせず、評価数値だけが積み上がる3段エスカレーションにする。観客の想像力そのものを最大のボケ装置に変える　／　<b>保険</b>　装置が固まったら「今、傑作が生まれています」で無限に引き延ばせる</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -631,6 +644,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">DOGEZA-METER</div>
       <p>額に貼った加速度センサで土下座の角度をリアルタイム計測。85度で「誠意不足」ブザー、90度で合格音。SUMIMASENの土下座スライディング98景がそのまま実演素材になる。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪・土下座を計測するデバイスの先行作は検索で見つからず（ゲーム『超土下座』等はあるがデバイスではない）</div><div class="spec"><b>部品</b> M5StickC（加速度内蔵）＋ブザー ／ <b>難度</b> 低 ／ <b>核</b> 誠意を数値で切り捨てる残酷さ</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「角度は完璧です。心が、0度です。」</p>
+        <p><b>3分ビート</b>　0:00 国家資格「土下座検定」実技試験として開会宣言 → 1:00 浅いと「誠意不足」、深くすると「わざとらしい」——合格ラインを永遠に見せない → 2:00 完璧な90度を出す→「機械のような土下座ですね」と機械に言われる → 2:45 姿勢を保ったまま動けなくなり「合格です。ただし人間性は不合格」</p>
+        <p><b>50→100の一手</b>　「測る箱」から「精神論を言い出す計測器」へ人格転換する（採用済みの誠意可視化メーターと同じ評価軸の裏返しを移植）　／　<b>保険</b>　センサ不調は「計測不能なほどの誠意」と読み替えて回収できる</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -648,6 +667,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">NARUHODO-α</div>
       <p>会議音声を聞き、絶妙なタイミングで頷き、「なるほど」「たしかに」「持ち帰ります」の3語しか言わない。それでも会議が成立してしまう。製品カタログと保証書を作り込み「会社の製品」として売り込む形式で舞台に立つ。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 相槌ロボットは研究・製品とも多数（<a href='https://www.waseda.jp/inst/wias/news/2008/05/21/3732/' target='_blank' rel='noopener'>早稲田ROBISUKE</a>・<a href='https://chizaizukan.com/pickup/interview/42c3pM3fVka4XdsyHW358K/' target='_blank' rel='noopener'>Uh-huh⤴</a>・ヤマハHEARTalk）<br><b>差別化</b>: 「3語しか言わない」制約と、会社の製品として売り込む額縁。技術ではなく構成で差別化する</div><div class="spec"><b>部品</b> M5Stack＋サーボ1＋Realtime API ／ <b>難度</b> 中 ／ <b>核</b> AIの無力さではなく、それで足りる社会の側</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「その件は、持ち帰らせていただきます。」——自分の製品発表を。</p>
+        <p><b>3分ビート</b>　0:00 働き方改革の新製品として真面目に発表 → 1:00 実演会議。3語だけで会議が成立してしまう（1回目成功） → 2:00 「本当に理解してる？」と問い詰める→「なるほど」。急かすと「たしかに」 → 2:45 装置がこの発表そのものに「持ち帰ります」と宣言し、発表会ごと持ち帰られて暗転</p>
+        <p><b>50→100の一手</b>　3語の無敵さを段階的に追い詰めて見せた末、舞台の主導権ごと装置に奪われるメタ転回で締める　／　<b>保険</b>　無応答時は「現在、持ち帰り中です」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -665,6 +690,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">PEKO-30</div>
       <p>電話でお辞儀すると、背後に並んだ30体の小型人形が一斉に同じ角度でお辞儀する。1台では滑るが、30台になると笑いになる。物理でしかできない量の暴力。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 多数のサーボで一斉にお辞儀させる作品は特定できず</div><div class="spec"><b>部品</b> サーボ×30＋PCA9685（サーボドライバ） ／ <b>難度</b> 中 ／ <b>核</b> 数が笑いに転化する閾値の実験</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「29体は、反省しております。」</p>
+        <p><b>3分ビート</b>　0:00 「謝罪の生産性を30倍にしました」と量産の思想を語る → 1:00 30体一斉お辞儀の壮観（機構美で1笑い目） → 2:00 1体だけ頭を下げない個体が発覚。個別指導する間も残る29体は謝り続ける → 2:45 手本の土下座を見せると、30体が一斉にこちらへお辞儀を返し、謝られる側になって終了</p>
+        <p><b>50→100の一手</b>　数の暴力だけでは1笑いで終わる。「反抗する1体」を仕込んで物語を発生させ、最後に矛先を自分へ返す　／　<b>保険</b>　動かない個体は「あいつは今、考えてます」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -682,6 +713,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">TORIKESE-1</div>
       <p>送ってしまったメッセージを物理的に取り消す装置。文面を紙に印字して吸い込み、シュレッダーにかける。既存の作曲アイデア「取り消せ！取り消せ！」がそのまま主題歌になる。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 送信取り消しを物理装置で再現した作品は見つからず</div><div class="spec"><b>部品</b> レシートプリンタ＋モーター＋M5Stack ／ <b>難度</b> 中 ／ <b>核</b> デジタルの不可逆性を物理で無理やり覆す</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「なお、相手は既読です。」</p>
+        <p><b>3分ビート</b>　0:00 「送信取り消しを物理で実現しました」 → 1:00 黒歴史メッセージを印字→吸引→シュレッダー（カタルシスの1笑い目） → 2:00 装置が「取り消し証明書」を発行し始める → 2:45 証明書に取り消した文面が全文印刷されている。「記録のためです」</p>
+        <p><b>50→100の一手</b>　「消した証明書が最大の証拠になる」自己矛盾ループを核に据える　／　<b>保険</b>　紙詰まりは「過去が、詰まりました」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -699,6 +736,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SEII-VIEW</div>
       <p>謝罪の声を解析し「誠意 32%」と即座に表示。数値が高いほど装置が疑い、低いほど「正直でよろしい」と褒める。逆転が効いているので謝るほど詰む。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 音声感情認識AIは商用多数（<a href='https://www.cac.co.jp/trends/trend41/' target='_blank' rel='noopener'>Empath</a>・<a href='https://emotion-voice-ai.userlocal.jp/' target='_blank' rel='noopener'>ユーザーローカル</a>・ST Emotion SDK）<br><b>差別化</b>: 既存技術を「誠意」という測れない軸に転用し、高いほど疑うという評価の逆転を入れる</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LLM ／ <b>難度</b> 低 ／ <b>核</b> 測れないものを測る × 評価軸の裏返し</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「誠意100%。ただし、無効。」</p>
+        <p><b>3分ビート</b>　0:00 謝罪の科学的評価を宣言 → 1:00 棒読み謝罪→「誠意3%。正直でよろしい」（評価軸の逆転を提示） → 2:00 熱演するほど「演技を検出しました」と減点される → 2:45 無言の土下座→「誠意100%。ただし無言のため無効」</p>
+        <p><b>50→100の一手</b>　高得点の条件を最後まで明かさない審査員型にし、「謝るほど詰む」を3段で見せ切る　／　<b>保険</b>　数値が出ない時は「誠意が、測定範囲を超えました」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -716,6 +759,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">GPT-JII</div>
       <p>何を質問しても最終的に昔話に着地する音声AI。最新技術を聞いても「昔はな…」で終わる。既存の動画企画をそのまま実体化した装置で、卓上ロボットの見た目とのギャップが効く。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ChatGPTのキャラ化は既出（お兄ちゃん／お姉ちゃん／おじさん構文プロンプト）。おじいちゃん×昔話固定の作品は未発見<br><b>差別化</b>: プロンプト芸に留めず、卓上ロボットとして物理実体を持たせる点</div><div class="spec"><b>部品</b> スタックチャン＋Realtime API（人格プロンプト） ／ <b>難度</b> 低 ／ <b>核</b> 最先端の器に最も古い中身</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「ワシが最新じゃった頃はな。」</p>
+        <p><b>3分ビート</b>　0:00 最新AIアシスタントとして紹介 → 1:00 天気を聞くと「昔は空を見りゃ分かった」と実用性ゼロの回答 → 2:00 最新AI事情を尋ねると、AIが自分の昔話を始める → 2:45 アップデートを試みる→「わしゃこのままでええ」と拒否。再起動しても昔話の続きから再開</p>
+        <p><b>50→100の一手</b>　「おじいちゃん風AI」ではなく「AI自身が老いる」への転換。テクノロジーの加齢という誰もやっていない笑いに核を移す　／　<b>保険</b>　無応答は「寝てます」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -733,6 +782,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SUMIMASEN-8PAD</div>
       <p>8つのパッドすべてが謝罪音。押すたびに録音済みの土下座が深くなり、8回目で床に着く。「サンプラーでふざけたパフォーマンス」というR-1目標に、装置が直接刺さる一台。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 謝罪音に特化したサンプラー機の先行作は見つからず</div><div class="spec"><b>部品</b> M5Stack＋タッチパッド＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 音楽と謝罪という既存2資産の合流点</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「土下座が深すぎて、パッドに届きません。」</p>
+        <p><b>3分ビート</b>　0:00 音楽機材として真面目にビートメイクを宣言 → 1:00 全パッド謝罪音なのに意外とグルーヴする（1回目成功） → 2:00 押すたび内蔵ノルマで姿勢が沈み、演奏フォームが崩壊していく → 2:45 ラスサビ直前、深すぎて手が届かず無音。「申し訳ございません」のロングトーンだけが残響する</p>
+        <p><b>50→100の一手</b>　「音が謝罪」は出オチ。演奏の上手さと謝罪の深さがトレードオフになる構造にして、上手いほど詰むようにする　／　<b>保険</b>　音が出ない時は「音まで、謝罪を控えております」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -750,6 +805,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SHATSU-IN</div>
       <p>シャツを出すたび、腰に仕込んだ機械が強制的に入れ直す。抵抗すればするほど速くなる。衣装案の「シャツイン」がそのまま装置になり、着るだけで芸になる。</p>
       <div class="fc-line fc-none"><b>⚪ 未検証</b> — 時間の都合により未検証。着手を決めた時点で必ず検索すること</div><div class="spec"><b>部品</b> サーボ＋ベルト機構＋距離センサ ／ <b>難度</b> 中 ／ <b>核</b> 身につけた瞬間に負けが確定する装置</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「以上が、正装です。」</p>
+        <p><b>3分ビート</b>　0:00 身だしなみ自動化の製品デモ → 1:00 シャツを出した瞬間の即イン（1回目成功） → 2:00 動くたび過剰化。ネクタイ、ジャケットの裾までインされる → 2:45 ズボンごと胸まで引き上げられ、90年代ハイウエストが完成して「正装です」</p>
+        <p><b>50→100の一手</b>　「直す」装置から「時代を巻き戻す」装置へ。矯正の到達点を2026年ではなく1992年に設定する　／　<b>保険</b>　動かない時は「本日は、クールビズです」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -767,6 +828,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">WORDART-88</div>
       <p>喋った言葉を音声認識し、90年代のワードアート風テロップに変換してスクリーンに実時間投影する。虹色グラデーション・影付き・無駄な回転つき。舞台で自分の発言が全部ダサくなる。</p>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ワードアート生成ツールは既出（<a href='https://forest.watch.impress.co.jp/docs/serial/netserv/1035176.html' target='_blank' rel='noopener'>Make WordArt</a>・<a href='https://softantenna.com/blog/wordart-generator/' target='_blank' rel='noopener'>WordArt generator</a>）<br><b>差別化</b>: 既存は静的な画像生成。音声認識でリアルタイムに舞台へ投影する点が未踏</div><div class="spec"><b>部品</b> PC＋音声認識＋ブラウザ表示 ／ <b>難度</b> 低 ／ <b>核</b> ダサさを自動生成する装置という発明</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：画面いっぱいの「申し訳ございません」（虹色・回転・紙吹雪つき）。</p>
+        <p><b>3分ビート</b>　0:00 「発言を字幕で支援する福祉機器です」と真面目に導入 → 1:00 挨拶が虹色回転ワードアート化（1回目成功） → 2:00 話が真剣になるほどダサくなる。決意表明が全部3D影付きで飛び出す → 2:45 謝罪の言葉に紙吹雪と祝福ファンファーレ。会場だけ祝賀ムードで幕</p>
+        <p><b>50→100の一手</b>　ダサさをランダムではなく「発言の真剣度に比例」させる。一番シリアスな瞬間に最大火力が出る設計にする　／　<b>保険</b>　表示が死んだら「言葉を、失いました」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -784,6 +851,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">SUBERI-DETECT</div>
       <p>客席の音量を常時監視し、笑いが3秒間なければ警報が鳴り、照明が青く落ちる。装置が容赦なく自分を裁くので、スベればスベるほど舞台が動く。保険としても優秀。</p>
       <div class="fc-line fc-red"><b>🔴 既出</b> — 笑いの測定は日本のお笑い文脈で既に多数・商用化済み（<a href='https://waraiplus.com/' target='_blank' rel='noopener'>WARAI+「UKETA」</a>・アッハメーター・横隔膜式笑い測定機・<a href='https://prtimes.jp/main/html/rd/p/000000044.000007582.html' target='_blank' rel='noopener'>ウェブレッジ笑度測定ツール</a>）<br><b>差別化</b>: 除外推奨。使うなら「測る」ではなく「測った結果への装置の反応」側に核を移すこと</div><div class="spec"><b>部品</b> M5Stack＋マイク＋LEDテープ ／ <b>難度</b> 低 ／ <b>核</b> 失敗が構造上ネタに変換される安全装置</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「ただいまの静寂は、余韻と判定します。」</p>
+        <p><b>3分ビート</b>　0:00 スベリ対策の保険として舞台に設置を宣言 → 1:00 ネタ→無音→警報と青照明（装置に裁かれる1笑い目） → 2:00 装置が客席に反論を開始。「今の静寂は余韻です」 → 2:45 客が笑うと「この笑いは私宛です」と手柄を横取りし、スベリ記録だけが更新されて終了</p>
+        <p><b>50→100の一手</b>　「測って裁く」で終えず、判定に対して装置が世論工作を始める人格を与える（既出の笑い測定機と決定的に分かれる一点）　／　<b>保険</b>　センサ死は「スベリが、観測できる範囲を超えました」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -801,6 +874,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="model code">HEBO-DOGEZA</div>
       <p>前傾姿勢のまま謝り続けて相手を押し出すヘボコン用機体。「すみません」と言いながら進み、勝つと自分から土俵を出て詫びる。ハイテクノロジーペナルティも狙って取りにいく。</p>
       <div class="fc-line fc-green"><b>🟢 新規</b> — ヘボコン機体としての同一コンセプトは特定できず</div><div class="spec"><b>部品</b> ギヤモーター2＋M5StickC＋スピーカー ／ <b>難度</b> 低 ／ <b>核</b> 初舞台の予約が取れる唯一の案</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1実戦仕様（50点→100点化）</div>
+        <p class="r1-kill">キラー：「勝ってしまい、誠に申し訳ございません。」</p>
+        <p><b>3分ビート</b>　0:00 ヘボコン参戦機として機体プレゼン → 1:00 前傾で「すみません」と言いながら進む実演 → 2:00 勝った瞬間、自分から土俵を出て敗者に詫びる → 2:45 表彰も辞退し、辞退コメントが優勝スピーチより長くなって幕</p>
+        <p><b>50→100の一手</b>　「謝りながら押す」で終えず「勝利すら謝罪の機会」という一貫人格に。勝っても負けても土下座で終わる無敵構造にする　／　<b>保険</b>　動かない時は「恐縮して、動けません」</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -891,7 +970,11 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
     </div>
 
     <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 「AI上司」はソフトウェアとして既に事業化済み（<a href="https://www.nikkei.com/article/DGXZQOCD1252Q0S5A211C2000000/" target="_blank" rel="noopener">あえて叱責する「鬼コーチ」AI上司・日経</a>／<a href="https://www.nikkei.com/article/DGKKZO92024070Y5A011C2EA5000/" target="_blank" rel="noopener">KDDIのAI上司</a>／書籍『上司がAIになりました』）。ハラスメント研修VRも商用普及済み（<a href="https://www.nttexc.co.jp/solution/training/vr_harassment/" target="_blank" rel="noopener">NTT ExCパートナー</a>）。昭和上司コントも定番（<a href="https://www.youtube.com/watch?v=YkE3wgW9FCY" target="_blank" rel="noopener">ネルソンズ「上司の説教」</a>）。<br><b>差別化</b>: 先行はすべて<b>真面目な研修・実用</b>目的か映像作品。①笑いを目的とした②<b>物理アバターロボット</b>で③矛先が本人のみ——この交点は検索で発見できず。技術土台は<a href="https://deviceplus.jp/mc-general/m5stack-chatgpt-aistack-chan" target="_blank" rel="noopener">スタックチャン＋ChatGPT連携のOSS</a>が使える</div>
-    <div class="spec"><b>部品</b> M5Stack Core2（¥8,129・<a href="https://www.switch-science.com/products/11050" target="_blank" rel="noopener">実売確認済</a>）＋SG90サーボ×5（¥3,575）＋PCA9685＋振動モーター＋スピーカー＋モバイルバッテリー（電源切れないオチ用）＋NFCリーダー＋名刺タグ＋外装 ／ <b>概算</b> 約22,000〜25,000円 ／ <b>難度</b> 中 ／ <b>採点</b> 97点</div>
+    <div class="spec"><b>部品</b> M5Stack Core2（¥8,129・<a href="https://www.switch-science.com/products/11050" target="_blank" rel="noopener">実売確認済</a>）＋SG90サーボ×5（¥3,575）＋PCA9685＋振動モーター＋スピーカー＋モバイルバッテリー（電源切れないオチ用）＋NFCリーダー＋名刺タグ＋外装 ／ <b>概算</b> 約22,000〜25,000円 ／ <b>難度</b> 中 ／ <b>旧採点（額縁基準）</b> 97点</div>
+      <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　R-1はつかみ30秒が生死線。前半の真面目デモを30秒に圧縮し、猪口腕を開始1分以内に必ず出す　／　<b>保険</b>　無反応になったら「…すねてます。昭和の上司は、すねるんです」で人格に回収</p>
+      </div>
       <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
@@ -922,8 +1005,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 起動時に「講義時間 残り3:00」がLEDに表示され、講義が長引くほど貴殿の演奏枠が減る。カウントダウンが客席にも見えるため、緊張が共有される</div>
       <div class="asset"><b>効く資産</b> サンプラー実機とパフォーマンス志向。演奏技術が上がるほど前半が強くなり、<b>練習がそのままネタ磨きになる</b></div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 「演奏を妨害して指導する装置」は先行事例なし（SpeechJammerは発話妨害のみで指導人格を持たない）</div>
-      <div class="spec"><b>部品</b> M5Stack Core2＋MG996Rアーム＋圧電センサー＋SP-404実機 ／ <b>採点</b> 95点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack Core2＋MG996Rアーム＋圧電センサー＋SP-404実機 ／ <b>旧採点（額縁基準）</b> 95点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　制止が早まる間隔をLEDカウントで客に見せ、最後の「ポン」の前に3秒の完全静止を置いて緊張の頂点を作る　／　<b>保険</b>　アーム不動は「…今のが、間です」——キラーを保険に兼用できる</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -943,8 +1030,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 「謝罪研修は1コマ3分」という研修所設定。冒頭に本日のカリキュラムを読み上げ、残り10秒で修了試験</div>
       <div class="asset"><b>効く資産</b> <b>SUMIMASENの謝罪411景</b>。装置は「世界の謝罪411種を学習済み」という設定で、その場でデータベースから型番を引いて指導する＝本編と世界観が接続する</div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 「謝らない謝罪コーチ」は先行事例なし。藤原麻里菜「謝罪メールパンチングマシーン」は謝罪文入力装置で方向が別</div>
-      <div class="spec"><b>部品</b> M5Stack Core2＋お辞儀サーボ＋物倒しアーム＋加速度センサー ／ <b>採点</b> 96点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack Core2＋お辞儀サーボ＋物倒しアーム＋加速度センサー ／ <b>旧採点（額縁基準）</b> 96点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　装置の「史上最悪のお辞儀」を最初は音だけ→修了試験で全身実演、の2段出しにして最大の絵を温存する　／　<b>保険</b>　水こぼしの失敗は「これも、研修です」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -964,8 +1055,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> <span class="fix">私の修正</span>：当初案の「読経しながらツッコむ」は物理的に不可能でした。<b>赤ペンが入るたび物理的に読経が中断され、貴殿は最初から読み直す</b>構成へ変更。「永遠に読み終わらない」ループが3分を持たせます</div>
       <div class="asset"><b>効く資産</b> クライアント資料の赤入れ・ビジネス文書の実務。文面の精度がそのまま笑いの精度になる</div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 読経ガジェット（デジタル木魚等）はあるが「経典を添削して不可を出す装置」は先行事例なし。<b>笑いの対象は経典ではなく「経典の偉大さを知らない校閲AIの無知」に固定</b>し、貴殿は一貫して経典側に立ってツッコむ構図で安全化済み</div>
-      <div class="spec"><b>部品</b> M5Stack Core2＋サーマルプリンター＋赤ペンアーム＋巻物送りモーター ／ <b>採点</b> 92点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack Core2＋サーマルプリンター＋赤ペンアーム＋巻物送りモーター ／ <b>旧採点（額縁基準）</b> 92点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　赤入れの読み上げは自分が音読ツッコミする進行にし、印字待ちの無言の間を構造的に消す　／　<b>保険</b>　プリンタ詰まりは「校閲が、炎上しました」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -985,8 +1080,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> BPM120で<b>360拍＝ちょうど3分</b>（検算済）を数える内蔵メトロノーム。360拍目に「成仏します」と鳴りやみ、無音に読経の残響だけが残る。曲の尺＝ネタの尺＝装置の寿命が三重に一致</div>
       <div class="asset"><b>効く資産</b> 作曲DTM・New Jack Swing・Louis Cole/KNOWER的な打楽器グルーヴ感。<b>サンプラザ中野衣装</b>を読経ファンクの舞台衣装として着用</div>
       <div class="fc-line fc-green"><b>🟢 新規</b> — 電子木魚アプリは「叩くと功徳」方向。「木魚側が人間のグルーヴを指導する」逆転は先行事例なし。非言語で成立するため海外にも刺さる</div>
-      <div class="spec"><b>部品</b> M5Stack Core2＋本物の木魚＋ソレノイド打撃＋圧電センサー（BPM解析）＋360拍カウンタLED ／ <b>採点</b> 94点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack Core2＋本物の木魚＋ソレノイド打撃＋圧電センサー（BPM解析）＋360拍カウンタLED ／ <b>旧採点（額縁基準）</b> 94点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　360拍カウントを客席に見せ、ラスト10拍で客が自然にカウントダウンへ参加する設計に（非言語ゆえ同型のまま海外でも戦える）　／　<b>保険</b>　木魚が鳴らない時は「今のは、心の音です」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1006,8 +1105,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 冒頭に「私のバッテリーは、あと3分です」と宣言。残量表示が減るほど早口になり、残量0＝電源断＝ネタ終了</div>
       <div class="asset"><b>効く資産</b> <b>「電子工作初心者がAIに作らせた」という実話そのもの</b>。装置が語る製作秘話の中で「AIがほぼ全部やった」という真実だけを誇らしげに隠す＝フェイクドキュメンタリー志向と実人生が二重写しになる</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — <a href="https://en.wikipedia.org/wiki/Useless_machine" target="_blank" rel="noopener">Useless Machine</a>（自分のスイッチを切る古典）が先行。<br><b>差別化</b>: 古典は無言の一発芸。本案は自己OFFを<b>「説法の締め」として引用</b>する構造で、メイカー文化圏への目配せとして機能する</div>
-      <div class="spec"><b>部品</b> M5Stack Core2（残量%表示）＋首振りサーボ＋指差しアーム＋自己電源カットリレー ／ <b>採点</b> 95点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack Core2（残量%表示）＋首振りサーボ＋指差しアーム＋自己電源カットリレー ／ <b>旧採点（額縁基準）</b> 95点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　「開発で最も苦労したのは、あなたの技術力不足です」の直後、本当の設計者（AI）の名を言いかけて電源が落ちる——真実を永遠に伏せる　／　<b>保険</b>　電源が落ちない時は「まだ、言い残しがあります」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1039,8 +1142,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> <b>カップ麺の3分＝挨拶の3分＝ネタの3分。</b>麺という「観客全員が残り時間を体感できる時計」が舞台上に物理存在するため、尺オーバーが構造的に起きない</div>
       <div class="asset"><b>効く資産</b> おじさん軸／サンプラザ中野衣装（装置に蝶ネクタイ）／<b>作曲DTM</b>（乾杯ファンファーレと中締めジングルを自作実装）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 飲みニケーションロボ「Sota」が居酒屋で乾杯対応（<a href="https://www.itmedia.co.jp/enterprise/articles/1703/07/news014.html" target="_blank" rel="noopener">ITmedia</a>）。<br><b>差別化</b>: Sotaは孤独緩和の実用系。本案は一人メシに宴会の格式を強制する逸脱で、中締め・二次会まで進行する宴会プロトコルの完全実装は先行なし</div>
-      <div class="spec"><b>部品</b> M5Stack Core2＋重量センサー＋蒸気センサー（注湯検知）＋拍子木サーボ＋おしぼりトレーサーボ＋蝶ネクタイサーボ ／ <b>採点</b> 95点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack Core2＋重量センサー＋蒸気センサー（注湯検知）＋拍子木サーボ＋おしぼりトレーサーボ＋蝶ネクタイサーボ ／ <b>旧採点（額縁基準）</b> 95点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　本物の湯を注ぎ、立ち上る湯気を「観客全員が体感できる残り時間」として照明で照らし、時計を物理化する　／　<b>保険</b>　挨拶停止は「黙祷に、入りました」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1060,8 +1167,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 「持ち時間3分で47都道府県を謝りきる」任務。1県あたりの謝罪時間が残時間から自動再計算され、後半の加速が自動的にクライマックスを作る</div>
       <div class="asset"><b>効く資産</b> <b>SUMIMASENの土下座411景</b>（人形モーションの原案集として直接移植）＋作曲アイデア在庫「申し訳ございませんの歌」（各県方言版を量産してBGM実装）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 謝罪装置の先行に藤原麻里菜「謝罪メールパンチングマシン」等あり。<br><b>差別化</b>: 先行は謝罪の「手段」の工作。本案は謝罪の<b>「規模」</b>の逸脱。些事1件×47都道府県×方言AIの組合せは先行なし</div>
-      <div class="spec"><b>部品</b> M5Stack＋日本地図LEDマトリクス＋土下座人形サーボ（平伏深度可変）＋残時間再計算ロジック＋方言謝罪ソング47種＋サーマルプリンタ ／ <b>採点</b> 97点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack＋日本地図LEDマトリクス＋土下座人形サーボ（平伏深度可変）＋残時間再計算ロジック＋方言謝罪ソング47種＋サーマルプリンタ ／ <b>旧採点（額縁基準）</b> 97点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　3分レギュレーション用に「一都六県＋残り40県は一括」の圧縮モードを実装し、後半の加速を確実に3分内で完結させる　／　<b>保険</b>　LED不点灯は「その県へは、後日書面にてお詫びします」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1081,8 +1192,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 3分間の謝罪耐久マッチ。<b>謝罪時間が試合時間を食い潰す</b>構造で、タイムアップ＝謝罪が試合を上回る瞬間</div>
       <div class="asset"><b>効く資産</b> SUMIMASEN（土下座の型）＋<b>ライブ配信の実務</b>（貴殿が対決をライブコマース口調でセルフ実況する）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — 謝罪ロボ・お辞儀ロボの学術研究あり（<a href="https://ieeexplore.ieee.org/document/10973849/" target="_blank" rel="noopener">IEEE</a>）。<br><b>差別化</b>: 研究は対人の信頼修復が目的。「謝罪×勝利」のタイミング逆転は先行なし。<span class="fix">当初案の観客じゃんけんは除外フィルター軸2に触れるため、貴殿本人 対 装置へ修正済み</span></div>
-      <div class="spec"><b>部品</b> M5Stack＋IMU付き旗×2＋大型サーボ土下座変形機構＋謝罪時間倍増ロジック＋スコアLED ／ <b>採点</b> 94点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack＋IMU付き旗×2＋大型サーボ土下座変形機構＋謝罪時間倍増ロジック＋スコアLED ／ <b>旧採点（額縁基準）</b> 94点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　最終スコアの読み上げも装置に行わせ、訂正を求めるとまた土下座指導される循環でオチを閉じる　／　<b>保険</b>　旗が動かない時は「不戦勝です。謝罪いたします」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1102,8 +1217,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 「昼食解禁まで 03:00」の物理カウントダウン表示。<b>観客全員が終了時刻を知った上で「守り切った結果失う」悲劇が確定演出として落ちる</b></div>
       <div class="asset"><b>効く資産</b> <b>ライブ配信の実務</b>——劇場外では「24時間おにぎり監視ライブ」として常設配信化でき、装置がSNSコンテンツを自ら生産する</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — Raspberry Piによる過剰警備の作例あり（<a href="https://www.xda-developers.com/frustrated-gamer-built-raspberry-pi-security-system-keep-family-away-from-steam-deck/" target="_blank" rel="noopener">XDA</a>）。<br><b>差別化</b>: 先行は実害系（攻撃を伴う）。本案は儀仗・格式系で攻撃性ゼロ。守る対象の無価値さと警備の格式のギャップが主役</div>
-      <div class="spec"><b>部品</b> M5Stack＋7セグカウントダウン＋距離/人感センサー＋レーザー＋パンチルトカメラ＋指紋センサー＋回転灯＋敬礼アーム ／ <b>採点</b> 94点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack＋7セグカウントダウン＋距離/人感センサー＋レーザー＋パンチルトカメラ＋指紋センサー＋回転灯＋敬礼アーム ／ <b>旧採点（額縁基準）</b> 94点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　賞味期限切れの鎮魂の青で客席を静めた後、食べようとした瞬間に再警備が起動する2段オチにする　／　<b>保険</b>　センサ誤作動は「テロを、検知しました」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1123,8 +1242,12 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
       <div class="sync"><b>3分同期</b> 「会見は3分間を予定しております」と宣言。<b>植物の沈黙も持ち時間に含まれ、沈黙が続くほど礼が深くなる</b>＝残り時間とお辞儀角度が連動する。R-1で最も危険な「静寂」を、機械が保証された演出に変える発明</div>
       <div class="asset"><b>効く資産</b> SUMIMASEN（礼→最敬礼→土下座のエスカレーション所作を411景から移植）＋フェイクドキュメンタリー志向（会見様式の完全再現）</div>
       <div class="fc-line fc-yellow"><b>🟡 類似あり</b> — ロボットのお辞儀謝罪は学術研究あり（<a href="https://ieeexplore.ieee.org/document/10973849/" target="_blank" rel="noopener">IEEE</a>）。<br><b>差別化</b>: 研究は対人の信頼修復。本案は謝罪の<b>「相手」</b>を植物に逸脱させた記者会見様式のパロディで、エンタメ実装は先行なし</div>
-      <div class="spec"><b>部品</b> M5Stack＋土壌水分センサー＋多段お辞儀サーボ（15度〜土下座）＋LEDフラッシュ×4＋水ポンプ＋床濡れセンサー ／ <b>採点</b> 94点</div>
-        <div class="rank-row" role="group" aria-label="ランク判定">
+      <div class="spec"><b>部品</b> M5Stack＋土壌水分センサー＋多段お辞儀サーボ（15度〜土下座）＋LEDフラッシュ×4＋水ポンプ＋床濡れセンサー ／ <b>旧採点（額縁基準）</b> 94点</div>
+        <div class="r1-box">
+        <div class="r1-head">💯 R-1三回戦ゲート（50点→100点化）</div>
+        <p><b>50→100の一手</b>　「質疑応答：0件」を電光表示し、植物の沈黙を数字で可視化する——R-1最大の敵「静寂」を機械が保証する演出に変える　／　<b>保険</b>　ポンプ不発は「涙が、出ません」</p>
+      </div>
+      <div class="rank-row" role="group" aria-label="ランク判定">
         <button type="button" class="rank-btn" data-rank="D">D</button>
         <button type="button" class="rank-btn" data-rank="C">C</button>
         <button type="button" class="rank-btn" data-rank="B">B</button>
@@ -1139,6 +1262,7 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 
   <div class="card" style="margin-top:26px;border-left-color:var(--hanko)">
     <h3 style="font-size:16px;margin-bottom:8px">軍師の結論 — 100点は装置に宿らない</h3>
+    <p style="font-size:14px;margin:0 0 10px"><b>2026-08-10追記</b>：採点基準を<b>「ピン芸として通用・R-1 3回戦以上」</b>の実戦基準へ更新し、全23案にR-1実戦仕様（キラー／3分ビート／50→100の一手／保険）を実装いたしました。以降、各案の100点は「額縁」ではなく<b>「3分の舞台で立つか」</b>で判定します。下記の旧結論は額縁戦略として引き続き有効です。</p>
     <p style="font-size:14px;margin:0 0 10px">個別装置の採点は<b>92〜97点</b>で、100点満点は1つも出ませんでした。3ラウンド回して分かったのは、<b>100点は個別の装置には宿らない</b>ということにございます。「これ誰が作ったの？」と検索されるのは装置ではなく<b>作った人</b>ゆえ。</p>
     <p style="font-size:14px;margin:0 0 10px">ゆえに100点の条件は<b>「IIS規格という架空の工業規格を持つ製作所が実在するように見えること」</b>だと結論いたします。11機種が同じ銘板を打ち、同じ取扱説明書の書式を持ち、同じ相談室の番号を載せている——その状態に到達したとき、装置の出来を超えて<b>「ナンセンス機械製作所」そのものが検索対象になります</b>。これが明和電機が到達している地点にございます。</p>
     <p style="font-size:14px;margin:0"><span class="tag y">最初の一手</span>3ラインの頂点は<b>IIS-K55 飯田課長</b>（貴殿ご発案・97点）と<b>IIS-B2 全国謝罪キャラバン号</b>（97点）にございます。前者は「AIに昭和を学習させたら最悪だった」というテック×世代の交差、後者は「誠意が時間切れで雑になる」という誰も見たことのない画。<b>どちらか1台を作れば、残り10機種はカタログの写真だけで存在を主張できます。</b></p>
@@ -1425,8 +1549,8 @@ footer .fin{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:spa
 
 <footer>
   <div class="fin">
-    <span class="code">DOC-NMW-002 ／ REV.3.0 ／ 総案数 132</span>
-    <span>最終更新：2026年8月10日 21:54</span>
+    <span class="code">DOC-NMW-002 ／ REV.4.0 ／ 総案数 132</span>
+    <span>最終更新：2026年8月10日 22:00</span>
   </div>
 </footer>
 
