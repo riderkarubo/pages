@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<script>
+  // 【最優先】Netlify統合版への転送。auth.js の読み込みより前に実行し、
+  // アーカイブ済みページで無用なSSO認証を待たせない。
+  location.replace("https://fw-aigc-sample-videos.netlify.app/");
+</script>
+<!-- 転送が効かない環境（JS無効）向けのSSO保護。本ページに機密データは無いが公開ゲート準拠のため保持 -->
+<script src="../../mccm-proposal/auth.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="last-modified" content="2026-08-13T16:49:29+09:00">
@@ -20,10 +28,6 @@
 <link rel="canonical" href="https://fw-aigc-sample-videos.netlify.app/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<script>
-  // meta refresh のフォールバック（履歴を汚さないよう replace を使う）
-  location.replace("https://fw-aigc-sample-videos.netlify.app/");
-</script>
 <style>
 :root{
   --ink:#1a1a2e;
