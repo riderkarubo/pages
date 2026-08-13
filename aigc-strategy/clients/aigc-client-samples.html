@@ -1,285 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<script src="../../mccm-proposal/auth.js"></script>
-<script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-03T14:10:52+09:00">
+<meta name="last-modified" content="2026-08-13T16:49:29+09:00">
 <meta name="robots" content="noindex, nofollow">
-<title>案件別サンプル動画集｜Firework社内</title>
+<meta http-equiv="refresh" content="0; url=https://fw-aigc-sample-videos.netlify.app/">
+<title>【移転】案件別サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="案件別サンプル動画集｜Firework社内">
-<meta property="og:description" content="クライアント案件別に整理したAIGCサンプル動画集。営業商談で「御社向けサンプル」として即時提示できるよう、各社固有プレイリストをまとめた社内武器ページ。">
+<meta property="og:title" content="【移転】案件別サンプル動画集｜Firework社内">
+<meta property="og:description" content="本ページはアーカイブされました。AIGCサンプル動画集は https://fw-aigc-sample-videos.netlify.app/ に統合されています（自動的に転送されます）。">
 <meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/aigc-client-samples.html">
 <meta property="og:site_name" content="Firework社内 / AIGC事業">
 <meta property="og:locale" content="ja_JP">
-<!-- og:image は画像準備でき次第追記（1200x630推奨・絶対URL）。当面は text only unfurl -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="案件別サンプル動画集｜Firework社内">
-<meta name="twitter:description" content="クライアント案件別のAIGCサンプル動画集。各社固有プレイリストを社内で共有。">
+<meta name="twitter:title" content="【移転】案件別サンプル動画集｜Firework社内">
+<meta name="twitter:description" content="AIGCサンプル動画集はNetlify版に統合されました。自動的に転送されます。">
+<link rel="canonical" href="https://fw-aigc-sample-videos.netlify.app/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<!-- Firework player runtime (business_id=g1W3Qj・AIGC営業武器用) -->
-<script async type="module" src="//asset.fwcdn3.com/js/module/fwn.js?business_id=g1W3Qj"></script>
-<script async nomodule src="//asset.fwcdn3.com/js/fwn.js?business_id=g1W3Qj"></script>
+<script>
+  // meta refresh のフォールバック（履歴を汚さないよう replace を使う）
+  location.replace("https://fw-aigc-sample-videos.netlify.app/");
+</script>
 <style>
 :root{
   --ink:#1a1a2e;
   --accent:#FA006D;
   --teal:#1B998B;
-  --navy:#0F3460;
-  --purple:#7c3aed;
   --bg:#f6f7f9;
   --card:#fff;
   --border:#e7e9ee;
   --muted:#6c757d;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
-#app{max-width:1080px;margin:0 auto;padding:0 0 60px}
-
-.cover{
-  background:linear-gradient(135deg,#1a1a2e 0%,#0d3d38 55%,#0F3460 100%);
-  color:#fff;
-  padding:36px 32px 32px;
-  position:relative;
-  overflow:hidden;
+body{
+  font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;
 }
-.cover::after{
-  content:"";
-  position:absolute;
-  right:-60px;top:-60px;
-  width:240px;height:240px;
-  background:radial-gradient(circle,rgba(27,153,139,.42),transparent 70%);
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-top:5px solid var(--accent);
+  border-radius:14px;padding:36px 32px;max-width:620px;width:100%;
+  box-shadow:0 6px 24px rgba(26,26,46,.07);text-align:center;
 }
-.cover .back{
-  display:inline-block;
-  color:#cdd3e0;
-  font-size:.74rem;
-  text-decoration:none;
-  margin-bottom:14px;
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;
-  padding:4px 12px;
-  transition:background .15s;
+.tag{
+  display:inline-block;background:#fdeaf1;color:var(--accent);
+  font-weight:700;font-size:.7rem;letter-spacing:.08em;
+  padding:4px 12px;border-radius:20px;margin-bottom:16px;
 }
-.cover .back:hover{background:rgba(255,255,255,.12)}
-.cover .back + .back{margin-left:8px}
-.cover .cat-tag{color:#a7e5dc;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-.cover h1{font-size:1.7rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.cover .headline{color:#dfe4ee;font-size:.92rem;max-width:760px;margin-top:6px;line-height:1.65}
-.cover .conf{display:inline-block;background:rgba(250,0,109,.85);color:#fff;font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
-
-.wrap{padding:0 32px}
-
-.intro{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-left:4px solid var(--teal);
-  border-radius:10px;
-  padding:16px 18px;
-  margin-top:24px;
-  font-size:.86rem;
-  line-height:1.8;
-  color:var(--ink);
-}
-.intro .label{font-weight:900;color:var(--teal);margin-right:8px}
-.intro a{color:var(--teal);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--teal)}
-.intro a:hover{opacity:.75}
-
-.quick-links{
-  background:linear-gradient(135deg,#fff,#f0fbf9);
-  border:1px solid var(--border);
-  border-left:4px solid var(--teal);
-  border-radius:10px;
-  padding:14px 18px;
-  margin-top:14px;
-}
-.quick-links .ql-label{
-  font-weight:900;
-  color:var(--teal);
-  font-size:.8rem;
-  letter-spacing:.05em;
-  margin-bottom:10px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.quick-links .ql-label::before{
-  content:"🎯";
-  font-size:.9rem;
-}
-.quick-links .ql-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.quick-links .ql-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:8px 14px;
-  background:#fff;
-  border:1px solid var(--teal);
-  color:var(--teal);
-  border-radius:20px;
-  font-size:.78rem;
-  font-weight:700;
-  text-decoration:none;
+h1{font-size:1.28rem;font-weight:900;margin-bottom:12px}
+p{font-size:.9rem;color:#3a3f50;margin-bottom:10px}
+p.small{font-size:.8rem;color:var(--muted)}
+.btn{
+  display:inline-block;margin:20px 0 8px;
+  background:var(--teal);color:#fff;font-weight:700;font-size:.9rem;
+  text-decoration:none;padding:12px 26px;border-radius:26px;
   transition:all .18s;
 }
-.quick-links .ql-btn:hover{
-  background:var(--teal);
-  color:#fff;
-  transform:translateY(-1px);
-  box-shadow:0 4px 12px rgba(27,153,139,.28);
-}
-.quick-links .ql-btn::before{
-  content:"▶";
-  font-size:.65rem;
-  opacity:.7;
-}
-
-.vsec{margin-top:30px}
-.vsec-h{
-  font-size:1.08rem;
-  font-weight:900;
-  color:var(--ink);
-  padding-left:14px;
-  border-left:4px solid var(--teal);
-  display:flex;
-  align-items:baseline;
-  gap:12px;
-  margin-bottom:8px;
-}
-.vsec-h .num{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:26px;height:26px;
-  background:var(--teal);color:#fff;
-  border-radius:50%;
-  font-size:.78rem;font-weight:900;
-}
-.vsec-desc{
-  font-size:.84rem;
-  color:#3a3f50;
-  line-height:1.7;
-  margin:0 0 14px 18px;
-}
-
-.tier-h{
-  font-size:1.05rem;
-  font-weight:900;
-  color:#fff;
-  background:linear-gradient(135deg,#0d3d38,#1B998B 60%,#2fb8a5);
-  padding:11px 18px;
-  border-radius:10px;
-  margin:28px 0 18px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  letter-spacing:.05em;
-  box-shadow:0 4px 14px rgba(27,153,139,.22);
-}
-.tier-h .tier-badge{
-  background:#0d3d38;
-  color:#fff;
-  font-weight:900;
-  font-size:.7rem;
-  padding:4px 10px;
-  border-radius:4px;
-  letter-spacing:.08em;
-}
-.tier-h .tier-note{
-  margin-left:auto;
-  font-size:.72rem;
-  font-weight:500;
-  color:#a7e5dc;
-  opacity:.92;
-}
-
-.vplayer{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px;
-  min-height:120px;
-  position:relative;
-}
-
-footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
-footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+.btn:hover{background:#157f74;transform:translateY(-1px);box-shadow:0 6px 16px rgba(27,153,139,.28)}
+.back{display:inline-block;margin-top:14px;font-size:.78rem;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted)}
+.back:hover{color:var(--ink)}
+footer{margin-top:22px;font-size:.72rem;color:var(--muted)}
 </style>
 </head>
 <body>
-<div id="app">
-
-  <div class="cover">
-    <a class="back" href="../board.html">← AIGC事業 進捗ボードへ戻る</a>
-    <a class="back" href="./aigc-sample-videos.html">📚 サンプル動画集（Tier 1〜3）</a>
-    <div class="cat-tag">CLIENT SAMPLE GALLERY</div>
-    <h1>🎬 案件別サンプル動画集</h1>
-    <div class="headline">
-      <span class="conf">社外秘</span>
-      クライアント案件別に整理したAIGCサンプル動画。営業商談で「御社向けサンプル」として即時提示できる形で、各社固有プレイリストを1ページに集約している。
-    </div>
+  <div class="card">
+    <div class="tag">ARCHIVED / 移転しました</div>
+    <h1>🎬 案件別サンプル動画集は統合されました</h1>
+    <p>AIGCサンプル動画集は、Tier別カタログと案件別デモを1ページに統合した<br>Netlify版が唯一の窓口となりました。</p>
+    <p class="small">自動的に転送されます。切り替わらない場合は下のボタンからお進みください。</p>
+    <a class="btn" href="https://fw-aigc-sample-videos.netlify.app/">AIGCサンプル動画集へ移動する</a>
+    <div><a class="back" href="../board.html">← AIGC事業 進捗ボードへ戻る</a></div>
+    <footer>最終更新: 2026年8月13日 16:49 JST ｜ Firework社内 / AIGC事業</footer>
   </div>
-
-  <div class="wrap">
-
-    <div class="intro">
-      <span class="label">使い方</span>
-      クライアント別のプレイリストを整理しています。新規案件が増えた際は section を追加してください。カテゴリ別（Tier 1〜3 / エピソード）のサンプルは <a href="./aigc-sample-videos.html">サンプル動画集</a> を参照。
-    </div>
-
-    <div class="quick-links">
-      <div class="ql-label">案件一覧</div>
-      <div class="ql-buttons">
-        <a href="#client-united-arrows" class="ql-btn">United Arrows</a>
-        <a href="#client-nitori" class="ql-btn">ニトリ（NITORI）</a>
-      </div>
-    </div>
-
-    <!-- ============== 案件別サンプル ============== -->
-    <div class="tier-h"><span class="tier-badge">CLIENT</span>クライアント別サンプル<span class="tier-note">各社固有のプレイリスト</span></div>
-
-    <section class="vsec" id="client-united-arrows">
-      <div class="vsec-h"><span class="num">1</span>United Arrows</div>
-      <p class="vsec-desc">United Arrows 向けに制作したAIGCサンプル。</p>
-      <div class="vplayer" data-slot="client-united-arrows">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="5zJErN"
-          title="United Arrows Sample"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="client-nitori">
-      <div class="vsec-h"><span class="num">2</span>ニトリ（NITORI）</div>
-      <p class="vsec-desc">ニトリ 向けに制作したAIGCサンプル。</p>
-      <div class="vplayer" data-slot="client-nitori">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="v7RAkq"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    <span class="conf">社外秘</span>
-    最終更新: 2026年7月3日 14:10 JST ｜ Firework社内 / AIGC事業
-  </footer>
-
-</div>
 </body>
 </html>
