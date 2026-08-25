@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weberで作れるもの全部｜こもりば川床BBQ メニュー帳</title>
+<meta name="last-modified" content="2026-08-25T23:54:00+09:00">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="COMORIVER川床BBQ（9/10）のメニュー帳。Weberケトルグリルの蓋・間接焼き・スモークを活かした通常18品／ヴィーガン20品、計38品のアイデア集。">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Weberで作れるもの全部｜こもりば川床BBQ メニュー帳">
+<meta property="og:description" content="Weberの蓋・間接焼き・スモークを活かした通常18品／ヴィーガン20品のアイデア集。">
+<meta property="og:site_name" content="旅のしおり">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏕️</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --kami:#fffcf2; --card:#ffffff;
+  --sumi:#223840; --sumi-2:#5a6f77; --sumi-3:#93a4a9;
+  --sora:#1fa9d6; --moegi:#4cb45a; --takibi:#ff6b35; --yamabuki:#ffc53d;
+  --kawa:#e9f6fa; --alert:#fdece4; --done:#e8f6ea;
+  --line:rgba(34,56,64,.12); --line-2:rgba(34,56,64,.07);
+  --pop:0 3px 0 rgba(34,56,64,.10), 0 14px 30px rgba(34,56,64,.08);
+  --pop-sm:0 2px 0 rgba(34,56,64,.10), 0 6px 16px rgba(34,56,64,.07);
+  --disp:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --kami:#141f1e; --card:#1d2b29;
+    --sumi:#f1eee3; --sumi-2:#aebbb9; --sumi-3:#7c8b89;
+    --sora:#54c8ef; --moegi:#6fd47a; --takibi:#ff8a5c; --yamabuki:#ffd264;
+    --kawa:#1d3034; --alert:#3a241c; --done:#1c3222;
+    --line:rgba(241,238,227,.16); --line-2:rgba(241,238,227,.09);
+    --pop:0 3px 0 rgba(0,0,0,.35), 0 14px 30px rgba(0,0,0,.35);
+    --pop-sm:0 2px 0 rgba(0,0,0,.35), 0 6px 16px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--kami);color:var(--sumi);font-family:var(--body);font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+:focus-visible{outline:3px solid var(--takibi);outline-offset:3px;border-radius:6px;}
+.shell{display:flex;align-items:flex-start;max-width:1220px;margin:0 auto;}
+
+.trail{position:sticky;top:0;width:250px;flex:0 0 250px;height:100vh;padding:34px 18px 24px 26px;overflow-y:auto;}
+.trail-brand{font-family:var(--disp);font-weight:800;font-size:15px;color:var(--takibi);letter-spacing:.04em;line-height:1.4;margin-bottom:4px;}
+.trail-sub{font-size:11.5px;color:var(--sumi-3);margin-bottom:18px;letter-spacing:.05em;}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-family:var(--disp);font-weight:800;font-size:11.5px;padding:5px 13px;border-radius:20px;background:var(--kawa);color:var(--sora);text-decoration:none;margin-bottom:20px;}
+.backlink:hover{background:var(--sora);color:#fff;}
+.trail-nav{position:relative;padding-left:4px;}
+.trail-nav::before{content:"";position:absolute;left:21px;top:16px;bottom:16px;width:0;border-left:2px dashed var(--line);}
+.pin{position:relative;display:flex;align-items:center;gap:11px;padding:5px 8px 5px 0;text-decoration:none;border-radius:30px;transition:background .18s ease;}
+.pin-dot{position:relative;z-index:1;flex:0 0 auto;width:35px;height:35px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
+.pin-label{font-size:13.5px;font-weight:500;color:var(--sumi-2);line-height:1.4;}
+.pin:hover{background:var(--line-2);}
+.pin:hover .pin-dot{transform:scale(1.08);}
+.pin.on .pin-dot{border-color:var(--takibi);background:var(--takibi);transform:scale(1.12);box-shadow:0 0 0 5px rgba(255,107,53,.16);}
+.pin.on .pin-label{color:var(--sumi);font-weight:700;}
+.trail-foot{margin-top:26px;padding:12px 14px;border-radius:14px;background:var(--kawa);font-size:11.5px;color:var(--sumi-2);line-height:1.7;}
+.trail-foot b{font-family:var(--disp);font-weight:800;color:var(--sumi);display:block;font-size:13px;}
+
+.page{flex:1;min-width:0;padding:30px 40px 90px;}
+.cover{background:var(--card);border-radius:26px;overflow:hidden;box-shadow:var(--pop);margin-bottom:44px;}
+.cover-art{display:block;width:100%;height:auto;}
+.cover-body{padding:26px 32px 30px;}
+.cover-eyebrow{display:inline-block;font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.12em;color:#fff;background:var(--takibi);padding:4px 13px;border-radius:20px;margin-bottom:16px;}
+.cover h1{font-family:var(--disp);font-weight:800;font-size:clamp(27px,4.2vw,42px);line-height:1.28;margin:0 0 14px;letter-spacing:.005em;}
+.cover h1 .hl{background:linear-gradient(transparent 62%,var(--yamabuki) 62%,var(--yamabuki) 94%,transparent 94%);}
+.cover-lede{font-size:15px;color:var(--sumi-2);max-width:58ch;margin:0 0 22px;}
+.facts{display:flex;flex-wrap:wrap;gap:9px;}
+.fact{display:inline-flex;align-items:center;gap:6px;background:var(--kawa);border-radius:20px;padding:6px 15px;font-size:12.5px;font-weight:500;color:var(--sumi-2);}
+.fact b{font-family:var(--disp);font-weight:800;color:var(--sumi);}
+
+.sec{margin-bottom:44px;scroll-margin-top:22px;}
+.sec-head{display:flex;align-items:center;gap:13px;margin-bottom:6px;}
+.sec-icon{flex:0 0 auto;width:44px;height:44px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:var(--pop-sm);}
+.sec h2{font-family:var(--disp);font-weight:800;font-size:24px;margin:0;line-height:1.3;}
+.sec-note{font-size:13px;color:var(--sumi-3);margin:0 0 20px;padding-left:57px;}
+.sec-body p{margin:0 0 14px;}
+.mark{background:linear-gradient(transparent 60%,rgba(255,197,61,.55) 60%);font-weight:700;padding:0 1px;}
+.a-sora .sec-icon{background:var(--sora);}
+.a-moegi .sec-icon{background:var(--moegi);}
+.a-yama .sec-icon{background:var(--yamabuki);}
+.a-taki .sec-icon{background:var(--takibi);}
+.a-sumi .sec-icon{background:var(--sumi-2);}
+
+.panel{background:var(--card);border-radius:20px;padding:6px 4px;box-shadow:var(--pop);overflow:hidden;}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.tiername{font-family:var(--disp);font-weight:800;font-size:15px;margin:28px 0 10px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.tiername:first-child{margin-top:0;}
+.tiername .badge{font-size:11px;padding:3px 12px;border-radius:20px;color:#fff;background:var(--moegi);}
+.tiername .badge.warn{background:var(--takibi);}
+.tiername .badge.info{background:var(--sora);}
+.tiername .badge.gray{background:var(--sumi-2);}
+.tiername em{font-style:normal;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--sumi-3);}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;}
+.tbl thead th{background:var(--kawa);color:var(--sumi);font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.05em;text-align:left;padding:12px 16px;white-space:nowrap;}
+.tbl thead th:first-child{border-radius:14px 0 0 14px;}
+.tbl thead th:last-child{border-radius:0 14px 14px 0;}
+.tbl td{padding:13px 16px;border-bottom:1px solid var(--line-2);vertical-align:top;}
+.tbl tbody tr:last-child td{border-bottom:none;}
+.tbl .place{font-family:var(--disp);font-weight:800;font-size:14px;}
+.tbl .place small{display:block;font-family:var(--body);font-weight:400;font-size:11.5px;color:var(--sumi-3);margin-top:2px;}
+.tbl .sub{font-size:12px;color:var(--sumi-3);display:block;}
+.yen{font-family:var(--disp);font-weight:800;font-size:15px;color:var(--moegi);white-space:nowrap;}
+.rowpick{background:rgba(255,107,53,.06);}
+
+.chip{display:inline-block;font-family:var(--disp);font-weight:800;font-size:11.5px;padding:3px 11px;border-radius:20px;white-space:nowrap;}
+.chip-yes{background:var(--moegi);color:#fff;}
+.chip-hot{background:var(--takibi);color:#fff;}
+.chip-ask{background:var(--yamabuki);color:#4a3400;}
+.chip-no{background:var(--line-2);color:var(--sumi-3);}
+.chip-sm{font-size:10.5px;padding:2px 8px;}
+
+.tech{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px;}
+.tc{background:var(--card);border-radius:18px;padding:18px;box-shadow:var(--pop-sm);border-top:5px solid var(--takibi);}
+.tc:nth-child(2){border-top-color:var(--sora);}
+.tc:nth-child(3){border-top-color:var(--moegi);}
+.tc:nth-child(4){border-top-color:var(--yamabuki);}
+.tc .ico{font-size:24px;line-height:1;margin-bottom:7px;}
+.tc b{display:block;font-family:var(--disp);font-weight:800;font-size:14.5px;margin-bottom:4px;}
+.tc span{font-size:12px;color:var(--sumi-3);line-height:1.7;}
+.tc .temp{display:inline-block;font-family:var(--disp);font-weight:800;font-size:11px;padding:2px 9px;border-radius:20px;background:var(--kawa);color:var(--sora);margin-top:7px;}
+
+.say{position:relative;margin-top:26px;background:var(--kawa);border-radius:20px;padding:22px 26px;}
+.say-h{display:inline-flex;align-items:center;gap:7px;font-family:var(--disp);font-weight:800;font-size:13.5px;color:var(--takibi);margin-bottom:8px;}
+.say p{font-size:14px;margin:0 0 12px;}
+.say p:last-child{margin-bottom:0;}
+
+.alertbox{background:var(--alert);border-radius:20px;padding:22px 26px;margin-bottom:24px;border-left:5px solid var(--takibi);}
+.alertbox b{display:block;font-family:var(--disp);font-weight:800;font-size:15.5px;color:var(--takibi);margin-bottom:6px;}
+.alertbox p{font-size:13.5px;margin:0 0 10px;}
+.alertbox p:last-child{margin-bottom:0;}
+
+.combo{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.cb{background:var(--card);border-radius:20px;padding:22px;box-shadow:var(--pop);border:3px solid transparent;}
+.cb-pick{border-color:var(--takibi);}
+.cb .tag{font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:.14em;color:var(--sumi-3);}
+.cb h3{font-family:var(--disp);font-weight:800;font-size:17px;margin:2px 0 10px;}
+.cb ul{margin:0 0 10px;padding-left:18px;font-size:12.5px;color:var(--sumi-2);}
+.cb li{margin-bottom:3px;}
+.cb .foot{border-top:2px dashed var(--line);padding-top:10px;margin-top:12px;font-size:12px;color:var(--sumi-3);}
+
+.foot{margin-top:52px;padding:20px 24px;border-radius:18px;background:var(--kawa);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--sumi-2);}
+.foot b{font-family:var(--disp);font-weight:800;color:var(--sumi);}
+
+@media (max-width:1100px){.tech{grid-template-columns:repeat(2,1fr);}.combo{grid-template-columns:1fr;}}
+@media (max-width:940px){
+  .trail{display:none;}
+  .page{padding:22px 18px 70px;}
+  .cover-body{padding:22px 22px 26px;}
+  .sec-note{padding-left:0;}
+  .tech{grid-template-columns:1fr;}
+}
+@media print{
+  .trail{display:none;}
+  body{background:#fff;font-size:10pt;}
+  .page{padding:0;}
+  .sec,.cb{page-break-inside:avoid;}
+  .cover,.panel,.cb,.tc,.alertbox{box-shadow:none;border:1px solid #ccc;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<aside class="trail">
+  <div class="trail-brand">Weberで<br>作れるもの全部</div>
+  <div class="trail-sub">こもりば川床BBQ ｜ 2026.9.10 THU</div>
+  <a class="backlink" href="index.html">← しおりに戻る</a>
+  <nav class="trail-nav" id="nav" aria-label="ページ内ナビゲーション">
+    <a class="pin" href="#m1"><span class="pin-dot">🔥</span><span class="pin-label">Weberの4つの技</span></a>
+    <a class="pin" href="#m2"><span class="pin-dot">⭐</span><span class="pin-label">今回の確定7品</span></a>
+    <a class="pin" href="#m3"><span class="pin-dot">🥩</span><span class="pin-label">通常メニュー 18品</span></a>
+    <a class="pin" href="#m4"><span class="pin-dot">🥦</span><span class="pin-label">ヴィーガン 20品</span></a>
+    <a class="pin" href="#m5"><span class="pin-dot">🔀</span><span class="pin-label">組み替え3案</span></a>
+    <a class="pin" href="#m6"><span class="pin-dot">⚠️</span><span class="pin-label">ヴィーガンの地雷</span></a>
+  </nav>
+  <div class="trail-foot">
+    <b>全38品</b>
+    ⭐が今回の確定。それ以外は差し替え候補です。
+  </div>
+</aside>
+
+<main class="page">
+
+<div class="cover">
+  <svg class="cover-art" viewBox="0 0 800 200" role="img" aria-label="Weberケトルグリルと料理のイラスト">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffe0cf"/><stop offset="100%" stop-color="#fff4e8"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="200" fill="url(#bg)"/>
+    <g opacity=".5" fill="#ffc9ab">
+      <circle cx="90" cy="42" r="26"/><circle cx="700" cy="52" r="34"/><circle cx="420" cy="28" r="18"/>
+    </g>
+    <!-- big weber kettle center -->
+    <g transform="translate(400 132)">
+      <ellipse cx="0" cy="52" rx="86" ry="10" fill="#e8c4ad" opacity=".55"/>
+      <path d="M-62 0 A62 50 0 0 0 62 0 Z" fill="#2f3f45"/>
+      <path d="M-66 0 h132" stroke="#4a5c63" stroke-width="7" stroke-linecap="round"/>
+      <path d="M-58 -6 A58 46 0 0 1 58 -6 Z" fill="#3b5c66"/>
+      <path d="M-58 -6 A58 46 0 0 1 58 -6" fill="none" stroke="#54737d" stroke-width="3"/>
+      <circle cx="0" cy="-50" r="7" fill="#8a9aa0"/>
+      <rect x="-4" y="-58" width="8" height="10" rx="3" fill="#6d7f86"/>
+      <path d="M-36 46 l-10 26 M36 46 l10 26 M0 48 l0 24" stroke="#3b5c66" stroke-width="7" stroke-linecap="round"/>
+      <!-- steam -->
+      <g fill="#ffffff" opacity=".75">
+        <ellipse cx="-16" cy="-72" rx="9" ry="6"/><ellipse cx="4" cy="-84" rx="7" ry="5"/><ellipse cx="20" cy="-70" rx="6" ry="4"/>
+      </g>
+    </g>
+    <!-- food icons -->
+    <g transform="translate(180 118)">
+      <circle cx="0" cy="0" r="30" fill="#ffffff" opacity=".9"/>
+      <path d="M-14 6 A14 12 0 0 1 14 6 Z" fill="#7fbf5f"/>
+      <circle cx="0" cy="-6" r="11" fill="#a8d98a"/>
+    </g>
+    <g transform="translate(262 148)">
+      <circle cx="0" cy="0" r="24" fill="#ffffff" opacity=".9"/>
+      <rect x="-13" y="-7" width="26" height="14" rx="4" fill="#c4562f"/>
+      <rect x="-13" y="-2" width="26" height="4" fill="#e8a07a"/>
+    </g>
+    <g transform="translate(620 122)">
+      <circle cx="0" cy="0" r="28" fill="#ffffff" opacity=".9"/>
+      <path d="M-13 8 L0 -14 L13 8 Z" fill="#f2c14e"/>
+      <circle cx="0" cy="2" r="5" fill="#d99b2b"/>
+    </g>
+    <g transform="translate(700 152)">
+      <circle cx="0" cy="0" r="22" fill="#ffffff" opacity=".9"/>
+      <ellipse cx="0" cy="0" rx="13" ry="9" fill="#b06a3b"/>
+      <ellipse cx="0" cy="-3" rx="13" ry="6" fill="#d18a55"/>
+    </g>
+  </svg>
+
+  <div class="cover-body">
+    <span class="cover-eyebrow">メニュー帳 ／ 全38品</span>
+    <h1>Weberで<span class="hl">作れるもの全部</span>。</h1>
+    <p class="cover-lede">こもりばで借りるのは <strong>Weberケトルグリル</strong>。蓋を閉じればオーブンになり、炭を寄せれば間接焼きゾーンができ、チップを落とせば燻製窯になります。<span class="mark">「ただの網焼き」では作れないもの</span>だけを集めました。通常18品・ヴィーガン20品。</p>
+    <div class="facts">
+      <span class="fact">⭐ 今回の確定 <b>7品</b></span>
+      <span class="fact">🥩 通常 <b>18品</b></span>
+      <span class="fact">🥦 ヴィーガン <b>20品</b></span>
+      <span class="fact">📅 <b>9/10（木）</b> 10:00〜14:00</span>
+    </div>
+  </div>
+</div>
+
+<!-- m1 -->
+<section class="sec a-taki" id="m1">
+  <div class="sec-head"><span class="sec-icon">🔥</span><h2>Weberの4つの技</h2></div>
+  <p class="sec-note">この4つを理解すると、献立が自由に組めます</p>
+  <div class="sec-body">
+    <div class="tech">
+      <div class="tc">
+        <div class="ico">🔥</div>
+        <b>直火（ダイレクト）</b>
+        <span>炭の真上で焼く。焼き色と香ばしさをつける役。20分以下で焼き切るものはこれ。</span>
+        <span class="temp">180〜220℃</span>
+      </div>
+      <div class="tc">
+        <div class="ico">🌡️</div>
+        <b>間接焼き（インダイレクト）</b>
+        <span>炭を左右に寄せ、中央を空けて蓋を閉じる。<strong>庫内がオーブンになる</strong>。塊肉・丸ごと野菜はここ。</span>
+        <span class="temp">150〜230℃</span>
+      </div>
+      <div class="tc">
+        <div class="ico">💨</div>
+        <b>スモーク（燻製）</b>
+        <span>間接焼きに<strong>水に浸けた木チップ</strong>を落とすだけ。蓋がないと煙は全部風に流れます。</span>
+        <span class="temp">80〜120℃</span>
+      </div>
+      <div class="tc">
+        <div class="ico">🫙</div>
+        <b>丸ごとロースト</b>
+        <span>間接焼きの応用。丸鶏・カリフラワー・キャベツを<strong>切らずに放り込む</strong>。手数が最小になる。</span>
+        <span class="temp">190〜230℃</span>
+      </div>
+    </div>
+    <p class="sec-note" style="padding-left:0;margin-top:16px">※ 蓋を閉じるときは<strong>上下の通気口を両方開ける</strong>（Weber公式）。チムニースターターいっぱいの炭で庫内約230℃以上、3/4量で約180〜200℃が目安。</p>
+
+    <div class="say">
+      <div class="say-h">🪶 献立を組むときの原則</div>
+      <p><strong>「放置できる皿」を先に決めてください。</strong> 4時間のうち、調理に張り付く時間が長いほどこの旅は失敗に近づきます。丸ごとローストとスモークは<span class="mark">投入したら次に触るのが20〜60分後</span>——だらだらしたい人間にとって、これ以上の味方はございません。</p>
+      <p>逆に直火の皿は、必ず<strong>誰かが立っている必要がある</strong>ものです。1〜2品に留めるのが賢明にございます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- m2 -->
+<section class="sec a-moegi" id="m2">
+  <div class="sec-head"><span class="sec-icon">⭐</span><h2>今回の確定7品</h2></div>
+  <p class="sec-note">この構成で 10:00〜14:00 のタイムラインを組んであります</p>
+  <div class="sec-body">
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>誰の</th><th>技</th><th>所要</th><th>投入</th></tr></thead>
+        <tbody>
+          <tr class="rowpick"><td class="place">焼き芋<small>紅はるか／安納芋</small></td><td><span class="chip chip-sm chip-yes">共有</span></td><td>ホイル包み</td><td>155分</td><td>10:42</td></tr>
+          <tr class="rowpick"><td class="place">カリフラワーの丸ごとロースト<small>仕上げに味噌タヒニ</small></td><td><span class="chip chip-sm chip-yes">ヴィーガン</span></td><td>丸ごとロースト</td><td>70分</td><td>10:45</td></tr>
+          <tr class="rowpick"><td class="place">丸ごとカマンベールのスモークフォンデュ</td><td><span class="chip chip-sm chip-hot">通常</span></td><td>スモーク</td><td>20分</td><td>11:15</td></tr>
+          <tr class="rowpick"><td class="place">厚揚げの燻製ステーキ<small>スキレット</small></td><td><span class="chip chip-sm chip-yes">ヴィーガン</span></td><td>スモーク</td><td>25分</td><td>12:00</td></tr>
+          <tr class="rowpick"><td class="place">きのこのスモーク</td><td><span class="chip chip-sm chip-yes">ヴィーガン</span></td><td>スモーク</td><td>25分</td><td>12:00</td></tr>
+          <tr class="rowpick"><td class="place">スモークベーコンブロック</td><td><span class="chip chip-sm chip-hot">通常</span></td><td>スモーク</td><td>18分</td><td>12:32</td></tr>
+          <tr class="rowpick"><td class="place">厚切りステーキ<small>リバースシア・4cm厚</small></td><td><span class="chip chip-sm chip-hot">通常</span></td><td>間接＋直火</td><td>22分</td><td>12:32</td></tr>
+          <tr><td class="place">紫キャベツのクミンスロー</td><td><span class="chip chip-sm chip-yes">ヴィーガン</span></td><td><span class="chip chip-sm chip-no">加熱なし</span></td><td>前日</td><td>—</td></tr>
+          <tr><td class="place">バゲット</td><td><span class="chip chip-sm chip-yes">共有</span></td><td>網の端で炙る</td><td>2分</td><td>11:35</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-note" style="padding-left:0;margin-top:10px">※ 以下はすべて<strong>差し替え候補</strong>です。「これに変えたい」と思ったものがあれば、タイムラインを組み直します。</p>
+  </div>
+</section>
+
+<!-- m3 -->
+<section class="sec a-taki" id="m3">
+  <div class="sec-head"><span class="sec-icon">🥩</span><h2>通常メニュー 18品</h2></div>
+  <p class="sec-note">技ごとに整理しました。⭐が今回の確定分</p>
+  <div class="sec-body">
+
+    <p class="tiername"><span class="badge warn">丸ごとロースト</span>切らずに放り込む <em>手数が最小・見た目が最大</em></p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="place">ビアカンチキン<small>丸鶏の直立ロースト</small></td><td>85分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>缶ビール半分の上に丸鶏を立てて間接ゾーンへ。<strong>缶の水蒸気で内側から蒸されて、外はパリパリ・中はジューシー</strong>になる。BBQの主役として最も派手。<span class="sub">前日：塩とスパイスをすり込んで冷蔵庫で乾燥／当日：立てて放置</span></td>
+          </tr>
+          <tr>
+            <td class="place">ローストビーフ<small>牛もも塊 600〜800g</small></td><td>60分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>間接ゾーンで芯温52〜55℃まで。<strong>スライスした断面のピンクが、この日いちばんの拍手を取る</strong>。冷めても美味しく、余っても持ち帰れる。<span class="sub">前日：塩をすり込み冷蔵庫／当日：温度計だけ見る</span></td>
+          </tr>
+          <tr>
+            <td class="place">ローストポーク<small>豚肩ロース塊・ハーブ</small></td><td>55分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>ローズマリー・にんにく・粒マスタードを塗って間接。芯温65℃。牛より安く、失敗もしにくい。<span class="sub">前日：ハーブを塗って一晩／当日：置くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">丸鶏のレモン＆ローズマリー</td><td>80分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>腹にレモン半個とハーブを詰めて間接ゾーンへ。ビアカンより落ち着いた見た目だが、<strong>香りは断然こちら</strong>。<span class="sub">前日：詰めて塩をして冷蔵庫／当日：放置</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiername"><span class="badge info">間接焼き</span>蓋を閉じてオーブンにする</p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr class="rowpick">
+            <td class="place">⭐ 厚切りステーキ<small>リバースシア・4cm厚</small></td><td>22分</td><td><span class="chip chip-ask">要 手入れ</span></td>
+            <td>間接で芯温48〜50℃まで上げてから、直火で表面を焼き固める。<strong>断面が端から端まで均一なピンクになる</strong>のがこの手法の全て。<span class="sub">前日：塩をすり込みラップせず冷蔵庫（ドライブライン）／当日：温度計必須</span></td>
+          </tr>
+          <tr>
+            <td class="place">ラムラックのロースト</td><td>35分</td><td><span class="chip chip-yes">○</span></td>
+            <td>骨付きのまま間接で。<strong>骨を持って食べる絵が最高に映える</strong>。臭みが苦手ならハーブとマスタードでパン粉を貼りつける。<span class="sub">前日：下味／当日：芯温55℃で引き上げ</span></td>
+          </tr>
+          <tr>
+            <td class="place">骨付きモモのBBQチキン</td><td>40分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>間接で火を通し、最後の5分だけタレを塗って直火で照りを出す。<strong>タレは必ず最後</strong>（先に塗ると糖分が焦げる）。<span class="sub">前日：漬け込み／当日：ほぼ放置</span></td>
+          </tr>
+          <tr>
+            <td class="place">スペアリブ<small>前日にオーブン→現地でスモーク＆グレーズ</small></td><td>40分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>前日に自宅オーブンで火を通しておけば、現地は<strong>燻して塗るだけ</strong>。手数が劇的に減るのに、見た目と満足度は最上級。<span class="sub">前日：低温でじっくり火入れ／当日：40分放置＋タレ2回</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiername"><span class="badge">スモーク</span>チップを落とすだけ <em>いちばん費用対効果が高い技</em></p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr class="rowpick">
+            <td class="place">⭐ 丸ごとカマンベールの<br>スモークフォンデュ</td><td>20分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>上面に十字の切り込みを入れてアルミ皿ごと投入。<strong>燻香をまとって溶けたチーズにバゲットを浸す</strong>。手数ほぼゼロで満足度が異様に高い。<span class="sub">前日：切り込みだけ／当日：置いて20分</span></td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">⭐ スモークベーコンブロック</td><td>18分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>市販のブロックを<strong>燻し直すだけ</strong>で別物になる。厚切りにして直火で30秒炙って仕上げる。<span class="sub">前日：表面を拭いて裸で冷蔵庫（湿っていると煙が乗らない）</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモークエッグ＆<br>スモークミックスナッツ</td><td>20分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>ゆで卵とナッツを並べて一緒に燻すだけ。<strong>他の料理の待ち時間に、庫内の空きスペースで勝手にできる</strong>おつまみ。ビールが止まらなくなる。<span class="sub">前日：卵を茹でて殻をむいておく</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモークチーズ盛り<small>プロセス・さけるチーズ</small></td><td>15分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>低温で短時間。<strong>さけるチーズを燻すと驚くほど化ける</strong>。溶けやすいので必ずアルミ皿の上で。<span class="sub">当日：置くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモークサーモン<small>市販の刺身用サクを軽く燻す</small></td><td>15分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>低温・短時間で香りだけ移す。<strong>クリームチーズとバゲットに載せると完全に店の味</strong>。ただし生ものなので保冷を厳しく。<span class="sub">当日：氷の上で保管し、食べる直前に燻す</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモークポテトサラダ</td><td>25分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>じゃがいもを丸ごと燻してから潰す。<strong>いつものポテサラが燻製味になるだけで別料理</strong>。前日に作ったものを燻し直すのも可。<span class="sub">前日：茹でておくと現地が楽</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiername"><span class="badge gray">スキレット・直火</span>締めと箸休め</p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="place">スキレット・アップルコブラー<small>締めのデザート</small></td><td>25分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>りんご・砂糖・シナモンを敷き、ホットケーキミックスを載せて蓋を閉じるだけ。<strong>締めに焼き菓子が出てくると、その日の格が上がります</strong>。<span class="sub">前日：りんごを切って砂糖をまぶす</span></td>
+          </tr>
+          <tr>
+            <td class="place">グリルピザ<small>スキレット</small></td><td>25分</td><td><span class="chip chip-ask">要 手入れ</span></td>
+            <td>市販の生地かトルティーヤに具を載せ、蓋を閉じて焼く。<strong>庫内230℃はピザ窯に近い</strong>。ただし手数が多いので他の放置系と組み合わせる。<span class="sub">前日：具を切っておく</span></td>
+          </tr>
+          <tr>
+            <td class="place">ソーセージのスパイラルカット</td><td>8分</td><td><span class="chip chip-no">直火</span></td>
+            <td>串に刺して斜めに切れ目を入れ、らせん状に開いて焼く。<strong>タレが絡む面積が増え、見た目も派手</strong>。子どもがいる場ならこれ一択。<span class="sub">前日：切れ目を入れておける</span></td>
+          </tr>
+          <tr>
+            <td class="place">焼きおにぎり<small>味噌／醤油</small></td><td>10分</td><td><span class="chip chip-no">直火</span></td>
+            <td>網の端で炙り、味噌か醤油を塗って香ばしく。<strong>最後の炭を使い切る役</strong>にちょうどいい。<span class="sub">前日：握って冷蔵庫</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- m4 -->
+<section class="sec a-moegi" id="m4">
+  <div class="sec-head"><span class="sec-icon">🥦</span><h2>ヴィーガンメニュー 20品</h2></div>
+  <p class="sec-note">「野菜を焼いただけ」にしないことが全て。主役級を揃えました</p>
+  <div class="sec-body">
+
+    <p class="tiername"><span class="badge warn">丸ごとロースト</span>これが主菜になります <em>塊で出せば野菜も主役</em></p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr class="rowpick">
+            <td class="place">⭐ カリフラワーの丸ごとロースト<small>仕上げに味噌タヒニ</small></td><td>40〜45分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>丸ごと1個をアルミトレーに載せて間接ゾーンへ。<strong>切り分けると断面が現れて、肉料理に一歩も引かない絵になる</strong>。<span class="sub">味噌タヒニは<strong>残り15分で塗る</strong>。最初から塗ると30分で真っ黒に焦げます</span></td>
+          </tr>
+          <tr>
+            <td class="place">キャベツ丸ごとのスモークロースト<small>BBQグレーズ</small></td><td>45分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>芯をくり抜いて丸ごと間接ゾーンへ。<strong>外は燻香、中は甘く蒸し上がる</strong>。くし切りにして出すと迫力がある。<span class="sub">前日：芯をくり抜く／当日：仕上げにタレを塗る</span></td>
+          </tr>
+          <tr>
+            <td class="place">丸ごとポテトの間接ロースト<small>ヴィーガンサワークリーム添え</small></td><td>50分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>皮つきのまま。<strong>割ってオリーブオイルと塩だけで完成する</strong>。豆乳ヨーグルト＋レモン＋塩でサワークリーム風を自作すると格が上がる。<span class="sub">前日：ソースを作っておく</span></td>
+          </tr>
+          <tr>
+            <td class="place">丸ごとパプリカのロースト</td><td>30分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>そのまま間接へ。<strong>皮が真っ黒になったら剥いて、オリーブオイルと塩</strong>。甘みが凝縮して別の野菜になる。<span class="sub">当日：置いて剥くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">丸ごとブロッコリーのロースト</td><td>30分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>カリフラワーの弟分。<strong>先端が少し焦げるくらいが正解</strong>で、そこが一番うまい。にんにくとレモンで。<span class="sub">前日：洗って水気を切る</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiername"><span class="badge info">ホイル包み</span>放り込んで忘れる <em>この日のだらだら担当</em></p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr class="rowpick">
+            <td class="place">⭐ 焼き芋<small>紅はるか／安納芋</small></td><td>155分</td><td><span class="chip chip-yes">◎◎</span></td>
+            <td>濡らしたキッチンペーパー＋<strong>アルミホイル3重</strong>で熾火の脇へ。<span class="mark">到着直後に放り込んで、帰り際まで一切触らなくていい</span>。だらだら目的に最も忠実な一品。<span class="sub">バターを添えない前提なので蜜の多い品種を</span></td>
+          </tr>
+          <tr>
+            <td class="place">丸ごと玉ねぎのホイル包み<small>味噌</small></td><td>40分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>皮ごとホイルで包んで熾火へ。<strong>崩れるほど柔らかく、驚くほど甘い</strong>。醤油と本みりんを垂らして。<span class="sub">当日：包んで置くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">とうもろこしのホイル焼き</td><td>25分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>皮つきのままホイルで。<strong>9月はまだ手に入る時期</strong>。仕上げに醤油を塗って直火で焦がすとさらに良い。<span class="sub">当日：置くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">きのことにんにくのホイル蒸し</td><td>20分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>数種のきのこ＋にんにく＋オリーブオイル＋塩をホイルで密閉。<strong>開けた瞬間の香りが強烈</strong>。汁ごとバゲットに載せる。<span class="sub">前日：きのこをほぐしてジップ袋へ</span></td>
+          </tr>
+          <tr>
+            <td class="place">かぼちゃのホイル焼き<small>メープル＋シナモン</small></td><td>30分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>くし切りにしてホイルで。<strong>デザート寄りの一皿</strong>としても、主菜の付け合わせとしても効く。<span class="sub">前日：切ってジップ袋へ</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiername"><span class="badge">スモーク</span>ヴィーガンと燻製は相性が抜群 <em>植物性食材ほど煙をよく吸う</em></p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr class="rowpick">
+            <td class="place">⭐ 厚揚げの燻製ステーキ<small>スキレット</small></td><td>25分</td><td><span class="chip chip-yes">○</span></td>
+            <td>燻してから最後の3分だけ表面を焼き付ける。<strong>20分で燻製専門店の香りになる</strong>。七味と青ねぎで。<span class="sub">原材料が「大豆・植物油脂・凝固剤」のみのものを選ぶ（かつおエキス入りに注意）</span></td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">⭐ きのこのスモーク</td><td>25分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>しいたけ・エリンギ・まいたけをアルミトレーで。<strong>きのこは水分が多く煙をよく吸うため、食材のなかで最も蓋との相性が良い</strong>。レモンを搾って。<span class="sub">前日：石づきを取ってほぐす</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモーク豆腐<small>水切り木綿</small></td><td>30分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>しっかり水切りした木綿豆腐を燻す。<strong>チーズのような食感と香りになる</strong>。醤油を薄く塗ってから燻すと色もつく。<span class="sub">前日：重しをして一晩水切り</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモークナッツ<small>アーモンド・カシュー</small></td><td>20分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>他の料理の待ち時間に庫内の空きで勝手にできる。<strong>持ち帰って翌日も食べられる</strong>のが嬉しい。<span class="sub">当日：置くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモーク大根／たくあん</td><td>25分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>たくあんを燻すと<strong>いぶりがっこ</strong>になる。市販品を燻し直すだけで、酒のつまみとして完成度が高い。<span class="sub">当日：置くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">スモークトマト</td><td>20分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>ミニトマトをアルミトレーで。<strong>皮が弾けて甘みと燻香が凝縮</strong>する。バゲットに載せてもパスタに入れても。<span class="sub">当日：置くだけ</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="tiername"><span class="badge gray">スキレット・直火・生</span>主菜の脇を固める</p>
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>料理</th><th>所要</th><th>放置</th><th>前日にやること／当日の手数</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="place">大豆ミートのBBQリブ風<small>スキレット</small></td><td>15分</td><td><span class="chip chip-ask">要 手入れ</span></td>
+            <td>ブロックタイプの大豆ミートを戻してBBQソースで焼き付ける。<strong>「肉がない」と言わせない一皿</strong>。ソースは原材料表示を要確認（ウスターソース系は動物性の可能性）。<span class="sub">前日：戻して下味をつける</span></td>
+          </tr>
+          <tr>
+            <td class="place">ジャックフルーツの<br>プルドポーク風バーガー</td><td>15分</td><td><span class="chip chip-ask">要 手入れ</span></td>
+            <td>缶詰のジャックフルーツをほぐしてBBQソースで炒める。<strong>繊維がほぐれた豚肉そのもの</strong>の食感。<span class="sub">⚠ 缶は取り寄せで5〜16日かかる場合あり。バンズも脱脂粉乳入りが多く、<strong>早めの手配が必須</strong></span></td>
+          </tr>
+          <tr>
+            <td class="place">ひよこ豆とパプリカの<br>スパイス蒸し焼き<small>スキレット</small></td><td>20分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>水煮のひよこ豆・パプリカ・クミン・パプリカパウダーをスキレットで。<strong>弱火ゾーンに置いて放置できる</strong>のが強み。<span class="sub">前日：切って混ぜてジップ袋へ</span></td>
+          </tr>
+          <tr>
+            <td class="place">テンペのサテ風串<small>ピーナッツソース</small></td><td>10分</td><td><span class="chip chip-no">直火</span></td>
+            <td>串に刺して直火で。<strong>ピーナッツソースがあると急に「料理」になる</strong>。ノンアルのつまみとしても優秀。<span class="sub">前日：串に刺してタレに漬ける</span></td>
+          </tr>
+          <tr>
+            <td class="place">焼きなすの丸焼き<small>生姜醤油</small></td><td>12分</td><td><span class="chip chip-no">直火</span></td>
+            <td>皮が真っ黒になるまで直火で。<strong>皮を剥いた瞬間の湯気が絵になる</strong>。かつお節は使わず、<strong>刻み生姜と青ねぎで旨味を足す</strong>のが要点。<span class="sub">当日：焼くだけ</span></td>
+          </tr>
+          <tr>
+            <td class="place">長ねぎの黒焼き</td><td>15分</td><td><span class="chip chip-no">直火</span></td>
+            <td>ぶつ切りにして真っ黒になるまで。<strong>外側を剥くと、中からとろけた甘い芯が出てくる</strong>。塩とオリーブオイルだけ。<span class="sub">当日：置いて転がすだけ</span></td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">⭐ 紫キャベツとにんじんの<br>クミンスロー</td><td><span class="chip chip-yes">調理ゼロ</span></td><td><span class="chip chip-yes">◎◎</span></td>
+            <td>グリルを1秒も占有しない。<strong>焼き物ばかりで単調になる献立に、酸味と生の食感を入れる保険</strong>。3皿目で飽きるのを防ぎます。<span class="sub">前日：千切りして米酢・てんさい糖・塩・クミンで和える</span></td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">⭐ バゲット<small>網の端で炙る</small></td><td>2分</td><td><span class="chip chip-yes">◎</span></td>
+            <td>主食。フランスパンは小麦・水・塩・イーストのみで<strong>ヴィーガン対応しやすい</strong>（原材料表示は要確認）。カマンベールにも、きのこのホイル蒸しにも使える。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- m5 -->
+<section class="sec a-sora" id="m5">
+  <div class="sec-head"><span class="sec-icon">🔀</span><h2>組み替え3案</h2></div>
+  <p class="sec-note">「今回の7品」以外にしたい場合の、そのまま使える組み合わせ</p>
+  <div class="sec-body">
+    <div class="combo">
+      <div class="cb cb-pick">
+        <div class="tag">PATTERN A</div>
+        <h3>放置に全振り</h3>
+        <p style="font-size:13px;color:var(--sumi-2);margin:0 0 10px">調理に立つ時間を<strong>合計15分以下</strong>にする構成。だらだらを最優先するならこれ。</p>
+        <ul>
+          <li>ローストビーフ（60分・放置）</li>
+          <li>スモークベーコン（18分・放置）</li>
+          <li>スモークエッグ＆ナッツ（20分・放置）</li>
+          <li>カリフラワー丸ごと（45分・放置）</li>
+          <li>丸ごと玉ねぎ（40分・放置）</li>
+          <li>きのこのスモーク（25分・放置）</li>
+          <li>焼き芋（155分・放置）</li>
+          <li>クミンスロー（前日）</li>
+        </ul>
+        <div class="foot">直火の皿がゼロ。全部投入したら座っていられます</div>
+      </div>
+
+      <div class="cb">
+        <div class="tag">PATTERN B</div>
+        <h3>見た目で殴る</h3>
+        <p style="font-size:13px;color:var(--sumi-2);margin:0 0 10px">写真を撮りたい日の構成。<strong>塊と丸ごとだけ</strong>で揃えます。</p>
+        <ul>
+          <li>ビアカンチキン（85分・丸鶏が立つ）</li>
+          <li>ラムラック（35分・骨付き）</li>
+          <li>キャベツ丸ごと（45分）</li>
+          <li>丸ごとパプリカ（30分）</li>
+          <li>丸ごとポテト（50分）</li>
+          <li>スキレット・アップルコブラー（締め）</li>
+          <li>クミンスロー（前日）</li>
+        </ul>
+        <div class="foot">丸鶏の火入れに85分。10:45には投入が必要です</div>
+      </div>
+
+      <div class="cb">
+        <div class="tag">PATTERN C</div>
+        <h3>燻製だけの日</h3>
+        <p style="font-size:13px;color:var(--sumi-2);margin:0 0 10px">Weberの<strong>いちばんおいしい技だけ</strong>を使い倒す。持ち帰りも効きます。</p>
+        <ul>
+          <li>スモークベーコン（18分）</li>
+          <li>スモークチーズ盛り（15分）</li>
+          <li>スモークエッグ＆ナッツ（20分）</li>
+          <li>スモーク豆腐（30分）</li>
+          <li>スモークたくあん（25分）</li>
+          <li>スモークトマト（20分）</li>
+          <li>きのこのスモーク（25分）</li>
+          <li>バゲット＋クミンスロー</li>
+        </ul>
+        <div class="foot">全品が常温で持ち帰れる。翌日のつまみが増えます</div>
+      </div>
+    </div>
+
+    <div class="say">
+      <div class="say-h">🪶 差し替えるときの一手だけ</div>
+      <p><strong>丸鶏系（ビアカンチキン・丸鶏ロースト）を入れる場合は、10:45投入が絶対条件</strong>にございます。85分かかるうえ、庫内を長時間占有するため、他の間接焼きの皿と競合します。入れるなら「丸鶏＋スモーク数品」の構成に寄せるのが現実的です。</p>
+      <p>逆に<strong>直火の皿は最大2品まで</strong>。3品を超えると、誰かがずっとグリルの前に立つことになります。それはこの旅の目的に反します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- m6 -->
+<section class="sec a-taki" id="m6">
+  <div class="sec-head"><span class="sec-icon">⚠️</span><h2>ヴィーガンの地雷</h2></div>
+  <p class="sec-note">原材料表示だけでは捕まえられないものを中心に</p>
+  <div class="sec-body">
+    <div class="panel scroller">
+      <table class="tbl">
+        <thead><tr><th>地雷</th><th>何が入っているか</th><th>どうするか</th></tr></thead>
+        <tbody>
+          <tr class="rowpick">
+            <td class="place">バルサミコ酢・りんご酢<small>ワイン由来の酢</small></td>
+            <td>清澄（コラージュ）工程で<strong>ゼラチン・卵白・アイシングラス（魚の浮き袋）</strong>を使う場合がある。<span class="mark">加工助剤扱いなので原材料表示に一切出ません</span></td>
+            <td><strong>米酢に置き換える。</strong> これでリスクを構造的にゼロにできます</td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">白砂糖</td>
+            <td>精製時に<strong>骨炭（動物の骨）またはキトサン（甲殻類の殻）</strong>を使う場合がある。これも表示に出ない</td>
+            <td><strong>てんさい糖またはメープルシロップへ。</strong> はちみつは蜂由来のため不可</td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">ビール・ノンアル飲料</td>
+            <td><strong>アイシングラス（魚の浮き袋）</strong>で清澄される場合がある</td>
+            <td>ヴィーガン表記のある銘柄を選ぶか、<strong>炭酸水・お茶・果汁100%・コーラ</strong>で構成する</td>
+          </tr>
+          <tr>
+            <td class="place">白味噌・だし入り味噌</td>
+            <td>「かつおだし入り」が非常に多い</td>
+            <td>原材料が<strong>大豆・米・塩のみ</strong>のものを選ぶ</td>
+          </tr>
+          <tr>
+            <td class="place">厚揚げ・油揚げ</td>
+            <td>味付きタイプに<strong>かつおエキス</strong>が入っていることがある</td>
+            <td>原材料が<strong>大豆・植物油脂・凝固剤のみ</strong>のものを</td>
+          </tr>
+          <tr>
+            <td class="place">BBQソース・ウスターソース・<br>中濃ソース</td>
+            <td>アンチョビ・肉エキス・オイスターソースが入る</td>
+            <td>ヴィーガン表記のものを選ぶか、<strong>醤油＋本みりん＋てんさい糖＋トマトで自作</strong></td>
+          </tr>
+          <tr>
+            <td class="place">みりん風調味料</td>
+            <td>本みりんと別物。添加物が多い</td>
+            <td><strong>本みりん</strong>を使う</td>
+          </tr>
+          <tr>
+            <td class="place">バンズ・食パン・菓子パン</td>
+            <td><strong>脱脂粉乳・バター・卵</strong>が入っているものがほとんど</td>
+            <td><strong>バゲット（フランスパン）が最も安全</strong>。バーガーをやるなら冷凍通販で早めに手配</td>
+          </tr>
+          <tr>
+            <td class="place">コンソメ・鶏がらスープの素</td>
+            <td>そのまま動物性</td>
+            <td>今回の献立では使いません。使うなら野菜ブイヨンへ</td>
+          </tr>
+          <tr class="rowpick">
+            <td class="place">レンタルグリルそのもの</td>
+            <td><strong>前の客が肉を焼いた個体。</strong> 蓋の内側に蓄積した脂が、間接焼き・燻製中に再気化して降ってきます</td>
+            <td><strong>10:20〜10:40の空焼き20分</strong>でリセット。さらにヴィーガン食材はアルミトレーかスキレットに載せ、網に直接触れさせない</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alertbox">
+      <b>💡 「引き算されただけの皿」を作らない</b>
+      <p>ヴィーガン対応でいちばんやってしまうのが、<strong>「かつお節を抜く」「チーズを抜く」で終わらせること</strong>です。抜いた旨味の穴を埋めないと、当事者は必ずそれを感じ取ります。</p>
+      <p>今回の献立では、焼きなすは<strong>かつお節の代わりに刻み生姜と青ねぎ</strong>、カリフラワーは<strong>味噌タヒニで発酵の旨味と練りごまのコク</strong>、きのこは<strong>燻香そのものを旨味に</strong>——というように、抜いた分を必ず足してあります。これは味の問題であると同時に、感情の問題にございます。</p>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <span><b>Weberで作れるもの全部</b> ／ こもりば川床BBQ 2026年9月10日（木） ／ <a href="index.html">しおりに戻る</a></span>
+  <span>最終更新：2026年8月25日 23:54</span>
+</div>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var pins = Array.prototype.slice.call(document.querySelectorAll('#nav .pin'));
+  var secs = pins.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  function spy(){
+    var y = window.scrollY + 130, idx = 0;
+    for (var i = 0; i < secs.length; i++){ if (secs[i] && secs[i].offsetTop <= y) idx = i; }
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 40){ idx = secs.length - 1; }
+    pins.forEach(function(a, i){ a.classList.toggle('on', i === idx); });
+  }
+  var tick = false;
+  window.addEventListener('scroll', function(){
+    if (tick) return; tick = true;
+    window.requestAnimationFrame(function(){ spy(); tick = false; });
+  }, {passive:true});
+  spy();
+})();
+</script>
+</body>
+</html>
