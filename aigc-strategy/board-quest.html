@@ -648,7 +648,7 @@ function render(d){
   </div>`;
   const tb=d.thinkBig;
   const tbHTML=tb?`<div class="section-title" id="sec-thinkbig">${esc(tb.title)}</div><p class="tb-lead">${esc(tb.lead)}</p><div class="tb-grid">${tb.pillars.map((p,i)=>`<div class="tb-card"><div class="tb-n">${i+1}</div><div class="tb-h">${esc(p.h)}</div><div class="tb-t">${esc(p.t)}</div></div>`).join('')}</div>`:'';
-  const tna=d.topNextActions.map(n=>`<tr><td><span class="pri ${esc(n.priority)}">${esc(n.priority)}</span></td><td>${esc(n.action)}</td><td>${esc(n.owner)}</td><td class="due-cell${/未設定|超過/.test(n.due||'')?' miss':''}">${esc(n.due)}</td><td>${esc(n.area)}</td></tr>`).join('');
+  const tna=(d.topNextActions||[]).map(n=>`<tr><td><span class="pri ${esc(n.priority)}">${esc(n.priority)}</span></td><td>${esc(n.action)}</td><td>${esc(n.owner)}</td><td class="due-cell${/未設定|超過/.test(n.due||'')?' miss':''}">${esc(n.due)}</td><td>${esc(n.area)}</td></tr>`).join('');
   const hasNA=!!(d.topNextActions&&d.topNextActions.length);
   const naSection=hasNA?`<div class="section-title" id="sec-na">最重要ネクストアクション（誰が・いつまでに）</div>${naNote}<table class="na-table"><thead><tr><th>優先</th><th>アクション</th><th>担当</th><th>期日</th><th>クライアント/領域</th></tr></thead><tbody>${tna}</tbody></table>`:'';
   const jcl=d.juneContactList;
