@@ -419,6 +419,7 @@ body{padding-left:220px}
 .ql-card.ql-sample{background:#6D3FD9}
 .ql-card.ql-tool{background:#A87500}
 .ql-card.ql-global{background:#0B6FA8}
+.ql-card.ql-faq{background:#1F5F5B}
 .ql-card .ql-icon{font-size:1.9rem;line-height:1;flex-shrink:0}
 .ql-card .ql-body{flex:1;min-width:0}
 .ql-card .ql-h{font-size:1rem;font-weight:900;letter-spacing:.02em;line-height:1.35}
@@ -645,6 +646,7 @@ function render(d){
     <a class="ql-card ql-learn" href="clients/aigc-creative-learnings.html"><div class="ql-icon">🎬</div><div class="ql-body"><div class="ql-h">AIGC制作ナレッジ</div><div class="ql-sub">躓き×勝ち筋・現場レビュー</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-tool" href="clients/aigc-bizportal-tech-log.html"><div class="ql-icon">🛠️</div><div class="ql-body"><div class="ql-h">BizPortalツール検証ログ</div><div class="ql-sub">内製AIGC生成ツールの技術・UX課題</div></div><div class="ql-arr">→</div></a>
     <a class="ql-card ql-press" href="clients/aigc-ops-concerns.html"><div class="ql-icon">⚠️</div><div class="ql-body"><div class="ql-h">オペレーション懸念事項</div><div class="ql-sub">量産・運用フェーズ移行のクリアすべき点</div></div><div class="ql-arr">→</div></a>
+    <a class="ql-card ql-faq" href="clients/aigc-client-faq.html"><div class="ql-icon">❓</div><div class="ql-body"><div class="ql-h">クライアントQ&amp;Aリスト</div><div class="ql-sub">実際に聞かれた質問と社内確定回答</div></div><div class="ql-arr">→</div></a>
   </div>`;
   const tb=d.thinkBig;
   const tbHTML=tb?`<div class="section-title" id="sec-thinkbig">${esc(tb.title)}</div><p class="tb-lead">${esc(tb.lead)}</p><div class="tb-grid">${tb.pillars.map((p,i)=>`<div class="tb-card"><div class="tb-n">${i+1}</div><div class="tb-h">${esc(p.h)}</div><div class="tb-t">${esc(p.t)}</div></div>`).join('')}</div>`:'';
