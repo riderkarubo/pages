@@ -1,525 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<script>
+  // 【最優先】Netlify統合版への転送。auth.js の読み込みより前に実行し、
+  // アーカイブ済みページで無用なSSO認証を待たせない。
+  // ハッシュ（#cat-xxx）を引き継ぐ： hot-accounts-260624.html から
+  // カテゴリ別アンカーが15本ぶら下がっており、転送先にも同じidが存在するため
+  // そのまま渡せば深いリンクが生き続ける。
+  location.replace("https://fw-aigc-sample-videos.netlify.app/" + location.hash);
+</script>
+<!-- 転送が効かない環境（JS無効）向けのSSO保護。本ページに機密データは無いが公開ゲート準拠のため保持 -->
 <script src="../../mccm-proposal/auth.js"></script>
 <script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="last-modified" content="2026-07-01T10:32:20+09:00">
+<meta name="last-modified" content="2026-09-02T11:08:22+09:00">
 <meta name="robots" content="noindex, nofollow">
-<title>サンプル動画集｜Firework社内</title>
+<meta http-equiv="refresh" content="0; url=https://fw-aigc-sample-videos.netlify.app/">
+<title>【移転】サンプル動画集｜Firework社内</title>
 <!-- ===== OGP / Slack unfurl ===== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="サンプル動画集｜Firework社内">
-<meta property="og:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）／Tier 3（ブリーフ準拠）／エピソードコンテンツの4階層で整理。商談時の即時提示・ブリーフ作成の参照ソース。">
+<meta property="og:title" content="【移転】サンプル動画集｜Firework社内">
+<meta property="og:description" content="本ページはアーカイブされました。AIGCサンプル動画集は https://fw-aigc-sample-videos.netlify.app/ に統合されています（自動的に転送されます）。">
 <meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/clients/aigc-sample-videos.html">
 <meta property="og:site_name" content="Firework社内 / AIGC事業">
 <meta property="og:locale" content="ja_JP">
-<!-- og:image は画像準備でき次第追記（1200x630推奨・絶対URL）。当面は text only unfurl -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="サンプル動画集｜Firework社内">
-<meta name="twitter:description" content="Fireworkプレーヤーで再生する営業武器サンプル。Tier 1/2/3＋エピソードコンテンツの4階層で整理。">
+<meta name="twitter:title" content="【移転】サンプル動画集｜Firework社内">
+<meta name="twitter:description" content="AIGCサンプル動画集はNetlify版に統合されました。自動的に転送されます。">
+<link rel="canonical" href="https://fw-aigc-sample-videos.netlify.app/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎥</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<!-- Firework player runtime (business_id=g1W3Qj・AIGC営業武器用) -->
-<script async type="module" src="//asset.fwcdn3.com/js/module/fwn.js?business_id=g1W3Qj"></script>
-<script async nomodule src="//asset.fwcdn3.com/js/fwn.js?business_id=g1W3Qj"></script>
 <style>
 :root{
   --ink:#1a1a2e;
   --accent:#FA006D;
   --teal:#1B998B;
-  --navy:#0F3460;
-  --purple:#7c3aed;
   --bg:#f6f7f9;
   --card:#fff;
   --border:#e7e9ee;
   --muted:#6c757d;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px}
-#app{max-width:1080px;margin:0 auto;padding:0 0 60px}
-
-.cover{
-  background:linear-gradient(135deg,#1a1a2e 0%,#2a1d4a 55%,#0F3460 100%);
-  color:#fff;
-  padding:36px 32px 32px;
-  position:relative;
-  overflow:hidden;
+body{
+  font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;font-size:14px;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;
 }
-.cover::after{
-  content:"";
-  position:absolute;
-  right:-60px;top:-60px;
-  width:240px;height:240px;
-  background:radial-gradient(circle,rgba(124,58,237,.4),transparent 70%);
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-top:5px solid var(--accent);
+  border-radius:14px;padding:36px 32px;max-width:620px;width:100%;
+  box-shadow:0 6px 24px rgba(26,26,46,.07);text-align:center;
 }
-.cover .back{
-  display:inline-block;
-  color:#cdd3e0;
-  font-size:.74rem;
-  text-decoration:none;
-  margin-bottom:14px;
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:20px;
-  padding:4px 12px;
-  transition:background .15s;
+.tag{
+  display:inline-block;background:#fdeaf1;color:var(--accent);
+  font-weight:700;font-size:.7rem;letter-spacing:.08em;
+  padding:4px 12px;border-radius:20px;margin-bottom:16px;
 }
-.cover .back:hover{background:rgba(255,255,255,.12)}
-.cover .cat-tag{color:#c4b5fd;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-.cover h1{font-size:1.7rem;font-weight:900;margin:6px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.cover .headline{color:#dfe4ee;font-size:.92rem;max-width:760px;margin-top:6px;line-height:1.65}
-.cover .conf{display:inline-block;background:rgba(250,0,109,.85);color:#fff;font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
-
-.wrap{padding:0 32px}
-
-.intro{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-left:4px solid var(--purple);
-  border-radius:10px;
-  padding:16px 18px;
-  margin-top:24px;
-  font-size:.86rem;
-  line-height:1.8;
-  color:var(--ink);
-}
-.intro .label{font-weight:900;color:var(--purple);margin-right:8px}
-
-.quick-links{
-  background:linear-gradient(135deg,#fff,#f0fbf9);
-  border:1px solid var(--border);
-  border-left:4px solid var(--teal);
-  border-radius:10px;
-  padding:14px 18px;
-  margin-top:14px;
-}
-.quick-links .ql-label{
-  font-weight:900;
-  color:var(--teal);
-  font-size:.8rem;
-  letter-spacing:.05em;
-  margin-bottom:10px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.quick-links .ql-label::before{
-  content:"🎯";
-  font-size:.9rem;
-}
-.quick-links .ql-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.quick-links .ql-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:8px 14px;
-  background:#fff;
-  border:1px solid var(--teal);
-  color:var(--teal);
-  border-radius:20px;
-  font-size:.78rem;
-  font-weight:700;
-  text-decoration:none;
+h1{font-size:1.28rem;font-weight:900;margin-bottom:12px}
+p{font-size:.9rem;color:#3a3f50;margin-bottom:10px}
+p.small{font-size:.8rem;color:var(--muted)}
+.btn{
+  display:inline-block;margin:20px 0 8px;
+  background:var(--teal);color:#fff;font-weight:700;font-size:.9rem;
+  text-decoration:none;padding:12px 26px;border-radius:26px;
   transition:all .18s;
 }
-.quick-links .ql-btn:hover{
-  background:var(--teal);
-  color:#fff;
-  transform:translateY(-1px);
-  box-shadow:0 4px 12px rgba(27,153,139,.28);
-}
-.quick-links .ql-btn::before{
-  content:"▶";
-  font-size:.65rem;
-  opacity:.7;
-}
-
-.vsec{margin-top:30px}
-.vsec-h{
-  font-size:1.08rem;
-  font-weight:900;
-  color:var(--ink);
-  padding-left:14px;
-  border-left:4px solid var(--purple);
-  display:flex;
-  align-items:baseline;
-  gap:12px;
-  margin-bottom:8px;
-}
-.vsec-h .num{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:26px;height:26px;
-  background:var(--purple);color:#fff;
-  border-radius:50%;
-  font-size:.78rem;font-weight:900;
-}
-.vsec-desc{
-  font-size:.84rem;
-  color:#3a3f50;
-  line-height:1.7;
-  margin:0 0 10px 18px;
-}
-.vsec-desc.empty{color:var(--muted);font-style:italic;font-size:.78rem}
-
-.vsec-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:0 0 14px 18px;
-}
-.vsec-meta .chip{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  font-size:.74rem;
-  font-weight:500;
-  padding:4px 10px;
-  border-radius:6px;
-  background:#f2f4f8;
-  color:#3a3f50;
-  border:1px solid var(--border);
-}
-.vsec-meta .chip .lbl{
-  color:var(--muted);
-  font-weight:500;
-  font-size:.7rem;
-}
-.vsec-meta .chip.price{
-  background:#fdeaf1;
-  border-color:#fbcfdc;
-  color:var(--accent);
-  font-weight:700;
-}
-.vsec-meta .chip.price .lbl{color:#c91063}
-.vsec-meta .chip.custom{
-  background:linear-gradient(135deg,#fff7e6,#ffe9b8);
-  border-color:#ffd47a;
-  color:#7a4a00;
-  font-weight:700;
-}
-
-.tier-h{
-  font-size:1.05rem;
-  font-weight:900;
-  color:#fff;
-  background:linear-gradient(135deg,#1a1a2e,#2a1d4a 60%,#0F3460);
-  padding:11px 18px;
-  border-radius:10px;
-  margin:40px 0 18px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  letter-spacing:.05em;
-  box-shadow:0 4px 14px rgba(15,52,96,.18);
-}
-.tier-h:first-of-type{margin-top:28px}
-.tier-h .tier-badge{
-  background:var(--purple);
-  color:#fff;
-  font-weight:900;
-  font-size:.7rem;
-  padding:4px 10px;
-  border-radius:4px;
-  letter-spacing:.08em;
-}
-.tier-h .tier-note{
-  margin-left:auto;
-  font-size:.72rem;
-  font-weight:500;
-  color:#c4b5fd;
-  opacity:.92;
-}
-
-.vplayer{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px;
-  min-height:120px;
-  position:relative;
-}
-.vplayer-placeholder{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:8px;
-  min-height:140px;
-  color:var(--muted);
-  font-size:.82rem;
-  background:repeating-linear-gradient(45deg,#fafbfd,#fafbfd 10px,#f2f4f8 10px,#f2f4f8 20px);
-  border-radius:8px;
-  text-align:center;
-  padding:24px 16px;
-}
-.vplayer-placeholder .em{font-size:1.8rem}
-.vplayer-placeholder .ttl{font-weight:700;color:#3a3f50;font-size:.86rem}
-.vplayer-placeholder .sub{font-size:.74rem;line-height:1.6;max-width:520px}
-.vplayer-placeholder code{
-  display:inline-block;
-  background:#1a1a2e;
-  color:#c4b5fd;
-  padding:2px 8px;
-  border-radius:4px;
-  font-size:.72rem;
-  font-family:"SF Mono",Menlo,Consolas,monospace;
-}
-
-footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;padding:20px}
-footer .conf{display:inline-block;background:#fdeaf1;color:var(--accent);font-weight:700;font-size:.7rem;padding:3px 12px;border-radius:20px;margin-right:8px}
+.btn:hover{background:#157f74;transform:translateY(-1px);box-shadow:0 6px 16px rgba(27,153,139,.28)}
+.back{display:inline-block;margin-top:14px;font-size:.78rem;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted)}
+.back:hover{color:var(--ink)}
+footer{margin-top:22px;font-size:.72rem;color:var(--muted)}
 </style>
 </head>
 <body>
-<div id="app">
-
-  <div class="cover">
-    <a class="back" href="../board.html">← AIGC事業 進捗ボードへ戻る</a>
-    <div class="cat-tag">SAMPLE VIDEO GALLERY</div>
-    <h1>🎥 サンプル動画集</h1>
-    <div class="headline">
-      <span class="conf">社外秘</span>
-      Fireworkプレーヤーで再生する営業武器サンプル。Tier 1（パックショット系）／Tier 2（演出系）／Tier 3（ブリーフ準拠）／エピソードコンテンツの4階層に整理し、商談時の即時提示・ブリーフ作成の参照ソースとして活用する。
-    </div>
+  <div class="card">
+    <div class="tag">ARCHIVED / 移転しました</div>
+    <h1>🎥 サンプル動画集は統合されました</h1>
+    <p>Tier別カタログと案件別デモを1ページに統合した<br>Netlify版が唯一の窓口となりました。</p>
+    <p class="small">カテゴリ別のリンク（#cat-…）もそのまま引き継がれます。<br>自動的に転送されます。切り替わらない場合は下のボタンからお進みください。</p>
+    <a class="btn" href="https://fw-aigc-sample-videos.netlify.app/">AIGCサンプル動画集へ移動する</a>
+    <div><a class="back" href="../board.html">← AIGC事業 進捗ボードへ戻る</a></div>
+    <footer>最終更新: 2026年9月2日 11:08 JST ｜ Firework社内 / AIGC事業</footer>
   </div>
-
-  <div class="wrap">
-
-    <div class="intro">
-      <span class="label">使い方</span>
-      各セクションに Firework 埋め込みコードを差し込むとプレーヤーが再生されます。新規動画が増えた際はカテゴリ末尾に追記してください。
-    </div>
-
-    <div class="quick-links">
-      <div class="ql-label">案件別サンプル動画集</div>
-      <div class="ql-buttons">
-        <a href="./aigc-client-samples.html" class="ql-btn">案件別サンプル動画集ページを開く</a>
-      </div>
-    </div>
-
-    <!-- ============== Tier 1 ============== -->
-    <div class="tier-h"><span class="tier-badge">TIER 1</span>パックショット系<span class="tier-note">商品単体を多アングルで魅せる</span></div>
-
-    <section class="vsec" id="cat-pdp-360">
-      <div class="vsec-h"><span class="num">1</span>パックショットビデオ（360°ポージング）</div>
-      <p class="vsec-desc">商品ページ動画、PDP動画、360度動画。動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥16,000</span>
-        <span class="chip"><span class="lbl">30秒まで</span>N/A</span>
-        <span class="chip"><span class="lbl">修正回数</span>1</span>
-        <span class="chip"><span class="lbl">最小ロット</span>30</span>
-      </div>
-      <div class="vplayer" data-slot="pdp-360">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="grid"
-          player_placement="bottom-right"
-          playlist="5ndNlQ"
-          title="Tier1 Sample（360°ポージング）"
-          style="--fw-title-font-weight: 700"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <!-- ============== Tier 2 ============== -->
-    <div class="tier-h"><span class="tier-badge">TIER 2</span>演出系<span class="tier-note">ライフスタイル・ブランド世界観の表現</span></div>
-
-    <section class="vsec" id="cat-lifestyle-tryon">
-      <div class="vsec-h"><span class="num">1</span>ライフスタイルトライオン</div>
-      <p class="vsec-desc">テキスト入りの服。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>2</span>
-        <span class="chip"><span class="lbl">最小ロット</span>20</span>
-      </div>
-      <div class="vplayer" data-slot="lifestyle-tryon">
-        <fw-embed-feed
-          channel="fw_aigc_lab"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="gplK8q"
-          title="Tier2_Lifestyle"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-digital-appliance">
-      <div class="vsec-h"><span class="num">2</span>デジタル家電</div>
-      <p class="vsec-desc">商品ページ動画、PDP動画、360度動画。動画数が1000本を超える場合、動画作成用のテンプレートと顧客固有のアルゴリズムを設計・作成します。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>2</span>
-        <span class="chip"><span class="lbl">最小ロット</span>20</span>
-      </div>
-      <div class="vplayer" data-slot="digital-appliance">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="oN1MNb"
-          title="Tie2_Digital Electronics"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-explainer">
-      <div class="vsec-h"><span class="num">3</span>解説動画</div>
-      <p class="vsec-desc">商品解説動画（機能ごとの紹介も可）またはその他のハウツー動画。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>2</span>
-        <span class="chip"><span class="lbl">最小ロット</span>20</span>
-      </div>
-      <div class="vplayer" data-slot="explainer">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="oy8Rkx"
-          title="Tier2_Product explainer（商品解説）"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-social">
-      <div class="vsec-h"><span class="num">4</span>ソーシャルビデオ</div>
-      <p class="vsec-desc">ソーシャル向け動画の作成（ソーシャルで人気のある他の動画を参考に）。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>2</span>
-        <span class="chip"><span class="lbl">最小ロット</span>20</span>
-      </div>
-      <div class="vplayer" data-slot="social">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="vVO8xA"
-          title="Tier2_Social"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-commercial">
-      <div class="vsec-h"><span class="num">5</span>コマーシャルスタイル</div>
-      <p class="vsec-desc">ブランドのディレクションに合わせて制作されるハイエンド動画。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥32,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥48,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>2</span>
-        <span class="chip"><span class="lbl">最小ロット</span>20</span>
-      </div>
-      <div class="vplayer" data-slot="commercial">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="oQBZOQ"
-          title="Tier2_Commercial"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <!-- ============== Tier 3 ============== -->
-    <div class="tier-h"><span class="tier-badge">TIER 3</span>ブリーフ準拠系<span class="tier-note">顧客のクリエイティブブリーフに基づくハイエンド制作</span></div>
-
-    <section class="vsec" id="cat-tier3-social">
-      <div class="vsec-h"><span class="num">1</span>ソーシャル動画（顧客がクリエイティブブリーフを提供）</div>
-      <p class="vsec-desc">クリエイティブブリーフに基づくソーシャル向け動画。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥112,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>4</span>
-        <span class="chip"><span class="lbl">最小ロット</span>5</span>
-      </div>
-      <div class="vplayer" data-slot="tier3-social">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="vZbZa2"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-tier3-ads">
-      <div class="vsec-h"><span class="num">2</span>広告動画（顧客がクリエイティブブリーフを提供）</div>
-      <p class="vsec-desc">コマーシャルスタイルの動画。必要に応じて複数フォーマットでの納品も可能。最高の結果を保証するための作業が可能な顧客獲得用広告動画。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥112,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>4</span>
-        <span class="chip"><span class="lbl">最小ロット</span>5</span>
-      </div>
-      <div class="vplayer" data-slot="tier3-ads">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="gK4Dn1"
-          title="Tier3_Ads"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <section class="vsec" id="cat-tier3-recipe">
-      <div class="vsec-h"><span class="num">3</span>レシピコンテンツ</div>
-      <p class="vsec-desc">レシピコンテンツに基づく動画作成。</p>
-      <div class="vsec-meta">
-        <span class="chip price"><span class="lbl">15秒まで</span>¥64,000</span>
-        <span class="chip price"><span class="lbl">30秒まで</span>¥112,000</span>
-        <span class="chip"><span class="lbl">修正回数</span>4</span>
-        <span class="chip"><span class="lbl">最小ロット</span>5</span>
-      </div>
-      <div class="vplayer" data-slot="tier3-recipe">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="5bJZ92"
-          title="Tier3_Recipe"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-    <!-- ============== Episodic Content ============== -->
-    <div class="tier-h"><span class="tier-badge">EPISODIC</span>エピソードコンテンツ<span class="tier-note">要件に基づくカスタム価格</span></div>
-
-    <section class="vsec" id="cat-content-over-30s">
-      <div class="vsec-h"><span class="num">1</span>30秒以上のコンテンツ</div>
-      <p class="vsec-desc">要件に基づくカスタム価格。</p>
-      <div class="vsec-meta">
-        <span class="chip custom"><span class="lbl">価格</span>カスタム見積もり</span>
-        <span class="chip"><span class="lbl">尺</span>30秒〜</span>
-      </div>
-      <div class="vplayer" data-slot="content-over-30s">
-        <fw-embed-feed
-          channel="aigc_jp"
-          mode="row"
-          player_placement="bottom-right"
-          playlist="gkk7rB"
-          title="Tier3_Content over 30s"
-        ></fw-embed-feed>
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    <span class="conf">社外秘</span>
-    最終更新: 2026年7月1日 10:32 JST ｜ Firework社内 / AIGC事業
-  </footer>
-
-</div>
 </body>
 </html>
