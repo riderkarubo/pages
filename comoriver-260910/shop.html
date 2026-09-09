@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>買い出しリスト｜こもりば川床BBQ 9/10（木）</title>
-<meta name="last-modified" content="2026-09-09T18:42:56+09:00">
+<meta name="last-modified" content="2026-09-09T18:52:00+09:00">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="9/10（木）こもりば川床BBQの買い出しリスト。スーパー・キャンドゥ・現地・自宅から持参に分けた品目を、チェックしてまとめてコピーしスマホの買い物アプリに貼れる。前日の仕込みはメニュー帳へ。">
 
@@ -328,7 +328,6 @@ a{color:inherit;}
     <a class="pin" href="#s3"><span class="pin-dot">🥦</span><span class="pin-label">妻の分（ヴィーガン）</span></a>
     <a class="pin" href="#s4"><span class="pin-dot">💯</span><span class="pin-label">キャンドゥで揃える</span></a>
     <a class="pin" href="#s4b"><span class="pin-dot">🎒</span><span class="pin-label">自宅から持参</span></a>
-    <a class="pin" href="#s5"><span class="pin-dot">➕</span><span class="pin-label">追加した品目</span></a>
     <a class="pin pin-ext" href="menu.html#prep"><span class="pin-dot">🔪</span><span class="pin-label">前日の仕込み</span></a>
     <a class="pin" href="#s7"><span class="pin-dot">⚠️</span><span class="pin-label">買わない2つ・保冷</span></a>
   </nav>
@@ -357,12 +356,7 @@ a{color:inherit;}
 
 <div class="shopbox" id="copybox">
   <h2>📋 コピー用リスト</h2>
-  <p class="hint">チェックを付けた品目が、<b>お店ごとに別々の欄</b>で並びます。欄ごとの<b>「📋 コピー」</b>で、その店の分だけクリップボードへ。スマホの買い物アプリやメモアプリに貼ってお使いください。チェックした状態・追加した品目は、この端末に記憶されます。</p>
-  <div class="addrow">
-    <input type="text" id="add-name" class="nm" placeholder="追加する品名（例：ミネラルウォーター）" aria-label="追加する品名">
-    <input type="text" id="add-qty" class="qt" placeholder="量（任意）" aria-label="量">
-    <button type="button" id="add-btn">＋ 追加</button>
-  </div>
+  <p class="hint">チェックを付けた品目が、<b>お店ごとに別々の欄</b>で並びます。欄ごとの<b>「📋 コピー」</b>で、その店の分だけクリップボードへ。スマホの買い物アプリやメモアプリに貼ってお使いください。チェックした状態は、この端末に記憶されます。</p>
   <div id="shop-groups"></div>
   <div class="shopbtns">
     <button type="button" class="shopbtn" id="shop-all">ぜんぶチェック</button>
@@ -491,19 +485,6 @@ a{color:inherit;}
           <tr data-id="t-icepack" class="rowpick" data-copy="保冷剤（ありったけ）"><td class="place">保冷剤</td><td>ありったけ</td><td>当日は最高33〜35℃想定。<strong>クーラーは食材用・肉魚用・飲み物用で分ける</strong></td></tr>
           <tr data-id="t-mitten-spare" data-copy="布のミトン（予備）"><td class="place">布のミトン<small>予備</small></td><td>1</td><td>補助用。<strong>直に高温部を掴むのは買う耐熱ミトンで</strong></td></tr>
         </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="sec a-moegi" id="s5" data-group="追加した品目">
-  <div class="sec-head"><span class="sec-icon">➕</span><h2>追加した品目</h2></div>
-  <p class="sec-note">いちばん上の「＋ 追加」で足したものがここに入ります。× で削除できます</p>
-  <div class="sec-body">
-    <div class="panel scroller">
-      <table class="tbl">
-        <thead><tr><th aria-hidden="true"></th><th>品目</th><th>量</th><th aria-hidden="true"></th></tr></thead>
-        <tbody id="custom-body"></tbody>
       </table>
     </div>
   </div>
@@ -665,7 +646,6 @@ a{color:inherit;}
   var groupsEl   = document.getElementById('shop-groups');
   var groupText  = {};
   var restoreW   = document.getElementById('shop-restore');
-  var customBody = document.getElementById('custom-body');
   var slice      = function(n){ return Array.prototype.slice.call(n); };
 
   function decorate(tr){
@@ -704,59 +684,6 @@ a{color:inherit;}
     slice(t.querySelectorAll('tbody tr[data-id]')).forEach(decorate);
   });
 
-  function renderCustom(){
-    customBody.innerHTML = '';
-    if (!st.custom.length){
-      var e = document.createElement('tr'); e.className = 'emptyrow';
-      var td = document.createElement('td'); td.colSpan = 4;
-      td.textContent = 'いちばん上の「＋ 追加」から、足りないものをここに足せます';
-      e.appendChild(td); customBody.appendChild(e); return;
-    }
-    st.custom.forEach(function(it){
-      var tr = document.createElement('tr');
-      tr.setAttribute('data-id', it.id);
-      tr.setAttribute('data-copy', it.name + (it.qty ? ' ' + it.qty : ''));
-      var ck = document.createElement('td'); ck.className = 'ck';
-      var box = document.createElement('input'); box.type = 'checkbox'; box.checked = isOn(it.id);
-      box.setAttribute('aria-label', '買い物リストに入れる');
-      box.addEventListener('change', function(){
-        st.checked[it.id] = box.checked;
-        tr.classList.toggle('off', !box.checked);
-        save(); render();
-      });
-      ck.appendChild(box); tr.appendChild(ck);
-      var nm = document.createElement('td'); nm.className = 'place'; nm.textContent = it.name; tr.appendChild(nm);
-      var qt = document.createElement('td'); qt.textContent = it.qty || ''; tr.appendChild(qt);
-      var rm = document.createElement('td'); rm.className = 'rm';
-      var b = document.createElement('button'); b.type = 'button'; b.textContent = '×'; b.title = '削除';
-      b.setAttribute('aria-label', 'この品目を削除');
-      b.addEventListener('click', function(){
-        st.custom = st.custom.filter(function(x){ return x.id !== it.id; });
-        delete st.checked[it.id];
-        save(); renderCustom(); render();
-      });
-      rm.appendChild(b); tr.appendChild(rm);
-      tr.classList.toggle('off', !box.checked);
-      customBody.appendChild(tr);
-    });
-  }
-
-  var nm = document.getElementById('add-name');
-  var qt = document.getElementById('add-qty');
-  function addItem(){
-    var v = (nm.value || '').trim();
-    if (!v) { nm.focus(); return; }
-    st.custom.push({
-      id: 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      name: v,
-      qty: (qt.value || '').trim()
-    });
-    nm.value = ''; qt.value = '';
-    save(); renderCustom(); render(); nm.focus();
-  }
-  document.getElementById('add-btn').addEventListener('click', addItem);
-  nm.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); addItem(); } });
-  qt.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); addItem(); } });
 
   function groupOf(tr){
     var g = tr.getAttribute('data-group');
@@ -858,7 +785,6 @@ a{color:inherit;}
     save(); render();
   });
 
-  renderCustom();
   render();
 })();
 </script>
