@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>買い出しリスト｜こもりば川床BBQ 9/10（木）</title>
-<meta name="last-modified" content="2026-09-09T18:34:08+09:00">
+<meta name="last-modified" content="2026-09-09T18:45:00+09:00">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="9/10（木）こもりば川床BBQの買い出しリスト。スーパー・キャンドゥ・現地・自宅から持参に分けた品目を、チェックしてまとめてコピーしスマホの買い物アプリに貼れる。前日の仕込みはメニュー帳へ。">
 
@@ -289,6 +289,16 @@ a{color:inherit;}
 .copied{font-size:12px;font-weight:800;font-family:var(--disp);color:var(--moegi);opacity:0;transition:opacity .2s;}
 .copied.on{opacity:1;}
 #shop-restore .restore{font-size:12px;color:var(--sora);cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--body);padding:4px 2px;}
+.shopgroup{margin:0 0 14px;}
+.shopgroup:last-child{margin-bottom:0;}
+.shopgroup-h{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 6px;}
+.shopgroup-h b{font-family:var(--disp);font-weight:800;font-size:13px;}
+.shopgroup-h .n{font-size:11.5px;color:var(--sumi-3);}
+.shopgroup-copy{font-family:var(--disp);font-weight:800;font-size:11.5px;padding:5px 12px;border-radius:16px;border:2px solid var(--takibi);background:var(--takibi);color:#fff;cursor:pointer;transition:.16s;}
+.shopgroup-copy:hover{filter:brightness(1.06);}
+.shopgroup .shopout{margin:0;}
+.shopgroup .copied{margin-left:0;}
+#shop-groups:empty::before{content:"上の表でチェックを付けると、お店ごとに欄が出ます";color:var(--sumi-3);font-size:12.5px;font-family:var(--body);}
 .tbl td.ck{width:36px;padding-right:2px;text-align:center;vertical-align:middle;}
 .tbl td.ck input{width:19px;height:19px;accent-color:var(--takibi);cursor:pointer;}
 .tbl td.rm{width:30px;padding-left:2px;text-align:center;vertical-align:middle;}
@@ -347,18 +357,16 @@ a{color:inherit;}
 
 <div class="shopbox" id="copybox">
   <h2>📋 コピー用リスト</h2>
-  <p class="hint">下の表でチェックを付けた品目が、<b>お店ごと（スーパー／キャンドゥ／現地）に分かれて</b>ここに集まります。<b>「コピー」</b>でまとめてクリップボードへ。スマホの買い物アプリやメモアプリに貼ってお使いください。チェックした状態・追加した品目は、この端末に記憶されます。</p>
+  <p class="hint">チェックを付けた品目が、<b>お店ごとに別々の欄</b>で並びます。欄ごとの<b>「📋 コピー」</b>で、その店の分だけクリップボードへ。スマホの買い物アプリやメモアプリに貼ってお使いください。チェックした状態・追加した品目は、この端末に記憶されます。</p>
   <div class="addrow">
     <input type="text" id="add-name" class="nm" placeholder="追加する品名（例：ミネラルウォーター）" aria-label="追加する品名">
     <input type="text" id="add-qty" class="qt" placeholder="量（任意）" aria-label="量">
     <button type="button" id="add-btn">＋ 追加</button>
   </div>
-  <pre class="shopout" id="shop-out"></pre>
+  <div id="shop-groups"></div>
   <div class="shopbtns">
-    <button type="button" class="shopbtn primary" id="shop-copy">📋 コピー</button>
     <button type="button" class="shopbtn" id="shop-all">ぜんぶチェック</button>
     <button type="button" class="shopbtn" id="shop-none">ぜんぶ外す</button>
-    <span class="copied" id="shop-copied">コピーしました</span>
     <span id="shop-restore"></span>
   </div>
 </div>
@@ -654,7 +662,8 @@ a{color:inherit;}
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
   function isOn(id){ return st.checked[id] !== false; }   // 既定はオン
 
-  var out        = document.getElementById('shop-out');
+  var groupsEl   = document.getElementById('shop-groups');
+  var groupText  = {};
   var restoreW   = document.getElementById('shop-restore');
   var customBody = document.getElementById('custom-body');
   var slice      = function(n){ return Array.prototype.slice.call(n); };
@@ -771,9 +780,28 @@ a{color:inherit;}
       if (!bucket[g]) { bucket[g] = []; order.push(g); }
       bucket[g].push(txt);
     });
-    out.textContent = order.map(function(g){
-      return '【' + g + '】\n' + bucket[g].join('\n');
-    }).join('\n\n');
+
+    groupText = {};
+    groupsEl.innerHTML = '';
+    order.forEach(function(g){
+      var body = bucket[g].join('\n');
+      groupText[g] = body;
+      var wrap = document.createElement('div');
+      wrap.className = 'shopgroup';
+      var h = document.createElement('div');
+      h.className = 'shopgroup-h';
+      var b = document.createElement('b'); b.textContent = g;
+      var n = document.createElement('span'); n.className = 'n'; n.textContent = bucket[g].length + '件';
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'shopgroup-copy';
+      btn.setAttribute('data-g', g);
+      btn.textContent = '\uD83D\uDCCB コピー';
+      var msg = document.createElement('span'); msg.className = 'copied'; msg.textContent = 'コピーしました';
+      h.appendChild(b); h.appendChild(n); h.appendChild(btn); h.appendChild(msg);
+      var pre = document.createElement('pre'); pre.className = 'shopout'; pre.textContent = body;
+      wrap.appendChild(h); wrap.appendChild(pre);
+      groupsEl.appendChild(wrap);
+    });
 
     restoreW.innerHTML = '';
     var hid = Object.keys(st.hidden).filter(function(k){ return st.hidden[k]; });
@@ -790,10 +818,12 @@ a{color:inherit;}
     }
   }
 
-  document.getElementById('shop-copy').addEventListener('click', function(){
-    var text = out.textContent;
-    var msg = document.getElementById('shop-copied');
-    function done(){ msg.classList.add('on'); setTimeout(function(){ msg.classList.remove('on'); }, 1600); }
+  groupsEl.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.shopgroup-copy') : null;
+    if (!btn) return;
+    var text = groupText[btn.getAttribute('data-g')] || '';
+    var msg = btn.parentNode.querySelector('.copied');
+    function done(){ if (msg){ msg.classList.add('on'); setTimeout(function(){ msg.classList.remove('on'); }, 1600); } }
     if (navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text).then(done, function(){ legacyCopy(text); done(); });
     } else {
