@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>こもりば川床で、一日だらける。｜9/10（木）献立確定版</title>
-<meta name="last-modified" content="2026-09-09T20:53:10+09:00">
+<meta name="last-modified" content="2026-09-09T21:10:52+09:00">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="ときたまひみつきち COMORIVER 川床BBQエリア 9/10（木）予約確定。池袋発・レンタカー・大人2名・食材持ち込み。レンタル器具一覧、確定費用、当日の行程、持ち物、残りのやること。">
 
@@ -198,6 +198,24 @@ a{color:inherit;}
 .checks .who{color:var(--takibi);font-weight:700;}
 .packgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
 
+/* ---- 準備済みアーカイブ ---- */
+.donebox{margin-top:26px;border-top:2px dashed var(--line);padding-top:18px;}
+.donebox.is-empty{opacity:.5;}
+.done-head{display:flex;align-items:center;gap:10px;width:100%;background:var(--kawa);border:none;border-radius:14px;padding:12px 16px;cursor:pointer;font-family:var(--disp);font-weight:800;font-size:13.5px;color:var(--sumi-2);transition:background .16s ease;}
+.done-head:hover{background:var(--line-2);}
+.done-count{font-family:var(--disp);font-weight:800;font-size:12px;background:var(--moegi);color:#fff;border-radius:20px;padding:2px 10px;min-width:22px;text-align:center;}
+.donebox.is-empty .done-count{background:var(--sumi-3);}
+.done-caret{margin-left:auto;transition:transform .22s ease;font-size:12px;color:var(--sumi-3);}
+.done-head.open .done-caret{transform:rotate(180deg);}
+.done-list{margin-top:12px;}
+.done-list[hidden]{display:none;}
+.done-list li[data-k]{background:var(--done);box-shadow:none;opacity:.9;}
+.pin-sub{margin-left:22px;}
+.pin-sub .pin-dot{width:26px;height:26px;font-size:13px;}
+.pin-sub .pin-label{font-size:12px;}
+.pin-badge{font-family:var(--disp);font-weight:800;font-size:10px;background:var(--moegi);color:#fff;border-radius:20px;padding:1px 7px;margin-left:6px;vertical-align:1px;}
+@media print{.done-list[hidden]{display:grid!important;}.done-caret{display:none;}}
+
 /* ---- 押せるチェックボックス ---- */
 .checks li[data-k]{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:background .16s ease,box-shadow .16s ease,opacity .16s ease;}
 .checks li[data-k]:hover{box-shadow:0 2px 0 rgba(34,56,64,.12),0 8px 20px rgba(34,56,64,.10);}
@@ -321,6 +339,7 @@ a{color:inherit;}
     <a class="pin pin-ext" href="play.html"><span class="pin-dot">🏞️</span><span class="pin-label">14時からの遊び</span></a>
     <a class="pin" href="#s5"><span class="pin-dot">💰</span><span class="pin-label">お金の内訳</span></a>
     <a class="pin" href="#s6"><span class="pin-dot">🎒</span><span class="pin-label">持ち物リスト</span></a>
+    <a class="pin pin-sub" href="#s6-done"><span class="pin-dot">✅</span><span class="pin-label">準備済み<b class="pin-badge" data-done-badge>0</b></span></a>
     <a class="pin" href="#s7"><span class="pin-dot">✅</span><span class="pin-label">残りのやること</span></a>
     <a class="pin" href="#s8"><span class="pin-dot">🔎</span><span class="pin-label">調べたところ</span></a>
   </nav>
@@ -699,9 +718,10 @@ a{color:inherit;}
   <div class="sec-body">
 
     <div class="resetbar">
-      <span class="lead">荷造りの進み具合<small>タップでチェック。この端末に保存されます</small></span>
+      <span class="lead">荷造りの進み具合<small>タップでチェック。<strong>URLに保存され、スマホでも同じ状態で開けます</strong></small></span>
       <span class="grow"></span>
       <span class="prog" data-scope="#s6"><span class="n">0 / 0</span><span class="progbar"><i></i></span></span>
+      <button class="btn" type="button" data-share-url>📱 スマホに引き継ぐ</button>
       <button class="btn" type="button" data-reset="#s6">チェックを全部外す</button>
     </div>
 
@@ -794,6 +814,15 @@ a{color:inherit;}
         <li data-k="kh25"><span class="box box-pack"></span><span><b>布のミトン（予備）</b><span>補助用。直に高温部を掴むのは買う耐熱ミトンで</span></span></li>
       </ul>
     </div>
+
+    <div class="donebox is-empty" id="s6-done">
+      <button class="done-head" type="button" data-done-toggle aria-expanded="false">
+        <span>✅ 準備済み（チェックしたものはここに畳まれます）</span>
+        <b class="done-count" data-done-badge>0</b>
+        <span class="done-caret" aria-hidden="true">▾</span>
+      </button>
+      <ul class="checks done-list" hidden></ul>
+    </div>
   </div>
 </section>
 
@@ -804,7 +833,7 @@ a{color:inherit;}
   <div class="sec-body">
 
     <div class="resetbar">
-      <span class="lead">やることの進み具合<small>タップでチェック。この端末に保存されます</small></span>
+      <span class="lead">やることの進み具合<small>タップでチェック。URLに保存され、スマホでも同じ状態で開けます</small></span>
       <span class="grow"></span>
       <span class="prog" data-scope="#s7"><span class="n">0 / 0</span><span class="progbar"><i></i></span></span>
       <button class="btn" type="button" data-reset="#s7">チェックを全部外す</button>
@@ -866,7 +895,7 @@ a{color:inherit;}
 
 <div class="foot">
   <span><b>こもりば川床で、一日だらける。</b> ／ 2026年9月10日（木） ／ 池袋発 ／ 施設予約済み</span>
-  <span>最終更新：2026年9月9日 20:53</span>
+  <span>最終更新：2026年9月9日 21:10</span>
 </div>
 
 </main>
@@ -875,7 +904,7 @@ a{color:inherit;}
 <script>
 (function(){
   var pins = Array.prototype.slice.call(document.querySelectorAll('#nav .pin'))
-    .filter(function(a){ return a.getAttribute('href').charAt(0) === '#'; });  // 別ページのピンは対象外
+    .filter(function(a){ return a.getAttribute('href').charAt(0) === '#' && !a.classList.contains('pin-sub'); });  // 別ページ・サブピンは対象外
   var secs = pins.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
   function spy(){
     var y = window.scrollY + 130, idx = 0;
@@ -982,9 +1011,10 @@ a{color:inherit;}
 })();
 
 
-/* ---- チェックボックス（localStorage で永続化） ---- */
+/* ---- チェックボックス（localStorage ＋ URL で永続化・端末間で持ち運べる） ---- */
 (function(){
-  var KEY = 'comoriver-260910-checks';
+  var KEY  = 'comoriver-260910-checks';
+  var FKEY = 'comoriver-260910-donefold';
   var items = Array.prototype.slice.call(document.querySelectorAll('.checks li[data-k]'));
   if (!items.length) return;
 
@@ -998,12 +1028,71 @@ a{color:inherit;}
   }
 
   var state = load();
+  var known = {};
+  items.forEach(function(li){ known[li.getAttribute('data-k')] = true; });
 
   // 初回のみ、すでに完了している項目（class="done"）を既定でチェック済みにする
   items.forEach(function(li){
     var k = li.getAttribute('data-k');
     if (!(k in state) && li.classList.contains('done')) state[k] = true;
   });
+
+  // URL（?chk=）に状態が載っていれば、そちらを正として取り込む（スマホへの引き継ぎ用）
+  try {
+    var q = new URLSearchParams(location.search).get('chk');
+    if (q !== null) {
+      var wanted = {};
+      q.split(',').forEach(function(k){ if (k) wanted[k] = true; });
+      Object.keys(known).forEach(function(k){ state[k] = !!wanted[k]; });
+      save(state);
+    }
+  } catch (e) {}
+
+  // 現在の状態を ?chk= に書き戻す（履歴は汚さない・#アンカーは保持）
+  function syncUrl(){
+    try {
+      var on = items.filter(function(li){ return !!state[li.getAttribute('data-k')]; })
+                    .map(function(li){ return li.getAttribute('data-k'); });
+      var qs = location.pathname + (on.length ? ('?chk=' + on.join(',')) : '') + location.hash;
+      history.replaceState(null, '', qs);
+    } catch (e) {}
+  }
+
+  // ---- 「準備済み」アーカイブ（#s6 のみ・折りたたみ） ----
+  var s6 = document.getElementById('s6');
+  var doneList = document.querySelector('#s6-done .done-list');
+  var doneHead = document.querySelector('#s6-done [data-done-toggle]');
+  var s6Items = s6 ? Array.prototype.slice.call(s6.querySelectorAll('.checks li[data-k]')) : [];
+  s6Items.forEach(function(li){
+    li._originUl = li.parentNode;
+    li._originIdx = Array.prototype.indexOf.call(li.parentNode.children, li);
+  });
+  var collapsed = true;
+  try { collapsed = localStorage.getItem(FKEY) !== 'open'; } catch (e) {}
+  function saveFold(){ try { localStorage.setItem(FKEY, collapsed ? 'shut' : 'open'); } catch (e) {} }
+
+  function placeItem(li, checked){
+    if (!doneList) return;
+    if (checked){
+      if (li.parentNode !== doneList) doneList.appendChild(li);       // 末尾＝一番下へ
+    } else if (li.parentNode === doneList){
+      var ul = li._originUl;
+      var ref = ul.children[Math.min(li._originIdx, ul.children.length)];
+      ul.insertBefore(li, ref || null);                              // 元のグループへ戻す
+    }
+  }
+
+  function updateDoneUI(){
+    var n = doneList ? doneList.children.length : 0;
+    document.querySelectorAll('[data-done-badge]').forEach(function(b){ b.textContent = n; });
+    var box = document.getElementById('s6-done');
+    if (box) box.classList.toggle('is-empty', n === 0);
+    if (doneList) doneList.hidden = collapsed;
+    if (doneHead){
+      doneHead.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      doneHead.classList.toggle('open', !collapsed);
+    }
+  }
 
   function paintProgress(){
     document.querySelectorAll('.prog[data-scope]').forEach(function(badge){
@@ -1021,9 +1110,12 @@ a{color:inherit;}
 
   function paint(){
     items.forEach(function(li){
-      li.classList.toggle('checked', !!state[li.getAttribute('data-k')]);
-      li.setAttribute('aria-checked', !!state[li.getAttribute('data-k')]);
+      var on = !!state[li.getAttribute('data-k')];
+      li.classList.toggle('checked', on);
+      li.setAttribute('aria-checked', on);
     });
+    s6Items.forEach(function(li){ placeItem(li, !!state[li.getAttribute('data-k')]); });
+    updateDoneUI();
     paintProgress();
   }
 
@@ -1032,6 +1124,7 @@ a{color:inherit;}
     state[k] = !state[k];
     save(state);
     paint();
+    syncUrl();
   }
 
   items.forEach(function(li){
@@ -1046,6 +1139,28 @@ a{color:inherit;}
     });
   });
 
+  if (doneHead){
+    doneHead.addEventListener('click', function(){
+      collapsed = !collapsed; saveFold(); updateDoneUI();
+    });
+  }
+
+  // サイドバーの「準備済み」ピン：#s6 を開き、アーカイブを展開してスクロール
+  var donePin = document.querySelector('#nav a[href="#s6-done"]');
+  if (donePin){
+    donePin.addEventListener('click', function(e){
+      e.preventDefault();
+      if (s6 && s6.classList.contains('shut')){
+        var h = s6.querySelector('.sec-head'); if (h) h.click();
+      }
+      collapsed = false; saveFold(); updateDoneUI();
+      requestAnimationFrame(function(){
+        var box = document.getElementById('s6-done');
+        if (box) box.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  }
+
   document.querySelectorAll('[data-reset]').forEach(function(btn){
     btn.addEventListener('click', function(){
       var scope = document.querySelector(btn.getAttribute('data-reset'));
@@ -1055,11 +1170,31 @@ a{color:inherit;}
       });
       save(state);
       paint();
+      syncUrl();
+    });
+  });
+
+  // 「スマホに引き継ぐ」：状態入りURLをコピー
+  document.querySelectorAll('[data-share-url]').forEach(function(btn){
+    var label = btn.textContent;
+    btn.addEventListener('click', function(){
+      syncUrl();
+      var url = location.href;
+      function ok(){
+        btn.textContent = '✅ URLをコピーしました';
+        setTimeout(function(){ btn.textContent = label; }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(ok, function(){ window.prompt('このURLをスマホで開いてください', url); });
+      } else {
+        window.prompt('このURLをスマホで開いてください', url);
+      }
     });
   });
 
   save(state);
   paint();
+  syncUrl();
 })();
 </script>
 </body>
