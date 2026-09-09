@@ -316,7 +316,7 @@ a{color:inherit;}
     <a class="pin" href="#s1"><span class="pin-dot">🧺</span><span class="pin-label">共通</span></a>
     <a class="pin" href="#s2"><span class="pin-dot">🥩</span><span class="pin-label">夫の分（通常）</span></a>
     <a class="pin" href="#s3"><span class="pin-dot">🥦</span><span class="pin-label">妻の分（ヴィーガン）</span></a>
-    <a class="pin" href="#s4"><span class="pin-dot">💯</span><span class="pin-label">100均で揃える</span></a>
+    <a class="pin" href="#s4"><span class="pin-dot">💯</span><span class="pin-label">キャンドゥで揃える</span></a>
     <a class="pin" href="#s5"><span class="pin-dot">➕</span><span class="pin-label">追加した品目</span></a>
     <a class="pin" href="#s6"><span class="pin-dot">🔪</span><span class="pin-label">前夜の仕込み</span></a>
     <a class="pin" href="#s7"><span class="pin-dot">⚠️</span><span class="pin-label">買わない2つ・保冷</span></a>
@@ -338,7 +338,7 @@ a{color:inherit;}
     <div class="facts">
       <span class="fact">🛒 <b>共通・夫・妻・100均</b>の4分類</span>
       <span class="fact">📅 <b>9/9（水）夜</b>に買い出し</span>
-      <span class="fact">🏪 池袋周辺 ＋ <b>ダイソー・セリア</b></span>
+      <span class="fact">🏪 池袋周辺 ＋ <b>キャンドゥ</b></span>
       <span class="fact">📋 チェック→<b>コピー</b>だけ</span>
     </div>
   </div>
@@ -346,7 +346,7 @@ a{color:inherit;}
 
 <div class="shopbox" id="copybox">
   <h2>📋 コピー用リスト</h2>
-  <p class="hint">下の表でチェックを付けた品目が、そのままここに集まります。<b>「コピー」</b>でまとめてクリップボードへ。スマホの買い物アプリやメモアプリに貼ってお使いください。チェックした状態・追加した品目は、この端末に記憶されます。</p>
+  <p class="hint">下の表でチェックを付けた品目が、<b>お店ごと（スーパー／キャンドゥ／現地）に分かれて</b>ここに集まります。<b>「コピー」</b>でまとめてクリップボードへ。スマホの買い物アプリやメモアプリに貼ってお使いください。チェックした状態・追加した品目は、この端末に記憶されます。</p>
   <div class="addrow">
     <input type="text" id="add-name" class="nm" placeholder="追加する品名（例：ミネラルウォーター）" aria-label="追加する品名">
     <input type="text" id="add-qty" class="qt" placeholder="量（任意）" aria-label="量">
@@ -369,7 +369,7 @@ a{color:inherit;}
   <button class="btn" type="button" data-fold="shut">ぜんぶ たたむ</button>
 </div>
 
-<section class="sec a-moegi" id="s1">
+<section class="sec a-moegi" id="s1" data-group="スーパー">
   <div class="sec-head"><span class="sec-icon">🧺</span><h2>共通 ｜ ふたりで使うもの</h2></div>
   <p class="sec-note">調味料は小瓶に小分け。炭とロックアイスは現地の売店で足せます</p>
   <div class="sec-body">
@@ -382,8 +382,8 @@ a{color:inherit;}
           <tr data-id="c-oliveoil" data-copy="オリーブオイル 小瓶"><td class="place">オリーブオイル</td><td>小瓶に小分け</td><td>ロースト・仕上げに使う分だけで十分</td></tr>
           <tr data-id="c-saltpepper" data-copy="塩・黒こしょう"><td class="place">塩・黒こしょう</td><td>小分け</td><td></td></tr>
           <tr data-id="c-smokechip" data-copy="スモークチップ（桜） 1袋"><td class="place">スモークチップ（桜）</td><td>ひと袋</td><td>使う分を<strong>水に20分浸けて絞る</strong></td></tr>
-          <tr data-id="c-charcoal" class="rowpick" data-copy="炭 3kg×1〜2袋（現地の売店で追加可）"><td class="place">炭<small>現地で追加購入できます</small></td><td>3kg × 1〜2袋</td><td>場内 ¥880／袋。<strong>付属3kgでは足りません</strong>——4時間ほぼ連続で蓋を閉じた間接焼きと燻製を回すため</td></tr>
-          <tr data-id="c-ice" data-copy="ロックアイス 1〜2袋（現地の売店）"><td class="place">ロックアイス<small>現地購入</small></td><td>1〜2袋</td><td>売店で購入。到着直後に食材用クーラーへ投入</td></tr>
+          <tr data-id="c-charcoal" class="rowpick" data-group="現地の売店で購入" data-copy="炭 3kg×1〜2袋"><td class="place">炭<small>現地で追加購入できます</small></td><td>3kg × 1〜2袋</td><td>場内 ¥880／袋。<strong>付属3kgでは足りません</strong>——4時間ほぼ連続で蓋を閉じた間接焼きと燻製を回すため</td></tr>
+          <tr data-id="c-ice" data-group="現地の売店で購入" data-copy="ロックアイス 1〜2袋"><td class="place">ロックアイス<small>現地購入</small></td><td>1〜2袋</td><td>売店で購入。到着直後に食材用クーラーへ投入</td></tr>
           <tr data-id="c-drinks" class="rowpick" data-copy="飲み物（炭酸水・お茶・果汁100%・コーラ等）"><td class="place">飲み物</td><td>適量</td><td><strong>ビール類はアイシングラス（魚の浮き袋）で清澄される場合があります。</strong> ヴィーガン表記のある銘柄か、炭酸水・お茶・果汁100%ジュース・コーラで構成する</td></tr>
         </tbody>
       </table>
@@ -391,7 +391,7 @@ a{color:inherit;}
   </div>
 </section>
 
-<section class="sec a-taki" id="s2">
+<section class="sec a-taki" id="s2" data-group="スーパー">
   <div class="sec-head"><span class="sec-icon">🥩</span><h2>夫の分 ｜ 通常</h2></div>
   <p class="sec-note">厚みが命のステーキ肉と、スライスでないブロック類</p>
   <div class="sec-body">
@@ -409,7 +409,7 @@ a{color:inherit;}
   </div>
 </section>
 
-<section class="sec a-sora" id="s3">
+<section class="sec a-sora" id="s3" data-group="スーパー">
   <div class="sec-head"><span class="sec-icon">🥦</span><h2>妻の分 ｜ ヴィーガン</h2></div>
   <p class="sec-note">調味料は原材料の裏取りまで済ませています。だし入り・みりん風・ワイン由来の酢は避ける</p>
   <div class="sec-body">
@@ -437,34 +437,34 @@ a{color:inherit;}
   </div>
 </section>
 
-<section class="sec a-yama" id="s4">
-  <div class="sec-head"><span class="sec-icon">💯</span><h2>100均 ｜ ダイソー・セリア</h2></div>
+<section class="sec a-yama" id="s4" data-group="キャンドゥ">
+  <div class="sec-head"><span class="sec-icon">💯</span><h2>100均 ｜ キャンドゥ</h2></div>
   <p class="sec-note">この献立に直接効く品だけ。<strong>耐熱グローブと肉用温度計だけは100均で買わない</strong>（→「買わない2つ」）</p>
   <div class="sec-body">
     <div class="panel scroller">
       <table class="tbl shop-list">
         <thead><tr><th>品目</th><th>店・目安</th><th>この計画でなぜ要るか</th></tr></thead>
         <tbody>
-          <tr data-id="h-knifecase" class="rowpick" data-copy="まな板にもなる包丁ケース ×2（ダイソー ¥110／個）"><td class="place">まな板にもなる包丁ケース<small>× 2個</small></td><td>ダイソー<br><span class="yen">¥110</span> / 個<span class="sub">27.8×3.5×11.4cm</span></td><td>包丁を刃を隠したまま運べて、<strong>開くとまな板になる</strong>。<span class="mark">2個買うのが肝</span>——ヴィーガン用と通常用でまな板ごと2系統に分かれ、交差汚染対策がそのまま解決します</td></tr>
-          <tr data-id="h-knifecover" data-copy="包丁カバー（セリア ¥110・代替案）"><td class="place">包丁カバー<small>代替案</small></td><td>セリア<br><span class="yen">¥110</span><span class="sub">刃渡り185mm・身幅50mmまで</span></td><td>上のケースが売り切れていた場合、または大きめの包丁を持つ場合。<strong>まな板は別途必要</strong></td></tr>
-          <tr data-id="h-alumitray" class="rowpick" data-copy="厚手アルミトレー 3枚以上（セリア厚手・耐熱約660℃）"><td class="place">厚手アルミ仕切り皿・<br>アルミトレー<small>最低3枚</small></td><td>セリア／ダイソー<br><span class="yen">¥110</span><span class="sub">セリアの厚手は耐熱 約660℃</span></td><td>耐熱660℃なので<strong>網に直置きできます</strong>。カリフラワー用・きのこ用・中央のドリップパン用</td></tr>
-          <tr data-id="h-alumideep" data-copy="アルミトレー（深型・チップ浸水用） 1枚"><td class="place">アルミトレー（深型）<small>チップ浸水用</small></td><td>ダイソー／セリア<br><span class="yen">¥110</span></td><td>スモークチップを<strong>水に20分浸けて絞る</strong>ため。網用トレーは浅くて水を張れないので<span class="mark">深さのあるタイプ</span>を別に1枚</td></tr>
-          <tr data-id="h-bottles" data-copy="調味料ボトル・小分け容器 6〜8本"><td class="place">調味料ボトル・小分け容器<small>6〜8本</small></td><td>セリア／ダイソー<br><span class="yen">¥110</span></td><td>塩・こしょう・オリーブオイル・醤油・本みりん・米酢。<strong>ヴィーガン用は別ボトルにして色を分ける</strong></td></tr>
-          <tr data-id="h-tape" data-copy="ビニールテープ 2色（ダイソー）"><td class="place">ビニールテープ<small>2色</small></td><td>ダイソー<br><span class="yen">¥110</span></td><td>トング・菜箸・皿を2系統に貼り分ける。<strong>器具の取り違えを目で防ぐ</strong></td></tr>
-          <tr data-id="h-tongs" data-copy="トング・菜箸 各2セット"><td class="place">トング・菜箸<small>各2セット</small></td><td>ダイソー<br><span class="yen">¥110〜330</span></td><td>ヴィーガン用と通常用。<strong>現地で洗って使い回す運用は前提にしません</strong></td></tr>
-          <tr data-id="h-containers" data-copy="保存容器（フタ付き） 3〜4個"><td class="place">保存容器（フタ付き）<small>3〜4個</small></td><td>セリア／ダイソー<br><span class="yen">¥110</span></td><td>前夜の仕込み用。スロー・味噌タヒニペースト・カット済み野菜。<strong>ヴィーガン用は密閉できるものを</strong></td></tr>
-          <tr data-id="h-ziploc" data-copy="ジップ袋（大・中）（ダイソー）"><td class="place">ジップ袋（大・中）</td><td>ダイソー<br><span class="yen">¥110</span></td><td>使用済みのアルミトレーを持ち帰る用（大）、肉を二重袋にする用（中）</td></tr>
-          <tr data-id="h-paperware" data-copy="紙皿・割り箸・紙コップ（柄違いで2系統）"><td class="place">紙皿・割り箸・紙コップ</td><td>ダイソー<br><span class="yen">¥110</span></td><td>食器はレンタルに含まれない前提。<strong>柄違いにすると2系統の区別がそのままつく</strong></td></tr>
-          <tr data-id="h-skewers" data-copy="竹串（ダイソー）"><td class="place">竹串</td><td>ダイソー<br><span class="yen">¥110</span></td><td>カリフラワーの火通り確認（スッと通れば完成）</td></tr>
-          <tr data-id="h-consumables" data-copy="軍手・ウェットティッシュ・キッチンペーパー・ゴミ袋"><td class="place">軍手・ウェットティッシュ・<br>キッチンペーパー・ゴミ袋</td><td>ダイソー<br><span class="yen">¥110</span> ずつ</td><td>消耗品。ゴミ袋は<strong>灰と段ボールの持ち帰り用</strong>に必ず</td></tr>
-          <tr data-id="h-icepack" data-copy="保冷剤（大） 4〜6個"><td class="place">保冷剤（大）<small>4〜6個</small></td><td>ダイソー<br><span class="yen">¥110〜330</span></td><td>当日は最高33〜35℃想定。<strong>ケチると食中毒リスクに直結</strong></td></tr>
+          <tr data-id="h-knifecase" class="rowpick" data-copy="まな板にもなる包丁ケース ×2（キャンドゥ ¥110／個）"><td class="place">まな板にもなる包丁ケース<small>× 2個</small></td><td>キャンドゥ<br><span class="yen">¥110</span> / 個</td><td>包丁を刃を隠したまま運べて、<strong>開くとまな板になる</strong>。<span class="mark">2個買うのが肝</span>——ヴィーガン用と通常用でまな板ごと2系統に分かれ、交差汚染対策がそのまま解決します</td></tr>
+          <tr data-id="h-knifecover" data-copy="包丁カバー（キャンドゥ ¥110・代替案）"><td class="place">包丁カバー<small>代替案</small></td><td>キャンドゥ<br><span class="yen">¥110</span><span class="sub">刃渡り18cm前後まで対応のもの</span></td><td>上のケースが売り切れていた場合、または大きめの包丁を持つ場合。<strong>まな板は別途必要</strong></td></tr>
+          <tr data-id="h-alumitray" class="rowpick" data-copy="厚手アルミトレー 3枚以上（耐熱表示のある厚手タイプ）"><td class="place">厚手アルミ仕切り皿・<br>アルミトレー<small>最低3枚</small></td><td>キャンドゥ<br><span class="yen">¥110</span><span class="sub">耐熱表示のある厚手タイプを選ぶ</span></td><td>アルミなので<strong>網に直置きできます</strong>。厚手タイプを選ぶと安心。カリフラワー用・きのこ用・中央のドリップパン用</td></tr>
+          <tr data-id="h-alumideep" data-copy="アルミトレー（深型・チップ浸水用） 1枚"><td class="place">アルミトレー（深型）<small>チップ浸水用</small></td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>スモークチップを<strong>水に20分浸けて絞る</strong>ため。網用トレーは浅くて水を張れないので<span class="mark">深さのあるタイプ</span>を別に1枚</td></tr>
+          <tr data-id="h-bottles" data-copy="調味料ボトル・小分け容器 6〜8本"><td class="place">調味料ボトル・小分け容器<small>6〜8本</small></td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>塩・こしょう・オリーブオイル・醤油・本みりん・米酢。<strong>ヴィーガン用は別ボトルにして色を分ける</strong></td></tr>
+          <tr data-id="h-tape" data-copy="ビニールテープ 2色（キャンドゥ）"><td class="place">ビニールテープ<small>2色</small></td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>トング・菜箸・皿を2系統に貼り分ける。<strong>器具の取り違えを目で防ぐ</strong></td></tr>
+          <tr data-id="h-tongs" data-copy="トング・菜箸 各2セット"><td class="place">トング・菜箸<small>各2セット</small></td><td>キャンドゥ<br><span class="yen">¥110〜330</span></td><td>ヴィーガン用と通常用。<strong>現地で洗って使い回す運用は前提にしません</strong></td></tr>
+          <tr data-id="h-containers" data-copy="保存容器（フタ付き） 3〜4個"><td class="place">保存容器（フタ付き）<small>3〜4個</small></td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>前夜の仕込み用。スロー・味噌タヒニペースト・カット済み野菜。<strong>ヴィーガン用は密閉できるものを</strong></td></tr>
+          <tr data-id="h-ziploc" data-copy="ジップ袋（大・中）（キャンドゥ）"><td class="place">ジップ袋（大・中）</td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>使用済みのアルミトレーを持ち帰る用（大）、肉を二重袋にする用（中）</td></tr>
+          <tr data-id="h-paperware" data-copy="紙皿・割り箸・紙コップ（柄違いで2系統）"><td class="place">紙皿・割り箸・紙コップ</td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>食器はレンタルに含まれない前提。<strong>柄違いにすると2系統の区別がそのままつく</strong></td></tr>
+          <tr data-id="h-skewers" data-copy="竹串（キャンドゥ）"><td class="place">竹串</td><td>キャンドゥ<br><span class="yen">¥110</span></td><td>カリフラワーの火通り確認（スッと通れば完成）</td></tr>
+          <tr data-id="h-consumables" data-copy="軍手・ウェットティッシュ・キッチンペーパー・ゴミ袋"><td class="place">軍手・ウェットティッシュ・<br>キッチンペーパー・ゴミ袋</td><td>キャンドゥ<br><span class="yen">¥110</span> ずつ</td><td>消耗品。ゴミ袋は<strong>灰と段ボールの持ち帰り用</strong>に必ず</td></tr>
+          <tr data-id="h-icepack" data-copy="保冷剤（大） 4〜6個"><td class="place">保冷剤（大）<small>4〜6個</small></td><td>キャンドゥ<br><span class="yen">¥110〜330</span></td><td>当日は最高33〜35℃想定。<strong>ケチると食中毒リスクに直結</strong></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<section class="sec a-moegi" id="s5">
+<section class="sec a-moegi" id="s5" data-group="追加した品目">
   <div class="sec-head"><span class="sec-icon">➕</span><h2>追加した品目</h2></div>
   <p class="sec-note">いちばん上の「＋ 追加」で足したものがここに入ります。× で削除できます</p>
   <div class="sec-body">
@@ -746,8 +746,14 @@ a{color:inherit;}
   nm.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); addItem(); } });
   qt.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); addItem(); } });
 
+  function groupOf(tr){
+    var g = tr.getAttribute('data-group');
+    if (g) return g;
+    var sec = tr.closest('section[data-group]');
+    return sec ? sec.getAttribute('data-group') : 'その他';
+  }
   function render(){
-    var lines = [];
+    var order = [], bucket = {};
     slice(document.querySelectorAll('tr[data-id]')).forEach(function(tr){
       var id = tr.getAttribute('data-id');
       if (st.hidden[id]) return;
@@ -757,9 +763,14 @@ a{color:inherit;}
         var p = tr.querySelector('.place');
         txt = p ? p.textContent.trim() : '';
       }
-      if (txt) lines.push(txt);
+      if (!txt) return;
+      var g = groupOf(tr);
+      if (!bucket[g]) { bucket[g] = []; order.push(g); }
+      bucket[g].push(txt);
     });
-    out.textContent = lines.join('\n');
+    out.textContent = order.map(function(g){
+      return '【' + g + '】\n' + bucket[g].join('\n');
+    }).join('\n\n');
 
     restoreW.innerHTML = '';
     var hid = Object.keys(st.hidden).filter(function(k){ return st.hidden[k]; });
