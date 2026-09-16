@@ -2029,25 +2029,41 @@ KNOWERのように音楽性は高いがどうしようもない歌詞の方向�
     setTimeout(function() { t.classList.remove('show'); }, 1800);
   }
 
+  // ===== COPY HELPER (file:// フォールバック付き) =====
+  function copyToClipboard(text, onSuccess) {
+    function fallbackCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed'; ta.style.left = '-9999px'; ta.style.top = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) { onSuccess(); } else { showToast('コピー失敗'); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  }
+
   // ===== COPY TAG =====
   function copyTag(el) {
     var text = el.textContent.trim();
     if (text.startsWith('🔲')) return;
-    navigator.clipboard.writeText(text).then(function() {
+    copyToClipboard(text, function() {
       el.classList.add('copied');
       setTimeout(function() { el.classList.remove('copied'); }, 1000);
       showToast('"' + text + '" をコピー');
-    }).catch(function() {
-      showToast('コピー失敗');
     });
   }
 
   // ===== COPY TEXT =====
   function copyText(text, el) {
-    navigator.clipboard.writeText(text).then(function() {
+    copyToClipboard(text, function() {
       showToast('コピーしました');
-    }).catch(function() {
-      showToast('コピー失敗');
     });
   }
 
@@ -2057,7 +2073,7 @@ KNOWERのように音楽性は高いがどうしようもない歌詞の方向�
     var el = document.getElementById(id);
     var text = el.textContent.trim();
     var btn = e.target;
-    navigator.clipboard.writeText(text).then(function() {
+    copyToClipboard(text, function() {
       btn.textContent = 'COPIED!';
       btn.classList.add('success');
       setTimeout(function() {
@@ -2065,8 +2081,6 @@ KNOWERのように音楽性は高いがどうしようもない歌詞の方向�
         btn.classList.remove('success');
       }, 1500);
       showToast('プロンプトをコピーしました');
-    }).catch(function() {
-      showToast('コピー失敗');
     });
   }
 

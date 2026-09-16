@@ -1186,10 +1186,21 @@ a{color:inherit;}
         btn.textContent = '✅ URLをコピーしました';
         setTimeout(function(){ btn.textContent = label; }, 1800);
       }
+      function fallbackCopy(){
+        var ta = document.createElement('textarea');
+        ta.value = url;
+        ta.style.position = 'fixed'; ta.style.left = '-9999px'; ta.style.top = '0';
+        document.body.appendChild(ta);
+        ta.focus(); ta.select();
+        var copyOk = false;
+        try { copyOk = document.execCommand('copy'); } catch (e) { copyOk = false; }
+        document.body.removeChild(ta);
+        if (copyOk) { ok(); } else { window.prompt('このURLをスマホで開いてください', url); }
+      }
       if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(url).then(ok, function(){ window.prompt('このURLをスマホで開いてください', url); });
+        navigator.clipboard.writeText(url).then(ok, fallbackCopy);
       } else {
-        window.prompt('このURLをスマホで開いてください', url);
+        fallbackCopy();
       }
     });
   });

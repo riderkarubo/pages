@@ -588,10 +588,26 @@ JP補足（被写体・場所・セリフのみ日本語可）: 被写体=[　]�
 <script>
   document.querySelectorAll('.copy').forEach(function(b){
     b.addEventListener('click', function(){
-      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function(){
+      var text = b.getAttribute('data-copy');
+      function done(){
         var o = b.textContent; b.textContent = '✓ コピー済'; b.classList.add('done');
         setTimeout(function(){ b.textContent = o; b.classList.remove('done'); }, 1500);
-      });
+      }
+      function fallbackCopy(){
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed'; ta.style.left = '-9999px'; ta.style.top = '0';
+        document.body.appendChild(ta);
+        ta.focus(); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
     });
   });
 

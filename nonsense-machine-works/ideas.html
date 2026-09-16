@@ -1470,13 +1470,30 @@ function showToast(msg){
   setTimeout(function(){t.classList.remove('show');},1700);
 }
 
+function copyToClipboard(text, onSuccess){
+  function fallbackCopy(){
+    var ta=document.createElement('textarea');
+    ta.value=text;
+    ta.style.position='fixed'; ta.style.left='-9999px'; ta.style.top='0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    var ok=false;
+    try{ ok=document.execCommand('copy'); }catch(e){ ok=false; }
+    document.body.removeChild(ta);
+    if (ok) { onSuccess(); } else { showToast('コピー失敗'); }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(onSuccess).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
+}
+
 function copyCut(el){
   var ttl=el.querySelector('.cut-ttl').textContent.replace('⭐ 採用','').trim();
   var dsc=el.querySelector('.cut-dsc').textContent.trim();
   var no=el.getAttribute('data-no')||'';
-  navigator.clipboard.writeText(no+' '+ttl+' — '+dsc)
-    .then(function(){ showToast('「'+ttl+'」をコピー'); })
-    .catch(function(){ showToast('コピー失敗'); });
+  copyToClipboard(no+' '+ttl+' — '+dsc, function(){ showToast('「'+ttl+'」をコピー'); });
 }
 
 /* ===== フィルター ===== */

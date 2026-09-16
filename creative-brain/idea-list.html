@@ -1566,32 +1566,51 @@
   }
 
   // ===== COPY HELPERS =====
+  function copyToClipboard(text, onSuccess) {
+    function fallbackCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed'; ta.style.left = '-9999px'; ta.style.top = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) { onSuccess(); } else { showToast('コピー失敗'); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onSuccess).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  }
+
   function copyCardText(el, text) {
-    navigator.clipboard.writeText(text).then(function() {
+    copyToClipboard(text, function() {
       showToast('コピーしました');
-    }).catch(function() { showToast('コピー失敗'); });
+    });
   }
 
   function copyIdeaBtn(e, btn) {
     e.stopPropagation();
     var card = btn.closest('.idea-card');
     var text = card.querySelector('.card-text').textContent.trim();
-    navigator.clipboard.writeText(text).then(function() {
+    copyToClipboard(text, function() {
       btn.textContent = '✓';
       setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
       showToast('コピーしました');
-    }).catch(function() { showToast('コピー失敗'); });
+    });
   }
 
   function copySongBtn(e, btn) {
     e.stopPropagation();
     var card = btn.closest('.song-card');
     var text = card.querySelector('.song-text').textContent.trim();
-    navigator.clipboard.writeText(text).then(function() {
+    copyToClipboard(text, function() {
       btn.textContent = '✓';
       setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
       showToast('コピーしました');
-    }).catch(function() { showToast('コピー失敗'); });
+    });
   }
 
   // ===== SEARCH =====
