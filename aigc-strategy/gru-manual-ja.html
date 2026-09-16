@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script src="../mccm-proposal/auth.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){FireworkSSO.protect();});</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="last-modified" content="2026-09-16T14:05:57+09:00">
+<meta name="robots" content="noindex, nofollow">
+<title>GRU使い方ガイド｜Firework社内</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="GRU使い方ガイド｜Firework社内">
+<meta property="og:description" content="Fireworkの生成AI商品画像・動画ツール「GRU」の社内向け操作ガイド。ログイン手順・画面構成・標準ワークフロー・既知の弱点をまとめています。">
+<meta property="og:url" content="https://riderkarubo.github.io/pages/aigc-strategy/gru-manual-ja.html">
+<meta property="og:site_name" content="Firework社内 / AIGC事業">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GRU使い方ガイド｜Firework社内">
+<meta name="twitter:description" content="GRUのログイン手順・画面構成・標準ワークフロー・既知の弱点をまとめた社内ガイド。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--accent:#FA006D;--teal:#1B998B;--navy:#0F3460;--bg:#f6f7f9;--card:#fff;--border:#e7e9ee;--muted:#6c757d;--warn:#b8790a;--warnbg:#fdf3e3;--danger:#c23b3b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:14px}
+#app{max-width:900px;margin:0 auto;padding:0 0 70px}
+header{background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%);color:#fff;padding:30px 32px 28px}
+header .cat-tag{color:#ff6fa8;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+header h1{font-size:1.7rem;font-weight:900;margin:8px 0 10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+header .lead{color:#dfe4ee;font-size:.92rem;max-width:720px;line-height:1.7}
+.updated{display:inline-block;margin-top:14px;font-size:.72rem;color:#b9c0d4;border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px}
+.wrap{padding:0 32px}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-top:26px}
+.toc-title{font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.toc ol{padding-left:20px}
+.toc li{font-size:.84rem;margin-bottom:6px}
+.toc a{color:var(--navy);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.sec{margin-top:40px}
+.sec-h{font-size:1.12rem;font-weight:900;padding-left:14px;border-left:5px solid var(--navy);margin-bottom:6px;scroll-margin-top:16px}
+.sec-sub{font-size:.82rem;color:var(--muted);padding-left:14px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-top:14px}
+.step-list{counter-reset:step}
+.step{position:relative;padding:14px 16px 14px 52px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-top:10px}
+.step:before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.step .st-h{font-weight:800;font-size:.9rem;margin-bottom:4px}
+.step .st-b{font-size:.82rem;color:var(--ink);line-height:1.7}
+.step .st-b .btn{display:inline-block;background:#eef1f6;border-radius:6px;padding:1px 8px;font-weight:700;font-size:.8rem;color:var(--navy)}
+.note{background:#eef4fb;border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.8rem;line-height:1.7}
+.warn{background:var(--warnbg);border-left:4px solid var(--warn);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px;font-size:.8rem;line-height:1.7;color:#6b4a06}
+.nav-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.nav-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.nav-card .nm{font-weight:800;font-size:.88rem;color:var(--navy);margin-bottom:5px}
+.nav-card .ds{font-size:.78rem;color:var(--ink);line-height:1.65}
+.nav-card.admin{border-left:4px solid var(--muted);background:#f7f7f9}
+.admin-tag{display:inline-block;background:#e7e9ee;color:var(--muted);font-size:.64rem;font-weight:800;border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+table.gloss{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:14px}
+table.gloss th{background:#f2f4f8;text-align:left;font-size:.72rem;font-weight:700;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--border)}
+table.gloss td{padding:10px 12px;border-bottom:1px solid #f0f1f4;font-size:.8rem;vertical-align:top}
+table.gloss tr:last-child td{border-bottom:none}
+table.gloss .st{font-weight:700;white-space:nowrap;width:26%}
+.pitfall{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--danger);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:12px}
+.pitfall .pt-h{font-weight:800;font-size:.86rem;color:var(--danger);margin-bottom:5px}
+.pitfall .pt-b{font-size:.8rem;line-height:1.7}
+.pitfall .pt-fix{font-size:.78rem;color:var(--teal);font-weight:700;margin-top:6px}
+footer{text-align:center;color:var(--muted);font-size:.72rem;margin-top:50px;padding:20px}
+.src-box{margin-top:24px;font-size:.74rem;color:var(--muted);padding:14px 16px;background:#f2f4f8;border-radius:8px;line-height:1.7}
+@media(max-width:640px){.nav-grid{grid-template-columns:1fr}.wrap{padding:0 18px}header{padding:24px 18px 24px}}
+</style>
+</head>
+<body>
+<div id="app">
+
+<header>
+  <div class="cat-tag">AIGC / 社内ツール</div>
+  <h1>🤖 GRU 使い方ガイド</h1>
+  <p class="lead">GRUはFireworkの生成AIエージェントです。商品画像・動画の発注をチャットで組み立て、AIが生成した成果物をレビュー・承認し、クライアントへ納品するまでを一つのツールで担います。本ガイドはGRUの開発チーム（#proj-gru）・GTM運用チーム（#aigc-gtm）・日本チーム（#proj-jp-aigc）のSlackログと、実機での操作確認をもとに作成しています。</p>
+  <div class="updated">最終更新: 2026年9月16日 14:05</div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <div class="toc-title">目次</div>
+  <ol>
+    <li><a href="#login">ログイン手順</a></li>
+    <li><a href="#nav">画面構成</a></li>
+    <li><a href="#workflow">標準ワークフロー（発注〜納品）</a></li>
+    <li><a href="#lab">The Lab（内部管理・任意）</a></li>
+    <li><a href="#pitfalls">既知の弱点と回避策</a></li>
+  </ol>
+</div>
+
+<div class="sec" id="login">
+  <div class="sec-h">1. ログイン手順</div>
+  <div class="sec-sub">実務でつまずきが一番多いのがここです。GRUに専用のパスワードはありません。</div>
+
+  <div class="step-list">
+    <div class="step">
+      <div class="st-h">gru.firework.com を開く</div>
+      <div class="st-b">クライアント対応で使うのは本番環境の <b>gru.firework.com</b> です。開発中の検証用URL（gru.fireworkstaging.com）は開発チームの動作確認用で、クライアント向けの案件では使いません。</div>
+    </div>
+    <div class="step">
+      <div class="st-h">「Continue with Firework」をクリック</div>
+      <div class="st-b">GRUは自前のパスワードを持たず、Firework本体で使っているアカウントをそのまま使います。「Sign in to GRU」画面で <span class="btn">Continue with Firework</span> を押すと、Fireworkのログイン画面へ移ります。</div>
+    </div>
+    <div class="step">
+      <div class="st-h">初回だけ「Authorize」の同意画面が出る</div>
+      <div class="st-b">同じブラウザで既にFireworkにログイン済みなら、パスワード入力は求められず「Authorize GRU Production to access your Firework account?」という確認画面に直接進みます。事業データ・ストア・商品情報の閲覧と、商品・画像の作成/更新権限を求める内容です。内容を確認し <span class="btn">AUTHORIZE</span> を押せば、チャット画面（/chat）に入ります。この同意はブラウザ単位で記憶されるため、次回以降は基本的に出ません。</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>ログイン画面から先に進めない場合</b><br>
+    「Sign in to GRU」の画面で止まっているときは、たいてい「そのブラウザでFirework本体にまだログインしていない」状態です。同じブラウザで一度 <b>portal.firework.com</b>（普段のFireworkダッシュボード）にログインしてから、あらためて gru.firework.com を開いてください。それでも進まない場合は、アカウントが正しいFireworkの業務アカウント（@fireworkhq.com）になっているかを確認してください。
+  </div>
+</div>
+
+<div class="sec" id="nav">
+  <div class="sec-h">2. 画面構成</div>
+  <div class="sec-sub">ログイン後、左側のメニューから4つ（管理者は5つ）の領域を行き来します。</div>
+
+  <div class="nav-grid">
+    <div class="nav-card">
+      <div class="nm">💬 Chat</div>
+      <div class="ds">発注の起点。欲しい画像・動画を文章で伝える、またはブリーフ・CSV・商品リストをそのままドロップします。GRUが内容を読み取り、不足を聞き返し、実行前に発注内容（オーダー）を提示します。</div>
+    </div>
+    <div class="nav-card">
+      <div class="nm">🎨 Brand kits</div>
+      <div class="ds">GRUがデザインするときの拠り所——トーン、配色、画像に絶対に入れてはいけないもの——をまとめたセット。会話の中でブランドキットを開いて内容を調整できます。発注が確定した時点でそのキットの内容が発注に固定されるため、後からキットを直しても進行中の作業には影響しません。</div>
+    </div>
+    <div class="nav-card">
+      <div class="nm">🧩 Skills</div>
+      <div class="ds">GRUが会話に持ち込む道具立て。自分用・ビジネス単位・全員共通の3種類があり、会話の話題に一言説明が合致するとGRUが自動で参照します。ビジネス単位のスキルは、使うかどうかを自分で選んだ会話にだけ乗ります。全員共通のスキルは常時オンです。</div>
+    </div>
+    <div class="nav-card">
+      <div class="nm">📦 Delivery</div>
+      <div class="ds">納品物の置き場。動画タブ・画像タブに分かれ、プレイリスト単位で並びます。右側のアシスタントに「画面にあるものの一覧表がほしい」「自分のフォルダ運用に合わせてファイル名を変えてほしい」と頼むと、用意したものはダウンロードできるファイルとして届きます。</div>
+    </div>
+    <div class="nav-card admin">
+      <div class="nm">🔬 The Lab <span class="admin-tag">管理者のみ</span></div>
+      <div class="ds">全ビジネス横断の発注状況・レビュー待ち・生成ギャラリーを見る内部運用ツールです。通常のクライアント対応担当は使いません。詳細は本ガイドの4章。</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="workflow">
+  <div class="sec-h">3. 標準ワークフロー（発注〜納品）</div>
+  <div class="sec-sub">GRU開発チームが案内している基本の流れです。</div>
+
+  <div class="step-list">
+    <div class="step"><div class="st-h">Chatで発注する</div><div class="st-b">Chatで欲しいものを伝えると、GRUが不足情報を聞き返しながらオーダーを組み立てます。</div></div>
+    <div class="step"><div class="st-h">生成された画像をLab / Reviewで確認する</div><div class="st-b">生成が終わった素材は内部レビューの対象になり、担当者が中身を見て accept（承認）します。</div></div>
+    <div class="step"><div class="st-h">クライアント確認用リンクで承認を得る</div><div class="st-b">クライアントレビュー用のリンクを発行し、トークン化されたリンク越しに先方の可否を待ちます。</div></div>
+    <div class="step"><div class="st-h">publish する</div><div class="st-b">承認が下りたものを publish し、Deliveryに納品物として反映させます。</div></div>
+    <div class="step"><div class="st-h">GRU Deliveryで納品物を確認する</div><div class="st-b">Delivery画面で最終的な納品物（動画・画像）を確認し、必要ならダウンロードします。</div></div>
+  </div>
+
+  <div class="note">
+    Brand kitは発注の確定時点でその発注に固定されます。あとからBrand kitの内容を直しても、すでに進行中の発注には影響しません。案件ごとに違う演出を試したいときは、確定前にBrand kitを整えておく必要があります。
+  </div>
+</div>
+
+<div class="sec" id="lab">
+  <div class="sec-h">4. The Lab（内部管理・任意）</div>
+  <div class="sec-sub">クライアント対応の担当者は基本的に触れませんが、社内の運用・QA担当が発注状況を横断で見るときに使います。</div>
+
+  <div class="card">
+    <div style="font-weight:800;font-size:.86rem;margin-bottom:8px">Orders一覧の状態</div>
+    <table class="gloss">
+      <tr><th>状態</th><th>意味</th></tr>
+      <tr><td class="st">plan review</td><td>実行前の企画そのものを人が見て承認するのを待っている状態</td></tr>
+      <tr><td class="st">needs clarification</td><td>発注内容に不足があり、GRU側が聞き返している状態</td></tr>
+      <tr><td class="st">needs assets</td><td>生成に必要な素材（参照画像等）が揃っていない状態</td></tr>
+      <tr><td class="st">ops review</td><td>社内の運用担当がレビュー待ちの状態。クライアントはまだこの版を見ていない</td></tr>
+      <tr><td class="st">client review</td><td>クライアント確認用リンクを発行し、先方の可否待ちの状態</td></tr>
+      <tr><td class="st">publish ready</td><td>承認が下り、publishすればDeliveryに反映される状態</td></tr>
+      <tr><td class="st">delivered</td><td>publish済みで、Deliveryから確認・ダウンロードできる状態</td></tr>
+      <tr><td class="st">rejected / failed</td><td>却下、または生成自体が失敗した状態</td></tr>
+      <tr><td class="st">completed with errors</td><td>一部の素材だけ失敗したまま完了扱いになった状態</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:800;font-size:.86rem;margin-bottom:8px">個別素材のレビュー画面でできること</div>
+    <ul style="padding-left:20px;font-size:.82rem;line-height:1.85">
+      <li><b>Accept / Maybe / Reject</b> — その版を承認する・保留する・却下する</li>
+      <li><b>Refine</b> — 参照画像や生成結果にマーカーを立て、画像上の具体的な位置にコメントを紐づけて直しを依頼する</li>
+      <li><b>Score としきい値</b> — 自動採点のスコアが発注時のしきい値を下回ると、人の判断が必須になる（Lab上で「below 80」のように表示される）</li>
+      <li><b>Generation欄</b> — 実際に使われた生成プロンプト（対象・ポーズ・注記・シーン・カメラ設定・解像度）をそのまま確認できる</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sec" id="pitfalls">
+  <div class="sec-h">5. 既知の弱点と回避策</div>
+  <div class="sec-sub">2026年9月時点でSlack上に共有されている、GRUの生成AIとしての限界です。GRU自体が開発中のため、今後の更新で解消される可能性があります。</div>
+
+  <div class="pitfall">
+    <div class="pt-h">ロゴ・画像内の文字は誤って生成されやすい</div>
+    <div class="pt-b">商品名やロゴの文字を画像内に正確に再現することは、生成AI全般が苦手とする領域です。GRUも例外ではなく、パッケージ上の文字やロゴが微妙に崩れることがあります。</div>
+    <div class="pt-fix">対処: 文字・ロゴの正確性が要る成果物は、生成後に必ず人の目で確認する。文字を後から差し替えられる構図で発注する。</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pt-h">「回転させて」という指示は安定しない</div>
+    <div class="pt-b">商品の向きを回転で指示すると、狙った角度にならないことがあります。</div>
+    <div class="pt-fix">対処: 回転の指示ではなく、完成後の見え方（正面から見た状態、斜め上から見た状態など）を直接記述する。</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pt-h">リビジョンをまたぐと以前のフィードバックを覚えていない</div>
+    <div class="pt-b">1回直しを入れても、次の版でその制約が引き継がれない場合があります。</div>
+    <div class="pt-fix">対処: 前回伝えた制約は、次の依頼でも改めて書く。「覚えているはず」を前提にしない。</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pt-h">一部の大手ECサイトはスクレイピングをブロックしている</div>
+    <div class="pt-b">Amazon・Walmart・Chewyなど一部の小売サイトは、商品ページのURLを渡しても内容を読み取れないことがあります。</div>
+    <div class="pt-fix">対処: URLではなく、商品画像そのものをアップロードして発注する。</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pt-h">3000px出力でアップスケーラーのガードが失敗することがある</div>
+    <div class="pt-b">最大解像度に近い3000px出力を狙うと、アップスケール処理のガードが働かず失敗する場合があります。</div>
+    <div class="pt-fix">対処: 解像度を2K程度に落として再試行する。</div>
+  </div>
+</div>
+
+<div class="src-box">
+  本ガイドは #proj-gru（開発）・#aigc-gtm（Sales/CS向けセットアップ）・#proj-jp-aigc（日本チーム実務）の各Slackチャンネルの共有内容と、2026年9月16日時点でのGRU実機確認をもとに作成しています。GRUは開発中のツールであり、画面構成や挙動は今後変わる可能性があります。最新の細部はSlackで確認してください。
+</div>
+
+</div>
+</div>
+
+<footer>GRU使い方ガイド ｜ Firework社内限定</footer>
+</body>
+</html>
